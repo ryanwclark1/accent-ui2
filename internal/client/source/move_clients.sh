@@ -8,5 +8,5 @@ SUB_DIRS=("test" "docs" "api")
 cd "$BASE_DIR" || exit
 
 # Copy all .go files and README.md, preserving the directory structure
-find . -type f \( -name "*.go" -o -name "*.md" -o -name "openapi.yaml" \) -exec bash -c 'mkdir -p "../../../${1%/*}" && cp "$1" "../../../$1"' _ {} \;
+find . -type f \( -name "*.go" -o -name "*.md" -o -name "openapi.yaml" \) -exec bash -c 'mkdir -p "../../../${1%/*}" && cp -u "$1" "../../../$1"' _ {} \;
 
