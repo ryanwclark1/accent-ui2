@@ -24,7 +24,7 @@ import (
  "fmt"
  "os"
     "time"
- openapiclient "github.com/ryanwclark/accent-voice/call-logd"
+ openapiclient "github.com/ryanwclark/accent-voice/calllogd"
 )
 
 func main() {
@@ -108,7 +108,7 @@ import (
  "fmt"
  "os"
     "time"
- openapiclient "github.com/ryanwclark/accent-voice/call-logd"
+ openapiclient "github.com/ryanwclark/accent-voice/calllogd"
 )
 
 func main() {
@@ -192,7 +192,7 @@ import (
  "fmt"
  "os"
     "time"
- openapiclient "github.com/ryanwclark/accent-voice/call-logd"
+ openapiclient "github.com/ryanwclark/accent-voice/calllogd"
 )
 
 func main() {

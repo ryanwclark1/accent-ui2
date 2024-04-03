@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -159,19 +158,4 @@ model_voicemail_message_base.go
 model_voicemail_message_update.go
 model_voicemails_status.go
 response.go
-test/api_adhoc_conferences_test.go
-test/api_applications_test.go
-test/api_calls_test.go
-test/api_conferences_test.go
-test/api_config_test.go
-test/api_faxes_test.go
-test/api_lines_test.go
-test/api_meetings_test.go
-test/api_relocates_test.go
-test/api_status_test.go
-test/api_switchboards_test.go
-test/api_transfers_test.go
-test/api_trunks_test.go
-test/api_users_test.go
-test/api_voicemails_test.go
 utils.go
