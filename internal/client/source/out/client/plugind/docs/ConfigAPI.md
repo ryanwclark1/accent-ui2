@@ -21,7 +21,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/plugind"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/plugind"
 )
 
 func main() {

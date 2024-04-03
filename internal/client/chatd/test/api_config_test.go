@@ -11,7 +11,7 @@ package chatd
 
 import (
 	"context"
-	openapiclient "github.com/ryanwclark/accent-voice/chatd"
+	openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/chatd"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

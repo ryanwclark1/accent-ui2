@@ -43,7 +43,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -107,7 +107,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -171,7 +171,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -235,7 +235,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -297,7 +297,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -361,7 +361,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -423,7 +423,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -487,7 +487,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -551,7 +551,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -615,7 +615,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -690,7 +690,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -765,7 +765,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -840,7 +840,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -911,7 +911,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -988,7 +988,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -1068,7 +1068,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -1128,7 +1128,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -1192,7 +1192,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -1254,7 +1254,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -1314,7 +1314,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -1378,7 +1378,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -1444,7 +1444,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {
@@ -1508,7 +1508,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/auth"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 )
 
 func main() {

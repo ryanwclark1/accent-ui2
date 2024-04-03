@@ -22,7 +22,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/calld"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/calld"
 )
 
 func main() {
@@ -77,7 +77,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/calld"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/calld"
 )
 
 func main() {

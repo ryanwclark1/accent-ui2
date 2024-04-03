@@ -11,7 +11,7 @@ package plugind
 
 import (
 	"context"
-	openapiclient "github.com/ryanwclark/accent-voice/plugind"
+	openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/plugind"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

@@ -11,7 +11,7 @@ package auth
 
 import (
 	"context"
-	openapiclient "github.com/ryanwclark/accent-voice/auth"
+	openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

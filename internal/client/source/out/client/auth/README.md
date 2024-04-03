@@ -23,7 +23,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import auth "github.com/ryanwclark/accent-voice/auth"
+import auth "github.com/ryanwclark1/accent-ui2/internal/client/auth"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

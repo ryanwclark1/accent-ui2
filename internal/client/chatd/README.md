@@ -23,7 +23,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import chatd "github.com/ryanwclark/accent-voice/chatd"
+import chatd "github.com/ryanwclark1/accent-ui2/internal/client/chatd"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

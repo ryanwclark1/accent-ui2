@@ -24,7 +24,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/webhookd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/webhookd"
 )
 
 func main() {
@@ -88,7 +88,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/webhookd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/webhookd"
 )
 
 func main() {
@@ -146,7 +146,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/webhookd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/webhookd"
 )
 
 func main() {
@@ -208,7 +208,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/webhookd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/webhookd"
 )
 
 func main() {

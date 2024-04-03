@@ -23,7 +23,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/chatd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/chatd"
 )
 
 func main() {
@@ -90,7 +90,7 @@ import (
  "fmt"
  "os"
     "time"
- openapiclient "github.com/ryanwclark/accent-voice/chatd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/chatd"
 )
 
 func main() {
@@ -167,7 +167,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/chatd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/chatd"
 )
 
 func main() {

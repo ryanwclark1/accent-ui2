@@ -11,7 +11,7 @@ package webhookd
 
 import (
 	"context"
-	openapiclient "github.com/ryanwclark/accent-voice/webhookd"
+	openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/webhookd"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

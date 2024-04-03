@@ -23,7 +23,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import plugind "github.com/ryanwclark/accent-voice/plugind"
+import plugind "github.com/ryanwclark1/accent-ui2/internal/client/plugind"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

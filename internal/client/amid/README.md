@@ -23,7 +23,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import amid "github.com/ryanwclark/accent-voice/amid"
+import amid "github.com/ryanwclark1/accent-ui2/internal/client/amid"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

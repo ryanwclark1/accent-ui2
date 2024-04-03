@@ -11,7 +11,7 @@ package provd
 
 import (
 	"context"
-	openapiclient "github.com/ryanwclark/accent-voice/provd"
+	openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/provd"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

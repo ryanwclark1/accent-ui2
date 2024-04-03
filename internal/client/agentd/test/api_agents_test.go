@@ -11,7 +11,7 @@ package agentd
 
 import (
 	"context"
-	openapiclient "github.com/ryanwclark/accent-voice/agentd"
+	openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/agentd"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

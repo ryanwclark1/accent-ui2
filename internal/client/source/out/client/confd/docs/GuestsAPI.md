@@ -25,7 +25,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/confd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/confd"
 )
 
 func main() {
@@ -93,7 +93,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/confd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/confd"
 )
 
 func main() {
@@ -159,7 +159,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/confd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/confd"
 )
 
 func main() {
@@ -223,7 +223,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/confd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/confd"
 )
 
 func main() {
@@ -291,7 +291,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/confd"
+ openapiclient "github.com/ryanwclark1/accent-ui2/internal/client/confd"
 )
 
 func main() {
