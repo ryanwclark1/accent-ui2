@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"github.com/ryanwclark1/accent-ui2/ui/pages"
+
+	"github.com/ryanwclark1/accent-ui2/public/pages"
 )
 
 func (s *Server) handlePageForm() http.Handler {

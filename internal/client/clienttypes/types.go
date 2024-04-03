@@ -1,4 +1,4 @@
-package authclient
+package clienttypes
 
 type TokenMetadataDict struct {
 	UUID        string `json:"uuid"`

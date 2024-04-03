@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-import "github.com/ryanwclark1/accent-ui2/ui"
+import "github.com/ryanwclark1/accent-ui2/public"
 
 var DefaultSearch = ui.Index(Search())
 
