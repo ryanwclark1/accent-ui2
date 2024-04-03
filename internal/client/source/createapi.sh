@@ -38,4 +38,4 @@ for file in $files; do
 done
 
     docker run \
-    -v ${PWD}:/workdir alpine chown -R $(id -u):$(id -g) /workdir/out/client/
+    -v ${PWD}:/workdir alpine chown -R $(id -u):$(id -g) /workdir/out

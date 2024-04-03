@@ -1,0 +1,148 @@
+# \MarketAPI
+
+All URIs are relative to *<http://api.accentvoice.io/0.2>*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**GetMarket**](MarketAPI.md#GetMarket) | **Get** /market | List plugins available on the configured market
+[**GetMarketPlugin**](MarketAPI.md#GetMarketPlugin) | **Get** /market/{namespace}/{name} | Fetch the information about a plugin from the market
+
+## GetMarket
+
+> GetMarketResult GetMarket(ctx).Limit(limit).Offset(offset).Order(order).Direction(direction).Search(search).Namespace(namespace).Name(name).Installed(installed).Execute()
+
+List plugins available on the configured market
+
+### Example
+
+```go
+package main
+
+import (
+ "context"
+ "fmt"
+ "os"
+ openapiclient "github.com/ryanwclark/accent-voice/plugind"
+)
+
+func main() {
+ limit := int32(56) // int32 | Maximum number of items to return in the list (optional)
+ offset := int32(56) // int32 | Number of items to skip over in the list. Useful for pagination. (optional)
+ order := "order_example" // string | Name of the field to use for sorting the list of items returned. (optional)
+ direction := "direction_example" // string | Sort list of items in 'asc' (ascending) or 'desc' (descending) order (optional)
+ search := "search_example" // string | Filter list of items, this search is applied to all fields and is not strict (eba matches Sébastien) (optional)
+ namespace := "namespace_example" // string | Search by namespace (optional)
+ name := "name_example" // string | Search by name (optional)
+ installed := true // bool | Filter installed plugins (optional)
+
+ configuration := openapiclient.NewConfiguration()
+ apiClient := openapiclient.NewAPIClient(configuration)
+ resp, r, err := apiClient.MarketAPI.GetMarket(context.Background()).Limit(limit).Offset(offset).Order(order).Direction(direction).Search(search).Namespace(namespace).Name(name).Installed(installed).Execute()
+ if err != nil {
+  fmt.Fprintf(os.Stderr, "Error when calling `MarketAPI.GetMarket``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+ }
+ // response from `GetMarket`: GetMarketResult
+ fmt.Fprintf(os.Stdout, "Response from `MarketAPI.GetMarket`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMarketRequest struct via the builder pattern
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int32** | Maximum number of items to return in the list |
+ **offset** | **int32** | Number of items to skip over in the list. Useful for pagination. |
+ **order** | **string** | Name of the field to use for sorting the list of items returned. |
+ **direction** | **string** | Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order |
+ **search** | **string** | Filter list of items, this search is applied to all fields and is not strict (eba matches Sébastien) |
+ **namespace** | **string** | Search by namespace |
+ **name** | **string** | Search by name |
+ **installed** | **bool** | Filter installed plugins |
+
+### Return type
+
+[**GetMarketResult**](GetMarketResult.md)
+
+### Authorization
+
+[accent_auth_token](../README.md#accent_auth_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+## GetMarketPlugin
+
+> MarketPluginList GetMarketPlugin(ctx, namespace, name).Execute()
+
+Fetch the information about a plugin from the market
+
+### Example
+
+```go
+package main
+
+import (
+ "context"
+ "fmt"
+ "os"
+ openapiclient "github.com/ryanwclark/accent-voice/plugind"
+)
+
+func main() {
+ namespace := "namespace_example" // string | The plugin's namespace
+ name := "name_example" // string | The plugin's name
+
+ configuration := openapiclient.NewConfiguration()
+ apiClient := openapiclient.NewAPIClient(configuration)
+ resp, r, err := apiClient.MarketAPI.GetMarketPlugin(context.Background(), namespace, name).Execute()
+ if err != nil {
+  fmt.Fprintf(os.Stderr, "Error when calling `MarketAPI.GetMarketPlugin``: %v\n", err)
+  fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+ }
+ // response from `GetMarketPlugin`: MarketPluginList
+ fmt.Fprintf(os.Stdout, "Response from `MarketAPI.GetMarketPlugin`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**namespace** | **string** | The plugin&#39;s namespace |
+**name** | **string** | The plugin&#39;s name |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMarketPluginRequest struct via the builder pattern
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+### Return type
+
+[**MarketPluginList**](MarketPluginList.md)
+
+### Authorization
+
+[accent_auth_token](../README.md#accent_auth_token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
