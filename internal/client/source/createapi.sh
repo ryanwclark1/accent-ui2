@@ -15,14 +15,27 @@ for file in $files; do
     filename_no_ext_hyphens="${filename_no_ext//accent-/}"
 
     # Generate code using openapi-generator-cli
-    #
+    # https://openapi-generator.tech/docs/generators/go
     docker run -e --rm \
     -e GO_POST_PROCESS_FILE='/workdir/go-post-process-file.sh' \
     -v ${PWD}:/workdir openapi-generator-cli generate \
     --enable-post-process-file \
     -i /workdir/${filename} \
     -g go \
-    --additional-properties=packageName=${filename_no_ext_hyphens},packageVersion=0.0.1,prependFormOrBodyParameters=true,enumClassPrefix=true,isGoSubmodule=true,structPrefix=false,generateInterfaces=true \
+    --additional-properties=\
+        packageName=${filename_no_ext_hyphens}, \
+        packageVersion=0.0.1,\
+        prependFormOrBodyParameters=true,\
+        enumClassPrefix=true,\
+        isGoSubmodule=true,\
+        structPrefix=true,\
+        generateMarshalJSON=true,\
+        generateInterfaces=true,\
+        useOneOfDiscriminatorLookup=false,\
+        withAWSV4SignaturewithAWSV4Signature=false,\
+        withGoMod=false,\
+        withXml=false,\
+        hideGenerationTimestamp=true \
     --git-user-id ryanwclark \
     --git-repo-id accent-voice \
     --global-property=generateAliasAsModel \
