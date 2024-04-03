@@ -12,7 +12,8 @@ for file in $files; do
 
 
     # Remove hyphens from the filename
-    filename_no_ext_hyphens="${filename_no_ext//accent-/}"
+    filename_no_accent="${filename_no_ext//accent-/}"
+    filename_no_ext_hyphens="${filename_no_accent//-/}"
 
     # Generate code using openapi-generator-cli
     # https://openapi-generator.tech/docs/generators/go
@@ -26,15 +27,15 @@ for file in $files; do
     --git-user-id ryanwclark \
     --git-repo-id accent-voice \
     --global-property=generateAliasAsModel \
-    -o /workdir/out/client/${filename_no_ext_hyphens}
+    -o /workdir/out/client/${filename_no_accent}
 
 
     # Change ownership of newly created files and directories recursively
     docker run \
-    -v ${PWD}:/workdir alpine chown -R $(id -u):$(id -g) /workdir/out/client/${filename_no_ext_hyphens}
+    -v ${PWD}:/workdir alpine chown -R $(id -u):$(id -g) /workdir/out/client/${filename_no_accent}
 
     docker run \
-    -v ${PWD}:/workdir davidanson/markdownlint-cli2 --fix "/workdir/out/client/${filename_no_ext_hyphens}/docs/*.md" "#node_modules"
+    -v ${PWD}:/workdir davidanson/markdownlint-cli2 --fix "/workdir/out/client/${filename_no_accent}/docs/*.md" "#node_modules"
 done
 
     docker run \
