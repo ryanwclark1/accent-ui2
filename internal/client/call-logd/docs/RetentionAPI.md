@@ -22,7 +22,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/call-logd"
+ openapiclient "github.com/ryanwclark/accent-voice/calllogd"
 )
 
 func main() {
@@ -82,7 +82,7 @@ import (
  "context"
  "fmt"
  "os"
- openapiclient "github.com/ryanwclark/accent-voice/call-logd"
+ openapiclient "github.com/ryanwclark/accent-voice/calllogd"
 )
 
 func main() {

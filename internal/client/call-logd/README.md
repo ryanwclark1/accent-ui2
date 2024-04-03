@@ -1,4 +1,4 @@
-# Go API client for call-logd
+# Go API client for calllogd
 
 Consult call logs from a REST API
 
@@ -23,7 +23,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```go
-import call-logd "github.com/ryanwclark/accent-voice/call-logd"
+import calllogd "github.com/ryanwclark/accent-voice/calllogd"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -38,18 +38,18 @@ Default configuration comes with `Servers` field that contains server objects as
 
 ### Select Server Configuration
 
-For using other server than the one defined on index 0 set context value `call-logd.ContextServerIndex` of type `int`.
+For using other server than the one defined on index 0 set context value `calllogd.ContextServerIndex` of type `int`.
 
 ```go
-ctx := context.WithValue(context.Background(), call-logd.ContextServerIndex, 1)
+ctx := context.WithValue(context.Background(), calllogd.ContextServerIndex, 1)
 ```
 
 ### Templated Server URL
 
-Templated server URL is formatted using default variables from configuration or from context value `call-logd.ContextServerVariables` of type `map[string]string`.
+Templated server URL is formatted using default variables from configuration or from context value `calllogd.ContextServerVariables` of type `map[string]string`.
 
 ```go
-ctx := context.WithValue(context.Background(), call-logd.ContextServerVariables, map[string]string{
+ctx := context.WithValue(context.Background(), calllogd.ContextServerVariables, map[string]string{
 	"basePath": "v2",
 })
 ```
@@ -60,13 +60,13 @@ Note, enum values are always validated and all unused variables are silently ign
 
 Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
 An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
-Similar rules for overriding default operation server index and variables applies by using `call-logd.ContextOperationServerIndices` and `call-logd.ContextOperationServerVariables` context maps.
+Similar rules for overriding default operation server index and variables applies by using `calllogd.ContextOperationServerIndices` and `calllogd.ContextOperationServerVariables` context maps.
 
 ```go
-ctx := context.WithValue(context.Background(), call-logd.ContextOperationServerIndices, map[string]int{
+ctx := context.WithValue(context.Background(), calllogd.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
-ctx = context.WithValue(context.Background(), call-logd.ContextOperationServerVariables, map[string]map[string]string{
+ctx = context.WithValue(context.Background(), calllogd.ContextOperationServerVariables, map[string]map[string]string{
 	"{classname}Service.{nickname}": {
 		"port": "8443",
 	},
@@ -147,8 +147,8 @@ Example
 ```go
 auth := context.WithValue(
 		context.Background(),
-		call-logd.ContextAPIKeys,
-		map[string]call-logd.APIKey{
+		calllogd.ContextAPIKeys,
+		map[string]calllogd.APIKey{
 			"X-Auth-Token": {Key: "API_KEY_STRING"},
 		},
 	)
