@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-// import "github.com/ryanwclark1/ui2/ui"
+// import "github.com/ryanwclark1/accent-ui2/ui"
 
 // var DefaultHome = ui.Index(Auth())
 func Auth() templ.Component {

@@ -3,7 +3,7 @@ package authclient
 // import (
 // 	"encoding/json"
 // 	"fmt"
-// 	"apiclient/internal/restclient"
+// 	"github.com/ryanwclark1/accent-ui2/internal/restclient"
 // )
 
 // // AdminCommand struct will hold necessary details to execute admin commands.

@@ -1,0 +1,1615 @@
+host: api.accentvoice.io
+basePath: /0.2
+consumes:
+- application/vnd.accent.provd+json
+definitions:
+  CapabilitiesObject:
+    additionalProperties:
+      additionalProperties:
+        type: string
+      type: object
+    type: object
+  ComponentWithStatus:
+    properties:
+      status:
+        $ref: '#/definitions/StatusValue'
+    type: object
+  Config:
+    description: A complete configuration
+    example:
+      deletable: true
+      id: abcdef123456890
+      parent_ids:
+      - base
+      raw_config:
+        sip_lines:
+          1:
+            auth_username: '100'
+            display_name: Foo
+            password: '100'
+            username: '100'
+    properties:
+      deletable:
+        type: boolean
+      id:
+        description: The unique configuration id
+        type: string
+      parent_ids:
+        items:
+          description: ID of a parent of the configuration
+          type: string
+        type: array
+      raw_config:
+        $ref: '#/definitions/RawConfigurationObject'
+  ConfigObject:
+    description: A configuration object
+    properties:
+      config:
+        $ref: '#/definitions/Config'
+  ConfigsObject:
+    properties:
+      configs:
+        items:
+          $ref: '#/definitions/Config'
+        type: array
+  DHCPInfo:
+    properties:
+      ip:
+        description: The IP address of the device
+        type: string
+      mac:
+        description: The MAC address of the device
+        type: string
+      op:
+        description: The operation to perform
+        enum:
+        - commit
+        type: string
+      options:
+        items:
+          description: 'The option string. The first 3 characters are the option number,
+            the following pairs of dot-separated hexadecimal numbers are the option
+            value characters.
+
+            '
+          type: string
+        type: array
+    type: object
+  DHCPInfoObject:
+    properties:
+      dhcp_info:
+        $ref: '#/definitions/DHCPInfo'
+  Device:
+    description: A device schema
+    properties:
+      added:
+        description: Indicated how the device was added
+        type: string
+      config:
+        description: ID of the device configuration. Generally the same as the device
+          ID, except when in autoprov
+        type: string
+      configured:
+        readOnly: true
+        type: boolean
+      description:
+        type: string
+      id:
+        description: Device ID
+        type: string
+      ip:
+        description: IP address (10.0.0.0)
+        type: string
+      is_new:
+        description: Indicates if the device is a new device, ie in the master tenant
+        readOnly: true
+        type: boolean
+      mac:
+        description: MAC address (aa:bb:cc:dd:ee:ff)
+        type: string
+      model:
+        description: Device model
+        type: string
+      plugin:
+        description: Provisioning plugin used by the device
+        type: string
+      remote_state_sip_username:
+        type: string
+      tenant_uuid:
+        description: The tenant UUID, defining the ownership of this device
+        readOnly: true
+        type: string
+      vendor:
+        description: Vendor name
+        type: string
+      version:
+        description: Firmware version
+        type: string
+  DeviceObject:
+    description: A device object
+    properties:
+      device:
+        $ref: '#/definitions/Device'
+  DevicesList:
+    description: A list of devices
+    properties:
+      devices:
+        items:
+          $ref: '#/definitions/Device'
+        type: array
+  EmptyObject:
+    description: Empty body
+    properties: {}
+  ErrorMessage:
+    description: Error message response
+    type: string
+  FtpProxy:
+    example:
+      param:
+        value: http://root:secret@example.com:8082
+    properties:
+      param:
+        description: The proxy for FTP requests. Format is `http://[user:password@]host:port`
+        type: string
+    title: FTP proxy configuration
+  GeneralConfigObject:
+    properties:
+      description:
+        type: string
+      id:
+        type: string
+      links:
+        $ref: '#/definitions/LinksObject'
+      value:
+        type: string
+  GeneralConfigsObject:
+    properties:
+      params:
+        items:
+          $ref: '#/definitions/GeneralConfigObject'
+        type: array
+  HttpProxy:
+    example:
+      param:
+        value: http://root:secret@example.com:8080
+    properties:
+      param:
+        description: The proxy for HTTP requests. Format is `http://[user:password@]host:port`
+        type: string
+    title: HTTP proxy configuration
+  HttpsProxy:
+    example:
+      param:
+        value: example.com:8081
+    properties:
+      param:
+        description: The proxy for HTTPS requests. Format is `host:port`
+        type: string
+    title: HTTPS proxy configuration
+  IdObject:
+    example:
+      id: abcdef1234567890
+    properties:
+      id:
+        type: string
+  LinkObject:
+    description: Link Object
+    properties:
+      href:
+        description: Location of the resource
+        type: string
+      rel:
+        description: Relation to the resource
+        type: string
+    type: object
+  LinksObject:
+    description: Links object
+    properties:
+      links:
+        description: Links to different resources
+        items:
+          $ref: '#/definitions/LinkObject'
+        type: array
+    type: object
+  Locale:
+    example:
+      param:
+        value: en_US
+    properties:
+      param:
+        description: 'The current locale. For example: `en_US`'
+        type: string
+    title: Locale configuration
+  Nat:
+    example:
+      param:
+        value: '1'
+    properties:
+      param:
+        description: Set to `1` if all the devices are behind a NAT
+        type: string
+    title: NAT configuration
+  OperationInProgressObject:
+    properties:
+      status:
+        description: 'The ``status`` field describes the current status of the operation.
+          The format is
+
+          ``[label|]state[;current[/end]](\(sub_oips\))*``. Here are some examples:
+
+
+          * progress
+
+          * download|progress
+
+          * download|progress;10
+
+          * download|progress;10/100
+
+          * download|progress(file_1|progress;20/100)(file_2|waiting;0/50)
+
+          * download|progress;20/150(file_1|progress)(file_2|waiting)
+
+          * op|progress(op1|progress(op11|progress)(op12|waiting))(op2|progress)
+
+
+          The state of an operation is either ``waiting``, ``progress``, ``success``
+          or ``fail``.
+
+          '
+        type: string
+  Package:
+    properties:
+      capabilities:
+        $ref: '#/definitions/CapabilitiesObject'
+      description:
+        type: string
+      dsize:
+        type: integer
+      sha1sum:
+        type: string
+      version:
+        type: string
+    type: object
+  PackageList:
+    properties:
+      pkgs:
+        $ref: '#/definitions/PackageObject'
+    type: object
+  PackageObject:
+    additionalProperties:
+      $ref: '#/definitions/Package'
+    type: object
+  Param:
+    description: A configuration parameter
+    example:
+      param:
+        value: http://provd.accent.community/plugins/2/stable
+    properties:
+      param:
+        $ref: '#/definitions/ParamObject'
+  ParamObject:
+    properties:
+      value:
+        type: string
+  PluginInfo:
+    properties:
+      plugin_info:
+        $ref: '#/definitions/PluginInfoObject'
+  PluginInfoObject:
+    properties:
+      capabilities:
+        $ref: '#/definitions/CapabilitiesObject'
+      description:
+        type: string
+      version:
+        type: string
+  PluginServer:
+    example:
+      param:
+        value: http://provd.accent.community/plugins/2/stable/
+    properties:
+      param:
+        description: The plugins repository URL
+        type: string
+    title: Plugin server configuration
+  Plugins:
+    additionalProperties:
+      $ref: '#/definitions/LinksObject'
+    type: object
+  PluginsObject:
+    properties:
+      plugins:
+        $ref: '#/definitions/Plugins'
+    type: object
+  ProvisioningKey:
+    description: Provisioning Key configuration
+    example:
+      param:
+        value: a1b2c3d4e5f6g7h8
+    properties:
+      param:
+        description: Provisioning key used to authenticate request to fetch provisioning
+          configuration file
+        type: string
+  RawConfigurationObject:
+    example:
+      raw_config:
+        sip_lines:
+          1:
+            auth_username: '100'
+            display_name: Foo
+            password: '100'
+            username: '100'
+    properties:
+      raw_config:
+        type: object
+  StatusSummary:
+    properties:
+      rest_api:
+        $ref: '#/definitions/ComponentWithStatus'
+    type: object
+  StatusValue:
+    enum:
+    - fail
+    - ok
+    type: string
+info:
+  contact:
+    email: help@accentvoice.io
+    name: Accent Team
+    url: https://accentvoice.io/
+  description: Provisioning application REST API
+  title: accent-provd
+  version: '0.2'
+  x-logo:
+    altText: Accent Logo
+    backgroundColor: '#FAFAFA'
+    url: https://accentvoice.io/images/logo-black.svg
+parameters:
+  ConfigId:
+    description: Configuration ID
+    in: path
+    name: config_id
+    required: true
+    type: string
+  ConfigParam:
+    description: Body of a configuration parameter
+    in: body
+    name: body
+    schema:
+      $ref: '#/definitions/ConfigObject'
+  DeviceDHCPInfo:
+    description: DHCP request information
+    in: body
+    name: body
+    schema:
+      $ref: '#/definitions/DHCPInfoObject'
+  DeviceId:
+    description: Device ID
+    in: path
+    name: device_id
+    required: true
+    type: string
+  DeviceIdBody:
+    description: Device ID body definition
+    in: body
+    name: body
+    schema:
+      $ref: '#/definitions/IdObject'
+  EmptyBody:
+    description: Empty object body
+    in: body
+    name: body
+    schema:
+      $ref: '#/definitions/EmptyObject'
+  OperationId:
+    description: Operation In Progress ID
+    in: path
+    name: operation_id
+    required: true
+    type: string
+  PackageIdBody:
+    description: Package ID body definition
+    in: body
+    name: body
+    schema:
+      $ref: '#/definitions/IdObject'
+  ParamBody:
+    description: Configuration parameter body definition
+    in: body
+    name: body
+    schema:
+      $ref: '#/definitions/Param'
+  ParamId:
+    description: Configuration parameter ID
+    in: path
+    name: param_id
+    required: true
+    type: string
+  PluginId:
+    description: Plugin ID
+    in: path
+    name: plugin_id
+    required: true
+    type: string
+  PluginIdBody:
+    description: Plugin ID body definition
+    in: body
+    name: body
+    schema:
+      $ref: '#/definitions/IdObject'
+  Recurse:
+    default: false
+    description: Should the query include sub-tenants
+    in: query
+    name: recurse
+    type: boolean
+  SearchFields:
+    description: 'A list of fields, separated by comma.
+
+
+      Example: `mac,ip`
+
+      '
+    in: query
+    name: fields
+    required: false
+    type: string
+  SearchQuery:
+    description: 'A selector, encoded in JSON, describing which entries should be
+      returned. All entries are returned if not specified.
+
+
+      Example: `{"ip":"10.34.1.110"}`
+
+      '
+    in: query
+    name: q
+    required: false
+    type: string
+  Skip:
+    description: 'An integer specifing the number of entries to skip.
+
+
+      Example: 10
+
+      '
+    in: query
+    name: skip
+    required: false
+    type: integer
+  SortEntries:
+    description: 'The key on which to sort the results.
+
+
+      Example: `id`
+
+      '
+    in: query
+    name: sort
+    required: false
+    type: string
+  SortOrder:
+    description: The order of sort
+    enum:
+    - ASC
+    - DESC
+    in: query
+    name: sort_ord
+    required: false
+    type: string
+  TenantUUID:
+    description: The tenant's UUID, defining the ownership of a given resource
+    in: header
+    name: Accent-Tenant
+    type: string
+paths:
+  /:
+    get:
+      description: '**Required ACL:** `provd.read`
+        The provd manager resource represents the main entry point to the accent-provd
+        REST API
+        '
+      operationId: getProvd
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LinksObject'
+      summary: Get the Provd Manager resource
+      tags:
+      - provd
+  /cfg_mgr:
+    get:
+      description: '**Required ACL:** `provd.cfg_mgr.read`
+        The configuration manager resource represents the entry point to the accent-provd
+        configuration REST API
+        '
+      operationId: getCfgMgr
+      responses:
+        '200':
+          description: Links to the different configuration resources
+          examples:
+            links:
+            - href: /cfg_mgr/configs
+              rel: cfg.configs
+            - href: /cfg_mgr/autocreate
+              rel: cfg.autocreate
+          schema:
+            $ref: '#/definitions/LinksObject'
+      summary: Get the Config Manager resource
+      tags:
+      - configs
+  /cfg_mgr/autocreate:
+    post:
+      description: '**Required ACL:** `provd.cfg_mgr.autocreate.create`
+        Create a new config based on the config that has the autocreate role
+        '
+      operationId: postCfgMgrAutocreate
+      parameters:
+      - $ref: '#/parameters/EmptyBody'
+      responses:
+        '201':
+          $ref: '#/responses/ConfigCreationResponse'
+      summary: Create an autocreate configuration
+      tags:
+      - configs
+  /cfg_mgr/configs:
+    get:
+      description: '**Required ACL:** `provd.cfg_mgr.configs.read`'
+      operationId: getCfgMgrConfigs
+      parameters:
+      - $ref: '#/parameters/SearchQuery'
+      - $ref: '#/parameters/SearchFields'
+      - $ref: '#/parameters/Skip'
+      - $ref: '#/parameters/SortEntries'
+      - $ref: '#/parameters/SortOrder'
+      responses:
+        '200':
+          $ref: '#/responses/ConfigsResponse'
+      summary: List and find configurations
+      tags:
+      - configs
+    post:
+      description: '**Required ACL:** `provd.cfg_mgr.configs.create`'
+      operationId: postCfgMgrConfigs
+      parameters:
+      - $ref: '#/parameters/ConfigParam'
+      responses:
+        '201':
+          $ref: '#/responses/ConfigCreationResponse'
+      summary: Create a configuration
+      tags:
+      - configs
+  /cfg_mgr/configs/{config_id}:
+    delete:
+      description: '**Required ACL:** `provd.cfg_mgr.configs.{config_id}.delete`'
+      operationId: deleteCfgMgrConfigsConfigId
+      parameters:
+      - $ref: '#/parameters/ConfigId'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '403':
+          $ref: '#/responses/ForbiddenResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Delete a configuration
+      tags:
+      - configs
+    get:
+      description: '**Required ACL:** `provd.cfg_mgr.configs.{config_id}.read`'
+      operationId: getCfgMgrConfig
+      parameters:
+      - $ref: '#/parameters/ConfigId'
+      responses:
+        '200':
+          $ref: '#/responses/ConfigUniqueResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get a configuration
+      tags:
+      - configs
+    put:
+      description: '**Required ACL:** `provd.cfg_mgr.configs.{config_id}.update`'
+      operationId: putCfgMgrConfig
+      parameters:
+      - $ref: '#/parameters/ConfigId'
+      - $ref: '#/parameters/ConfigParam'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+      summary: Update a configuration
+      tags:
+      - configs
+  /cfg_mgr/configs/{config_id}/raw:
+    get:
+      description: '**Required ACL:** `provd.cfg_mgr.configs.{config_id}.raw.read`'
+      operationId: getCfgMgrRawConfig
+      parameters:
+      - $ref: '#/parameters/ConfigId'
+      responses:
+        '200':
+          description: A raw configuration response
+          schema:
+            $ref: '#/definitions/RawConfigurationObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get a raw configuration
+      tags:
+      - configs
+  /configure:
+    get:
+      description: '**Required ACL:** `provd.configure.read`'
+      operationId: getConfigure
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/GeneralConfigsObject'
+      summary: Get the general provd configuration
+      tags:
+      - provd
+  /configure/NAT:
+    put:
+      description: '**Required ACL:** `provd.configure.nat.update`'
+      operationId: putConfigureNAT
+      parameters:
+      - description: Configuration parameter body definition
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/Nat'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Update the configuration's NAT
+      tags:
+      - provd
+  /configure/ftp_proxy:
+    put:
+      description: '**Required ACL:** `provd.configure.ftp_proxy.update`'
+      operationId: putConfigureFtpProxy
+      parameters:
+      - description: Configuration parameter body definition
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/FtpProxy'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Update the configuration's ftp_proxy
+      tags:
+      - provd
+  /configure/http_proxy:
+    put:
+      description: '**Required ACL:** `provd.configure.http_proxy.update`'
+      operationId: putConfigureHttpProxy
+      parameters:
+      - description: Configuration parameter body definition
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/HttpProxy'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Update the configuration's http_proxy
+      tags:
+      - provd
+  /configure/https_proxy:
+    put:
+      description: '**Required ACL:** `provd.configure.https_proxy.update`'
+      operationId: putConfigureHttpsProxy
+      parameters:
+      - description: Configuration parameter body definition
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/HttpsProxy'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Update the configuration's https_proxy
+      tags:
+      - provd
+  /configure/locale:
+    put:
+      description: '**Required ACL:** `provd.configure.locale.update`'
+      operationId: putConfigureLocale
+      parameters:
+      - description: Configuration parameter body definition
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/Locale'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Update the configuration's locale
+      tags:
+      - provd
+  /configure/plugin_server:
+    put:
+      description: '**Required ACL:** `provd.configure.plugin_server.update`'
+      operationId: putConfigurePluginServer
+      parameters:
+      - description: Configuration parameter body definition
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/PluginServer'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Update the configuration's plugin_server
+      tags:
+      - provd
+  /configure/provisioning_key:
+    put:
+      description: '**Required ACL:** `provd.configure.{tenant_uuid}.provisioning_key.update`'
+      operationId: putConfigureProvisioningKey
+      parameters:
+      - description: Configuration parameter body definition
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/ProvisioningKey'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '400':
+          $ref: '#/responses/BadRequestError'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Update the tenant provisioning key
+      tags:
+      - provd
+  /configure/{param_id}:
+    get:
+      description: '''**Required ACL:** `provd.configure.{param_id}.read`''
+        Accent-Tenant header is only valid for `provisioning_key`
+        '
+      operationId: getConfigureParamId
+      parameters:
+      - $ref: '#/parameters/ParamId'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Param'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the configuration parameter value
+      tags:
+      - provd
+    put:
+      description: '**Required ACL:** `provd.configure.{param_id}.update`'
+      operationId: putConfigureParamId
+      parameters:
+      - $ref: '#/parameters/ParamId'
+      - $ref: '#/parameters/ParamBody'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Set the value of a parameter
+      tags:
+      - provd
+  /dev_mgr:
+    get:
+      description: '**Required ACL:** `provd.dev_mgr.read`
+        The device manager resource represents the entry point to the accent-provd device
+        REST API
+        '
+      operationId: getDevMgr
+      responses:
+        '200':
+          description: Links to the different devices resources
+          examples:
+            links:
+            - href: /dev_mgr/synchronize
+              rel: dev.synchronize
+            - href: /dev_mgr/reconfigure
+              rel: dev.reconfigure
+            - href: /dev_mgr/dhcpinfo
+              rel: dev.dhcpinfo
+            - href: /dev_mgr/devices
+              rel: dev.devices
+          schema:
+            $ref: '#/definitions/LinksObject'
+      summary: Get the Device Manager resource
+      tags:
+      - devices
+  /dev_mgr/devices:
+    get:
+      description: '**Required ACL:** `provd.dev_mgr.devices.read`'
+      operationId: getDevMgrDevices
+      parameters:
+      - $ref: '#/parameters/SearchQuery'
+      - $ref: '#/parameters/SearchFields'
+      - $ref: '#/parameters/Skip'
+      - $ref: '#/parameters/SortEntries'
+      - $ref: '#/parameters/SortOrder'
+      - $ref: '#/parameters/TenantUUID'
+      - $ref: '#/parameters/Recurse'
+      responses:
+        '200':
+          $ref: '#/responses/DevicesResponse'
+      summary: List and find devices
+      tags:
+      - devices
+    post:
+      description: '**Required ACL:** `provd.dev_mgr.devices.create`'
+      parameters:
+      - description: Device to create
+        in: body
+        name: device
+        schema:
+          $ref: '#/definitions/DeviceObject'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '201':
+          $ref: '#/responses/DeviceCreationResponse'
+        '400':
+          $ref: '#/responses/BadRequestError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Create a device
+      tags:
+      - devices
+  /dev_mgr/devices/{device_id}:
+    delete:
+      operationId: deleteDevMgrDevice
+      description: '**Required ACL:** `provd.dev_mgr.devices.{device_id}.delete`'
+      parameters:
+      - $ref: '#/parameters/DeviceId'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Delete a device
+      tags:
+      - devices
+    get:
+      description: '**Required ACL:** `provd.dev_mgr.devices.{device_id}.read`
+        Get a device using its ID
+        '
+      operationId: getDevMgrDevice
+      parameters:
+      - $ref: '#/parameters/DeviceId'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '200':
+          $ref: '#/responses/DeviceUniqueResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get a device by ID
+      tags:
+      - devices
+    put:
+      description: '**Required ACL:** `provd.dev_mgr.devices.{device_id}.update`
+        Every field must be specified, otherwise they will be omitted
+        '
+      operationId: putDevMgrDevice
+      parameters:
+      - $ref: '#/parameters/DeviceId'
+      - description: Device information to update
+        in: body
+        name: device
+        schema:
+          $ref: '#/definitions/DeviceObject'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+      summary: Update a device
+      tags:
+      - devices
+  /dev_mgr/dhcpinfo:
+    post:
+      description: '**Required ACL:** `provd.dev_mgr.dhcpinfo.create`
+        The provisioning server either creates a new device or changes the information
+        of the device with the same MAC address
+        '
+      operationId: postDevMgrDhcpinfo
+      parameters:
+      - $ref: '#/parameters/DeviceDHCPInfo'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+      summary: Push DHCP request information
+      tags:
+      - devices
+  /dev_mgr/reconfigure:
+    post:
+      description: '**Required ACL:** `provd.dev_mgr.reconfigure.create`
+        Regenerate the configuration file for the specified device
+        '
+      operationId: postDevMgrReconfigure
+      parameters:
+      - $ref: '#/parameters/DeviceIdBody'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '400':
+          $ref: '#/responses/BadRequestError'
+      summary: Reconfigure a device
+      tags:
+      - devices
+  /dev_mgr/synchronize:
+    post:
+      description: '**Required ACL:** `provd.dev_mgr.synchronize.create`'
+      operationId: postDevMgrSynchronize
+      parameters:
+      - $ref: '#/parameters/DeviceIdBody'
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '201':
+          description: Device synchronized
+          headers:
+            Location:
+              description: Location of the OperationInProgress resource
+              type: string
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Synchronize a device
+      tags:
+      - devices
+  /dev_mgr/synchronize/{operation_id}:
+    delete:
+      description: '**Required ACL:** `provd.operation.delete`
+        This does not cancel the underlying operation; it only deletes the monitor
+        Every monitor that is created should be deleted, else they won''t be freed
+        by the process and they will accumulate, taking memory
+        '
+      operationId: deleteDevMgrSynchronize
+      parameters:
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Delete the Operation In Progress
+      tags:
+      - devices
+    get:
+      description: '**Required ACL:** `provd.operation.read`'
+      operationId: getDevMgrSynchronize
+      parameters:
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OperationInProgressObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the status of a synchronize Operation In Progress
+      tags:
+      - devices
+  /pg_mgr:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.read`
+        The plugin manager resource represents the entry point to the accent-provd plugin
+        REST API
+        '
+      operationId: getPgMgr
+      responses:
+        '200':
+          description: Links to the different plugin resources
+          examples:
+            links:
+            - href: /pg_mgr/install
+              rel: srv.install
+            - href: /pg_mgr/plugins
+              rel: pg.plugins
+            - href: /pg_mgr/reload
+              rel: pg.reload
+          schema:
+            $ref: '#/definitions/LinksObject'
+      summary: Get the Plugin Manager resource
+      tags:
+      - plugins
+  /pg_mgr/install:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.install.read`'
+      operationId: getPgMgrInstall
+      responses:
+        '200':
+          description: OK
+          examples:
+            links:
+            - href: /pg_mgr/install/install
+              rel: srv.install.install
+            - href: /pg_mgr/install/uninstall
+              rel: srv.install.uninstall
+            - href: /pg_mgr/install/installed
+              rel: srv.install.installed
+            - href: /pg_mgr/install/installable
+              rel: srv.install.installable
+            - href: /pg_mgr/install/upgrade
+              rel: srv.install.upgrade
+            - href: /pg_mgr/install/update
+              rel: srv.install.update
+          schema:
+            $ref: '#/definitions/LinksObject'
+      summary: Get the installation service resources
+      tags:
+      - plugins
+  /pg_mgr/install/install:
+    post:
+      description: '**Required ACL:** `provd.pg_mgr.install.install.create`'
+      operationId: postPgMgrInstallPlugin
+      parameters:
+      - $ref: '#/parameters/PackageIdBody'
+      responses:
+        '201':
+          $ref: '#/responses/OperationInProgressResponse'
+        '400':
+          $ref: '#/responses/InvalidJSONError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Install a plugin
+      tags:
+      - plugins
+  /pg_mgr/install/install/{operation_id}:
+    delete:
+      operationId: deletePgMgrInstall
+      description: '**Required ACL:** `provd.operation.delete`
+        This does not cancel the underlying operation; it only deletes the monitor
+        Every monitor that is created should be deleted, else they won''t be freed
+        by the process and they will accumulate, taking memory
+        '
+      parameters:
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Delete the Operation In Progress
+      tags:
+      - plugins
+    get:
+      description: '**Required ACL:** `provd.operation.read`'
+      operationId: getPgMgrInstallStatus
+      parameters:
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OperationInProgressObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the status of a plugin installation Operation In Progress
+      tags:
+      - plugins
+  /pg_mgr/install/installable:
+    get:
+      operationId: getPgMgrInstallable
+      description: '**Required ACL:** `provd.pg_mgr.install.installable.read`'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/PackageList'
+      summary: Get the installable plugins list
+      tags:
+      - plugins
+  /pg_mgr/install/installed:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.install.installed.read`'
+      operationId: getPgMgrInstalled
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/PackageList'
+      summary: Get the installed plugins list
+      tags:
+      - plugins
+  /pg_mgr/install/uninstall:
+    post:
+      description: '**Required ACL:** `provd.pg_mgr.install.uninstall.create`'
+      operationId: postPgMgrUninstallPlugin
+      parameters:
+      - $ref: '#/parameters/PackageIdBody'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '400':
+          $ref: '#/responses/InvalidJSONError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Uninstall a plugin
+      tags:
+      - plugins
+  /pg_mgr/install/update:
+    post:
+      description: '**Required ACL:** `provd.pg_mgr.install.update.create`'
+      operationId: postPgMgrUpdateList
+      parameters:
+      - $ref: '#/parameters/EmptyBody'
+      responses:
+        '201':
+          $ref: '#/responses/OperationInProgressResponse'
+        '400':
+          $ref: '#/responses/InvalidJSONError'
+      summary: Update the List of installable plugins
+      tags:
+      - plugins
+  /pg_mgr/install/update/{operation_id}:
+    delete:
+      description: '**Required ACL:** `provd.operation.delete`
+        This does not cancel the underlying operation; it only deletes the monitor
+        Every monitor that is created should be deleted, else they won''t be freed
+        by the process and they will accumulate, taking memory
+        '
+      operationId: deletePgMgrMonitor
+      parameters:
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Delete the Operation In Progress
+      tags:
+      - plugins
+    get:
+      description: '**Required ACL:** `provd.operation.read`'
+      operationId: getPgMgrUpdateStatus
+      parameters:
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OperationInProgressObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the status of a plugin database update Operation In Progress
+      tags:
+      - plugins
+  /pg_mgr/install/upgrade:
+    post:
+      description: '**Required ACL:** `provd.pg_mgr.install.upgrade.create`'
+      operationId: postPgMgrUpgradePlugin
+      parameters:
+      - $ref: '#/parameters/PackageIdBody'
+      responses:
+        '201':
+          $ref: '#/responses/OperationInProgressResponse'
+        '400':
+          $ref: '#/responses/InvalidJSONError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Upgrade a plugin
+      tags:
+      - plugins
+  /pg_mgr/install/upgrade/{operation_id}:
+    delete:
+      description: '**Required ACL:** `provd.operation.delete`
+        This does not cancel the underlying operation; it only deletes the monitor
+        Every monitor that is created should be deleted, else they won''t be freed
+        by the process and they will accumulate, taking memory
+        '
+      operationId: deletePgMgrUpgradeMonitor
+      parameters:
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Delete the Operation In Progress
+      tags:
+      - plugins
+    get:
+      description: '**Required ACL:** `provd.operation.read`'
+      operationId: getPgMgrUpgradeStatus
+      parameters:
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OperationInProgressObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the status of a plugin upgrade Operation In Progress
+      tags:
+      - plugins
+  /pg_mgr/plugins:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.plugins.read`'
+      operationId: getPgMgrPlugins
+      responses:
+        '200':
+          description: List of all the installed plugins and their resources
+          examples:
+            plugins:
+              accent-aastra-3.3.1-SP4:
+                links:
+                - href: /pg_mgr/plugins/accent-aastra-3.3.1-SP4
+                  rel: pg.plugin
+              accent-cisco-sccp-9.0.3:
+                links:
+                - href: /pg_mgr/plugins/accent-cisco-sccp-9.0.3
+                  rel: pg.plugin
+          schema:
+            $ref: '#/definitions/PluginsObject'
+      summary: List the installed plugins
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.plugins.{plugin_id}.read`'
+      operationId: getPgMgrPlugin
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      responses:
+        '200':
+          description: OK
+          examples:
+            links:
+            - href: /pg_mgr/plugins/accent-aastra-3.3.1-SP4
+              rel: pg.plugin
+          schema:
+            $ref: '#/definitions/LinksObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the resources of a specific plugin
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}/info:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.plugins.{plugin_id}.info.read`'
+      operationId: getPgMgrPluginInfo
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      responses:
+        '200':
+          description: OK
+          examples:
+            plugin_info:
+              capabilities:
+                Aastra, 6730i, 3.3.1.5089:
+                  sip.lines: 6
+                Aastra, 6731i, 3.3.1.2235:
+                  sip.lines: 6
+                  switchboard: true
+              description: Plugin for Aastra 6730i, 6731i, ...
+              version: '1.1'
+          schema:
+            $ref: '#/definitions/PluginInfo'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the information of a plugin
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}/install:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.plugins.{plugin_id}.install.read`'
+      operationId: getPgMgrPluginInstall
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      responses:
+        '200':
+          description: OK
+          examples:
+            links:
+            - href: /pg_mgr/plugins/test-plugin/install/install
+              rel: srv.install.install
+            - href: /pg_mgr/plugins/test-plugin/install/uninstall
+              rel: srv.install.uninstall
+            - href: /pg_mgr/plugins/test-plugin/install/installed
+              rel: srv.install.installed
+            - href: /pg_mgr/plugins/test-plugin/install/installable
+              rel: srv.install.installable
+          schema:
+            $ref: '#/definitions/LinksObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the package installation service resources
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}/install/install:
+    post:
+      description: '**Required ACL:** `provd.pg_mgr.plugins.{plugin_id}.install.install.create`'
+      operationId: postPgMgrPluginInstallPlugin
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      - $ref: '#/parameters/PackageIdBody'
+      responses:
+        '201':
+          $ref: '#/responses/OperationInProgressResponse'
+        '400':
+          $ref: '#/responses/InvalidJSONError'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Install a package
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}/install/install/{operation_id}:
+    delete:
+      description: '**Required ACL:** `provd.operation.delete`
+        This does not cancel the underlying operation; it only deletes the monitor
+        Every monitor that is created should be deleted, else they won''t be freed
+        by the process and they will accumulate, taking memory
+        '
+      operationId: deletePgMgrInstallMonitor
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Delete the Operation In Progress
+      tags:
+      - plugins
+    get:
+      description: '**Required ACL:** `provd.operation.read`'
+      operationId: getPgMgrPluginInstallStatus
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OperationInProgressObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the status of a package installation Operation In Progress
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}/install/installable:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.plugins.{plugin_id}.install.installable.read`'
+      operationId: getPgMgrInstallableList
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/PackageList'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the installable packages list
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}/install/installed:
+    get:
+      description: '**Required ACL:** `provd.pg_mgr.plugins.{plugin_id}.install.installed.read`'
+      operationId: getPgMgrInstalledList
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/PackageList'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the installed packages list
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}/install/uninstall:
+    post:
+      description: '**Required ACL:** `provd.pg_mgr.plugins.{plugin_id}.install.uninstall.create`'
+      operationId: postPgMgrPluginUninstallPlugin
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      - $ref: '#/parameters/PackageIdBody'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '400':
+          $ref: '#/responses/InvalidJSONError'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+        '415':
+          $ref: '#/responses/UnsupportedMediaError'
+      summary: Uninstall a package
+      tags:
+      - plugins
+  /pg_mgr/plugins/{plugin_id}/install/upgrade/{operation_id}:
+    delete:
+      description: '**Required ACL:** `provd.operation.delete`
+        This does not cancel the underlying operation; it only deletes the monitor
+        Every monitor that is created should be deleted, else they won''t be freed
+        by the process and they will accumulate, taking memory
+        '
+      operationId: deletePgMgrPluginUpgradeMonitor
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Delete the Operation In Progress
+      tags:
+      - plugins
+    get:
+      description: '**Required ACL:** `provd.operation.read`'
+      operationId: getPgMgrPluginUpgradeStatus
+      parameters:
+      - $ref: '#/parameters/PluginId'
+      - $ref: '#/parameters/OperationId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OperationInProgressObject'
+        '404':
+          $ref: '#/responses/NoSuchResourceError'
+      summary: Get the status of a package upgrade Operation In Progress
+      tags:
+      - plugins
+  /pg_mgr/reload:
+    post:
+      description: '**Required ACL:** `provd.pg_mgr.reload.create`
+        This is mostly useful during plugin development, after changing the code of
+        the plugin, instead of restarting the accent-provd application
+        '
+      operationId: postPgMgrReload
+      parameters:
+      - $ref: '#/parameters/PluginIdBody'
+      responses:
+        '204':
+          $ref: '#/responses/NoContentResponse'
+      summary: Reload a plugin
+      tags:
+      - plugins
+  /status:
+    get:
+      description: '**Required ACL:** `provd.status.read`'
+      operationId: getStatus
+      responses:
+        '200':
+          description: The internal infos of accent-provd
+          schema:
+            $ref: '#/definitions/StatusSummary'
+      summary: Print infos about internal status of accent-provd
+      tags:
+      - status
+produces:
+- application/vnd.accent.provd+json
+responses:
+  BadRequestError:
+    description: Bad request. The device ID, IP or MAC may be invalid
+    schema:
+      $ref: '#/definitions/ErrorMessage'
+  ConfigCreationResponse:
+    description: Configuration created. If the ``id`` field was not given, then the
+      ID was automatically generated by the server.
+    headers:
+      Location:
+        description: Location of the newly created configuration.
+        type: string
+    schema:
+      $ref: '#/definitions/IdObject'
+  ConfigUniqueResponse:
+    description: A complete configuration response
+    schema:
+      $ref: '#/definitions/ConfigObject'
+  ConfigsResponse:
+    description: List of configurations
+    schema:
+      $ref: '#/definitions/ConfigsObject'
+  DeviceCreationResponse:
+    description: Device creation response
+    headers:
+      Location:
+        description: Location of the newly created device
+        type: string
+    schema:
+      $ref: '#/definitions/IdObject'
+  DeviceUniqueResponse:
+    description: A complete device response
+    schema:
+      $ref: '#/definitions/DeviceObject'
+  DevicesResponse:
+    description: A list of devices
+    schema:
+      $ref: '#/definitions/DevicesList'
+  ForbiddenResponse:
+    description: The operation is not permitted for this resource.
+    schema:
+      $ref: '#/definitions/ErrorMessage'
+  InternalServerError:
+    description: Internal Server Error. The IP or MAC address may be malformed
+    schema:
+      $ref: '#/definitions/ErrorMessage'
+  InvalidJSONError:
+    description: Invalid JSON document
+    schema:
+      $ref: '#/definitions/ErrorMessage'
+  NoContentResponse:
+    description: No content
+  NoSuchResourceError:
+    description: No such resource. The provided id does not exist
+    schema:
+      $ref: '#/definitions/ErrorMessage'
+  OperationInProgressResponse:
+    description: Operation in progress
+    headers:
+      Location:
+        description: Location of the OperationInProgress resource
+        type: string
+  UnsupportedMediaError:
+    description: Unsupported media type. This error occurs if you forgot to include
+      the Content-Type header
+    schema:
+      $ref: '#/definitions/ErrorMessage'
+schemes:
+- http
+- https
+security:
+- accent_auth_token: []
+securityDefinitions:
+  accent_auth_token:
+    in: header
+    name: X-Auth-Token
+    type: apiKey
+swagger: '2.0'
+x-accent-name: provd
+x-accent-port: 8666

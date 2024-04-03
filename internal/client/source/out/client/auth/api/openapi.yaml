@@ -1,0 +1,4169 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: help@accentvoice.io
+    name: Accent Team
+    url: https://accentvoice.io/
+  description: Accent's authentication service
+  license:
+    name: Proprietary
+    url: https://accentvoice.io/
+  title: accent-auth
+  version: "0.1"
+  x-logo:
+    altText: Accent Logo
+    backgroundColor: '#FAFAFA'
+    url: https://accentvoice.io/images/logo-black.svg
+servers:
+- url: http://api.accentvoice.io/0.1
+- url: https://api.accentvoice.io/0.1
+paths:
+  /admin/users/{user_uuid}/emails:
+    put:
+      description: "**Required ACL**: `auth.admin.users.{user_uuid}.emails.edit` Update\
+        \ all of the users email address at the same time.\nIf an existing address\
+        \ is missing from the list, it will be removed. An empty list will remove\
+        \ all addresses. If addresses are defined, one and only one address should\
+        \ be main. If the confirmed field is set to none or ommited the existing value\
+        \ will be reused if it exists, otherwise the address will not be confirmed. "
+      operationId: updateAllUserEmails
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminUserEmailList'
+        description: EmailAddressList
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: The updated email list
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found
+      security:
+      - accent_auth_token: []
+      summary: Update email addresses
+      tags:
+      - admin
+      - users
+      - emails
+      x-codegen-request-body-name: body
+  /backends:
+    get:
+      description: Retrieves the list of activated backends
+      operationId: getBackends
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BackendList'
+          description: The list of activated backends
+      security:
+      - {}
+      summary: Get list of activated backends
+      tags:
+      - backends
+  /backends/ldap:
+    delete:
+      description: '**Required ACL:** `auth.backends.ldap.delete`'
+      operationId: deleteLDAPBackendConfig
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The LDAP backend configuration has been deleted
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+      security:
+      - accent_auth_token: []
+      summary: Delete current tenant's LDAP backend configuration
+      tags:
+      - backends
+    get:
+      description: '**Required ACL:** `auth.backends.ldap.read`'
+      operationId: getLDAPBackendConfig
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LDAPBackendConfig'
+          description: The LDAP backend configuration
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+      security:
+      - accent_auth_token: []
+      summary: "Get current tenant's LDAP backend configuration. If there is no configuration,\
+        \ all the fields will be `null`. "
+      tags:
+      - backends
+    put:
+      description: '**Required ACL:** `auth.backends.ldap.update'
+      operationId: updateLDAPBackendConfig
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LDAPBackendConfigEdit'
+        description: The LDAP backend configuration
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LDAPBackendConfig'
+          description: The LDAP backend configuration has been updated
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+      security:
+      - accent_auth_token: []
+      summary: Update current tenant's LDAP backend configuration
+      tags:
+      - backends
+      x-codegen-request-body-name: body
+  /config:
+    get:
+      description: '**Required ACL:** `auth.config.read`'
+      operationId: getConfig
+      responses:
+        "200":
+          content: {}
+          description: The configuration of the service
+      summary: Show the current configuration
+      tags:
+      - config
+    patch:
+      description: '**Required ACL:** `auth.config.update` Changes are not persistent
+        across service restart. '
+      operationId: patchConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/ConfigPatchItem'
+              type: array
+        description: See https://en.wikipedia.org/wiki/JSON_Patch.
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: The updated configuration of the service
+        "400":
+          content: {}
+          description: The given confiuration is invalid
+      summary: Update the current configuration.
+      tags:
+      - config
+      x-codegen-request-body-name: ConfigPatch
+  /emails/{email_uuid}/confirm:
+    get:
+      description: "**Required ACL**: `auth.emails.{email_uuid}.confirm.edit` The\
+        \ token should be in the URL instead of being in the HTTP headers "
+      operationId: getEmailConfirm
+      parameters:
+      - description: The UUID of the email
+        in: path
+        name: email_uuid
+        required: true
+        schema:
+          type: string
+      - description: The UUID of the token used to confirm the email address
+        in: query
+        name: token
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: The email address has been confirmed
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Email not found
+      summary: Confirm an email address
+      tags:
+      - emails
+    put:
+      description: "**Required ACL**: `auth.emails.{email_uuid}.confirm.edit`"
+      operationId: putEmailConfirm
+      parameters:
+      - description: The UUID of the email
+        in: path
+        name: email_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The email address has been confirmed
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Email not found
+      security:
+      - accent_auth_token: []
+      summary: Confirm an email address
+      tags:
+      - emails
+  /external/{auth_type}/config:
+    delete:
+      description: "**Required ACL**: `auth.{auth_type}.external.config.delete`"
+      operationId: deleteExternalAuthConfig
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: External auth type name
+        in: path
+        name: auth_type
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: Deletion confirmed
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not found
+      summary: Delete the client id and client secret
+      tags:
+      - external
+    get:
+      description: "**Required ACL**: `auth.{auth_type}.external.config.read`"
+      operationId: getExternalAuthConfig
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: External auth type name
+        in: path
+        name: auth_type
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalConfig'
+          description: The requested config
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not found
+      summary: Retrieve the client id and client secret
+      tags:
+      - external
+    post:
+      description: "**Required ACL**: `auth.{auth_type}.external.config.create`"
+      operationId: postExternalAuthConfig
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: External auth type name
+        in: path
+        name: auth_type
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalConfig'
+        description: JSON object holding configuration for the given authentication
+          type
+        required: true
+      responses:
+        "201":
+          content: {}
+          description: Config created
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Duplicate config
+      summary: Add configuration for the given auth_type
+      tags:
+      - external
+      x-codegen-request-body-name: config
+    put:
+      description: "**Required ACL**: `auth.{auth_type}.external.config.edit`"
+      operationId: updateExternalAuthConfig
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: External auth type name
+        in: path
+        name: auth_type
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalConfig'
+        description: JSON object holding configuration for the given authentication
+          type
+        required: true
+      responses:
+        "201":
+          content: {}
+          description: Config created
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not found
+      summary: Update configuration for the given auth_type
+      tags:
+      - external
+      x-codegen-request-body-name: config
+  /external/{auth_type}/users:
+    get:
+      description: "**Required ACL**: `auth.{auth_type}.external.users`"
+      operationId: getExternalAuthUsers
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: External auth type name
+        in: path
+        name: auth_type
+        required: true
+        schema:
+          type: string
+      - description: Should the query include sub-tenants
+        in: query
+        name: recurse
+        schema:
+          default: false
+          type: boolean
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalAuthUserList'
+          description: The list of external auth connected users
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not found
+      summary: Retrieves the list of connected users to this external source
+      tags:
+      - external
+  /groups/{group_uuid}:
+    delete:
+      description: "**Required ACL**: `auth.groups.{group_uuid}.delete`"
+      operationId: delete_group
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The group has been removed
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Group not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Delete a group
+      tags:
+      - groups
+    get:
+      description: "**Required ACL**: `auth.groups.{policy_uuid}.read"
+      operationId: getGroup
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupResult'
+          description: The group's data
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Group not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the details of a group
+      tags:
+      - groups
+    put:
+      description: "**Required ACL:** `auth.groups.{group_uuid}.edit`"
+      operationId: editGroup
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupPut'
+        description: The group parameters
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupResult'
+          description: The modified group's data
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid data has been supplied
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Duplicate Group
+      security:
+      - accent_auth_token: []
+      summary: Modify a group
+      tags:
+      - groups
+      x-codegen-request-body-name: body
+  /groups/{group_uuid}/policies:
+    get:
+      description: "**Required ACL**: `auth.groups.{group_uuid}.policies.read`"
+      operationId: getGroupPolicies
+      parameters:
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPoliciesResult'
+          description: The group's policies
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Policy not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the list of policies associated to a group
+      tags:
+      - groups
+  /groups/{group_uuid}/policies/{policy_uuid}:
+    delete:
+      description: "**Required ACL:** `auth.groups.{group_uuid}.policies.{policy_uuid}.delete`"
+      operationId: deleteGroupPolicy
+      parameters:
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The policy has been unassigned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Policy or Group not found
+      security:
+      - accent_auth_token: []
+      summary: Dissociate a policy from a group
+      tags:
+      - groups
+      - policies
+    put:
+      description: "**Required ACL:** `auth.groups.{group_uuid}.policies.{policy_uuid}.create`"
+      operationId: addGroupPolicy
+      parameters:
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The policy has been assigned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Policy or Group not found
+      security:
+      - accent_auth_token: []
+      summary: Associate a group to a policy
+      tags:
+      - groups
+      - policies
+  /groups/{group_uuid}/users:
+    get:
+      description: "**Required ACL**: `auth.groups.{group_uuid}.users.read`"
+      operationId: getGroupUsers
+      parameters:
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserList'
+          description: The group's users
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Group not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the list of users associated to a group
+      tags:
+      - groups
+  /groups/{group_uuid}/users/{user_uuid}:
+    delete:
+      description: "**Required ACL:** `auth.groups.{group_uuid}.users.{user_uuid}.delete`"
+      operationId: removeGroupUser
+      parameters:
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The user has been unassigned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User or Group not found
+      security:
+      - accent_auth_token: []
+      summary: Dissociate a user from a group
+      tags:
+      - groups
+      - users
+    put:
+      description: "**Required ACL:** `auth.groups.{group_uuid}.users.{user_uuid}.create`"
+      operationId: addGroupUser
+      parameters:
+      - description: The UUID of the group
+        in: path
+        name: group_uuid
+        required: true
+        schema:
+          type: string
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The user has been assigned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User or Group not found
+      security:
+      - accent_auth_token: []
+      summary: Associate a group to a user
+      tags:
+      - groups
+      - users
+  /policies:
+    get:
+      description: '**Required ACL:** `auth.policies.read`'
+      operationId: getPolicies
+      parameters:
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: Should the query include sub-tenants
+        in: query
+        name: recurse
+        schema:
+          default: false
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPoliciesResult'
+          description: A list of policies
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+      security:
+      - accent_auth_token: []
+      summary: List ACL policies
+      tags:
+      - policies
+    post:
+      description: "**Required ACL:** `auth.policies.create` Create a new ACL policy\
+        \ set that can be associated to a user, an administrator, a service or a backend.\
+        \ An ACL policy is a list of ACL or ACL templates that is used to create a\
+        \ token "
+      operationId: createPolicies
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Policy'
+        description: The policy creation parameters
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyResult'
+          description: The created policy's data
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid data has been supplied'
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Duplicate Policy
+      security:
+      - accent_auth_token: []
+      summary: Create a new ACL policy
+      tags:
+      - policies
+      x-codegen-request-body-name: body
+  /policies/{policy_uuid}:
+    delete:
+      description: "**Required ACL**: `auth.policies.{policy_uuid}.delete`"
+      operationId: delete_policy
+      parameters:
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The policy has been removed
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Policy not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Delete a policy
+      tags:
+      - policies
+    get:
+      description: "**Required ACL**: `auth.policies.{policy_uuid}.read"
+      operationId: getPolicy
+      parameters:
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyResult'
+          description: The policy's data
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Policy not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the details of a policy
+      tags:
+      - policies
+    put:
+      description: "**Required ACL:** `auth.policies.{policy_uuid}.edit`"
+      operationId: editPolicy
+      parameters:
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Policy'
+        description: The policy edition parameters
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyResult'
+          description: The modified policy's data
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid data has been supplied'
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Duplicate Policy
+      security:
+      - accent_auth_token: []
+      summary: Modify an ACL policy
+      tags:
+      - policies
+      x-codegen-request-body-name: body
+  /policies/{policy_uuid}/acl/{access}:
+    delete:
+      description: "**Required ACL:** `auth.policies.{policy_uuid}.edit`"
+      operationId: deletePolicyAccess
+      parameters:
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      - description: The access to add
+        in: path
+        name: access
+        required: true
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The policy has been modified
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Policy or access not found
+      security:
+      - accent_auth_token: []
+      summary: Dissociate an access from a policy
+      tags:
+      - policies
+    put:
+      description: "**Required ACL:** `auth.policies.{policy_uuid}.edit`"
+      operationId: addPolicyAccess
+      parameters:
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      - description: The access to add
+        in: path
+        name: access
+        required: true
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The policy has been modified
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Policy not found
+      security:
+      - accent_auth_token: []
+      summary: Associate an access to a policy
+      tags:
+      - policies
+  /sessions:
+    get:
+      description: '**Required ACL:** `auth.sessions.read`'
+      operationId: getSessions
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: Should the query include sub-tenants
+        in: query
+        name: recurse
+        schema:
+          default: false
+          type: boolean
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSessionsResult'
+          description: A list of session
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+      security:
+      - accent_auth_token: []
+      summary: List sessions
+      tags:
+      - sessions
+  /sessions/{session_uuid}:
+    delete:
+      description: "**Required ACL**: `auth.sessions.{session_uuid}.delete`"
+      operationId: delete_session
+      parameters:
+      - description: The UUID of the session
+        in: path
+        name: session_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The session has been removed
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+      security:
+      - accent_auth_token: []
+      summary: Delete a session
+      tags:
+      - sessions
+  /status:
+    head:
+      description: This endpoint is not authenticated
+      operationId: checkStatus
+      responses:
+        "200":
+          content: {}
+          description: accent-auth is OK
+        "503":
+          content: {}
+          description: accent-auth is missing a requirement
+      summary: Check if accent-auth is OK
+      tags:
+      - status
+  /tenants:
+    get:
+      description: "**Required ACL**: `auth.tenants.read` Tenants can be filtered\
+        \ by domain name using the `domain_name` query string to do an exact match\
+        \ on one of its domain names or using the `search` query string for a fuzzy\
+        \ match. "
+      operationId: getTenants
+      parameters:
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantList'
+          description: The list of tenant
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the list of tenants
+      tags:
+      - tenants
+    post:
+      description: '**Required ACL:** `auth.tenants.create`'
+      operationId: createTenant
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantCreate'
+        description: The tenant creation parameters
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantPostResponse'
+          description: The new tenant
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Invalid body
+      security:
+      - accent_auth_token: []
+      summary: Creates a new tenant
+      tags:
+      - tenants
+      x-codegen-request-body-name: body
+  /tenants/{tenant_uuid}:
+    delete:
+      description: "**Required ACL**: `auth.tenants.{tenant_uuid}.delete`"
+      operationId: delete_tenant
+      parameters:
+      - description: The UUID of the tenant
+        in: path
+        name: tenant_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The tenant has been removed
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Tenant not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Delete a tenant
+      tags:
+      - tenants
+    get:
+      description: "**Required ACL**: `auth.tenants.{tenant_uuid}.read`"
+      operationId: getTenant
+      parameters:
+      - description: The UUID of the tenant
+        in: path
+        name: tenant_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantResult'
+          description: The tenant's data
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Tenant not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the details of a tenant
+      tags:
+      - tenants
+    put:
+      description: "**Required ACL:** `auth.tenants.{tenant_uuid}.edit`"
+      operationId: updateTenant
+      parameters:
+      - description: The UUID of the tenant
+        in: path
+        name: tenant_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantEdit'
+        description: The tenant parameters
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantPostResponse'
+          description: The new tenant
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Invalid body
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Tenant not found
+      security:
+      - accent_auth_token: []
+      summary: Modify a tenant
+      tags:
+      - tenants
+      x-codegen-request-body-name: body
+  /token:
+    post:
+      description: "Creates a valid token for the supplied username and password combination\
+        \ or refresh_token using the specified backend.\nThe user's email address\
+        \ can be used instead of the username if the email address is confirmed.\n\
+        The stock backends are: ``accent_user``, ``ldap_user``.\nCreating  a token\
+        \ with the `access_type` *offline* will also create a refresh token which\
+        \ can be used\nto create a new token without specifying the username and password.\n\
+        The username/password and refresh_token method of authentication are mutually\
+        \ exclusive\nFor more details about the backends, see http://documentation.accent.community/en/latest/system/accent-auth/stock_plugins.html#backends-plugins "
+      operationId: createToken
+      parameters:
+      - description: The session type
+        in: header
+        name: Accent-Session-Type
+        schema:
+          enum:
+          - mobile
+          - desktop
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createToken_request'
+        description: The token creation parameters
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: The created token's data
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid expiration or missing field
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related token generation error
+      security:
+      - accent_auth_basic: []
+      summary: Creates a token
+      tags:
+      - token
+      x-codegen-request-body-name: body
+  /token/{token}:
+    delete:
+      operationId: revokeToken
+      parameters:
+      - description: The token to query
+        in: path
+        name: token
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Success message
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related token error
+      security:
+      - {}
+      summary: Revoke a token
+      tags:
+      - token
+    get:
+      description: "Checks if a token is valid in a given context and return the token\
+        \ data.  If a scope is given, the token must have the necessary permissions\
+        \ for the ACL. If a tenant is given, the token must have that tenant in its\
+        \ sub-tenant subtree."
+      operationId: getToken
+      parameters:
+      - description: The token to query
+        in: path
+        name: token
+        required: true
+        schema:
+          type: string
+      - description: The required ACL
+        in: query
+        name: scope
+        schema:
+          type: string
+      - description: A tenant UUID to check against
+        in: query
+        name: tenant
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: The token's data
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: This token cannot acces the required ACL
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Token not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related token error
+      security:
+      - {}
+      summary: Retrieves token data
+      tags:
+      - token
+    head:
+      description: "Checks if a token is valid in a given context.  If a scope is\
+        \ given, the token must have the necessary permissions for the ACL. If a tenant\
+        \ is given, the token must have that tenant in its sub-tenant subtree."
+      operationId: checkTokenContext
+      parameters:
+      - description: The token to query
+        in: path
+        name: token
+        required: true
+        schema:
+          type: string
+      - description: The required ACL
+        in: query
+        name: scope
+        schema:
+          type: string
+      - description: A tenant UUID to check against
+        in: query
+        name: tenant
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: No data
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: This token cannot acces the required ACL
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Token not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related token error
+      security:
+      - {}
+      summary: Checks if a token is valid
+      tags:
+      - token
+  /token/{token}/scopes/check:
+    post:
+      description: Checks if a token is valid for given scopes.
+      operationId: checkTokenScopes
+      parameters:
+      - description: The token to query
+        in: path
+        name: token
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScopeCheckRequest'
+        description: The token scopes check parameters
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScopeList'
+          description: Provided scope list checked against the token
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The provided scope list is invalid
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: This token is not valid for the provided tenant
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Token not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related token error
+      security:
+      - {}
+      summary: Check a token against scopes
+      tags:
+      - token
+      x-codegen-request-body-name: body
+  /tokens:
+    get:
+      description: "**Required ACL**: `auth.tokens.read` Finds all refresh tokens\
+        \ and return the list. Access tokens are not included in the result. "
+      operationId: getTokens
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: Should the query include sub-tenants
+        in: query
+        name: recurse
+        schema:
+          default: false
+          type: boolean
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshTokenList'
+          description: A refresh token list
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Invalid parameters
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: System related token error
+      security:
+      - accent_auth_token: []
+      summary: Retrieve a list of refresh tokens that have been created on the system
+      tags:
+      - token
+  /users:
+    get:
+      description: "**Required ACL**: `auth.users.read`"
+      operationId: getUsers
+      parameters:
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: Should the query include sub-tenants
+        in: query
+        name: recurse
+        schema:
+          default: false
+          type: boolean
+      - description: The slug of the policy that the user must have. This includes
+          indirect associations (user in group has policy).
+        in: query
+        name: has_policy_slug
+        schema:
+          type: string
+      - description: The UUID of the policy that the user must have. This includes
+          indirect associations (user in group has policy).
+        in: query
+        name: has_policy_uuid
+        schema:
+          type: string
+      - description: The slug of the policy that the user must have. This does not
+          include indirect associations (user in group has policy).
+        in: query
+        name: policy_slug
+        schema:
+          type: string
+      - description: The UUID of the policy that the user must have. This does not
+          include indirect associations (user in group has policy).
+        in: query
+        name: policy_uuid
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserList'
+          description: The list of user
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the list of users
+      tags:
+      - users
+    post:
+      description: "**Required ACL**: `auth.users.create` Creates a new user that\
+        \ can be used to retrieve a token. The UUID can be used to link this user\
+        \ the a\naccent-confd user by using the same UUID "
+      operationId: createUser
+      parameters:
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+        description: The user creation parameters
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPostResponse'
+          description: The new user data without the password
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Invalid body
+      summary: Create a user
+      tags:
+      - users
+      x-codegen-request-body-name: body
+  /users/password/reset:
+    get:
+      description: "This action will send an email containing instructions to set\
+        \ a new password.\nThe login or username or email address should be supplied\
+        \ as query string to find the user "
+      operationId: reset_password
+      parameters:
+      - description: The user's username
+        in: query
+        name: username
+        schema:
+          type: string
+      - description: The user's email address
+        in: query
+        name: email
+        schema:
+          type: string
+      - description: The user's login (username or email)
+        in: query
+        name: login
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: A mail will be sent if the username or email were found
+      summary: Reset the user password
+      tags:
+      - users
+    post:
+      description: "**Required ACL**: `auth.users.password.reset.{user_uuid}.create`\n\
+        Set a new password for the user after the user used the GET on the reset URL "
+      operationId: reset_password_change
+      parameters:
+      - description: The user's UUID
+        in: query
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostPasswordReset'
+        description: The password change parameters
+        required: true
+      responses:
+        "204":
+          content: {}
+          description: Password changed
+      security:
+      - accent_auth_token: []
+      summary: Set the user password
+      tags:
+      - users
+      x-codegen-request-body-name: body
+  /users/register:
+    post:
+      description: Creates a new user that can be used to retrieve a token.
+      operationId: registerUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+        description: The user creation parameters
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPostResponse'
+          description: The new user data without the password
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Invalid body
+      summary: Create a user
+      tags:
+      - users
+      x-codegen-request-body-name: body
+  /users/{user_uuid_or_me}/tokens:
+    get:
+      description: "**Required ACL**: `auth.users.{user_uuid}.tokens.read`\nFinds\
+        \ all of a user's refresh token and return the list. Access tokens are not\
+        \ included in the result.\nDoing a query with the `user_uuid` `me` will result\
+        \ in the current user's token being used. "
+      operationId: getUserTokens
+      parameters:
+      - description: The UUID of the user or `me` to refer to the user doing the query
+        in: path
+        name: user_uuid_or_me
+        required: true
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshTokenList'
+          description: A refresh token list
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Invalid parameters
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: User not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: System related token error
+      security:
+      - accent_auth_token: []
+      summary: Retrieve a user's refresh token list
+      tags:
+      - token
+      - users
+  /users/{user_uuid_or_me}/tokens/{client_id}:
+    delete:
+      description: "**Required ACL**: `auth.users.{user_uuid}.tokens.{client_id}.delete`\
+        \ Remove a given refresh token. This only prevent this refresh token from\
+        \ creating new access tokens. Any tokens that are currently issued are still\
+        \ usable and should be revoked if needed. "
+      operationId: deleteRefreshTokens
+      parameters:
+      - description: The UUID of the user or `me` to refer to the user doing the query
+        in: path
+        name: user_uuid_or_me
+        required: true
+        schema:
+          type: string
+      - description: The client_id of the refresh token to revoke
+        in: path
+        name: client_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The refresh token has been deleted
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: User or refresh token not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: System related token error
+      security:
+      - accent_auth_token: []
+      summary: Delete a user's refresh token
+      tags:
+      - token
+      - users
+  /users/{user_uuid}:
+    delete:
+      description: "**Required ACL**: `auth.users.{user_uuid}.delete`"
+      operationId: delete_user
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The user has been removed
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Delete a user
+      tags:
+      - users
+    get:
+      description: "**Required ACL**: `auth.users.{user_uuid}.read`"
+      operationId: getUser
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResult'
+          description: The user's data
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the details of a user
+      tags:
+      - users
+    put:
+      description: "**Required ACL**: `auth.users.{user_uuid}.edit`"
+      operationId: updateUser
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserEdit'
+        description: The user parameters
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPostResponse'
+          description: The new user data without the password
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Invalid body
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: not found
+      summary: Update an existing user
+      tags:
+      - users
+      x-codegen-request-body-name: body
+  /users/{user_uuid}/emails:
+    put:
+      description: "**Required ACL**: `auth.users.{user_uuid}.emails.edit` Update\
+        \ all of the users email address at the same time.\nIf an existing address\
+        \ is missing from the list, it will be removed. An empty list will remove\
+        \ all addresses. If addresses are defined, one and only one address should\
+        \ be main. All new address are created unconfirmed. "
+      operationId: updateUserEmails
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserEmailList'
+        description: EmailAddressList
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: The updated email list
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found
+      security:
+      - accent_auth_token: []
+      summary: Update email addresses
+      tags:
+      - users
+      - emails
+      x-codegen-request-body-name: body
+  /users/{user_uuid}/emails/{email_uuid}/confirm:
+    get:
+      description: "**Required ACL**: `auth.users.{user_uuid}.emails.{email_uuid}.confirm.read`"
+      operationId: getNewEmailConfirmation
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      - description: The UUID of the email
+        in: path
+        name: email_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The new email confirmation email has been sent
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User or Email not found
+        "409":
+          content: {}
+          description: Already confirmed
+      security:
+      - accent_auth_token: []
+      summary: Ask a new confirmation email
+      tags:
+      - users
+      - emails
+  /users/{user_uuid}/external:
+    get:
+      description: "**Required ACL**: `auth.users.{user_uuid}.external.read` This\
+        \ list should not contain any sensible information "
+      operationId: getUserExternalAuth
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalAuthList'
+          description: The list of external auth data
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the list of the users external auth data
+      tags:
+      - users
+      - external
+  /users/{user_uuid}/groups:
+    get:
+      description: "**Required ACL**: `auth.users.{user_uuid}.groups.read`"
+      operationId: getUserGroups
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetGroupsResult'
+          description: The groups of the user
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the list of groups associated to a user
+      tags:
+      - users
+  /users/{user_uuid}/password:
+    put:
+      description: "**Required ACL**: `auth.users.{user_uuid}.password.edit`"
+      operationId: changeUserPassword
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+        description: The user creation parameters
+        required: true
+      responses:
+        "204":
+          content: {}
+          description: Password changed
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Change the user's password
+      tags:
+      - users
+      x-codegen-request-body-name: body
+  /users/{user_uuid}/policies:
+    get:
+      description: "**Required ACL**: `auth.users.{user_uuid}.policies.read`"
+      operationId: getUserPolicies
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      - description: Name of the field to use for sorting the list of items returned.
+        in: query
+        name: order
+        schema:
+          type: string
+      - description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+          order
+        in: query
+        name: direction
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      - description: Search term for filtering a list of items. Only items with a
+          field containing the search term will be returned.
+        in: query
+        name: search
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPoliciesResult'
+          description: The user's policies
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the list of policies associated to a user
+      tags:
+      - users
+      - policies
+  /users/{user_uuid}/policies/{policy_uuid}:
+    delete:
+      description: "**Required ACL:** `auth.users.{user_uuid}.policies.{policy_uuid}.delete`"
+      operationId: deleteUserPolicy
+      parameters:
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The policy has been unassigned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User or Policy not found
+      security:
+      - accent_auth_token: []
+      summary: Dissociate a policy from a user
+      tags:
+      - users
+      - policies
+    put:
+      description: "**Required ACL:** `auth.users.{user_uuid}.policies.{policy_uuid}.create`"
+      operationId: addUserPolicy
+      parameters:
+      - description: "The UUID or slug of the policy. The slug is unique within a\
+          \ tenant, hence the tenant must be specified."
+        in: path
+        name: policy_uuid
+        required: true
+        schema:
+          type: string
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The policy has been assigned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User or Policy not found
+      security:
+      - accent_auth_token: []
+      summary: Associate a policy to a user
+      tags:
+      - users
+      - policies
+  /users/{user_uuid}/sessions:
+    get:
+      description: "**Required ACL**: `auth.users.{user_uuid}.sessions.read`"
+      operationId: getUserSessions
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The tenant's UUID, defining the ownership of a given resource."
+        in: header
+        name: Accent-Tenant
+        schema:
+          type: string
+      - description: The limit defines the number of individual objects that are returned
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: The offset defines the offsets the start by the number specified
+        in: query
+        name: offset
+        schema:
+          default: 0
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSessionsResult'
+          description: The sessions of the user
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: System related error
+      security:
+      - accent_auth_token: []
+      summary: Retrieves the list of sessions associated to a user
+      tags:
+      - users
+      - sessions
+  /users/{user_uuid}/sessions/{session_uuid}:
+    delete:
+      description: "**Required ACL**: `auth.users.{user_uuid}.sessions.{session_uuid}.delete`"
+      operationId: user_delete_session
+      parameters:
+      - description: The UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        schema:
+          type: string
+      - description: The UUID of the session
+        in: path
+        name: session_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: The session has been removed
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthorized
+      security:
+      - accent_auth_token: []
+      summary: Delete a session
+      tags:
+      - users
+      - sessions
+components:
+  parameters:
+    access:
+      description: The access to add
+      in: path
+      name: access
+      required: true
+      schema:
+        type: string
+    auth_type:
+      description: External auth type name
+      in: path
+      name: auth_type
+      required: true
+      schema:
+        type: string
+    client_id:
+      description: The client_id of the refresh token to revoke
+      in: path
+      name: client_id
+      required: true
+      schema:
+        type: string
+    direction:
+      description: Sort list of items in 'asc' (ascending) or 'desc' (descending)
+        order
+      in: query
+      name: direction
+      schema:
+        enum:
+        - asc
+        - desc
+        type: string
+    email_confirm_token:
+      description: The UUID of the token used to confirm the email address
+      in: query
+      name: token
+      required: true
+      schema:
+        type: string
+    email_uuid:
+      description: The UUID of the email
+      in: path
+      name: email_uuid
+      required: true
+      schema:
+        type: string
+    group_uuid:
+      description: The UUID of the group
+      in: path
+      name: group_uuid
+      required: true
+      schema:
+        type: string
+    has_policy_slug:
+      description: The slug of the policy that the user must have. This includes indirect
+        associations (user in group has policy).
+      in: query
+      name: has_policy_slug
+      schema:
+        type: string
+    has_policy_uuid:
+      description: The UUID of the policy that the user must have. This includes indirect
+        associations (user in group has policy).
+      in: query
+      name: has_policy_uuid
+      schema:
+        type: string
+    limit:
+      description: The limit defines the number of individual objects that are returned
+      in: query
+      name: limit
+      schema:
+        type: integer
+    offset:
+      description: The offset defines the offsets the start by the number specified
+      in: query
+      name: offset
+      schema:
+        default: 0
+        type: integer
+    order:
+      description: Name of the field to use for sorting the list of items returned.
+      in: query
+      name: order
+      schema:
+        type: string
+    policy_uuid:
+      description: "The UUID or slug of the policy. The slug is unique within a tenant,\
+        \ hence the tenant must be specified."
+      in: path
+      name: policy_uuid
+      required: true
+      schema:
+        type: string
+    recurse:
+      description: Should the query include sub-tenants
+      in: query
+      name: recurse
+      schema:
+        default: false
+        type: boolean
+    scope:
+      description: The required ACL
+      in: query
+      name: scope
+      schema:
+        type: string
+    search:
+      description: Search term for filtering a list of items. Only items with a field
+        containing the search term will be returned.
+      in: query
+      name: search
+      schema:
+        type: string
+    search_name:
+      description: The name of the group
+      in: query
+      name: name
+      schema:
+        type: string
+    search_policy_slug:
+      description: The slug of the policy that the user must have. This does not include
+        indirect associations (user in group has policy).
+      in: query
+      name: policy_slug
+      schema:
+        type: string
+    search_policy_uuid:
+      description: The UUID of the policy that the user must have. This does not include
+        indirect associations (user in group has policy).
+      in: query
+      name: policy_uuid
+      schema:
+        type: string
+    search_read_only:
+      description: Is the group managed by the system?
+      in: query
+      name: read_only
+      schema:
+        type: string
+    search_user_uuid:
+      description: The UUID of the user
+      in: query
+      name: user_uuid
+      schema:
+        type: string
+    search_uuid:
+      description: The UUID of the group
+      in: query
+      name: uuid
+      schema:
+        type: string
+    session_uuid:
+      description: The UUID of the session
+      in: path
+      name: session_uuid
+      required: true
+      schema:
+        type: string
+    tenant:
+      description: A tenant UUID to check against
+      in: query
+      name: tenant
+      schema:
+        type: string
+    tenant_uuid:
+      description: The UUID of the tenant
+      in: path
+      name: tenant_uuid
+      required: true
+      schema:
+        type: string
+    tenantuuid:
+      description: "The tenant's UUID, defining the ownership of a given resource."
+      in: header
+      name: Accent-Tenant
+      schema:
+        type: string
+    token:
+      description: The token to query
+      in: path
+      name: token
+      required: true
+      schema:
+        type: string
+    user_uuid:
+      description: The UUID of the user
+      in: path
+      name: user_uuid
+      required: true
+      schema:
+        type: string
+    user_uuid_or_me:
+      description: The UUID of the user or `me` to refer to the user doing the query
+      in: path
+      name: user_uuid_or_me
+      required: true
+      schema:
+        type: string
+    accent_session_type:
+      description: The session type
+      in: header
+      name: Accent-Session-Type
+      schema:
+        enum:
+        - mobile
+        - desktop
+        type: string
+  requestBodies:
+    ConfigPatch:
+      content:
+        application/json:
+          schema:
+            items:
+              $ref: '#/components/schemas/ConfigPatchItem'
+            type: array
+      description: See https://en.wikipedia.org/wiki/JSON_Patch.
+      required: true
+  schemas:
+    APIError:
+      example:
+        resource: resource
+        details: "{}"
+        message: message
+        timestamp: 0.8008281904610115
+      properties:
+        details:
+          properties: {}
+          type: object
+        message:
+          type: string
+        resource:
+          type: string
+        timestamp:
+          type: number
+      type: object
+    AdminUserEmailList:
+      example:
+        emails:
+        - address: address
+          main: true
+          confirmed: true
+        - address: address
+          main: true
+          confirmed: true
+      properties:
+        emails:
+          items:
+            $ref: '#/components/schemas/AdminUserEmailList_emails_inner'
+          type: array
+      type: object
+    BackendList:
+      example:
+        data:
+        - data
+        - data
+      properties:
+        data:
+          items:
+            type: string
+          type: array
+      type: object
+    ConfigPatchItem:
+      example:
+        op: op
+        path: path
+        value: "{}"
+      properties:
+        op:
+          description: "Patch operation. Supported operations: `replace`."
+          type: string
+        path:
+          description: "JSON path to operate on. Supported paths: `/debug`."
+          type: string
+        value:
+          description: The new value for the operation. Type of value is dependent
+            of `path`
+          properties: {}
+          type: object
+      type: object
+    Error:
+      example:
+        reason:
+        - reason
+        - reason
+        status_code: 0
+        timestamp:
+        - timestamp
+        - timestamp
+      properties:
+        reason:
+          items:
+            type: string
+          type: array
+        status_code:
+          type: integer
+        timestamp:
+          items:
+            type: string
+          type: array
+      type: object
+    ExternalAuth:
+      example:
+        plugin_info: "{}"
+        data: "{}"
+        type: type
+        enabled: true
+      properties:
+        data:
+          properties: {}
+          type: object
+        enabled:
+          type: boolean
+        plugin_info:
+          properties: {}
+          type: object
+        type:
+          description: The external auth type name
+          type: string
+      type: object
+    ExternalAuthList:
+      example:
+        total: 6
+        filtered: 0
+        items:
+        - plugin_info: "{}"
+          data: "{}"
+          type: type
+          enabled: true
+        - plugin_info: "{}"
+          data: "{}"
+          type: type
+          enabled: true
+      properties:
+        filtered:
+          description: The number of external auth matching the searched term.
+          type: integer
+        items:
+          description: A paginated list of external auth
+          items:
+            $ref: '#/components/schemas/ExternalAuth'
+          type: array
+        total:
+          description: The number of external auth.
+          type: integer
+      required:
+      - filtered
+      - items
+      - total
+      type: object
+    ExternalAuthUser:
+      properties:
+        uuid:
+          format: uuid
+          type: string
+      type: object
+    ExternalAuthUserList:
+      example:
+        total: 3
+        filtered: 3
+        items:
+        - user_uuid: 210ef281-4201-4f95-952f-5f8d5211e085
+        - user_uuid: 28e6f253-a19d-458d-8b52-2ba6feb788bc
+        - user_uuid: e72fe53d-3981-4c51-a488-e06ca94fcbb1
+      properties:
+        filtered:
+          description: The number of external auth matching the searched term.
+          example: 3
+          type: integer
+        items:
+          description: A paginated list of connected external auth users
+          example:
+          - user_uuid: 210ef281-4201-4f95-952f-5f8d5211e085
+          - user_uuid: 28e6f253-a19d-458d-8b52-2ba6feb788bc
+          - user_uuid: e72fe53d-3981-4c51-a488-e06ca94fcbb1
+          items:
+            $ref: '#/components/schemas/ExternalAuthUser'
+          type: array
+        total:
+          description: The number of connected external auth users.
+          example: 3
+          type: integer
+      required:
+      - filtered
+      - items
+      - total
+      type: object
+    ExternalConfig:
+      example:
+        ios_apn_certificate: ios_apn_certificate
+        ios_apn_private: true
+        fcm_api_key: fcm_api_key
+        client_secret: a-client-secret
+        use_sandbox: true
+        client_id: a-client-id
+      properties:
+        client_id:
+          description: |
+            Client ID for the given authentication type.
+            Required only for `google` and `microsoft` authentication types.
+          example: a-client-id
+          type: string
+        client_secret:
+          description: |
+            Client secret for the given authentication type.
+            Required only for `google` and `microsoft` authentication types.
+          example: a-client-secret
+          type: string
+        fcm_api_key:
+          description: The API key to use for Firebase Cloud Messaging
+          type: string
+        ios_apn_certificate:
+          description: Public certificate to use for Apple Push Notification Service
+          type: string
+        ios_apn_private:
+          description: Private key to use for Apple Push Notification Service
+          type: boolean
+        use_sandbox:
+          description: Whether to use sandbox for Apple Push Notification Service
+          type: boolean
+      type: object
+    GetGroupsResult:
+      example:
+        total: 6
+        filtered: 0
+        items:
+        - read_only: true
+          tenant_uuid: tenant_uuid
+          name: name
+          system_managed: true
+          uuid: uuid
+          slug: slug
+        - read_only: true
+          tenant_uuid: tenant_uuid
+          name: name
+          system_managed: true
+          uuid: uuid
+          slug: slug
+      properties:
+        filtered:
+          description: The number of groups matching the searched term.
+          type: integer
+        items:
+          description: A paginated list of groups
+          items:
+            $ref: '#/components/schemas/GroupResult'
+          type: array
+        total:
+          description: The number of groups.
+          type: integer
+      required:
+      - filtered
+      - items
+      - total
+      type: object
+    GetPoliciesResult:
+      example:
+        total: 0
+        items:
+        - shared: true
+          read_only: true
+          name: name
+          description: description
+          acl:
+          - acl
+          - acl
+          uuid: uuid
+          slug: slug
+        - shared: true
+          read_only: true
+          name: name
+          description: description
+          acl:
+          - acl
+          - acl
+          uuid: uuid
+          slug: slug
+      properties:
+        items:
+          description: A paginated list of policies
+          items:
+            $ref: '#/components/schemas/PolicyResult'
+          type: array
+        total:
+          description: The number of policies matching the searched term
+          type: integer
+      required:
+      - items
+      - total
+      type: object
+    GetSessionsResult:
+      example:
+        total: 6
+        filtered: 0
+        items:
+        - user_uuid: user_uuid
+          tenant_uuid: tenant_uuid
+          mobile: true
+          uuid: uuid
+        - user_uuid: user_uuid
+          tenant_uuid: tenant_uuid
+          mobile: true
+          uuid: uuid
+      properties:
+        filtered:
+          description: The number of sessions matching the searched term.
+          type: integer
+        items:
+          description: A paginated list of sessions
+          items:
+            $ref: '#/components/schemas/SessionResult'
+          type: array
+        total:
+          description: The number of sessions.
+          type: integer
+      required:
+      - filtered
+      - items
+      - total
+      type: object
+    Group:
+      properties:
+        name:
+          type: string
+        slug:
+          default: <name>
+          type: string
+      required:
+      - name
+      type: object
+    GroupPut:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    GroupResult:
+      example:
+        read_only: true
+        tenant_uuid: tenant_uuid
+        name: name
+        system_managed: true
+        uuid: uuid
+        slug: slug
+      properties:
+        name:
+          type: string
+        read_only:
+          type: boolean
+        slug:
+          type: string
+        system_managed:
+          description: '*Deprecated* Please use `read_only`'
+          type: boolean
+        tenant_uuid:
+          type: string
+        uuid:
+          type: string
+      type: object
+    LDAPBackendConfig:
+      example:
+        bind_dn: "CN=accent-auth,DC=accent-voice,DC=org"
+        user_login_attribute: uid
+        protocol_version: 2
+        port: 389
+        tenant_uuid: tenant_uuid
+        host: host
+        user_base_dn: "OU=people,DC=accent-voice,DC=org"
+        search_filters: "{user_login_attribute}={username}"
+        user_email_attribute: mail
+        protocol_security: ""
+      properties:
+        bind_dn:
+          description: |
+            The DN to use to bind the `accent-auth` service to the LDAP server. If
+            unspecified, `accent-auth` will not bind with a service user but only with the
+            final user account. For this to work though, your users will need to have the
+            right to read their own information, particularly their email address.
+          example: "CN=accent-auth,DC=accent-voice,DC=org"
+          type: string
+        host:
+          description: 'The host or IP address of the LDAP server. '
+          type: string
+        port:
+          description: The port on which to connect to the LDAP server.
+          example: 389
+          type: integer
+        protocol_security:
+          default: ""
+          description: The layer of security to use for the connection.
+          enum:
+          - ""
+          - tls
+          - ldaps
+          type: string
+        protocol_version:
+          description: LDAP protocol version to use
+          maximum: 3
+          minimum: 2
+          type: integer
+        search_filters:
+          description: "Filters for finding a user DN given a service bind is used.\
+            \ Available variables are `username`, `user_login_attribute` and `user_email_attribute`.\
+            \ These variables come from the fields of the same name from the API. "
+          example: "{user_login_attribute}={username}"
+          type: string
+        tenant_uuid:
+          readOnly: true
+          type: string
+        user_base_dn:
+          description: The base DN in which users are located
+          example: "OU=people,DC=accent-voice,DC=org"
+          type: string
+        user_email_attribute:
+          description: The attribute of the email address in the LDAP schema.
+          example: mail
+          type: string
+        user_login_attribute:
+          description: 'The attribute that identifies users. It will be prepended
+            to the `user_base_dn`. '
+          example: uid
+          type: string
+      required:
+      - host
+      - port
+      - user_base_dn
+      - user_email_attribute
+      - user_login_attribute
+      type: object
+    LDAPBackendConfigEdit:
+      allOf:
+      - $ref: '#/components/schemas/LDAPBackendConfig'
+      - properties:
+          bind_password:
+            description: 'The password to use to bind the `accent-auth` service to
+              the LDAP server. '
+            type: string
+        type: object
+      example:
+        bind_dn: "CN=accent-auth,DC=accent-voice,DC=org"
+        user_login_attribute: uid
+        protocol_version: 2
+        bind_password: bind_password
+        port: 389
+        tenant_uuid: tenant_uuid
+        host: host
+        user_base_dn: "OU=people,DC=accent-voice,DC=org"
+        search_filters: "{user_login_attribute}={username}"
+        user_email_attribute: mail
+        protocol_security: ""
+    PasswordChange:
+      example:
+        old_password: old_password
+        new_password: new_password
+      properties:
+        new_password:
+          description: The desired password
+          type: string
+        old_password:
+          description: The old password
+          type: string
+      required:
+      - new_password
+      - old_password
+      type: object
+    Policy:
+      example:
+        shared: true
+        name: name
+        description: description
+        acl:
+        - acl
+        - acl
+        slug: slug
+      properties:
+        acl:
+          items:
+            type: string
+          type: array
+        description:
+          type: string
+        name:
+          type: string
+        shared:
+          description: "Should be shared to sub-tenants or not. Cannot be changed\
+            \ after creation\nWhen shared is `true`, then all tenants below this policy's\
+            \ tenant\nwill see it as their own policy with the attribute `read_only:\
+            \ true`.\n\nUsing `shared` attribute will add uniqueness constraints for\
+            \ the slug\namong all policies' sub-tenants. "
+          type: boolean
+        slug:
+          description: "A unique, human readable identifier for this policy"
+          type: string
+      required:
+      - name
+      type: object
+    PolicyResult:
+      allOf:
+      - $ref: '#/components/schemas/Policy'
+      - properties:
+          read_only:
+            type: boolean
+          uuid:
+            type: string
+        type: object
+      example:
+        shared: true
+        read_only: true
+        name: name
+        description: description
+        acl:
+        - acl
+        - acl
+        uuid: uuid
+        slug: slug
+    PostPasswordReset:
+      example:
+        password: password
+      properties:
+        password:
+          description: The desired password
+          type: string
+      required:
+      - password
+      type: object
+    RefreshToken:
+      example:
+        user_uuid: user_uuid
+        tenant_uuid: tenant_uuid
+        mobile: true
+        created_at: created_at
+        client_id: client_id
+      properties:
+        client_id:
+          description: The `client_id` that was used to create this refresh token
+          type: string
+        created_at:
+          description: The time at which this token was created
+          type: string
+        mobile:
+          description: Indicate if that refresh token was created with a mobile session
+            type
+          type: boolean
+        tenant_uuid:
+          description: The tenant UUID of the user which created this refresh token
+          type: string
+        user_uuid:
+          description: The UUID of the user which created this refresh token
+          type: string
+      type: object
+    RefreshTokenList:
+      example:
+        total: 6
+        filtered: 0
+        items:
+        - user_uuid: user_uuid
+          tenant_uuid: tenant_uuid
+          mobile: true
+          created_at: created_at
+          client_id: client_id
+        - user_uuid: user_uuid
+          tenant_uuid: tenant_uuid
+          mobile: true
+          created_at: created_at
+          client_id: client_id
+      properties:
+        filtered:
+          description: The number of refresh token matching the searched terms
+          type: integer
+        items:
+          description: A paginated list of refresh tokens
+          items:
+            $ref: '#/components/schemas/RefreshToken'
+          type: array
+        total:
+          description: The number of refresh tokens for that user
+          type: integer
+      type: object
+    ScopeCheckRequest:
+      example:
+        tenant_uuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        scopes:
+        - scopes
+        - scopes
+      properties:
+        scopes:
+          description: Scopes to check against
+          items:
+            type: string
+          type: array
+        tenant_uuid:
+          description: "If provided, also checks the token against this tenant"
+          format: uuid
+          type: string
+      required:
+      - scopes
+      type: object
+    ScopeList:
+      example:
+        scopes:
+        - "{}"
+        - "{}"
+      properties:
+        scopes:
+          description: the scopes and their check result
+          items:
+            description: "JSON object with scopes as keys and boolean values whether\
+              \ the token is valid for the given scope, e.g. `{\"confd.groups.create\"\
+              : true}`"
+            properties: {}
+            type: object
+          type: array
+      type: object
+    SessionResult:
+      example:
+        user_uuid: user_uuid
+        tenant_uuid: tenant_uuid
+        mobile: true
+        uuid: uuid
+      properties:
+        mobile:
+          type: boolean
+        tenant_uuid:
+          type: string
+        user_uuid:
+          type: string
+        uuid:
+          type: string
+      type: object
+    TenantAddress:
+      example:
+        line_1: line_1
+        country: country
+        line_2: line_2
+        city: city
+        state: state
+        zip_code: zip_code
+      properties:
+        city:
+          type: string
+        country:
+          type: string
+        line_1:
+          description: The first line of the address
+          type: string
+        line_2:
+          description: The second line of the address
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+      type: object
+    TenantCreate:
+      example:
+        address:
+          line_1: line_1
+          country: country
+          line_2: line_2
+          city: city
+          state: state
+          zip_code: zip_code
+        phone: phone
+        contact: contact
+        name: name
+        uuid: uuid
+        slug: slug
+        domain_names:
+        - domain_names
+        - domain_names
+      properties:
+        address:
+          $ref: '#/components/schemas/TenantAddress'
+        contact:
+          description: The contact user's UUID
+          type: string
+        domain_names:
+          description: "A list containing human readeable unique domain names, associated\
+            \ with a specific tenant"
+          items:
+            type: string
+          type: array
+          uniqueItems: true
+        name:
+          description: The tenant's name
+          type: string
+        phone:
+          description: The tenant's contact phone number
+          type: string
+        slug:
+          description: "A unique, human readeable identifier for this tenant. This\
+            \ field cannot be modified and will be auto-generated if missing."
+          type: string
+        uuid:
+          description: The tenant's UUID
+          type: string
+      type: object
+    TenantEdit:
+      example:
+        address:
+          line_1: line_1
+          country: country
+          line_2: line_2
+          city: city
+          state: state
+          zip_code: zip_code
+        phone: phone
+        contact: contact
+        name: name
+        domain_names:
+        - domain_names
+        - domain_names
+      properties:
+        address:
+          $ref: '#/components/schemas/TenantAddress'
+        contact:
+          description: The contact user's UUID
+          type: string
+        domain_names:
+          description: "A list containing human readeable unique domain names, associated\
+            \ with a specific tenant"
+          items:
+            type: string
+          type: array
+          uniqueItems: true
+        name:
+          description: The tenant's name
+          type: string
+        phone:
+          description: The tenant's contact phone number
+          type: string
+      type: object
+    TenantList:
+      example:
+        total: 6
+        filtered: 0
+        items:
+        - address:
+            line_1: line_1
+            country: country
+            line_2: line_2
+            city: city
+            state: state
+            zip_code: zip_code
+          phone: phone
+          contact: contact
+          name: name
+          uuid: uuid
+          slug: slug
+          domain_names:
+          - domain_names
+          - domain_names
+        - address:
+            line_1: line_1
+            country: country
+            line_2: line_2
+            city: city
+            state: state
+            zip_code: zip_code
+          phone: phone
+          contact: contact
+          name: name
+          uuid: uuid
+          slug: slug
+          domain_names:
+          - domain_names
+          - domain_names
+      properties:
+        filtered:
+          description: The number of tenants matching the searched term
+          type: integer
+        items:
+          description: A paginated list of tenants
+          items:
+            $ref: '#/components/schemas/TenantResult'
+          type: array
+        total:
+          description: The number of tenants
+          type: integer
+      type: object
+    TenantPostResponse:
+      example:
+        parent_uuid: parent_uuid
+        name: name
+        uuid: uuid
+      properties:
+        name:
+          type: string
+        parent_uuid:
+          type: string
+        uuid:
+          type: string
+      type: object
+    TenantResult:
+      example:
+        address:
+          line_1: line_1
+          country: country
+          line_2: line_2
+          city: city
+          state: state
+          zip_code: zip_code
+        phone: phone
+        contact: contact
+        name: name
+        uuid: uuid
+        slug: slug
+        domain_names:
+        - domain_names
+        - domain_names
+      properties:
+        address:
+          $ref: '#/components/schemas/TenantAddress'
+        contact:
+          description: The contact user's UUID
+          type: string
+        domain_names:
+          description: "A list containing human readable unique domain names, associated\
+            \ with a specific tenant"
+          items:
+            type: string
+          type: array
+          uniqueItems: true
+        name:
+          type: string
+        phone:
+          description: The tenant's contact phone number
+          type: string
+        slug:
+          description: "A unique, human readeable identifier for this tenant"
+          type: string
+        uuid:
+          type: string
+      type: object
+    Token:
+      example:
+        data:
+          accent_user_uuid: accent_user_uuid
+          utc_issued_at: utc_issued_at
+          metadata: "{}"
+          expires_at: expires_at
+          utc_expires_at: utc_expires_at
+          auth_id: auth_id
+          acl:
+          - acl
+          - acl
+          issued_at: issued_at
+          session_uuid: session_uuid
+          accent_uuid: accent_uuid
+          token: token
+      properties:
+        data:
+          $ref: '#/components/schemas/Token_data'
+      type: object
+    UserCreate:
+      example:
+        firstname: firstname
+        password: password
+        email_address: email_address
+        purpose: user
+        uuid: uuid
+        enabled: true
+        lastname: lastname
+        username: username
+      properties:
+        email_address:
+          description: The main email address of the new username
+          type: string
+        enabled:
+          type: boolean
+        firstname:
+          description: The user's firstname
+          type: string
+        lastname:
+          description: The user's lastname
+          type: string
+        password:
+          description: The password of the newly created username
+          type: string
+        purpose:
+          default: user
+          enum:
+          - user
+          - internal
+          - external_api
+          type: string
+        username:
+          description: The username that will identify that new username
+          type: string
+        uuid:
+          description: The user's UUID
+          type: string
+      type: object
+    UserEdit:
+      example:
+        firstname: firstname
+        purpose: user
+        enabled: true
+        lastname: lastname
+        username: username
+      properties:
+        enabled:
+          type: boolean
+        firstname:
+          description: The user's firstname
+          type: string
+        lastname:
+          description: The user's lastname
+          type: string
+        purpose:
+          default: user
+          enum:
+          - user
+          - internal
+          - external_api
+          type: string
+        username:
+          description: The username that will identify that new username
+          type: string
+      type: object
+    UserEmail:
+      example:
+        address: address
+        main: true
+        confirmed: true
+      properties:
+        address:
+          type: string
+        confirmed:
+          type: boolean
+        main:
+          type: boolean
+      type: object
+    UserEmailList:
+      example:
+        emails:
+        - address: address
+          main: true
+        - address: address
+          main: true
+      properties:
+        emails:
+          items:
+            $ref: '#/components/schemas/UserEmailList_emails_inner'
+          type: array
+      type: object
+    UserList:
+      example:
+        total: 6
+        filtered: 0
+        items:
+        - emails:
+          - address: address
+            main: true
+            confirmed: true
+          - address: address
+            main: true
+            confirmed: true
+          firstname: firstname
+          purpose: user
+          tenant_uuid: tenant_uuid
+          uuid: uuid
+          enabled: true
+          lastname: lastname
+          username: username
+        - emails:
+          - address: address
+            main: true
+            confirmed: true
+          - address: address
+            main: true
+            confirmed: true
+          firstname: firstname
+          purpose: user
+          tenant_uuid: tenant_uuid
+          uuid: uuid
+          enabled: true
+          lastname: lastname
+          username: username
+      properties:
+        filtered:
+          description: The number of users matching the searched term
+          type: integer
+        items:
+          description: A paginated list of users
+          items:
+            $ref: '#/components/schemas/UserResult'
+          type: array
+        total:
+          description: The number of users
+          type: integer
+      type: object
+    UserPostResponse:
+      example:
+        emails:
+        - address: address
+          main: true
+          confirmed: true
+        - address: address
+          main: true
+          confirmed: true
+        purpose: user
+        uuid: uuid
+        username: username
+      properties:
+        emails:
+          items:
+            $ref: '#/components/schemas/UserEmail'
+          type: array
+        purpose:
+          enum:
+          - user
+          - internal
+          - external_api
+          type: string
+        username:
+          type: string
+        uuid:
+          type: string
+      type: object
+    UserRegister:
+      example:
+        firstname: firstname
+        password: password
+        email_address: email_address
+        lastname: lastname
+        username: username
+      properties:
+        email_address:
+          description: The main email address of the new username
+          type: string
+        firstname:
+          description: The user's firstname
+          type: string
+        lastname:
+          description: The user's lastname
+          type: string
+        password:
+          description: The password of the newly created username
+          type: string
+        username:
+          description: The username that will identify that new username
+          type: string
+      required:
+      - email_address
+      - password
+      - username
+      type: object
+    UserResult:
+      example:
+        emails:
+        - address: address
+          main: true
+          confirmed: true
+        - address: address
+          main: true
+          confirmed: true
+        firstname: firstname
+        purpose: user
+        tenant_uuid: tenant_uuid
+        uuid: uuid
+        enabled: true
+        lastname: lastname
+        username: username
+      properties:
+        emails:
+          items:
+            $ref: '#/components/schemas/UserEmail'
+          type: array
+        enabled:
+          type: boolean
+        firstname:
+          type: string
+        lastname:
+          type: string
+        purpose:
+          enum:
+          - user
+          - internal
+          - external_api
+          type: string
+        tenant_uuid:
+          type: string
+        username:
+          type: string
+        uuid:
+          type: string
+      type: object
+    createToken_request:
+      properties:
+        access_type:
+          default: online
+          description: "The `access_type` indicates whether your application can refresh\
+            \ the tokens when the user is not\npresent at the browser. Valid parameter\
+            \ values are *online*, which is the default value, and *offline*\nOnly\
+            \ one refresh token will be created for a given user with a given `client_id`.\
+            \ The old refresh\nfor `client_id` will be revoken when creating a new\
+            \ one.\nThe *client_id* field is required when using the `access_type`\
+            \ *offline* "
+          enum:
+          - online
+          - offline
+          type: string
+        backend:
+          default: accent_user
+          type: string
+        client_id:
+          description: "The `client_id` is used in conjunction with the `access_type`\
+            \ *offline* to known for which application\na refresh token has been emitted.\n\
+            *Required when using `access_type: offline`* "
+          type: string
+        domain_name:
+          description: |
+            The `domain_name` must match a tenant's domain_name entry to find the appropriate ldap configuration.
+          type: string
+        expiration:
+          description: Expiration time in seconds.
+          maximum: 315360000
+          type: integer
+        refresh_token:
+          description: "The `refresh_token` can be used to get a new access token\
+            \ without using the username/password.\nThis is useful for client application\
+            \ that should not store the username and password once the\nuser has logged\
+            \ in a first time. "
+          type: string
+      type: object
+    AdminUserEmailList_emails_inner:
+      example:
+        address: address
+        main: true
+        confirmed: true
+      properties:
+        address:
+          type: string
+        confirmed:
+          type: boolean
+        main:
+          type: boolean
+      required:
+      - main
+      type: object
+    Token_data:
+      example:
+        accent_user_uuid: accent_user_uuid
+        utc_issued_at: utc_issued_at
+        metadata: "{}"
+        expires_at: expires_at
+        utc_expires_at: utc_expires_at
+        auth_id: auth_id
+        acl:
+        - acl
+        - acl
+        issued_at: issued_at
+        session_uuid: session_uuid
+        accent_uuid: accent_uuid
+        token: token
+      properties:
+        acl:
+          description: The list of allowed accesses for this token
+          items:
+            type: string
+          type: array
+        auth_id:
+          description: The unique identifier retrieved from the backend
+          type: string
+        expires_at:
+          type: string
+        issued_at:
+          type: string
+        metadata:
+          description: Information owned by accent-auth about this user
+          properties: {}
+          type: object
+        session_uuid:
+          type: string
+        token:
+          type: string
+        utc_expires_at:
+          type: string
+        utc_issued_at:
+          type: string
+        accent_user_uuid:
+          description: "The UUID of the matching accent-confd user if there is one.\
+            \ This field can be null.\nThis field should NOT be used anymore, the\
+            \ \"pbx_user_uuid\" in the\nmetadata field is the prefered method to access\
+            \ this information. "
+          type: string
+        accent_uuid:
+          type: string
+      type: object
+    UserEmailList_emails_inner:
+      example:
+        address: address
+        main: true
+      properties:
+        address:
+          type: string
+        main:
+          type: boolean
+      required:
+      - main
+      type: object
+  securitySchemes:
+    accent_auth_basic:
+      scheme: basic
+      type: http
+    accent_auth_token:
+      in: header
+      name: X-Auth-Token
+      type: apiKey
+x-accent-name: auth
+x-accent-port: 9497
+x-original-swagger-version: "2.0"

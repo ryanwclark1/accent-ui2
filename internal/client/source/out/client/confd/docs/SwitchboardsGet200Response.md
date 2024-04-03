@@ -1,0 +1,53 @@
+# SwitchboardsGet200Response
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Items** | Pointer to [**[]Switchboard**](Switchboard.md) |  | [optional]
+
+## Methods
+
+### NewSwitchboardsGet200Response
+
+`func NewSwitchboardsGet200Response() *SwitchboardsGet200Response`
+
+NewSwitchboardsGet200Response instantiates a new SwitchboardsGet200Response object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSwitchboardsGet200ResponseWithDefaults
+
+`func NewSwitchboardsGet200ResponseWithDefaults() *SwitchboardsGet200Response`
+
+NewSwitchboardsGet200ResponseWithDefaults instantiates a new SwitchboardsGet200Response object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetItems
+
+`func (o *SwitchboardsGet200Response) GetItems() []Switchboard`
+
+GetItems returns the Items field if non-nil, zero value otherwise.
+
+### GetItemsOk
+
+`func (o *SwitchboardsGet200Response) GetItemsOk() (*[]Switchboard, bool)`
+
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItems
+
+`func (o *SwitchboardsGet200Response) SetItems(v []Switchboard)`
+
+SetItems sets Items field to given value.
+
+### HasItems
+
+`func (o *SwitchboardsGet200Response) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

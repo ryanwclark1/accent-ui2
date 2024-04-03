@@ -1,0 +1,189 @@
+host: api.accentvoice.io
+basePath: /1.0
+definitions:
+  ActionArguments:
+    example:
+      Async: 'True'
+      Channel: SIP/abcdef
+      Context: default
+      Exten: '1234'
+      Priority: '1'
+      Variable:
+      - Var1=one
+      - Var2=two
+    properties: {}
+  Command:
+    properties:
+      command:
+        type: string
+    required:
+    - command
+  CommandResponse:
+    properties:
+      response:
+        items:
+          type: string
+        type: array
+  ComponentWithStatus:
+    properties:
+      status:
+        $ref: '#/definitions/StatusValue'
+    type: object
+  Error:
+    properties:
+      details:
+        type: object
+      error_id:
+        type: string
+      message:
+        type: string
+      timestamp:
+        format: timestamp
+        type: number
+  Response:
+    properties:
+      response:
+        description: Name of the action response
+        type: string
+  StatusSummary:
+    properties:
+      ami_socket:
+        $ref: '#/definitions/ComponentWithStatus'
+      bus_publisher:
+        $ref: '#/definitions/ComponentWithStatus'
+      rest_api:
+        $ref: '#/definitions/ComponentWithStatus'
+      service_token:
+        $ref: '#/definitions/ComponentWithStatus'
+    type: object
+  StatusValue:
+    enum:
+    - fail
+    - ok
+    type: string
+info:
+  contact:
+    email: help@accentvoice.io
+    name: Accent Team
+    url: https://accentvoice.io/
+  description: Send AMI actions to Asterisk, providing token based authentication.
+  license:
+    name: Proprietary
+    url: https://accentvoice.io/
+  title: accent-amid
+  version: '0.1'
+  x-logo:
+    altText: Accent Logo
+    backgroundColor: '#FAFAFA'
+    url: https://accentvoice.io/images/logo-black.svg
+paths:
+  /action/Command:
+    post:
+      description: '**Required ACL:** `amid.action.Command.create`
+
+        This endpoint sends a command to the Asterisk Manager.
+
+        See https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+AMI+Actions for
+        more details about the AMI message parameters.
+        '
+      operationId: commandAsteriskManager
+      parameters:
+      - description: 'The command to send to the manager.
+          '
+        in: body
+        name: command
+        schema:
+          $ref: '#/definitions/Command'
+      responses:
+        '200':
+          description: The Asterisk Manager response
+          schema:
+            $ref: '#/definitions/CommandResponse'
+        '400':
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Invalid authentication token
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: Another service is unavailable (e.g. accent-auth)
+          schema:
+            $ref: '#/definitions/Error'
+      summary: AMI command
+      tags:
+      - command
+  /action/{action}:
+    post:
+      description: '**Required ACL:** `amid.action.{action}.create`
+
+        The Action endpoint sends an action to the Asterisk Manager.
+
+        See https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+AMI+Actions for
+        more details about the AMI message parameters.
+        '
+      operationId: actionAsteriskManager
+      parameters:
+      - description: 'Name of the manager action. Currently not supported: Queues,
+          Command.'
+        in: path
+        name: action
+        required: true
+        type: string
+      - description: 'Arguments for the manager action.
+
+          Action: taken from the URL
+
+          ActionID: not necessary
+
+          If you need a same key multiple times, give a list of values.
+
+          For Action: Originate, you should always use Async: True'
+        in: body
+        name: action_arguments
+        schema:
+          $ref: '#/definitions/ActionArguments'
+      responses:
+        '200':
+          description: The Asterisk Manager responses
+          schema:
+            $ref: '#/definitions/Response'
+        '401':
+          description: Invalid authentication token
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: Another service is unavailable (e.g. accent-auth)
+          schema:
+            $ref: '#/definitions/Error'
+      summary: AMI action
+      tags:
+      - action
+  /status:
+    get:
+      description: '**Required ACL:** `amid.status.read`'
+      operationId: statusSummary
+      responses:
+        '200':
+          description: The internal infos of accent-amid
+          schema:
+            $ref: '#/definitions/StatusSummary'
+      summary: Print infos about internal status of accent-amid
+      tags:
+      - status
+produces:
+- application/json
+schemes:
+- http
+- https
+security:
+- accent_auth_token: []
+securityDefinitions:
+  accent_auth_token:
+    in: header
+    name: X-Auth-Token
+    type: apiKey
+swagger: '2.0'
+x-accent-name: amid
+x-accent-port: 9491

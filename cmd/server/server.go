@@ -10,8 +10,8 @@ import (
 	"time"
 
 
-	"github.com/ryanwclark1/ui2/internal/server"
-	"github.com/ryanwclark1/ui2/internal/config"
+	"github.com/ryanwclark1/accent-ui2/internal/api/server"
+	"github.com/ryanwclark1/accent-ui2/internal/config"
 
 )
 

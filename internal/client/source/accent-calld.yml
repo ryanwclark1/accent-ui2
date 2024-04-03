@@ -1,0 +1,3693 @@
+host: api.accentvoice.io
+basePath: /1.0
+definitions:
+  AdhocConference:
+    properties:
+      conference_id:
+        description: The ID of the adhoc conference
+        type: string
+    type: object
+  AdhocConferenceCreation:
+    properties:
+      host_call_id:
+        description: The call_id of the host call
+        type: string
+      participant_call_ids:
+        description: The call_id of the participating calls in this conference, excluding
+          the host.
+        items:
+          type: string
+        type: array
+    type: object
+  Application:
+    properties:
+      destination_node_uuid:
+        type: string
+    type: object
+  ApplicationCall:
+    properties:
+      caller_id_name:
+        type: string
+      caller_id_number:
+        type: string
+      creation_time:
+        type: string
+      dialed_extension:
+        type: string
+      id:
+        type: string
+      is_caller:
+        type: boolean
+      node_uuid:
+        type: string
+      on_hold:
+        type: boolean
+      snoops:
+        type: object
+      status:
+        description: '* Down: the call is not connected to anything yet
+
+          * Ring: the call just came in the application
+
+          * Progress: the call is playing a progress ringing tone
+
+          * Up: the call is answered and media can be sent/received
+
+          * Ringing: the call is ringing the phone
+
+          '
+        type: string
+      variables:
+        type: object
+    type: object
+  ApplicationCallRequestToExten:
+    properties:
+      autoanswer:
+        default: false
+        type: boolean
+      context:
+        type: string
+      displayed_caller_id_name:
+        type: string
+      displayed_caller_id_number:
+        type: string
+      exten:
+        type: string
+      variables:
+        description: channel variables that should be assigned on this new channel
+        type: object
+    required:
+    - exten
+    - context
+    type: object
+  ApplicationCallRequestToUser:
+    properties:
+      autoanswer:
+        default: false
+        type: boolean
+      displayed_caller_id_name:
+        type: string
+      displayed_caller_id_number:
+        type: string
+      user_uuid:
+        type: string
+      variables:
+        description: channel variables that should be assigned on this new channel
+        type: object
+    required:
+    - user_uuid
+    type: object
+  ApplicationCalls:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/ApplicationCall'
+        type: array
+    type: object
+  ApplicationNode:
+    properties:
+      calls:
+        items:
+          $ref: '#/definitions/ApplicationCall'
+        type: array
+      uuid:
+        type: string
+    type: object
+  ApplicationNodeCallRequest:
+    properties:
+      id:
+        type: string
+    type: object
+  ApplicationNodeRequest:
+    properties:
+      calls:
+        items:
+          $ref: '#/definitions/ApplicationNodeCallRequest'
+        type: array
+    type: object
+  ApplicationNodes:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/ApplicationNode'
+        type: array
+    type: object
+  ApplicationPlayback:
+    properties:
+      language:
+        type: string
+      uri:
+        type: string
+      uuid:
+        readOnly: true
+        type: string
+    type: object
+  ApplicationSnoop:
+    properties:
+      snooped_call_id:
+        readOnly: true
+        type: string
+      snooping_call_id:
+        type: string
+      uuid:
+        readOnly: true
+        type: string
+      whisper_mode:
+        enum:
+        - in
+        - out
+        - none
+        - both
+        type: string
+    required:
+    - snooping_call_id
+    - whisper_mode
+    type: object
+  ApplicationSnoopPut:
+    properties:
+      whisper_mode:
+        enum:
+        - in
+        - out
+        - none
+        - both
+        type: string
+    type: object
+  ApplicationSnoops:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/ApplicationSnoop'
+        type: array
+    type: object
+  Call:
+    properties:
+      answer_time:
+        format: date-time
+        type: string
+      bridges:
+        items:
+          type: string
+        type: array
+      call_id:
+        type: string
+      caller_id_name:
+        type: string
+      caller_id_number:
+        type: string
+      conversation_id:
+        type: string
+      creation_time:
+        format: date-time
+        type: string
+      dialed_extension:
+        type: string
+      direction:
+        enum:
+        - internal
+        - outbound
+        - inbound
+        - unknown
+        type: string
+      hangup_time:
+        format: date-time
+        type: string
+      is_caller:
+        description: This value is only correct when the destination of the call is
+          a user or outgoing call. In other cases, it is always False.
+        type: boolean
+      is_video:
+        description: If this call has a video track
+        type: boolean
+      line_id:
+        description: Line ID of the endpoint making the call
+        readOnly: true
+        type: integer
+      muted:
+        type: boolean
+      on_hold:
+        type: boolean
+      peer_caller_id_name:
+        type: string
+      peer_caller_id_number:
+        type: string
+      record_state:
+        enum:
+        - active
+        - inactive
+        type: string
+      sip_call_id:
+        description: Matches the `Call-ID` SIP header of the call. This value can
+          be `null` when not using SIP
+        readOnly: true
+        type: string
+      status:
+        type: string
+      talking_to:
+        $ref: '#/definitions/TalkingTo'
+      user_uuid:
+        type: string
+    type: object
+  CallID:
+    properties:
+      call_id:
+        type: string
+    type: object
+  CallRequest:
+    properties:
+      destination:
+        $ref: '#/definitions/CallRequestDestination'
+      source:
+        $ref: '#/definitions/CallRequestSource'
+      variables:
+        description: Channel variables to set
+        type: object
+    required:
+    - destination
+    - source
+    type: object
+  CallRequestDestination:
+    description: Destination parameters
+    properties:
+      context:
+        type: string
+      extension:
+        type: string
+      priority:
+        type: integer
+    required:
+    - extension
+    - context
+    - priority
+    type: object
+  CallRequestSource:
+    description: Caller parameters
+    properties:
+      all_lines:
+        description: Use all of the lines of the user to make the call (ignored when
+          `line_id` is specified).
+        type: boolean
+      auto_answer:
+        description: 'Inform the phone that it should answer automatically. Limitation:
+          this does not work if `all_lines` is true, if `from_mobile` is true or if
+          the phone is SCCP.'
+        type: boolean
+      from_mobile:
+        description: Start the call from the user's mobile phone. Default is False
+        type: boolean
+      line_id:
+        description: ID of the line of the user used to make the call. Default is
+          the main line of the user.
+        type: integer
+      user:
+        description: UUID of the user making the call
+        type: string
+    required:
+    - user
+    type: object
+  ComponentWithStatus:
+    properties:
+      status:
+        $ref: '#/definitions/StatusValue'
+    type: object
+  ConfigPatchItem:
+    properties:
+      op:
+        description: 'Patch operation. Supported operations: `replace`.'
+        type: string
+      path:
+        description: 'JSON path to operate on. Supported paths: `/debug`.'
+        type: string
+      value:
+        description: The new value for the operation. Type of value is dependent of
+          `path`
+        type: object
+  ConnectCallToUserRequest:
+    properties:
+      timeout:
+        description: 'timeout in seconds for the dial attempt to the targeted user,
+
+          or null for no timeout(infinite ring time).
+
+          Omission leads to a default timeout of 30s.
+
+          '
+        type: integer
+    type: object
+  EndpointLine:
+    properties:
+      current_call_count:
+        description: The number of ongoing calls on that line
+        type: integer
+      id:
+        description: The ID of the matching confd line
+        type: integer
+      name:
+        description: The name of that given endpoint in Asterisk
+        type: string
+      registered:
+        description: Wether or not this trunk is registered.
+        type: boolean
+      technology:
+        description: The technology of that endpoint only (SIP, SCCP or custom)
+        type: string
+    type: object
+  EndpointLines:
+    properties:
+      filtered:
+        description: The number of line endpoint matching the searched terms
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/EndpointLine'
+        type: array
+      total:
+        description: The number of line endpoint
+        type: integer
+    type: object
+  EndpointTrunk:
+    properties:
+      current_call_count:
+        description: The number of ongoing calls on that trunk
+        type: integer
+      id:
+        description: The ID of the matching confd trunk
+        type: integer
+      name:
+        description: The name of that given endpoint in Asterisk
+        type: string
+      registered:
+        description: Wether or not this trunk is registered.
+        type: boolean
+      technology:
+        description: The technology of that endpoint only (SIP, IAX or custom)
+        type: string
+    type: object
+  EndpointTrunks:
+    properties:
+      filtered:
+        description: The number of trunk endpoint matching the searched terms
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/EndpointTrunk'
+        type: array
+      total:
+        description: The number of trunk endpoint
+        type: integer
+    type: object
+  Error:
+    description: Error message for the client
+    properties:
+      details:
+        description: Additional information about the error. The keys are specific
+          to each error.
+        type: object
+      error_id:
+        description: Identifier of the type of error. It is more precise than the
+          HTTP status code.
+        type: string
+      message:
+        description: Human readable explanation of the error
+        type: string
+      timestamp:
+        description: Time when the error occured
+        format: timestamp
+        type: number
+    title: Error
+  Fax:
+    properties:
+      call_id:
+        description: The ID of the call that produced this fax
+        type: string
+      caller_id:
+        description: The Caller ID that was presented to the fax recipient
+        type: string
+      context:
+        description: The context where the fax was sent
+        type: string
+      extension:
+        description: The extension where the fax was sent
+        type: string
+      id:
+        description: The fax ID
+        type: string
+      ivr_extension:
+        description: Extension to compose before sending fax. Useful for fax in IVR
+        type: string
+      tenant_uuid:
+        description: The tenant UUID where the fax was sent from
+        type: string
+      user_uuid:
+        description: The UUID of the user that sent the fax. May be null if the fax
+          was sent by another service.
+        type: string
+      wait_time:
+        description: Time waiting before sending fax when destination has answered
+          (in seconds)
+        type: string
+    type: object
+  GreetingCopy:
+    properties:
+      dest_greeting:
+        description: The destination name of the greeting
+        type: string
+    required:
+    - dest_greeting
+    type: object
+  LocationLine:
+    properties:
+      contact:
+        description: the SIP contact to use when multiple registers are used
+        type: string
+      line_id:
+        description: the ID of the line where the relocated call should be connected
+        type: integer
+    required:
+    - line_id
+    type: object
+  MeetingStatus:
+    properties:
+      full:
+        description: Wether the meeting is full of not
+        type: boolean
+    type: object
+  Participant:
+    properties:
+      admin:
+        description: Is the participant an admin of the conference?
+        type: boolean
+      call_id:
+        description: The ID of the participant's call
+        type: string
+      caller_id_name:
+        description: The participant's name
+        type: string
+      caller_id_num:
+        description: The participant's number
+        type: string
+      id:
+        description: The participant's ID
+        type: string
+      join_time:
+        description: Elapsed seconds since the participant joined the conference
+        type: integer
+      language:
+        description: The participant's language
+        type: string
+      muted:
+        description: Is the participant muted?
+        type: boolean
+      user_uuid:
+        description: The UUID of the participant's user. `null` when there is no user.
+        type: string
+    type: object
+  ParticipantList:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/Participant'
+        type: array
+    type: object
+  PluginsStatus:
+    properties:
+      endpoints:
+        $ref: '#/definitions/ComponentWithStatus'
+      voicemails:
+        $ref: '#/definitions/VoicemailsStatus'
+    type: object
+  Relocate:
+    properties:
+      completions:
+        $ref: '#/definitions/RelocateCompletions'
+        description: How the relocate will behave. "answer" will complete the relocate
+          as soon as the destination answers. "api" will wait for a call to API `/complete`.
+          "answer" overrides all other values.
+      initiator:
+        description: The user UUID of the relocate initiator
+        type: string
+      initiator_call:
+        description: Call ID of the relocate initiator
+        type: string
+      recipient_call:
+        description: Call ID of the recipient of the relocate.
+        type: string
+      relocated_call:
+        description: Call ID of the call being relocated to someone else
+        type: string
+      uuid:
+        description: Unique identifier of the relocate
+        type: string
+    type: object
+  RelocateCompletion:
+    default: answer
+    enum:
+    - answer
+    - api
+    type: string
+  RelocateCompletions:
+    items:
+      $ref: '#/definitions/RelocateCompletion'
+    type: array
+  RelocateList:
+    properties:
+      items:
+        $ref: '#/definitions/Relocate'
+    type: object
+  StatusSummary:
+    properties:
+      ari:
+        $ref: '#/definitions/ComponentWithStatus'
+      bus_consumer:
+        $ref: '#/definitions/ComponentWithStatus'
+      plugins:
+        $ref: '#/definitions/PluginsStatus'
+      service_token:
+        $ref: '#/definitions/ComponentWithStatus'
+    type: object
+  StatusValue:
+    enum:
+    - fail
+    - ok
+    type: string
+  SwitchboardHeldCall:
+    properties:
+      caller_id_name:
+        type: string
+      caller_id_number:
+        type: string
+      id:
+        type: string
+    type: object
+  SwitchboardHeldCalls:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/SwitchboardHeldCall'
+        type: array
+    type: object
+  SwitchboardQueuedCall:
+    properties:
+      caller_id_name:
+        type: string
+      caller_id_number:
+        type: string
+      id:
+        type: string
+    type: object
+  SwitchboardQueuedCalls:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/SwitchboardQueuedCall'
+        type: array
+    type: object
+  TalkingTo:
+    properties:
+      '{channel_id}':
+        type: string
+    type: object
+  Timeout:
+    description: Number of seconds to wait for the recipient to answer
+    type: integer
+  Transfer:
+    properties:
+      flow:
+        default: attended
+        description: The behavior of the transfer
+        enum:
+        - attended
+        - blind
+        type: string
+      id:
+        description: Unique identifier of the transfer
+        type: string
+      initiator_call:
+        description: Call ID of the transfer initiator
+        type: string
+      initiator_tenant_uuid:
+        description: Tenant UUID of the user who initiated the transfer
+        type: string
+      initiator_uuid:
+        description: UUID of the user who initiated the transfer
+        type: string
+      recipient_call:
+        description: Call ID of the recipient of the transfer. May be null when the
+          transfer is 'starting'.
+        type: string
+      status:
+        description: The current step of the transfer
+        enum:
+        - starting
+        - ringback
+        - answered
+        type: string
+      transferred_call:
+        description: Call ID of the call being transferred to someone else
+        type: string
+    type: object
+  TransferFlow:
+    default: attended
+    description: Behavior of the transfer. `attended` allows the initiator to talk
+      to the recipient. `blind` does not.
+    enum:
+    - attended
+    - blind
+    type: string
+  TransferList:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/Transfer'
+        type: array
+    type: object
+  TransferRequest:
+    properties:
+      context:
+        description: Context of the recipient of the transfer
+        type: string
+      exten:
+        description: Extension of the recipient of the transfer
+        type: string
+      flow:
+        $ref: '#/definitions/TransferFlow'
+      initiator_call:
+        description: Call ID of the transfer initiator
+        type: string
+      timeout:
+        $ref: '#/definitions/TransferTimeout'
+      transferred_call:
+        description: Call ID of the call being transferred to someone else
+        type: string
+      variables:
+        description: Channel variables to set on the recipient call
+        type: object
+    required:
+    - transferred_call
+    - initiator_call
+    - context
+    - exten
+    type: object
+  TransferTimeout:
+    description: Maximum ringing time before cancelling the transfer (in seconds).
+      Default (or null) is an unlimited ring time.
+    type: integer
+  UserCallRequest:
+    properties:
+      all_lines:
+        description: Use all of the lines of the user to make the call (ignored when
+          `line_id` is specified).
+        type: boolean
+      auto_answer_caller:
+        description: 'Inform the caller phone that it should answer automatically.
+          Limitation: this does not work if `all_lines` is true, if `from_mobile`
+          is true or if the phone is SCCP.'
+        type: boolean
+      extension:
+        description: Extension to call
+        type: string
+      from_mobile:
+        description: 'Start the call from the user''s mobile phone. Default is False.
+          Limitation: this feature may return a wrong call_id if the outgoing call
+          used to dial the mobile number has more than one associated trunk.'
+        type: boolean
+      line_id:
+        description: ID of the line of the user used to make the call. Default is
+          the main line of the user.
+        type: integer
+      variables:
+        description: Channel variables to set
+        type: object
+    required:
+    - extension
+    type: object
+  UserRelocateLocation:
+    properties:
+      line:
+        $ref: '#/definitions/LocationLine'
+  UserRelocateRequest:
+    example:
+      auto_answer: false
+      completions:
+      - answer
+      destination: line
+      initiator_call: '123456.789'
+      location:
+        contact: 5f3ff5ga
+        line_id: 14
+    properties:
+      auto_answer:
+        description: 'Inform the destination phone that it should answer automatically.
+          Limitation: this does not work on SCCP phones.'
+        type: boolean
+      completions:
+        $ref: '#/definitions/RelocateCompletions'
+      destination:
+        description: What kind of destination the relocated call should be connected
+        enum:
+        - line
+        - mobile
+        type: string
+      initiator_call:
+        description: Call ID of the relocate initiator. This call must be owned by
+          the authenticated user.
+        type: string
+      location:
+        $ref: '#/definitions/UserRelocateLocation'
+        description: "Describes where exactly the relocated call should be connected.\
+          \ Attributes depend on the `destination` value. Example\n```\n{\n  ...\n\
+          \  destination: line\n  location: {line_id: 14}\n}\n```\n"
+        type: object
+      timeout:
+        $ref: '#/definitions/Timeout'
+    required:
+    - initiator_call
+    - destination
+    type: object
+  UserTransferRequest:
+    properties:
+      exten:
+        description: Extension of the recipient of the transfer
+        type: string
+      flow:
+        $ref: '#/definitions/TransferFlow'
+      initiator_call:
+        description: Call ID of the transfer initiator. This call must be owned by
+          the authenticated user.
+        type: string
+      timeout:
+        $ref: '#/definitions/TransferTimeout'
+    required:
+    - initiator_call
+    - exten
+    type: object
+  Voicemail:
+    properties:
+      folders:
+        description: The voicemail's folders
+        items:
+          $ref: '#/definitions/VoicemailFolder'
+        type: array
+      id:
+        description: The voicemail's ID
+        type: integer
+      name:
+        description: The voicemail's name
+        type: string
+      number:
+        description: The voicemail's number
+        type: string
+    type: object
+  VoicemailFolder:
+    allOf:
+    - $ref: '#/definitions/VoicemailFolderBase'
+    - properties:
+        messages:
+          description: The folder's messages
+          items:
+            $ref: '#/definitions/VoicemailMessageBase'
+          type: array
+    type: object
+  VoicemailFolderBase:
+    properties:
+      id:
+        description: The folder's ID
+        type: integer
+      name:
+        description: The folder's name
+        type: string
+      type:
+        description: The folder's type. When a message if left on a voicemail, it
+          is stored in the folder of type "new", unless if it is an urgent message,
+          in which case it is left in the folder of type "urgent". When that messages
+          is read, it is moved into the folder of type "old". All other folders used
+          the type "other".
+        enum:
+        - new
+        - old
+        - urgent
+        - other
+        type: string
+    type: object
+  VoicemailMessage:
+    allOf:
+    - $ref: '#/definitions/VoicemailMessageBase'
+    - properties:
+        folder:
+          $ref: '#/definitions/VoicemailFolderBase'
+          readOnly: true
+    type: object
+  VoicemailMessageBase:
+    properties:
+      caller_id_name:
+        description: The caller's name (or null if no caller ID name)
+        readOnly: true
+        type: string
+      caller_id_num:
+        description: The caller's number (or null if no caller ID number)
+        readOnly: true
+        type: string
+      duration:
+        description: The message's duration in seconds
+        readOnly: true
+        type: integer
+      id:
+        description: The message's ID
+        readOnly: true
+        type: string
+      timestamp:
+        description: The time the message was left as a Unix time value
+        readOnly: true
+        type: integer
+    type: object
+  VoicemailMessageUpdate:
+    properties:
+      folder_id:
+        description: The folder's ID
+        type: integer
+    required:
+    - folder_id
+    type: object
+  VoicemailsStatus:
+    allOf:
+    - $ref: '#/definitions/ComponentWithStatus'
+    - properties:
+        cache_items:
+          type: integer
+    type: object
+info:
+  contact:
+    email: help@accentvoice.io
+    name: Accent Team
+    url: https://accentvoice.io/
+  description: Control your calls from a REST API
+  title: accent-calld
+  version: 1.0.0
+  x-logo:
+    altText: Accent Logo
+    backgroundColor: '#FAFAFA'
+    url: https://accentvoice.io/images/logo-black.svg
+parameters:
+  AdhocConferenceID:
+    description: ID of the adhoc conference
+    in: path
+    name: conference_id
+    required: true
+    type: string
+  ApplicationCallID:
+    description: ID of the call
+    in: path
+    name: call_id
+    required: true
+    type: string
+  ApplicationMOHUUID:
+    description: UUID of the music on hold
+    in: path
+    name: moh_uuid
+    required: true
+    type: string
+  ApplicationNodeUUID:
+    description: UUID of the node
+    in: path
+    name: node_uuid
+    required: true
+    type: string
+  ApplicationPlaybackUUID:
+    description: ID of the playback
+    in: path
+    name: playback_uuid
+    required: true
+    type: string
+  ApplicationSnoopUUID:
+    description: UUID of the snoop
+    in: path
+    name: snoop_uuid
+    required: true
+    type: string
+  ApplicationUUID:
+    description: UUID of the application
+    in: path
+    name: application_uuid
+    required: true
+    type: string
+  CallID:
+    description: ID of the call
+    in: path
+    name: call_id
+    required: true
+    type: string
+  ConferenceID:
+    description: Unique identifier of the conference
+    in: path
+    name: conference_id
+    required: true
+    type: string
+  ConfigPatch:
+    description: See https://en.wikipedia.org/wiki/JSON_Patch.
+    in: body
+    name: ConfigPatch
+    required: true
+    schema:
+      items:
+        $ref: '#/definitions/ConfigPatchItem'
+      type: array
+  DTMFDigits:
+    description: Digits to send via DTMF. Must contain only `0-9*#`.
+    in: query
+    name: digits
+    required: true
+    type: string
+  ForceDownload:
+    description: Set to 1 to force download by browser
+    in: query
+    name: download
+    type: string
+  LineID:
+    description: ID of the line of the user used to make the call. Default is the
+      main line of the user.
+    in: query
+    name: line_id
+    type: integer
+  MeetingUUID:
+    description: Unique identifier of the meeting
+    in: path
+    name: meeting_uuid
+    required: true
+    type: string
+  ParticipantID:
+    description: Unique identifier of the participant
+    in: path
+    name: participant_id
+    required: true
+    type: string
+  RelocateUUID:
+    description: Unique identifier of the relocate
+    in: path
+    name: relocate_uuid
+    required: true
+    type: string
+  SwitchboardUUID:
+    description: Unique identifier of the switchboard
+    in: path
+    name: switchboard_uuid
+    required: true
+    type: string
+  TenantUUID:
+    description: The tenant's UUID, defining the ownership of a given resource.
+    in: header
+    name: Accent-Tenant
+    required: false
+    type: string
+  TokenID:
+    description: The token's ID
+    in: query
+    name: token
+    type: string
+  TransferID:
+    description: Unique identifier of the transfer
+    in: path
+    name: transfer_id
+    required: true
+    type: string
+  VoicemailFolderID:
+    description: The folder's ID
+    in: path
+    name: folder_id
+    required: true
+    type: integer
+  VoicemailGreeting:
+    description: The greeting
+    enum:
+    - unavailable
+    - busy
+    - name
+    in: path
+    name: greeting
+    required: true
+    type: string
+  VoicemailID:
+    description: The voicemail's ID
+    in: path
+    name: voicemail_id
+    required: true
+    type: integer
+  VoicemailMessageID:
+    description: The message's ID
+    in: path
+    name: message_id
+    required: true
+    type: string
+  direction:
+    description: Sort list of items in 'asc' (ascending) or 'desc' (descending) order
+    enum:
+    - asc
+    - desc
+    in: query
+    name: direction
+    required: false
+    type: string
+  limit:
+    description: Maximum number of items to return in the list
+    in: query
+    name: limit
+    required: false
+    type: integer
+  offset:
+    description: Number of items to skip over in the list. Useful for pagination.
+    in: query
+    name: offset
+    required: false
+    type: integer
+  order:
+    description: Name of the field to use for sorting the list of items returned.
+    in: query
+    name: order
+    required: false
+    type: string
+  search:
+    description: Search term for filtering a list of items. Only items with a field
+      containing the search term will be returned.
+    in: query
+    name: search
+    required: false
+    type: string
+paths:
+  /applications/{application_uuid}:
+    get:
+      operationId: getApplication
+      description: '**Required ACL:** `calld.applications.{application_uuid}.read`'
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      responses:
+        '200':
+          description: Application
+          schema:
+            $ref: '#/definitions/Application'
+        '404':
+          description: No such application
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Show an application
+      tags:
+      - applications
+  /applications/{application_uuid}/calls:
+    get:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.read`'
+      operationId: getApplicationCalls
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      responses:
+        '200':
+          description: Application
+          schema:
+            $ref: '#/definitions/ApplicationCalls'
+        '404':
+          description: No such application
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List calls from the application
+      tags:
+      - applications
+    post:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.create`'
+      operationId: createApplicationCalls
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - description: node parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApplicationCallRequestToExten'
+      responses:
+        '201':
+          description: The new call ID
+          schema:
+            $ref: '#/definitions/ApplicationCall'
+        '400':
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Make a new call to the application
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}:
+    delete:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.delete`'
+      operationId: deleteApplicationCall
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: Call has been hung up
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Hangup a call from the application
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/answer:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.answer.update`'
+      operationId: answerApplicationCall
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: The call is now answered
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Answer a call
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/dtmf:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.dtmf.update'
+      operationId: sendApplicationCallDTMF
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      - $ref: '#/parameters/DTMFDigits'
+      responses:
+        '204':
+          description: The digits have been sent
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Simulate a user pressing DTMF keys
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/hold/start:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.hold.start.update`'
+      operationId: holdApplicationCall
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: The call is now on hold
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Place a call on hold
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/hold/stop:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.hold.stop.update'
+      operationId: resumeApplicationCall
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: The call has been resumed
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Resume a call that has been placed on hold
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/moh/stop:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.moh.{moh_uuid}.stop.update'
+      operationId: stopApplicationCallMOH
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: The MOH has been stopped
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Stops playing a music on hold
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/moh/{moh_uuid}/start:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.moh.{moh_uuid}.start.update`
+
+        Starts playing a music on hold on a call. If the music on hold is interrupted
+        for a playback or another
+
+        action, the music on hold will not restart automatically after the interruption.
+        '
+      operationId: startApplicationCallMOH
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      - $ref: '#/parameters/ApplicationMOHUUID'
+      responses:
+        '204':
+          description: The MOH has been started
+        '404':
+          description: No such application, call or moh
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Starts playing a music on hold
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/mute/start:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.mute.start.update`'
+      operationId: muteApplicationCall
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: The call is now muted
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Mute a call
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/mute/stop:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.mute.stop.update`'
+      operationId: unmuteApplicationCall
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: The call is now unmuted
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Unmute a call
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/playbacks:
+    post:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.playbacks.create`
+
+        URI examples:
+        * sound:tt-weasels
+        * digits:4188001234
+        * number:321
+        * characters:abc
+        * tone:ring
+        * recording:my-recording
+        '
+      operationId: playApplicationCall
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      - description: playback parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApplicationPlayback'
+      responses:
+        '200':
+          description: Play has been sent
+          schema:
+            $ref: '#/definitions/ApplicationPlayback'
+        '400':
+          description: No such playback
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Play file to the call
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/progress/start:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.progress.start.update`
+        The progress ringing tone is the sound heard by a caller while the other party
+        is ringing.
+        '
+      operationId: startApplicationCallProgress
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: The call is now playing the progress ringing tone
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Play the progress ringing tone
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/progress/stop:
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.progress.stop.update`
+        The progress ringing tone is the sound heard by a caller while the other party
+        is ringing.
+        Limitation: this only works when the ringing tone is played by Accent
+        through audio media (e.g. when using `/progress` after `/answer`). If
+        the phone is emitting the ringing tone directly to the user, then it
+        cannot be stopped, and the response code will still be 204.
+        '
+      operationId: stopApplicationCallProgress
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: The call has stopped playing the progress ringing tone
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Stop playing the progress ringing tone.
+      tags:
+      - applications
+  /applications/{application_uuid}/calls/{call_id}/snoops:
+    post:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.calls.{call_id}.snoops.create`
+
+        The whisper mode indicate which part of the snooped channel can hear the snooper.
+        Given Alice calls Bob and Charles snoops on Bob
+        * none: No one can hear the snooper
+        * both: Alice and Bob can hear Charles
+        * in: Alice can hear Charles
+        * out: Bob can hear Charles
+        '
+      operationId: snoopApplicationCall
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      - description: snoop parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApplicationSnoop'
+      responses:
+        '201':
+          description: Snoop started
+          schema:
+            $ref: '#/definitions/ApplicationSnoop'
+        '400':
+          description: No such call or Invalid whisper mode
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such application or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Start snooping on a call
+      tags:
+      - applications
+  /applications/{application_uuid}/nodes:
+    get:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.nodes.read`'
+      operationId: getApplicationNodes
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      responses:
+        '200':
+          description: Application
+          schema:
+            $ref: '#/definitions/ApplicationNodes'
+        '404':
+          description: No such application
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List nodes from the application
+      tags:
+      - applications
+    post:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.nodes.create`'
+      operationId: createApplicationNode
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - description: node parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApplicationNodeRequest'
+      responses:
+        '201':
+          description: The new node ID
+          schema:
+            $ref: '#/definitions/ApplicationNode'
+        '400':
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such application
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Make a new node and add calls
+      tags:
+      - applications
+  /applications/{application_uuid}/nodes/{node_uuid}:
+    delete:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.nodes.{node_uuid}.delete`
+        **Not implemented**
+        '
+      operationId: deleteApplicationNode
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationNodeUUID'
+      responses:
+        '204':
+          description: Call has been hung up
+        '404':
+          description: No such application or node
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete node and hangup all calls
+      tags:
+      - applications
+    get:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.nodes.{node_uuid}.read`'
+      operationId: getNode
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationNodeUUID'
+      responses:
+        '200':
+          description: ApplicationNode
+          schema:
+            $ref: '#/definitions/ApplicationNode'
+        '404':
+          description: No such application or node
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Show a node
+      tags:
+      - applications
+  /applications/{application_uuid}/nodes/{node_uuid}/calls:
+    post:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.nodes.{node_uuid}.calls.create`'
+      operationId: createApplicationCallToNode
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationNodeUUID'
+      - description: Call parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApplicationCallRequestToExten'
+      responses:
+        '201':
+          description: The new call ID
+          schema:
+            $ref: '#/definitions/ApplicationCall'
+        '400':
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such application or node
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Make a new call to the node
+      tags:
+      - applications
+  /applications/{application_uuid}/nodes/{node_uuid}/calls/user:
+    post:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.nodes.{node_uuid}.calls.user.create`'
+      operationId: createApplicationCallToUser
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationNodeUUID'
+      - description: Parameters for the new call
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApplicationCallRequestToUser'
+      responses:
+        '201':
+          description: The new call ID
+          schema:
+            $ref: '#/definitions/ApplicationCall'
+        '400':
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such application or node
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Initiate a call to a user and insert it in the node
+      tags:
+      - applications
+  /applications/{application_uuid}/nodes/{node_uuid}/calls/{call_id}:
+    delete:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.nodes.{node_uuid}.calls.{call_id}.delete`'
+      operationId: deleteApplicationCallFromNode
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationNodeUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: Call has been removed from the node
+        '404':
+          description: No such application or node or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Remove call from the node
+      tags:
+      - applications
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.nodes.{node_uuid}.calls.{call_id}.update`'
+      operationId: insertApplicationCallToNode
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationNodeUUID'
+      - $ref: '#/parameters/ApplicationCallID'
+      responses:
+        '204':
+          description: Call has been added to the node
+        '404':
+          description: No such application or node or call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Insert call to the node
+      tags:
+      - applications
+  /applications/{application_uuid}/playbacks/{playback_uuid}:
+    delete:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.playbacks.{playback_uuid}.delete`'
+      operationId: deletePlayback
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationPlaybackUUID'
+      responses:
+        '204':
+          description: Playback has been stopped and removed
+        '404':
+          description: No such application or playback
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Stop and remove playback
+      tags:
+      - applications
+  /applications/{application_uuid}/snoops:
+    get:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.snoops.read`'
+      operationId: listApplicationSnoops
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      responses:
+        '200':
+          description: Snoop list
+          schema:
+            $ref: '#/definitions/ApplicationSnoops'
+        '404':
+          description: No such application
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List active snoops
+      tags:
+      - applications
+  /applications/{application_uuid}/snoops/{snoop_uuid}:
+    delete:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.snoops.{snoop_uuid}.delete`'
+      operationId: stopSnoop
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationSnoopUUID'
+      responses:
+        '204':
+          description: Snooping has been stopped
+        '404':
+          description: No such application or snoop
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Stop snooping
+      tags:
+      - applications
+    get:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.snoops.{snoop_uuid}.read`'
+      operationId: getSnoop
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationSnoopUUID'
+      responses:
+        '200':
+          description: Snoop parameters
+          schema:
+            $ref: '#/definitions/ApplicationSnoop'
+        '404':
+          description: No such application or snoop
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: View snooping parameters
+      tags:
+      - applications
+    put:
+      description: '**Required ACL:** `calld.applications.{application_uuid}.snoops.{snoop_uuid}.update`'
+      operationId: updateSnoop
+      parameters:
+      - $ref: '#/parameters/ApplicationUUID'
+      - $ref: '#/parameters/ApplicationSnoopUUID'
+      - description: snoop parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApplicationSnoopPut'
+      responses:
+        '204':
+          description: Snooping has been modifier
+        '404':
+          description: No such application or snoop
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Change snooping parameters
+      tags:
+      - applications
+  /calls:
+    get:
+      description: '**Required ACL:** `calld.calls.read`'
+      operationId: listCalls
+      parameters:
+      - description: Filter calls by Stasis application, e.g. switchboard.
+        in: query
+        name: application
+        type: string
+      - description: Filter calls by Stasis application instance, e.g. switchboard-sales,green.
+          Args must be separated by commas (,). `application_instance` is ignored
+          if `application` is not set.
+        in: query
+        name: application_instance
+        type: string
+      responses:
+        '200':
+          description: List currently active calls
+          schema:
+            properties:
+              items:
+                items:
+                  $ref: '#/definitions/Call'
+                type: array
+            type: object
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List calls
+      tags:
+      - calls
+    post:
+      description: '**Required ACL:** `calld.calls.create`
+        Create a new call from a phone to an extension.
+        '
+      operationId: createCall
+      parameters:
+      - description: Call parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/CallRequest'
+      responses:
+        '201':
+          description: The new call ID
+          schema:
+            $ref: '#/definitions/Call'
+        '400':
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Make a new call
+      tags:
+      - calls
+  /calls/{call_id}:
+    delete:
+      description: '**Required ACL:** `calld.calls.{call_id}.delete`'
+      operationId: deleteCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Call has been hung up
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Hangup a call
+      tags:
+      - calls
+    get:
+      description: '**Required ACL:** `calld.calls.{call_id}.read`'
+      operationId: getCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '200':
+          description: Call
+          schema:
+            $ref: '#/definitions/Call'
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Show a call
+      tags:
+      - calls
+  /calls/{call_id}/answer:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.answer.update`
+        This works **only** if the phone brand has a corresponding phoned plugin to
+        handle the event. '
+      operationId: answerCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now answered
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Answer a call
+      tags:
+      - calls
+  /calls/{call_id}/dtmf:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.dtmf.update'
+      operationId: sendCallDTMF
+      parameters:
+      - $ref: '#/parameters/CallID'
+      - $ref: '#/parameters/DTMFDigits'
+      responses:
+        '204':
+          description: The digits have been sent
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Simulate a user pressing DTMF keys
+      tags:
+      - calls
+  /calls/{call_id}/hold/start:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.hold.start.update`
+        This works **only** if the phone brand has a corresponding phoned plugin to
+        handle the event. '
+      operationId: holdCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now held
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Hold a call
+      tags:
+      - calls
+  /calls/{call_id}/hold/stop:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.hold.stop.update`
+        This works **only** if the phone brand has a corresponding phoned plugin to
+        handle the event. '
+      operationId: unholdCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now unheld
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Unhold a call
+      tags:
+      - calls
+  /calls/{call_id}/mute/start:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.mute.start.update`'
+      operationId: muteCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now muted
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Mute a call
+      tags:
+      - calls
+  /calls/{call_id}/mute/stop:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.mute.stop.update`'
+      operationId: unmuteCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now unmuted
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Unmute a call
+      tags:
+      - calls
+  /calls/{call_id}/record/start:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.record.start.update`'
+      operationId: startRecording
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Recording has started for the call
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Start recording a call
+      tags:
+      - calls
+  /calls/{call_id}/record/stop:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.record.stop.update`'
+      operationId: stopRecording
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Recording has stopped for the call
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Stop recording a call
+      tags:
+      - calls
+  /calls/{call_id}/user/{user_uuid}:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.user.{user_uuid}.update`'
+      operationId: connectCallToUser
+      parameters:
+      - $ref: '#/parameters/CallID'
+      - description: UUID of the user
+        in: path
+        name: user_uuid
+        required: true
+        type: string
+      - description: options affecting the call to the targeted user
+        in: body
+        name: body
+        required: false
+        schema:
+          $ref: '#/definitions/ConnectCallToUserRequest'
+      responses:
+        '200':
+          description: The new call of the user (ringing side)
+          schema:
+            $ref: '#/definitions/Call'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Connect a call to a user
+      tags:
+      - calls
+  /conferences/{conference_id}/participants:
+    get:
+      description: '**Required ACL:** `calld.conferences.{conference_id}.participants.read`'
+      operationId: listConferenceParticipants
+      parameters:
+      - $ref: '#/parameters/ConferenceID'
+      responses:
+        '200':
+          description: The list of participant is returned
+          schema:
+            $ref: '#/definitions/ParticipantList'
+        '404':
+          $ref: '#/responses/NoSuchConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List participants of a conference
+      tags:
+      - conferences
+  /conferences/{conference_id}/participants/{participant_id}:
+    delete:
+      description: '**Required ACL:** `calld.conferences.{conference_id}.participants.{participant_id}.delete`'
+      operationId: kickParticipant
+      parameters:
+      - $ref: '#/parameters/ConferenceID'
+      - $ref: '#/parameters/ParticipantID'
+      responses:
+        '204':
+          description: The participant was kicked from the conference
+        '404':
+          $ref: '#/responses/NoSuchConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Kick participant from a conference
+      tags:
+      - conferences
+  /conferences/{conference_id}/participants/{participant_id}/mute:
+    put:
+      description: '**Required ACL:** `calld.conferences.{conference_id}.participants.{participant_id}.mute.update`'
+      operationId: muteParticipant
+      parameters:
+      - $ref: '#/parameters/ConferenceID'
+      - $ref: '#/parameters/ParticipantID'
+      responses:
+        '204':
+          description: The participant was muted
+        '404':
+          $ref: '#/responses/NoSuchConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Mute a participant in a conference
+      tags:
+      - conferences
+  /conferences/{conference_id}/participants/{participant_id}/unmute:
+    put:
+      description: '**Required ACL:** `calld.conferences.{conference_id}.participants.{participant_id}.unmute.update`'
+      operationId: unmuteParticipant
+      parameters:
+      - $ref: '#/parameters/ConferenceID'
+      - $ref: '#/parameters/ParticipantID'
+      responses:
+        '204':
+          description: The participant was unmuted
+        '404':
+          $ref: '#/responses/NoSuchConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Unmute a participant in a conference
+      tags:
+      - conferences
+  /conferences/{conference_id}/record:
+    delete:
+      description: '**Required ACL:** `calld.conferences.{conference_id}.record.delete`'
+      operationId: stopConferenceRecording
+      parameters:
+      - $ref: '#/parameters/ConferenceID'
+      responses:
+        '204':
+          description: The conference recording stopped
+        '400':
+          description: The conference is already not being recorded
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          $ref: '#/responses/NoSuchConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Stop recording a conference
+      tags:
+      - conferences
+    post:
+      description: '**Required ACL:** `calld.conferences.{conference_id}.record.create`'
+      operationId: startConferenceRecording
+      parameters:
+      - $ref: '#/parameters/ConferenceID'
+      responses:
+        '204':
+          description: The conference recording started
+        '400':
+          description: The conference is already being recorded or there are no participants
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          $ref: '#/responses/NoSuchConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Record a conference
+      tags:
+      - conferences
+  /config:
+    get:
+      description: '**Required ACL:** `calld.config.read`'
+      operationId: getConfig
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The configuration of the service
+      summary: Show the current configuration
+      tags:
+      - config
+    patch:
+      description: '**Required ACL:** `calld.config.update`
+        Changes are not persistent across service restart.
+        '
+      operationId: patchConfig
+      parameters:
+      - $ref: '#/parameters/ConfigPatch'
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The updated configuration of the service
+        '400':
+          description: The given confiuration is invalid
+      summary: Update the current configuration.
+      tags:
+      - config
+  /faxes:
+    post:
+      consumes:
+      - application/pdf
+      description: '**Required ACL:** `calld.faxes.create`'
+      operationId: sendFax
+      parameters:
+      - description: The fax file content, in PDF format
+        in: body
+        name: fax_content
+        required: true
+        schema:
+          format: binary
+          type: string
+      - description: Context of the recipient of the fax
+        in: query
+        name: context
+        required: true
+        type: string
+      - description: Extension of the recipient of the fax
+        in: query
+        name: extension
+        required: true
+        type: string
+      - default: Accent Fax
+        description: 'Caller ID that will be presented to the recipient of the fax.
+          Example: "my-name <+15551112222>"'
+        in: query
+        name: caller_id
+        type: string
+      - description: Extension to compose before sending fax. Useful for fax in IVR
+        in: query
+        name: ivr_extension
+        type: string
+      - description: Time waiting before sending fax when destination has answered
+          (in seconds)
+        in: query
+        name: wait_time
+        type: integer
+      responses:
+        '201':
+          description: Fax send request accepted
+          schema:
+            $ref: '#/definitions/Fax'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Send a fax
+      tags:
+      - faxes
+  /guests/me/meetings/{meeting_uuid}/status:
+    get:
+      description: Returns the status of a meeting that should be visible to a guest.
+      operationId: getGuestMeetingStatus
+      parameters:
+      - $ref: '#/parameters/MeetingUUID'
+      responses:
+        '200':
+          description: The status of a meeting is returned
+          schema:
+            $ref: '#/definitions/MeetingStatus'
+        '404':
+          $ref: '#/responses/NoSuchMeeting'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get the status of a meeting
+      tags:
+      - meetings
+  /lines:
+    get:
+      description: "**Required ACL:** `calld.lines.read`\n\nList the status of line\
+        \ endpoints that are configured on Asterisk\n\nSupported technologies:\n\n\
+        \  * SIP\n\nLines with unsupported technologies will be listed but there status\n\
+        will be null\n"
+      operationId: listLines
+      parameters:
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '200':
+          description: A list of line status
+          schema:
+            $ref: '#/definitions/EndpointLines'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List line endpoint statuses
+      tags:
+      - lines
+  /meetings/{meeting_uuid}/participants:
+    get:
+      description: '**Required ACL:** `calld.meetings.{meeting_uuid}.participants.read`'
+      operationId: listMeetingParticipants
+      parameters:
+      - $ref: '#/parameters/MeetingUUID'
+      responses:
+        '200':
+          description: The list of participant is returned
+          schema:
+            $ref: '#/definitions/ParticipantList'
+        '404':
+          $ref: '#/responses/NoSuchMeeting'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List participants of a meeting
+      tags:
+      - meetings
+  /meetings/{meeting_uuid}/participants/{participant_id}:
+    delete:
+      description: '**Required ACL:** `calld.meetings.{meeting_uuid}.participants.delete`'
+      operationId: kickMeetingParticipant
+      parameters:
+      - $ref: '#/parameters/MeetingUUID'
+      - $ref: '#/parameters/ParticipantID'
+      responses:
+        '204':
+          description: The participant was kicked
+        '404':
+          $ref: '#/responses/NoSuchMeetingOrParticipant'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Kick a participant from a meeting
+      tags:
+      - meetings
+  /status:
+    get:
+      description: '**Required ACL:** `calld.status.read`'
+      operationId: getStatus
+      responses:
+        '200':
+          description: The internal infos of accent-calld
+          schema:
+            $ref: '#/definitions/StatusSummary'
+      summary: Print infos about internal status of accent-calld
+      tags:
+      - status
+  /switchboards/{switchboard_uuid}/calls/held:
+    get:
+      description: " **Required ACL:** `calld.switchboards.{switchboard_uuid}.calls.held.read`\n\
+        \n **Warning:** This endpoint is still in development and may change in the\
+        \ future."
+      operationId: listSwitchboardHeldCalls
+      parameters:
+      - $ref: '#/parameters/TenantUUID'
+      - $ref: '#/parameters/SwitchboardUUID'
+      responses:
+        '200':
+          description: List of calls
+          schema:
+            $ref: '#/definitions/SwitchboardHeldCalls'
+        '404':
+          $ref: '#/responses/NoSuchSwitchboard'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List calls held in the switchboard
+      tags:
+      - switchboards
+  /switchboards/{switchboard_uuid}/calls/held/{call_id}:
+    put:
+      description: " **Required ACL:** `calld.switchboards.{switchboard_uuid}.calls.held.{call_id}.update`\n\
+        \n **Warning:** This endpoint is still in development and may change in the\
+        \ future.\n\n This action will also hangup the previous call talking to the\
+        \ held call, if there was any."
+      operationId: holdSwitchboardCall
+      parameters:
+      - $ref: '#/parameters/TenantUUID'
+      - $ref: '#/parameters/SwitchboardUUID'
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Call was held correctly
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NoSuchSwitchboard'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Put the specified call on hold in the switchboard
+      tags:
+      - switchboards
+  /switchboards/{switchboard_uuid}/calls/held/{call_id}/answer:
+    put:
+      description: " **Required ACL:** `calld.switchboards.{switchboard_uuid}.calls.held.{call_id}.answer.update`\n\
+        \n **Warning:** This endpoint is still in development and may change in the\
+        \ future."
+      operationId: answerHeldCall
+      parameters:
+      - $ref: '#/parameters/TenantUUID'
+      - $ref: '#/parameters/SwitchboardUUID'
+      - $ref: '#/parameters/CallID'
+      - $ref: '#/parameters/LineID'
+      responses:
+        '200':
+          description: Answerer was correctly originated
+          schema:
+            $ref: '#/definitions/CallID'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NoSuchSwitchboard'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Answer the specified held call
+      tags:
+      - switchboards
+  /switchboards/{switchboard_uuid}/calls/queued:
+    get:
+      description: " **Required ACL:** `calld.switchboards.{switchboard_uuid}.calls.queued.read`\n\
+        \n **Warning:** This endpoint is still in development and may change in the\
+        \ future."
+      operationId: listSwitchboardQueuedCalls
+      parameters:
+      - $ref: '#/parameters/TenantUUID'
+      - $ref: '#/parameters/SwitchboardUUID'
+      responses:
+        '200':
+          description: List of calls
+          schema:
+            $ref: '#/definitions/SwitchboardQueuedCalls'
+        '404':
+          $ref: '#/responses/NoSuchSwitchboard'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List calls queued in the switchboard
+      tags:
+      - switchboards
+  /switchboards/{switchboard_uuid}/calls/queued/{call_id}/answer:
+    put:
+      description: " **Required ACL:** `calld.switchboards.{switchboard_uuid}.calls.queued.{call_id}.answer.update`\n\
+        \n **Warning:** This endpoint is still in development and may change in the\
+        \ future."
+      operationId: answerQueuedCall
+      parameters:
+      - $ref: '#/parameters/TenantUUID'
+      - $ref: '#/parameters/SwitchboardUUID'
+      - $ref: '#/parameters/CallID'
+      - $ref: '#/parameters/LineID'
+      responses:
+        '200':
+          description: Answerer was correctly originated
+          schema:
+            $ref: '#/definitions/CallID'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NoSuchSwitchboard'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Answer the specified queued call
+      tags:
+      - switchboards
+  /transfers:
+    post:
+      description: '**Required ACL:** `calld.transfers.create`
+        The only way to cancel the transfer from the initiator is to use `DELETE /transfers/<id>`
+        (i.e. sending DTMF `*0` will not work).'
+      operationId: initiateTransfer
+      parameters:
+      - description: Parameters of the transfer
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/TransferRequest'
+      responses:
+        '201':
+          description: The transfer being created
+          schema:
+            $ref: '#/definitions/Transfer'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '409':
+          description: A similar transfer (same initiator) is still in progress.
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Initiate a transfer
+      tags:
+      - transfers
+  /transfers/{transfer_id}:
+    delete:
+      description: '**Required ACL:** `calld.transfers.{transfer_id}.delete`'
+      operationId: cancelTransfer
+      parameters:
+      - $ref: '#/parameters/TransferID'
+      responses:
+        '204':
+          description: Transfer cancelled
+        '404':
+          $ref: '#/responses/NoSuchTransfer'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Cancel a transfer
+      tags:
+      - transfers
+    get:
+      description: '**Required ACL:** `calld.transfers.{transfer_id}.read`'
+      operationId: getTransfer
+      parameters:
+      - $ref: '#/parameters/TransferID'
+      responses:
+        '200':
+          description: The details of the transfer
+          schema:
+            $ref: '#/definitions/Transfer'
+        '404':
+          $ref: '#/responses/NoSuchTransfer'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get details of a transfer
+      tags:
+      - transfers
+  /transfers/{transfer_id}/complete:
+    put:
+      description: '**Required ACL:** `calld.transfers.{transfer_id}.complete.update`'
+      operationId: completeTransfer
+      parameters:
+      - $ref: '#/parameters/TransferID'
+      responses:
+        '204':
+          description: The transfer was completed
+        '404':
+          $ref: '#/responses/NoSuchTransfer'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Complete a transfer
+      tags:
+      - transfers
+  /trunks:
+    get:
+      description: "**Required ACL:** `calld.trunks.read`\n\nList the status of trunk\
+        \ endpoints that are configured on Asterisk\n\nSupported technologies:\n\n\
+        \  * SIP\n\nTrunks with unsupported technologies will be listed but there\
+        \ status\nwill be null\n"
+      operationId: listTrunks
+      parameters:
+      - $ref: '#/parameters/TenantUUID'
+      responses:
+        '200':
+          description: A list of trunk status
+          schema:
+            $ref: '#/definitions/EndpointTrunks'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List trunk endpoint statuses
+      tags:
+      - trunks
+  /users/me/calls:
+    get:
+      description: '**Required ACL:** `calld.users.me.calls.read`'
+      operationId: listUserCalls
+      parameters:
+      - description: Filter calls by Stasis application, e.g. switchboard.
+        in: query
+        name: application
+        type: string
+      - description: Filter calls by Stasis application instance, e.g. switchboard-sales,green.
+          Args must be separated by commas (,).
+        in: query
+        name: application_instance
+        type: string
+      responses:
+        '200':
+          description: List currently active calls of a user
+          schema:
+            properties:
+              items:
+                items:
+                  $ref: '#/definitions/Call'
+                type: array
+            type: object
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List calls of a user
+      tags:
+      - calls
+      - users
+    post:
+      description: '**Required ACL:** `calld.users.me.calls.create`
+        The user originator of the call is determined from the authentication token.
+        '
+      operationId: createUserCall
+      parameters:
+      - description: Parameters of the call
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserCallRequest'
+      responses:
+        '201':
+          description: The new call ID
+          schema:
+            $ref: '#/definitions/Call'
+        '400':
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Make a new call from a user
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}:
+    delete:
+      description: '**Required ACL:** `calld.users.me.calls.{call_id}.delete`
+        Only calls owned by the authenticated user may be hung up.'
+      operationId: hangupUserCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Call has been hung up
+        '403':
+          description: The authenticated user tried to hangup a call owned by someone
+            else
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Hangup a call from a user
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}/answer:
+    put:
+      description: '**Required ACL:** `calld.users.me.calls.{call_id}.answer.update`
+        Only calls owned by the authenticated user may be answered.'
+      operationId: answerUserCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now answered
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Answer a call from user
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}/dtmf:
+    put:
+      description: '**Required ACL:** `calld.users.me.calls.{call_id}.dtmf.update'
+      operationId: sendUserDTMF
+      parameters:
+      - $ref: '#/parameters/CallID'
+      - $ref: '#/parameters/DTMFDigits'
+      responses:
+        '204':
+          description: The digits have been sent
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Simulate a user pressing DTMF keys
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}/hold/start:
+    put:
+      description: '**Required ACL:** `calld.users.me.calls.{call_id}.hold.start.update`
+        Only calls owned by the authenticated user may be held.'
+      operationId: holdUserCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now held
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Hold a call from user
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}/hold/stop:
+    put:
+      description: '**Required ACL:** `calld.users.me.calls.{call_id}.hold.stop.update`
+        Only calls owned by the authenticated user may be unheld.'
+      operationId: unholdUserCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now unheld
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Unhold a call from user
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}/mute/start:
+    put:
+      description: '**Required ACL:** `calld.users.me.calls.{call_id}.mute.start.update`
+        Only calls owned by the authenticated user may be mute.'
+      operationId: muteUserCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now muted
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Mute a call from user
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}/mute/stop:
+    put:
+      description: '**Required ACL:** `calld.users.me.calls.{call_id}.mute.stop.update`
+        Only calls owned by the authenticated user may be unmute.'
+      operationId: unmuteUserCall
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: The call is now unmuted
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Unmute a call from user
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}/record/start:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.record.start.update`'
+      operationId: startCurrentUserRecording
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Recording has started for the call
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Start recording a call
+      tags:
+      - calls
+      - users
+  /users/me/calls/{call_id}/record/stop:
+    put:
+      description: '**Required ACL:** `calld.calls.{call_id}.record.stop.update`'
+      operationId: stopCurrentUserRecording
+      parameters:
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Recording has stopped for the call
+        '404':
+          description: No such call
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Stop recording a call
+      tags:
+      - calls
+      - users
+  /users/me/conferences/adhoc:
+    post:
+      description: '**Required ACL:** `calld.users.me.conferences.adhoc.create`. An
+        adhoc conference allows a user to merge multiple calls in one conversation.
+        It acts like a conference room, but has no dedicated extension. The user creating
+        the adhoc conference acts as the owner of the conference and controls who
+        enters or leaves the conference. The conference will be destroyed when the
+        owner leaves the conference.'
+      operationId: createAdhocConference
+      parameters:
+      - description: Parameters of the conference calls
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdhocConferenceCreation'
+      responses:
+        '201':
+          description: Conference adhoc has been created
+          schema:
+            $ref: '#/definitions/AdhocConference'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '409':
+          $ref: '#/responses/HostAlreadyInConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Create an adhoc conference
+      tags:
+      - adhoc_conferences
+  /users/me/conferences/adhoc/{conference_id}:
+    delete:
+      description: '**Required ACL:** `calld.users.me.conferences.adhoc.delete`. All
+        calls in the adhoc conference will be hungup.'
+      operationId: deleteAdhocConference
+      parameters:
+      - $ref: '#/parameters/AdhocConferenceID'
+      responses:
+        '204':
+          description: Conference adhoc has been deleted
+          schema:
+            $ref: '#/definitions/AdhocConference'
+        '404':
+          $ref: '#/responses/NoSuchAdhocConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete an adhoc conference
+      tags:
+      - adhoc_conferences
+  /users/me/conferences/adhoc/{conference_id}/participants/{call_id}:
+    delete:
+      description: '**Required ACL:** `calld.users.me.conferences.adhoc.participants.delete`'
+      operationId: removeParticipantFromAdhocConference
+      parameters:
+      - $ref: '#/parameters/AdhocConferenceID'
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Participant has been removed from the adhoc conference
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NoSuchAdhocConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Remove a participant from an adhoc conference
+      tags:
+      - adhoc_conferences
+    put:
+      description: '**Required ACL:** `calld.users.me.conferences.adhoc.participants.update`'
+      operationId: addParticipantToAdhocConference
+      parameters:
+      - $ref: '#/parameters/AdhocConferenceID'
+      - $ref: '#/parameters/CallID'
+      responses:
+        '204':
+          description: Participant has been added to the adhoc conference
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NoSuchAdhocConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Add a participant into an adhoc conference
+      tags:
+      - adhoc_conferences
+  /users/me/conferences/{conference_id}/participants:
+    get:
+      description: '**Required ACL:** `calld.users.me.conferences.{conference_id}.participants.read`'
+      operationId: listUserConferenceParticipants
+      parameters:
+      - $ref: '#/parameters/ConferenceID'
+      responses:
+        '200':
+          description: The list of participant is returned
+          schema:
+            $ref: '#/definitions/ParticipantList'
+        '404':
+          $ref: '#/responses/NoSuchConference'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List participants of a conference as a user
+      tags:
+      - conferences
+      - users
+  /users/me/faxes:
+    post:
+      consumes:
+      - application/pdf
+      description: '**Required ACL:** `calld.users.me.faxes.create`'
+      operationId: sendUserFax
+      parameters:
+      - description: The fax file content, in PDF format
+        in: body
+        name: fax_content
+        required: true
+        schema:
+          format: binary
+          type: string
+      - description: Extension of the recipient of the fax
+        in: query
+        name: extension
+        required: true
+        type: string
+      - default: Accent Fax
+        description: 'Caller ID that will be presented to the recipient of the fax.
+          Example: "my-name <+15551112222>"'
+        in: query
+        name: caller_id
+        type: string
+      - description: Extension to compose before sending fax. Useful for fax in IVR
+        in: query
+        name: ivr_extension
+        type: string
+      - description: Time waiting before sending fax when destination has answered
+          (in seconds)
+        in: query
+        name: wait_time
+        type: integer
+      responses:
+        '201':
+          description: Fax send request accepted
+          schema:
+            $ref: '#/definitions/Fax'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Send a fax as the user detected from the token
+      tags:
+      - faxes
+  /users/me/meetings/{meeting_uuid}/participants:
+    get:
+      description: '**Required ACL:** `calld.users.me.meetings.{meeting_uuid}.participants.read`'
+      operationId: listUserMeetingParticipants
+      parameters:
+      - $ref: '#/parameters/MeetingUUID'
+      responses:
+        '200':
+          description: The list of participant is returned
+          schema:
+            $ref: '#/definitions/ParticipantList'
+        '404':
+          $ref: '#/responses/NoSuchMeeting'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List participants of a meeting as a user
+      tags:
+      - meetings
+      - users
+  /users/me/meetings/{meeting_uuid}/participants/{participant_id}:
+    delete:
+      operationId: kickUserMeetingParticipant
+      description: '**Required ACL:** `calld.users.me.meetings.participants.delete`'
+      parameters:
+      - $ref: '#/parameters/MeetingUUID'
+      - $ref: '#/parameters/ParticipantID'
+      responses:
+        '204':
+          description: The participant was kicked
+        '404':
+          $ref: '#/responses/NoSuchMeetingOrParticipant'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Kick a participant from a meeting as a user
+      tags:
+      - meetings
+      - users
+  /users/me/relocates:
+    get:
+      description: '**Required ACL:** `calld.users.me.relocates.read`'
+      operationId: listUserRelocates
+      responses:
+        '200':
+          description: The list of relocates
+          schema:
+            $ref: '#/definitions/RelocateList'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get the relocates of the authenticated user
+      tags:
+      - relocates
+      - users
+    post:
+      description: '**Required ACL:** `calld.users.me.relocates.create`'
+      operationId: initiateRelocate
+      parameters:
+      - description: Parameters of the relocate
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserRelocateRequest'
+      responses:
+        '201':
+          description: The relocate being created
+          schema:
+            $ref: '#/definitions/Relocate'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '403':
+          description: The authenticated user tried to relocate a call owned by someone
+            else
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          description: The server could not determine which Call to use as relocated
+            or initiator, usually because too many Calls are eligible
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Initiate a relocate from the authenticated user
+      tags:
+      - relocates
+      - users
+  /users/me/relocates/{relocate_uuid}:
+    get:
+      description: '**Required ACL:** `calld.relocates.users.me.{relocate_uuid}.read`'
+      operationId: getUserRelocate
+      parameters:
+      - $ref: '#/parameters/RelocateUUID'
+      responses:
+        '200':
+          description: The details of the relocate
+          schema:
+            $ref: '#/definitions/Relocate'
+        '404':
+          $ref: '#/responses/NoSuchRelocate'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get details of a relocate
+      tags:
+      - relocates
+  /users/me/relocates/{relocate_uuid}/cancel:
+    put:
+      description: '**Required ACL:** `calld.users.me.relocates.{relocate_uuid}.cancel.update`'
+      operationId: cancelRelocate
+      parameters:
+      - $ref: '#/parameters/RelocateUUID'
+      responses:
+        '204':
+          description: The relocate was cancelled
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NoSuchRelocate'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Cancel a relocate
+      tags:
+      - relocates
+      - users
+  /users/me/relocates/{relocate_uuid}/complete:
+    put:
+      description: '**Required ACL:** `calld.users.me.relocates.{relocate_uuid}.complete.update`'
+      operationId: completeRelocate
+      parameters:
+      - $ref: '#/parameters/RelocateUUID'
+      responses:
+        '204':
+          description: The relocate was completed
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NoSuchRelocate'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Complete a relocate
+      tags:
+      - relocates
+      - users
+  /users/me/transfers:
+    get:
+      description: '**Required ACL:** `calld.users.me.transfers.read`'
+      operationId: listUserTransfers
+      responses:
+        '200':
+          description: The list of transfers
+          schema:
+            $ref: '#/definitions/TransferList'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get the transfers of the authenticated user
+      tags:
+      - transfers
+      - users
+    post:
+      description: '**Required ACL:** `calld.users.me.transfers.create`'
+      operationId: initiateUserTransfer
+      parameters:
+      - description: Parameters of the transfer
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserTransferRequest'
+      responses:
+        '201':
+          description: The transfer being created
+          schema:
+            $ref: '#/definitions/Transfer'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '403':
+          description: The authenticated user tried to transfer a call owned by someone
+            else
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          description: The server could not determine which Call to use as transferred
+            or initiator, usually because too many Calls are eligible
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Initiate a transfer from the authenticated user
+      tags:
+      - transfers
+      - users
+  /users/me/transfers/{transfer_id}:
+    delete:
+      description: '**Required ACL:** `calld.users.me.transfers.{transfer_id}.delete`'
+      operationId: cancelUserTransfer
+      parameters:
+      - $ref: '#/parameters/TransferID'
+      responses:
+        '204':
+          description: Transfer cancelled
+        '403':
+          description: The authenticated user tried to cancel a transfer owned by
+            someone else
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          $ref: '#/responses/NoSuchTransfer'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Cancel a transfer
+      tags:
+      - transfers
+      - users
+  /users/me/transfers/{transfer_id}/complete:
+    put:
+      description: '**Required ACL:** `calld.users.me.transfers.{transfer_id}.complete.update`'
+      operationId: completeUserTransfer
+      parameters:
+      - $ref: '#/parameters/TransferID'
+      responses:
+        '204':
+          description: The transfer was completed
+        '403':
+          description: The authenticated user tried to complete a transfer owned by
+            someone else
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          $ref: '#/responses/NoSuchTransfer'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Complete a transfer
+      tags:
+      - transfers
+      - users
+  /users/me/voicemails:
+    get:
+      description: '**Required ACL:** `calld.users.me.voicemails.read`'
+      operationId: listUserVoicemails
+      responses:
+        '200':
+          description: The details of the voicemail
+          schema:
+            $ref: '#/definitions/Voicemail'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get details of the voicemail of the authenticated user
+      tags:
+      - users
+      - voicemails
+  /users/me/voicemails/folders/{folder_id}:
+    get:
+      description: '**Required ACL:** `calld.users.me.voicemails.folders.{folder_id}.read`'
+      operationId: getUserVoicemailFolder
+      parameters:
+      - $ref: '#/parameters/VoicemailFolderID'
+      responses:
+        '200':
+          description: The details of the folder
+          schema:
+            $ref: '#/definitions/VoicemailFolder'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get details of a folder
+      tags:
+      - users
+      - voicemails
+  /users/me/voicemails/greetings/{greeting}:
+    delete:
+      description: '**Required ACL:** `calld.users.me.voicemails.greetings.{greeting}.delete`'
+      operationId: deleteUserVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailGreeting'
+      responses:
+        '204':
+          description: The greeting was deleted successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete a custom greeting
+      tags:
+      - users
+      - voicemails
+    get:
+      description: '**Required ACL:** `calld.users.me.voicemails.greetings.{greeting}.read`'
+      operationId: getUserVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailGreeting'
+      produces:
+      - audio/wav
+      responses:
+        '200':
+          description: The greeting's recording
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get a custom greeting
+      tags:
+      - users
+      - voicemails
+    head:
+      description: '**Required ACL:** `calld.users.me.voicemails.greetings.{greeting}.read`'
+      operationId: checkUserVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailGreeting'
+      responses:
+        '200':
+          description: Greeting exists
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Check if greeting exists
+      tags:
+      - users
+      - voicemails
+    post:
+      consumes:
+      - audio/wav
+      description: '**Required ACL:** `calld.users.me.voicemails.greetings.{greeting}.create`'
+      operationId: createUserVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailGreeting'
+      - in: body
+        name: body
+        required: true
+        schema:
+          format: binary
+      responses:
+        '204':
+          description: The greeting was created successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Create a custom greeting
+      tags:
+      - users
+      - voicemails
+    put:
+      consumes:
+      - audio/wav
+      description: '**Required ACL:** `calld.users.me.voicemails.greetings.{greeting}.update`'
+      operationId: updateUserVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailGreeting'
+      - in: body
+        name: body
+        required: true
+        schema:
+          format: binary
+      responses:
+        '204':
+          description: The greeting was updated successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Update a custom greeting
+      tags:
+      - users
+      - voicemails
+  /users/me/voicemails/greetings/{greeting}/copy:
+    post:
+      description: '**Required ACL:** `calld.users.me.voicemails.greetings.{greeting}.copy.create`'
+      operationId: copyUserVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailGreeting'
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/GreetingCopy'
+      responses:
+        '204':
+          description: The greeting was copied successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Copy a custom greeting
+      tags:
+      - users
+      - voicemails
+  /users/me/voicemails/messages/{message_id}:
+    delete:
+      description: '**Required ACL:** `calld.users.me.voicemails.messages.{message_id}.delete`'
+      operationId: deleteUserVoicemailMessage
+      parameters:
+      - $ref: '#/parameters/VoicemailMessageID'
+      responses:
+        '204':
+          description: Message was deleted successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete a mesage
+      tags:
+      - users
+      - voicemails
+    get:
+      description: '**Required ACL:** `calld.users.me.voicemails.messages.{message_id}.read`'
+      operationId: getUserVoicemailMessage
+      parameters:
+      - $ref: '#/parameters/VoicemailMessageID'
+      responses:
+        '200':
+          description: The message
+          schema:
+            $ref: '#/definitions/VoicemailMessage'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get a message
+      tags:
+      - users
+      - voicemails
+    put:
+      description: '**Required ACL:** `calld.users.me.voicemails.messages.{message_id}.update`'
+      operationId: updateUserVoicemailMessage
+      parameters:
+      - $ref: '#/parameters/VoicemailMessageID'
+      - description: Message
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/VoicemailMessageUpdate'
+      responses:
+        '204':
+          description: Message was updated successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Update a message
+      tags:
+      - users
+      - voicemails
+  /users/me/voicemails/messages/{message_id}/recording:
+    get:
+      description: '**Required ACL:** `calld.users.me.voicemails.messages.{message_id}.recording.read`'
+      operationId: getUserVoicemailMessageRecording
+      parameters:
+      - $ref: '#/parameters/VoicemailMessageID'
+      - $ref: '#/parameters/TokenID'
+      - $ref: '#/parameters/ForceDownload'
+      produces:
+      - audio/wav
+      responses:
+        '200':
+          description: The recording
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get a message's recording
+      tags:
+      - users
+      - voicemails
+  /voicemails/{voicemail_id}:
+    get:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.read`'
+      operationId: getVoicemail
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      responses:
+        '200':
+          description: The details of the voicemail
+          schema:
+            $ref: '#/definitions/Voicemail'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get details of a voicemail
+      tags:
+      - voicemails
+  /voicemails/{voicemail_id}/folders/{folder_id}:
+    get:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.folders.{folder_id}.read`'
+      operationId: getVoicemailFolder
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailFolderID'
+      responses:
+        '200':
+          description: The details of the folder
+          schema:
+            $ref: '#/definitions/VoicemailFolder'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get details of a folder
+      tags:
+      - voicemails
+  /voicemails/{voicemail_id}/greetings/{greeting}:
+    delete:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.greetings.{greeting}.delete`'
+      operationId: deleteVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailGreeting'
+      responses:
+        '204':
+          description: The greeting was deleted successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete a custom greeting
+      tags:
+      - voicemails
+    get:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.greetings.{greeting}.read`'
+      operationId: getVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailGreeting'
+      produces:
+      - audio/wav
+      responses:
+        '200':
+          description: The greeting's recording
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get a custom greeting
+      tags:
+      - voicemails
+    head:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.greetings.{greeting}.read`'
+      operationId: checkVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailGreeting'
+      responses:
+        '200':
+          description: Greeting exists
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Check if greeting exists
+      tags:
+      - voicemails
+    post:
+      consumes:
+      - audio/wav
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.greetings.{greeting}.create`'
+      operationId: createVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailGreeting'
+      - in: body
+        name: body
+        required: true
+        schema:
+          format: binary
+      responses:
+        '204':
+          description: The greeting was created successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Create a custom greeting
+      tags:
+      - voicemails
+    put:
+      consumes:
+      - audio/wav
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.greetings.{greeting}.update`'
+      operationId: updateVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailGreeting'
+      - in: body
+        name: body
+        required: true
+        schema:
+          format: binary
+      responses:
+        '204':
+          description: The greeting was updated successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Update a custom greeting
+      tags:
+      - voicemails
+  /voicemails/{voicemail_id}/greetings/{greeting}/copy:
+    post:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.greetings.{greeting}.copy.create`'
+      operationId: copyVoicemailGreeting
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailGreeting'
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/GreetingCopy'
+      responses:
+        '204':
+          description: The greeting was copied successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Copy a custom greeting
+      tags:
+      - voicemails
+  /voicemails/{voicemail_id}/messages/{message_id}:
+    delete:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.messages.{message_id}.delete`'
+      operationId: deleteVoicemailMessage
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailMessageID'
+      responses:
+        '204':
+          description: Message was deleted successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete a mesage
+      tags:
+      - voicemails
+    get:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.messages.{message_id}.read`'
+      operationId: getVoicemailMessage
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailMessageID'
+      responses:
+        '200':
+          description: The message
+          schema:
+            $ref: '#/definitions/VoicemailMessage'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get a message
+      tags:
+      - voicemails
+    put:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.messages.{message_id}.update`'
+      operationId: updateVoicemailMessage
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailMessageID'
+      - description: Message
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/VoicemailMessageUpdate'
+      responses:
+        '204':
+          description: Message was updated successfully
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Update a message
+      tags:
+      - voicemails
+  /voicemails/{voicemail_id}/messages/{message_id}/recording:
+    get:
+      description: '**Required ACL:** `calld.voicemails.{voicemail_id}.messages.{message_id}.recording.read`'
+      operationId: getVoicemailMessageRecording
+      parameters:
+      - $ref: '#/parameters/VoicemailID'
+      - $ref: '#/parameters/VoicemailMessageID'
+      - $ref: '#/parameters/TokenID'
+      - $ref: '#/parameters/ForceDownload'
+      produces:
+      - audio/wav
+      responses:
+        '200':
+          description: The recording
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get a message's recording
+      tags:
+      - voicemails
+produces:
+- application/json
+responses:
+  AnotherServiceUnavailable:
+    description: Another service is unavailable (e.g. accent-auth, accent-confd, Asterisk,
+      ...)
+    schema:
+      $ref: '#/definitions/Error'
+  HostAlreadyInConference:
+    description: The host call is already in a conference
+    schema:
+      $ref: '#/definitions/Error'
+  InvalidRequest:
+    description: Invalid request
+    schema:
+      $ref: '#/definitions/Error'
+  NoSuchAdhocConference:
+    description: The specified adhoc conference does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  NoSuchConference:
+    description: The specified conference does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  NoSuchMeeting:
+    description: The specified meeting does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  NoSuchMeetingOrParticipant:
+    description: The specified meeting or participant does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  NoSuchRelocate:
+    description: The specified relocate does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  NoSuchSwitchboard:
+    description: The specified switchboard does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  NoSuchTransfer:
+    description: The specified transfer does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  NotFoundError:
+    description: The resource requested was not found on the server
+    schema:
+      $ref: '#/definitions/Error'
+schemes:
+- http
+- https
+security:
+- accent_auth_token: []
+securityDefinitions:
+  accent_auth_token:
+    in: header
+    name: X-Auth-Token
+    type: apiKey
+swagger: '2.0'
+x-accent-name: calld
+x-accent-port: 9500

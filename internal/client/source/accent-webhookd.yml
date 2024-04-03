@@ -1,0 +1,662 @@
+host: api.accentvoice.io
+basePath: /1.0
+definitions:
+  ComponentWithStatus:
+    properties:
+      status:
+        $ref: '#/definitions/StatusValue'
+    type: object
+  ConfigPatchItem:
+    properties:
+      op:
+        description: 'Patch operation. Supported operations: `replace`.'
+        type: string
+      path:
+        description: 'JSON path to operate on. Supported paths: `/debug`.'
+        type: string
+      value:
+        description: The new value for the operation. Type of value is dependent of
+          `path`
+        type: object
+  Error:
+    description: Error message for the client
+    properties:
+      details:
+        description: Additional information about the error. The keys are specific
+          to each error.
+        type: object
+      error_id:
+        description: Identifier of the type of error. It is more precise than the
+          HTTP status code.
+        type: string
+      message:
+        description: Human readable explanation of the error
+        type: string
+      timestamp:
+        description: Time when the error occured
+        format: timestamp
+        type: number
+    title: Error
+  HTTPServiceConfig:
+    properties:
+      body:
+        description: Jinja2 template, where variables come from the event triggering
+          the webhook. For more details, see https://accentvoice.io/uc-doc/api_sdk/rest_api/webhookd/templates.
+          **Default:** the complete event data, JSON-encoded.
+        type: string
+      content_type:
+        description: Content-Type of the body
+        type: string
+      method:
+        enum:
+        - head
+        - get
+        - post
+        - put
+        - delete
+        type: string
+      url:
+        description: Jinja2 template, where variables come from the event triggering
+          the webhook. For more details, see https://accentvoice.io/uc-doc/api_sdk/rest_api/webhookd/templates
+        type: string
+      verify_certificate:
+        default: 'true'
+        description: May be `true`, `false` or a path to the certificate bundle
+        type: string
+    required:
+    - url
+    - method
+    type: object
+  HTTPServiceLog:
+    properties:
+      request_body:
+        type: string
+      request_headers:
+        additionalProperties:
+          type: string
+        type: object
+      request_method:
+        type: string
+      request_url:
+        type: string
+      response_body:
+        type: string
+      response_headers:
+        additionalProperties:
+          type: string
+        type: object
+      response_method:
+        type: string
+      response_url:
+        type: string
+    type: object
+  Notification:
+    properties:
+      body:
+        maxLength: 250
+        type: string
+      extra:
+        type: object
+      notification_type:
+        description: A name without special characters to differenciate the notification
+          from others
+        example: myCustomNotification
+        maxLength: 100
+        minLength: 1
+        pattern: (?!^(messageReceived|voicemailReceived|incomingCall|cancelIncomingCall)$)(^[a-z0-9_]+$)
+        type: string
+      title:
+        maxLength: 128
+        type: string
+      user_uuid:
+        maxLength: 36
+        minLength: 36
+        type: string
+    required:
+    - notification_type
+    - user_uuid
+    - title
+    - body
+    type: object
+  ServiceConfig:
+    additionalProperties:
+      type: string
+    type: object
+  Services:
+    properties:
+      services:
+        description: The keys are the service names.
+        type: object
+    type: object
+  StatusSummary:
+    properties:
+      bus_consumer:
+        $ref: '#/definitions/ComponentWithStatus'
+      master_tenant:
+        $ref: '#/definitions/ComponentWithStatus'
+    type: object
+  StatusValue:
+    enum:
+    - fail
+    - ok
+    type: string
+  Subscription:
+    properties:
+      config:
+        $ref: '#/definitions/ServiceConfig'
+      events:
+        items:
+          type: string
+        type: array
+      events_user_uuid:
+        description: 'Only trigger webhook when an event occurs related to this user.
+          Not compatible with all events. For more details, see: https://accentvoice.io/uc-doc/api_sdk/rest_api/webhookd/user_filter'
+        type: string
+      name:
+        type: string
+      owner_user_uuid:
+        description: The user who owns this subscription. Admin-created subscriptions
+          are not owned.
+        readOnly: true
+        type: string
+      service:
+        type: string
+      uuid:
+        readOnly: true
+        type: string
+    required:
+    - name
+    - service
+    - config
+    - events
+    type: object
+  SubscriptionList:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/Subscription'
+        readOnly: true
+        type: array
+      total:
+        readOnly: true
+        type: integer
+    type: object
+  SubscriptionLog:
+    properties:
+      attempts:
+        description: The current attempts
+        type: integer
+      detail:
+        $ref: '#/definitions/HTTPServiceLog'
+        description: output of the service
+      ended_at:
+        format: date-time
+        type: string
+      event:
+        type: string
+      max_attempts:
+        description: Limit of number of attempts
+        type: integer
+      started_at:
+        format: date-time
+        type: string
+      status:
+        enum:
+        - success
+        - failure
+        - error
+        type: string
+      uuid:
+        type: string
+    type: object
+  SubscriptionMetadata:
+    description: Arbitrary key-value storage for this subscription. May be used to
+      tag subscriptions. PUT replaces all metadata.
+    type: object
+  SubscriptionRequest:
+    properties:
+      config:
+        $ref: '#/definitions/HTTPServiceConfig'
+      events:
+        items:
+          type: string
+        type: array
+      events_user_uuid:
+        description: 'Only trigger webhook when an event occurs related to this user.
+          Not compatible with all events. For more details, see: https://accentvoice.io/uc-doc/api_sdk/rest_api/webhookd/user_filter.'
+        type: string
+      events_accent_uuid:
+        description: Only trigger webhook when an event occurs on this Accent.
+        type: string
+      name:
+        type: string
+      service:
+        description: 'Known services: http. The service may be arbitrary, but it must
+          be bound to an installed plugin in order to be effective.
+
+          '
+        type: string
+      tags:
+        type: object
+    required:
+    - name
+    - service
+    - config
+    - events
+    type: object
+  UserSubscriptionRequest:
+    properties:
+      config:
+        $ref: '#/definitions/HTTPServiceConfig'
+      events:
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+      service:
+        description: 'Known services: http. The service may be arbitrary, but it must
+          be bound to an installed plugin in order to be effective.
+
+          '
+        type: string
+      tags:
+        $ref: '#/definitions/SubscriptionMetadata'
+    required:
+    - name
+    - service
+    - config
+    - events
+    type: object
+info:
+  license:
+    name: Proprietary
+    url: https://accentvoice.io/
+  contact:
+    email: help@accentvoice.io
+    name: Accent Team
+    url: https://accentvoice.io/
+  description: Control your webhooks from a REST API
+  title: accent-webhookd
+  version: 1.0.0
+  x-logo:
+    altText: Accent Logo
+    backgroundColor: '#FAFAFA'
+    url: https://accentvoice.io/images/logo-black.svg
+parameters:
+  ConfigPatch:
+    description: See https://en.wikipedia.org/wiki/JSON_Patch.
+    in: body
+    name: ConfigPatch
+    required: true
+    schema:
+      items:
+        $ref: '#/definitions/ConfigPatchItem'
+      type: array
+  NotificationBody:
+    in: body
+    name: body
+    required: true
+    schema:
+      $ref: '#/definitions/Notification'
+  SearchMetadata:
+    description: A search term formatted like "key:value" that will only match subscriptions
+      having a metadata entry "key=value". May be given multiple times to filter more
+      precisely on different metadata keys.
+    in: query
+    name: search_metadata
+    type: string
+  SubscriptionBody:
+    in: body
+    name: body
+    required: true
+    schema:
+      $ref: '#/definitions/SubscriptionRequest'
+  SubscriptionUUID:
+    description: The UUID of the subscription
+    in: path
+    name: subscription_uuid
+    required: true
+    type: string
+  TenantUuidHeader:
+    description: The User's tenant UUID, defining the ownership of a given resource.
+    in: header
+    name: Accent-Tenant
+    type: string
+  TokenID:
+    description: The token's ID
+    in: query
+    name: token
+    type: string
+  UserSubscriptionBody:
+    in: body
+    name: body
+    required: true
+    schema:
+      $ref: '#/definitions/UserSubscriptionRequest'
+  recurse:
+    default: false
+    description: Should the query include sub-tenants
+    in: query
+    name: recurse
+    required: false
+    type: boolean
+  tenantuuid:
+    description: The tenant's UUID, defining the ownership of a given resource.
+    in: header
+    name: Accent-Tenant
+    required: false
+    type: string
+paths:
+  /config:
+    get:
+      description: '**Required ACL:** `webhookd.config.read`'
+      operationId: getConfig
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The configuration of the service
+      summary: Show the current configuration
+      tags:
+      - config
+    patch:
+      description: '**Required ACL:** `webhookd.config.update`
+
+
+        Changes are not persistent across service restart.
+
+        '
+      operationId: patchConfig
+      parameters:
+      - $ref: '#/parameters/ConfigPatch'
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The updated configuration of the service
+        '400':
+          description: The given confiuration is invalid
+      summary: Update the current configuration.
+      tags:
+      - config
+  /mobile/notifications:
+    post:
+      description: '**Required ACL:** `webhookd.mobile.notifications.send`'
+      operationId: postMobileNotification
+      parameters:
+      - $ref: '#/parameters/TenantUuidHeader'
+      - $ref: '#/parameters/NotificationBody'
+      produces:
+      - application/json
+      responses:
+        '204':
+          description: An attempt to send the notification has been made
+        '400':
+          description: At least one field is invalid
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Invalid or insufficient autorization
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Send a push notification to a user
+      tags:
+      - notifications
+  /status:
+    get:
+      description: '**Required ACL:** `webhookd.status.read`'
+      operationId: getStatus
+      responses:
+        '200':
+          description: The internal infos of accent-webhookd
+          schema:
+            $ref: '#/definitions/StatusSummary'
+      summary: Print infos about internal status of accent-webhookd
+      tags:
+      - status
+  /subscriptions:
+    get:
+      description: '**Required ACL:** `webhookd.subscriptions.read`'
+      operationId: list
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/SearchMetadata'
+      responses:
+        '200':
+          description: List of the subscriptions
+          schema:
+            $ref: '#/definitions/SubscriptionList'
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List subscriptions to HTTP callbacks
+      tags:
+      - subscriptions
+    post:
+      description: '**Required ACL:** `webhookd.subscriptions.create`
+
+
+        For more information: https://accentvoice.io/documentation/api/webhook.html'
+      operationId: create
+      parameters:
+      - $ref: '#/parameters/SubscriptionBody'
+      responses:
+        '201':
+          description: The subscription has been completed
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Subscribe to a HTTP callback (webhook)
+      tags:
+      - subscriptions
+  /subscriptions/services:
+    get:
+      description: '**Required ACL:** `webhookd.subscriptions.services.read`'
+      operationId: getSubscriptionsServices
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The available services
+          schema:
+            $ref: '#/definitions/Services'
+      summary: Show the available subscription services
+      tags:
+      - subscriptions
+  /subscriptions/{subscription_uuid}:
+    delete:
+      description: '**Required ACL:** `webhookd.subscriptions.{subscription_uuid}.delete`'
+      operationId: delete
+      parameters:
+      - $ref: '#/parameters/SubscriptionUUID'
+      responses:
+        '204':
+          description: The requested subscription was deleted
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete a subscription
+      tags:
+      - subscriptions
+    get:
+      description: '**Required ACL:** `webhookd.subscriptions.{subscription_uuid}.read`'
+      operationId: get
+      parameters:
+      - $ref: '#/parameters/SubscriptionUUID'
+      responses:
+        '200':
+          description: Details of the requested subscription
+          schema:
+            $ref: '#/definitions/Subscription'
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get a subscription
+      tags:
+      - subscriptions
+    put:
+      description: '**Required ACL:** `webhookd.subscriptions.{subscription_uuid}.update`'
+      operationId: edit
+      parameters:
+      - $ref: '#/parameters/SubscriptionUUID'
+      - $ref: '#/parameters/SubscriptionBody'
+      responses:
+        '200':
+          description: The requested subscription was edited
+          schema:
+            $ref: '#/definitions/Subscription'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Edit a subscription
+      tags:
+      - subscriptions
+  /subscriptions/{subscription_uuid}/logs:
+    get:
+      description: '**Required ACL:** `webhookd.subscriptions.{subscription_uuid}.logs.read`'
+      operationId: get_logs
+      parameters:
+      - $ref: '#/parameters/SubscriptionUUID'
+      responses:
+        '200':
+          description: Details of the requested subscription
+          schema:
+            $ref: '#/definitions/SubscriptionLog'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get hook logs
+      tags:
+      - subscriptions
+  /users/me/subscriptions:
+    get:
+      description: '**Required ACL:** `webhookd.users.me.subscriptions.read`'
+      operationId: user_list
+      parameters:
+      - $ref: '#/parameters/SearchMetadata'
+      responses:
+        '200':
+          description: List of the subscriptions of the user
+          schema:
+            $ref: '#/definitions/SubscriptionList'
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List subscriptions of a user to HTTP callbacks
+      tags:
+      - subscriptions
+      - users
+    post:
+      description: '**Required ACL:** `webhookd.users.me.subscriptions.create`
+
+
+        For more information: https://accentvoice.io/documentation/api/webhook.html'
+      operationId: user_create
+      parameters:
+      - $ref: '#/parameters/UserSubscriptionBody'
+      responses:
+        '201':
+          description: The subscription has been completed
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Subscribe to a HTTP callback (webhook) as a user
+      tags:
+      - subscriptions
+      - users
+  /users/me/subscriptions/{subscription_uuid}:
+    delete:
+      description: '**Required ACL:** `webhookd.users.me.subscriptions.{subscription_uuid}.delete`'
+      operationId: user_delete
+      parameters:
+      - $ref: '#/parameters/SubscriptionUUID'
+      responses:
+        '204':
+          description: The requested subscription was deleted
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete a user subscription
+      tags:
+      - subscriptions
+      - users
+    get:
+      description: '**Required ACL:** `webhookd.users.me.subscriptions.{subscription_uuid}.read`'
+      operationId: get_user_subscription
+      parameters:
+      - $ref: '#/parameters/SubscriptionUUID'
+      responses:
+        '200':
+          description: Details of the requested subscription
+          schema:
+            $ref: '#/definitions/Subscription'
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get a user subscription
+      tags:
+      - subscriptions
+      - users
+produces:
+- application/json
+responses:
+  AnotherServiceUnavailable:
+    description: Another service is unavailable (e.g. accent-auth, accent-confd, Asterisk,
+      ...)
+    schema:
+      $ref: '#/definitions/Error'
+  InvalidRequest:
+    description: Invalid request
+    schema:
+      $ref: '#/definitions/Error'
+  NotFoundError:
+    description: The resource requested was not found on the server
+    schema:
+      $ref: '#/definitions/Error'
+  Unauthorized:
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/Error'
+schemes:
+- http
+- https
+security:
+- accent_auth_token: []
+securityDefinitions:
+  accent_auth_token:
+    in: header
+    name: X-Auth-Token
+    type: apiKey
+swagger: '2.0'
+x-accent-name: webhookd
+x-accent-port: 9300

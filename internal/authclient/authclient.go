@@ -4,7 +4,7 @@ package authclient
 // 	"encoding/base64"
 // 	"fmt"
 // 	"net/http"
-// 	"apiclient/internal/restclient"
+// 	"github.com/ryanwclark1/accent-ui2/internal/restclient"
 // )
 
 // type AuthClient struct {

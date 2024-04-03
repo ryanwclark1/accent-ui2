@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ryanwclark1/ui2/htmx"
+	"github.com/ryanwclark1/accent-ui2/internal/util/htmx"
 )
 
 func main() {

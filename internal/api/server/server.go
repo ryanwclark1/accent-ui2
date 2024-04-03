@@ -7,16 +7,14 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gorilla/sessions"
-
-	"github.com/ryanwclark1/ui2/internal/config"
+	"github.com/ryanwclark1/accent-ui2/internal/config"
 )
 
 type Server struct {
 	r    *http.ServeMux
 	srv  *http.Server
 	conf config.Config
-	sess sessions.Store
+	// sess sessions.Store
 }
 
 func NewServer(conf config.Config) (*Server, error) {
@@ -29,7 +27,7 @@ func NewServer(conf config.Config) (*Server, error) {
 		Addr:         fmt.Sprintf("%s:%s", conf.Host, conf.Port),
 		Handler:      s.r,
 	}
-	s.sess = s.cookieStore()
+	// s.sess = s.cookieStore()
 	return s, nil
 }
 

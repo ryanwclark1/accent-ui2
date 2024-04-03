@@ -1,0 +1,391 @@
+host: api.accentvoice.io
+basePath: /0.2
+consumes:
+- application/json
+definitions:
+  ComponentWithStatus:
+    properties:
+      status:
+        $ref: '#/definitions/StatusValue'
+    type: object
+  Error:
+    description: Error message for the client
+    properties:
+      details:
+        description: Additional information about the error. The keys are specific
+          to each error.
+        type: object
+      error_id:
+        description: Identifier of the type of error. It is more precise than the
+          HTTP status code.
+        type: string
+      message:
+        description: Human readable explanation of the error
+        type: string
+      resource:
+        description: Name of the resource
+        type: string
+      timestamp:
+        description: Time when the error occured
+        format: timestamp
+        type: number
+    title: Error
+  GetMarketResult:
+    properties:
+      filtered:
+        description: The number of plugins matching the given search
+        type: integer
+      items:
+        description: A list of plugins
+        items:
+          $ref: '#/definitions/MarketPluginList'
+        type: array
+      total:
+        description: The number of plugins available on the market
+        type: integer
+    type: object
+  GetPluginsResult:
+    properties:
+      items:
+        description: A list of plugins
+        items:
+          $ref: '#/definitions/PluginMetadata'
+        type: array
+      total:
+        description: The number of plugins installed on the system
+        type: integer
+    type: object
+  InstallResponse:
+    properties:
+      uuid:
+        description: A UUID associated to this plugin installation
+        type: string
+    type: object
+  MarketPluginList:
+    properties:
+      name:
+        description: The name of the plugin
+        type: string
+      namespace:
+        description: The namespace of the plugin
+        type: string
+      versions:
+        description: Version specific information
+        items:
+          $ref: '#/definitions/VersionInfo'
+        type: array
+    type: object
+  PluginInstallParameters:
+    properties:
+      method:
+        description: The method used to fetch this plugin
+        enum:
+        - git
+        type: string
+      options:
+        description: Method dependant installation options
+        type: object
+    required:
+    - method
+    type: object
+  PluginMetadata:
+    properties:
+      name:
+        description: The name of the plugin
+        type: string
+      namespace:
+        description: The namespace of the plugin
+        type: string
+      version:
+        description: The version of the installed version
+        type: string
+    type: object
+  StatusSummary:
+    properties:
+      master_tenant:
+        $ref: '#/definitions/ComponentWithStatus'
+      rest_api:
+        $ref: '#/definitions/ComponentWithStatus'
+    type: object
+  StatusValue:
+    enum:
+    - fail
+    - ok
+    type: string
+  VersionInfo:
+    properties:
+      max_accent_version:
+        description: The maximum Accent version with which this plugin works
+        type: string
+      min_accent_version:
+        description: The minimum Accent version with which this plugin works
+        type: string
+      upgradable:
+        description: An indication wether installing this version would be an upgrade
+          on not. Unstalled plugins are marked as upgradable.
+        type: boolean
+      version:
+        description: The plugin version
+        type: string
+    type: object
+info:
+  contact:
+    email: help@accentvoice.io
+    name: Accent Team
+    url: https://accentvoice.io/
+  description: Accent's plugin management service
+  license:
+    name: GPLv3
+    url: http://www.gnu.org/licenses/gpl-3.0.html
+  title: accent-plugind
+  version: '0.2'
+  x-logo:
+    altText: Accent Logo
+    backgroundColor: '#FAFAFA'
+    url: https://accentvoice.io/images/logo-black.svg
+parameters:
+  direction:
+    description: Sort list of items in 'asc' (ascending) or 'desc' (descending) order
+    enum:
+    - asc
+    - desc
+    in: query
+    name: direction
+    required: false
+    type: string
+  installed_filter:
+    description: Filter installed plugins
+    in: query
+    name: installed
+    required: false
+    type: boolean
+  limit:
+    description: Maximum number of items to return in the list
+    in: query
+    name: limit
+    required: false
+    type: integer
+  name:
+    description: The plugin's name
+    in: path
+    name: name
+    required: true
+    type: string
+  name_filter:
+    description: Search by name
+    in: query
+    name: name
+    required: false
+    type: string
+  namespace:
+    description: The plugin's namespace
+    in: path
+    name: namespace
+    required: true
+    type: string
+  namespace_filter:
+    description: Search by namespace
+    in: query
+    name: namespace
+    required: false
+    type: string
+  offset:
+    description: Number of items to skip over in the list. Useful for pagination.
+    in: query
+    name: offset
+    required: false
+    type: integer
+  order:
+    description: Name of the field to use for sorting the list of items returned.
+    in: query
+    name: order
+    required: false
+    type: string
+  search:
+    description: "Filter list of items, this search is applied to all fields and is\
+      \ not strict (eba matches S\xE9bastien)"
+    in: query
+    name: search
+    required: false
+    type: string
+paths:
+  /config:
+    get:
+      description: '**Required ACL:** `plugind.config.read`'
+      operationId: getConfig
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The configuration of the service
+      summary: Show the current configuration
+      tags:
+      - config
+  /market:
+    get:
+      description: '**Required ACL:** `plugind.market.read`
+        Allow the administrator to get a list of available plugins
+        '
+      operationId: getMarket
+      parameters:
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/search'
+      - $ref: '#/parameters/namespace_filter'
+      - $ref: '#/parameters/name_filter'
+      - $ref: '#/parameters/installed_filter'
+      responses:
+        '200':
+          description: The plugin list
+          schema:
+            $ref: '#/definitions/GetMarketResult'
+      summary: List plugins available on the configured market
+      tags:
+      - plugin
+      - market
+  /market/{namespace}/{name}:
+    get:
+      description: '**Required ACL:** `plugind.market.read`
+        Allow the administrator to view a plugins information from the market.
+        ---
+        '
+      operationId: getMarketPlugin
+      parameters:
+      - $ref: '#/parameters/namespace'
+      - $ref: '#/parameters/name'
+      responses:
+        '200':
+          description: The plugin's information
+          schema:
+            $ref: '#/definitions/MarketPluginList'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Fetch the information about a plugin from the market
+      tags:
+      - plugin
+      - market
+  /plugins:
+    get:
+      description: '**Required ACL:** `plugind.plugins.read`
+        Allow the administrator to get a list of all installed plugins
+        '
+      operationId: getPlugins
+      responses:
+        '200':
+          description: The plugin list
+          schema:
+            $ref: '#/definitions/GetPluginsResult'
+      summary: List installed plugins
+      tags:
+      - plugin
+    post:
+      description: '**Required ACL:** `plugind.plugins.create`
+        Allow the administrator to install a plugin on the server.
+        '
+      operationId: installPlugin
+      parameters:
+      - description: With this option the plugin will be reinstalled if it is already
+          installed
+        in: query
+        name: reinstall
+        required: false
+        type: boolean
+      - description: The plugins' installation parameters
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/PluginInstallParameters'
+      responses:
+        '200':
+          description: Installation started
+          schema:
+            $ref: '#/definitions/InstallResponse'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+      summary: Install a plugin
+      tags:
+      - plugin
+  /plugins/{namespace}/{name}:
+    delete:
+      description: '**Required ACL:** `plugind.plugins.{namespace}.{name}.delete`
+        Allow the administrator to uninstall a plugin.
+        ---
+        '
+      operationId: uninstallPlugin
+      parameters:
+      - $ref: '#/parameters/namespace'
+      - $ref: '#/parameters/name'
+      responses:
+        '204':
+          description: Uninstallation started
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Uninstall a plugin
+      tags:
+      - plugin
+    get:
+      description: '**Required ACL:** `plugind.plugins.{namespace}.{name}.read`
+        Allow the administrator to view a plugins metadata file.
+        ---
+        '
+      operationId: getPlugin
+      parameters:
+      - $ref: '#/parameters/namespace'
+      - $ref: '#/parameters/name'
+      responses:
+        '200':
+          description: The plugin's metadata
+          schema:
+            $ref: '#/definitions/PluginMetadata'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Fetch the information about a plugin that has been installed
+      tags:
+      - plugin
+  /status:
+    get:
+      description: '**Required ACL:** `plugind.status.read`'
+      operationId: getStatus
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: the current status of accent-plugind
+          schema:
+            $ref: '#/definitions/StatusSummary'
+      summary: Returns the current status of accent-plugind
+      tags:
+      - status
+produces:
+- application/json
+responses:
+  InvalidRequest:
+    description: Invalid request
+    schema:
+      $ref: '#/definitions/Error'
+  NotFoundError:
+    description: Plugin not found
+    schema:
+      $ref: '#/definitions/Error'
+schemes:
+- http
+- https
+security:
+- accent_auth_token: []
+securityDefinitions:
+  accent_auth_token:
+    in: header
+    name: X-Auth-Token
+    type: apiKey
+swagger: '2.0'
+x-accent-name: plugind
+x-accent-port: 9503

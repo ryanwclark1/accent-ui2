@@ -1,0 +1,3771 @@
+host: api.accentvoice.io
+basePath: /0.1
+consumes:
+- application/json
+definitions:
+  APIError:
+    properties:
+      details:
+        type: object
+      message:
+        type: string
+      resource:
+        type: string
+      timestamp:
+        type: number
+    type: object
+  Backend:
+    allOf:
+    - properties:
+        name:
+          readOnly: true
+          type: string
+    - required:
+      - name
+    title: Backend
+  BackendItems:
+    allOf:
+    - properties:
+        filtered:
+          description: The number of backends matching the search filters
+          readOnly: true
+          type: integer
+        items:
+          items:
+            $ref: '#/definitions/Backend'
+          readOnly: true
+          type: array
+        total:
+          description: The number of backends
+          readOnly: true
+          type: integer
+    - required:
+      - items
+      - total
+      - filtered
+    title: BackendItems
+  CSVSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - properties:
+        file:
+          description: The path of the CSV file
+          type: string
+        separator:
+          default: ','
+          description: The field separator in the CSV
+          type: string
+        unique_column:
+          description: The column to use for favorites
+          type: string
+    - required:
+      - name
+    title: CSVSource
+  CSVSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/CSVSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: CSVSourceItems
+  CSVWSSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - properties:
+        delimiter:
+          default: ','
+          description: The field separator in the CSV
+          type: string
+        list_url:
+          description: The URL used to list all values
+          type: string
+        lookup_url:
+          description: The URL used to search the remote CSV
+          type: string
+        timeout:
+          default: 10.0
+          description: The timeout on the remote HTTP queries
+          type: number
+        unique_column:
+          description: The column to use for favorites
+          type: string
+    - required:
+      - name
+      - lookup_url
+    title: CSVWSSource
+  CSVWSSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/CSVWSSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: CSVWSSourceItems
+  ComponentWithStatus:
+    properties:
+      status:
+        $ref: '#/definitions/StatusValue'
+    type: object
+  ConfdConfig:
+    allOf:
+    - $ref: '#/definitions/ExternalServiceConfig'
+    - properties:
+        https:
+          default: true
+          type: boolean
+        port:
+          default: 9486
+          type: integer
+        version:
+          default: '1.1'
+          type: string
+    title: Confd
+  ConferenceContact:
+    properties:
+      extensions:
+        items:
+          description: The internal number of that contact
+          type: string
+        type: array
+      incalls:
+        items:
+          description: The external number of that contact
+          type: string
+        type: array
+      name:
+        description: The lastname of the contact
+        type: string
+      uuid:
+        description: The UUID of the contact
+        type: string
+  ConferenceContactList:
+    properties:
+      filtered:
+        description: The number of contacts in this source (filtered is not implemented)
+        readOnly: true
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/ConferenceContact'
+        type: array
+      total:
+        description: The number of contacts in this source
+        readOnly: true
+        type: integer
+    required:
+    - items
+    - total
+    - filtered
+  ConferenceSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - properties:
+        auth:
+          $ref: '#/definitions/AccentAuthConfig'
+        confd:
+          $ref: '#/definitions/ConfdConfig'
+    - required:
+      - name
+      - auth
+      - confd
+    title: ConferenceSource
+  ConferenceSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/ConferenceSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: ConferenceSourceItems
+  Contact:
+    properties:
+      backend:
+        description: Backend type
+        type: string
+      column_values:
+        items:
+          type: string
+        type: array
+      relations:
+        $ref: '#/definitions/Relation'
+      source:
+        type: string
+  ContactBodySample:
+    description: Those are only example attributes. The API accepts any arbitrary
+      attributes.
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+  ContactImportFailure:
+    properties:
+      errors:
+        items:
+          type: string
+        type: array
+      line:
+        type: integer
+  ContactImportResponse:
+    properties:
+      created:
+        items:
+          type: object
+        type: array
+      failed:
+        items:
+          $ref: '#/definitions/ContactImportFailure'
+        type: array
+  ContactList:
+    properties:
+      column_headers:
+        description: Labels for the headers
+        items:
+          type: string
+        type: array
+      column_types:
+        description: Data types for the headers
+        items:
+          type: string
+        type: array
+      results:
+        description: List of results
+        items:
+          $ref: '#/definitions/Contact'
+        type: array
+  Display:
+    allOf:
+    - properties:
+        columns:
+          default: []
+          items:
+            $ref: '#/definitions/DisplayColumn'
+          type: array
+        name:
+          description: The name of the display
+          type: string
+        uuid:
+          description: The display's UUID
+          readOnly: true
+          type: string
+    - required:
+      - name
+    title: Display
+  DisplayColumn:
+    allOf:
+    - properties:
+        default:
+          description: A default value if theres no result in this column
+          type: string
+        field:
+          description: The name of the field to display in this column
+          type: string
+        number_display:
+          description: A format string that overrides the default display. for number
+            columns only.
+          type: string
+        title:
+          description: A human readable name for this column
+          type: string
+        type:
+          description: The type of this column
+          type: string
+    - required:
+      - name
+    title: Column
+  DisplayIdentifier:
+    allOf:
+    - properties:
+        uuid:
+          description: The display's UUID
+          type: string
+    - required:
+      - uuid
+    title: DisplayUUID
+  DisplayItems:
+    allOf:
+    - properties:
+        filtered:
+          description: The number of configured displays matching the searched terms
+          readOnly: true
+          type: integer
+        items:
+          items:
+            $ref: '#/definitions/Display'
+          readOnly: true
+          type: array
+        total:
+          description: The number of configured displays
+          readOnly: true
+          type: integer
+    - required:
+      - items
+      - total
+      - filtered
+    title: DisplayItems
+  Error:
+    description: Error message for the client
+    properties:
+      reason:
+        description: Human readable explanation of the error
+        items:
+          type: string
+        type: array
+      status_code:
+        description: HTTP status code
+        type: integer
+      timestamp:
+        description: Time at which the error occured
+        items:
+          format: timestamp
+          type: number
+        type: array
+    title: Error
+  ExternalServiceConfig:
+    properties:
+      host:
+        default: localhost
+        type: string
+      timeout:
+        type: number
+      verify_certificate:
+        default: true
+        description: If the HTTPs certificates should be verified and the path of
+          the certificate if a custom certificate is used.
+        type: string
+  GoogleContactList:
+    properties:
+      filtered:
+        description: The number of contacts matching the searched terms
+        readOnly: true
+        type: integer
+      items:
+        items:
+          type: object
+        readOnly: true
+        type: array
+      total:
+        description: The number of contacts matching the searched terms
+        readOnly: true
+        type: integer
+  GoogleSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - properties:
+        auth:
+          $ref: '#/definitions/AccentAuthConfigNoAuth'
+    - required:
+      - name
+      - auth
+    title: GoogleSource
+  GoogleSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/GoogleSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: GoogleSourceItems
+  Header:
+    properties:
+      column_headers:
+        description: Labels for the headers
+        items:
+          type: string
+        type: array
+      column_types:
+        description: Data types for the headers
+        items:
+          type: string
+        type: array
+  LDAPSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - properties:
+        ldap_base_dn:
+          description: the DN of the entry at which to start the search
+          type: string
+        ldap_custom_filter:
+          description: the custom filter is used to add more criteria to the filter
+            generated by the back end.
+          type: string
+        ldap_network_timeout:
+          default: 0.3
+          description: the maximum time, in second, that an LDAP network operation
+            can take. If it takes more time than that, no result is returned.
+          type: number
+        ldap_password:
+          description: "the password to use when performing a \u201Csimple\u201D bind."
+          type: string
+        ldap_timeout:
+          default: 1.0
+          description: the maximum time, in second, that an LDAP operation can take.
+          type: number
+        ldap_uri:
+          description: the URI of the LDAP server. Can only contains the scheme, host
+            and port part of an LDAP URL
+          type: string
+        ldap_username:
+          description: "the user\u2019s DN to use when performing a \u201Csimple\u201D\
+            \ bind."
+          type: string
+        unique_column:
+          description: the column that contains a unique identifier of the entry
+          type: string
+        unique_column_format:
+          description: "the unique column\u2019s type returned by the queried LDAP\
+            \ server."
+          enum:
+          - string
+          - binary_uuid
+          type: string
+    - required:
+      - name
+      - ldap_uri
+      - ldap_base_dn
+    title: LDAPSource
+  LDAPSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/LDAPSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: LDAPSourceItems
+  Lookup:
+    allOf:
+    - $ref: '#/definitions/ContactList'
+    - properties:
+        term:
+          description: Search term used for these results
+          type: string
+  MicrosoftSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - properties:
+        auth:
+          $ref: '#/definitions/AccentAuthConfig'
+        confd:
+          $ref: '#/definitions/ConfdConfig'
+        endpoint:
+          default: https://graph.microsoft.com/v1.0/me/contacts
+          description: Endpoint where to get the information from
+          example: https://graph.microsoft.com/v1.0/me/contacts
+          type: string
+    - required:
+      - name
+      - auth
+      - confd
+    description: 'In addition to the keys defined by the [Microsoft API](https://docs.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0#),
+
+      `format_columns` also accepts the following columns:
+
+      * a `numbers` field that aggregates the values from the `businessPhones`, `homePhones`
+      and `mobilePhone` fields. Example: `"format_columns": {"phone": "{numbers[0]}"}`
+
+      * a `numbers_except_label` field that aggregates the same values than `numbers`,
+      except for one field. Example: `"format_columns": {"phone": "{numbers_except_label[mobilePhone][0]}"}`
+      will result in one of the phone numbers except the mobile phone.
+      '
+    title: MicrosoftSource
+  MicrosoftSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/MicrosoftSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: MicrosoftSourceItems
+  Office365ContactList:
+    properties:
+      filtered:
+        description: The number of contacts matching the searched terms
+        readOnly: true
+        type: integer
+      items:
+        items:
+          type: object
+        readOnly: true
+        type: array
+      total:
+        description: The number of contacts
+        readOnly: true
+        type: integer
+  PersonalSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - required:
+      - name
+    title: PersonalSource
+  PersonalSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/PersonalSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: PersonalSourceItems
+  Phonebook:
+    properties:
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      uuid:
+        type: string
+  PhonebookBody:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    required:
+    - name
+  PhonebookContact:
+    additionalProperties:
+      type: string
+    properties:
+      firstname:
+        type: string
+      id:
+        readOnly: true
+        type: string
+      lastname:
+        type: string
+  PhonebookContactImportResponse:
+    $ref: '#/definitions/ContactImportResponse'
+    properties:
+      created:
+        $ref: '#/definitions/PhonebookContactList'
+  PhonebookContactList:
+    items:
+      $ref: '#/definitions/PhonebookContact'
+    type: array
+  PhonebookSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - properties:
+        phonebook_description:
+          type: string
+        phonebook_name:
+          type: string
+        phonebook_uuid:
+          type: string
+    - required:
+      - name
+      - phonebook_uuid
+    title: PhonebookSource
+  PhonebookSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/PhonebookSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: PhonebookSourceItems
+  Profile:
+    allOf:
+    - properties:
+        display:
+          $ref: '#/definitions/DisplayIdentifier'
+        name:
+          description: The name of the profile
+          type: string
+        services:
+          properties:
+            name:
+              $ref: '#/definitions/ServiceConfiguration'
+          type: object
+        uuid:
+          readOnly: true
+          type: string
+    - required:
+      - name
+    title: Profile
+  ProfileItems:
+    allOf:
+    - properties:
+        filtered:
+          description: The number of configured profiles matching the searched terms
+          readOnly: true
+          type: integer
+        items:
+          items:
+            $ref: '#/definitions/Profile'
+          readOnly: true
+          type: array
+        total:
+          description: The number of configured profiles
+          readOnly: true
+          type: integer
+    - required:
+      - items
+      - total
+      - filtered
+    title: ProfileItems
+  ProfileSource:
+    properties:
+      backend:
+        description: The name of the source's backend
+        type: string
+      name:
+        description: The source's name
+        type: string
+      tenant_uuid:
+        description: The UUID of the tenant of this source
+        type: string
+      uuid:
+        description: The source's UUID
+        readOnly: true
+        type: string
+  ProfileSourceItems:
+    properties:
+      filtered:
+        description: The number of configured sources matching the searched terms
+          for this backend
+        readOnly: true
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/ProfileSource'
+        type: array
+      total:
+        description: The number of configured sources for this backend
+        readOnly: true
+        type: integer
+  Relation:
+    properties:
+      agent_id:
+        type: string
+      endpoint_id:
+        type: string
+      source_entry_id:
+        type: string
+      user_id:
+        type: string
+      user_uuid:
+        type: string
+      accent_id:
+        type: string
+  ResultFields: {}
+  Reverse:
+    properties:
+      display:
+        type: string
+      exten:
+        description: A search exten to look for
+        type: string
+      fields:
+        $ref: '#/definitions/ResultFields'
+        description: Fields defined for each source
+      source:
+        type: string
+    required:
+    - display
+    - exten
+    - fields
+    - source
+  Service:
+    allOf:
+    - properties:
+        name:
+          readOnly: true
+          type: string
+    - required:
+      - name
+    title: Service
+  ServiceConfiguration:
+    properties:
+      options:
+        description: Service specific configuration options
+        type: object
+      sources:
+        items:
+          $ref: '#/definitions/SourceIdentifier'
+          default: []
+        type: array
+    title: Service
+  ServiceItems:
+    allOf:
+    - properties:
+        filtered:
+          description: The number of services matching the search filters
+          readOnly: true
+          type: integer
+        items:
+          items:
+            $ref: '#/definitions/Service'
+          readOnly: true
+          type: array
+        total:
+          description: The number of services
+          readOnly: true
+          type: integer
+    - required:
+      - items
+      - total
+      - filtered
+    title: ServiceItems
+  Source:
+    properties:
+      first_matched_columns:
+        description: A list of columns which should be searched when doing a reverse
+          look up
+        items:
+          type: string
+        type: array
+      format_columns:
+        description: A mapping of new fields and a python format string to generate
+          the new columns value
+        type: object
+      name:
+        description: The source's name
+        type: string
+      searched_columns:
+        items:
+          description: A list of columns which should be searched when doing a look
+            up
+          type: string
+        type: array
+      uuid:
+        description: The source's UUID
+        readOnly: true
+        type: string
+  SourceIdentifier:
+    allOf:
+    - properties:
+        uuid:
+          description: The source's UUID
+          type: string
+    - required:
+      - uuid
+    title: SourceUUID
+  SourceItems:
+    properties:
+      filtered:
+        description: The number of configured sources matching the searched terms
+          for this backend
+        readOnly: true
+        type: integer
+      total:
+        description: The number of configured sources for this backend
+        readOnly: true
+        type: integer
+  SourceListItem:
+    properties:
+      backend:
+        description: The backend of this source
+        readOnly: true
+        type: string
+      name:
+        description: The name of the source
+        readOnly: true
+        type: string
+      uuid:
+        description: The UUID of the source
+        readOnly: true
+        type: string
+    required:
+    - uuid
+    - backend
+    - name
+  SourceListItems:
+    properties:
+      filtered:
+        description: The number of sources matching the search filters
+        readOnly: true
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/SourceListItem'
+        readOnly: true
+        type: array
+      total:
+        description: The number of sources
+        readOnly: true
+        type: integer
+    required:
+    - items
+    - total
+    - filtered
+  StatusSummary:
+    properties:
+      bus_consumer:
+        $ref: '#/definitions/ComponentWithStatus'
+      master_tenant:
+        $ref: '#/definitions/ComponentWithStatus'
+      rest_api:
+        $ref: '#/definitions/ComponentWithStatus'
+    type: object
+  StatusValue:
+    enum:
+    - fail
+    - ok
+    type: string
+  AccentAuthConfig:
+    allOf:
+    - $ref: '#/definitions/ExternalServiceConfig'
+    - properties:
+        key_file:
+          description: The path the the file containing the credentials
+          type: string
+        password:
+          description: The password to use when not using a key_file
+          type: string
+        port:
+          default: 9497
+          type: integer
+        username:
+          description: The username to use when not using a key_file
+          type: string
+        version:
+          default: '0.1'
+          type: string
+    title: Auth
+  AccentAuthConfigNoAuth:
+    allOf:
+    - $ref: '#/definitions/ExternalServiceConfig'
+    - properties:
+        port:
+          default: 9497
+          type: integer
+        version:
+          default: '0.1'
+          type: string
+    title: Auth
+  AccentContact:
+    properties:
+      email:
+        description: The email address of the contact
+        type: string
+      exten:
+        description: The internal number of that contact
+        type: string
+      firstname:
+        description: The firstname of the contact
+        type: string
+      id:
+        description: The ID of the contact which is used to favorite that contact
+        type: integer
+      lastname:
+        description: The lastname of the contact
+        type: string
+      mobile_phone_number:
+        description: The mobile phone number of that contact
+        type: string
+      uuid:
+        description: The UUID of the contact
+        type: string
+      voicemail_number:
+        description: The voicemail number of that contact
+        type: string
+  AccentContactList:
+    properties:
+      filtered:
+        description: The number of contacts in this source (filtered is not implemented)
+        readOnly: true
+        type: integer
+      items:
+        items:
+          $ref: '#/definitions/AccentContact'
+        type: array
+      total:
+        description: The number of contacts in this source
+        readOnly: true
+        type: integer
+    required:
+    - items
+    - total
+    - filtered
+  AccentSource:
+    allOf:
+    - $ref: '#/definitions/Source'
+    - properties:
+        auth:
+          $ref: '#/definitions/AccentAuthConfig'
+        confd:
+          $ref: '#/definitions/ConfdConfig'
+    - required:
+      - name
+      - auth
+      - confd
+    title: AccentSource
+  AccentSourceItems:
+    allOf:
+    - $ref: '#/definitions/SourceItems'
+    - properties:
+        items:
+          items:
+            $ref: '#/definitions/AccentSource'
+          readOnly: true
+          type: array
+    - required:
+      - items
+      - total
+      - filtered
+    title: AccentSourceItems
+info:
+  contact:
+    email: help@accentvoice.io
+    name: Accent Dev Team
+    url: https://accentvoice.io/
+  description: "Contacts and directories in Accent are managed by the accent-dird daemon.\
+    \ This service provides a public API that can be used to query the directories\
+    \ that are configured on a Accent. \n\n\nA contact can contain various information\
+    \ such as a person's phone number, number, office number, department, office number,\
+    \ etc. The information displayed is selected via a profile. Directories can be\
+    \ aggregated using multiple data sources such as an LDAP server, a CSV file, another\
+    \ Accent server, etc.\n\n\nPlease refer to [the documentation](https://accentvoice.io/uc-doc)\
+    \ for further details.\n\n\nNote: The 0.1 API is currently in development. Major\
+    \ changes could still happen and new resources will be added over time."
+  license:
+    name: GPL v3
+    url: http://www.gnu.org/licenses/gpl.txt
+  title: accent-dird
+  version: '0.1'
+  x-logo:
+    altText: Accent Logo
+    backgroundColor: '#FAFAFA'
+    url: https://accentvoice.io/images/logo-black.svg
+parameters:
+  ContactID:
+    description: The ID of contact.
+    in: path
+    name: contact_id
+    required: true
+    type: string
+  Directory:
+    description: The directory where the contact is stored.
+    in: path
+    name: directory
+    required: true
+    type: string
+  Exten:
+    description: A search exten to look for
+    in: query
+    name: exten
+    required: true
+    type: string
+  FavoriteID:
+    description: The ID of the contact. This ID is unique within the {directory}.
+    in: path
+    name: contact
+    required: true
+    type: string
+  Limit:
+    description: The limit defines the number of individual objects that are returned
+    in: query
+    name: limit
+    required: false
+    type: integer
+  Limit16:
+    default: 16
+    description: The limit defines the number of individual objects that are returned
+    in: query
+    name: limit
+    required: false
+    type: integer
+  Limit8:
+    default: 8
+    description: The limit defines the number of individual objects that are returned
+    in: query
+    name: limit
+    required: false
+    type: integer
+  Offset:
+    default: 0
+    description: The offset defines the number of items of the collection to skip
+    in: query
+    name: offset
+    required: false
+    type: integer
+  PersonalContactID:
+    description: The ID of the personal contact.
+    in: path
+    name: contact_id
+    required: true
+    type: string
+  PhonebookID:
+    description: The phonebook's ID
+    in: path
+    name: phonebook_id
+    required: true
+    type: integer
+  PhonebookUUID:
+    description: The phonebook's UUID
+    in: path
+    name: phonebook_uuid
+    required: true
+    type: string
+  Profile:
+    description: The profile defines the list of directories to query and how the
+      results are displayed. The profile is the context name of the user who started
+      the contact lookup, e.g. `default`. More precisely, it is the name of the "Direct
+      directory" defined in the web interface.
+    in: path
+    name: profile
+    required: true
+    type: string
+  ProxyUrl:
+    description: URL that will be integrated in the XML response. (not working on
+      swagger 2.1)
+    in: header
+    name: Proxy-URL
+    required: false
+    type: string
+  Tenant:
+    description: The tenant defines the ownership of a given resource.
+    in: path
+    name: tenant
+    required: true
+    type: string
+  Term:
+    description: A search term to look for
+    in: query
+    name: term
+    required: true
+    type: string
+  UserUUID:
+    description: The user UUID of the user doing that query
+    in: path
+    name: user_uuid
+    required: true
+    type: string
+  backendname:
+    description: the backend's name
+    in: path
+    name: backend_name
+    required: true
+    type: string
+  direction:
+    description: Sort list of items in 'asc' (ascending) or 'desc' (descending) order
+    enum:
+    - asc
+    - desc
+    in: query
+    name: direction
+    required: false
+    type: string
+  displayuuid:
+    description: the display's UUID
+    in: path
+    name: display_uuid
+    required: true
+    type: string
+  limit:
+    description: The limit defines the number of individual objects that are returned
+    in: query
+    name: limit
+    required: false
+    type: integer
+  offset:
+    default: 0
+    description: The offset defines the offsets the start by the number specified
+    in: query
+    name: offset
+    required: false
+    type: integer
+  order:
+    description: Name of the field to use for sorting the list of items returned.
+    in: query
+    name: order
+    required: false
+    type: string
+  profileuuid:
+    description: the profile's UUID
+    in: path
+    name: profile_uuid
+    required: true
+    type: string
+  recurse:
+    default: false
+    description: Should the query include sub-tenants
+    in: query
+    name: recurse
+    required: false
+    type: boolean
+  search:
+    description: Search term for filtering a list of items. Only items with a field
+      containing the search term will be returned.
+    in: query
+    name: search
+    required: false
+    type: string
+  sourceuuid:
+    description: The source's UUID
+    in: path
+    name: source_uuid
+    required: true
+    type: string
+  tenantuuid:
+    description: The tenant's UUID, defining the ownership of a given resource.
+    in: header
+    name: Accent-Tenant
+    required: false
+    type: string
+  accent_backend_uuid:
+    description: Filter by contact uuid. Many uuid can be specified. Each uuid MUST
+      be separated by a comma (,). Many uuid will perform a logical OR.
+    in: query
+    items:
+      type: string
+    name: uuid
+    required: false
+    type: array
+paths:
+  /backends:
+    get:
+      description: '**Required ACL:** `dird.backends.read`'
+      operationId: list_backend
+      parameters:
+      - $ref: '#/parameters/search'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: A list of all active backends
+          schema:
+            $ref: '#/definitions/BackendItems'
+      summary: List all loaded backends
+      tags:
+      - configuration
+  /backends/conference/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.conference.sources.read`'
+      operationId: list_conference_sources
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: A list of configured `conference` sources
+          schema:
+            $ref: '#/definitions/ConferenceSourceItems'
+      summary: Get all `conference` source configurations
+      tags:
+      - configuration
+      - conference
+    post:
+      description: '**Required ACL:** `dird.backends.conference.sources.create`'
+      operationId: create_conference_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ConferenceSource'
+      responses:
+        '201':
+          description: The created source
+          examples:
+            application/json:
+              auth:
+                key_file: /usr/share/accent-dird/my-auth-key.yml
+              format_columns:
+                displayname: '{name}'
+              name: conferences
+              searched_columns:
+              - number
+              - name
+          schema:
+            $ref: '#/definitions/ConferenceSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the `conference` backend
+      tags:
+      - configuration
+      - conference
+  /backends/conference/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.conference.sources.{source_uuid}.delete`'
+      operationId: delete_conference_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `conference` source configuration
+      tags:
+      - configuration
+      - conference
+    get:
+      description: '**Required ACL:** `dird.backends.conference.sources.{source_uuid}.read`'
+      operationId: get_a_conference_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `conference` source
+          schema:
+            $ref: '#/definitions/ConferenceSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `conference` source configuration
+      tags:
+      - configuration
+      - conference
+    put:
+      description: '**Required ACL:** `dird.backends.conference.sources.{source_uuid}.update`'
+      operationId: update_conference_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ConferenceSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `conference` source configuration
+      tags:
+      - configuration
+      - conference
+  /backends/conference/sources/{source_uuid}/contacts:
+    get:
+      description: '**Required ACL:** `dird.backends.conference.sources.{source_uuid}.contacts.read`'
+      operationId: list_conference_contacts_from_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: Source uuid
+        in: path
+        name: source_uuid
+        required: true
+        type: string
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/search'
+      responses:
+        '200':
+          description: Contacts as fetched from the Accent engine.
+          schema:
+            $ref: '#/definitions/ConferenceContactList'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such source
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: Another service is unavailable (e.g. accent-auth, accent-confd,
+            ...)
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Retrieve all contacts from a conference source
+      tags:
+      - conference
+  /backends/csv/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.csv.sources.read`'
+      operationId: list_csv_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: A list of configured `csv` sources
+          schema:
+            $ref: '#/definitions/CSVSourceItems'
+      summary: Get all `csv` source configurations
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.backends.csv.sources.create`'
+      operationId: create_csv_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/CSVSource'
+      responses:
+        '201':
+          description: The created source
+          examples:
+            application/json:
+              file: /tmp/directory.csv
+              format_columns:
+                displayname: '{firstname} {lastname}'
+              name: Internal
+              searched_columns:
+              - firstname
+              - lastname
+              separator: ':'
+              unique_column: uuid
+          schema:
+            $ref: '#/definitions/CSVSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the `csv` backend
+      tags:
+      - configuration
+  /backends/csv/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.csv.sources.{source_uuid}.delete`'
+      operationId: delete_csv_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `csv` source configuration
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.backends.csv.sources.{source_uuid}.read`'
+      operationId: get_a_csv_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `csv` source
+          schema:
+            $ref: '#/definitions/CSVSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `csv` source configuration
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.backends.csv.sources.{source_uuid}.update`'
+      operationId: update_csv_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/CSVSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `csv` source configuration
+      tags:
+      - configuration
+  /backends/csv_ws/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.csv_ws.sources.read`'
+      operationId: list_csv_ws_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: A list of configured `csv_ws` sources
+          schema:
+            $ref: '#/definitions/CSVWSSourceItems'
+      summary: Get all `csv_ws` source configurations
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.backends.csv_ws.sources.create`'
+      operationId: create_csv_ws_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/CSVWSSource'
+      responses:
+        '201':
+          description: The created source
+          examples:
+            application/json:
+              delimiter: ':'
+              format_columns:
+                displayname: '{firstname} {lastname}'
+              list_url: https://my-service/all
+              lookup_url: https://my-service/search
+              name: ws
+              searched_columns:
+              - firstname
+              - lastname
+              unique_column: uuid
+              verify_certificate: false
+          schema:
+            $ref: '#/definitions/CSVWSSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the `csv_ws` backend
+      tags:
+      - configuration
+  /backends/csv_ws/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.csv_ws.sources.{source_uuid}.delete`'
+      operationId: delete_csv_ws_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `csv_ws` source configuration
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.backends.csv_ws.sources.{source_uuid}.read`'
+      operationId: get_a_csv_ws_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `csv_ws` source
+          schema:
+            $ref: '#/definitions/CSVWSSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `csv_ws` source configuration
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.backends.csv_ws.sources.{source_uuid}.update`'
+      operationId: update_csv_ws_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/CSVWSSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `csv_ws` source configuration
+      tags:
+      - configuration
+  /backends/google/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.google.sources.read`'
+      operationId: list_google_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: Configured google source
+          schema:
+            $ref: '#/definitions/GoogleSourceItems'
+      summary: Get google configuration
+      tags:
+      - configuration
+      - google
+    post:
+      description: '**Required ACL:** `dird.backends.google.sources.create`
+
+
+        This resource configures a Google source for accent-dird. Columns that are available
+        from this source
+
+        are:
+
+
+        * name: the contact name
+
+        * numbers: a list of phone numbers
+
+        * numbers_by_label: a map of type to numbers {''mobile'': <number>, ''home'':
+        <number>, ...}. Types are defined by Google, currently known types include:
+        ''home'', ''work'', ''mobile'', ''other'', ''main'', ''home_fax'', ''work_fax'',
+        ''google_voice'', ''pager''.
+
+        * numbers_except_label: a map from type to every other number {''mobile'':
+        [<number>, <number], ''home'': [<number>, <number>], ...}. See available types
+        above. For example, the ''mobile'' key will contain the ''work'' and ''home''
+        numbers, but will exclude the ''mobile'' number.
+
+        * emails: a list of email addresses
+
+        '
+      operationId: create_google_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/GoogleSource'
+      responses:
+        '201':
+          description: The created display
+          examples:
+            application/json:
+              auth:
+                host: localhost
+                https: false
+                port: 9497
+                prefix: null
+                version: 0.1
+              first_matched_columns:
+              - numbers
+              format_columns:
+                email: '{emails[0]}'
+                phone: '{numbers[0]}'
+                phone_mobile: '{numbers_by_label[mobile]}'
+                reverse: '{name}'
+              name: google
+              searched_columns:
+              - numbers
+              - emails
+              - name
+          schema:
+            $ref: '#/definitions/GoogleSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Source already exists
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the google backend
+      tags:
+      - configuration
+      - google
+  /backends/google/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.google.sources.{source_uuid}.delete`'
+      operationId: delete_google_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `google` source configuration
+      tags:
+      - configuration
+      - google
+    get:
+      description: '**Required ACL:** `dird.backends.google.sources.{source_uuid}.read`'
+      operationId: get_a_google_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `google` source
+          schema:
+            $ref: '#/definitions/GoogleSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `google` source configuration
+      tags:
+      - configuration
+      - google
+    put:
+      description: '**Required ACL:** `dird.backends.google.sources.{source_uuid}.update`'
+      operationId: update_google_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/GoogleSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `google` source configuration
+      tags:
+      - configuration
+      - google
+  /backends/google/sources/{source_uuid}/contacts:
+    get:
+      description: '**Required ACL:** `dird.backends.google.sources.{source_uuid}.contacts.read`'
+      operationId: list_google_contacts_from_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: Source uuid
+        in: path
+        name: source_uuid
+        required: true
+        type: string
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/search'
+      responses:
+        '200':
+          description: 'Contacts as fetched from Google API and transformed to match
+            the dird internals
+
+
+            Note that the total in the result is always the total matching for the
+            current query.
+
+            Which is the same as the filtered value, this is a limitation of the Google
+            API.
+
+            '
+          schema:
+            $ref: '#/definitions/GoogleContactList'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such source
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: Another service is unavailable (e.g. accent-auth, google, ...)
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Retrieve all contacts from `google`
+      tags:
+      - google
+  /backends/ldap/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.ldap.sources.read`'
+      operationId: list_ldap_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: A list of configured `ldap` sources
+          schema:
+            $ref: '#/definitions/LDAPSourceItems'
+      summary: Get all `ldap` source configurations
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.backends.ldap.sources.create`'
+      operationId: create_ldap_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/LDAPSource'
+      responses:
+        '201':
+          description: The created display
+          examples:
+            application/json:
+              format_columns:
+                displayname: '{displayName}'
+                exten: '{telephoneNumber}'
+                firstname: '{givenName}'
+                lastname: '{sn}'
+              ldap_base_dn: ou=people,dc=example,dc=com
+              ldap_custom_filter: "(l=qu\xE9bec)"
+              ldap_password: foobar
+              ldap_uri: ldap://example.com
+              ldap_username: cn=admin,dc=example,dc=org
+              name: ldap
+              searched_columns:
+              - firstname
+              - lastname
+              unique_column: objectGUID
+              unique_column_format: binary_uuid
+          schema:
+            $ref: '#/definitions/LDAPSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the `ldap` backend
+      tags:
+      - configuration
+  /backends/ldap/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.ldap.sources.{source_uuid}.delete`'
+      operationId: delete_ldap_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `ldap` source configuration
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.backends.ldap.sources.{source_uuid}.read`'
+      operationId: get_a_ldap_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `ldap` source
+          schema:
+            $ref: '#/definitions/LDAPSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `ldap` source configuration
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.backends.ldap.sources.{source_uuid}.update`'
+      operationId: update_ldap_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/LDAPSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `ldap` source configuration
+      tags:
+      - configuration
+  /backends/office365/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.microsoft.sources.read`'
+      operationId: list_microsoft_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: Configured microsoft source
+          schema:
+            $ref: '#/definitions/MicrosoftSourceItems'
+      summary: Get microsoft configuration
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.backends.microsoft.sources.create`'
+      operationId: create_microsoft_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/MicrosoftSource'
+      responses:
+        '201':
+          description: The created display
+          examples:
+            application/json:
+              first_matched_columns:
+              - businessPhones
+              - mobilePhone
+              - homePhones
+              format_columns:
+                email: '{email}'
+                name: '{givenName} {surname}'
+                number: '{numbers[0]}'
+                phone_mobile: '{mobilePhone}'
+                reverse: '{givenName} {surname}'
+              name: office365
+              searched_columns:
+              - displayName
+              - mobilePhone
+              - homePhones
+              - mobilePhone
+          schema:
+            $ref: '#/definitions/MicrosoftSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Source already exists
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the microsoft backend
+      tags:
+      - configuration
+  /backends/office365/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.microsoft.sources.{source_uuid}.delete`'
+      operationId: delete_microsoft_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `microsoft` source configuration
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.backends.microsoft.sources.{source_uuid}.read`'
+      operationId: get_a_microsoft_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `microsoft` source
+          schema:
+            $ref: '#/definitions/MicrosoftSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `microsoft` source configuration
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.backends.microsoft.sources.{source_uuid}.update`'
+      operationId: update_microsoft_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/MicrosoftSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `microsoft` source configuration
+      tags:
+      - configuration
+  /backends/office365/sources/{source_uuid}/contacts:
+    get:
+      description: '**Required ACL:** `dird.backends.office365.sources.{source_uuid}.contacts.read`'
+      operationId: list_microsoft_contacts_from_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: Source uuid
+        in: path
+        name: source_uuid
+        required: true
+        type: string
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/search'
+      responses:
+        '200':
+          description: 'Contacts as fetched from microsoft api.
+
+
+            To know more about Microsoft contacts properties, see
+
+            https://docs.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0#properties
+
+            '
+          schema:
+            $ref: '#/definitions/Office365ContactList'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such source
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: Another service is unavailable (e.g. accent-auth, office365,
+            ...)
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Retrieve all contacts from `office365`
+      tags:
+      - office365
+  /backends/personal/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.personal.sources.read`'
+      operationId: list_personal_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: A list of configured `personal` sources
+          schema:
+            $ref: '#/definitions/PersonalSourceItems'
+      summary: Get all `personal` source configurations
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.backends.personal.sources.create`'
+      operationId: create_personal_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/PersonalSource'
+      responses:
+        '201':
+          description: The created source
+          examples:
+            application/json:
+              format_columns:
+                displayname: '{firstname} {lastname}'
+              name: Personals
+              searched_columns:
+              - firstname
+              - lastname
+          schema:
+            $ref: '#/definitions/PersonalSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the `personal` backend
+      tags:
+      - configuration
+  /backends/personal/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.personal.sources.{source_uuid}.delete`'
+      operationId: delete_personal_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `personal` source configuration
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.backends.personal.sources.{source_uuid}.read`'
+      operationId: get_a_personal_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `personal` source
+          schema:
+            $ref: '#/definitions/PersonalSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `personal` source configuration
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.backends.personal.sources.{source_uuid}.update`'
+      operationId: update_personal_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/PersonalSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `personal` source configuration
+      tags:
+      - configuration
+  /backends/phonebook/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.phonebook.sources.read`'
+      operationId: list_phonebook_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: A list of configured `phonebook` sources
+          schema:
+            $ref: '#/definitions/PhonebookSourceItems'
+      summary: Get all `phonebook` source configurations
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.backends.phonebook.sources.create`'
+      operationId: create_phonebook_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/PhonebookSource'
+      responses:
+        '201':
+          description: The created source
+          examples:
+            application/json:
+              format_columns:
+                displayname: '{firstname} {lastname}'
+              name: shared
+              phonebook_uuid: 00000000-0000-4000-a000-000000000001
+              searched_columns:
+              - firstname
+              - lastname
+          schema:
+            $ref: '#/definitions/PhonebookSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the `phonebook` backend
+      tags:
+      - configuration
+  /backends/phonebook/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.phonebook.sources.{source_uuid}.delete`'
+      operationId: delete_phonebook_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `phonebook` source configuration
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.backends.phonebook.sources.{source_uuid}.read`'
+      operationId: get_a_phonebook_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `phonebook` source
+          schema:
+            $ref: '#/definitions/PhonebookSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `phonebook` source configuration
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.backends.phonebook.sources.{source_uuid}.update`'
+      operationId: update_phonebook_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/PhonebookSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `phonebook` source configuration
+      tags:
+      - configuration
+  /backends/phonebook/sources/{source_uuid}/contacts:
+    get:
+      description: '**Required ACL:** `dird.backends.phonebook.sources.{source_uuid}.contacts.read`'
+      operationId: list_phonebook_source_contacts
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: Source uuid
+        in: path
+        name: source_uuid
+        required: true
+        type: string
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/search'
+      responses:
+        '200':
+          description: A list of contacts from this phonebook source
+          schema:
+            $ref: '#/definitions/PhonebookContactList'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such source
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: Another service is unavailable (e.g. accent-auth, ...)
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Get contacts from a `phonebook` source
+      tags:
+      - phonebook
+  /backends/accent/sources:
+    get:
+      description: '**Required ACL:** `dird.backends.accent.sources.read`'
+      operationId: list_accent_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      responses:
+        '200':
+          description: A list of configured `accent` sources
+          schema:
+            $ref: '#/definitions/AccentSourceItems'
+      summary: Get all `accent` source configurations
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.backends.accent.sources.create`'
+      operationId: create_accent_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/AccentSource'
+      responses:
+        '201':
+          description: The created source
+          examples:
+            application/json:
+              auth:
+                key_file: /usr/share/accent-dird/my-auth-key.yml
+              format_columns:
+                displayname: '{firstname} {lastname}'
+              name: internal_users
+              searched_columns:
+              - firstname
+              - lastname
+          schema:
+            $ref: '#/definitions/AccentSource'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Configure a source for the `accent` backend
+      tags:
+      - configuration
+  /backends/accent/sources/{source_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.backends.accent.sources.{source_uuid}.delete`'
+      operationId: delete_accent_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a `accent` source configuration
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.backends.accent.sources.{source_uuid}.read`'
+      operationId: get_a_accent_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      responses:
+        '200':
+          description: The `accent` source
+          schema:
+            $ref: '#/definitions/AccentSource'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a `accent` source configuration
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.backends.accent.sources.{source_uuid}.update`'
+      operationId: update_accent_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/sourceuuid'
+      - description: The source configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/AccentSource'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          description: Duplicate Source
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Update a `accent` source configuration
+      tags:
+      - configuration
+  /backends/accent/sources/{source_uuid}/contacts:
+    get:
+      description: '**Required ACL:** `dird.backends.accent.sources.{source_uuid}.contacts.read`'
+      operationId: list_accent_contacts_from_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: Source uuid
+        in: path
+        name: source_uuid
+        required: true
+        type: string
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/search'
+      - $ref: '#/parameters/accent_backend_uuid'
+      responses:
+        '200':
+          description: Contacts as fetched from the Accent engine.
+          schema:
+            $ref: '#/definitions/AccentContactList'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: No such source
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          description: Another service is unavailable (e.g. accent-auth, accent-confd,
+            ...)
+          schema:
+            $ref: '#/definitions/Error'
+      summary: Retrieve all contacts from `accent`
+      tags:
+      - accent
+  /config:
+    get:
+      description: '**Required ACL:** `dird.config.read`'
+      operationId: configuration_get
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: A JSON representation of the current configuration.
+      summary: Returns the current service configuration
+      tags:
+      - config
+  /directories/favorites/{directory}/{contact}:
+    delete:
+      description: '**Required ACL:** `dird.directories.favorites.{directory}.{contact}.delete`
+
+
+        Remove the contact from {directory} from the list of favorite contacts.'
+      operationId: remove_favorite
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/Directory'
+      - $ref: '#/parameters/FavoriteID'
+      responses:
+        '204':
+          description: Favorite removed.
+        '404':
+          description: Favorite does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Unmark a contact as favorite
+      tags:
+      - directories
+      - favorites
+    put:
+      description: '**Required ACL:** `dird.directories.favorites.{directory}.{contact}.update`
+
+
+        Add the contact from {directory} to the list of favorite contacts.'
+      operationId: add_favorite
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/Directory'
+      - $ref: '#/parameters/FavoriteID'
+      responses:
+        '204':
+          description: Favorite added.
+        '409':
+          $ref: '#/responses/DuplicateFavorite'
+      summary: Mark a contact as favorite
+      tags:
+      - directories
+      - favorites
+  /directories/favorites/{profile}:
+    get:
+      description: '**Required ACL:** `dird.directories.favorites.{profile}.read`
+
+
+        Get the list of favorite contacts for directories configured in the profile'
+      operationId: list_favorites
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/Profile'
+      responses:
+        '200':
+          description: A list of contacts
+          schema:
+            $ref: '#/definitions/ContactList'
+        '404':
+          $ref: '#/responses/ProfileInvalid'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List favorite contacts
+      tags:
+      - directories
+      - favorites
+  /directories/lookup/{profile}:
+    get:
+      description: '**Required ACL:** `dird.directories.lookup.{profile}.read`
+
+
+        The `lookup` query will return a list of result matching the searched term.
+        The result will be retrieved from all configured directories for the given
+        profile.
+
+
+
+        This route is provided by the `default_json_view` plugin using the `lookup`
+        plugin and all configured sources for the given profile.'
+      operationId: lookup
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/Profile'
+      - $ref: '#/parameters/Term'
+      responses:
+        '200':
+          description: A list of contacts
+          schema:
+            $ref: '#/definitions/Lookup'
+        '404':
+          $ref: '#/responses/ProfileInvalid'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Search for contacts
+      tags:
+      - directories
+  /directories/lookup/{profile}/headers:
+    get:
+      description: '**Required ACL:** `dird.directories.lookup.{profile}.headers.read`
+
+
+        Column headers that can be used when displaying lookup results to the client'
+      operationId: get_headers
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/Profile'
+      responses:
+        '200':
+          description: A list of headers
+          schema:
+            $ref: '#/definitions/Header'
+        '404':
+          $ref: '#/responses/ProfileInvalid'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Lookup headers
+      tags:
+      - directories
+  /directories/lookup/{profile}/{user_uuid}:
+    get:
+      description: '**Required ACL:** `dird.directories.lookup.{profile}.{user_uuid}.read`
+
+
+        The `lookup` query will return a list of result matching the searched term.
+        The result will be retrieved from all configured directories for the given
+        profile and user.
+
+
+
+        This route is provided by the `default_json_view` plugin using the `lookup`
+        plugin and all configured sources for the given profile.'
+      operationId: lookup_user
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/Profile'
+      - $ref: '#/parameters/UserUUID'
+      - $ref: '#/parameters/Term'
+      responses:
+        '200':
+          description: A list of contacts
+          schema:
+            $ref: '#/definitions/Lookup'
+        '404':
+          $ref: '#/responses/ProfileInvalid'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Search for contacts for a particular user
+      tags:
+      - directories
+  /directories/personal/{profile}:
+    get:
+      description: '**Required ACL:** `dird.directories.personal.{profile}.read`
+
+
+        Get the list of personal contacts formatted for the profile'
+      operationId: list_personal_profile
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/Profile'
+      responses:
+        '200':
+          description: A list of contacts
+          schema:
+            $ref: '#/definitions/PhonebookContactList'
+        '404':
+          $ref: '#/responses/ProfileInvalid'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List personal contacts with formatting
+      tags:
+      - directories
+      - personal
+  /directories/reverse/{profile}/{user_uuid}:
+    get:
+      description: '**Required ACL:** `dird.directories.reverse.{profile}.{user_uuid}.read`
+
+
+        The `reverse` query will return a contact matching the searched exten. The
+        result will be retrieved from all configured directories for the given profile.
+
+
+
+        This route is provided by the `default_json_view` plugin using the `reverse`
+        plugin and all configured sources for the given profile.'
+      operationId: reverse
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/Profile'
+      - $ref: '#/parameters/UserUUID'
+      - $ref: '#/parameters/Exten'
+      responses:
+        '200':
+          description: A contact
+          schema:
+            $ref: '#/definitions/Reverse'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Search for contact by number
+      tags:
+      - directories
+  /directories/{profile}/sources:
+    get:
+      description: '**Required ACL:** `dird.directories.{profile}.sources.read`'
+      parameters:
+      - $ref: '#/parameters/Profile'
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/search'
+      responses:
+        '200':
+          description: List of sources
+          schema:
+            $ref: '#/definitions/ProfileSourceItems'
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: List all sources configured for the given profile
+      tags:
+      - directories
+  /displays:
+    get:
+      description: '**Required ACL:** `dird.displays.read`'
+      operationId: list_display
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      responses:
+        '200':
+          description: A list of configured displays
+          schema:
+            $ref: '#/definitions/DisplayItems'
+      summary: List displays
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.displays.create`'
+      operationId: create_display
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Display'
+      responses:
+        '201':
+          description: The created display
+          examples:
+            application/json:
+              columns:
+              - field: firstname
+                title: Firstname
+              - default: ''
+                field: lastname
+                title: Lastname
+              - field: number
+                number_display: '{firstname} {lastname}'
+                title: Number
+                type: number
+              - field: email
+                title: Email
+                type: email
+              name: english
+          schema:
+            $ref: '#/definitions/Display'
+        '400':
+          $ref: '#/responses/CreateError'
+      summary: Create a new display configuration
+      tags:
+      - configuration
+  /displays/{display_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.displays.{display_uuid}.delete`'
+      operationId: delete_display
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/displayuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete display
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.displays.{display_uuid}.read`'
+      operationId: get_display
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/displayuuid'
+      responses:
+        '200':
+          description: Display
+          schema:
+            $ref: '#/definitions/Display'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get display
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.displays.{display_uuid}.update`'
+      operationId: update_display
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/displayuuid'
+      - description: The display configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Display'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Update display
+      tags:
+      - configuration
+  /graphql:
+    get:
+      description: ''
+      operationId: graphiql
+      responses:
+        '200':
+          description: the web page for GraphiQL
+      summary: Show GraphiQL test interface for GraphQL in a browser. This is not
+        a REST endpoint.
+      tags:
+      - work_in_progress
+    post:
+      description: '**Required ACL:** `dird.graphql.{root_field_name}`, e.g. `dird.graphql.hello`'
+      operationId: graphql_query
+      responses:
+        '200':
+          description: the response for the GraphQL query
+      summary: Execute a GraphQL query. This is a GraphQL endpoint, not a REST endpoint.
+      tags:
+      - work_in_progress
+  /personal:
+    delete:
+      description: '**Required ACL:** `dird.personal.delete`'
+      operationId: purge_personal
+      responses:
+        '204':
+          description: The personal contacts was purged.
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Purge personal contacts
+      tags:
+      - personal
+    get:
+      description: '**Required ACL:** `dird.personal.read`
+
+
+        CSV format is the same as `/import`, where headers of all contacts are mixed.
+        The charset of the response is always `utf-8`. Errors are always formatted
+        in JSON.'
+      operationId: list_personal
+      parameters:
+      - default: application/json
+        description: Format of the response body
+        enum:
+        - application/json
+        - text/csv
+        in: query
+        name: format
+        required: false
+        type: string
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      produces:
+      - application/json
+      - text/csv; charset=utf-8
+      responses:
+        '200':
+          description: A list of personal contacts
+          schema:
+            properties:
+              items:
+                $ref: '#/definitions/PhonebookContactList'
+        '204':
+          description: No contacts are available (CSV format only).
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List personal contacts
+      tags:
+      - personal
+    post:
+      description: '**Required ACL:** `dird.personal.create`'
+      operationId: add_personal
+      parameters:
+      - description: The attributes of the contact
+        in: body
+        name: contact
+        required: true
+        schema:
+          $ref: '#/definitions/ContactBodySample'
+      responses:
+        '201':
+          description: The new personal contact
+          schema:
+            $ref: '#/definitions/Contact'
+        '409':
+          $ref: '#/responses/DuplicateContact'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Create new personal contact
+      tags:
+      - personal
+  /personal/import:
+    post:
+      consumes:
+      - text/csv; charset=utf-8
+      - text/csv; charset=iso8859-15
+      - text/csv; charset=cp1252
+      description: '**Required ACL:** `dird.personal.import.create`'
+      operationId: import_personal
+      parameters:
+      - description: "The attributes of the contacts in CSV format.\r\n* The encoding\
+          \ must be set in the Content-Type header, via the `charset=` option.\r\n\
+          * Field delimiter: `,`.\r\n* Quoting character: `\"`.\r\n* Line delimiter:\
+          \ `\\r\\n`."
+        in: body
+        name: contacts
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: At least one contact has been created.
+          schema:
+            $ref: '#/definitions/ContactImportResponse'
+        '400':
+          description: Input could not be decoded, and no contacts were created.
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Import multiple personal contacts at once
+      tags:
+      - personal
+  /personal/{contact_id}:
+    delete:
+      description: '**Required ACL:** `dird.personal.{contact_id}.delete`'
+      operationId: remove_personal
+      parameters:
+      - $ref: '#/parameters/PersonalContactID'
+      responses:
+        '204':
+          description: The personal contact was removed.
+        '404':
+          $ref: '#/responses/PersonalContactIDInvalid'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Remove personal contact
+      tags:
+      - personal
+    get:
+      description: '**Required ACL:** `dird.personal.{contact_id}.read`
+
+
+        Returns the details of the personal contact.'
+      operationId: get_personal
+      parameters:
+      - $ref: '#/parameters/PersonalContactID'
+      responses:
+        '200':
+          description: The personal contact attributes.
+          schema:
+            $ref: '#/definitions/Contact'
+        '404':
+          $ref: '#/responses/PersonalContactIDInvalid'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get personal contact
+      tags:
+      - personal
+    put:
+      description: '**Required ACL:** `dird.personal.{contact_id}.update`
+
+
+        Replace personal contact''s attributes. Omitted attributes will be removed.
+        Attribute `id` can not be changed.'
+      operationId: edit_personal
+      parameters:
+      - $ref: '#/parameters/PersonalContactID'
+      - description: The new attributes of the contact
+        in: body
+        name: contact
+        required: true
+        schema:
+          $ref: '#/definitions/ContactBodySample'
+      responses:
+        '200':
+          description: The personal contact was edited.
+          schema:
+            $ref: '#/definitions/Contact'
+        '404':
+          $ref: '#/responses/PersonalContactIDInvalid'
+        '409':
+          $ref: '#/responses/DuplicateContact'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Edit personal contact
+      tags:
+      - personal
+  /phonebooks:
+    get:
+      description: '**Required ACL:** `dird.phonebooks.read`'
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/search'
+      - $ref: '#/parameters/recurse'
+      responses:
+        '200':
+          description: List of phonebooks
+          schema:
+            items:
+              $ref: '#/definitions/Phonebook'
+            type: array
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List all phonebooks for a given tenant
+      tags:
+      - phonebook
+    post:
+      description: '**Required ACL:** `dird.phonebooks.create`'
+      operationId: create_phonebook
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The attributes of the phonebook
+        in: body
+        name: phonebook
+        required: true
+        schema:
+          $ref: '#/definitions/PhonebookBody'
+      responses:
+        '201':
+          description: The new phonebook
+          schema:
+            $ref: '#/definitions/Phonebook'
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '404':
+          description: Tenant does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          $ref: '#/responses/DuplicatePhonebook'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Create a new phonebook
+      tags:
+      - phonebook
+  /phonebooks/{phonebook_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.delete`'
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/PhonebookUUID'
+      responses:
+        '204':
+          description: Phonebook deleted
+        '400':
+          $ref: '#/responses/InvalidTenant'
+        '404':
+          description: Phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete an existing phonebook
+      tags:
+      - phonebook
+    get:
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.read`'
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/PhonebookUUID'
+      responses:
+        '200':
+          description: The phonebook attributes
+          schema:
+            $ref: '#/definitions/Phonebook'
+        '400':
+          $ref: '#/responses/InvalidTenant'
+        '404':
+          description: Phonebook or Tenant does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get the attributes of a phonebook
+      tags:
+      - phonebook
+    put:
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.edit`'
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/PhonebookUUID'
+      - description: The modified attributes of the phonebook
+        in: body
+        name: phonebook
+        required: true
+        schema:
+          $ref: '#/definitions/PhonebookBody'
+      responses:
+        '204':
+          description: Phonebook updated
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '404':
+          description: Phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          $ref: '#/responses/DuplicatePhonebook'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Modify an existing phonebook
+      tags:
+      - phonebook
+  /phonebooks/{phonebook_uuid}/contacts:
+    get:
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.contacts.read`'
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/search'
+      - $ref: '#/parameters/PhonebookUUID'
+      responses:
+        '200':
+          description: A list of contacts
+          schema:
+            $ref: '#/definitions/PhonebookContactList'
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List all contacts for a given phonebook
+      tags:
+      - phonebook
+    post:
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.contacts.create`'
+      operationId: create_phonebook_contact
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/PhonebookUUID'
+      - description: The attributes of the contact
+        in: body
+        name: contact
+        required: true
+        schema:
+          $ref: '#/definitions/PhonebookContact'
+      responses:
+        '201':
+          description: The new contact
+          schema:
+            $ref: '#/definitions/PhonebookContact'
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '409':
+          $ref: '#/responses/DuplicateContact'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Create a new contact
+      tags:
+      - phonebook
+  /phonebooks/{phonebook_uuid}/contacts/import:
+    post:
+      consumes:
+      - text/csv; charset=utf-8
+      - text/csv; charset=iso8859-15
+      - text/csv; charset=cp1252
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.contacts.create`'
+      operationId: import_phonebook
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/PhonebookUUID'
+      - description: 'The attributes of the contacts in CSV format.
+
+          * The encoding\
+
+          \ must be set in the Content-Type header, via the `charset=` option.\
+
+          * Field delimiter: `,`.
+
+          * Quoting character: `\"`.
+
+          * Line delimiter: `\\r\\n`.
+
+          '
+        in: body
+        name: contacts
+        required: true
+        schema:
+          example: 'firstname,lastname,phone_number,extension
+
+            John,Doe,+33 6 00 00 00 00,5001
+
+            Jane,Doe,+33 6 00 00 00 01,5002
+
+            '
+          type: string
+      responses:
+        '201':
+          description: At least one contact has been created.
+          schema:
+            $ref: '#/definitions/PhonebookContactImportResponse'
+        '400':
+          description: Input could not be decoded, and no contacts were created.
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Import multiple contacts at once
+      tags:
+      - phonebook
+  /phonebooks/{phonebook_uuid}/contacts/{contact_id}:
+    delete:
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.contacts.{contact_id}.delete`'
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/PhonebookUUID'
+      - $ref: '#/parameters/ContactID'
+      responses:
+        '204':
+          description: Contact deleted
+        '400':
+          $ref: '#/responses/InvalidTenant'
+        '404':
+          description: The contact or the phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete an existing contact
+      tags:
+      - phonebook
+    get:
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.contacts.{contact_id}.read`'
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/PhonebookUUID'
+      - $ref: '#/parameters/ContactID'
+      responses:
+        '200':
+          description: The contact attributes
+        '400':
+          $ref: '#/responses/InvalidTenant'
+        '404':
+          description: The contact or the phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get the attributes of a contact
+      tags:
+      - phonebook
+    put:
+      description: '**Required ACL:** `dird.phonebooks.{phonebook_uuid}.contacts.{contact_id}.update`'
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/PhonebookUUID'
+      - $ref: '#/parameters/ContactID'
+      - description: The modified attributes of the contact
+        in: body
+        name: contact
+        required: true
+        schema:
+          $ref: '#/definitions/ContactBodySample'
+      responses:
+        '204':
+          description: Contact updated
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '404':
+          description: The contact or the phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          $ref: '#/responses/DuplicateContact'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Modify an existing contact
+      tags:
+      - phonebook
+  /profiles:
+    get:
+      description: '**Required ACL:** `dird.profiles.read`'
+      operationId: list_profile
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/search'
+      responses:
+        '200':
+          description: A list of configured profiles
+          schema:
+            $ref: '#/definitions/ProfileItems'
+      summary: List all configured profiles
+      tags:
+      - configuration
+    post:
+      description: '**Required ACL:** `dird.profiles.create`'
+      operationId: create_profile
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - description: The profile configuration
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/Profile'
+      responses:
+        '201':
+          description: The created profile
+          schema:
+            $ref: '#/definitions/Profile'
+        '400':
+          $ref: '#/responses/CreateError'
+        '409':
+          $ref: '#/responses/DuplicateError'
+      summary: Create a new configuration profile
+      tags:
+      - configuration
+  /profiles/{profile_uuid}:
+    delete:
+      description: '**Required ACL:** `dird.profiles.{profile_uuid}.delete`'
+      operationId: delete_profile
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/profileuuid'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceDeleted'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Delete a profile configuration
+      tags:
+      - configuration
+    get:
+      description: '**Required ACL:** `dird.profiles.{profile_uuid}.read`'
+      operationId: get_profile
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/profileuuid'
+      responses:
+        '200':
+          description: Profile
+          schema:
+            $ref: '#/definitions/Profile'
+        '404':
+          $ref: '#/responses/NotFoundError'
+      summary: Get a profile configuration
+      tags:
+      - configuration
+    put:
+      description: '**Required ACL:** `dird.profiles.{profile_uuid}.update`'
+      operationId: update_profile
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/profileuuid'
+      - description: The profile configuration body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Profile'
+      responses:
+        '204':
+          $ref: '#/responses/ResourceUpdated'
+        '400':
+          $ref: '#/responses/UpdateError'
+        '404':
+          $ref: '#/responses/NotFoundError'
+        '409':
+          $ref: '#/responses/DuplicateError'
+      summary: Update a profile configuration
+      tags:
+      - configuration
+  /services:
+    get:
+      description: '**Required ACL:** `dird.services.read`'
+      operationId: list_services
+      parameters:
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      responses:
+        '200':
+          description: A list of configured services
+          schema:
+            $ref: '#/definitions/ServiceItems'
+      summary: List all loaded services
+      tags:
+      - configuration
+  /sources:
+    get:
+      description: '**Required ACL:** `dird.sources.read`'
+      operationId: list_source
+      parameters:
+      - $ref: '#/parameters/tenantuuid'
+      - $ref: '#/parameters/recurse'
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/limit'
+      - $ref: '#/parameters/offset'
+      - $ref: '#/parameters/search'
+      responses:
+        '200':
+          description: A list of configured sources
+          schema:
+            $ref: '#/definitions/SourceListItems'
+      summary: List all configured sources
+      tags:
+      - configuration
+  /status:
+    get:
+      description: '**Required ACL:** `dird.status.read`'
+      responses:
+        '200':
+          description: The internal infos of accent-dird
+          schema:
+            $ref: '#/definitions/StatusSummary'
+      summary: Print infos about internal status of accent-dird`
+      tags:
+      - status
+  /tenants/{tenant}/phonebooks:
+    get:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.read`'
+      parameters:
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/search'
+      - $ref: '#/parameters/Tenant'
+      responses:
+        '200':
+          description: List of phonebooks
+          schema:
+            items:
+              $ref: '#/definitions/Phonebook'
+            type: array
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List all phonebooks for a given tenant
+      tags:
+      - phonebook
+    post:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.create`'
+      operationId: create_phonebook_deprecated
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - description: The attributes of the phonebook
+        in: body
+        name: phonebook
+        required: true
+        schema:
+          $ref: '#/definitions/PhonebookBody'
+      responses:
+        '201':
+          description: The new phonebook
+          schema:
+            $ref: '#/definitions/Phonebook'
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '404':
+          description: Tenant does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          $ref: '#/responses/DuplicatePhonebook'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Create a new phonebook
+      tags:
+      - phonebook
+  /tenants/{tenant}/phonebooks/{phonebook_id}:
+    delete:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.delete`'
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      responses:
+        '204':
+          description: Phonebook deleted
+        '400':
+          $ref: '#/responses/InvalidTenant'
+        '404':
+          description: Phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete an existing phonebook
+      tags:
+      - phonebook
+    get:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.read`'
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      responses:
+        '200':
+          description: The phonebook attributes
+          schema:
+            $ref: '#/definitions/Phonebook'
+        '400':
+          $ref: '#/responses/InvalidTenant'
+        '404':
+          description: Phonebook or Tenant does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get the attributes of a phonebook
+      tags:
+      - phonebook
+    put:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.edit`'
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      - description: The modified attributes of the phonebook
+        in: body
+        name: phonebook
+        required: true
+        schema:
+          $ref: '#/definitions/PhonebookBody'
+      responses:
+        '204':
+          description: Phonebook updated
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '404':
+          description: Phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          $ref: '#/responses/DuplicatePhonebook'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Modify an existing phonebook
+      tags:
+      - phonebook
+  /tenants/{tenant}/phonebooks/{phonebook_id}/contacts:
+    get:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.contacts.read`'
+      parameters:
+      - $ref: '#/parameters/order'
+      - $ref: '#/parameters/direction'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/search'
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      responses:
+        '200':
+          description: A list of contacts
+          schema:
+            $ref: '#/definitions/PhonebookContactList'
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: List all contacts for a given phonebook
+      tags:
+      - phonebook
+    post:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.contacts.create`'
+      operationId: create_phonebook_contact_deprecated
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      - description: The attributes of the contact
+        in: body
+        name: contact
+        required: true
+        schema:
+          $ref: '#/definitions/PhonebookContact'
+      responses:
+        '201':
+          description: The new contact
+          schema:
+            $ref: '#/definitions/PhonebookContact'
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '409':
+          $ref: '#/responses/DuplicateContact'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Create a new contact
+      tags:
+      - phonebook
+  /tenants/{tenant}/phonebooks/{phonebook_id}/contacts/import:
+    post:
+      consumes:
+      - text/csv; charset=utf-8
+      - text/csv; charset=iso8859-15
+      - text/csv; charset=cp1252
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.contacts.create`'
+      operationId: import_phonebook_deprecated
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      - description: "The attributes of the contacts in CSV format.\r\n* The encoding\
+          \ must be set in the Content-Type header, via the `charset=` option.\r\n\
+          * Field delimiter: `,`.\r\n* Quoting character: `\"`.\r\n* Line delimiter:\
+          \ `\\r\\n`."
+        in: body
+        name: contacts
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: At least one contact has been created.
+          schema:
+            $ref: '#/definitions/PhonebookContactImportResponse'
+        '400':
+          description: Input could not be decoded, and no contacts were created.
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Import multiple contacts at once
+      tags:
+      - phonebook
+  /tenants/{tenant}/phonebooks/{phonebook_id}/contacts/{contact_id}:
+    delete:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.contacts.{contact_id}.delete`'
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      - $ref: '#/parameters/ContactID'
+      responses:
+        '204':
+          description: Contact deleted
+        '400':
+          $ref: '#/responses/InvalidTenant'
+        '404':
+          description: The contact or the phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Delete an existing contact
+      tags:
+      - phonebook
+    get:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.contacts.{contact_id}.read`'
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      - $ref: '#/parameters/ContactID'
+      responses:
+        '200':
+          description: The contact attributes
+        '400':
+          $ref: '#/responses/InvalidTenant'
+        '404':
+          description: The contact or the phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Get the attributes of a contact
+      tags:
+      - phonebook
+    put:
+      deprecated: true
+      description: '**Required ACL:** `dird.tenants.{tenant}.phonebooks.{phonebook_id}.contacts.{contact_id}.update`'
+      parameters:
+      - $ref: '#/parameters/Tenant'
+      - $ref: '#/parameters/PhonebookID'
+      - $ref: '#/parameters/ContactID'
+      - description: The modified attributes of the contact
+        in: body
+        name: contact
+        required: true
+        schema:
+          $ref: '#/definitions/ContactBodySample'
+      responses:
+        '204':
+          description: Contact updated
+        '400':
+          $ref: '#/responses/InvalidParameters'
+        '404':
+          description: The contact or the phonebook does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          $ref: '#/responses/DuplicateContact'
+        '503':
+          $ref: '#/responses/AnotherServiceUnavailable'
+      summary: Modify an existing contact
+      tags:
+      - phonebook
+produces:
+- application/json
+responses:
+  AnotherServiceUnavailable:
+    description: Another service is unavailable (e.g. accent-auth, postgresql, ...)
+    schema:
+      $ref: '#/definitions/Error'
+  CreateError:
+    description: An error occurred when creating the resource
+    schema:
+      $ref: '#/definitions/APIError'
+  DuplicateContact:
+    description: This contact already exists
+    schema:
+      $ref: '#/definitions/Error'
+  DuplicateError:
+    description: The name already exist
+    schema:
+      $ref: '#/definitions/APIError'
+  DuplicateFavorite:
+    description: The contact has already been favorited
+    schema:
+      $ref: '#/definitions/Error'
+  DuplicatePhonebook:
+    description: This phonebook already exists
+    schema:
+      $ref: '#/definitions/Error'
+  InvalidParameters:
+    description: Invalid parameters
+    schema:
+      $ref: '#/definitions/Error'
+  InvalidTenant:
+    description: The tenant is not a valid ascii alphanumeric string
+    schema:
+      $ref: '#/definitions/Error'
+  LimitOffsetInvalid:
+    description: The limit or offset should be positive
+    schema:
+      $ref: '#/definitions/Error'
+  NotFoundError:
+    description: The resource requested was not found on the server
+    schema:
+      $ref: '#/definitions/APIError'
+  PersonalContactIDInvalid:
+    description: The personal contact does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  ProfileInvalid:
+    description: The profile does not exist
+    schema:
+      $ref: '#/definitions/Error'
+  ResourceDeleted:
+    description: Resource was deleted successfully
+  ResourceUpdated:
+    description: Resource was updated successfully
+  UpdateError:
+    description: An error occurred when updating the resource
+    schema:
+      $ref: '#/definitions/APIError'
+schemes:
+- http
+- https
+security:
+- accent_auth_token: []
+securityDefinitions:
+  accent_auth_token:
+    in: header
+    name: X-Auth-Token
+    type: apiKey
+swagger: '2.0'
+x-accent-name: dird
+x-accent-port: 9489
