@@ -29,12 +29,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiAnswerUserCallRequest
+		@return UsersAPIAnswerUserCallRequest
 	*/
-	AnswerUserCall(ctx context.Context, callId string) ApiAnswerUserCallRequest
+	AnswerUserCall(ctx context.Context, callId string) UsersAPIAnswerUserCallRequest
 
 	// AnswerUserCallExecute executes the request
-	AnswerUserCallExecute(r ApiAnswerUserCallRequest) (*http.Response, error)
+	AnswerUserCallExecute(r UsersAPIAnswerUserCallRequest) (*http.Response, error)
 
 	/*
 		CancelRelocate Cancel a relocate
@@ -43,12 +43,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param relocateUuid Unique identifier of the relocate
-		@return ApiCancelRelocateRequest
+		@return UsersAPICancelRelocateRequest
 	*/
-	CancelRelocate(ctx context.Context, relocateUuid string) ApiCancelRelocateRequest
+	CancelRelocate(ctx context.Context, relocateUuid string) UsersAPICancelRelocateRequest
 
 	// CancelRelocateExecute executes the request
-	CancelRelocateExecute(r ApiCancelRelocateRequest) (*http.Response, error)
+	CancelRelocateExecute(r UsersAPICancelRelocateRequest) (*http.Response, error)
 
 	/*
 		CancelUserTransfer Cancel a transfer
@@ -57,12 +57,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transferId Unique identifier of the transfer
-		@return ApiCancelUserTransferRequest
+		@return UsersAPICancelUserTransferRequest
 	*/
-	CancelUserTransfer(ctx context.Context, transferId string) ApiCancelUserTransferRequest
+	CancelUserTransfer(ctx context.Context, transferId string) UsersAPICancelUserTransferRequest
 
 	// CancelUserTransferExecute executes the request
-	CancelUserTransferExecute(r ApiCancelUserTransferRequest) (*http.Response, error)
+	CancelUserTransferExecute(r UsersAPICancelUserTransferRequest) (*http.Response, error)
 
 	/*
 		CheckUserVoicemailGreeting Check if greeting exists
@@ -71,12 +71,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiCheckUserVoicemailGreetingRequest
+		@return UsersAPICheckUserVoicemailGreetingRequest
 	*/
-	CheckUserVoicemailGreeting(ctx context.Context, greeting string) ApiCheckUserVoicemailGreetingRequest
+	CheckUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPICheckUserVoicemailGreetingRequest
 
 	// CheckUserVoicemailGreetingExecute executes the request
-	CheckUserVoicemailGreetingExecute(r ApiCheckUserVoicemailGreetingRequest) (*http.Response, error)
+	CheckUserVoicemailGreetingExecute(r UsersAPICheckUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		CompleteRelocate Complete a relocate
@@ -85,12 +85,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param relocateUuid Unique identifier of the relocate
-		@return ApiCompleteRelocateRequest
+		@return UsersAPICompleteRelocateRequest
 	*/
-	CompleteRelocate(ctx context.Context, relocateUuid string) ApiCompleteRelocateRequest
+	CompleteRelocate(ctx context.Context, relocateUuid string) UsersAPICompleteRelocateRequest
 
 	// CompleteRelocateExecute executes the request
-	CompleteRelocateExecute(r ApiCompleteRelocateRequest) (*http.Response, error)
+	CompleteRelocateExecute(r UsersAPICompleteRelocateRequest) (*http.Response, error)
 
 	/*
 		CompleteUserTransfer Complete a transfer
@@ -99,12 +99,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transferId Unique identifier of the transfer
-		@return ApiCompleteUserTransferRequest
+		@return UsersAPICompleteUserTransferRequest
 	*/
-	CompleteUserTransfer(ctx context.Context, transferId string) ApiCompleteUserTransferRequest
+	CompleteUserTransfer(ctx context.Context, transferId string) UsersAPICompleteUserTransferRequest
 
 	// CompleteUserTransferExecute executes the request
-	CompleteUserTransferExecute(r ApiCompleteUserTransferRequest) (*http.Response, error)
+	CompleteUserTransferExecute(r UsersAPICompleteUserTransferRequest) (*http.Response, error)
 
 	/*
 		CopyUserVoicemailGreeting Copy a custom greeting
@@ -113,12 +113,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiCopyUserVoicemailGreetingRequest
+		@return UsersAPICopyUserVoicemailGreetingRequest
 	*/
-	CopyUserVoicemailGreeting(ctx context.Context, greeting string) ApiCopyUserVoicemailGreetingRequest
+	CopyUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPICopyUserVoicemailGreetingRequest
 
 	// CopyUserVoicemailGreetingExecute executes the request
-	CopyUserVoicemailGreetingExecute(r ApiCopyUserVoicemailGreetingRequest) (*http.Response, error)
+	CopyUserVoicemailGreetingExecute(r UsersAPICopyUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		CreateUserCall Make a new call from a user
@@ -126,13 +126,13 @@ type UsersAPI interface {
 		**Required ACL:** `calld.users.me.calls.create` The user originator of the call is determined from the authentication token.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateUserCallRequest
+		@return UsersAPICreateUserCallRequest
 	*/
-	CreateUserCall(ctx context.Context) ApiCreateUserCallRequest
+	CreateUserCall(ctx context.Context) UsersAPICreateUserCallRequest
 
 	// CreateUserCallExecute executes the request
 	//  @return Call
-	CreateUserCallExecute(r ApiCreateUserCallRequest) (*Call, *http.Response, error)
+	CreateUserCallExecute(r UsersAPICreateUserCallRequest) (*Call, *http.Response, error)
 
 	/*
 		CreateUserVoicemailGreeting Create a custom greeting
@@ -141,12 +141,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiCreateUserVoicemailGreetingRequest
+		@return UsersAPICreateUserVoicemailGreetingRequest
 	*/
-	CreateUserVoicemailGreeting(ctx context.Context, greeting string) ApiCreateUserVoicemailGreetingRequest
+	CreateUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPICreateUserVoicemailGreetingRequest
 
 	// CreateUserVoicemailGreetingExecute executes the request
-	CreateUserVoicemailGreetingExecute(r ApiCreateUserVoicemailGreetingRequest) (*http.Response, error)
+	CreateUserVoicemailGreetingExecute(r UsersAPICreateUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		DeleteUserVoicemailGreeting Delete a custom greeting
@@ -155,12 +155,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiDeleteUserVoicemailGreetingRequest
+		@return UsersAPIDeleteUserVoicemailGreetingRequest
 	*/
-	DeleteUserVoicemailGreeting(ctx context.Context, greeting string) ApiDeleteUserVoicemailGreetingRequest
+	DeleteUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPIDeleteUserVoicemailGreetingRequest
 
 	// DeleteUserVoicemailGreetingExecute executes the request
-	DeleteUserVoicemailGreetingExecute(r ApiDeleteUserVoicemailGreetingRequest) (*http.Response, error)
+	DeleteUserVoicemailGreetingExecute(r UsersAPIDeleteUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		DeleteUserVoicemailMessage Delete a mesage
@@ -169,12 +169,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param messageId The message's ID
-		@return ApiDeleteUserVoicemailMessageRequest
+		@return UsersAPIDeleteUserVoicemailMessageRequest
 	*/
-	DeleteUserVoicemailMessage(ctx context.Context, messageId string) ApiDeleteUserVoicemailMessageRequest
+	DeleteUserVoicemailMessage(ctx context.Context, messageId string) UsersAPIDeleteUserVoicemailMessageRequest
 
 	// DeleteUserVoicemailMessageExecute executes the request
-	DeleteUserVoicemailMessageExecute(r ApiDeleteUserVoicemailMessageRequest) (*http.Response, error)
+	DeleteUserVoicemailMessageExecute(r UsersAPIDeleteUserVoicemailMessageRequest) (*http.Response, error)
 
 	/*
 		GetUserVoicemailFolder Get details of a folder
@@ -183,13 +183,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param folderId The folder's ID
-		@return ApiGetUserVoicemailFolderRequest
+		@return UsersAPIGetUserVoicemailFolderRequest
 	*/
-	GetUserVoicemailFolder(ctx context.Context, folderId int32) ApiGetUserVoicemailFolderRequest
+	GetUserVoicemailFolder(ctx context.Context, folderId int32) UsersAPIGetUserVoicemailFolderRequest
 
 	// GetUserVoicemailFolderExecute executes the request
 	//  @return VoicemailFolder
-	GetUserVoicemailFolderExecute(r ApiGetUserVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error)
+	GetUserVoicemailFolderExecute(r UsersAPIGetUserVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error)
 
 	/*
 		GetUserVoicemailGreeting Get a custom greeting
@@ -198,12 +198,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiGetUserVoicemailGreetingRequest
+		@return UsersAPIGetUserVoicemailGreetingRequest
 	*/
-	GetUserVoicemailGreeting(ctx context.Context, greeting string) ApiGetUserVoicemailGreetingRequest
+	GetUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPIGetUserVoicemailGreetingRequest
 
 	// GetUserVoicemailGreetingExecute executes the request
-	GetUserVoicemailGreetingExecute(r ApiGetUserVoicemailGreetingRequest) (*http.Response, error)
+	GetUserVoicemailGreetingExecute(r UsersAPIGetUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		GetUserVoicemailMessage Get a message
@@ -212,13 +212,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param messageId The message's ID
-		@return ApiGetUserVoicemailMessageRequest
+		@return UsersAPIGetUserVoicemailMessageRequest
 	*/
-	GetUserVoicemailMessage(ctx context.Context, messageId string) ApiGetUserVoicemailMessageRequest
+	GetUserVoicemailMessage(ctx context.Context, messageId string) UsersAPIGetUserVoicemailMessageRequest
 
 	// GetUserVoicemailMessageExecute executes the request
 	//  @return VoicemailMessage
-	GetUserVoicemailMessageExecute(r ApiGetUserVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error)
+	GetUserVoicemailMessageExecute(r UsersAPIGetUserVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error)
 
 	/*
 		GetUserVoicemailMessageRecording Get a message's recording
@@ -227,12 +227,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param messageId The message's ID
-		@return ApiGetUserVoicemailMessageRecordingRequest
+		@return UsersAPIGetUserVoicemailMessageRecordingRequest
 	*/
-	GetUserVoicemailMessageRecording(ctx context.Context, messageId string) ApiGetUserVoicemailMessageRecordingRequest
+	GetUserVoicemailMessageRecording(ctx context.Context, messageId string) UsersAPIGetUserVoicemailMessageRecordingRequest
 
 	// GetUserVoicemailMessageRecordingExecute executes the request
-	GetUserVoicemailMessageRecordingExecute(r ApiGetUserVoicemailMessageRecordingRequest) (*http.Response, error)
+	GetUserVoicemailMessageRecordingExecute(r UsersAPIGetUserVoicemailMessageRecordingRequest) (*http.Response, error)
 
 	/*
 		HangupUserCall Hangup a call from a user
@@ -241,12 +241,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiHangupUserCallRequest
+		@return UsersAPIHangupUserCallRequest
 	*/
-	HangupUserCall(ctx context.Context, callId string) ApiHangupUserCallRequest
+	HangupUserCall(ctx context.Context, callId string) UsersAPIHangupUserCallRequest
 
 	// HangupUserCallExecute executes the request
-	HangupUserCallExecute(r ApiHangupUserCallRequest) (*http.Response, error)
+	HangupUserCallExecute(r UsersAPIHangupUserCallRequest) (*http.Response, error)
 
 	/*
 		HoldUserCall Hold a call from user
@@ -255,12 +255,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiHoldUserCallRequest
+		@return UsersAPIHoldUserCallRequest
 	*/
-	HoldUserCall(ctx context.Context, callId string) ApiHoldUserCallRequest
+	HoldUserCall(ctx context.Context, callId string) UsersAPIHoldUserCallRequest
 
 	// HoldUserCallExecute executes the request
-	HoldUserCallExecute(r ApiHoldUserCallRequest) (*http.Response, error)
+	HoldUserCallExecute(r UsersAPIHoldUserCallRequest) (*http.Response, error)
 
 	/*
 		InitiateRelocate Initiate a relocate from the authenticated user
@@ -268,13 +268,13 @@ type UsersAPI interface {
 		**Required ACL:** `calld.users.me.relocates.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiInitiateRelocateRequest
+		@return UsersAPIInitiateRelocateRequest
 	*/
-	InitiateRelocate(ctx context.Context) ApiInitiateRelocateRequest
+	InitiateRelocate(ctx context.Context) UsersAPIInitiateRelocateRequest
 
 	// InitiateRelocateExecute executes the request
 	//  @return Relocate
-	InitiateRelocateExecute(r ApiInitiateRelocateRequest) (*Relocate, *http.Response, error)
+	InitiateRelocateExecute(r UsersAPIInitiateRelocateRequest) (*Relocate, *http.Response, error)
 
 	/*
 		InitiateUserTransfer Initiate a transfer from the authenticated user
@@ -282,13 +282,13 @@ type UsersAPI interface {
 		**Required ACL:** `calld.users.me.transfers.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiInitiateUserTransferRequest
+		@return UsersAPIInitiateUserTransferRequest
 	*/
-	InitiateUserTransfer(ctx context.Context) ApiInitiateUserTransferRequest
+	InitiateUserTransfer(ctx context.Context) UsersAPIInitiateUserTransferRequest
 
 	// InitiateUserTransferExecute executes the request
 	//  @return Transfer
-	InitiateUserTransferExecute(r ApiInitiateUserTransferRequest) (*Transfer, *http.Response, error)
+	InitiateUserTransferExecute(r UsersAPIInitiateUserTransferRequest) (*Transfer, *http.Response, error)
 
 	/*
 		KickUserMeetingParticipant Kick a participant from a meeting as a user
@@ -298,12 +298,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Unique identifier of the meeting
 		@param participantId Unique identifier of the participant
-		@return ApiKickUserMeetingParticipantRequest
+		@return UsersAPIKickUserMeetingParticipantRequest
 	*/
-	KickUserMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) ApiKickUserMeetingParticipantRequest
+	KickUserMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) UsersAPIKickUserMeetingParticipantRequest
 
 	// KickUserMeetingParticipantExecute executes the request
-	KickUserMeetingParticipantExecute(r ApiKickUserMeetingParticipantRequest) (*http.Response, error)
+	KickUserMeetingParticipantExecute(r UsersAPIKickUserMeetingParticipantRequest) (*http.Response, error)
 
 	/*
 		ListUserCalls List calls of a user
@@ -311,13 +311,13 @@ type UsersAPI interface {
 		**Required ACL:** `calld.users.me.calls.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserCallsRequest
+		@return UsersAPIListUserCallsRequest
 	*/
-	ListUserCalls(ctx context.Context) ApiListUserCallsRequest
+	ListUserCalls(ctx context.Context) UsersAPIListUserCallsRequest
 
 	// ListUserCallsExecute executes the request
 	//  @return ListCalls200Response
-	ListUserCallsExecute(r ApiListUserCallsRequest) (*ListCalls200Response, *http.Response, error)
+	ListUserCallsExecute(r UsersAPIListUserCallsRequest) (*ListCalls200Response, *http.Response, error)
 
 	/*
 		ListUserConferenceParticipants List participants of a conference as a user
@@ -326,13 +326,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Unique identifier of the conference
-		@return ApiListUserConferenceParticipantsRequest
+		@return UsersAPIListUserConferenceParticipantsRequest
 	*/
-	ListUserConferenceParticipants(ctx context.Context, conferenceId string) ApiListUserConferenceParticipantsRequest
+	ListUserConferenceParticipants(ctx context.Context, conferenceId string) UsersAPIListUserConferenceParticipantsRequest
 
 	// ListUserConferenceParticipantsExecute executes the request
 	//  @return ParticipantList
-	ListUserConferenceParticipantsExecute(r ApiListUserConferenceParticipantsRequest) (*ParticipantList, *http.Response, error)
+	ListUserConferenceParticipantsExecute(r UsersAPIListUserConferenceParticipantsRequest) (*ParticipantList, *http.Response, error)
 
 	/*
 		ListUserMeetingParticipants List participants of a meeting as a user
@@ -341,13 +341,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Unique identifier of the meeting
-		@return ApiListUserMeetingParticipantsRequest
+		@return UsersAPIListUserMeetingParticipantsRequest
 	*/
-	ListUserMeetingParticipants(ctx context.Context, meetingUuid string) ApiListUserMeetingParticipantsRequest
+	ListUserMeetingParticipants(ctx context.Context, meetingUuid string) UsersAPIListUserMeetingParticipantsRequest
 
 	// ListUserMeetingParticipantsExecute executes the request
 	//  @return ParticipantList
-	ListUserMeetingParticipantsExecute(r ApiListUserMeetingParticipantsRequest) (*ParticipantList, *http.Response, error)
+	ListUserMeetingParticipantsExecute(r UsersAPIListUserMeetingParticipantsRequest) (*ParticipantList, *http.Response, error)
 
 	/*
 		ListUserRelocates Get the relocates of the authenticated user
@@ -355,13 +355,13 @@ type UsersAPI interface {
 		**Required ACL:** `calld.users.me.relocates.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserRelocatesRequest
+		@return UsersAPIListUserRelocatesRequest
 	*/
-	ListUserRelocates(ctx context.Context) ApiListUserRelocatesRequest
+	ListUserRelocates(ctx context.Context) UsersAPIListUserRelocatesRequest
 
 	// ListUserRelocatesExecute executes the request
 	//  @return RelocateList
-	ListUserRelocatesExecute(r ApiListUserRelocatesRequest) (*RelocateList, *http.Response, error)
+	ListUserRelocatesExecute(r UsersAPIListUserRelocatesRequest) (*RelocateList, *http.Response, error)
 
 	/*
 		ListUserTransfers Get the transfers of the authenticated user
@@ -369,13 +369,13 @@ type UsersAPI interface {
 		**Required ACL:** `calld.users.me.transfers.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserTransfersRequest
+		@return UsersAPIListUserTransfersRequest
 	*/
-	ListUserTransfers(ctx context.Context) ApiListUserTransfersRequest
+	ListUserTransfers(ctx context.Context) UsersAPIListUserTransfersRequest
 
 	// ListUserTransfersExecute executes the request
 	//  @return TransferList
-	ListUserTransfersExecute(r ApiListUserTransfersRequest) (*TransferList, *http.Response, error)
+	ListUserTransfersExecute(r UsersAPIListUserTransfersRequest) (*TransferList, *http.Response, error)
 
 	/*
 		ListUserVoicemails Get details of the voicemail of the authenticated user
@@ -383,13 +383,13 @@ type UsersAPI interface {
 		**Required ACL:** `calld.users.me.voicemails.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserVoicemailsRequest
+		@return UsersAPIListUserVoicemailsRequest
 	*/
-	ListUserVoicemails(ctx context.Context) ApiListUserVoicemailsRequest
+	ListUserVoicemails(ctx context.Context) UsersAPIListUserVoicemailsRequest
 
 	// ListUserVoicemailsExecute executes the request
 	//  @return Voicemail
-	ListUserVoicemailsExecute(r ApiListUserVoicemailsRequest) (*Voicemail, *http.Response, error)
+	ListUserVoicemailsExecute(r UsersAPIListUserVoicemailsRequest) (*Voicemail, *http.Response, error)
 
 	/*
 		MuteUserCall Mute a call from user
@@ -398,12 +398,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiMuteUserCallRequest
+		@return UsersAPIMuteUserCallRequest
 	*/
-	MuteUserCall(ctx context.Context, callId string) ApiMuteUserCallRequest
+	MuteUserCall(ctx context.Context, callId string) UsersAPIMuteUserCallRequest
 
 	// MuteUserCallExecute executes the request
-	MuteUserCallExecute(r ApiMuteUserCallRequest) (*http.Response, error)
+	MuteUserCallExecute(r UsersAPIMuteUserCallRequest) (*http.Response, error)
 
 	/*
 		SendUserDTMF Simulate a user pressing DTMF keys
@@ -412,12 +412,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiSendUserDTMFRequest
+		@return UsersAPISendUserDTMFRequest
 	*/
-	SendUserDTMF(ctx context.Context, callId string) ApiSendUserDTMFRequest
+	SendUserDTMF(ctx context.Context, callId string) UsersAPISendUserDTMFRequest
 
 	// SendUserDTMFExecute executes the request
-	SendUserDTMFExecute(r ApiSendUserDTMFRequest) (*http.Response, error)
+	SendUserDTMFExecute(r UsersAPISendUserDTMFRequest) (*http.Response, error)
 
 	/*
 		StartCurrentUserRecording Start recording a call
@@ -426,12 +426,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiStartCurrentUserRecordingRequest
+		@return UsersAPIStartCurrentUserRecordingRequest
 	*/
-	StartCurrentUserRecording(ctx context.Context, callId string) ApiStartCurrentUserRecordingRequest
+	StartCurrentUserRecording(ctx context.Context, callId string) UsersAPIStartCurrentUserRecordingRequest
 
 	// StartCurrentUserRecordingExecute executes the request
-	StartCurrentUserRecordingExecute(r ApiStartCurrentUserRecordingRequest) (*http.Response, error)
+	StartCurrentUserRecordingExecute(r UsersAPIStartCurrentUserRecordingRequest) (*http.Response, error)
 
 	/*
 		StopCurrentUserRecording Stop recording a call
@@ -440,12 +440,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiStopCurrentUserRecordingRequest
+		@return UsersAPIStopCurrentUserRecordingRequest
 	*/
-	StopCurrentUserRecording(ctx context.Context, callId string) ApiStopCurrentUserRecordingRequest
+	StopCurrentUserRecording(ctx context.Context, callId string) UsersAPIStopCurrentUserRecordingRequest
 
 	// StopCurrentUserRecordingExecute executes the request
-	StopCurrentUserRecordingExecute(r ApiStopCurrentUserRecordingRequest) (*http.Response, error)
+	StopCurrentUserRecordingExecute(r UsersAPIStopCurrentUserRecordingRequest) (*http.Response, error)
 
 	/*
 		UnholdUserCall Unhold a call from user
@@ -454,12 +454,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiUnholdUserCallRequest
+		@return UsersAPIUnholdUserCallRequest
 	*/
-	UnholdUserCall(ctx context.Context, callId string) ApiUnholdUserCallRequest
+	UnholdUserCall(ctx context.Context, callId string) UsersAPIUnholdUserCallRequest
 
 	// UnholdUserCallExecute executes the request
-	UnholdUserCallExecute(r ApiUnholdUserCallRequest) (*http.Response, error)
+	UnholdUserCallExecute(r UsersAPIUnholdUserCallRequest) (*http.Response, error)
 
 	/*
 		UnmuteUserCall Unmute a call from user
@@ -468,12 +468,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiUnmuteUserCallRequest
+		@return UsersAPIUnmuteUserCallRequest
 	*/
-	UnmuteUserCall(ctx context.Context, callId string) ApiUnmuteUserCallRequest
+	UnmuteUserCall(ctx context.Context, callId string) UsersAPIUnmuteUserCallRequest
 
 	// UnmuteUserCallExecute executes the request
-	UnmuteUserCallExecute(r ApiUnmuteUserCallRequest) (*http.Response, error)
+	UnmuteUserCallExecute(r UsersAPIUnmuteUserCallRequest) (*http.Response, error)
 
 	/*
 		UpdateUserVoicemailGreeting Update a custom greeting
@@ -482,12 +482,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiUpdateUserVoicemailGreetingRequest
+		@return UsersAPIUpdateUserVoicemailGreetingRequest
 	*/
-	UpdateUserVoicemailGreeting(ctx context.Context, greeting string) ApiUpdateUserVoicemailGreetingRequest
+	UpdateUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPIUpdateUserVoicemailGreetingRequest
 
 	// UpdateUserVoicemailGreetingExecute executes the request
-	UpdateUserVoicemailGreetingExecute(r ApiUpdateUserVoicemailGreetingRequest) (*http.Response, error)
+	UpdateUserVoicemailGreetingExecute(r UsersAPIUpdateUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		UpdateUserVoicemailMessage Update a message
@@ -496,24 +496,24 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param messageId The message's ID
-		@return ApiUpdateUserVoicemailMessageRequest
+		@return UsersAPIUpdateUserVoicemailMessageRequest
 	*/
-	UpdateUserVoicemailMessage(ctx context.Context, messageId string) ApiUpdateUserVoicemailMessageRequest
+	UpdateUserVoicemailMessage(ctx context.Context, messageId string) UsersAPIUpdateUserVoicemailMessageRequest
 
 	// UpdateUserVoicemailMessageExecute executes the request
-	UpdateUserVoicemailMessageExecute(r ApiUpdateUserVoicemailMessageRequest) (*http.Response, error)
+	UpdateUserVoicemailMessageExecute(r UsersAPIUpdateUserVoicemailMessageRequest) (*http.Response, error)
 }
 
 // UsersAPIService UsersAPI service
 type UsersAPIService service
 
-type ApiAnswerUserCallRequest struct {
+type UsersAPIAnswerUserCallRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
 }
 
-func (r ApiAnswerUserCallRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAnswerUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AnswerUserCallExecute(r)
 }
 
@@ -524,10 +524,10 @@ AnswerUserCall Answer a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiAnswerUserCallRequest
+	@return UsersAPIAnswerUserCallRequest
 */
-func (a *UsersAPIService) AnswerUserCall(ctx context.Context, callId string) ApiAnswerUserCallRequest {
-	return ApiAnswerUserCallRequest{
+func (a *UsersAPIService) AnswerUserCall(ctx context.Context, callId string) UsersAPIAnswerUserCallRequest {
+	return UsersAPIAnswerUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -535,7 +535,7 @@ func (a *UsersAPIService) AnswerUserCall(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AnswerUserCallExecute(r ApiAnswerUserCallRequest) (*http.Response, error) {
+func (a *UsersAPIService) AnswerUserCallExecute(r UsersAPIAnswerUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -634,13 +634,13 @@ func (a *UsersAPIService) AnswerUserCallExecute(r ApiAnswerUserCallRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiCancelRelocateRequest struct {
+type UsersAPICancelRelocateRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	relocateUuid string
 }
 
-func (r ApiCancelRelocateRequest) Execute() (*http.Response, error) {
+func (r UsersAPICancelRelocateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CancelRelocateExecute(r)
 }
 
@@ -651,10 +651,10 @@ CancelRelocate Cancel a relocate
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param relocateUuid Unique identifier of the relocate
-	@return ApiCancelRelocateRequest
+	@return UsersAPICancelRelocateRequest
 */
-func (a *UsersAPIService) CancelRelocate(ctx context.Context, relocateUuid string) ApiCancelRelocateRequest {
-	return ApiCancelRelocateRequest{
+func (a *UsersAPIService) CancelRelocate(ctx context.Context, relocateUuid string) UsersAPICancelRelocateRequest {
+	return UsersAPICancelRelocateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		relocateUuid: relocateUuid,
@@ -662,7 +662,7 @@ func (a *UsersAPIService) CancelRelocate(ctx context.Context, relocateUuid strin
 }
 
 // Execute executes the request
-func (a *UsersAPIService) CancelRelocateExecute(r ApiCancelRelocateRequest) (*http.Response, error) {
+func (a *UsersAPIService) CancelRelocateExecute(r UsersAPICancelRelocateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -772,13 +772,13 @@ func (a *UsersAPIService) CancelRelocateExecute(r ApiCancelRelocateRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiCancelUserTransferRequest struct {
+type UsersAPICancelUserTransferRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	transferId string
 }
 
-func (r ApiCancelUserTransferRequest) Execute() (*http.Response, error) {
+func (r UsersAPICancelUserTransferRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CancelUserTransferExecute(r)
 }
 
@@ -789,10 +789,10 @@ CancelUserTransfer Cancel a transfer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transferId Unique identifier of the transfer
-	@return ApiCancelUserTransferRequest
+	@return UsersAPICancelUserTransferRequest
 */
-func (a *UsersAPIService) CancelUserTransfer(ctx context.Context, transferId string) ApiCancelUserTransferRequest {
-	return ApiCancelUserTransferRequest{
+func (a *UsersAPIService) CancelUserTransfer(ctx context.Context, transferId string) UsersAPICancelUserTransferRequest {
+	return UsersAPICancelUserTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 		transferId: transferId,
@@ -800,7 +800,7 @@ func (a *UsersAPIService) CancelUserTransfer(ctx context.Context, transferId str
 }
 
 // Execute executes the request
-func (a *UsersAPIService) CancelUserTransferExecute(r ApiCancelUserTransferRequest) (*http.Response, error) {
+func (a *UsersAPIService) CancelUserTransferExecute(r UsersAPICancelUserTransferRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -910,13 +910,13 @@ func (a *UsersAPIService) CancelUserTransferExecute(r ApiCancelUserTransferReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiCheckUserVoicemailGreetingRequest struct {
+type UsersAPICheckUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	greeting   string
 }
 
-func (r ApiCheckUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r UsersAPICheckUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CheckUserVoicemailGreetingExecute(r)
 }
 
@@ -927,10 +927,10 @@ CheckUserVoicemailGreeting Check if greeting exists
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiCheckUserVoicemailGreetingRequest
+	@return UsersAPICheckUserVoicemailGreetingRequest
 */
-func (a *UsersAPIService) CheckUserVoicemailGreeting(ctx context.Context, greeting string) ApiCheckUserVoicemailGreetingRequest {
-	return ApiCheckUserVoicemailGreetingRequest{
+func (a *UsersAPIService) CheckUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPICheckUserVoicemailGreetingRequest {
+	return UsersAPICheckUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -938,7 +938,7 @@ func (a *UsersAPIService) CheckUserVoicemailGreeting(ctx context.Context, greeti
 }
 
 // Execute executes the request
-func (a *UsersAPIService) CheckUserVoicemailGreetingExecute(r ApiCheckUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *UsersAPIService) CheckUserVoicemailGreetingExecute(r UsersAPICheckUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodHead
 		localVarPostBody   interface{}
@@ -1048,13 +1048,13 @@ func (a *UsersAPIService) CheckUserVoicemailGreetingExecute(r ApiCheckUserVoicem
 	return localVarHTTPResponse, nil
 }
 
-type ApiCompleteRelocateRequest struct {
+type UsersAPICompleteRelocateRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	relocateUuid string
 }
 
-func (r ApiCompleteRelocateRequest) Execute() (*http.Response, error) {
+func (r UsersAPICompleteRelocateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CompleteRelocateExecute(r)
 }
 
@@ -1065,10 +1065,10 @@ CompleteRelocate Complete a relocate
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param relocateUuid Unique identifier of the relocate
-	@return ApiCompleteRelocateRequest
+	@return UsersAPICompleteRelocateRequest
 */
-func (a *UsersAPIService) CompleteRelocate(ctx context.Context, relocateUuid string) ApiCompleteRelocateRequest {
-	return ApiCompleteRelocateRequest{
+func (a *UsersAPIService) CompleteRelocate(ctx context.Context, relocateUuid string) UsersAPICompleteRelocateRequest {
+	return UsersAPICompleteRelocateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		relocateUuid: relocateUuid,
@@ -1076,7 +1076,7 @@ func (a *UsersAPIService) CompleteRelocate(ctx context.Context, relocateUuid str
 }
 
 // Execute executes the request
-func (a *UsersAPIService) CompleteRelocateExecute(r ApiCompleteRelocateRequest) (*http.Response, error) {
+func (a *UsersAPIService) CompleteRelocateExecute(r UsersAPICompleteRelocateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1186,13 +1186,13 @@ func (a *UsersAPIService) CompleteRelocateExecute(r ApiCompleteRelocateRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiCompleteUserTransferRequest struct {
+type UsersAPICompleteUserTransferRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	transferId string
 }
 
-func (r ApiCompleteUserTransferRequest) Execute() (*http.Response, error) {
+func (r UsersAPICompleteUserTransferRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CompleteUserTransferExecute(r)
 }
 
@@ -1203,10 +1203,10 @@ CompleteUserTransfer Complete a transfer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transferId Unique identifier of the transfer
-	@return ApiCompleteUserTransferRequest
+	@return UsersAPICompleteUserTransferRequest
 */
-func (a *UsersAPIService) CompleteUserTransfer(ctx context.Context, transferId string) ApiCompleteUserTransferRequest {
-	return ApiCompleteUserTransferRequest{
+func (a *UsersAPIService) CompleteUserTransfer(ctx context.Context, transferId string) UsersAPICompleteUserTransferRequest {
+	return UsersAPICompleteUserTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 		transferId: transferId,
@@ -1214,7 +1214,7 @@ func (a *UsersAPIService) CompleteUserTransfer(ctx context.Context, transferId s
 }
 
 // Execute executes the request
-func (a *UsersAPIService) CompleteUserTransferExecute(r ApiCompleteUserTransferRequest) (*http.Response, error) {
+func (a *UsersAPIService) CompleteUserTransferExecute(r UsersAPICompleteUserTransferRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1324,19 +1324,19 @@ func (a *UsersAPIService) CompleteUserTransferExecute(r ApiCompleteUserTransferR
 	return localVarHTTPResponse, nil
 }
 
-type ApiCopyUserVoicemailGreetingRequest struct {
+type UsersAPICopyUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *GreetingCopy
 	greeting   string
 }
 
-func (r ApiCopyUserVoicemailGreetingRequest) Body(body GreetingCopy) ApiCopyUserVoicemailGreetingRequest {
+func (r UsersAPICopyUserVoicemailGreetingRequest) Body(body GreetingCopy) UsersAPICopyUserVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCopyUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r UsersAPICopyUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CopyUserVoicemailGreetingExecute(r)
 }
 
@@ -1347,10 +1347,10 @@ CopyUserVoicemailGreeting Copy a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiCopyUserVoicemailGreetingRequest
+	@return UsersAPICopyUserVoicemailGreetingRequest
 */
-func (a *UsersAPIService) CopyUserVoicemailGreeting(ctx context.Context, greeting string) ApiCopyUserVoicemailGreetingRequest {
-	return ApiCopyUserVoicemailGreetingRequest{
+func (a *UsersAPIService) CopyUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPICopyUserVoicemailGreetingRequest {
+	return UsersAPICopyUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -1358,7 +1358,7 @@ func (a *UsersAPIService) CopyUserVoicemailGreeting(ctx context.Context, greetin
 }
 
 // Execute executes the request
-func (a *UsersAPIService) CopyUserVoicemailGreetingExecute(r ApiCopyUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *UsersAPIService) CopyUserVoicemailGreetingExecute(r UsersAPICopyUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1473,19 +1473,19 @@ func (a *UsersAPIService) CopyUserVoicemailGreetingExecute(r ApiCopyUserVoicemai
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateUserCallRequest struct {
+type UsersAPICreateUserCallRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserCallRequest
 }
 
 // Parameters of the call
-func (r ApiCreateUserCallRequest) Body(body UserCallRequest) ApiCreateUserCallRequest {
+func (r UsersAPICreateUserCallRequest) Body(body UserCallRequest) UsersAPICreateUserCallRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateUserCallRequest) Execute() (*Call, *http.Response, error) {
+func (r UsersAPICreateUserCallRequest) Execute() (*Call, *http.Response, error) {
 	return r.ApiService.CreateUserCallExecute(r)
 }
 
@@ -1495,10 +1495,10 @@ CreateUserCall Make a new call from a user
 **Required ACL:** `calld.users.me.calls.create` The user originator of the call is determined from the authentication token.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateUserCallRequest
+	@return UsersAPICreateUserCallRequest
 */
-func (a *UsersAPIService) CreateUserCall(ctx context.Context) ApiCreateUserCallRequest {
-	return ApiCreateUserCallRequest{
+func (a *UsersAPIService) CreateUserCall(ctx context.Context) UsersAPICreateUserCallRequest {
+	return UsersAPICreateUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1507,7 +1507,7 @@ func (a *UsersAPIService) CreateUserCall(ctx context.Context) ApiCreateUserCallR
 // Execute executes the request
 //
 //	@return Call
-func (a *UsersAPIService) CreateUserCallExecute(r ApiCreateUserCallRequest) (*Call, *http.Response, error) {
+func (a *UsersAPIService) CreateUserCallExecute(r UsersAPICreateUserCallRequest) (*Call, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1620,19 +1620,19 @@ func (a *UsersAPIService) CreateUserCallExecute(r ApiCreateUserCallRequest) (*Ca
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateUserVoicemailGreetingRequest struct {
+type UsersAPICreateUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *map[string]interface{}
 	greeting   string
 }
 
-func (r ApiCreateUserVoicemailGreetingRequest) Body(body map[string]interface{}) ApiCreateUserVoicemailGreetingRequest {
+func (r UsersAPICreateUserVoicemailGreetingRequest) Body(body map[string]interface{}) UsersAPICreateUserVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r UsersAPICreateUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CreateUserVoicemailGreetingExecute(r)
 }
 
@@ -1643,10 +1643,10 @@ CreateUserVoicemailGreeting Create a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiCreateUserVoicemailGreetingRequest
+	@return UsersAPICreateUserVoicemailGreetingRequest
 */
-func (a *UsersAPIService) CreateUserVoicemailGreeting(ctx context.Context, greeting string) ApiCreateUserVoicemailGreetingRequest {
-	return ApiCreateUserVoicemailGreetingRequest{
+func (a *UsersAPIService) CreateUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPICreateUserVoicemailGreetingRequest {
+	return UsersAPICreateUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -1654,7 +1654,7 @@ func (a *UsersAPIService) CreateUserVoicemailGreeting(ctx context.Context, greet
 }
 
 // Execute executes the request
-func (a *UsersAPIService) CreateUserVoicemailGreetingExecute(r ApiCreateUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *UsersAPIService) CreateUserVoicemailGreetingExecute(r UsersAPICreateUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1769,13 +1769,13 @@ func (a *UsersAPIService) CreateUserVoicemailGreetingExecute(r ApiCreateUserVoic
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserVoicemailGreetingRequest struct {
+type UsersAPIDeleteUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	greeting   string
 }
 
-func (r ApiDeleteUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserVoicemailGreetingExecute(r)
 }
 
@@ -1786,10 +1786,10 @@ DeleteUserVoicemailGreeting Delete a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiDeleteUserVoicemailGreetingRequest
+	@return UsersAPIDeleteUserVoicemailGreetingRequest
 */
-func (a *UsersAPIService) DeleteUserVoicemailGreeting(ctx context.Context, greeting string) ApiDeleteUserVoicemailGreetingRequest {
-	return ApiDeleteUserVoicemailGreetingRequest{
+func (a *UsersAPIService) DeleteUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPIDeleteUserVoicemailGreetingRequest {
+	return UsersAPIDeleteUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -1797,7 +1797,7 @@ func (a *UsersAPIService) DeleteUserVoicemailGreeting(ctx context.Context, greet
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteUserVoicemailGreetingExecute(r ApiDeleteUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteUserVoicemailGreetingExecute(r UsersAPIDeleteUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1907,13 +1907,13 @@ func (a *UsersAPIService) DeleteUserVoicemailGreetingExecute(r ApiDeleteUserVoic
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserVoicemailMessageRequest struct {
+type UsersAPIDeleteUserVoicemailMessageRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	messageId  string
 }
 
-func (r ApiDeleteUserVoicemailMessageRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteUserVoicemailMessageRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserVoicemailMessageExecute(r)
 }
 
@@ -1924,10 +1924,10 @@ DeleteUserVoicemailMessage Delete a mesage
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param messageId The message's ID
-	@return ApiDeleteUserVoicemailMessageRequest
+	@return UsersAPIDeleteUserVoicemailMessageRequest
 */
-func (a *UsersAPIService) DeleteUserVoicemailMessage(ctx context.Context, messageId string) ApiDeleteUserVoicemailMessageRequest {
-	return ApiDeleteUserVoicemailMessageRequest{
+func (a *UsersAPIService) DeleteUserVoicemailMessage(ctx context.Context, messageId string) UsersAPIDeleteUserVoicemailMessageRequest {
+	return UsersAPIDeleteUserVoicemailMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		messageId:  messageId,
@@ -1935,7 +1935,7 @@ func (a *UsersAPIService) DeleteUserVoicemailMessage(ctx context.Context, messag
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteUserVoicemailMessageExecute(r ApiDeleteUserVoicemailMessageRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteUserVoicemailMessageExecute(r UsersAPIDeleteUserVoicemailMessageRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2045,13 +2045,13 @@ func (a *UsersAPIService) DeleteUserVoicemailMessageExecute(r ApiDeleteUserVoice
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailFolderRequest struct {
+type UsersAPIGetUserVoicemailFolderRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	folderId   int32
 }
 
-func (r ApiGetUserVoicemailFolderRequest) Execute() (*VoicemailFolder, *http.Response, error) {
+func (r UsersAPIGetUserVoicemailFolderRequest) Execute() (*VoicemailFolder, *http.Response, error) {
 	return r.ApiService.GetUserVoicemailFolderExecute(r)
 }
 
@@ -2062,10 +2062,10 @@ GetUserVoicemailFolder Get details of a folder
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param folderId The folder's ID
-	@return ApiGetUserVoicemailFolderRequest
+	@return UsersAPIGetUserVoicemailFolderRequest
 */
-func (a *UsersAPIService) GetUserVoicemailFolder(ctx context.Context, folderId int32) ApiGetUserVoicemailFolderRequest {
-	return ApiGetUserVoicemailFolderRequest{
+func (a *UsersAPIService) GetUserVoicemailFolder(ctx context.Context, folderId int32) UsersAPIGetUserVoicemailFolderRequest {
+	return UsersAPIGetUserVoicemailFolderRequest{
 		ApiService: a,
 		ctx:        ctx,
 		folderId:   folderId,
@@ -2075,7 +2075,7 @@ func (a *UsersAPIService) GetUserVoicemailFolder(ctx context.Context, folderId i
 // Execute executes the request
 //
 //	@return VoicemailFolder
-func (a *UsersAPIService) GetUserVoicemailFolderExecute(r ApiGetUserVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error) {
+func (a *UsersAPIService) GetUserVoicemailFolderExecute(r UsersAPIGetUserVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2195,13 +2195,13 @@ func (a *UsersAPIService) GetUserVoicemailFolderExecute(r ApiGetUserVoicemailFol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailGreetingRequest struct {
+type UsersAPIGetUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	greeting   string
 }
 
-func (r ApiGetUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r UsersAPIGetUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetUserVoicemailGreetingExecute(r)
 }
 
@@ -2212,10 +2212,10 @@ GetUserVoicemailGreeting Get a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiGetUserVoicemailGreetingRequest
+	@return UsersAPIGetUserVoicemailGreetingRequest
 */
-func (a *UsersAPIService) GetUserVoicemailGreeting(ctx context.Context, greeting string) ApiGetUserVoicemailGreetingRequest {
-	return ApiGetUserVoicemailGreetingRequest{
+func (a *UsersAPIService) GetUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPIGetUserVoicemailGreetingRequest {
+	return UsersAPIGetUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -2223,7 +2223,7 @@ func (a *UsersAPIService) GetUserVoicemailGreeting(ctx context.Context, greeting
 }
 
 // Execute executes the request
-func (a *UsersAPIService) GetUserVoicemailGreetingExecute(r ApiGetUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *UsersAPIService) GetUserVoicemailGreetingExecute(r UsersAPIGetUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -2333,13 +2333,13 @@ func (a *UsersAPIService) GetUserVoicemailGreetingExecute(r ApiGetUserVoicemailG
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailMessageRequest struct {
+type UsersAPIGetUserVoicemailMessageRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	messageId  string
 }
 
-func (r ApiGetUserVoicemailMessageRequest) Execute() (*VoicemailMessage, *http.Response, error) {
+func (r UsersAPIGetUserVoicemailMessageRequest) Execute() (*VoicemailMessage, *http.Response, error) {
 	return r.ApiService.GetUserVoicemailMessageExecute(r)
 }
 
@@ -2350,10 +2350,10 @@ GetUserVoicemailMessage Get a message
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param messageId The message's ID
-	@return ApiGetUserVoicemailMessageRequest
+	@return UsersAPIGetUserVoicemailMessageRequest
 */
-func (a *UsersAPIService) GetUserVoicemailMessage(ctx context.Context, messageId string) ApiGetUserVoicemailMessageRequest {
-	return ApiGetUserVoicemailMessageRequest{
+func (a *UsersAPIService) GetUserVoicemailMessage(ctx context.Context, messageId string) UsersAPIGetUserVoicemailMessageRequest {
+	return UsersAPIGetUserVoicemailMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		messageId:  messageId,
@@ -2363,7 +2363,7 @@ func (a *UsersAPIService) GetUserVoicemailMessage(ctx context.Context, messageId
 // Execute executes the request
 //
 //	@return VoicemailMessage
-func (a *UsersAPIService) GetUserVoicemailMessageExecute(r ApiGetUserVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error) {
+func (a *UsersAPIService) GetUserVoicemailMessageExecute(r UsersAPIGetUserVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2483,7 +2483,7 @@ func (a *UsersAPIService) GetUserVoicemailMessageExecute(r ApiGetUserVoicemailMe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailMessageRecordingRequest struct {
+type UsersAPIGetUserVoicemailMessageRecordingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	messageId  string
@@ -2492,18 +2492,18 @@ type ApiGetUserVoicemailMessageRecordingRequest struct {
 }
 
 // The token&#39;s ID
-func (r ApiGetUserVoicemailMessageRecordingRequest) Token(token string) ApiGetUserVoicemailMessageRecordingRequest {
+func (r UsersAPIGetUserVoicemailMessageRecordingRequest) Token(token string) UsersAPIGetUserVoicemailMessageRecordingRequest {
 	r.token = &token
 	return r
 }
 
 // Set to 1 to force download by browser
-func (r ApiGetUserVoicemailMessageRecordingRequest) Download(download string) ApiGetUserVoicemailMessageRecordingRequest {
+func (r UsersAPIGetUserVoicemailMessageRecordingRequest) Download(download string) UsersAPIGetUserVoicemailMessageRecordingRequest {
 	r.download = &download
 	return r
 }
 
-func (r ApiGetUserVoicemailMessageRecordingRequest) Execute() (*http.Response, error) {
+func (r UsersAPIGetUserVoicemailMessageRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetUserVoicemailMessageRecordingExecute(r)
 }
 
@@ -2514,10 +2514,10 @@ GetUserVoicemailMessageRecording Get a message's recording
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param messageId The message's ID
-	@return ApiGetUserVoicemailMessageRecordingRequest
+	@return UsersAPIGetUserVoicemailMessageRecordingRequest
 */
-func (a *UsersAPIService) GetUserVoicemailMessageRecording(ctx context.Context, messageId string) ApiGetUserVoicemailMessageRecordingRequest {
-	return ApiGetUserVoicemailMessageRecordingRequest{
+func (a *UsersAPIService) GetUserVoicemailMessageRecording(ctx context.Context, messageId string) UsersAPIGetUserVoicemailMessageRecordingRequest {
+	return UsersAPIGetUserVoicemailMessageRecordingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		messageId:  messageId,
@@ -2525,7 +2525,7 @@ func (a *UsersAPIService) GetUserVoicemailMessageRecording(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) GetUserVoicemailMessageRecordingExecute(r ApiGetUserVoicemailMessageRecordingRequest) (*http.Response, error) {
+func (a *UsersAPIService) GetUserVoicemailMessageRecordingExecute(r UsersAPIGetUserVoicemailMessageRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -2641,13 +2641,13 @@ func (a *UsersAPIService) GetUserVoicemailMessageRecordingExecute(r ApiGetUserVo
 	return localVarHTTPResponse, nil
 }
 
-type ApiHangupUserCallRequest struct {
+type UsersAPIHangupUserCallRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
 }
 
-func (r ApiHangupUserCallRequest) Execute() (*http.Response, error) {
+func (r UsersAPIHangupUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.HangupUserCallExecute(r)
 }
 
@@ -2658,10 +2658,10 @@ HangupUserCall Hangup a call from a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiHangupUserCallRequest
+	@return UsersAPIHangupUserCallRequest
 */
-func (a *UsersAPIService) HangupUserCall(ctx context.Context, callId string) ApiHangupUserCallRequest {
-	return ApiHangupUserCallRequest{
+func (a *UsersAPIService) HangupUserCall(ctx context.Context, callId string) UsersAPIHangupUserCallRequest {
+	return UsersAPIHangupUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2669,7 +2669,7 @@ func (a *UsersAPIService) HangupUserCall(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *UsersAPIService) HangupUserCallExecute(r ApiHangupUserCallRequest) (*http.Response, error) {
+func (a *UsersAPIService) HangupUserCallExecute(r UsersAPIHangupUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2779,13 +2779,13 @@ func (a *UsersAPIService) HangupUserCallExecute(r ApiHangupUserCallRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiHoldUserCallRequest struct {
+type UsersAPIHoldUserCallRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
 }
 
-func (r ApiHoldUserCallRequest) Execute() (*http.Response, error) {
+func (r UsersAPIHoldUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.HoldUserCallExecute(r)
 }
 
@@ -2796,10 +2796,10 @@ HoldUserCall Hold a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiHoldUserCallRequest
+	@return UsersAPIHoldUserCallRequest
 */
-func (a *UsersAPIService) HoldUserCall(ctx context.Context, callId string) ApiHoldUserCallRequest {
-	return ApiHoldUserCallRequest{
+func (a *UsersAPIService) HoldUserCall(ctx context.Context, callId string) UsersAPIHoldUserCallRequest {
+	return UsersAPIHoldUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2807,7 +2807,7 @@ func (a *UsersAPIService) HoldUserCall(ctx context.Context, callId string) ApiHo
 }
 
 // Execute executes the request
-func (a *UsersAPIService) HoldUserCallExecute(r ApiHoldUserCallRequest) (*http.Response, error) {
+func (a *UsersAPIService) HoldUserCallExecute(r UsersAPIHoldUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2906,19 +2906,19 @@ func (a *UsersAPIService) HoldUserCallExecute(r ApiHoldUserCallRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiInitiateRelocateRequest struct {
+type UsersAPIInitiateRelocateRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserRelocateRequest
 }
 
 // Parameters of the relocate
-func (r ApiInitiateRelocateRequest) Body(body UserRelocateRequest) ApiInitiateRelocateRequest {
+func (r UsersAPIInitiateRelocateRequest) Body(body UserRelocateRequest) UsersAPIInitiateRelocateRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiInitiateRelocateRequest) Execute() (*Relocate, *http.Response, error) {
+func (r UsersAPIInitiateRelocateRequest) Execute() (*Relocate, *http.Response, error) {
 	return r.ApiService.InitiateRelocateExecute(r)
 }
 
@@ -2928,10 +2928,10 @@ InitiateRelocate Initiate a relocate from the authenticated user
 **Required ACL:** `calld.users.me.relocates.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInitiateRelocateRequest
+	@return UsersAPIInitiateRelocateRequest
 */
-func (a *UsersAPIService) InitiateRelocate(ctx context.Context) ApiInitiateRelocateRequest {
-	return ApiInitiateRelocateRequest{
+func (a *UsersAPIService) InitiateRelocate(ctx context.Context) UsersAPIInitiateRelocateRequest {
+	return UsersAPIInitiateRelocateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2940,7 +2940,7 @@ func (a *UsersAPIService) InitiateRelocate(ctx context.Context) ApiInitiateReloc
 // Execute executes the request
 //
 //	@return Relocate
-func (a *UsersAPIService) InitiateRelocateExecute(r ApiInitiateRelocateRequest) (*Relocate, *http.Response, error) {
+func (a *UsersAPIService) InitiateRelocateExecute(r UsersAPIInitiateRelocateRequest) (*Relocate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3075,19 +3075,19 @@ func (a *UsersAPIService) InitiateRelocateExecute(r ApiInitiateRelocateRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInitiateUserTransferRequest struct {
+type UsersAPIInitiateUserTransferRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserTransferRequest
 }
 
 // Parameters of the transfer
-func (r ApiInitiateUserTransferRequest) Body(body UserTransferRequest) ApiInitiateUserTransferRequest {
+func (r UsersAPIInitiateUserTransferRequest) Body(body UserTransferRequest) UsersAPIInitiateUserTransferRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiInitiateUserTransferRequest) Execute() (*Transfer, *http.Response, error) {
+func (r UsersAPIInitiateUserTransferRequest) Execute() (*Transfer, *http.Response, error) {
 	return r.ApiService.InitiateUserTransferExecute(r)
 }
 
@@ -3097,10 +3097,10 @@ InitiateUserTransfer Initiate a transfer from the authenticated user
 **Required ACL:** `calld.users.me.transfers.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInitiateUserTransferRequest
+	@return UsersAPIInitiateUserTransferRequest
 */
-func (a *UsersAPIService) InitiateUserTransfer(ctx context.Context) ApiInitiateUserTransferRequest {
-	return ApiInitiateUserTransferRequest{
+func (a *UsersAPIService) InitiateUserTransfer(ctx context.Context) UsersAPIInitiateUserTransferRequest {
+	return UsersAPIInitiateUserTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3109,7 +3109,7 @@ func (a *UsersAPIService) InitiateUserTransfer(ctx context.Context) ApiInitiateU
 // Execute executes the request
 //
 //	@return Transfer
-func (a *UsersAPIService) InitiateUserTransferExecute(r ApiInitiateUserTransferRequest) (*Transfer, *http.Response, error) {
+func (a *UsersAPIService) InitiateUserTransferExecute(r UsersAPIInitiateUserTransferRequest) (*Transfer, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3244,14 +3244,14 @@ func (a *UsersAPIService) InitiateUserTransferExecute(r ApiInitiateUserTransferR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiKickUserMeetingParticipantRequest struct {
+type UsersAPIKickUserMeetingParticipantRequest struct {
 	ctx           context.Context
 	ApiService    UsersAPI
 	meetingUuid   string
 	participantId string
 }
 
-func (r ApiKickUserMeetingParticipantRequest) Execute() (*http.Response, error) {
+func (r UsersAPIKickUserMeetingParticipantRequest) Execute() (*http.Response, error) {
 	return r.ApiService.KickUserMeetingParticipantExecute(r)
 }
 
@@ -3263,10 +3263,10 @@ KickUserMeetingParticipant Kick a participant from a meeting as a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Unique identifier of the meeting
 	@param participantId Unique identifier of the participant
-	@return ApiKickUserMeetingParticipantRequest
+	@return UsersAPIKickUserMeetingParticipantRequest
 */
-func (a *UsersAPIService) KickUserMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) ApiKickUserMeetingParticipantRequest {
-	return ApiKickUserMeetingParticipantRequest{
+func (a *UsersAPIService) KickUserMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) UsersAPIKickUserMeetingParticipantRequest {
+	return UsersAPIKickUserMeetingParticipantRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		meetingUuid:   meetingUuid,
@@ -3275,7 +3275,7 @@ func (a *UsersAPIService) KickUserMeetingParticipant(ctx context.Context, meetin
 }
 
 // Execute executes the request
-func (a *UsersAPIService) KickUserMeetingParticipantExecute(r ApiKickUserMeetingParticipantRequest) (*http.Response, error) {
+func (a *UsersAPIService) KickUserMeetingParticipantExecute(r UsersAPIKickUserMeetingParticipantRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3375,7 +3375,7 @@ func (a *UsersAPIService) KickUserMeetingParticipantExecute(r ApiKickUserMeeting
 	return localVarHTTPResponse, nil
 }
 
-type ApiListUserCallsRequest struct {
+type UsersAPIListUserCallsRequest struct {
 	ctx                 context.Context
 	ApiService          UsersAPI
 	application         *string
@@ -3383,18 +3383,18 @@ type ApiListUserCallsRequest struct {
 }
 
 // Filter calls by Stasis application, e.g. switchboard.
-func (r ApiListUserCallsRequest) Application(application string) ApiListUserCallsRequest {
+func (r UsersAPIListUserCallsRequest) Application(application string) UsersAPIListUserCallsRequest {
 	r.application = &application
 	return r
 }
 
 // Filter calls by Stasis application instance, e.g. switchboard-sales,green. Args must be separated by commas (,).
-func (r ApiListUserCallsRequest) ApplicationInstance(applicationInstance string) ApiListUserCallsRequest {
+func (r UsersAPIListUserCallsRequest) ApplicationInstance(applicationInstance string) UsersAPIListUserCallsRequest {
 	r.applicationInstance = &applicationInstance
 	return r
 }
 
-func (r ApiListUserCallsRequest) Execute() (*ListCalls200Response, *http.Response, error) {
+func (r UsersAPIListUserCallsRequest) Execute() (*ListCalls200Response, *http.Response, error) {
 	return r.ApiService.ListUserCallsExecute(r)
 }
 
@@ -3404,10 +3404,10 @@ ListUserCalls List calls of a user
 **Required ACL:** `calld.users.me.calls.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserCallsRequest
+	@return UsersAPIListUserCallsRequest
 */
-func (a *UsersAPIService) ListUserCalls(ctx context.Context) ApiListUserCallsRequest {
-	return ApiListUserCallsRequest{
+func (a *UsersAPIService) ListUserCalls(ctx context.Context) UsersAPIListUserCallsRequest {
+	return UsersAPIListUserCallsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3416,7 +3416,7 @@ func (a *UsersAPIService) ListUserCalls(ctx context.Context) ApiListUserCallsReq
 // Execute executes the request
 //
 //	@return ListCalls200Response
-func (a *UsersAPIService) ListUserCallsExecute(r ApiListUserCallsRequest) (*ListCalls200Response, *http.Response, error) {
+func (a *UsersAPIService) ListUserCallsExecute(r UsersAPIListUserCallsRequest) (*ListCalls200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3519,13 +3519,13 @@ func (a *UsersAPIService) ListUserCallsExecute(r ApiListUserCallsRequest) (*List
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserConferenceParticipantsRequest struct {
+type UsersAPIListUserConferenceParticipantsRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	conferenceId string
 }
 
-func (r ApiListUserConferenceParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
+func (r UsersAPIListUserConferenceParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
 	return r.ApiService.ListUserConferenceParticipantsExecute(r)
 }
 
@@ -3536,10 +3536,10 @@ ListUserConferenceParticipants List participants of a conference as a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Unique identifier of the conference
-	@return ApiListUserConferenceParticipantsRequest
+	@return UsersAPIListUserConferenceParticipantsRequest
 */
-func (a *UsersAPIService) ListUserConferenceParticipants(ctx context.Context, conferenceId string) ApiListUserConferenceParticipantsRequest {
-	return ApiListUserConferenceParticipantsRequest{
+func (a *UsersAPIService) ListUserConferenceParticipants(ctx context.Context, conferenceId string) UsersAPIListUserConferenceParticipantsRequest {
+	return UsersAPIListUserConferenceParticipantsRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -3549,7 +3549,7 @@ func (a *UsersAPIService) ListUserConferenceParticipants(ctx context.Context, co
 // Execute executes the request
 //
 //	@return ParticipantList
-func (a *UsersAPIService) ListUserConferenceParticipantsExecute(r ApiListUserConferenceParticipantsRequest) (*ParticipantList, *http.Response, error) {
+func (a *UsersAPIService) ListUserConferenceParticipantsExecute(r UsersAPIListUserConferenceParticipantsRequest) (*ParticipantList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3658,13 +3658,13 @@ func (a *UsersAPIService) ListUserConferenceParticipantsExecute(r ApiListUserCon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserMeetingParticipantsRequest struct {
+type UsersAPIListUserMeetingParticipantsRequest struct {
 	ctx         context.Context
 	ApiService  UsersAPI
 	meetingUuid string
 }
 
-func (r ApiListUserMeetingParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
+func (r UsersAPIListUserMeetingParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
 	return r.ApiService.ListUserMeetingParticipantsExecute(r)
 }
 
@@ -3675,10 +3675,10 @@ ListUserMeetingParticipants List participants of a meeting as a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Unique identifier of the meeting
-	@return ApiListUserMeetingParticipantsRequest
+	@return UsersAPIListUserMeetingParticipantsRequest
 */
-func (a *UsersAPIService) ListUserMeetingParticipants(ctx context.Context, meetingUuid string) ApiListUserMeetingParticipantsRequest {
-	return ApiListUserMeetingParticipantsRequest{
+func (a *UsersAPIService) ListUserMeetingParticipants(ctx context.Context, meetingUuid string) UsersAPIListUserMeetingParticipantsRequest {
+	return UsersAPIListUserMeetingParticipantsRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		meetingUuid: meetingUuid,
@@ -3688,7 +3688,7 @@ func (a *UsersAPIService) ListUserMeetingParticipants(ctx context.Context, meeti
 // Execute executes the request
 //
 //	@return ParticipantList
-func (a *UsersAPIService) ListUserMeetingParticipantsExecute(r ApiListUserMeetingParticipantsRequest) (*ParticipantList, *http.Response, error) {
+func (a *UsersAPIService) ListUserMeetingParticipantsExecute(r UsersAPIListUserMeetingParticipantsRequest) (*ParticipantList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3797,12 +3797,12 @@ func (a *UsersAPIService) ListUserMeetingParticipantsExecute(r ApiListUserMeetin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserRelocatesRequest struct {
+type UsersAPIListUserRelocatesRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 }
 
-func (r ApiListUserRelocatesRequest) Execute() (*RelocateList, *http.Response, error) {
+func (r UsersAPIListUserRelocatesRequest) Execute() (*RelocateList, *http.Response, error) {
 	return r.ApiService.ListUserRelocatesExecute(r)
 }
 
@@ -3812,10 +3812,10 @@ ListUserRelocates Get the relocates of the authenticated user
 **Required ACL:** `calld.users.me.relocates.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserRelocatesRequest
+	@return UsersAPIListUserRelocatesRequest
 */
-func (a *UsersAPIService) ListUserRelocates(ctx context.Context) ApiListUserRelocatesRequest {
-	return ApiListUserRelocatesRequest{
+func (a *UsersAPIService) ListUserRelocates(ctx context.Context) UsersAPIListUserRelocatesRequest {
+	return UsersAPIListUserRelocatesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3824,7 +3824,7 @@ func (a *UsersAPIService) ListUserRelocates(ctx context.Context) ApiListUserRelo
 // Execute executes the request
 //
 //	@return RelocateList
-func (a *UsersAPIService) ListUserRelocatesExecute(r ApiListUserRelocatesRequest) (*RelocateList, *http.Response, error) {
+func (a *UsersAPIService) ListUserRelocatesExecute(r UsersAPIListUserRelocatesRequest) (*RelocateList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3921,12 +3921,12 @@ func (a *UsersAPIService) ListUserRelocatesExecute(r ApiListUserRelocatesRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserTransfersRequest struct {
+type UsersAPIListUserTransfersRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 }
 
-func (r ApiListUserTransfersRequest) Execute() (*TransferList, *http.Response, error) {
+func (r UsersAPIListUserTransfersRequest) Execute() (*TransferList, *http.Response, error) {
 	return r.ApiService.ListUserTransfersExecute(r)
 }
 
@@ -3936,10 +3936,10 @@ ListUserTransfers Get the transfers of the authenticated user
 **Required ACL:** `calld.users.me.transfers.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserTransfersRequest
+	@return UsersAPIListUserTransfersRequest
 */
-func (a *UsersAPIService) ListUserTransfers(ctx context.Context) ApiListUserTransfersRequest {
-	return ApiListUserTransfersRequest{
+func (a *UsersAPIService) ListUserTransfers(ctx context.Context) UsersAPIListUserTransfersRequest {
+	return UsersAPIListUserTransfersRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3948,7 +3948,7 @@ func (a *UsersAPIService) ListUserTransfers(ctx context.Context) ApiListUserTran
 // Execute executes the request
 //
 //	@return TransferList
-func (a *UsersAPIService) ListUserTransfersExecute(r ApiListUserTransfersRequest) (*TransferList, *http.Response, error) {
+func (a *UsersAPIService) ListUserTransfersExecute(r UsersAPIListUserTransfersRequest) (*TransferList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4045,12 +4045,12 @@ func (a *UsersAPIService) ListUserTransfersExecute(r ApiListUserTransfersRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserVoicemailsRequest struct {
+type UsersAPIListUserVoicemailsRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 }
 
-func (r ApiListUserVoicemailsRequest) Execute() (*Voicemail, *http.Response, error) {
+func (r UsersAPIListUserVoicemailsRequest) Execute() (*Voicemail, *http.Response, error) {
 	return r.ApiService.ListUserVoicemailsExecute(r)
 }
 
@@ -4060,10 +4060,10 @@ ListUserVoicemails Get details of the voicemail of the authenticated user
 **Required ACL:** `calld.users.me.voicemails.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserVoicemailsRequest
+	@return UsersAPIListUserVoicemailsRequest
 */
-func (a *UsersAPIService) ListUserVoicemails(ctx context.Context) ApiListUserVoicemailsRequest {
-	return ApiListUserVoicemailsRequest{
+func (a *UsersAPIService) ListUserVoicemails(ctx context.Context) UsersAPIListUserVoicemailsRequest {
+	return UsersAPIListUserVoicemailsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -4072,7 +4072,7 @@ func (a *UsersAPIService) ListUserVoicemails(ctx context.Context) ApiListUserVoi
 // Execute executes the request
 //
 //	@return Voicemail
-func (a *UsersAPIService) ListUserVoicemailsExecute(r ApiListUserVoicemailsRequest) (*Voicemail, *http.Response, error) {
+func (a *UsersAPIService) ListUserVoicemailsExecute(r UsersAPIListUserVoicemailsRequest) (*Voicemail, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4191,13 +4191,13 @@ func (a *UsersAPIService) ListUserVoicemailsExecute(r ApiListUserVoicemailsReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiMuteUserCallRequest struct {
+type UsersAPIMuteUserCallRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
 }
 
-func (r ApiMuteUserCallRequest) Execute() (*http.Response, error) {
+func (r UsersAPIMuteUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.MuteUserCallExecute(r)
 }
 
@@ -4208,10 +4208,10 @@ MuteUserCall Mute a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiMuteUserCallRequest
+	@return UsersAPIMuteUserCallRequest
 */
-func (a *UsersAPIService) MuteUserCall(ctx context.Context, callId string) ApiMuteUserCallRequest {
-	return ApiMuteUserCallRequest{
+func (a *UsersAPIService) MuteUserCall(ctx context.Context, callId string) UsersAPIMuteUserCallRequest {
+	return UsersAPIMuteUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -4219,7 +4219,7 @@ func (a *UsersAPIService) MuteUserCall(ctx context.Context, callId string) ApiMu
 }
 
 // Execute executes the request
-func (a *UsersAPIService) MuteUserCallExecute(r ApiMuteUserCallRequest) (*http.Response, error) {
+func (a *UsersAPIService) MuteUserCallExecute(r UsersAPIMuteUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4318,7 +4318,7 @@ func (a *UsersAPIService) MuteUserCallExecute(r ApiMuteUserCallRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiSendUserDTMFRequest struct {
+type UsersAPISendUserDTMFRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
@@ -4326,12 +4326,12 @@ type ApiSendUserDTMFRequest struct {
 }
 
 // Digits to send via DTMF. Must contain only &#x60;0-9*#&#x60;.
-func (r ApiSendUserDTMFRequest) Digits(digits string) ApiSendUserDTMFRequest {
+func (r UsersAPISendUserDTMFRequest) Digits(digits string) UsersAPISendUserDTMFRequest {
 	r.digits = &digits
 	return r
 }
 
-func (r ApiSendUserDTMFRequest) Execute() (*http.Response, error) {
+func (r UsersAPISendUserDTMFRequest) Execute() (*http.Response, error) {
 	return r.ApiService.SendUserDTMFExecute(r)
 }
 
@@ -4342,10 +4342,10 @@ SendUserDTMF Simulate a user pressing DTMF keys
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiSendUserDTMFRequest
+	@return UsersAPISendUserDTMFRequest
 */
-func (a *UsersAPIService) SendUserDTMF(ctx context.Context, callId string) ApiSendUserDTMFRequest {
-	return ApiSendUserDTMFRequest{
+func (a *UsersAPIService) SendUserDTMF(ctx context.Context, callId string) UsersAPISendUserDTMFRequest {
+	return UsersAPISendUserDTMFRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -4353,7 +4353,7 @@ func (a *UsersAPIService) SendUserDTMF(ctx context.Context, callId string) ApiSe
 }
 
 // Execute executes the request
-func (a *UsersAPIService) SendUserDTMFExecute(r ApiSendUserDTMFRequest) (*http.Response, error) {
+func (a *UsersAPIService) SendUserDTMFExecute(r UsersAPISendUserDTMFRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4456,13 +4456,13 @@ func (a *UsersAPIService) SendUserDTMFExecute(r ApiSendUserDTMFRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiStartCurrentUserRecordingRequest struct {
+type UsersAPIStartCurrentUserRecordingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
 }
 
-func (r ApiStartCurrentUserRecordingRequest) Execute() (*http.Response, error) {
+func (r UsersAPIStartCurrentUserRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StartCurrentUserRecordingExecute(r)
 }
 
@@ -4473,10 +4473,10 @@ StartCurrentUserRecording Start recording a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiStartCurrentUserRecordingRequest
+	@return UsersAPIStartCurrentUserRecordingRequest
 */
-func (a *UsersAPIService) StartCurrentUserRecording(ctx context.Context, callId string) ApiStartCurrentUserRecordingRequest {
-	return ApiStartCurrentUserRecordingRequest{
+func (a *UsersAPIService) StartCurrentUserRecording(ctx context.Context, callId string) UsersAPIStartCurrentUserRecordingRequest {
+	return UsersAPIStartCurrentUserRecordingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -4484,7 +4484,7 @@ func (a *UsersAPIService) StartCurrentUserRecording(ctx context.Context, callId 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) StartCurrentUserRecordingExecute(r ApiStartCurrentUserRecordingRequest) (*http.Response, error) {
+func (a *UsersAPIService) StartCurrentUserRecordingExecute(r UsersAPIStartCurrentUserRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4583,13 +4583,13 @@ func (a *UsersAPIService) StartCurrentUserRecordingExecute(r ApiStartCurrentUser
 	return localVarHTTPResponse, nil
 }
 
-type ApiStopCurrentUserRecordingRequest struct {
+type UsersAPIStopCurrentUserRecordingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
 }
 
-func (r ApiStopCurrentUserRecordingRequest) Execute() (*http.Response, error) {
+func (r UsersAPIStopCurrentUserRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StopCurrentUserRecordingExecute(r)
 }
 
@@ -4600,10 +4600,10 @@ StopCurrentUserRecording Stop recording a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiStopCurrentUserRecordingRequest
+	@return UsersAPIStopCurrentUserRecordingRequest
 */
-func (a *UsersAPIService) StopCurrentUserRecording(ctx context.Context, callId string) ApiStopCurrentUserRecordingRequest {
-	return ApiStopCurrentUserRecordingRequest{
+func (a *UsersAPIService) StopCurrentUserRecording(ctx context.Context, callId string) UsersAPIStopCurrentUserRecordingRequest {
+	return UsersAPIStopCurrentUserRecordingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -4611,7 +4611,7 @@ func (a *UsersAPIService) StopCurrentUserRecording(ctx context.Context, callId s
 }
 
 // Execute executes the request
-func (a *UsersAPIService) StopCurrentUserRecordingExecute(r ApiStopCurrentUserRecordingRequest) (*http.Response, error) {
+func (a *UsersAPIService) StopCurrentUserRecordingExecute(r UsersAPIStopCurrentUserRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4710,13 +4710,13 @@ func (a *UsersAPIService) StopCurrentUserRecordingExecute(r ApiStopCurrentUserRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnholdUserCallRequest struct {
+type UsersAPIUnholdUserCallRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
 }
 
-func (r ApiUnholdUserCallRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUnholdUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnholdUserCallExecute(r)
 }
 
@@ -4727,10 +4727,10 @@ UnholdUserCall Unhold a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiUnholdUserCallRequest
+	@return UsersAPIUnholdUserCallRequest
 */
-func (a *UsersAPIService) UnholdUserCall(ctx context.Context, callId string) ApiUnholdUserCallRequest {
-	return ApiUnholdUserCallRequest{
+func (a *UsersAPIService) UnholdUserCall(ctx context.Context, callId string) UsersAPIUnholdUserCallRequest {
+	return UsersAPIUnholdUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -4738,7 +4738,7 @@ func (a *UsersAPIService) UnholdUserCall(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UnholdUserCallExecute(r ApiUnholdUserCallRequest) (*http.Response, error) {
+func (a *UsersAPIService) UnholdUserCallExecute(r UsersAPIUnholdUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4837,13 +4837,13 @@ func (a *UsersAPIService) UnholdUserCallExecute(r ApiUnholdUserCallRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnmuteUserCallRequest struct {
+type UsersAPIUnmuteUserCallRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	callId     string
 }
 
-func (r ApiUnmuteUserCallRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUnmuteUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnmuteUserCallExecute(r)
 }
 
@@ -4854,10 +4854,10 @@ UnmuteUserCall Unmute a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiUnmuteUserCallRequest
+	@return UsersAPIUnmuteUserCallRequest
 */
-func (a *UsersAPIService) UnmuteUserCall(ctx context.Context, callId string) ApiUnmuteUserCallRequest {
-	return ApiUnmuteUserCallRequest{
+func (a *UsersAPIService) UnmuteUserCall(ctx context.Context, callId string) UsersAPIUnmuteUserCallRequest {
+	return UsersAPIUnmuteUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -4865,7 +4865,7 @@ func (a *UsersAPIService) UnmuteUserCall(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UnmuteUserCallExecute(r ApiUnmuteUserCallRequest) (*http.Response, error) {
+func (a *UsersAPIService) UnmuteUserCallExecute(r UsersAPIUnmuteUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4964,19 +4964,19 @@ func (a *UsersAPIService) UnmuteUserCallExecute(r ApiUnmuteUserCallRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserVoicemailGreetingRequest struct {
+type UsersAPIUpdateUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *map[string]interface{}
 	greeting   string
 }
 
-func (r ApiUpdateUserVoicemailGreetingRequest) Body(body map[string]interface{}) ApiUpdateUserVoicemailGreetingRequest {
+func (r UsersAPIUpdateUserVoicemailGreetingRequest) Body(body map[string]interface{}) UsersAPIUpdateUserVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserVoicemailGreetingExecute(r)
 }
 
@@ -4987,10 +4987,10 @@ UpdateUserVoicemailGreeting Update a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiUpdateUserVoicemailGreetingRequest
+	@return UsersAPIUpdateUserVoicemailGreetingRequest
 */
-func (a *UsersAPIService) UpdateUserVoicemailGreeting(ctx context.Context, greeting string) ApiUpdateUserVoicemailGreetingRequest {
-	return ApiUpdateUserVoicemailGreetingRequest{
+func (a *UsersAPIService) UpdateUserVoicemailGreeting(ctx context.Context, greeting string) UsersAPIUpdateUserVoicemailGreetingRequest {
+	return UsersAPIUpdateUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -4998,7 +4998,7 @@ func (a *UsersAPIService) UpdateUserVoicemailGreeting(ctx context.Context, greet
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserVoicemailGreetingExecute(r ApiUpdateUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserVoicemailGreetingExecute(r UsersAPIUpdateUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -5113,7 +5113,7 @@ func (a *UsersAPIService) UpdateUserVoicemailGreetingExecute(r ApiUpdateUserVoic
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserVoicemailMessageRequest struct {
+type UsersAPIUpdateUserVoicemailMessageRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *VoicemailMessageUpdate
@@ -5121,12 +5121,12 @@ type ApiUpdateUserVoicemailMessageRequest struct {
 }
 
 // Message
-func (r ApiUpdateUserVoicemailMessageRequest) Body(body VoicemailMessageUpdate) ApiUpdateUserVoicemailMessageRequest {
+func (r UsersAPIUpdateUserVoicemailMessageRequest) Body(body VoicemailMessageUpdate) UsersAPIUpdateUserVoicemailMessageRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserVoicemailMessageRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserVoicemailMessageRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserVoicemailMessageExecute(r)
 }
 
@@ -5137,10 +5137,10 @@ UpdateUserVoicemailMessage Update a message
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param messageId The message's ID
-	@return ApiUpdateUserVoicemailMessageRequest
+	@return UsersAPIUpdateUserVoicemailMessageRequest
 */
-func (a *UsersAPIService) UpdateUserVoicemailMessage(ctx context.Context, messageId string) ApiUpdateUserVoicemailMessageRequest {
-	return ApiUpdateUserVoicemailMessageRequest{
+func (a *UsersAPIService) UpdateUserVoicemailMessage(ctx context.Context, messageId string) UsersAPIUpdateUserVoicemailMessageRequest {
+	return UsersAPIUpdateUserVoicemailMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		messageId:  messageId,
@@ -5148,7 +5148,7 @@ func (a *UsersAPIService) UpdateUserVoicemailMessage(ctx context.Context, messag
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserVoicemailMessageExecute(r ApiUpdateUserVoicemailMessageRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserVoicemailMessageExecute(r UsersAPIUpdateUserVoicemailMessageRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

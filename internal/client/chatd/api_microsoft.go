@@ -27,25 +27,25 @@ type MicrosoftAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiUpdateTeamsPresenceRequest
+		@return MicrosoftAPIUpdateTeamsPresenceRequest
 	*/
-	UpdateTeamsPresence(ctx context.Context, userUuid string) ApiUpdateTeamsPresenceRequest
+	UpdateTeamsPresence(ctx context.Context, userUuid string) MicrosoftAPIUpdateTeamsPresenceRequest
 
 	// UpdateTeamsPresenceExecute executes the request
 	//  @return Object
-	UpdateTeamsPresenceExecute(r ApiUpdateTeamsPresenceRequest) (*Object, *http.Response, error)
+	UpdateTeamsPresenceExecute(r MicrosoftAPIUpdateTeamsPresenceRequest) (*Object, *http.Response, error)
 }
 
 // MicrosoftAPIService MicrosoftAPI service
 type MicrosoftAPIService service
 
-type ApiUpdateTeamsPresenceRequest struct {
+type MicrosoftAPIUpdateTeamsPresenceRequest struct {
 	ctx        context.Context
 	ApiService MicrosoftAPI
 	userUuid   string
 }
 
-func (r ApiUpdateTeamsPresenceRequest) Execute() (*Object, *http.Response, error) {
+func (r MicrosoftAPIUpdateTeamsPresenceRequest) Execute() (*Object, *http.Response, error) {
 	return r.ApiService.UpdateTeamsPresenceExecute(r)
 }
 
@@ -54,10 +54,10 @@ UpdateTeamsPresence Receive presence information from Microsoft Teams
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiUpdateTeamsPresenceRequest
+	@return MicrosoftAPIUpdateTeamsPresenceRequest
 */
-func (a *MicrosoftAPIService) UpdateTeamsPresence(ctx context.Context, userUuid string) ApiUpdateTeamsPresenceRequest {
-	return ApiUpdateTeamsPresenceRequest{
+func (a *MicrosoftAPIService) UpdateTeamsPresence(ctx context.Context, userUuid string) MicrosoftAPIUpdateTeamsPresenceRequest {
+	return MicrosoftAPIUpdateTeamsPresenceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -67,7 +67,7 @@ func (a *MicrosoftAPIService) UpdateTeamsPresence(ctx context.Context, userUuid 
 // Execute executes the request
 //
 //	@return Object
-func (a *MicrosoftAPIService) UpdateTeamsPresenceExecute(r ApiUpdateTeamsPresenceRequest) (*Object, *http.Response, error) {
+func (a *MicrosoftAPIService) UpdateTeamsPresenceExecute(r MicrosoftAPIUpdateTeamsPresenceRequest) (*Object, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}

@@ -30,13 +30,13 @@ type ForwardsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param forwardName the forward name
-		@return ApiGetUserForwardRequest
+		@return ForwardsAPIGetUserForwardRequest
 	*/
-	GetUserForward(ctx context.Context, userId string, forwardName string) ApiGetUserForwardRequest
+	GetUserForward(ctx context.Context, userId string, forwardName string) ForwardsAPIGetUserForwardRequest
 
 	// GetUserForwardExecute executes the request
 	//  @return UserForward
-	GetUserForwardExecute(r ApiGetUserForwardRequest) (*UserForward, *http.Response, error)
+	GetUserForwardExecute(r ForwardsAPIGetUserForwardRequest) (*UserForward, *http.Response, error)
 
 	/*
 		ListUserForwards List forwards for a user
@@ -45,13 +45,13 @@ type ForwardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiListUserForwardsRequest
+		@return ForwardsAPIListUserForwardsRequest
 	*/
-	ListUserForwards(ctx context.Context, userId string) ApiListUserForwardsRequest
+	ListUserForwards(ctx context.Context, userId string) ForwardsAPIListUserForwardsRequest
 
 	// ListUserForwardsExecute executes the request
 	//  @return UserForwards
-	ListUserForwardsExecute(r ApiListUserForwardsRequest) (*UserForwards, *http.Response, error)
+	ListUserForwardsExecute(r ForwardsAPIListUserForwardsRequest) (*UserForwards, *http.Response, error)
 
 	/*
 		UpdateUserForward Update a forward for a user
@@ -61,12 +61,12 @@ type ForwardsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param forwardName the forward name
-		@return ApiUpdateUserForwardRequest
+		@return ForwardsAPIUpdateUserForwardRequest
 	*/
-	UpdateUserForward(ctx context.Context, userId string, forwardName string) ApiUpdateUserForwardRequest
+	UpdateUserForward(ctx context.Context, userId string, forwardName string) ForwardsAPIUpdateUserForwardRequest
 
 	// UpdateUserForwardExecute executes the request
-	UpdateUserForwardExecute(r ApiUpdateUserForwardRequest) (*http.Response, error)
+	UpdateUserForwardExecute(r ForwardsAPIUpdateUserForwardRequest) (*http.Response, error)
 
 	/*
 		UpdateUserForwards Update all forwards for a user
@@ -75,25 +75,25 @@ type ForwardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserForwardsRequest
+		@return ForwardsAPIUpdateUserForwardsRequest
 	*/
-	UpdateUserForwards(ctx context.Context, userId string) ApiUpdateUserForwardsRequest
+	UpdateUserForwards(ctx context.Context, userId string) ForwardsAPIUpdateUserForwardsRequest
 
 	// UpdateUserForwardsExecute executes the request
-	UpdateUserForwardsExecute(r ApiUpdateUserForwardsRequest) (*http.Response, error)
+	UpdateUserForwardsExecute(r ForwardsAPIUpdateUserForwardsRequest) (*http.Response, error)
 }
 
 // ForwardsAPIService ForwardsAPI service
 type ForwardsAPIService service
 
-type ApiGetUserForwardRequest struct {
+type ForwardsAPIGetUserForwardRequest struct {
 	ctx         context.Context
 	ApiService  ForwardsAPI
 	userId      string
 	forwardName string
 }
 
-func (r ApiGetUserForwardRequest) Execute() (*UserForward, *http.Response, error) {
+func (r ForwardsAPIGetUserForwardRequest) Execute() (*UserForward, *http.Response, error) {
 	return r.ApiService.GetUserForwardExecute(r)
 }
 
@@ -105,10 +105,10 @@ GetUserForward Get forward for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param forwardName the forward name
-	@return ApiGetUserForwardRequest
+	@return ForwardsAPIGetUserForwardRequest
 */
-func (a *ForwardsAPIService) GetUserForward(ctx context.Context, userId string, forwardName string) ApiGetUserForwardRequest {
-	return ApiGetUserForwardRequest{
+func (a *ForwardsAPIService) GetUserForward(ctx context.Context, userId string, forwardName string) ForwardsAPIGetUserForwardRequest {
+	return ForwardsAPIGetUserForwardRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userId:      userId,
@@ -119,7 +119,7 @@ func (a *ForwardsAPIService) GetUserForward(ctx context.Context, userId string, 
 // Execute executes the request
 //
 //	@return UserForward
-func (a *ForwardsAPIService) GetUserForwardExecute(r ApiGetUserForwardRequest) (*UserForward, *http.Response, error) {
+func (a *ForwardsAPIService) GetUserForwardExecute(r ForwardsAPIGetUserForwardRequest) (*UserForward, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -208,13 +208,13 @@ func (a *ForwardsAPIService) GetUserForwardExecute(r ApiGetUserForwardRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserForwardsRequest struct {
+type ForwardsAPIListUserForwardsRequest struct {
 	ctx        context.Context
 	ApiService ForwardsAPI
 	userId     string
 }
 
-func (r ApiListUserForwardsRequest) Execute() (*UserForwards, *http.Response, error) {
+func (r ForwardsAPIListUserForwardsRequest) Execute() (*UserForwards, *http.Response, error) {
 	return r.ApiService.ListUserForwardsExecute(r)
 }
 
@@ -225,10 +225,10 @@ ListUserForwards List forwards for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiListUserForwardsRequest
+	@return ForwardsAPIListUserForwardsRequest
 */
-func (a *ForwardsAPIService) ListUserForwards(ctx context.Context, userId string) ApiListUserForwardsRequest {
-	return ApiListUserForwardsRequest{
+func (a *ForwardsAPIService) ListUserForwards(ctx context.Context, userId string) ForwardsAPIListUserForwardsRequest {
+	return ForwardsAPIListUserForwardsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -238,7 +238,7 @@ func (a *ForwardsAPIService) ListUserForwards(ctx context.Context, userId string
 // Execute executes the request
 //
 //	@return UserForwards
-func (a *ForwardsAPIService) ListUserForwardsExecute(r ApiListUserForwardsRequest) (*UserForwards, *http.Response, error) {
+func (a *ForwardsAPIService) ListUserForwardsExecute(r ForwardsAPIListUserForwardsRequest) (*UserForwards, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -326,7 +326,7 @@ func (a *ForwardsAPIService) ListUserForwardsExecute(r ApiListUserForwardsReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserForwardRequest struct {
+type ForwardsAPIUpdateUserForwardRequest struct {
 	ctx         context.Context
 	ApiService  ForwardsAPI
 	body        *UserForward
@@ -334,12 +334,12 @@ type ApiUpdateUserForwardRequest struct {
 	forwardName string
 }
 
-func (r ApiUpdateUserForwardRequest) Body(body UserForward) ApiUpdateUserForwardRequest {
+func (r ForwardsAPIUpdateUserForwardRequest) Body(body UserForward) ForwardsAPIUpdateUserForwardRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserForwardRequest) Execute() (*http.Response, error) {
+func (r ForwardsAPIUpdateUserForwardRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserForwardExecute(r)
 }
 
@@ -351,10 +351,10 @@ UpdateUserForward Update a forward for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param forwardName the forward name
-	@return ApiUpdateUserForwardRequest
+	@return ForwardsAPIUpdateUserForwardRequest
 */
-func (a *ForwardsAPIService) UpdateUserForward(ctx context.Context, userId string, forwardName string) ApiUpdateUserForwardRequest {
-	return ApiUpdateUserForwardRequest{
+func (a *ForwardsAPIService) UpdateUserForward(ctx context.Context, userId string, forwardName string) ForwardsAPIUpdateUserForwardRequest {
+	return ForwardsAPIUpdateUserForwardRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userId:      userId,
@@ -363,7 +363,7 @@ func (a *ForwardsAPIService) UpdateUserForward(ctx context.Context, userId strin
 }
 
 // Execute executes the request
-func (a *ForwardsAPIService) UpdateUserForwardExecute(r ApiUpdateUserForwardRequest) (*http.Response, error) {
+func (a *ForwardsAPIService) UpdateUserForwardExecute(r ForwardsAPIUpdateUserForwardRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -457,19 +457,19 @@ func (a *ForwardsAPIService) UpdateUserForwardExecute(r ApiUpdateUserForwardRequ
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserForwardsRequest struct {
+type ForwardsAPIUpdateUserForwardsRequest struct {
 	ctx        context.Context
 	ApiService ForwardsAPI
 	body       *UserForwards
 	userId     string
 }
 
-func (r ApiUpdateUserForwardsRequest) Body(body UserForwards) ApiUpdateUserForwardsRequest {
+func (r ForwardsAPIUpdateUserForwardsRequest) Body(body UserForwards) ForwardsAPIUpdateUserForwardsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserForwardsRequest) Execute() (*http.Response, error) {
+func (r ForwardsAPIUpdateUserForwardsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserForwardsExecute(r)
 }
 
@@ -480,10 +480,10 @@ UpdateUserForwards Update all forwards for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserForwardsRequest
+	@return ForwardsAPIUpdateUserForwardsRequest
 */
-func (a *ForwardsAPIService) UpdateUserForwards(ctx context.Context, userId string) ApiUpdateUserForwardsRequest {
-	return ApiUpdateUserForwardsRequest{
+func (a *ForwardsAPIService) UpdateUserForwards(ctx context.Context, userId string) ForwardsAPIUpdateUserForwardsRequest {
+	return ForwardsAPIUpdateUserForwardsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -491,7 +491,7 @@ func (a *ForwardsAPIService) UpdateUserForwards(ctx context.Context, userId stri
 }
 
 // Execute executes the request
-func (a *ForwardsAPIService) UpdateUserForwardsExecute(r ApiUpdateUserForwardsRequest) (*http.Response, error) {
+func (a *ForwardsAPIService) UpdateUserForwardsExecute(r ForwardsAPIUpdateUserForwardsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

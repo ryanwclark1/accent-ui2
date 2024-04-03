@@ -30,12 +30,12 @@ type SubscriptionsAPI interface {
 	For more information: https://accentvoice.io/documentation/api/webhook.html
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateRequest
+		@return SubscriptionsAPICreateRequest
 	*/
-	Create(ctx context.Context) ApiCreateRequest
+	Create(ctx context.Context) SubscriptionsAPICreateRequest
 
 	// CreateExecute executes the request
-	CreateExecute(r ApiCreateRequest) (*http.Response, error)
+	CreateExecute(r SubscriptionsAPICreateRequest) (*http.Response, error)
 
 	/*
 		Delete Delete a subscription
@@ -44,12 +44,12 @@ type SubscriptionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param subscriptionUuid The UUID of the subscription
-		@return ApiDeleteRequest
+		@return SubscriptionsAPIDeleteRequest
 	*/
-	Delete(ctx context.Context, subscriptionUuid string) ApiDeleteRequest
+	Delete(ctx context.Context, subscriptionUuid string) SubscriptionsAPIDeleteRequest
 
 	// DeleteExecute executes the request
-	DeleteExecute(r ApiDeleteRequest) (*http.Response, error)
+	DeleteExecute(r SubscriptionsAPIDeleteRequest) (*http.Response, error)
 
 	/*
 		Edit Edit a subscription
@@ -58,13 +58,13 @@ type SubscriptionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param subscriptionUuid The UUID of the subscription
-		@return ApiEditRequest
+		@return SubscriptionsAPIEditRequest
 	*/
-	Edit(ctx context.Context, subscriptionUuid string) ApiEditRequest
+	Edit(ctx context.Context, subscriptionUuid string) SubscriptionsAPIEditRequest
 
 	// EditExecute executes the request
 	//  @return Subscription
-	EditExecute(r ApiEditRequest) (*Subscription, *http.Response, error)
+	EditExecute(r SubscriptionsAPIEditRequest) (*Subscription, *http.Response, error)
 
 	/*
 		Get Get a subscription
@@ -73,13 +73,13 @@ type SubscriptionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param subscriptionUuid The UUID of the subscription
-		@return ApiGetRequest
+		@return SubscriptionsAPIGetRequest
 	*/
-	Get(ctx context.Context, subscriptionUuid string) ApiGetRequest
+	Get(ctx context.Context, subscriptionUuid string) SubscriptionsAPIGetRequest
 
 	// GetExecute executes the request
 	//  @return Subscription
-	GetExecute(r ApiGetRequest) (*Subscription, *http.Response, error)
+	GetExecute(r SubscriptionsAPIGetRequest) (*Subscription, *http.Response, error)
 
 	/*
 		GetLogs Get hook logs
@@ -88,13 +88,13 @@ type SubscriptionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param subscriptionUuid The UUID of the subscription
-		@return ApiGetLogsRequest
+		@return SubscriptionsAPIGetLogsRequest
 	*/
-	GetLogs(ctx context.Context, subscriptionUuid string) ApiGetLogsRequest
+	GetLogs(ctx context.Context, subscriptionUuid string) SubscriptionsAPIGetLogsRequest
 
 	// GetLogsExecute executes the request
 	//  @return SubscriptionLog
-	GetLogsExecute(r ApiGetLogsRequest) (*SubscriptionLog, *http.Response, error)
+	GetLogsExecute(r SubscriptionsAPIGetLogsRequest) (*SubscriptionLog, *http.Response, error)
 
 	/*
 		GetSubscriptionsServices Show the available subscription services
@@ -102,13 +102,13 @@ type SubscriptionsAPI interface {
 		**Required ACL:** `webhookd.subscriptions.services.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetSubscriptionsServicesRequest
+		@return SubscriptionsAPIGetSubscriptionsServicesRequest
 	*/
-	GetSubscriptionsServices(ctx context.Context) ApiGetSubscriptionsServicesRequest
+	GetSubscriptionsServices(ctx context.Context) SubscriptionsAPIGetSubscriptionsServicesRequest
 
 	// GetSubscriptionsServicesExecute executes the request
 	//  @return Services
-	GetSubscriptionsServicesExecute(r ApiGetSubscriptionsServicesRequest) (*Services, *http.Response, error)
+	GetSubscriptionsServicesExecute(r SubscriptionsAPIGetSubscriptionsServicesRequest) (*Services, *http.Response, error)
 
 	/*
 		GetUserSubscription Get a user subscription
@@ -117,13 +117,13 @@ type SubscriptionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param subscriptionUuid The UUID of the subscription
-		@return ApiGetUserSubscriptionRequest
+		@return SubscriptionsAPIGetUserSubscriptionRequest
 	*/
-	GetUserSubscription(ctx context.Context, subscriptionUuid string) ApiGetUserSubscriptionRequest
+	GetUserSubscription(ctx context.Context, subscriptionUuid string) SubscriptionsAPIGetUserSubscriptionRequest
 
 	// GetUserSubscriptionExecute executes the request
 	//  @return Subscription
-	GetUserSubscriptionExecute(r ApiGetUserSubscriptionRequest) (*Subscription, *http.Response, error)
+	GetUserSubscriptionExecute(r SubscriptionsAPIGetUserSubscriptionRequest) (*Subscription, *http.Response, error)
 
 	/*
 		List List subscriptions to HTTP callbacks
@@ -131,13 +131,13 @@ type SubscriptionsAPI interface {
 		**Required ACL:** `webhookd.subscriptions.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListRequest
+		@return SubscriptionsAPIListRequest
 	*/
-	List(ctx context.Context) ApiListRequest
+	List(ctx context.Context) SubscriptionsAPIListRequest
 
 	// ListExecute executes the request
 	//  @return SubscriptionList
-	ListExecute(r ApiListRequest) (*SubscriptionList, *http.Response, error)
+	ListExecute(r SubscriptionsAPIListRequest) (*SubscriptionList, *http.Response, error)
 
 	/*
 		UserCreate Subscribe to a HTTP callback (webhook) as a user
@@ -147,12 +147,12 @@ type SubscriptionsAPI interface {
 	For more information: https://accentvoice.io/documentation/api/webhook.html
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUserCreateRequest
+		@return SubscriptionsAPIUserCreateRequest
 	*/
-	UserCreate(ctx context.Context) ApiUserCreateRequest
+	UserCreate(ctx context.Context) SubscriptionsAPIUserCreateRequest
 
 	// UserCreateExecute executes the request
-	UserCreateExecute(r ApiUserCreateRequest) (*http.Response, error)
+	UserCreateExecute(r SubscriptionsAPIUserCreateRequest) (*http.Response, error)
 
 	/*
 		UserDelete Delete a user subscription
@@ -161,12 +161,12 @@ type SubscriptionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param subscriptionUuid The UUID of the subscription
-		@return ApiUserDeleteRequest
+		@return SubscriptionsAPIUserDeleteRequest
 	*/
-	UserDelete(ctx context.Context, subscriptionUuid string) ApiUserDeleteRequest
+	UserDelete(ctx context.Context, subscriptionUuid string) SubscriptionsAPIUserDeleteRequest
 
 	// UserDeleteExecute executes the request
-	UserDeleteExecute(r ApiUserDeleteRequest) (*http.Response, error)
+	UserDeleteExecute(r SubscriptionsAPIUserDeleteRequest) (*http.Response, error)
 
 	/*
 		UserList List subscriptions of a user to HTTP callbacks
@@ -174,30 +174,30 @@ type SubscriptionsAPI interface {
 		**Required ACL:** `webhookd.users.me.subscriptions.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUserListRequest
+		@return SubscriptionsAPIUserListRequest
 	*/
-	UserList(ctx context.Context) ApiUserListRequest
+	UserList(ctx context.Context) SubscriptionsAPIUserListRequest
 
 	// UserListExecute executes the request
 	//  @return SubscriptionList
-	UserListExecute(r ApiUserListRequest) (*SubscriptionList, *http.Response, error)
+	UserListExecute(r SubscriptionsAPIUserListRequest) (*SubscriptionList, *http.Response, error)
 }
 
 // SubscriptionsAPIService SubscriptionsAPI service
 type SubscriptionsAPIService service
 
-type ApiCreateRequest struct {
+type SubscriptionsAPICreateRequest struct {
 	ctx        context.Context
 	ApiService SubscriptionsAPI
 	body       *SubscriptionRequest
 }
 
-func (r ApiCreateRequest) Body(body SubscriptionRequest) ApiCreateRequest {
+func (r SubscriptionsAPICreateRequest) Body(body SubscriptionRequest) SubscriptionsAPICreateRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateRequest) Execute() (*http.Response, error) {
+func (r SubscriptionsAPICreateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CreateExecute(r)
 }
 
@@ -209,17 +209,17 @@ Create Subscribe to a HTTP callback (webhook)
 For more information: https://accentvoice.io/documentation/api/webhook.html
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateRequest
+	@return SubscriptionsAPICreateRequest
 */
-func (a *SubscriptionsAPIService) Create(ctx context.Context) ApiCreateRequest {
-	return ApiCreateRequest{
+func (a *SubscriptionsAPIService) Create(ctx context.Context) SubscriptionsAPICreateRequest {
+	return SubscriptionsAPICreateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SubscriptionsAPIService) CreateExecute(r ApiCreateRequest) (*http.Response, error) {
+func (a *SubscriptionsAPIService) CreateExecute(r SubscriptionsAPICreateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -333,13 +333,13 @@ func (a *SubscriptionsAPIService) CreateExecute(r ApiCreateRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteRequest struct {
+type SubscriptionsAPIDeleteRequest struct {
 	ctx              context.Context
 	ApiService       SubscriptionsAPI
 	subscriptionUuid string
 }
 
-func (r ApiDeleteRequest) Execute() (*http.Response, error) {
+func (r SubscriptionsAPIDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteExecute(r)
 }
 
@@ -350,10 +350,10 @@ Delete Delete a subscription
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subscriptionUuid The UUID of the subscription
-	@return ApiDeleteRequest
+	@return SubscriptionsAPIDeleteRequest
 */
-func (a *SubscriptionsAPIService) Delete(ctx context.Context, subscriptionUuid string) ApiDeleteRequest {
-	return ApiDeleteRequest{
+func (a *SubscriptionsAPIService) Delete(ctx context.Context, subscriptionUuid string) SubscriptionsAPIDeleteRequest {
+	return SubscriptionsAPIDeleteRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		subscriptionUuid: subscriptionUuid,
@@ -361,7 +361,7 @@ func (a *SubscriptionsAPIService) Delete(ctx context.Context, subscriptionUuid s
 }
 
 // Execute executes the request
-func (a *SubscriptionsAPIService) DeleteExecute(r ApiDeleteRequest) (*http.Response, error) {
+func (a *SubscriptionsAPIService) DeleteExecute(r SubscriptionsAPIDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -471,19 +471,19 @@ func (a *SubscriptionsAPIService) DeleteExecute(r ApiDeleteRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiEditRequest struct {
+type SubscriptionsAPIEditRequest struct {
 	ctx              context.Context
 	ApiService       SubscriptionsAPI
 	body             *SubscriptionRequest
 	subscriptionUuid string
 }
 
-func (r ApiEditRequest) Body(body SubscriptionRequest) ApiEditRequest {
+func (r SubscriptionsAPIEditRequest) Body(body SubscriptionRequest) SubscriptionsAPIEditRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiEditRequest) Execute() (*Subscription, *http.Response, error) {
+func (r SubscriptionsAPIEditRequest) Execute() (*Subscription, *http.Response, error) {
 	return r.ApiService.EditExecute(r)
 }
 
@@ -494,10 +494,10 @@ Edit Edit a subscription
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subscriptionUuid The UUID of the subscription
-	@return ApiEditRequest
+	@return SubscriptionsAPIEditRequest
 */
-func (a *SubscriptionsAPIService) Edit(ctx context.Context, subscriptionUuid string) ApiEditRequest {
-	return ApiEditRequest{
+func (a *SubscriptionsAPIService) Edit(ctx context.Context, subscriptionUuid string) SubscriptionsAPIEditRequest {
+	return SubscriptionsAPIEditRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		subscriptionUuid: subscriptionUuid,
@@ -507,7 +507,7 @@ func (a *SubscriptionsAPIService) Edit(ctx context.Context, subscriptionUuid str
 // Execute executes the request
 //
 //	@return Subscription
-func (a *SubscriptionsAPIService) EditExecute(r ApiEditRequest) (*Subscription, *http.Response, error) {
+func (a *SubscriptionsAPIService) EditExecute(r SubscriptionsAPIEditRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -643,13 +643,13 @@ func (a *SubscriptionsAPIService) EditExecute(r ApiEditRequest) (*Subscription, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetRequest struct {
+type SubscriptionsAPIGetRequest struct {
 	ctx              context.Context
 	ApiService       SubscriptionsAPI
 	subscriptionUuid string
 }
 
-func (r ApiGetRequest) Execute() (*Subscription, *http.Response, error) {
+func (r SubscriptionsAPIGetRequest) Execute() (*Subscription, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
@@ -660,10 +660,10 @@ Get Get a subscription
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subscriptionUuid The UUID of the subscription
-	@return ApiGetRequest
+	@return SubscriptionsAPIGetRequest
 */
-func (a *SubscriptionsAPIService) Get(ctx context.Context, subscriptionUuid string) ApiGetRequest {
-	return ApiGetRequest{
+func (a *SubscriptionsAPIService) Get(ctx context.Context, subscriptionUuid string) SubscriptionsAPIGetRequest {
+	return SubscriptionsAPIGetRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		subscriptionUuid: subscriptionUuid,
@@ -673,7 +673,7 @@ func (a *SubscriptionsAPIService) Get(ctx context.Context, subscriptionUuid stri
 // Execute executes the request
 //
 //	@return Subscription
-func (a *SubscriptionsAPIService) GetExecute(r ApiGetRequest) (*Subscription, *http.Response, error) {
+func (a *SubscriptionsAPIService) GetExecute(r SubscriptionsAPIGetRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -793,13 +793,13 @@ func (a *SubscriptionsAPIService) GetExecute(r ApiGetRequest) (*Subscription, *h
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLogsRequest struct {
+type SubscriptionsAPIGetLogsRequest struct {
 	ctx              context.Context
 	ApiService       SubscriptionsAPI
 	subscriptionUuid string
 }
 
-func (r ApiGetLogsRequest) Execute() (*SubscriptionLog, *http.Response, error) {
+func (r SubscriptionsAPIGetLogsRequest) Execute() (*SubscriptionLog, *http.Response, error) {
 	return r.ApiService.GetLogsExecute(r)
 }
 
@@ -810,10 +810,10 @@ GetLogs Get hook logs
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subscriptionUuid The UUID of the subscription
-	@return ApiGetLogsRequest
+	@return SubscriptionsAPIGetLogsRequest
 */
-func (a *SubscriptionsAPIService) GetLogs(ctx context.Context, subscriptionUuid string) ApiGetLogsRequest {
-	return ApiGetLogsRequest{
+func (a *SubscriptionsAPIService) GetLogs(ctx context.Context, subscriptionUuid string) SubscriptionsAPIGetLogsRequest {
+	return SubscriptionsAPIGetLogsRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		subscriptionUuid: subscriptionUuid,
@@ -823,7 +823,7 @@ func (a *SubscriptionsAPIService) GetLogs(ctx context.Context, subscriptionUuid 
 // Execute executes the request
 //
 //	@return SubscriptionLog
-func (a *SubscriptionsAPIService) GetLogsExecute(r ApiGetLogsRequest) (*SubscriptionLog, *http.Response, error) {
+func (a *SubscriptionsAPIService) GetLogsExecute(r SubscriptionsAPIGetLogsRequest) (*SubscriptionLog, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -921,12 +921,12 @@ func (a *SubscriptionsAPIService) GetLogsExecute(r ApiGetLogsRequest) (*Subscrip
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSubscriptionsServicesRequest struct {
+type SubscriptionsAPIGetSubscriptionsServicesRequest struct {
 	ctx        context.Context
 	ApiService SubscriptionsAPI
 }
 
-func (r ApiGetSubscriptionsServicesRequest) Execute() (*Services, *http.Response, error) {
+func (r SubscriptionsAPIGetSubscriptionsServicesRequest) Execute() (*Services, *http.Response, error) {
 	return r.ApiService.GetSubscriptionsServicesExecute(r)
 }
 
@@ -936,10 +936,10 @@ GetSubscriptionsServices Show the available subscription services
 **Required ACL:** `webhookd.subscriptions.services.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetSubscriptionsServicesRequest
+	@return SubscriptionsAPIGetSubscriptionsServicesRequest
 */
-func (a *SubscriptionsAPIService) GetSubscriptionsServices(ctx context.Context) ApiGetSubscriptionsServicesRequest {
-	return ApiGetSubscriptionsServicesRequest{
+func (a *SubscriptionsAPIService) GetSubscriptionsServices(ctx context.Context) SubscriptionsAPIGetSubscriptionsServicesRequest {
+	return SubscriptionsAPIGetSubscriptionsServicesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -948,7 +948,7 @@ func (a *SubscriptionsAPIService) GetSubscriptionsServices(ctx context.Context) 
 // Execute executes the request
 //
 //	@return Services
-func (a *SubscriptionsAPIService) GetSubscriptionsServicesExecute(r ApiGetSubscriptionsServicesRequest) (*Services, *http.Response, error) {
+func (a *SubscriptionsAPIService) GetSubscriptionsServicesExecute(r SubscriptionsAPIGetSubscriptionsServicesRequest) (*Services, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1035,13 +1035,13 @@ func (a *SubscriptionsAPIService) GetSubscriptionsServicesExecute(r ApiGetSubscr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserSubscriptionRequest struct {
+type SubscriptionsAPIGetUserSubscriptionRequest struct {
 	ctx              context.Context
 	ApiService       SubscriptionsAPI
 	subscriptionUuid string
 }
 
-func (r ApiGetUserSubscriptionRequest) Execute() (*Subscription, *http.Response, error) {
+func (r SubscriptionsAPIGetUserSubscriptionRequest) Execute() (*Subscription, *http.Response, error) {
 	return r.ApiService.GetUserSubscriptionExecute(r)
 }
 
@@ -1052,10 +1052,10 @@ GetUserSubscription Get a user subscription
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subscriptionUuid The UUID of the subscription
-	@return ApiGetUserSubscriptionRequest
+	@return SubscriptionsAPIGetUserSubscriptionRequest
 */
-func (a *SubscriptionsAPIService) GetUserSubscription(ctx context.Context, subscriptionUuid string) ApiGetUserSubscriptionRequest {
-	return ApiGetUserSubscriptionRequest{
+func (a *SubscriptionsAPIService) GetUserSubscription(ctx context.Context, subscriptionUuid string) SubscriptionsAPIGetUserSubscriptionRequest {
+	return SubscriptionsAPIGetUserSubscriptionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		subscriptionUuid: subscriptionUuid,
@@ -1065,7 +1065,7 @@ func (a *SubscriptionsAPIService) GetUserSubscription(ctx context.Context, subsc
 // Execute executes the request
 //
 //	@return Subscription
-func (a *SubscriptionsAPIService) GetUserSubscriptionExecute(r ApiGetUserSubscriptionRequest) (*Subscription, *http.Response, error) {
+func (a *SubscriptionsAPIService) GetUserSubscriptionExecute(r SubscriptionsAPIGetUserSubscriptionRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1185,7 +1185,7 @@ func (a *SubscriptionsAPIService) GetUserSubscriptionExecute(r ApiGetUserSubscri
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListRequest struct {
+type SubscriptionsAPIListRequest struct {
 	ctx            context.Context
 	ApiService     SubscriptionsAPI
 	accentTenant   *string
@@ -1194,24 +1194,24 @@ type ApiListRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListRequest) AccentTenant(accentTenant string) ApiListRequest {
+func (r SubscriptionsAPIListRequest) AccentTenant(accentTenant string) SubscriptionsAPIListRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListRequest) Recurse(recurse bool) ApiListRequest {
+func (r SubscriptionsAPIListRequest) Recurse(recurse bool) SubscriptionsAPIListRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // A search term formatted like \&quot;key:value\&quot; that will only match subscriptions having a metadata entry \&quot;key&#x3D;value\&quot;. May be given multiple times to filter more precisely on different metadata keys.
-func (r ApiListRequest) SearchMetadata(searchMetadata string) ApiListRequest {
+func (r SubscriptionsAPIListRequest) SearchMetadata(searchMetadata string) SubscriptionsAPIListRequest {
 	r.searchMetadata = &searchMetadata
 	return r
 }
 
-func (r ApiListRequest) Execute() (*SubscriptionList, *http.Response, error) {
+func (r SubscriptionsAPIListRequest) Execute() (*SubscriptionList, *http.Response, error) {
 	return r.ApiService.ListExecute(r)
 }
 
@@ -1221,10 +1221,10 @@ List List subscriptions to HTTP callbacks
 **Required ACL:** `webhookd.subscriptions.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListRequest
+	@return SubscriptionsAPIListRequest
 */
-func (a *SubscriptionsAPIService) List(ctx context.Context) ApiListRequest {
-	return ApiListRequest{
+func (a *SubscriptionsAPIService) List(ctx context.Context) SubscriptionsAPIListRequest {
+	return SubscriptionsAPIListRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1233,7 +1233,7 @@ func (a *SubscriptionsAPIService) List(ctx context.Context) ApiListRequest {
 // Execute executes the request
 //
 //	@return SubscriptionList
-func (a *SubscriptionsAPIService) ListExecute(r ApiListRequest) (*SubscriptionList, *http.Response, error) {
+func (a *SubscriptionsAPIService) ListExecute(r SubscriptionsAPIListRequest) (*SubscriptionList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1353,18 +1353,18 @@ func (a *SubscriptionsAPIService) ListExecute(r ApiListRequest) (*SubscriptionLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserCreateRequest struct {
+type SubscriptionsAPIUserCreateRequest struct {
 	ctx        context.Context
 	ApiService SubscriptionsAPI
 	body       *UserSubscriptionRequest
 }
 
-func (r ApiUserCreateRequest) Body(body UserSubscriptionRequest) ApiUserCreateRequest {
+func (r SubscriptionsAPIUserCreateRequest) Body(body UserSubscriptionRequest) SubscriptionsAPIUserCreateRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserCreateRequest) Execute() (*http.Response, error) {
+func (r SubscriptionsAPIUserCreateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UserCreateExecute(r)
 }
 
@@ -1376,17 +1376,17 @@ UserCreate Subscribe to a HTTP callback (webhook) as a user
 For more information: https://accentvoice.io/documentation/api/webhook.html
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUserCreateRequest
+	@return SubscriptionsAPIUserCreateRequest
 */
-func (a *SubscriptionsAPIService) UserCreate(ctx context.Context) ApiUserCreateRequest {
-	return ApiUserCreateRequest{
+func (a *SubscriptionsAPIService) UserCreate(ctx context.Context) SubscriptionsAPIUserCreateRequest {
+	return SubscriptionsAPIUserCreateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SubscriptionsAPIService) UserCreateExecute(r ApiUserCreateRequest) (*http.Response, error) {
+func (a *SubscriptionsAPIService) UserCreateExecute(r SubscriptionsAPIUserCreateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1500,13 +1500,13 @@ func (a *SubscriptionsAPIService) UserCreateExecute(r ApiUserCreateRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiUserDeleteRequest struct {
+type SubscriptionsAPIUserDeleteRequest struct {
 	ctx              context.Context
 	ApiService       SubscriptionsAPI
 	subscriptionUuid string
 }
 
-func (r ApiUserDeleteRequest) Execute() (*http.Response, error) {
+func (r SubscriptionsAPIUserDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UserDeleteExecute(r)
 }
 
@@ -1517,10 +1517,10 @@ UserDelete Delete a user subscription
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subscriptionUuid The UUID of the subscription
-	@return ApiUserDeleteRequest
+	@return SubscriptionsAPIUserDeleteRequest
 */
-func (a *SubscriptionsAPIService) UserDelete(ctx context.Context, subscriptionUuid string) ApiUserDeleteRequest {
-	return ApiUserDeleteRequest{
+func (a *SubscriptionsAPIService) UserDelete(ctx context.Context, subscriptionUuid string) SubscriptionsAPIUserDeleteRequest {
+	return SubscriptionsAPIUserDeleteRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		subscriptionUuid: subscriptionUuid,
@@ -1528,7 +1528,7 @@ func (a *SubscriptionsAPIService) UserDelete(ctx context.Context, subscriptionUu
 }
 
 // Execute executes the request
-func (a *SubscriptionsAPIService) UserDeleteExecute(r ApiUserDeleteRequest) (*http.Response, error) {
+func (a *SubscriptionsAPIService) UserDeleteExecute(r SubscriptionsAPIUserDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1638,19 +1638,19 @@ func (a *SubscriptionsAPIService) UserDeleteExecute(r ApiUserDeleteRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiUserListRequest struct {
+type SubscriptionsAPIUserListRequest struct {
 	ctx            context.Context
 	ApiService     SubscriptionsAPI
 	searchMetadata *string
 }
 
 // A search term formatted like \&quot;key:value\&quot; that will only match subscriptions having a metadata entry \&quot;key&#x3D;value\&quot;. May be given multiple times to filter more precisely on different metadata keys.
-func (r ApiUserListRequest) SearchMetadata(searchMetadata string) ApiUserListRequest {
+func (r SubscriptionsAPIUserListRequest) SearchMetadata(searchMetadata string) SubscriptionsAPIUserListRequest {
 	r.searchMetadata = &searchMetadata
 	return r
 }
 
-func (r ApiUserListRequest) Execute() (*SubscriptionList, *http.Response, error) {
+func (r SubscriptionsAPIUserListRequest) Execute() (*SubscriptionList, *http.Response, error) {
 	return r.ApiService.UserListExecute(r)
 }
 
@@ -1660,10 +1660,10 @@ UserList List subscriptions of a user to HTTP callbacks
 **Required ACL:** `webhookd.users.me.subscriptions.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUserListRequest
+	@return SubscriptionsAPIUserListRequest
 */
-func (a *SubscriptionsAPIService) UserList(ctx context.Context) ApiUserListRequest {
-	return ApiUserListRequest{
+func (a *SubscriptionsAPIService) UserList(ctx context.Context) SubscriptionsAPIUserListRequest {
+	return SubscriptionsAPIUserListRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1672,7 +1672,7 @@ func (a *SubscriptionsAPIService) UserList(ctx context.Context) ApiUserListReque
 // Execute executes the request
 //
 //	@return SubscriptionList
-func (a *SubscriptionsAPIService) UserListExecute(r ApiUserListRequest) (*SubscriptionList, *http.Response, error) {
+func (a *SubscriptionsAPIService) UserListExecute(r SubscriptionsAPIUserListRequest) (*SubscriptionList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

@@ -30,12 +30,12 @@ type ConferencesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Conference's ID
 		@param extensionId
-		@return ApiAssociateConferenceExtensionRequest
+		@return ConferencesAPIAssociateConferenceExtensionRequest
 	*/
-	AssociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ApiAssociateConferenceExtensionRequest
+	AssociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ConferencesAPIAssociateConferenceExtensionRequest
 
 	// AssociateConferenceExtensionExecute executes the request
-	AssociateConferenceExtensionExecute(r ApiAssociateConferenceExtensionRequest) (*http.Response, error)
+	AssociateConferenceExtensionExecute(r ConferencesAPIAssociateConferenceExtensionRequest) (*http.Response, error)
 
 	/*
 		CreateConference Create conference
@@ -45,13 +45,13 @@ type ConferencesAPI interface {
 	``` 2 = admin_toggle_conference_lock 3 = admin_kick_last 0 = admin_toggle_mute_participants' ```
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateConferenceRequest
+		@return ConferencesAPICreateConferenceRequest
 	*/
-	CreateConference(ctx context.Context) ApiCreateConferenceRequest
+	CreateConference(ctx context.Context) ConferencesAPICreateConferenceRequest
 
 	// CreateConferenceExecute executes the request
 	//  @return Conference
-	CreateConferenceExecute(r ApiCreateConferenceRequest) (*Conference, *http.Response, error)
+	CreateConferenceExecute(r ConferencesAPICreateConferenceRequest) (*Conference, *http.Response, error)
 
 	/*
 		DeleteConference Delete conference
@@ -60,12 +60,12 @@ type ConferencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Conference's ID
-		@return ApiDeleteConferenceRequest
+		@return ConferencesAPIDeleteConferenceRequest
 	*/
-	DeleteConference(ctx context.Context, conferenceId int32) ApiDeleteConferenceRequest
+	DeleteConference(ctx context.Context, conferenceId int32) ConferencesAPIDeleteConferenceRequest
 
 	// DeleteConferenceExecute executes the request
-	DeleteConferenceExecute(r ApiDeleteConferenceRequest) (*http.Response, error)
+	DeleteConferenceExecute(r ConferencesAPIDeleteConferenceRequest) (*http.Response, error)
 
 	/*
 		DissociateConferenceExtension Dissociate conference and extension
@@ -75,12 +75,12 @@ type ConferencesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Conference's ID
 		@param extensionId
-		@return ApiDissociateConferenceExtensionRequest
+		@return ConferencesAPIDissociateConferenceExtensionRequest
 	*/
-	DissociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ApiDissociateConferenceExtensionRequest
+	DissociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ConferencesAPIDissociateConferenceExtensionRequest
 
 	// DissociateConferenceExtensionExecute executes the request
-	DissociateConferenceExtensionExecute(r ApiDissociateConferenceExtensionRequest) (*http.Response, error)
+	DissociateConferenceExtensionExecute(r ConferencesAPIDissociateConferenceExtensionRequest) (*http.Response, error)
 
 	/*
 		GetConference Get conference
@@ -89,13 +89,13 @@ type ConferencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Conference's ID
-		@return ApiGetConferenceRequest
+		@return ConferencesAPIGetConferenceRequest
 	*/
-	GetConference(ctx context.Context, conferenceId int32) ApiGetConferenceRequest
+	GetConference(ctx context.Context, conferenceId int32) ConferencesAPIGetConferenceRequest
 
 	// GetConferenceExecute executes the request
 	//  @return Conference
-	GetConferenceExecute(r ApiGetConferenceRequest) (*Conference, *http.Response, error)
+	GetConferenceExecute(r ConferencesAPIGetConferenceRequest) (*Conference, *http.Response, error)
 
 	/*
 		ListAsteriskConfbridgeAccentDefaultBridge List ConfBridge accent_default_bridge options
@@ -103,13 +103,13 @@ type ConferencesAPI interface {
 		**Required ACL:** `confd.asterisk.confbridge.accent_default_bridge.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskConfbridgeAccentDefaultBridgeRequest
+		@return ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest
 	*/
-	ListAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ApiListAsteriskConfbridgeAccentDefaultBridgeRequest
+	ListAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest
 
 	// ListAsteriskConfbridgeAccentDefaultBridgeExecute executes the request
 	//  @return ConfBridgeConfiguration
-	ListAsteriskConfbridgeAccentDefaultBridgeExecute(r ApiListAsteriskConfbridgeAccentDefaultBridgeRequest) (*ConfBridgeConfiguration, *http.Response, error)
+	ListAsteriskConfbridgeAccentDefaultBridgeExecute(r ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest) (*ConfBridgeConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskConfbridgeAccentDefaultUser List ConfBridge accent_default_user options
@@ -117,13 +117,13 @@ type ConferencesAPI interface {
 		**Required ACL:** `confd.asterisk.confbridge.accent_default_user.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskConfbridgeAccentDefaultUserRequest
+		@return ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest
 	*/
-	ListAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ApiListAsteriskConfbridgeAccentDefaultUserRequest
+	ListAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest
 
 	// ListAsteriskConfbridgeAccentDefaultUserExecute executes the request
 	//  @return ConfBridgeConfiguration
-	ListAsteriskConfbridgeAccentDefaultUserExecute(r ApiListAsteriskConfbridgeAccentDefaultUserRequest) (*ConfBridgeConfiguration, *http.Response, error)
+	ListAsteriskConfbridgeAccentDefaultUserExecute(r ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest) (*ConfBridgeConfiguration, *http.Response, error)
 
 	/*
 		ListConferences List conference
@@ -131,13 +131,13 @@ type ConferencesAPI interface {
 		**Required ACL:** `confd.conferences.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListConferencesRequest
+		@return ConferencesAPIListConferencesRequest
 	*/
-	ListConferences(ctx context.Context) ApiListConferencesRequest
+	ListConferences(ctx context.Context) ConferencesAPIListConferencesRequest
 
 	// ListConferencesExecute executes the request
 	//  @return ConferenceItems
-	ListConferencesExecute(r ApiListConferencesRequest) (*ConferenceItems, *http.Response, error)
+	ListConferencesExecute(r ConferencesAPIListConferencesRequest) (*ConferenceItems, *http.Response, error)
 
 	/*
 		UpdateAsteriskConfbridgeAccentDefaultBridge Update ConfBridge accent_default_bridge option
@@ -145,12 +145,12 @@ type ConferencesAPI interface {
 		**Required ACL:** `confd.asterisk.confbridge.accent_default_bridge.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined. All available configuration options are listed in the [sample](https://raw.githubusercontent.com/asterisk/asterisk/master/configs/samples/confbridge.conf.sample) Asterisk configuration file.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
+		@return ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
 	*/
-	UpdateAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
+	UpdateAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
 
 	// UpdateAsteriskConfbridgeAccentDefaultBridgeExecute executes the request
-	UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) (*http.Response, error)
+	UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskConfbridgeAccentDefaultUser Update ConfBridge accent_default_user option
@@ -158,12 +158,12 @@ type ConferencesAPI interface {
 		**Required ACL:** `confd.asterisk.confbridge.accent_default_user.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined. All available configuration options are listed in the [sample](https://raw.githubusercontent.com/asterisk/asterisk/master/configs/samples/confbridge.conf.sample) Asterisk configuration file.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest
+		@return ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest
 	*/
-	UpdateAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest
+	UpdateAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest
 
 	// UpdateAsteriskConfbridgeAccentDefaultUserExecute executes the request
-	UpdateAsteriskConfbridgeAccentDefaultUserExecute(r ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest) (*http.Response, error)
+	UpdateAsteriskConfbridgeAccentDefaultUserExecute(r ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest) (*http.Response, error)
 
 	/*
 		UpdateConference Update conference
@@ -172,25 +172,25 @@ type ConferencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Conference's ID
-		@return ApiUpdateConferenceRequest
+		@return ConferencesAPIUpdateConferenceRequest
 	*/
-	UpdateConference(ctx context.Context, conferenceId int32) ApiUpdateConferenceRequest
+	UpdateConference(ctx context.Context, conferenceId int32) ConferencesAPIUpdateConferenceRequest
 
 	// UpdateConferenceExecute executes the request
-	UpdateConferenceExecute(r ApiUpdateConferenceRequest) (*http.Response, error)
+	UpdateConferenceExecute(r ConferencesAPIUpdateConferenceRequest) (*http.Response, error)
 }
 
 // ConferencesAPIService ConferencesAPI service
 type ConferencesAPIService service
 
-type ApiAssociateConferenceExtensionRequest struct {
+type ConferencesAPIAssociateConferenceExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	conferenceId int32
 	extensionId  int32
 }
 
-func (r ApiAssociateConferenceExtensionRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIAssociateConferenceExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateConferenceExtensionExecute(r)
 }
 
@@ -202,10 +202,10 @@ AssociateConferenceExtension Associate conference and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Conference's ID
 	@param extensionId
-	@return ApiAssociateConferenceExtensionRequest
+	@return ConferencesAPIAssociateConferenceExtensionRequest
 */
-func (a *ConferencesAPIService) AssociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ApiAssociateConferenceExtensionRequest {
-	return ApiAssociateConferenceExtensionRequest{
+func (a *ConferencesAPIService) AssociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ConferencesAPIAssociateConferenceExtensionRequest {
+	return ConferencesAPIAssociateConferenceExtensionRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -214,7 +214,7 @@ func (a *ConferencesAPIService) AssociateConferenceExtension(ctx context.Context
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) AssociateConferenceExtensionExecute(r ApiAssociateConferenceExtensionRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) AssociateConferenceExtensionExecute(r ConferencesAPIAssociateConferenceExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -314,7 +314,7 @@ func (a *ConferencesAPIService) AssociateConferenceExtensionExecute(r ApiAssocia
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateConferenceRequest struct {
+type ConferencesAPICreateConferenceRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	body         *Conference
@@ -322,18 +322,18 @@ type ApiCreateConferenceRequest struct {
 }
 
 // Conference to create
-func (r ApiCreateConferenceRequest) Body(body Conference) ApiCreateConferenceRequest {
+func (r ConferencesAPICreateConferenceRequest) Body(body Conference) ConferencesAPICreateConferenceRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateConferenceRequest) AccentTenant(accentTenant string) ApiCreateConferenceRequest {
+func (r ConferencesAPICreateConferenceRequest) AccentTenant(accentTenant string) ConferencesAPICreateConferenceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateConferenceRequest) Execute() (*Conference, *http.Response, error) {
+func (r ConferencesAPICreateConferenceRequest) Execute() (*Conference, *http.Response, error) {
 	return r.ApiService.CreateConferenceExecute(r)
 }
 
@@ -345,10 +345,10 @@ And the following options are added to the admin user:
 ``` 2 = admin_toggle_conference_lock 3 = admin_kick_last 0 = admin_toggle_mute_participants' ```
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateConferenceRequest
+	@return ConferencesAPICreateConferenceRequest
 */
-func (a *ConferencesAPIService) CreateConference(ctx context.Context) ApiCreateConferenceRequest {
-	return ApiCreateConferenceRequest{
+func (a *ConferencesAPIService) CreateConference(ctx context.Context) ConferencesAPICreateConferenceRequest {
+	return ConferencesAPICreateConferenceRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -357,7 +357,7 @@ func (a *ConferencesAPIService) CreateConference(ctx context.Context) ApiCreateC
 // Execute executes the request
 //
 //	@return Conference
-func (a *ConferencesAPIService) CreateConferenceExecute(r ApiCreateConferenceRequest) (*Conference, *http.Response, error) {
+func (a *ConferencesAPIService) CreateConferenceExecute(r ConferencesAPICreateConferenceRequest) (*Conference, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -459,7 +459,7 @@ func (a *ConferencesAPIService) CreateConferenceExecute(r ApiCreateConferenceReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteConferenceRequest struct {
+type ConferencesAPIDeleteConferenceRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	conferenceId int32
@@ -467,12 +467,12 @@ type ApiDeleteConferenceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteConferenceRequest) AccentTenant(accentTenant string) ApiDeleteConferenceRequest {
+func (r ConferencesAPIDeleteConferenceRequest) AccentTenant(accentTenant string) ConferencesAPIDeleteConferenceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteConferenceRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIDeleteConferenceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteConferenceExecute(r)
 }
 
@@ -483,10 +483,10 @@ DeleteConference Delete conference
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Conference's ID
-	@return ApiDeleteConferenceRequest
+	@return ConferencesAPIDeleteConferenceRequest
 */
-func (a *ConferencesAPIService) DeleteConference(ctx context.Context, conferenceId int32) ApiDeleteConferenceRequest {
-	return ApiDeleteConferenceRequest{
+func (a *ConferencesAPIService) DeleteConference(ctx context.Context, conferenceId int32) ConferencesAPIDeleteConferenceRequest {
+	return ConferencesAPIDeleteConferenceRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -494,7 +494,7 @@ func (a *ConferencesAPIService) DeleteConference(ctx context.Context, conference
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) DeleteConferenceExecute(r ApiDeleteConferenceRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) DeleteConferenceExecute(r ConferencesAPIDeleteConferenceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -596,14 +596,14 @@ func (a *ConferencesAPIService) DeleteConferenceExecute(r ApiDeleteConferenceReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateConferenceExtensionRequest struct {
+type ConferencesAPIDissociateConferenceExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	conferenceId int32
 	extensionId  int32
 }
 
-func (r ApiDissociateConferenceExtensionRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIDissociateConferenceExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateConferenceExtensionExecute(r)
 }
 
@@ -615,10 +615,10 @@ DissociateConferenceExtension Dissociate conference and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Conference's ID
 	@param extensionId
-	@return ApiDissociateConferenceExtensionRequest
+	@return ConferencesAPIDissociateConferenceExtensionRequest
 */
-func (a *ConferencesAPIService) DissociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ApiDissociateConferenceExtensionRequest {
-	return ApiDissociateConferenceExtensionRequest{
+func (a *ConferencesAPIService) DissociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ConferencesAPIDissociateConferenceExtensionRequest {
+	return ConferencesAPIDissociateConferenceExtensionRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -627,7 +627,7 @@ func (a *ConferencesAPIService) DissociateConferenceExtension(ctx context.Contex
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) DissociateConferenceExtensionExecute(r ApiDissociateConferenceExtensionRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) DissociateConferenceExtensionExecute(r ConferencesAPIDissociateConferenceExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -727,7 +727,7 @@ func (a *ConferencesAPIService) DissociateConferenceExtensionExecute(r ApiDissoc
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetConferenceRequest struct {
+type ConferencesAPIGetConferenceRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	conferenceId int32
@@ -735,12 +735,12 @@ type ApiGetConferenceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetConferenceRequest) AccentTenant(accentTenant string) ApiGetConferenceRequest {
+func (r ConferencesAPIGetConferenceRequest) AccentTenant(accentTenant string) ConferencesAPIGetConferenceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetConferenceRequest) Execute() (*Conference, *http.Response, error) {
+func (r ConferencesAPIGetConferenceRequest) Execute() (*Conference, *http.Response, error) {
 	return r.ApiService.GetConferenceExecute(r)
 }
 
@@ -751,10 +751,10 @@ GetConference Get conference
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Conference's ID
-	@return ApiGetConferenceRequest
+	@return ConferencesAPIGetConferenceRequest
 */
-func (a *ConferencesAPIService) GetConference(ctx context.Context, conferenceId int32) ApiGetConferenceRequest {
-	return ApiGetConferenceRequest{
+func (a *ConferencesAPIService) GetConference(ctx context.Context, conferenceId int32) ConferencesAPIGetConferenceRequest {
+	return ConferencesAPIGetConferenceRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -764,7 +764,7 @@ func (a *ConferencesAPIService) GetConference(ctx context.Context, conferenceId 
 // Execute executes the request
 //
 //	@return Conference
-func (a *ConferencesAPIService) GetConferenceExecute(r ApiGetConferenceRequest) (*Conference, *http.Response, error) {
+func (a *ConferencesAPIService) GetConferenceExecute(r ConferencesAPIGetConferenceRequest) (*Conference, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -865,12 +865,12 @@ func (a *ConferencesAPIService) GetConferenceExecute(r ApiGetConferenceRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskConfbridgeAccentDefaultBridgeRequest struct {
+type ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest struct {
 	ctx        context.Context
 	ApiService ConferencesAPI
 }
 
-func (r ApiListAsteriskConfbridgeAccentDefaultBridgeRequest) Execute() (*ConfBridgeConfiguration, *http.Response, error) {
+func (r ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest) Execute() (*ConfBridgeConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskConfbridgeAccentDefaultBridgeExecute(r)
 }
 
@@ -880,10 +880,10 @@ ListAsteriskConfbridgeAccentDefaultBridge List ConfBridge accent_default_bridge 
 **Required ACL:** `confd.asterisk.confbridge.accent_default_bridge.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskConfbridgeAccentDefaultBridgeRequest
+	@return ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest
 */
-func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ApiListAsteriskConfbridgeAccentDefaultBridgeRequest {
-	return ApiListAsteriskConfbridgeAccentDefaultBridgeRequest{
+func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest {
+	return ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -892,7 +892,7 @@ func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultBridge(ctx co
 // Execute executes the request
 //
 //	@return ConfBridgeConfiguration
-func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultBridgeExecute(r ApiListAsteriskConfbridgeAccentDefaultBridgeRequest) (*ConfBridgeConfiguration, *http.Response, error) {
+func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultBridgeExecute(r ConferencesAPIListAsteriskConfbridgeAccentDefaultBridgeRequest) (*ConfBridgeConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -979,12 +979,12 @@ func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultBridgeExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskConfbridgeAccentDefaultUserRequest struct {
+type ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest struct {
 	ctx        context.Context
 	ApiService ConferencesAPI
 }
 
-func (r ApiListAsteriskConfbridgeAccentDefaultUserRequest) Execute() (*ConfBridgeConfiguration, *http.Response, error) {
+func (r ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest) Execute() (*ConfBridgeConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskConfbridgeAccentDefaultUserExecute(r)
 }
 
@@ -994,10 +994,10 @@ ListAsteriskConfbridgeAccentDefaultUser List ConfBridge accent_default_user opti
 **Required ACL:** `confd.asterisk.confbridge.accent_default_user.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskConfbridgeAccentDefaultUserRequest
+	@return ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest
 */
-func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ApiListAsteriskConfbridgeAccentDefaultUserRequest {
-	return ApiListAsteriskConfbridgeAccentDefaultUserRequest{
+func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest {
+	return ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1006,7 +1006,7 @@ func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultUser(ctx cont
 // Execute executes the request
 //
 //	@return ConfBridgeConfiguration
-func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultUserExecute(r ApiListAsteriskConfbridgeAccentDefaultUserRequest) (*ConfBridgeConfiguration, *http.Response, error) {
+func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultUserExecute(r ConferencesAPIListAsteriskConfbridgeAccentDefaultUserRequest) (*ConfBridgeConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1093,7 +1093,7 @@ func (a *ConferencesAPIService) ListAsteriskConfbridgeAccentDefaultUserExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListConferencesRequest struct {
+type ConferencesAPIListConferencesRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	accentTenant *string
@@ -1106,48 +1106,48 @@ type ApiListConferencesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListConferencesRequest) AccentTenant(accentTenant string) ApiListConferencesRequest {
+func (r ConferencesAPIListConferencesRequest) AccentTenant(accentTenant string) ConferencesAPIListConferencesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListConferencesRequest) Recurse(recurse bool) ApiListConferencesRequest {
+func (r ConferencesAPIListConferencesRequest) Recurse(recurse bool) ConferencesAPIListConferencesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListConferencesRequest) Order(order string) ApiListConferencesRequest {
+func (r ConferencesAPIListConferencesRequest) Order(order string) ConferencesAPIListConferencesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListConferencesRequest) Direction(direction string) ApiListConferencesRequest {
+func (r ConferencesAPIListConferencesRequest) Direction(direction string) ConferencesAPIListConferencesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListConferencesRequest) Limit(limit int32) ApiListConferencesRequest {
+func (r ConferencesAPIListConferencesRequest) Limit(limit int32) ConferencesAPIListConferencesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListConferencesRequest) Offset(offset int32) ApiListConferencesRequest {
+func (r ConferencesAPIListConferencesRequest) Offset(offset int32) ConferencesAPIListConferencesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListConferencesRequest) Search(search string) ApiListConferencesRequest {
+func (r ConferencesAPIListConferencesRequest) Search(search string) ConferencesAPIListConferencesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListConferencesRequest) Execute() (*ConferenceItems, *http.Response, error) {
+func (r ConferencesAPIListConferencesRequest) Execute() (*ConferenceItems, *http.Response, error) {
 	return r.ApiService.ListConferencesExecute(r)
 }
 
@@ -1157,10 +1157,10 @@ ListConferences List conference
 **Required ACL:** `confd.conferences.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListConferencesRequest
+	@return ConferencesAPIListConferencesRequest
 */
-func (a *ConferencesAPIService) ListConferences(ctx context.Context) ApiListConferencesRequest {
-	return ApiListConferencesRequest{
+func (a *ConferencesAPIService) ListConferences(ctx context.Context) ConferencesAPIListConferencesRequest {
+	return ConferencesAPIListConferencesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1169,7 +1169,7 @@ func (a *ConferencesAPIService) ListConferences(ctx context.Context) ApiListConf
 // Execute executes the request
 //
 //	@return ConferenceItems
-func (a *ConferencesAPIService) ListConferencesExecute(r ApiListConferencesRequest) (*ConferenceItems, *http.Response, error) {
+func (a *ConferencesAPIService) ListConferencesExecute(r ConferencesAPIListConferencesRequest) (*ConferenceItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1280,18 +1280,18 @@ func (a *ConferencesAPIService) ListConferencesExecute(r ApiListConferencesReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest struct {
+type ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest struct {
 	ctx        context.Context
 	ApiService ConferencesAPI
 	body       *ConfBridgeConfiguration
 }
 
-func (r ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) Body(body ConfBridgeConfiguration) ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest {
+func (r ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) Body(body ConfBridgeConfiguration) ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r)
 }
 
@@ -1301,17 +1301,17 @@ UpdateAsteriskConfbridgeAccentDefaultBridge Update ConfBridge accent_default_bri
 **Required ACL:** `confd.asterisk.confbridge.accent_default_bridge.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined. All available configuration options are listed in the [sample](https://raw.githubusercontent.com/asterisk/asterisk/master/configs/samples/confbridge.conf.sample) Asterisk configuration file.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
+	@return ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
 */
-func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest {
-	return ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest{
+func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest {
+	return ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1414,18 +1414,18 @@ func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultBridgeExecu
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest struct {
+type ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest struct {
 	ctx        context.Context
 	ApiService ConferencesAPI
 	body       *ConfBridgeConfiguration
 }
 
-func (r ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest) Body(body ConfBridgeConfiguration) ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest {
+func (r ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest) Body(body ConfBridgeConfiguration) ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskConfbridgeAccentDefaultUserExecute(r)
 }
 
@@ -1435,17 +1435,17 @@ UpdateAsteriskConfbridgeAccentDefaultUser Update ConfBridge accent_default_user 
 **Required ACL:** `confd.asterisk.confbridge.accent_default_user.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined. All available configuration options are listed in the [sample](https://raw.githubusercontent.com/asterisk/asterisk/master/configs/samples/confbridge.conf.sample) Asterisk configuration file.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest
+	@return ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest
 */
-func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest {
-	return ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest{
+func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest {
+	return ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultUserExecute(r ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultUserExecute(r ConferencesAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1548,7 +1548,7 @@ func (a *ConferencesAPIService) UpdateAsteriskConfbridgeAccentDefaultUserExecute
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateConferenceRequest struct {
+type ConferencesAPIUpdateConferenceRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	body         *Conference
@@ -1556,18 +1556,18 @@ type ApiUpdateConferenceRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateConferenceRequest) Body(body Conference) ApiUpdateConferenceRequest {
+func (r ConferencesAPIUpdateConferenceRequest) Body(body Conference) ConferencesAPIUpdateConferenceRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateConferenceRequest) AccentTenant(accentTenant string) ApiUpdateConferenceRequest {
+func (r ConferencesAPIUpdateConferenceRequest) AccentTenant(accentTenant string) ConferencesAPIUpdateConferenceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateConferenceRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIUpdateConferenceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateConferenceExecute(r)
 }
 
@@ -1578,10 +1578,10 @@ UpdateConference Update conference
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Conference's ID
-	@return ApiUpdateConferenceRequest
+	@return ConferencesAPIUpdateConferenceRequest
 */
-func (a *ConferencesAPIService) UpdateConference(ctx context.Context, conferenceId int32) ApiUpdateConferenceRequest {
-	return ApiUpdateConferenceRequest{
+func (a *ConferencesAPIService) UpdateConference(ctx context.Context, conferenceId int32) ConferencesAPIUpdateConferenceRequest {
+	return ConferencesAPIUpdateConferenceRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -1589,7 +1589,7 @@ func (a *ConferencesAPIService) UpdateConference(ctx context.Context, conference
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) UpdateConferenceExecute(r ApiUpdateConferenceRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) UpdateConferenceExecute(r ConferencesAPIUpdateConferenceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

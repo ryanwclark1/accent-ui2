@@ -30,12 +30,12 @@ type PoliciesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-		@return ApiAddGroupPolicyRequest
+		@return PoliciesAPIAddGroupPolicyRequest
 	*/
-	AddGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) ApiAddGroupPolicyRequest
+	AddGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) PoliciesAPIAddGroupPolicyRequest
 
 	// AddGroupPolicyExecute executes the request
-	AddGroupPolicyExecute(r ApiAddGroupPolicyRequest) (*http.Response, error)
+	AddGroupPolicyExecute(r PoliciesAPIAddGroupPolicyRequest) (*http.Response, error)
 
 	/*
 		AddPolicyAccess Associate an access to a policy
@@ -45,12 +45,12 @@ type PoliciesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 		@param access The access to add
-		@return ApiAddPolicyAccessRequest
+		@return PoliciesAPIAddPolicyAccessRequest
 	*/
-	AddPolicyAccess(ctx context.Context, policyUuid string, access string) ApiAddPolicyAccessRequest
+	AddPolicyAccess(ctx context.Context, policyUuid string, access string) PoliciesAPIAddPolicyAccessRequest
 
 	// AddPolicyAccessExecute executes the request
-	AddPolicyAccessExecute(r ApiAddPolicyAccessRequest) (*http.Response, error)
+	AddPolicyAccessExecute(r PoliciesAPIAddPolicyAccessRequest) (*http.Response, error)
 
 	/*
 		AddUserPolicy Associate a policy to a user
@@ -60,12 +60,12 @@ type PoliciesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 		@param userUuid The UUID of the user
-		@return ApiAddUserPolicyRequest
+		@return PoliciesAPIAddUserPolicyRequest
 	*/
-	AddUserPolicy(ctx context.Context, policyUuid string, userUuid string) ApiAddUserPolicyRequest
+	AddUserPolicy(ctx context.Context, policyUuid string, userUuid string) PoliciesAPIAddUserPolicyRequest
 
 	// AddUserPolicyExecute executes the request
-	AddUserPolicyExecute(r ApiAddUserPolicyRequest) (*http.Response, error)
+	AddUserPolicyExecute(r PoliciesAPIAddUserPolicyRequest) (*http.Response, error)
 
 	/*
 		CreatePolicies Create a new ACL policy
@@ -73,13 +73,13 @@ type PoliciesAPI interface {
 		**Required ACL:** `auth.policies.create` Create a new ACL policy set that can be associated to a user, an administrator, a service or a backend. An ACL policy is a list of ACL or ACL templates that is used to create a token
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreatePoliciesRequest
+		@return PoliciesAPICreatePoliciesRequest
 	*/
-	CreatePolicies(ctx context.Context) ApiCreatePoliciesRequest
+	CreatePolicies(ctx context.Context) PoliciesAPICreatePoliciesRequest
 
 	// CreatePoliciesExecute executes the request
 	//  @return PolicyResult
-	CreatePoliciesExecute(r ApiCreatePoliciesRequest) (*PolicyResult, *http.Response, error)
+	CreatePoliciesExecute(r PoliciesAPICreatePoliciesRequest) (*PolicyResult, *http.Response, error)
 
 	/*
 		DeleteGroupPolicy Dissociate a policy from a group
@@ -89,12 +89,12 @@ type PoliciesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-		@return ApiDeleteGroupPolicyRequest
+		@return PoliciesAPIDeleteGroupPolicyRequest
 	*/
-	DeleteGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) ApiDeleteGroupPolicyRequest
+	DeleteGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) PoliciesAPIDeleteGroupPolicyRequest
 
 	// DeleteGroupPolicyExecute executes the request
-	DeleteGroupPolicyExecute(r ApiDeleteGroupPolicyRequest) (*http.Response, error)
+	DeleteGroupPolicyExecute(r PoliciesAPIDeleteGroupPolicyRequest) (*http.Response, error)
 
 	/*
 		DeletePolicy Delete a policy
@@ -103,12 +103,12 @@ type PoliciesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-		@return ApiDeletePolicyRequest
+		@return PoliciesAPIDeletePolicyRequest
 	*/
-	DeletePolicy(ctx context.Context, policyUuid string) ApiDeletePolicyRequest
+	DeletePolicy(ctx context.Context, policyUuid string) PoliciesAPIDeletePolicyRequest
 
 	// DeletePolicyExecute executes the request
-	DeletePolicyExecute(r ApiDeletePolicyRequest) (*http.Response, error)
+	DeletePolicyExecute(r PoliciesAPIDeletePolicyRequest) (*http.Response, error)
 
 	/*
 		DeletePolicyAccess Dissociate an access from a policy
@@ -118,12 +118,12 @@ type PoliciesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 		@param access The access to add
-		@return ApiDeletePolicyAccessRequest
+		@return PoliciesAPIDeletePolicyAccessRequest
 	*/
-	DeletePolicyAccess(ctx context.Context, policyUuid string, access string) ApiDeletePolicyAccessRequest
+	DeletePolicyAccess(ctx context.Context, policyUuid string, access string) PoliciesAPIDeletePolicyAccessRequest
 
 	// DeletePolicyAccessExecute executes the request
-	DeletePolicyAccessExecute(r ApiDeletePolicyAccessRequest) (*http.Response, error)
+	DeletePolicyAccessExecute(r PoliciesAPIDeletePolicyAccessRequest) (*http.Response, error)
 
 	/*
 		DeleteUserPolicy Dissociate a policy from a user
@@ -133,12 +133,12 @@ type PoliciesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 		@param userUuid The UUID of the user
-		@return ApiDeleteUserPolicyRequest
+		@return PoliciesAPIDeleteUserPolicyRequest
 	*/
-	DeleteUserPolicy(ctx context.Context, policyUuid string, userUuid string) ApiDeleteUserPolicyRequest
+	DeleteUserPolicy(ctx context.Context, policyUuid string, userUuid string) PoliciesAPIDeleteUserPolicyRequest
 
 	// DeleteUserPolicyExecute executes the request
-	DeleteUserPolicyExecute(r ApiDeleteUserPolicyRequest) (*http.Response, error)
+	DeleteUserPolicyExecute(r PoliciesAPIDeleteUserPolicyRequest) (*http.Response, error)
 
 	/*
 		EditPolicy Modify an ACL policy
@@ -147,13 +147,13 @@ type PoliciesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-		@return ApiEditPolicyRequest
+		@return PoliciesAPIEditPolicyRequest
 	*/
-	EditPolicy(ctx context.Context, policyUuid string) ApiEditPolicyRequest
+	EditPolicy(ctx context.Context, policyUuid string) PoliciesAPIEditPolicyRequest
 
 	// EditPolicyExecute executes the request
 	//  @return PolicyResult
-	EditPolicyExecute(r ApiEditPolicyRequest) (*PolicyResult, *http.Response, error)
+	EditPolicyExecute(r PoliciesAPIEditPolicyRequest) (*PolicyResult, *http.Response, error)
 
 	/*
 		GetPolicies List ACL policies
@@ -161,13 +161,13 @@ type PoliciesAPI interface {
 		**Required ACL:** `auth.policies.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetPoliciesRequest
+		@return PoliciesAPIGetPoliciesRequest
 	*/
-	GetPolicies(ctx context.Context) ApiGetPoliciesRequest
+	GetPolicies(ctx context.Context) PoliciesAPIGetPoliciesRequest
 
 	// GetPoliciesExecute executes the request
 	//  @return GetPoliciesResult
-	GetPoliciesExecute(r ApiGetPoliciesRequest) (*GetPoliciesResult, *http.Response, error)
+	GetPoliciesExecute(r PoliciesAPIGetPoliciesRequest) (*GetPoliciesResult, *http.Response, error)
 
 	/*
 		GetPolicy Retrieves the details of a policy
@@ -176,13 +176,13 @@ type PoliciesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-		@return ApiGetPolicyRequest
+		@return PoliciesAPIGetPolicyRequest
 	*/
-	GetPolicy(ctx context.Context, policyUuid string) ApiGetPolicyRequest
+	GetPolicy(ctx context.Context, policyUuid string) PoliciesAPIGetPolicyRequest
 
 	// GetPolicyExecute executes the request
 	//  @return PolicyResult
-	GetPolicyExecute(r ApiGetPolicyRequest) (*PolicyResult, *http.Response, error)
+	GetPolicyExecute(r PoliciesAPIGetPolicyRequest) (*PolicyResult, *http.Response, error)
 
 	/*
 		GetUserPolicies Retrieves the list of policies associated to a user
@@ -191,26 +191,26 @@ type PoliciesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserPoliciesRequest
+		@return PoliciesAPIGetUserPoliciesRequest
 	*/
-	GetUserPolicies(ctx context.Context, userUuid string) ApiGetUserPoliciesRequest
+	GetUserPolicies(ctx context.Context, userUuid string) PoliciesAPIGetUserPoliciesRequest
 
 	// GetUserPoliciesExecute executes the request
 	//  @return GetPoliciesResult
-	GetUserPoliciesExecute(r ApiGetUserPoliciesRequest) (*GetPoliciesResult, *http.Response, error)
+	GetUserPoliciesExecute(r PoliciesAPIGetUserPoliciesRequest) (*GetPoliciesResult, *http.Response, error)
 }
 
 // PoliciesAPIService PoliciesAPI service
 type PoliciesAPIService service
 
-type ApiAddGroupPolicyRequest struct {
+type PoliciesAPIAddGroupPolicyRequest struct {
 	ctx        context.Context
 	ApiService PoliciesAPI
 	groupUuid  string
 	policyUuid string
 }
 
-func (r ApiAddGroupPolicyRequest) Execute() (*http.Response, error) {
+func (r PoliciesAPIAddGroupPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddGroupPolicyExecute(r)
 }
 
@@ -222,10 +222,10 @@ AddGroupPolicy Associate a group to a policy
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-	@return ApiAddGroupPolicyRequest
+	@return PoliciesAPIAddGroupPolicyRequest
 */
-func (a *PoliciesAPIService) AddGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) ApiAddGroupPolicyRequest {
-	return ApiAddGroupPolicyRequest{
+func (a *PoliciesAPIService) AddGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) PoliciesAPIAddGroupPolicyRequest {
+	return PoliciesAPIAddGroupPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -234,7 +234,7 @@ func (a *PoliciesAPIService) AddGroupPolicy(ctx context.Context, groupUuid strin
 }
 
 // Execute executes the request
-func (a *PoliciesAPIService) AddGroupPolicyExecute(r ApiAddGroupPolicyRequest) (*http.Response, error) {
+func (a *PoliciesAPIService) AddGroupPolicyExecute(r PoliciesAPIAddGroupPolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -323,7 +323,7 @@ func (a *PoliciesAPIService) AddGroupPolicyExecute(r ApiAddGroupPolicyRequest) (
 	return localVarHTTPResponse, nil
 }
 
-type ApiAddPolicyAccessRequest struct {
+type PoliciesAPIAddPolicyAccessRequest struct {
 	ctx          context.Context
 	ApiService   PoliciesAPI
 	policyUuid   string
@@ -332,12 +332,12 @@ type ApiAddPolicyAccessRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAddPolicyAccessRequest) AccentTenant(accentTenant string) ApiAddPolicyAccessRequest {
+func (r PoliciesAPIAddPolicyAccessRequest) AccentTenant(accentTenant string) PoliciesAPIAddPolicyAccessRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAddPolicyAccessRequest) Execute() (*http.Response, error) {
+func (r PoliciesAPIAddPolicyAccessRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddPolicyAccessExecute(r)
 }
 
@@ -349,10 +349,10 @@ AddPolicyAccess Associate an access to a policy
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 	@param access The access to add
-	@return ApiAddPolicyAccessRequest
+	@return PoliciesAPIAddPolicyAccessRequest
 */
-func (a *PoliciesAPIService) AddPolicyAccess(ctx context.Context, policyUuid string, access string) ApiAddPolicyAccessRequest {
-	return ApiAddPolicyAccessRequest{
+func (a *PoliciesAPIService) AddPolicyAccess(ctx context.Context, policyUuid string, access string) PoliciesAPIAddPolicyAccessRequest {
+	return PoliciesAPIAddPolicyAccessRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -361,7 +361,7 @@ func (a *PoliciesAPIService) AddPolicyAccess(ctx context.Context, policyUuid str
 }
 
 // Execute executes the request
-func (a *PoliciesAPIService) AddPolicyAccessExecute(r ApiAddPolicyAccessRequest) (*http.Response, error) {
+func (a *PoliciesAPIService) AddPolicyAccessExecute(r PoliciesAPIAddPolicyAccessRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -453,14 +453,14 @@ func (a *PoliciesAPIService) AddPolicyAccessExecute(r ApiAddPolicyAccessRequest)
 	return localVarHTTPResponse, nil
 }
 
-type ApiAddUserPolicyRequest struct {
+type PoliciesAPIAddUserPolicyRequest struct {
 	ctx        context.Context
 	ApiService PoliciesAPI
 	policyUuid string
 	userUuid   string
 }
 
-func (r ApiAddUserPolicyRequest) Execute() (*http.Response, error) {
+func (r PoliciesAPIAddUserPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddUserPolicyExecute(r)
 }
 
@@ -472,10 +472,10 @@ AddUserPolicy Associate a policy to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 	@param userUuid The UUID of the user
-	@return ApiAddUserPolicyRequest
+	@return PoliciesAPIAddUserPolicyRequest
 */
-func (a *PoliciesAPIService) AddUserPolicy(ctx context.Context, policyUuid string, userUuid string) ApiAddUserPolicyRequest {
-	return ApiAddUserPolicyRequest{
+func (a *PoliciesAPIService) AddUserPolicy(ctx context.Context, policyUuid string, userUuid string) PoliciesAPIAddUserPolicyRequest {
+	return PoliciesAPIAddUserPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -484,7 +484,7 @@ func (a *PoliciesAPIService) AddUserPolicy(ctx context.Context, policyUuid strin
 }
 
 // Execute executes the request
-func (a *PoliciesAPIService) AddUserPolicyExecute(r ApiAddUserPolicyRequest) (*http.Response, error) {
+func (a *PoliciesAPIService) AddUserPolicyExecute(r PoliciesAPIAddUserPolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -573,7 +573,7 @@ func (a *PoliciesAPIService) AddUserPolicyExecute(r ApiAddUserPolicyRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreatePoliciesRequest struct {
+type PoliciesAPICreatePoliciesRequest struct {
 	ctx          context.Context
 	ApiService   PoliciesAPI
 	body         *Policy
@@ -581,18 +581,18 @@ type ApiCreatePoliciesRequest struct {
 }
 
 // The policy creation parameters
-func (r ApiCreatePoliciesRequest) Body(body Policy) ApiCreatePoliciesRequest {
+func (r PoliciesAPICreatePoliciesRequest) Body(body Policy) PoliciesAPICreatePoliciesRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreatePoliciesRequest) AccentTenant(accentTenant string) ApiCreatePoliciesRequest {
+func (r PoliciesAPICreatePoliciesRequest) AccentTenant(accentTenant string) PoliciesAPICreatePoliciesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreatePoliciesRequest) Execute() (*PolicyResult, *http.Response, error) {
+func (r PoliciesAPICreatePoliciesRequest) Execute() (*PolicyResult, *http.Response, error) {
 	return r.ApiService.CreatePoliciesExecute(r)
 }
 
@@ -602,10 +602,10 @@ CreatePolicies Create a new ACL policy
 **Required ACL:** `auth.policies.create` Create a new ACL policy set that can be associated to a user, an administrator, a service or a backend. An ACL policy is a list of ACL or ACL templates that is used to create a token
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreatePoliciesRequest
+	@return PoliciesAPICreatePoliciesRequest
 */
-func (a *PoliciesAPIService) CreatePolicies(ctx context.Context) ApiCreatePoliciesRequest {
-	return ApiCreatePoliciesRequest{
+func (a *PoliciesAPIService) CreatePolicies(ctx context.Context) PoliciesAPICreatePoliciesRequest {
+	return PoliciesAPICreatePoliciesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -614,7 +614,7 @@ func (a *PoliciesAPIService) CreatePolicies(ctx context.Context) ApiCreatePolici
 // Execute executes the request
 //
 //	@return PolicyResult
-func (a *PoliciesAPIService) CreatePoliciesExecute(r ApiCreatePoliciesRequest) (*PolicyResult, *http.Response, error) {
+func (a *PoliciesAPIService) CreatePoliciesExecute(r PoliciesAPICreatePoliciesRequest) (*PolicyResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -730,14 +730,14 @@ func (a *PoliciesAPIService) CreatePoliciesExecute(r ApiCreatePoliciesRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteGroupPolicyRequest struct {
+type PoliciesAPIDeleteGroupPolicyRequest struct {
 	ctx        context.Context
 	ApiService PoliciesAPI
 	groupUuid  string
 	policyUuid string
 }
 
-func (r ApiDeleteGroupPolicyRequest) Execute() (*http.Response, error) {
+func (r PoliciesAPIDeleteGroupPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteGroupPolicyExecute(r)
 }
 
@@ -749,10 +749,10 @@ DeleteGroupPolicy Dissociate a policy from a group
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-	@return ApiDeleteGroupPolicyRequest
+	@return PoliciesAPIDeleteGroupPolicyRequest
 */
-func (a *PoliciesAPIService) DeleteGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) ApiDeleteGroupPolicyRequest {
-	return ApiDeleteGroupPolicyRequest{
+func (a *PoliciesAPIService) DeleteGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) PoliciesAPIDeleteGroupPolicyRequest {
+	return PoliciesAPIDeleteGroupPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -761,7 +761,7 @@ func (a *PoliciesAPIService) DeleteGroupPolicy(ctx context.Context, groupUuid st
 }
 
 // Execute executes the request
-func (a *PoliciesAPIService) DeleteGroupPolicyExecute(r ApiDeleteGroupPolicyRequest) (*http.Response, error) {
+func (a *PoliciesAPIService) DeleteGroupPolicyExecute(r PoliciesAPIDeleteGroupPolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -850,7 +850,7 @@ func (a *PoliciesAPIService) DeleteGroupPolicyExecute(r ApiDeleteGroupPolicyRequ
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeletePolicyRequest struct {
+type PoliciesAPIDeletePolicyRequest struct {
 	ctx          context.Context
 	ApiService   PoliciesAPI
 	policyUuid   string
@@ -858,12 +858,12 @@ type ApiDeletePolicyRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeletePolicyRequest) AccentTenant(accentTenant string) ApiDeletePolicyRequest {
+func (r PoliciesAPIDeletePolicyRequest) AccentTenant(accentTenant string) PoliciesAPIDeletePolicyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeletePolicyRequest) Execute() (*http.Response, error) {
+func (r PoliciesAPIDeletePolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePolicyExecute(r)
 }
 
@@ -874,10 +874,10 @@ DeletePolicy Delete a policy
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-	@return ApiDeletePolicyRequest
+	@return PoliciesAPIDeletePolicyRequest
 */
-func (a *PoliciesAPIService) DeletePolicy(ctx context.Context, policyUuid string) ApiDeletePolicyRequest {
-	return ApiDeletePolicyRequest{
+func (a *PoliciesAPIService) DeletePolicy(ctx context.Context, policyUuid string) PoliciesAPIDeletePolicyRequest {
+	return PoliciesAPIDeletePolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -885,7 +885,7 @@ func (a *PoliciesAPIService) DeletePolicy(ctx context.Context, policyUuid string
 }
 
 // Execute executes the request
-func (a *PoliciesAPIService) DeletePolicyExecute(r ApiDeletePolicyRequest) (*http.Response, error) {
+func (a *PoliciesAPIService) DeletePolicyExecute(r PoliciesAPIDeletePolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -998,7 +998,7 @@ func (a *PoliciesAPIService) DeletePolicyExecute(r ApiDeletePolicyRequest) (*htt
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeletePolicyAccessRequest struct {
+type PoliciesAPIDeletePolicyAccessRequest struct {
 	ctx          context.Context
 	ApiService   PoliciesAPI
 	policyUuid   string
@@ -1007,12 +1007,12 @@ type ApiDeletePolicyAccessRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeletePolicyAccessRequest) AccentTenant(accentTenant string) ApiDeletePolicyAccessRequest {
+func (r PoliciesAPIDeletePolicyAccessRequest) AccentTenant(accentTenant string) PoliciesAPIDeletePolicyAccessRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeletePolicyAccessRequest) Execute() (*http.Response, error) {
+func (r PoliciesAPIDeletePolicyAccessRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePolicyAccessExecute(r)
 }
 
@@ -1024,10 +1024,10 @@ DeletePolicyAccess Dissociate an access from a policy
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 	@param access The access to add
-	@return ApiDeletePolicyAccessRequest
+	@return PoliciesAPIDeletePolicyAccessRequest
 */
-func (a *PoliciesAPIService) DeletePolicyAccess(ctx context.Context, policyUuid string, access string) ApiDeletePolicyAccessRequest {
-	return ApiDeletePolicyAccessRequest{
+func (a *PoliciesAPIService) DeletePolicyAccess(ctx context.Context, policyUuid string, access string) PoliciesAPIDeletePolicyAccessRequest {
+	return PoliciesAPIDeletePolicyAccessRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -1036,7 +1036,7 @@ func (a *PoliciesAPIService) DeletePolicyAccess(ctx context.Context, policyUuid 
 }
 
 // Execute executes the request
-func (a *PoliciesAPIService) DeletePolicyAccessExecute(r ApiDeletePolicyAccessRequest) (*http.Response, error) {
+func (a *PoliciesAPIService) DeletePolicyAccessExecute(r PoliciesAPIDeletePolicyAccessRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1128,14 +1128,14 @@ func (a *PoliciesAPIService) DeletePolicyAccessExecute(r ApiDeletePolicyAccessRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserPolicyRequest struct {
+type PoliciesAPIDeleteUserPolicyRequest struct {
 	ctx        context.Context
 	ApiService PoliciesAPI
 	policyUuid string
 	userUuid   string
 }
 
-func (r ApiDeleteUserPolicyRequest) Execute() (*http.Response, error) {
+func (r PoliciesAPIDeleteUserPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserPolicyExecute(r)
 }
 
@@ -1147,10 +1147,10 @@ DeleteUserPolicy Dissociate a policy from a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 	@param userUuid The UUID of the user
-	@return ApiDeleteUserPolicyRequest
+	@return PoliciesAPIDeleteUserPolicyRequest
 */
-func (a *PoliciesAPIService) DeleteUserPolicy(ctx context.Context, policyUuid string, userUuid string) ApiDeleteUserPolicyRequest {
-	return ApiDeleteUserPolicyRequest{
+func (a *PoliciesAPIService) DeleteUserPolicy(ctx context.Context, policyUuid string, userUuid string) PoliciesAPIDeleteUserPolicyRequest {
+	return PoliciesAPIDeleteUserPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -1159,7 +1159,7 @@ func (a *PoliciesAPIService) DeleteUserPolicy(ctx context.Context, policyUuid st
 }
 
 // Execute executes the request
-func (a *PoliciesAPIService) DeleteUserPolicyExecute(r ApiDeleteUserPolicyRequest) (*http.Response, error) {
+func (a *PoliciesAPIService) DeleteUserPolicyExecute(r PoliciesAPIDeleteUserPolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1248,7 +1248,7 @@ func (a *PoliciesAPIService) DeleteUserPolicyExecute(r ApiDeleteUserPolicyReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiEditPolicyRequest struct {
+type PoliciesAPIEditPolicyRequest struct {
 	ctx          context.Context
 	ApiService   PoliciesAPI
 	body         *Policy
@@ -1257,18 +1257,18 @@ type ApiEditPolicyRequest struct {
 }
 
 // The policy edition parameters
-func (r ApiEditPolicyRequest) Body(body Policy) ApiEditPolicyRequest {
+func (r PoliciesAPIEditPolicyRequest) Body(body Policy) PoliciesAPIEditPolicyRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiEditPolicyRequest) AccentTenant(accentTenant string) ApiEditPolicyRequest {
+func (r PoliciesAPIEditPolicyRequest) AccentTenant(accentTenant string) PoliciesAPIEditPolicyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiEditPolicyRequest) Execute() (*PolicyResult, *http.Response, error) {
+func (r PoliciesAPIEditPolicyRequest) Execute() (*PolicyResult, *http.Response, error) {
 	return r.ApiService.EditPolicyExecute(r)
 }
 
@@ -1279,10 +1279,10 @@ EditPolicy Modify an ACL policy
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-	@return ApiEditPolicyRequest
+	@return PoliciesAPIEditPolicyRequest
 */
-func (a *PoliciesAPIService) EditPolicy(ctx context.Context, policyUuid string) ApiEditPolicyRequest {
-	return ApiEditPolicyRequest{
+func (a *PoliciesAPIService) EditPolicy(ctx context.Context, policyUuid string) PoliciesAPIEditPolicyRequest {
+	return PoliciesAPIEditPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -1292,7 +1292,7 @@ func (a *PoliciesAPIService) EditPolicy(ctx context.Context, policyUuid string) 
 // Execute executes the request
 //
 //	@return PolicyResult
-func (a *PoliciesAPIService) EditPolicyExecute(r ApiEditPolicyRequest) (*PolicyResult, *http.Response, error) {
+func (a *PoliciesAPIService) EditPolicyExecute(r PoliciesAPIEditPolicyRequest) (*PolicyResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -1409,7 +1409,7 @@ func (a *PoliciesAPIService) EditPolicyExecute(r ApiEditPolicyRequest) (*PolicyR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPoliciesRequest struct {
+type PoliciesAPIGetPoliciesRequest struct {
 	ctx          context.Context
 	ApiService   PoliciesAPI
 	order        *string
@@ -1422,48 +1422,48 @@ type ApiGetPoliciesRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetPoliciesRequest) Order(order string) ApiGetPoliciesRequest {
+func (r PoliciesAPIGetPoliciesRequest) Order(order string) PoliciesAPIGetPoliciesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetPoliciesRequest) Direction(direction string) ApiGetPoliciesRequest {
+func (r PoliciesAPIGetPoliciesRequest) Direction(direction string) PoliciesAPIGetPoliciesRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetPoliciesRequest) Limit(limit int32) ApiGetPoliciesRequest {
+func (r PoliciesAPIGetPoliciesRequest) Limit(limit int32) PoliciesAPIGetPoliciesRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetPoliciesRequest) Offset(offset int32) ApiGetPoliciesRequest {
+func (r PoliciesAPIGetPoliciesRequest) Offset(offset int32) PoliciesAPIGetPoliciesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetPoliciesRequest) Search(search string) ApiGetPoliciesRequest {
+func (r PoliciesAPIGetPoliciesRequest) Search(search string) PoliciesAPIGetPoliciesRequest {
 	r.search = &search
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetPoliciesRequest) AccentTenant(accentTenant string) ApiGetPoliciesRequest {
+func (r PoliciesAPIGetPoliciesRequest) AccentTenant(accentTenant string) PoliciesAPIGetPoliciesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiGetPoliciesRequest) Recurse(recurse bool) ApiGetPoliciesRequest {
+func (r PoliciesAPIGetPoliciesRequest) Recurse(recurse bool) PoliciesAPIGetPoliciesRequest {
 	r.recurse = &recurse
 	return r
 }
 
-func (r ApiGetPoliciesRequest) Execute() (*GetPoliciesResult, *http.Response, error) {
+func (r PoliciesAPIGetPoliciesRequest) Execute() (*GetPoliciesResult, *http.Response, error) {
 	return r.ApiService.GetPoliciesExecute(r)
 }
 
@@ -1473,10 +1473,10 @@ GetPolicies List ACL policies
 **Required ACL:** `auth.policies.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPoliciesRequest
+	@return PoliciesAPIGetPoliciesRequest
 */
-func (a *PoliciesAPIService) GetPolicies(ctx context.Context) ApiGetPoliciesRequest {
-	return ApiGetPoliciesRequest{
+func (a *PoliciesAPIService) GetPolicies(ctx context.Context) PoliciesAPIGetPoliciesRequest {
+	return PoliciesAPIGetPoliciesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1485,7 +1485,7 @@ func (a *PoliciesAPIService) GetPolicies(ctx context.Context) ApiGetPoliciesRequ
 // Execute executes the request
 //
 //	@return GetPoliciesResult
-func (a *PoliciesAPIService) GetPoliciesExecute(r ApiGetPoliciesRequest) (*GetPoliciesResult, *http.Response, error) {
+func (a *PoliciesAPIService) GetPoliciesExecute(r PoliciesAPIGetPoliciesRequest) (*GetPoliciesResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1609,7 +1609,7 @@ func (a *PoliciesAPIService) GetPoliciesExecute(r ApiGetPoliciesRequest) (*GetPo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPolicyRequest struct {
+type PoliciesAPIGetPolicyRequest struct {
 	ctx          context.Context
 	ApiService   PoliciesAPI
 	policyUuid   string
@@ -1617,12 +1617,12 @@ type ApiGetPolicyRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetPolicyRequest) AccentTenant(accentTenant string) ApiGetPolicyRequest {
+func (r PoliciesAPIGetPolicyRequest) AccentTenant(accentTenant string) PoliciesAPIGetPolicyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetPolicyRequest) Execute() (*PolicyResult, *http.Response, error) {
+func (r PoliciesAPIGetPolicyRequest) Execute() (*PolicyResult, *http.Response, error) {
 	return r.ApiService.GetPolicyExecute(r)
 }
 
@@ -1633,10 +1633,10 @@ GetPolicy Retrieves the details of a policy
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-	@return ApiGetPolicyRequest
+	@return PoliciesAPIGetPolicyRequest
 */
-func (a *PoliciesAPIService) GetPolicy(ctx context.Context, policyUuid string) ApiGetPolicyRequest {
-	return ApiGetPolicyRequest{
+func (a *PoliciesAPIService) GetPolicy(ctx context.Context, policyUuid string) PoliciesAPIGetPolicyRequest {
+	return PoliciesAPIGetPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -1646,7 +1646,7 @@ func (a *PoliciesAPIService) GetPolicy(ctx context.Context, policyUuid string) A
 // Execute executes the request
 //
 //	@return PolicyResult
-func (a *PoliciesAPIService) GetPolicyExecute(r ApiGetPolicyRequest) (*PolicyResult, *http.Response, error) {
+func (a *PoliciesAPIService) GetPolicyExecute(r PoliciesAPIGetPolicyRequest) (*PolicyResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1769,7 +1769,7 @@ func (a *PoliciesAPIService) GetPolicyExecute(r ApiGetPolicyRequest) (*PolicyRes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserPoliciesRequest struct {
+type PoliciesAPIGetUserPoliciesRequest struct {
 	ctx        context.Context
 	ApiService PoliciesAPI
 	userUuid   string
@@ -1781,36 +1781,36 @@ type ApiGetUserPoliciesRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetUserPoliciesRequest) Order(order string) ApiGetUserPoliciesRequest {
+func (r PoliciesAPIGetUserPoliciesRequest) Order(order string) PoliciesAPIGetUserPoliciesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserPoliciesRequest) Direction(direction string) ApiGetUserPoliciesRequest {
+func (r PoliciesAPIGetUserPoliciesRequest) Direction(direction string) PoliciesAPIGetUserPoliciesRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserPoliciesRequest) Limit(limit int32) ApiGetUserPoliciesRequest {
+func (r PoliciesAPIGetUserPoliciesRequest) Limit(limit int32) PoliciesAPIGetUserPoliciesRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserPoliciesRequest) Offset(offset int32) ApiGetUserPoliciesRequest {
+func (r PoliciesAPIGetUserPoliciesRequest) Offset(offset int32) PoliciesAPIGetUserPoliciesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetUserPoliciesRequest) Search(search string) ApiGetUserPoliciesRequest {
+func (r PoliciesAPIGetUserPoliciesRequest) Search(search string) PoliciesAPIGetUserPoliciesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetUserPoliciesRequest) Execute() (*GetPoliciesResult, *http.Response, error) {
+func (r PoliciesAPIGetUserPoliciesRequest) Execute() (*GetPoliciesResult, *http.Response, error) {
 	return r.ApiService.GetUserPoliciesExecute(r)
 }
 
@@ -1821,10 +1821,10 @@ GetUserPolicies Retrieves the list of policies associated to a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserPoliciesRequest
+	@return PoliciesAPIGetUserPoliciesRequest
 */
-func (a *PoliciesAPIService) GetUserPolicies(ctx context.Context, userUuid string) ApiGetUserPoliciesRequest {
-	return ApiGetUserPoliciesRequest{
+func (a *PoliciesAPIService) GetUserPolicies(ctx context.Context, userUuid string) PoliciesAPIGetUserPoliciesRequest {
+	return PoliciesAPIGetUserPoliciesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1834,7 +1834,7 @@ func (a *PoliciesAPIService) GetUserPolicies(ctx context.Context, userUuid strin
 // Execute executes the request
 //
 //	@return GetPoliciesResult
-func (a *PoliciesAPIService) GetUserPoliciesExecute(r ApiGetUserPoliciesRequest) (*GetPoliciesResult, *http.Response, error) {
+func (a *PoliciesAPIService) GetUserPoliciesExecute(r PoliciesAPIGetUserPoliciesRequest) (*GetPoliciesResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

@@ -28,13 +28,13 @@ type CallpickupsAPI interface {
 		**Required ACL:** `confd.callpickups.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateCallpickupRequest
+		@return CallpickupsAPICreateCallpickupRequest
 	*/
-	CreateCallpickup(ctx context.Context) ApiCreateCallpickupRequest
+	CreateCallpickup(ctx context.Context) CallpickupsAPICreateCallpickupRequest
 
 	// CreateCallpickupExecute executes the request
 	//  @return CallPickup
-	CreateCallpickupExecute(r ApiCreateCallpickupRequest) (*CallPickup, *http.Response, error)
+	CreateCallpickupExecute(r CallpickupsAPICreateCallpickupRequest) (*CallPickup, *http.Response, error)
 
 	/*
 		DeleteCallpickup Delete call pickup
@@ -43,12 +43,12 @@ type CallpickupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiDeleteCallpickupRequest
+		@return CallpickupsAPIDeleteCallpickupRequest
 	*/
-	DeleteCallpickup(ctx context.Context, callpickupId int32) ApiDeleteCallpickupRequest
+	DeleteCallpickup(ctx context.Context, callpickupId int32) CallpickupsAPIDeleteCallpickupRequest
 
 	// DeleteCallpickupExecute executes the request
-	DeleteCallpickupExecute(r ApiDeleteCallpickupRequest) (*http.Response, error)
+	DeleteCallpickupExecute(r CallpickupsAPIDeleteCallpickupRequest) (*http.Response, error)
 
 	/*
 		GetCallpickup Get call pickup
@@ -57,13 +57,13 @@ type CallpickupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiGetCallpickupRequest
+		@return CallpickupsAPIGetCallpickupRequest
 	*/
-	GetCallpickup(ctx context.Context, callpickupId int32) ApiGetCallpickupRequest
+	GetCallpickup(ctx context.Context, callpickupId int32) CallpickupsAPIGetCallpickupRequest
 
 	// GetCallpickupExecute executes the request
 	//  @return CallPickup
-	GetCallpickupExecute(r ApiGetCallpickupRequest) (*CallPickup, *http.Response, error)
+	GetCallpickupExecute(r CallpickupsAPIGetCallpickupRequest) (*CallPickup, *http.Response, error)
 
 	/*
 		ListCallPickups List call pickups
@@ -71,13 +71,13 @@ type CallpickupsAPI interface {
 		**Required ACL:** `confd.callpickups.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListCallPickupsRequest
+		@return CallpickupsAPIListCallPickupsRequest
 	*/
-	ListCallPickups(ctx context.Context) ApiListCallPickupsRequest
+	ListCallPickups(ctx context.Context) CallpickupsAPIListCallPickupsRequest
 
 	// ListCallPickupsExecute executes the request
 	//  @return CallPickupItems
-	ListCallPickupsExecute(r ApiListCallPickupsRequest) (*CallPickupItems, *http.Response, error)
+	ListCallPickupsExecute(r CallpickupsAPIListCallPickupsRequest) (*CallPickupItems, *http.Response, error)
 
 	/*
 		UpdateCallPickupInterceptorGroups Update call pickup and interceptors
@@ -86,12 +86,12 @@ type CallpickupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallPickupInterceptorGroupsRequest
+		@return CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest
 	*/
-	UpdateCallPickupInterceptorGroups(ctx context.Context, callpickupId int32) ApiUpdateCallPickupInterceptorGroupsRequest
+	UpdateCallPickupInterceptorGroups(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest
 
 	// UpdateCallPickupInterceptorGroupsExecute executes the request
-	UpdateCallPickupInterceptorGroupsExecute(r ApiUpdateCallPickupInterceptorGroupsRequest) (*http.Response, error)
+	UpdateCallPickupInterceptorGroupsExecute(r CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest) (*http.Response, error)
 
 	/*
 		UpdateCallPickupInterceptorUsers Update call pickup and interceptors
@@ -100,12 +100,12 @@ type CallpickupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallPickupInterceptorUsersRequest
+		@return CallpickupsAPIUpdateCallPickupInterceptorUsersRequest
 	*/
-	UpdateCallPickupInterceptorUsers(ctx context.Context, callpickupId int32) ApiUpdateCallPickupInterceptorUsersRequest
+	UpdateCallPickupInterceptorUsers(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallPickupInterceptorUsersRequest
 
 	// UpdateCallPickupInterceptorUsersExecute executes the request
-	UpdateCallPickupInterceptorUsersExecute(r ApiUpdateCallPickupInterceptorUsersRequest) (*http.Response, error)
+	UpdateCallPickupInterceptorUsersExecute(r CallpickupsAPIUpdateCallPickupInterceptorUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateCallPickupTargetGroups Update call pickup and targets
@@ -114,12 +114,12 @@ type CallpickupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallPickupTargetGroupsRequest
+		@return CallpickupsAPIUpdateCallPickupTargetGroupsRequest
 	*/
-	UpdateCallPickupTargetGroups(ctx context.Context, callpickupId int32) ApiUpdateCallPickupTargetGroupsRequest
+	UpdateCallPickupTargetGroups(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallPickupTargetGroupsRequest
 
 	// UpdateCallPickupTargetGroupsExecute executes the request
-	UpdateCallPickupTargetGroupsExecute(r ApiUpdateCallPickupTargetGroupsRequest) (*http.Response, error)
+	UpdateCallPickupTargetGroupsExecute(r CallpickupsAPIUpdateCallPickupTargetGroupsRequest) (*http.Response, error)
 
 	/*
 		UpdateCallPickupTargetUsers Update call pickup and targets
@@ -128,12 +128,12 @@ type CallpickupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallPickupTargetUsersRequest
+		@return CallpickupsAPIUpdateCallPickupTargetUsersRequest
 	*/
-	UpdateCallPickupTargetUsers(ctx context.Context, callpickupId int32) ApiUpdateCallPickupTargetUsersRequest
+	UpdateCallPickupTargetUsers(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallPickupTargetUsersRequest
 
 	// UpdateCallPickupTargetUsersExecute executes the request
-	UpdateCallPickupTargetUsersExecute(r ApiUpdateCallPickupTargetUsersRequest) (*http.Response, error)
+	UpdateCallPickupTargetUsersExecute(r CallpickupsAPIUpdateCallPickupTargetUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateCallpickup Update call pickup
@@ -142,18 +142,18 @@ type CallpickupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallpickupRequest
+		@return CallpickupsAPIUpdateCallpickupRequest
 	*/
-	UpdateCallpickup(ctx context.Context, callpickupId int32) ApiUpdateCallpickupRequest
+	UpdateCallpickup(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallpickupRequest
 
 	// UpdateCallpickupExecute executes the request
-	UpdateCallpickupExecute(r ApiUpdateCallpickupRequest) (*http.Response, error)
+	UpdateCallpickupExecute(r CallpickupsAPIUpdateCallpickupRequest) (*http.Response, error)
 }
 
 // CallpickupsAPIService CallpickupsAPI service
 type CallpickupsAPIService service
 
-type ApiCreateCallpickupRequest struct {
+type CallpickupsAPICreateCallpickupRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	body         *CallPickup
@@ -161,18 +161,18 @@ type ApiCreateCallpickupRequest struct {
 }
 
 // Call Pickup to create
-func (r ApiCreateCallpickupRequest) Body(body CallPickup) ApiCreateCallpickupRequest {
+func (r CallpickupsAPICreateCallpickupRequest) Body(body CallPickup) CallpickupsAPICreateCallpickupRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateCallpickupRequest) AccentTenant(accentTenant string) ApiCreateCallpickupRequest {
+func (r CallpickupsAPICreateCallpickupRequest) AccentTenant(accentTenant string) CallpickupsAPICreateCallpickupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateCallpickupRequest) Execute() (*CallPickup, *http.Response, error) {
+func (r CallpickupsAPICreateCallpickupRequest) Execute() (*CallPickup, *http.Response, error) {
 	return r.ApiService.CreateCallpickupExecute(r)
 }
 
@@ -182,10 +182,10 @@ CreateCallpickup Create call pickup
 **Required ACL:** `confd.callpickups.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateCallpickupRequest
+	@return CallpickupsAPICreateCallpickupRequest
 */
-func (a *CallpickupsAPIService) CreateCallpickup(ctx context.Context) ApiCreateCallpickupRequest {
-	return ApiCreateCallpickupRequest{
+func (a *CallpickupsAPIService) CreateCallpickup(ctx context.Context) CallpickupsAPICreateCallpickupRequest {
+	return CallpickupsAPICreateCallpickupRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -194,7 +194,7 @@ func (a *CallpickupsAPIService) CreateCallpickup(ctx context.Context) ApiCreateC
 // Execute executes the request
 //
 //	@return CallPickup
-func (a *CallpickupsAPIService) CreateCallpickupExecute(r ApiCreateCallpickupRequest) (*CallPickup, *http.Response, error) {
+func (a *CallpickupsAPIService) CreateCallpickupExecute(r CallpickupsAPICreateCallpickupRequest) (*CallPickup, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -299,7 +299,7 @@ func (a *CallpickupsAPIService) CreateCallpickupExecute(r ApiCreateCallpickupReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteCallpickupRequest struct {
+type CallpickupsAPIDeleteCallpickupRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	callpickupId int32
@@ -307,12 +307,12 @@ type ApiDeleteCallpickupRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteCallpickupRequest) AccentTenant(accentTenant string) ApiDeleteCallpickupRequest {
+func (r CallpickupsAPIDeleteCallpickupRequest) AccentTenant(accentTenant string) CallpickupsAPIDeleteCallpickupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteCallpickupRequest) Execute() (*http.Response, error) {
+func (r CallpickupsAPIDeleteCallpickupRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteCallpickupExecute(r)
 }
 
@@ -323,10 +323,10 @@ DeleteCallpickup Delete call pickup
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiDeleteCallpickupRequest
+	@return CallpickupsAPIDeleteCallpickupRequest
 */
-func (a *CallpickupsAPIService) DeleteCallpickup(ctx context.Context, callpickupId int32) ApiDeleteCallpickupRequest {
-	return ApiDeleteCallpickupRequest{
+func (a *CallpickupsAPIService) DeleteCallpickup(ctx context.Context, callpickupId int32) CallpickupsAPIDeleteCallpickupRequest {
+	return CallpickupsAPIDeleteCallpickupRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -334,7 +334,7 @@ func (a *CallpickupsAPIService) DeleteCallpickup(ctx context.Context, callpickup
 }
 
 // Execute executes the request
-func (a *CallpickupsAPIService) DeleteCallpickupExecute(r ApiDeleteCallpickupRequest) (*http.Response, error) {
+func (a *CallpickupsAPIService) DeleteCallpickupExecute(r CallpickupsAPIDeleteCallpickupRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -436,7 +436,7 @@ func (a *CallpickupsAPIService) DeleteCallpickupExecute(r ApiDeleteCallpickupReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetCallpickupRequest struct {
+type CallpickupsAPIGetCallpickupRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	callpickupId int32
@@ -444,12 +444,12 @@ type ApiGetCallpickupRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetCallpickupRequest) AccentTenant(accentTenant string) ApiGetCallpickupRequest {
+func (r CallpickupsAPIGetCallpickupRequest) AccentTenant(accentTenant string) CallpickupsAPIGetCallpickupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetCallpickupRequest) Execute() (*CallPickup, *http.Response, error) {
+func (r CallpickupsAPIGetCallpickupRequest) Execute() (*CallPickup, *http.Response, error) {
 	return r.ApiService.GetCallpickupExecute(r)
 }
 
@@ -460,10 +460,10 @@ GetCallpickup Get call pickup
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiGetCallpickupRequest
+	@return CallpickupsAPIGetCallpickupRequest
 */
-func (a *CallpickupsAPIService) GetCallpickup(ctx context.Context, callpickupId int32) ApiGetCallpickupRequest {
-	return ApiGetCallpickupRequest{
+func (a *CallpickupsAPIService) GetCallpickup(ctx context.Context, callpickupId int32) CallpickupsAPIGetCallpickupRequest {
+	return CallpickupsAPIGetCallpickupRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -473,7 +473,7 @@ func (a *CallpickupsAPIService) GetCallpickup(ctx context.Context, callpickupId 
 // Execute executes the request
 //
 //	@return CallPickup
-func (a *CallpickupsAPIService) GetCallpickupExecute(r ApiGetCallpickupRequest) (*CallPickup, *http.Response, error) {
+func (a *CallpickupsAPIService) GetCallpickupExecute(r CallpickupsAPIGetCallpickupRequest) (*CallPickup, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -574,7 +574,7 @@ func (a *CallpickupsAPIService) GetCallpickupExecute(r ApiGetCallpickupRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListCallPickupsRequest struct {
+type CallpickupsAPIListCallPickupsRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	accentTenant *string
@@ -587,48 +587,48 @@ type ApiListCallPickupsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListCallPickupsRequest) AccentTenant(accentTenant string) ApiListCallPickupsRequest {
+func (r CallpickupsAPIListCallPickupsRequest) AccentTenant(accentTenant string) CallpickupsAPIListCallPickupsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListCallPickupsRequest) Recurse(recurse bool) ApiListCallPickupsRequest {
+func (r CallpickupsAPIListCallPickupsRequest) Recurse(recurse bool) CallpickupsAPIListCallPickupsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListCallPickupsRequest) Order(order string) ApiListCallPickupsRequest {
+func (r CallpickupsAPIListCallPickupsRequest) Order(order string) CallpickupsAPIListCallPickupsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListCallPickupsRequest) Direction(direction string) ApiListCallPickupsRequest {
+func (r CallpickupsAPIListCallPickupsRequest) Direction(direction string) CallpickupsAPIListCallPickupsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListCallPickupsRequest) Limit(limit int32) ApiListCallPickupsRequest {
+func (r CallpickupsAPIListCallPickupsRequest) Limit(limit int32) CallpickupsAPIListCallPickupsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListCallPickupsRequest) Offset(offset int32) ApiListCallPickupsRequest {
+func (r CallpickupsAPIListCallPickupsRequest) Offset(offset int32) CallpickupsAPIListCallPickupsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListCallPickupsRequest) Search(search string) ApiListCallPickupsRequest {
+func (r CallpickupsAPIListCallPickupsRequest) Search(search string) CallpickupsAPIListCallPickupsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListCallPickupsRequest) Execute() (*CallPickupItems, *http.Response, error) {
+func (r CallpickupsAPIListCallPickupsRequest) Execute() (*CallPickupItems, *http.Response, error) {
 	return r.ApiService.ListCallPickupsExecute(r)
 }
 
@@ -638,10 +638,10 @@ ListCallPickups List call pickups
 **Required ACL:** `confd.callpickups.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListCallPickupsRequest
+	@return CallpickupsAPIListCallPickupsRequest
 */
-func (a *CallpickupsAPIService) ListCallPickups(ctx context.Context) ApiListCallPickupsRequest {
-	return ApiListCallPickupsRequest{
+func (a *CallpickupsAPIService) ListCallPickups(ctx context.Context) CallpickupsAPIListCallPickupsRequest {
+	return CallpickupsAPIListCallPickupsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -650,7 +650,7 @@ func (a *CallpickupsAPIService) ListCallPickups(ctx context.Context) ApiListCall
 // Execute executes the request
 //
 //	@return CallPickupItems
-func (a *CallpickupsAPIService) ListCallPickupsExecute(r ApiListCallPickupsRequest) (*CallPickupItems, *http.Response, error) {
+func (a *CallpickupsAPIService) ListCallPickupsExecute(r CallpickupsAPIListCallPickupsRequest) (*CallPickupItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -761,7 +761,7 @@ func (a *CallpickupsAPIService) ListCallPickupsExecute(r ApiListCallPickupsReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallPickupInterceptorGroupsRequest struct {
+type CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	body         *GroupsID
@@ -770,18 +770,18 @@ type ApiUpdateCallPickupInterceptorGroupsRequest struct {
 }
 
 // Groups to associated
-func (r ApiUpdateCallPickupInterceptorGroupsRequest) Body(body GroupsID) ApiUpdateCallPickupInterceptorGroupsRequest {
+func (r CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest) Body(body GroupsID) CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallPickupInterceptorGroupsRequest) AccentTenant(accentTenant string) ApiUpdateCallPickupInterceptorGroupsRequest {
+func (r CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest) AccentTenant(accentTenant string) CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallPickupInterceptorGroupsRequest) Execute() (*http.Response, error) {
+func (r CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallPickupInterceptorGroupsExecute(r)
 }
 
@@ -792,10 +792,10 @@ UpdateCallPickupInterceptorGroups Update call pickup and interceptors
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallPickupInterceptorGroupsRequest
+	@return CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest
 */
-func (a *CallpickupsAPIService) UpdateCallPickupInterceptorGroups(ctx context.Context, callpickupId int32) ApiUpdateCallPickupInterceptorGroupsRequest {
-	return ApiUpdateCallPickupInterceptorGroupsRequest{
+func (a *CallpickupsAPIService) UpdateCallPickupInterceptorGroups(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest {
+	return CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -803,7 +803,7 @@ func (a *CallpickupsAPIService) UpdateCallPickupInterceptorGroups(ctx context.Co
 }
 
 // Execute executes the request
-func (a *CallpickupsAPIService) UpdateCallPickupInterceptorGroupsExecute(r ApiUpdateCallPickupInterceptorGroupsRequest) (*http.Response, error) {
+func (a *CallpickupsAPIService) UpdateCallPickupInterceptorGroupsExecute(r CallpickupsAPIUpdateCallPickupInterceptorGroupsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -910,7 +910,7 @@ func (a *CallpickupsAPIService) UpdateCallPickupInterceptorGroupsExecute(r ApiUp
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallPickupInterceptorUsersRequest struct {
+type CallpickupsAPIUpdateCallPickupInterceptorUsersRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	body         *UsersUuid
@@ -919,18 +919,18 @@ type ApiUpdateCallPickupInterceptorUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateCallPickupInterceptorUsersRequest) Body(body UsersUuid) ApiUpdateCallPickupInterceptorUsersRequest {
+func (r CallpickupsAPIUpdateCallPickupInterceptorUsersRequest) Body(body UsersUuid) CallpickupsAPIUpdateCallPickupInterceptorUsersRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallPickupInterceptorUsersRequest) AccentTenant(accentTenant string) ApiUpdateCallPickupInterceptorUsersRequest {
+func (r CallpickupsAPIUpdateCallPickupInterceptorUsersRequest) AccentTenant(accentTenant string) CallpickupsAPIUpdateCallPickupInterceptorUsersRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallPickupInterceptorUsersRequest) Execute() (*http.Response, error) {
+func (r CallpickupsAPIUpdateCallPickupInterceptorUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallPickupInterceptorUsersExecute(r)
 }
 
@@ -941,10 +941,10 @@ UpdateCallPickupInterceptorUsers Update call pickup and interceptors
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallPickupInterceptorUsersRequest
+	@return CallpickupsAPIUpdateCallPickupInterceptorUsersRequest
 */
-func (a *CallpickupsAPIService) UpdateCallPickupInterceptorUsers(ctx context.Context, callpickupId int32) ApiUpdateCallPickupInterceptorUsersRequest {
-	return ApiUpdateCallPickupInterceptorUsersRequest{
+func (a *CallpickupsAPIService) UpdateCallPickupInterceptorUsers(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallPickupInterceptorUsersRequest {
+	return CallpickupsAPIUpdateCallPickupInterceptorUsersRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -952,7 +952,7 @@ func (a *CallpickupsAPIService) UpdateCallPickupInterceptorUsers(ctx context.Con
 }
 
 // Execute executes the request
-func (a *CallpickupsAPIService) UpdateCallPickupInterceptorUsersExecute(r ApiUpdateCallPickupInterceptorUsersRequest) (*http.Response, error) {
+func (a *CallpickupsAPIService) UpdateCallPickupInterceptorUsersExecute(r CallpickupsAPIUpdateCallPickupInterceptorUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1059,7 +1059,7 @@ func (a *CallpickupsAPIService) UpdateCallPickupInterceptorUsersExecute(r ApiUpd
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallPickupTargetGroupsRequest struct {
+type CallpickupsAPIUpdateCallPickupTargetGroupsRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	body         *GroupsID
@@ -1068,18 +1068,18 @@ type ApiUpdateCallPickupTargetGroupsRequest struct {
 }
 
 // Groups to associated
-func (r ApiUpdateCallPickupTargetGroupsRequest) Body(body GroupsID) ApiUpdateCallPickupTargetGroupsRequest {
+func (r CallpickupsAPIUpdateCallPickupTargetGroupsRequest) Body(body GroupsID) CallpickupsAPIUpdateCallPickupTargetGroupsRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallPickupTargetGroupsRequest) AccentTenant(accentTenant string) ApiUpdateCallPickupTargetGroupsRequest {
+func (r CallpickupsAPIUpdateCallPickupTargetGroupsRequest) AccentTenant(accentTenant string) CallpickupsAPIUpdateCallPickupTargetGroupsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallPickupTargetGroupsRequest) Execute() (*http.Response, error) {
+func (r CallpickupsAPIUpdateCallPickupTargetGroupsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallPickupTargetGroupsExecute(r)
 }
 
@@ -1090,10 +1090,10 @@ UpdateCallPickupTargetGroups Update call pickup and targets
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallPickupTargetGroupsRequest
+	@return CallpickupsAPIUpdateCallPickupTargetGroupsRequest
 */
-func (a *CallpickupsAPIService) UpdateCallPickupTargetGroups(ctx context.Context, callpickupId int32) ApiUpdateCallPickupTargetGroupsRequest {
-	return ApiUpdateCallPickupTargetGroupsRequest{
+func (a *CallpickupsAPIService) UpdateCallPickupTargetGroups(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallPickupTargetGroupsRequest {
+	return CallpickupsAPIUpdateCallPickupTargetGroupsRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -1101,7 +1101,7 @@ func (a *CallpickupsAPIService) UpdateCallPickupTargetGroups(ctx context.Context
 }
 
 // Execute executes the request
-func (a *CallpickupsAPIService) UpdateCallPickupTargetGroupsExecute(r ApiUpdateCallPickupTargetGroupsRequest) (*http.Response, error) {
+func (a *CallpickupsAPIService) UpdateCallPickupTargetGroupsExecute(r CallpickupsAPIUpdateCallPickupTargetGroupsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1208,7 +1208,7 @@ func (a *CallpickupsAPIService) UpdateCallPickupTargetGroupsExecute(r ApiUpdateC
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallPickupTargetUsersRequest struct {
+type CallpickupsAPIUpdateCallPickupTargetUsersRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	body         *UsersUuid
@@ -1217,18 +1217,18 @@ type ApiUpdateCallPickupTargetUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateCallPickupTargetUsersRequest) Body(body UsersUuid) ApiUpdateCallPickupTargetUsersRequest {
+func (r CallpickupsAPIUpdateCallPickupTargetUsersRequest) Body(body UsersUuid) CallpickupsAPIUpdateCallPickupTargetUsersRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallPickupTargetUsersRequest) AccentTenant(accentTenant string) ApiUpdateCallPickupTargetUsersRequest {
+func (r CallpickupsAPIUpdateCallPickupTargetUsersRequest) AccentTenant(accentTenant string) CallpickupsAPIUpdateCallPickupTargetUsersRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallPickupTargetUsersRequest) Execute() (*http.Response, error) {
+func (r CallpickupsAPIUpdateCallPickupTargetUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallPickupTargetUsersExecute(r)
 }
 
@@ -1239,10 +1239,10 @@ UpdateCallPickupTargetUsers Update call pickup and targets
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallPickupTargetUsersRequest
+	@return CallpickupsAPIUpdateCallPickupTargetUsersRequest
 */
-func (a *CallpickupsAPIService) UpdateCallPickupTargetUsers(ctx context.Context, callpickupId int32) ApiUpdateCallPickupTargetUsersRequest {
-	return ApiUpdateCallPickupTargetUsersRequest{
+func (a *CallpickupsAPIService) UpdateCallPickupTargetUsers(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallPickupTargetUsersRequest {
+	return CallpickupsAPIUpdateCallPickupTargetUsersRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -1250,7 +1250,7 @@ func (a *CallpickupsAPIService) UpdateCallPickupTargetUsers(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *CallpickupsAPIService) UpdateCallPickupTargetUsersExecute(r ApiUpdateCallPickupTargetUsersRequest) (*http.Response, error) {
+func (a *CallpickupsAPIService) UpdateCallPickupTargetUsersExecute(r CallpickupsAPIUpdateCallPickupTargetUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1357,7 +1357,7 @@ func (a *CallpickupsAPIService) UpdateCallPickupTargetUsersExecute(r ApiUpdateCa
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallpickupRequest struct {
+type CallpickupsAPIUpdateCallpickupRequest struct {
 	ctx          context.Context
 	ApiService   CallpickupsAPI
 	body         *CallPickup
@@ -1365,18 +1365,18 @@ type ApiUpdateCallpickupRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateCallpickupRequest) Body(body CallPickup) ApiUpdateCallpickupRequest {
+func (r CallpickupsAPIUpdateCallpickupRequest) Body(body CallPickup) CallpickupsAPIUpdateCallpickupRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallpickupRequest) AccentTenant(accentTenant string) ApiUpdateCallpickupRequest {
+func (r CallpickupsAPIUpdateCallpickupRequest) AccentTenant(accentTenant string) CallpickupsAPIUpdateCallpickupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallpickupRequest) Execute() (*http.Response, error) {
+func (r CallpickupsAPIUpdateCallpickupRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallpickupExecute(r)
 }
 
@@ -1387,10 +1387,10 @@ UpdateCallpickup Update call pickup
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallpickupRequest
+	@return CallpickupsAPIUpdateCallpickupRequest
 */
-func (a *CallpickupsAPIService) UpdateCallpickup(ctx context.Context, callpickupId int32) ApiUpdateCallpickupRequest {
-	return ApiUpdateCallpickupRequest{
+func (a *CallpickupsAPIService) UpdateCallpickup(ctx context.Context, callpickupId int32) CallpickupsAPIUpdateCallpickupRequest {
+	return CallpickupsAPIUpdateCallpickupRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -1398,7 +1398,7 @@ func (a *CallpickupsAPIService) UpdateCallpickup(ctx context.Context, callpickup
 }
 
 // Execute executes the request
-func (a *CallpickupsAPIService) UpdateCallpickupExecute(r ApiUpdateCallpickupRequest) (*http.Response, error) {
+func (a *CallpickupsAPIService) UpdateCallpickupExecute(r CallpickupsAPIUpdateCallpickupRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

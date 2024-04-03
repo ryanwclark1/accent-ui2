@@ -29,12 +29,12 @@ type SessionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sessionUuid The UUID of the session
-		@return ApiDeleteSessionRequest
+		@return SessionsAPIDeleteSessionRequest
 	*/
-	DeleteSession(ctx context.Context, sessionUuid string) ApiDeleteSessionRequest
+	DeleteSession(ctx context.Context, sessionUuid string) SessionsAPIDeleteSessionRequest
 
 	// DeleteSessionExecute executes the request
-	DeleteSessionExecute(r ApiDeleteSessionRequest) (*http.Response, error)
+	DeleteSessionExecute(r SessionsAPIDeleteSessionRequest) (*http.Response, error)
 
 	/*
 		GetSessions List sessions
@@ -42,13 +42,13 @@ type SessionsAPI interface {
 		**Required ACL:** `auth.sessions.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetSessionsRequest
+		@return SessionsAPIGetSessionsRequest
 	*/
-	GetSessions(ctx context.Context) ApiGetSessionsRequest
+	GetSessions(ctx context.Context) SessionsAPIGetSessionsRequest
 
 	// GetSessionsExecute executes the request
 	//  @return GetSessionsResult
-	GetSessionsExecute(r ApiGetSessionsRequest) (*GetSessionsResult, *http.Response, error)
+	GetSessionsExecute(r SessionsAPIGetSessionsRequest) (*GetSessionsResult, *http.Response, error)
 
 	/*
 		GetUserSessions Retrieves the list of sessions associated to a user
@@ -57,13 +57,13 @@ type SessionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserSessionsRequest
+		@return SessionsAPIGetUserSessionsRequest
 	*/
-	GetUserSessions(ctx context.Context, userUuid string) ApiGetUserSessionsRequest
+	GetUserSessions(ctx context.Context, userUuid string) SessionsAPIGetUserSessionsRequest
 
 	// GetUserSessionsExecute executes the request
 	//  @return GetSessionsResult
-	GetUserSessionsExecute(r ApiGetUserSessionsRequest) (*GetSessionsResult, *http.Response, error)
+	GetUserSessionsExecute(r SessionsAPIGetUserSessionsRequest) (*GetSessionsResult, *http.Response, error)
 
 	/*
 		UserDeleteSession Delete a session
@@ -73,24 +73,24 @@ type SessionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
 		@param sessionUuid The UUID of the session
-		@return ApiUserDeleteSessionRequest
+		@return SessionsAPIUserDeleteSessionRequest
 	*/
-	UserDeleteSession(ctx context.Context, userUuid string, sessionUuid string) ApiUserDeleteSessionRequest
+	UserDeleteSession(ctx context.Context, userUuid string, sessionUuid string) SessionsAPIUserDeleteSessionRequest
 
 	// UserDeleteSessionExecute executes the request
-	UserDeleteSessionExecute(r ApiUserDeleteSessionRequest) (*http.Response, error)
+	UserDeleteSessionExecute(r SessionsAPIUserDeleteSessionRequest) (*http.Response, error)
 }
 
 // SessionsAPIService SessionsAPI service
 type SessionsAPIService service
 
-type ApiDeleteSessionRequest struct {
+type SessionsAPIDeleteSessionRequest struct {
 	ctx         context.Context
 	ApiService  SessionsAPI
 	sessionUuid string
 }
 
-func (r ApiDeleteSessionRequest) Execute() (*http.Response, error) {
+func (r SessionsAPIDeleteSessionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteSessionExecute(r)
 }
 
@@ -101,10 +101,10 @@ DeleteSession Delete a session
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sessionUuid The UUID of the session
-	@return ApiDeleteSessionRequest
+	@return SessionsAPIDeleteSessionRequest
 */
-func (a *SessionsAPIService) DeleteSession(ctx context.Context, sessionUuid string) ApiDeleteSessionRequest {
-	return ApiDeleteSessionRequest{
+func (a *SessionsAPIService) DeleteSession(ctx context.Context, sessionUuid string) SessionsAPIDeleteSessionRequest {
+	return SessionsAPIDeleteSessionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		sessionUuid: sessionUuid,
@@ -112,7 +112,7 @@ func (a *SessionsAPIService) DeleteSession(ctx context.Context, sessionUuid stri
 }
 
 // Execute executes the request
-func (a *SessionsAPIService) DeleteSessionExecute(r ApiDeleteSessionRequest) (*http.Response, error) {
+func (a *SessionsAPIService) DeleteSessionExecute(r SessionsAPIDeleteSessionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -200,7 +200,7 @@ func (a *SessionsAPIService) DeleteSessionExecute(r ApiDeleteSessionRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetSessionsRequest struct {
+type SessionsAPIGetSessionsRequest struct {
 	ctx          context.Context
 	ApiService   SessionsAPI
 	accentTenant *string
@@ -210,30 +210,30 @@ type ApiGetSessionsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetSessionsRequest) AccentTenant(accentTenant string) ApiGetSessionsRequest {
+func (r SessionsAPIGetSessionsRequest) AccentTenant(accentTenant string) SessionsAPIGetSessionsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiGetSessionsRequest) Recurse(recurse bool) ApiGetSessionsRequest {
+func (r SessionsAPIGetSessionsRequest) Recurse(recurse bool) SessionsAPIGetSessionsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetSessionsRequest) Limit(limit int32) ApiGetSessionsRequest {
+func (r SessionsAPIGetSessionsRequest) Limit(limit int32) SessionsAPIGetSessionsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetSessionsRequest) Offset(offset int32) ApiGetSessionsRequest {
+func (r SessionsAPIGetSessionsRequest) Offset(offset int32) SessionsAPIGetSessionsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetSessionsRequest) Execute() (*GetSessionsResult, *http.Response, error) {
+func (r SessionsAPIGetSessionsRequest) Execute() (*GetSessionsResult, *http.Response, error) {
 	return r.ApiService.GetSessionsExecute(r)
 }
 
@@ -243,10 +243,10 @@ GetSessions List sessions
 **Required ACL:** `auth.sessions.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetSessionsRequest
+	@return SessionsAPIGetSessionsRequest
 */
-func (a *SessionsAPIService) GetSessions(ctx context.Context) ApiGetSessionsRequest {
-	return ApiGetSessionsRequest{
+func (a *SessionsAPIService) GetSessions(ctx context.Context) SessionsAPIGetSessionsRequest {
+	return SessionsAPIGetSessionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -255,7 +255,7 @@ func (a *SessionsAPIService) GetSessions(ctx context.Context) ApiGetSessionsRequ
 // Execute executes the request
 //
 //	@return GetSessionsResult
-func (a *SessionsAPIService) GetSessionsExecute(r ApiGetSessionsRequest) (*GetSessionsResult, *http.Response, error) {
+func (a *SessionsAPIService) GetSessionsExecute(r SessionsAPIGetSessionsRequest) (*GetSessionsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -370,7 +370,7 @@ func (a *SessionsAPIService) GetSessionsExecute(r ApiGetSessionsRequest) (*GetSe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserSessionsRequest struct {
+type SessionsAPIGetUserSessionsRequest struct {
 	ctx          context.Context
 	ApiService   SessionsAPI
 	userUuid     string
@@ -380,24 +380,24 @@ type ApiGetUserSessionsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserSessionsRequest) AccentTenant(accentTenant string) ApiGetUserSessionsRequest {
+func (r SessionsAPIGetUserSessionsRequest) AccentTenant(accentTenant string) SessionsAPIGetUserSessionsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserSessionsRequest) Limit(limit int32) ApiGetUserSessionsRequest {
+func (r SessionsAPIGetUserSessionsRequest) Limit(limit int32) SessionsAPIGetUserSessionsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserSessionsRequest) Offset(offset int32) ApiGetUserSessionsRequest {
+func (r SessionsAPIGetUserSessionsRequest) Offset(offset int32) SessionsAPIGetUserSessionsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetUserSessionsRequest) Execute() (*GetSessionsResult, *http.Response, error) {
+func (r SessionsAPIGetUserSessionsRequest) Execute() (*GetSessionsResult, *http.Response, error) {
 	return r.ApiService.GetUserSessionsExecute(r)
 }
 
@@ -408,10 +408,10 @@ GetUserSessions Retrieves the list of sessions associated to a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserSessionsRequest
+	@return SessionsAPIGetUserSessionsRequest
 */
-func (a *SessionsAPIService) GetUserSessions(ctx context.Context, userUuid string) ApiGetUserSessionsRequest {
-	return ApiGetUserSessionsRequest{
+func (a *SessionsAPIService) GetUserSessions(ctx context.Context, userUuid string) SessionsAPIGetUserSessionsRequest {
+	return SessionsAPIGetUserSessionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -421,7 +421,7 @@ func (a *SessionsAPIService) GetUserSessions(ctx context.Context, userUuid strin
 // Execute executes the request
 //
 //	@return GetSessionsResult
-func (a *SessionsAPIService) GetUserSessionsExecute(r ApiGetUserSessionsRequest) (*GetSessionsResult, *http.Response, error) {
+func (a *SessionsAPIService) GetUserSessionsExecute(r SessionsAPIGetUserSessionsRequest) (*GetSessionsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -553,14 +553,14 @@ func (a *SessionsAPIService) GetUserSessionsExecute(r ApiGetUserSessionsRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserDeleteSessionRequest struct {
+type SessionsAPIUserDeleteSessionRequest struct {
 	ctx         context.Context
 	ApiService  SessionsAPI
 	userUuid    string
 	sessionUuid string
 }
 
-func (r ApiUserDeleteSessionRequest) Execute() (*http.Response, error) {
+func (r SessionsAPIUserDeleteSessionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UserDeleteSessionExecute(r)
 }
 
@@ -572,10 +572,10 @@ UserDeleteSession Delete a session
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
 	@param sessionUuid The UUID of the session
-	@return ApiUserDeleteSessionRequest
+	@return SessionsAPIUserDeleteSessionRequest
 */
-func (a *SessionsAPIService) UserDeleteSession(ctx context.Context, userUuid string, sessionUuid string) ApiUserDeleteSessionRequest {
-	return ApiUserDeleteSessionRequest{
+func (a *SessionsAPIService) UserDeleteSession(ctx context.Context, userUuid string, sessionUuid string) SessionsAPIUserDeleteSessionRequest {
+	return SessionsAPIUserDeleteSessionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userUuid:    userUuid,
@@ -584,7 +584,7 @@ func (a *SessionsAPIService) UserDeleteSession(ctx context.Context, userUuid str
 }
 
 // Execute executes the request
-func (a *SessionsAPIService) UserDeleteSessionExecute(r ApiUserDeleteSessionRequest) (*http.Response, error) {
+func (a *SessionsAPIService) UserDeleteSessionExecute(r SessionsAPIUserDeleteSessionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}

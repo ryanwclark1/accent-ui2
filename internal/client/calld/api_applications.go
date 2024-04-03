@@ -30,12 +30,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiAnswerApplicationCallRequest
+		@return ApplicationsAPIAnswerApplicationCallRequest
 	*/
-	AnswerApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiAnswerApplicationCallRequest
+	AnswerApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIAnswerApplicationCallRequest
 
 	// AnswerApplicationCallExecute executes the request
-	AnswerApplicationCallExecute(r ApiAnswerApplicationCallRequest) (*http.Response, error)
+	AnswerApplicationCallExecute(r ApplicationsAPIAnswerApplicationCallRequest) (*http.Response, error)
 
 	/*
 		CreateApplicationCallToNode Make a new call to the node
@@ -45,13 +45,13 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param nodeUuid UUID of the node
-		@return ApiCreateApplicationCallToNodeRequest
+		@return ApplicationsAPICreateApplicationCallToNodeRequest
 	*/
-	CreateApplicationCallToNode(ctx context.Context, applicationUuid string, nodeUuid string) ApiCreateApplicationCallToNodeRequest
+	CreateApplicationCallToNode(ctx context.Context, applicationUuid string, nodeUuid string) ApplicationsAPICreateApplicationCallToNodeRequest
 
 	// CreateApplicationCallToNodeExecute executes the request
 	//  @return ApplicationCall
-	CreateApplicationCallToNodeExecute(r ApiCreateApplicationCallToNodeRequest) (*ApplicationCall, *http.Response, error)
+	CreateApplicationCallToNodeExecute(r ApplicationsAPICreateApplicationCallToNodeRequest) (*ApplicationCall, *http.Response, error)
 
 	/*
 		CreateApplicationCallToUser Initiate a call to a user and insert it in the node
@@ -61,13 +61,13 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param nodeUuid UUID of the node
-		@return ApiCreateApplicationCallToUserRequest
+		@return ApplicationsAPICreateApplicationCallToUserRequest
 	*/
-	CreateApplicationCallToUser(ctx context.Context, applicationUuid string, nodeUuid string) ApiCreateApplicationCallToUserRequest
+	CreateApplicationCallToUser(ctx context.Context, applicationUuid string, nodeUuid string) ApplicationsAPICreateApplicationCallToUserRequest
 
 	// CreateApplicationCallToUserExecute executes the request
 	//  @return ApplicationCall
-	CreateApplicationCallToUserExecute(r ApiCreateApplicationCallToUserRequest) (*ApplicationCall, *http.Response, error)
+	CreateApplicationCallToUserExecute(r ApplicationsAPICreateApplicationCallToUserRequest) (*ApplicationCall, *http.Response, error)
 
 	/*
 		CreateApplicationCalls Make a new call to the application
@@ -76,13 +76,13 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
-		@return ApiCreateApplicationCallsRequest
+		@return ApplicationsAPICreateApplicationCallsRequest
 	*/
-	CreateApplicationCalls(ctx context.Context, applicationUuid string) ApiCreateApplicationCallsRequest
+	CreateApplicationCalls(ctx context.Context, applicationUuid string) ApplicationsAPICreateApplicationCallsRequest
 
 	// CreateApplicationCallsExecute executes the request
 	//  @return ApplicationCall
-	CreateApplicationCallsExecute(r ApiCreateApplicationCallsRequest) (*ApplicationCall, *http.Response, error)
+	CreateApplicationCallsExecute(r ApplicationsAPICreateApplicationCallsRequest) (*ApplicationCall, *http.Response, error)
 
 	/*
 		CreateApplicationNode Make a new node and add calls
@@ -91,13 +91,13 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
-		@return ApiCreateApplicationNodeRequest
+		@return ApplicationsAPICreateApplicationNodeRequest
 	*/
-	CreateApplicationNode(ctx context.Context, applicationUuid string) ApiCreateApplicationNodeRequest
+	CreateApplicationNode(ctx context.Context, applicationUuid string) ApplicationsAPICreateApplicationNodeRequest
 
 	// CreateApplicationNodeExecute executes the request
 	//  @return ApplicationNode
-	CreateApplicationNodeExecute(r ApiCreateApplicationNodeRequest) (*ApplicationNode, *http.Response, error)
+	CreateApplicationNodeExecute(r ApplicationsAPICreateApplicationNodeRequest) (*ApplicationNode, *http.Response, error)
 
 	/*
 		DeleteApplicationCall Hangup a call from the application
@@ -107,12 +107,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiDeleteApplicationCallRequest
+		@return ApplicationsAPIDeleteApplicationCallRequest
 	*/
-	DeleteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiDeleteApplicationCallRequest
+	DeleteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIDeleteApplicationCallRequest
 
 	// DeleteApplicationCallExecute executes the request
-	DeleteApplicationCallExecute(r ApiDeleteApplicationCallRequest) (*http.Response, error)
+	DeleteApplicationCallExecute(r ApplicationsAPIDeleteApplicationCallRequest) (*http.Response, error)
 
 	/*
 		DeleteApplicationCallFromNode Remove call from the node
@@ -123,12 +123,12 @@ type ApplicationsAPI interface {
 		@param applicationUuid UUID of the application
 		@param nodeUuid UUID of the node
 		@param callId ID of the call
-		@return ApiDeleteApplicationCallFromNodeRequest
+		@return ApplicationsAPIDeleteApplicationCallFromNodeRequest
 	*/
-	DeleteApplicationCallFromNode(ctx context.Context, applicationUuid string, nodeUuid string, callId string) ApiDeleteApplicationCallFromNodeRequest
+	DeleteApplicationCallFromNode(ctx context.Context, applicationUuid string, nodeUuid string, callId string) ApplicationsAPIDeleteApplicationCallFromNodeRequest
 
 	// DeleteApplicationCallFromNodeExecute executes the request
-	DeleteApplicationCallFromNodeExecute(r ApiDeleteApplicationCallFromNodeRequest) (*http.Response, error)
+	DeleteApplicationCallFromNodeExecute(r ApplicationsAPIDeleteApplicationCallFromNodeRequest) (*http.Response, error)
 
 	/*
 		DeleteApplicationNode Delete node and hangup all calls
@@ -138,12 +138,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param nodeUuid UUID of the node
-		@return ApiDeleteApplicationNodeRequest
+		@return ApplicationsAPIDeleteApplicationNodeRequest
 	*/
-	DeleteApplicationNode(ctx context.Context, applicationUuid string, nodeUuid string) ApiDeleteApplicationNodeRequest
+	DeleteApplicationNode(ctx context.Context, applicationUuid string, nodeUuid string) ApplicationsAPIDeleteApplicationNodeRequest
 
 	// DeleteApplicationNodeExecute executes the request
-	DeleteApplicationNodeExecute(r ApiDeleteApplicationNodeRequest) (*http.Response, error)
+	DeleteApplicationNodeExecute(r ApplicationsAPIDeleteApplicationNodeRequest) (*http.Response, error)
 
 	/*
 		DeletePlayback Stop and remove playback
@@ -153,12 +153,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param playbackUuid ID of the playback
-		@return ApiDeletePlaybackRequest
+		@return ApplicationsAPIDeletePlaybackRequest
 	*/
-	DeletePlayback(ctx context.Context, applicationUuid string, playbackUuid string) ApiDeletePlaybackRequest
+	DeletePlayback(ctx context.Context, applicationUuid string, playbackUuid string) ApplicationsAPIDeletePlaybackRequest
 
 	// DeletePlaybackExecute executes the request
-	DeletePlaybackExecute(r ApiDeletePlaybackRequest) (*http.Response, error)
+	DeletePlaybackExecute(r ApplicationsAPIDeletePlaybackRequest) (*http.Response, error)
 
 	/*
 		GetApplication Show an application
@@ -167,13 +167,13 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
-		@return ApiGetApplicationRequest
+		@return ApplicationsAPIGetApplicationRequest
 	*/
-	GetApplication(ctx context.Context, applicationUuid string) ApiGetApplicationRequest
+	GetApplication(ctx context.Context, applicationUuid string) ApplicationsAPIGetApplicationRequest
 
 	// GetApplicationExecute executes the request
 	//  @return Application
-	GetApplicationExecute(r ApiGetApplicationRequest) (*Application, *http.Response, error)
+	GetApplicationExecute(r ApplicationsAPIGetApplicationRequest) (*Application, *http.Response, error)
 
 	/*
 		GetApplicationCalls List calls from the application
@@ -182,13 +182,13 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
-		@return ApiGetApplicationCallsRequest
+		@return ApplicationsAPIGetApplicationCallsRequest
 	*/
-	GetApplicationCalls(ctx context.Context, applicationUuid string) ApiGetApplicationCallsRequest
+	GetApplicationCalls(ctx context.Context, applicationUuid string) ApplicationsAPIGetApplicationCallsRequest
 
 	// GetApplicationCallsExecute executes the request
 	//  @return ApplicationCalls
-	GetApplicationCallsExecute(r ApiGetApplicationCallsRequest) (*ApplicationCalls, *http.Response, error)
+	GetApplicationCallsExecute(r ApplicationsAPIGetApplicationCallsRequest) (*ApplicationCalls, *http.Response, error)
 
 	/*
 		GetApplicationNodes List nodes from the application
@@ -197,13 +197,13 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
-		@return ApiGetApplicationNodesRequest
+		@return ApplicationsAPIGetApplicationNodesRequest
 	*/
-	GetApplicationNodes(ctx context.Context, applicationUuid string) ApiGetApplicationNodesRequest
+	GetApplicationNodes(ctx context.Context, applicationUuid string) ApplicationsAPIGetApplicationNodesRequest
 
 	// GetApplicationNodesExecute executes the request
 	//  @return ApplicationNodes
-	GetApplicationNodesExecute(r ApiGetApplicationNodesRequest) (*ApplicationNodes, *http.Response, error)
+	GetApplicationNodesExecute(r ApplicationsAPIGetApplicationNodesRequest) (*ApplicationNodes, *http.Response, error)
 
 	/*
 		GetNode Show a node
@@ -213,13 +213,13 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param nodeUuid UUID of the node
-		@return ApiGetNodeRequest
+		@return ApplicationsAPIGetNodeRequest
 	*/
-	GetNode(ctx context.Context, applicationUuid string, nodeUuid string) ApiGetNodeRequest
+	GetNode(ctx context.Context, applicationUuid string, nodeUuid string) ApplicationsAPIGetNodeRequest
 
 	// GetNodeExecute executes the request
 	//  @return ApplicationNode
-	GetNodeExecute(r ApiGetNodeRequest) (*ApplicationNode, *http.Response, error)
+	GetNodeExecute(r ApplicationsAPIGetNodeRequest) (*ApplicationNode, *http.Response, error)
 
 	/*
 		GetSnoop View snooping parameters
@@ -229,13 +229,13 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param snoopUuid UUID of the snoop
-		@return ApiGetSnoopRequest
+		@return ApplicationsAPIGetSnoopRequest
 	*/
-	GetSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApiGetSnoopRequest
+	GetSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApplicationsAPIGetSnoopRequest
 
 	// GetSnoopExecute executes the request
 	//  @return ApplicationSnoop
-	GetSnoopExecute(r ApiGetSnoopRequest) (*ApplicationSnoop, *http.Response, error)
+	GetSnoopExecute(r ApplicationsAPIGetSnoopRequest) (*ApplicationSnoop, *http.Response, error)
 
 	/*
 		HoldApplicationCall Place a call on hold
@@ -245,12 +245,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiHoldApplicationCallRequest
+		@return ApplicationsAPIHoldApplicationCallRequest
 	*/
-	HoldApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiHoldApplicationCallRequest
+	HoldApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIHoldApplicationCallRequest
 
 	// HoldApplicationCallExecute executes the request
-	HoldApplicationCallExecute(r ApiHoldApplicationCallRequest) (*http.Response, error)
+	HoldApplicationCallExecute(r ApplicationsAPIHoldApplicationCallRequest) (*http.Response, error)
 
 	/*
 		InsertApplicationCallToNode Insert call to the node
@@ -261,12 +261,12 @@ type ApplicationsAPI interface {
 		@param applicationUuid UUID of the application
 		@param nodeUuid UUID of the node
 		@param callId ID of the call
-		@return ApiInsertApplicationCallToNodeRequest
+		@return ApplicationsAPIInsertApplicationCallToNodeRequest
 	*/
-	InsertApplicationCallToNode(ctx context.Context, applicationUuid string, nodeUuid string, callId string) ApiInsertApplicationCallToNodeRequest
+	InsertApplicationCallToNode(ctx context.Context, applicationUuid string, nodeUuid string, callId string) ApplicationsAPIInsertApplicationCallToNodeRequest
 
 	// InsertApplicationCallToNodeExecute executes the request
-	InsertApplicationCallToNodeExecute(r ApiInsertApplicationCallToNodeRequest) (*http.Response, error)
+	InsertApplicationCallToNodeExecute(r ApplicationsAPIInsertApplicationCallToNodeRequest) (*http.Response, error)
 
 	/*
 		ListApplicationSnoops List active snoops
@@ -275,13 +275,13 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
-		@return ApiListApplicationSnoopsRequest
+		@return ApplicationsAPIListApplicationSnoopsRequest
 	*/
-	ListApplicationSnoops(ctx context.Context, applicationUuid string) ApiListApplicationSnoopsRequest
+	ListApplicationSnoops(ctx context.Context, applicationUuid string) ApplicationsAPIListApplicationSnoopsRequest
 
 	// ListApplicationSnoopsExecute executes the request
 	//  @return ApplicationSnoops
-	ListApplicationSnoopsExecute(r ApiListApplicationSnoopsRequest) (*ApplicationSnoops, *http.Response, error)
+	ListApplicationSnoopsExecute(r ApplicationsAPIListApplicationSnoopsRequest) (*ApplicationSnoops, *http.Response, error)
 
 	/*
 		MuteApplicationCall Mute a call
@@ -291,12 +291,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiMuteApplicationCallRequest
+		@return ApplicationsAPIMuteApplicationCallRequest
 	*/
-	MuteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiMuteApplicationCallRequest
+	MuteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIMuteApplicationCallRequest
 
 	// MuteApplicationCallExecute executes the request
-	MuteApplicationCallExecute(r ApiMuteApplicationCallRequest) (*http.Response, error)
+	MuteApplicationCallExecute(r ApplicationsAPIMuteApplicationCallRequest) (*http.Response, error)
 
 	/*
 		PlayApplicationCall Play file to the call
@@ -307,13 +307,13 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiPlayApplicationCallRequest
+		@return ApplicationsAPIPlayApplicationCallRequest
 	*/
-	PlayApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiPlayApplicationCallRequest
+	PlayApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIPlayApplicationCallRequest
 
 	// PlayApplicationCallExecute executes the request
 	//  @return ApplicationPlayback
-	PlayApplicationCallExecute(r ApiPlayApplicationCallRequest) (*ApplicationPlayback, *http.Response, error)
+	PlayApplicationCallExecute(r ApplicationsAPIPlayApplicationCallRequest) (*ApplicationPlayback, *http.Response, error)
 
 	/*
 		ResumeApplicationCall Resume a call that has been placed on hold
@@ -323,12 +323,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiResumeApplicationCallRequest
+		@return ApplicationsAPIResumeApplicationCallRequest
 	*/
-	ResumeApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiResumeApplicationCallRequest
+	ResumeApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIResumeApplicationCallRequest
 
 	// ResumeApplicationCallExecute executes the request
-	ResumeApplicationCallExecute(r ApiResumeApplicationCallRequest) (*http.Response, error)
+	ResumeApplicationCallExecute(r ApplicationsAPIResumeApplicationCallRequest) (*http.Response, error)
 
 	/*
 		SendApplicationCallDTMF Simulate a user pressing DTMF keys
@@ -338,12 +338,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiSendApplicationCallDTMFRequest
+		@return ApplicationsAPISendApplicationCallDTMFRequest
 	*/
-	SendApplicationCallDTMF(ctx context.Context, applicationUuid string, callId string) ApiSendApplicationCallDTMFRequest
+	SendApplicationCallDTMF(ctx context.Context, applicationUuid string, callId string) ApplicationsAPISendApplicationCallDTMFRequest
 
 	// SendApplicationCallDTMFExecute executes the request
-	SendApplicationCallDTMFExecute(r ApiSendApplicationCallDTMFRequest) (*http.Response, error)
+	SendApplicationCallDTMFExecute(r ApplicationsAPISendApplicationCallDTMFRequest) (*http.Response, error)
 
 	/*
 		SnoopApplicationCall Start snooping on a call
@@ -354,13 +354,13 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiSnoopApplicationCallRequest
+		@return ApplicationsAPISnoopApplicationCallRequest
 	*/
-	SnoopApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiSnoopApplicationCallRequest
+	SnoopApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPISnoopApplicationCallRequest
 
 	// SnoopApplicationCallExecute executes the request
 	//  @return ApplicationSnoop
-	SnoopApplicationCallExecute(r ApiSnoopApplicationCallRequest) (*ApplicationSnoop, *http.Response, error)
+	SnoopApplicationCallExecute(r ApplicationsAPISnoopApplicationCallRequest) (*ApplicationSnoop, *http.Response, error)
 
 	/*
 		StartApplicationCallMOH Starts playing a music on hold
@@ -373,12 +373,12 @@ type ApplicationsAPI interface {
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
 		@param mohUuid UUID of the music on hold
-		@return ApiStartApplicationCallMOHRequest
+		@return ApplicationsAPIStartApplicationCallMOHRequest
 	*/
-	StartApplicationCallMOH(ctx context.Context, applicationUuid string, callId string, mohUuid string) ApiStartApplicationCallMOHRequest
+	StartApplicationCallMOH(ctx context.Context, applicationUuid string, callId string, mohUuid string) ApplicationsAPIStartApplicationCallMOHRequest
 
 	// StartApplicationCallMOHExecute executes the request
-	StartApplicationCallMOHExecute(r ApiStartApplicationCallMOHRequest) (*http.Response, error)
+	StartApplicationCallMOHExecute(r ApplicationsAPIStartApplicationCallMOHRequest) (*http.Response, error)
 
 	/*
 		StartApplicationCallProgress Play the progress ringing tone
@@ -388,12 +388,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiStartApplicationCallProgressRequest
+		@return ApplicationsAPIStartApplicationCallProgressRequest
 	*/
-	StartApplicationCallProgress(ctx context.Context, applicationUuid string, callId string) ApiStartApplicationCallProgressRequest
+	StartApplicationCallProgress(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIStartApplicationCallProgressRequest
 
 	// StartApplicationCallProgressExecute executes the request
-	StartApplicationCallProgressExecute(r ApiStartApplicationCallProgressRequest) (*http.Response, error)
+	StartApplicationCallProgressExecute(r ApplicationsAPIStartApplicationCallProgressRequest) (*http.Response, error)
 
 	/*
 		StopApplicationCallMOH Stops playing a music on hold
@@ -403,12 +403,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiStopApplicationCallMOHRequest
+		@return ApplicationsAPIStopApplicationCallMOHRequest
 	*/
-	StopApplicationCallMOH(ctx context.Context, applicationUuid string, callId string) ApiStopApplicationCallMOHRequest
+	StopApplicationCallMOH(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIStopApplicationCallMOHRequest
 
 	// StopApplicationCallMOHExecute executes the request
-	StopApplicationCallMOHExecute(r ApiStopApplicationCallMOHRequest) (*http.Response, error)
+	StopApplicationCallMOHExecute(r ApplicationsAPIStopApplicationCallMOHRequest) (*http.Response, error)
 
 	/*
 		StopApplicationCallProgress Stop playing the progress ringing tone.
@@ -418,12 +418,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiStopApplicationCallProgressRequest
+		@return ApplicationsAPIStopApplicationCallProgressRequest
 	*/
-	StopApplicationCallProgress(ctx context.Context, applicationUuid string, callId string) ApiStopApplicationCallProgressRequest
+	StopApplicationCallProgress(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIStopApplicationCallProgressRequest
 
 	// StopApplicationCallProgressExecute executes the request
-	StopApplicationCallProgressExecute(r ApiStopApplicationCallProgressRequest) (*http.Response, error)
+	StopApplicationCallProgressExecute(r ApplicationsAPIStopApplicationCallProgressRequest) (*http.Response, error)
 
 	/*
 		StopSnoop Stop snooping
@@ -433,12 +433,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param snoopUuid UUID of the snoop
-		@return ApiStopSnoopRequest
+		@return ApplicationsAPIStopSnoopRequest
 	*/
-	StopSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApiStopSnoopRequest
+	StopSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApplicationsAPIStopSnoopRequest
 
 	// StopSnoopExecute executes the request
-	StopSnoopExecute(r ApiStopSnoopRequest) (*http.Response, error)
+	StopSnoopExecute(r ApplicationsAPIStopSnoopRequest) (*http.Response, error)
 
 	/*
 		UnmuteApplicationCall Unmute a call
@@ -448,12 +448,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param callId ID of the call
-		@return ApiUnmuteApplicationCallRequest
+		@return ApplicationsAPIUnmuteApplicationCallRequest
 	*/
-	UnmuteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiUnmuteApplicationCallRequest
+	UnmuteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIUnmuteApplicationCallRequest
 
 	// UnmuteApplicationCallExecute executes the request
-	UnmuteApplicationCallExecute(r ApiUnmuteApplicationCallRequest) (*http.Response, error)
+	UnmuteApplicationCallExecute(r ApplicationsAPIUnmuteApplicationCallRequest) (*http.Response, error)
 
 	/*
 		UpdateSnoop Change snooping parameters
@@ -463,25 +463,25 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid UUID of the application
 		@param snoopUuid UUID of the snoop
-		@return ApiUpdateSnoopRequest
+		@return ApplicationsAPIUpdateSnoopRequest
 	*/
-	UpdateSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApiUpdateSnoopRequest
+	UpdateSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApplicationsAPIUpdateSnoopRequest
 
 	// UpdateSnoopExecute executes the request
-	UpdateSnoopExecute(r ApiUpdateSnoopRequest) (*http.Response, error)
+	UpdateSnoopExecute(r ApplicationsAPIUpdateSnoopRequest) (*http.Response, error)
 }
 
 // ApplicationsAPIService ApplicationsAPI service
 type ApplicationsAPIService service
 
-type ApiAnswerApplicationCallRequest struct {
+type ApplicationsAPIAnswerApplicationCallRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiAnswerApplicationCallRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIAnswerApplicationCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AnswerApplicationCallExecute(r)
 }
 
@@ -493,10 +493,10 @@ AnswerApplicationCall Answer a call
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiAnswerApplicationCallRequest
+	@return ApplicationsAPIAnswerApplicationCallRequest
 */
-func (a *ApplicationsAPIService) AnswerApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiAnswerApplicationCallRequest {
-	return ApiAnswerApplicationCallRequest{
+func (a *ApplicationsAPIService) AnswerApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIAnswerApplicationCallRequest {
+	return ApplicationsAPIAnswerApplicationCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -505,7 +505,7 @@ func (a *ApplicationsAPIService) AnswerApplicationCall(ctx context.Context, appl
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) AnswerApplicationCallExecute(r ApiAnswerApplicationCallRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) AnswerApplicationCallExecute(r ApplicationsAPIAnswerApplicationCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -605,7 +605,7 @@ func (a *ApplicationsAPIService) AnswerApplicationCallExecute(r ApiAnswerApplica
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateApplicationCallToNodeRequest struct {
+type ApplicationsAPICreateApplicationCallToNodeRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	body            *ApplicationCallRequestToExten
@@ -614,12 +614,12 @@ type ApiCreateApplicationCallToNodeRequest struct {
 }
 
 // Call parameters
-func (r ApiCreateApplicationCallToNodeRequest) Body(body ApplicationCallRequestToExten) ApiCreateApplicationCallToNodeRequest {
+func (r ApplicationsAPICreateApplicationCallToNodeRequest) Body(body ApplicationCallRequestToExten) ApplicationsAPICreateApplicationCallToNodeRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateApplicationCallToNodeRequest) Execute() (*ApplicationCall, *http.Response, error) {
+func (r ApplicationsAPICreateApplicationCallToNodeRequest) Execute() (*ApplicationCall, *http.Response, error) {
 	return r.ApiService.CreateApplicationCallToNodeExecute(r)
 }
 
@@ -631,10 +631,10 @@ CreateApplicationCallToNode Make a new call to the node
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param nodeUuid UUID of the node
-	@return ApiCreateApplicationCallToNodeRequest
+	@return ApplicationsAPICreateApplicationCallToNodeRequest
 */
-func (a *ApplicationsAPIService) CreateApplicationCallToNode(ctx context.Context, applicationUuid string, nodeUuid string) ApiCreateApplicationCallToNodeRequest {
-	return ApiCreateApplicationCallToNodeRequest{
+func (a *ApplicationsAPIService) CreateApplicationCallToNode(ctx context.Context, applicationUuid string, nodeUuid string) ApplicationsAPICreateApplicationCallToNodeRequest {
+	return ApplicationsAPICreateApplicationCallToNodeRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -645,7 +645,7 @@ func (a *ApplicationsAPIService) CreateApplicationCallToNode(ctx context.Context
 // Execute executes the request
 //
 //	@return ApplicationCall
-func (a *ApplicationsAPIService) CreateApplicationCallToNodeExecute(r ApiCreateApplicationCallToNodeRequest) (*ApplicationCall, *http.Response, error) {
+func (a *ApplicationsAPIService) CreateApplicationCallToNodeExecute(r ApplicationsAPICreateApplicationCallToNodeRequest) (*ApplicationCall, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -771,7 +771,7 @@ func (a *ApplicationsAPIService) CreateApplicationCallToNodeExecute(r ApiCreateA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateApplicationCallToUserRequest struct {
+type ApplicationsAPICreateApplicationCallToUserRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	body            *ApplicationCallRequestToUser
@@ -780,12 +780,12 @@ type ApiCreateApplicationCallToUserRequest struct {
 }
 
 // Parameters for the new call
-func (r ApiCreateApplicationCallToUserRequest) Body(body ApplicationCallRequestToUser) ApiCreateApplicationCallToUserRequest {
+func (r ApplicationsAPICreateApplicationCallToUserRequest) Body(body ApplicationCallRequestToUser) ApplicationsAPICreateApplicationCallToUserRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateApplicationCallToUserRequest) Execute() (*ApplicationCall, *http.Response, error) {
+func (r ApplicationsAPICreateApplicationCallToUserRequest) Execute() (*ApplicationCall, *http.Response, error) {
 	return r.ApiService.CreateApplicationCallToUserExecute(r)
 }
 
@@ -797,10 +797,10 @@ CreateApplicationCallToUser Initiate a call to a user and insert it in the node
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param nodeUuid UUID of the node
-	@return ApiCreateApplicationCallToUserRequest
+	@return ApplicationsAPICreateApplicationCallToUserRequest
 */
-func (a *ApplicationsAPIService) CreateApplicationCallToUser(ctx context.Context, applicationUuid string, nodeUuid string) ApiCreateApplicationCallToUserRequest {
-	return ApiCreateApplicationCallToUserRequest{
+func (a *ApplicationsAPIService) CreateApplicationCallToUser(ctx context.Context, applicationUuid string, nodeUuid string) ApplicationsAPICreateApplicationCallToUserRequest {
+	return ApplicationsAPICreateApplicationCallToUserRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -811,7 +811,7 @@ func (a *ApplicationsAPIService) CreateApplicationCallToUser(ctx context.Context
 // Execute executes the request
 //
 //	@return ApplicationCall
-func (a *ApplicationsAPIService) CreateApplicationCallToUserExecute(r ApiCreateApplicationCallToUserRequest) (*ApplicationCall, *http.Response, error) {
+func (a *ApplicationsAPIService) CreateApplicationCallToUserExecute(r ApplicationsAPICreateApplicationCallToUserRequest) (*ApplicationCall, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -937,7 +937,7 @@ func (a *ApplicationsAPIService) CreateApplicationCallToUserExecute(r ApiCreateA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateApplicationCallsRequest struct {
+type ApplicationsAPICreateApplicationCallsRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	body            *ApplicationCallRequestToExten
@@ -945,12 +945,12 @@ type ApiCreateApplicationCallsRequest struct {
 }
 
 // node parameters
-func (r ApiCreateApplicationCallsRequest) Body(body ApplicationCallRequestToExten) ApiCreateApplicationCallsRequest {
+func (r ApplicationsAPICreateApplicationCallsRequest) Body(body ApplicationCallRequestToExten) ApplicationsAPICreateApplicationCallsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateApplicationCallsRequest) Execute() (*ApplicationCall, *http.Response, error) {
+func (r ApplicationsAPICreateApplicationCallsRequest) Execute() (*ApplicationCall, *http.Response, error) {
 	return r.ApiService.CreateApplicationCallsExecute(r)
 }
 
@@ -961,10 +961,10 @@ CreateApplicationCalls Make a new call to the application
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
-	@return ApiCreateApplicationCallsRequest
+	@return ApplicationsAPICreateApplicationCallsRequest
 */
-func (a *ApplicationsAPIService) CreateApplicationCalls(ctx context.Context, applicationUuid string) ApiCreateApplicationCallsRequest {
-	return ApiCreateApplicationCallsRequest{
+func (a *ApplicationsAPIService) CreateApplicationCalls(ctx context.Context, applicationUuid string) ApplicationsAPICreateApplicationCallsRequest {
+	return ApplicationsAPICreateApplicationCallsRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -974,7 +974,7 @@ func (a *ApplicationsAPIService) CreateApplicationCalls(ctx context.Context, app
 // Execute executes the request
 //
 //	@return ApplicationCall
-func (a *ApplicationsAPIService) CreateApplicationCallsExecute(r ApiCreateApplicationCallsRequest) (*ApplicationCall, *http.Response, error) {
+func (a *ApplicationsAPIService) CreateApplicationCallsExecute(r ApplicationsAPICreateApplicationCallsRequest) (*ApplicationCall, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1088,7 +1088,7 @@ func (a *ApplicationsAPIService) CreateApplicationCallsExecute(r ApiCreateApplic
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateApplicationNodeRequest struct {
+type ApplicationsAPICreateApplicationNodeRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	body            *ApplicationNodeRequest
@@ -1096,12 +1096,12 @@ type ApiCreateApplicationNodeRequest struct {
 }
 
 // node parameters
-func (r ApiCreateApplicationNodeRequest) Body(body ApplicationNodeRequest) ApiCreateApplicationNodeRequest {
+func (r ApplicationsAPICreateApplicationNodeRequest) Body(body ApplicationNodeRequest) ApplicationsAPICreateApplicationNodeRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateApplicationNodeRequest) Execute() (*ApplicationNode, *http.Response, error) {
+func (r ApplicationsAPICreateApplicationNodeRequest) Execute() (*ApplicationNode, *http.Response, error) {
 	return r.ApiService.CreateApplicationNodeExecute(r)
 }
 
@@ -1112,10 +1112,10 @@ CreateApplicationNode Make a new node and add calls
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
-	@return ApiCreateApplicationNodeRequest
+	@return ApplicationsAPICreateApplicationNodeRequest
 */
-func (a *ApplicationsAPIService) CreateApplicationNode(ctx context.Context, applicationUuid string) ApiCreateApplicationNodeRequest {
-	return ApiCreateApplicationNodeRequest{
+func (a *ApplicationsAPIService) CreateApplicationNode(ctx context.Context, applicationUuid string) ApplicationsAPICreateApplicationNodeRequest {
+	return ApplicationsAPICreateApplicationNodeRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -1125,7 +1125,7 @@ func (a *ApplicationsAPIService) CreateApplicationNode(ctx context.Context, appl
 // Execute executes the request
 //
 //	@return ApplicationNode
-func (a *ApplicationsAPIService) CreateApplicationNodeExecute(r ApiCreateApplicationNodeRequest) (*ApplicationNode, *http.Response, error) {
+func (a *ApplicationsAPIService) CreateApplicationNodeExecute(r ApplicationsAPICreateApplicationNodeRequest) (*ApplicationNode, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1250,14 +1250,14 @@ func (a *ApplicationsAPIService) CreateApplicationNodeExecute(r ApiCreateApplica
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteApplicationCallRequest struct {
+type ApplicationsAPIDeleteApplicationCallRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiDeleteApplicationCallRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIDeleteApplicationCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteApplicationCallExecute(r)
 }
 
@@ -1269,10 +1269,10 @@ DeleteApplicationCall Hangup a call from the application
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiDeleteApplicationCallRequest
+	@return ApplicationsAPIDeleteApplicationCallRequest
 */
-func (a *ApplicationsAPIService) DeleteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiDeleteApplicationCallRequest {
-	return ApiDeleteApplicationCallRequest{
+func (a *ApplicationsAPIService) DeleteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIDeleteApplicationCallRequest {
+	return ApplicationsAPIDeleteApplicationCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -1281,7 +1281,7 @@ func (a *ApplicationsAPIService) DeleteApplicationCall(ctx context.Context, appl
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) DeleteApplicationCallExecute(r ApiDeleteApplicationCallRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) DeleteApplicationCallExecute(r ApplicationsAPIDeleteApplicationCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1381,7 +1381,7 @@ func (a *ApplicationsAPIService) DeleteApplicationCallExecute(r ApiDeleteApplica
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteApplicationCallFromNodeRequest struct {
+type ApplicationsAPIDeleteApplicationCallFromNodeRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
@@ -1389,7 +1389,7 @@ type ApiDeleteApplicationCallFromNodeRequest struct {
 	callId          string
 }
 
-func (r ApiDeleteApplicationCallFromNodeRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIDeleteApplicationCallFromNodeRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteApplicationCallFromNodeExecute(r)
 }
 
@@ -1402,10 +1402,10 @@ DeleteApplicationCallFromNode Remove call from the node
 	@param applicationUuid UUID of the application
 	@param nodeUuid UUID of the node
 	@param callId ID of the call
-	@return ApiDeleteApplicationCallFromNodeRequest
+	@return ApplicationsAPIDeleteApplicationCallFromNodeRequest
 */
-func (a *ApplicationsAPIService) DeleteApplicationCallFromNode(ctx context.Context, applicationUuid string, nodeUuid string, callId string) ApiDeleteApplicationCallFromNodeRequest {
-	return ApiDeleteApplicationCallFromNodeRequest{
+func (a *ApplicationsAPIService) DeleteApplicationCallFromNode(ctx context.Context, applicationUuid string, nodeUuid string, callId string) ApplicationsAPIDeleteApplicationCallFromNodeRequest {
+	return ApplicationsAPIDeleteApplicationCallFromNodeRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -1415,7 +1415,7 @@ func (a *ApplicationsAPIService) DeleteApplicationCallFromNode(ctx context.Conte
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) DeleteApplicationCallFromNodeExecute(r ApiDeleteApplicationCallFromNodeRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) DeleteApplicationCallFromNodeExecute(r ApplicationsAPIDeleteApplicationCallFromNodeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1516,14 +1516,14 @@ func (a *ApplicationsAPIService) DeleteApplicationCallFromNodeExecute(r ApiDelet
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteApplicationNodeRequest struct {
+type ApplicationsAPIDeleteApplicationNodeRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	nodeUuid        string
 }
 
-func (r ApiDeleteApplicationNodeRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIDeleteApplicationNodeRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteApplicationNodeExecute(r)
 }
 
@@ -1535,10 +1535,10 @@ DeleteApplicationNode Delete node and hangup all calls
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param nodeUuid UUID of the node
-	@return ApiDeleteApplicationNodeRequest
+	@return ApplicationsAPIDeleteApplicationNodeRequest
 */
-func (a *ApplicationsAPIService) DeleteApplicationNode(ctx context.Context, applicationUuid string, nodeUuid string) ApiDeleteApplicationNodeRequest {
-	return ApiDeleteApplicationNodeRequest{
+func (a *ApplicationsAPIService) DeleteApplicationNode(ctx context.Context, applicationUuid string, nodeUuid string) ApplicationsAPIDeleteApplicationNodeRequest {
+	return ApplicationsAPIDeleteApplicationNodeRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -1547,7 +1547,7 @@ func (a *ApplicationsAPIService) DeleteApplicationNode(ctx context.Context, appl
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) DeleteApplicationNodeExecute(r ApiDeleteApplicationNodeRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) DeleteApplicationNodeExecute(r ApplicationsAPIDeleteApplicationNodeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1647,14 +1647,14 @@ func (a *ApplicationsAPIService) DeleteApplicationNodeExecute(r ApiDeleteApplica
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeletePlaybackRequest struct {
+type ApplicationsAPIDeletePlaybackRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	playbackUuid    string
 }
 
-func (r ApiDeletePlaybackRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIDeletePlaybackRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePlaybackExecute(r)
 }
 
@@ -1666,10 +1666,10 @@ DeletePlayback Stop and remove playback
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param playbackUuid ID of the playback
-	@return ApiDeletePlaybackRequest
+	@return ApplicationsAPIDeletePlaybackRequest
 */
-func (a *ApplicationsAPIService) DeletePlayback(ctx context.Context, applicationUuid string, playbackUuid string) ApiDeletePlaybackRequest {
-	return ApiDeletePlaybackRequest{
+func (a *ApplicationsAPIService) DeletePlayback(ctx context.Context, applicationUuid string, playbackUuid string) ApplicationsAPIDeletePlaybackRequest {
+	return ApplicationsAPIDeletePlaybackRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -1678,7 +1678,7 @@ func (a *ApplicationsAPIService) DeletePlayback(ctx context.Context, application
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) DeletePlaybackExecute(r ApiDeletePlaybackRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) DeletePlaybackExecute(r ApplicationsAPIDeletePlaybackRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1778,13 +1778,13 @@ func (a *ApplicationsAPIService) DeletePlaybackExecute(r ApiDeletePlaybackReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetApplicationRequest struct {
+type ApplicationsAPIGetApplicationRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 }
 
-func (r ApiGetApplicationRequest) Execute() (*Application, *http.Response, error) {
+func (r ApplicationsAPIGetApplicationRequest) Execute() (*Application, *http.Response, error) {
 	return r.ApiService.GetApplicationExecute(r)
 }
 
@@ -1795,10 +1795,10 @@ GetApplication Show an application
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
-	@return ApiGetApplicationRequest
+	@return ApplicationsAPIGetApplicationRequest
 */
-func (a *ApplicationsAPIService) GetApplication(ctx context.Context, applicationUuid string) ApiGetApplicationRequest {
-	return ApiGetApplicationRequest{
+func (a *ApplicationsAPIService) GetApplication(ctx context.Context, applicationUuid string) ApplicationsAPIGetApplicationRequest {
+	return ApplicationsAPIGetApplicationRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -1808,7 +1808,7 @@ func (a *ApplicationsAPIService) GetApplication(ctx context.Context, application
 // Execute executes the request
 //
 //	@return Application
-func (a *ApplicationsAPIService) GetApplicationExecute(r ApiGetApplicationRequest) (*Application, *http.Response, error) {
+func (a *ApplicationsAPIService) GetApplicationExecute(r ApplicationsAPIGetApplicationRequest) (*Application, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1917,13 +1917,13 @@ func (a *ApplicationsAPIService) GetApplicationExecute(r ApiGetApplicationReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetApplicationCallsRequest struct {
+type ApplicationsAPIGetApplicationCallsRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 }
 
-func (r ApiGetApplicationCallsRequest) Execute() (*ApplicationCalls, *http.Response, error) {
+func (r ApplicationsAPIGetApplicationCallsRequest) Execute() (*ApplicationCalls, *http.Response, error) {
 	return r.ApiService.GetApplicationCallsExecute(r)
 }
 
@@ -1934,10 +1934,10 @@ GetApplicationCalls List calls from the application
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
-	@return ApiGetApplicationCallsRequest
+	@return ApplicationsAPIGetApplicationCallsRequest
 */
-func (a *ApplicationsAPIService) GetApplicationCalls(ctx context.Context, applicationUuid string) ApiGetApplicationCallsRequest {
-	return ApiGetApplicationCallsRequest{
+func (a *ApplicationsAPIService) GetApplicationCalls(ctx context.Context, applicationUuid string) ApplicationsAPIGetApplicationCallsRequest {
+	return ApplicationsAPIGetApplicationCallsRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -1947,7 +1947,7 @@ func (a *ApplicationsAPIService) GetApplicationCalls(ctx context.Context, applic
 // Execute executes the request
 //
 //	@return ApplicationCalls
-func (a *ApplicationsAPIService) GetApplicationCallsExecute(r ApiGetApplicationCallsRequest) (*ApplicationCalls, *http.Response, error) {
+func (a *ApplicationsAPIService) GetApplicationCallsExecute(r ApplicationsAPIGetApplicationCallsRequest) (*ApplicationCalls, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2056,13 +2056,13 @@ func (a *ApplicationsAPIService) GetApplicationCallsExecute(r ApiGetApplicationC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetApplicationNodesRequest struct {
+type ApplicationsAPIGetApplicationNodesRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 }
 
-func (r ApiGetApplicationNodesRequest) Execute() (*ApplicationNodes, *http.Response, error) {
+func (r ApplicationsAPIGetApplicationNodesRequest) Execute() (*ApplicationNodes, *http.Response, error) {
 	return r.ApiService.GetApplicationNodesExecute(r)
 }
 
@@ -2073,10 +2073,10 @@ GetApplicationNodes List nodes from the application
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
-	@return ApiGetApplicationNodesRequest
+	@return ApplicationsAPIGetApplicationNodesRequest
 */
-func (a *ApplicationsAPIService) GetApplicationNodes(ctx context.Context, applicationUuid string) ApiGetApplicationNodesRequest {
-	return ApiGetApplicationNodesRequest{
+func (a *ApplicationsAPIService) GetApplicationNodes(ctx context.Context, applicationUuid string) ApplicationsAPIGetApplicationNodesRequest {
+	return ApplicationsAPIGetApplicationNodesRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -2086,7 +2086,7 @@ func (a *ApplicationsAPIService) GetApplicationNodes(ctx context.Context, applic
 // Execute executes the request
 //
 //	@return ApplicationNodes
-func (a *ApplicationsAPIService) GetApplicationNodesExecute(r ApiGetApplicationNodesRequest) (*ApplicationNodes, *http.Response, error) {
+func (a *ApplicationsAPIService) GetApplicationNodesExecute(r ApplicationsAPIGetApplicationNodesRequest) (*ApplicationNodes, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2195,14 +2195,14 @@ func (a *ApplicationsAPIService) GetApplicationNodesExecute(r ApiGetApplicationN
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetNodeRequest struct {
+type ApplicationsAPIGetNodeRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	nodeUuid        string
 }
 
-func (r ApiGetNodeRequest) Execute() (*ApplicationNode, *http.Response, error) {
+func (r ApplicationsAPIGetNodeRequest) Execute() (*ApplicationNode, *http.Response, error) {
 	return r.ApiService.GetNodeExecute(r)
 }
 
@@ -2214,10 +2214,10 @@ GetNode Show a node
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param nodeUuid UUID of the node
-	@return ApiGetNodeRequest
+	@return ApplicationsAPIGetNodeRequest
 */
-func (a *ApplicationsAPIService) GetNode(ctx context.Context, applicationUuid string, nodeUuid string) ApiGetNodeRequest {
-	return ApiGetNodeRequest{
+func (a *ApplicationsAPIService) GetNode(ctx context.Context, applicationUuid string, nodeUuid string) ApplicationsAPIGetNodeRequest {
+	return ApplicationsAPIGetNodeRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -2228,7 +2228,7 @@ func (a *ApplicationsAPIService) GetNode(ctx context.Context, applicationUuid st
 // Execute executes the request
 //
 //	@return ApplicationNode
-func (a *ApplicationsAPIService) GetNodeExecute(r ApiGetNodeRequest) (*ApplicationNode, *http.Response, error) {
+func (a *ApplicationsAPIService) GetNodeExecute(r ApplicationsAPIGetNodeRequest) (*ApplicationNode, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2338,14 +2338,14 @@ func (a *ApplicationsAPIService) GetNodeExecute(r ApiGetNodeRequest) (*Applicati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSnoopRequest struct {
+type ApplicationsAPIGetSnoopRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	snoopUuid       string
 }
 
-func (r ApiGetSnoopRequest) Execute() (*ApplicationSnoop, *http.Response, error) {
+func (r ApplicationsAPIGetSnoopRequest) Execute() (*ApplicationSnoop, *http.Response, error) {
 	return r.ApiService.GetSnoopExecute(r)
 }
 
@@ -2357,10 +2357,10 @@ GetSnoop View snooping parameters
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param snoopUuid UUID of the snoop
-	@return ApiGetSnoopRequest
+	@return ApplicationsAPIGetSnoopRequest
 */
-func (a *ApplicationsAPIService) GetSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApiGetSnoopRequest {
-	return ApiGetSnoopRequest{
+func (a *ApplicationsAPIService) GetSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApplicationsAPIGetSnoopRequest {
+	return ApplicationsAPIGetSnoopRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -2371,7 +2371,7 @@ func (a *ApplicationsAPIService) GetSnoop(ctx context.Context, applicationUuid s
 // Execute executes the request
 //
 //	@return ApplicationSnoop
-func (a *ApplicationsAPIService) GetSnoopExecute(r ApiGetSnoopRequest) (*ApplicationSnoop, *http.Response, error) {
+func (a *ApplicationsAPIService) GetSnoopExecute(r ApplicationsAPIGetSnoopRequest) (*ApplicationSnoop, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2481,14 +2481,14 @@ func (a *ApplicationsAPIService) GetSnoopExecute(r ApiGetSnoopRequest) (*Applica
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiHoldApplicationCallRequest struct {
+type ApplicationsAPIHoldApplicationCallRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiHoldApplicationCallRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIHoldApplicationCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.HoldApplicationCallExecute(r)
 }
 
@@ -2500,10 +2500,10 @@ HoldApplicationCall Place a call on hold
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiHoldApplicationCallRequest
+	@return ApplicationsAPIHoldApplicationCallRequest
 */
-func (a *ApplicationsAPIService) HoldApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiHoldApplicationCallRequest {
-	return ApiHoldApplicationCallRequest{
+func (a *ApplicationsAPIService) HoldApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIHoldApplicationCallRequest {
+	return ApplicationsAPIHoldApplicationCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -2512,7 +2512,7 @@ func (a *ApplicationsAPIService) HoldApplicationCall(ctx context.Context, applic
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) HoldApplicationCallExecute(r ApiHoldApplicationCallRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) HoldApplicationCallExecute(r ApplicationsAPIHoldApplicationCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2612,7 +2612,7 @@ func (a *ApplicationsAPIService) HoldApplicationCallExecute(r ApiHoldApplication
 	return localVarHTTPResponse, nil
 }
 
-type ApiInsertApplicationCallToNodeRequest struct {
+type ApplicationsAPIInsertApplicationCallToNodeRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
@@ -2620,7 +2620,7 @@ type ApiInsertApplicationCallToNodeRequest struct {
 	callId          string
 }
 
-func (r ApiInsertApplicationCallToNodeRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIInsertApplicationCallToNodeRequest) Execute() (*http.Response, error) {
 	return r.ApiService.InsertApplicationCallToNodeExecute(r)
 }
 
@@ -2633,10 +2633,10 @@ InsertApplicationCallToNode Insert call to the node
 	@param applicationUuid UUID of the application
 	@param nodeUuid UUID of the node
 	@param callId ID of the call
-	@return ApiInsertApplicationCallToNodeRequest
+	@return ApplicationsAPIInsertApplicationCallToNodeRequest
 */
-func (a *ApplicationsAPIService) InsertApplicationCallToNode(ctx context.Context, applicationUuid string, nodeUuid string, callId string) ApiInsertApplicationCallToNodeRequest {
-	return ApiInsertApplicationCallToNodeRequest{
+func (a *ApplicationsAPIService) InsertApplicationCallToNode(ctx context.Context, applicationUuid string, nodeUuid string, callId string) ApplicationsAPIInsertApplicationCallToNodeRequest {
+	return ApplicationsAPIInsertApplicationCallToNodeRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -2646,7 +2646,7 @@ func (a *ApplicationsAPIService) InsertApplicationCallToNode(ctx context.Context
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) InsertApplicationCallToNodeExecute(r ApiInsertApplicationCallToNodeRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) InsertApplicationCallToNodeExecute(r ApplicationsAPIInsertApplicationCallToNodeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2747,13 +2747,13 @@ func (a *ApplicationsAPIService) InsertApplicationCallToNodeExecute(r ApiInsertA
 	return localVarHTTPResponse, nil
 }
 
-type ApiListApplicationSnoopsRequest struct {
+type ApplicationsAPIListApplicationSnoopsRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 }
 
-func (r ApiListApplicationSnoopsRequest) Execute() (*ApplicationSnoops, *http.Response, error) {
+func (r ApplicationsAPIListApplicationSnoopsRequest) Execute() (*ApplicationSnoops, *http.Response, error) {
 	return r.ApiService.ListApplicationSnoopsExecute(r)
 }
 
@@ -2764,10 +2764,10 @@ ListApplicationSnoops List active snoops
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
-	@return ApiListApplicationSnoopsRequest
+	@return ApplicationsAPIListApplicationSnoopsRequest
 */
-func (a *ApplicationsAPIService) ListApplicationSnoops(ctx context.Context, applicationUuid string) ApiListApplicationSnoopsRequest {
-	return ApiListApplicationSnoopsRequest{
+func (a *ApplicationsAPIService) ListApplicationSnoops(ctx context.Context, applicationUuid string) ApplicationsAPIListApplicationSnoopsRequest {
+	return ApplicationsAPIListApplicationSnoopsRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -2777,7 +2777,7 @@ func (a *ApplicationsAPIService) ListApplicationSnoops(ctx context.Context, appl
 // Execute executes the request
 //
 //	@return ApplicationSnoops
-func (a *ApplicationsAPIService) ListApplicationSnoopsExecute(r ApiListApplicationSnoopsRequest) (*ApplicationSnoops, *http.Response, error) {
+func (a *ApplicationsAPIService) ListApplicationSnoopsExecute(r ApplicationsAPIListApplicationSnoopsRequest) (*ApplicationSnoops, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2886,14 +2886,14 @@ func (a *ApplicationsAPIService) ListApplicationSnoopsExecute(r ApiListApplicati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiMuteApplicationCallRequest struct {
+type ApplicationsAPIMuteApplicationCallRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiMuteApplicationCallRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIMuteApplicationCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.MuteApplicationCallExecute(r)
 }
 
@@ -2905,10 +2905,10 @@ MuteApplicationCall Mute a call
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiMuteApplicationCallRequest
+	@return ApplicationsAPIMuteApplicationCallRequest
 */
-func (a *ApplicationsAPIService) MuteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiMuteApplicationCallRequest {
-	return ApiMuteApplicationCallRequest{
+func (a *ApplicationsAPIService) MuteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIMuteApplicationCallRequest {
+	return ApplicationsAPIMuteApplicationCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -2917,7 +2917,7 @@ func (a *ApplicationsAPIService) MuteApplicationCall(ctx context.Context, applic
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) MuteApplicationCallExecute(r ApiMuteApplicationCallRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) MuteApplicationCallExecute(r ApplicationsAPIMuteApplicationCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3017,7 +3017,7 @@ func (a *ApplicationsAPIService) MuteApplicationCallExecute(r ApiMuteApplication
 	return localVarHTTPResponse, nil
 }
 
-type ApiPlayApplicationCallRequest struct {
+type ApplicationsAPIPlayApplicationCallRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	body            *ApplicationPlayback
@@ -3026,12 +3026,12 @@ type ApiPlayApplicationCallRequest struct {
 }
 
 // playback parameters
-func (r ApiPlayApplicationCallRequest) Body(body ApplicationPlayback) ApiPlayApplicationCallRequest {
+func (r ApplicationsAPIPlayApplicationCallRequest) Body(body ApplicationPlayback) ApplicationsAPIPlayApplicationCallRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPlayApplicationCallRequest) Execute() (*ApplicationPlayback, *http.Response, error) {
+func (r ApplicationsAPIPlayApplicationCallRequest) Execute() (*ApplicationPlayback, *http.Response, error) {
 	return r.ApiService.PlayApplicationCallExecute(r)
 }
 
@@ -3044,10 +3044,10 @@ URI examples: * sound:tt-weasels * digits:4188001234 * number:321 * characters:a
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiPlayApplicationCallRequest
+	@return ApplicationsAPIPlayApplicationCallRequest
 */
-func (a *ApplicationsAPIService) PlayApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiPlayApplicationCallRequest {
-	return ApiPlayApplicationCallRequest{
+func (a *ApplicationsAPIService) PlayApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIPlayApplicationCallRequest {
+	return ApplicationsAPIPlayApplicationCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -3058,7 +3058,7 @@ func (a *ApplicationsAPIService) PlayApplicationCall(ctx context.Context, applic
 // Execute executes the request
 //
 //	@return ApplicationPlayback
-func (a *ApplicationsAPIService) PlayApplicationCallExecute(r ApiPlayApplicationCallRequest) (*ApplicationPlayback, *http.Response, error) {
+func (a *ApplicationsAPIService) PlayApplicationCallExecute(r ApplicationsAPIPlayApplicationCallRequest) (*ApplicationPlayback, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3184,14 +3184,14 @@ func (a *ApplicationsAPIService) PlayApplicationCallExecute(r ApiPlayApplication
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiResumeApplicationCallRequest struct {
+type ApplicationsAPIResumeApplicationCallRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiResumeApplicationCallRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIResumeApplicationCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ResumeApplicationCallExecute(r)
 }
 
@@ -3203,10 +3203,10 @@ ResumeApplicationCall Resume a call that has been placed on hold
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiResumeApplicationCallRequest
+	@return ApplicationsAPIResumeApplicationCallRequest
 */
-func (a *ApplicationsAPIService) ResumeApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiResumeApplicationCallRequest {
-	return ApiResumeApplicationCallRequest{
+func (a *ApplicationsAPIService) ResumeApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIResumeApplicationCallRequest {
+	return ApplicationsAPIResumeApplicationCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -3215,7 +3215,7 @@ func (a *ApplicationsAPIService) ResumeApplicationCall(ctx context.Context, appl
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) ResumeApplicationCallExecute(r ApiResumeApplicationCallRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) ResumeApplicationCallExecute(r ApplicationsAPIResumeApplicationCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3315,7 +3315,7 @@ func (a *ApplicationsAPIService) ResumeApplicationCallExecute(r ApiResumeApplica
 	return localVarHTTPResponse, nil
 }
 
-type ApiSendApplicationCallDTMFRequest struct {
+type ApplicationsAPISendApplicationCallDTMFRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
@@ -3324,12 +3324,12 @@ type ApiSendApplicationCallDTMFRequest struct {
 }
 
 // Digits to send via DTMF. Must contain only &#x60;0-9*#&#x60;.
-func (r ApiSendApplicationCallDTMFRequest) Digits(digits string) ApiSendApplicationCallDTMFRequest {
+func (r ApplicationsAPISendApplicationCallDTMFRequest) Digits(digits string) ApplicationsAPISendApplicationCallDTMFRequest {
 	r.digits = &digits
 	return r
 }
 
-func (r ApiSendApplicationCallDTMFRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPISendApplicationCallDTMFRequest) Execute() (*http.Response, error) {
 	return r.ApiService.SendApplicationCallDTMFExecute(r)
 }
 
@@ -3341,10 +3341,10 @@ SendApplicationCallDTMF Simulate a user pressing DTMF keys
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiSendApplicationCallDTMFRequest
+	@return ApplicationsAPISendApplicationCallDTMFRequest
 */
-func (a *ApplicationsAPIService) SendApplicationCallDTMF(ctx context.Context, applicationUuid string, callId string) ApiSendApplicationCallDTMFRequest {
-	return ApiSendApplicationCallDTMFRequest{
+func (a *ApplicationsAPIService) SendApplicationCallDTMF(ctx context.Context, applicationUuid string, callId string) ApplicationsAPISendApplicationCallDTMFRequest {
+	return ApplicationsAPISendApplicationCallDTMFRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -3353,7 +3353,7 @@ func (a *ApplicationsAPIService) SendApplicationCallDTMF(ctx context.Context, ap
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) SendApplicationCallDTMFExecute(r ApiSendApplicationCallDTMFRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) SendApplicationCallDTMFExecute(r ApplicationsAPISendApplicationCallDTMFRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3457,7 +3457,7 @@ func (a *ApplicationsAPIService) SendApplicationCallDTMFExecute(r ApiSendApplica
 	return localVarHTTPResponse, nil
 }
 
-type ApiSnoopApplicationCallRequest struct {
+type ApplicationsAPISnoopApplicationCallRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	body            *ApplicationSnoop
@@ -3466,12 +3466,12 @@ type ApiSnoopApplicationCallRequest struct {
 }
 
 // snoop parameters
-func (r ApiSnoopApplicationCallRequest) Body(body ApplicationSnoop) ApiSnoopApplicationCallRequest {
+func (r ApplicationsAPISnoopApplicationCallRequest) Body(body ApplicationSnoop) ApplicationsAPISnoopApplicationCallRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiSnoopApplicationCallRequest) Execute() (*ApplicationSnoop, *http.Response, error) {
+func (r ApplicationsAPISnoopApplicationCallRequest) Execute() (*ApplicationSnoop, *http.Response, error) {
 	return r.ApiService.SnoopApplicationCallExecute(r)
 }
 
@@ -3484,10 +3484,10 @@ The whisper mode indicate which part of the snooped channel can hear the snooper
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiSnoopApplicationCallRequest
+	@return ApplicationsAPISnoopApplicationCallRequest
 */
-func (a *ApplicationsAPIService) SnoopApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiSnoopApplicationCallRequest {
-	return ApiSnoopApplicationCallRequest{
+func (a *ApplicationsAPIService) SnoopApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPISnoopApplicationCallRequest {
+	return ApplicationsAPISnoopApplicationCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -3498,7 +3498,7 @@ func (a *ApplicationsAPIService) SnoopApplicationCall(ctx context.Context, appli
 // Execute executes the request
 //
 //	@return ApplicationSnoop
-func (a *ApplicationsAPIService) SnoopApplicationCallExecute(r ApiSnoopApplicationCallRequest) (*ApplicationSnoop, *http.Response, error) {
+func (a *ApplicationsAPIService) SnoopApplicationCallExecute(r ApplicationsAPISnoopApplicationCallRequest) (*ApplicationSnoop, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -3624,7 +3624,7 @@ func (a *ApplicationsAPIService) SnoopApplicationCallExecute(r ApiSnoopApplicati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiStartApplicationCallMOHRequest struct {
+type ApplicationsAPIStartApplicationCallMOHRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
@@ -3632,7 +3632,7 @@ type ApiStartApplicationCallMOHRequest struct {
 	mohUuid         string
 }
 
-func (r ApiStartApplicationCallMOHRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIStartApplicationCallMOHRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StartApplicationCallMOHExecute(r)
 }
 
@@ -3647,10 +3647,10 @@ action, the music on hold will not restart automatically after the interruption.
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
 	@param mohUuid UUID of the music on hold
-	@return ApiStartApplicationCallMOHRequest
+	@return ApplicationsAPIStartApplicationCallMOHRequest
 */
-func (a *ApplicationsAPIService) StartApplicationCallMOH(ctx context.Context, applicationUuid string, callId string, mohUuid string) ApiStartApplicationCallMOHRequest {
-	return ApiStartApplicationCallMOHRequest{
+func (a *ApplicationsAPIService) StartApplicationCallMOH(ctx context.Context, applicationUuid string, callId string, mohUuid string) ApplicationsAPIStartApplicationCallMOHRequest {
+	return ApplicationsAPIStartApplicationCallMOHRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -3660,7 +3660,7 @@ func (a *ApplicationsAPIService) StartApplicationCallMOH(ctx context.Context, ap
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) StartApplicationCallMOHExecute(r ApiStartApplicationCallMOHRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) StartApplicationCallMOHExecute(r ApplicationsAPIStartApplicationCallMOHRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3761,14 +3761,14 @@ func (a *ApplicationsAPIService) StartApplicationCallMOHExecute(r ApiStartApplic
 	return localVarHTTPResponse, nil
 }
 
-type ApiStartApplicationCallProgressRequest struct {
+type ApplicationsAPIStartApplicationCallProgressRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiStartApplicationCallProgressRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIStartApplicationCallProgressRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StartApplicationCallProgressExecute(r)
 }
 
@@ -3780,10 +3780,10 @@ StartApplicationCallProgress Play the progress ringing tone
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiStartApplicationCallProgressRequest
+	@return ApplicationsAPIStartApplicationCallProgressRequest
 */
-func (a *ApplicationsAPIService) StartApplicationCallProgress(ctx context.Context, applicationUuid string, callId string) ApiStartApplicationCallProgressRequest {
-	return ApiStartApplicationCallProgressRequest{
+func (a *ApplicationsAPIService) StartApplicationCallProgress(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIStartApplicationCallProgressRequest {
+	return ApplicationsAPIStartApplicationCallProgressRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -3792,7 +3792,7 @@ func (a *ApplicationsAPIService) StartApplicationCallProgress(ctx context.Contex
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) StartApplicationCallProgressExecute(r ApiStartApplicationCallProgressRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) StartApplicationCallProgressExecute(r ApplicationsAPIStartApplicationCallProgressRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3892,14 +3892,14 @@ func (a *ApplicationsAPIService) StartApplicationCallProgressExecute(r ApiStartA
 	return localVarHTTPResponse, nil
 }
 
-type ApiStopApplicationCallMOHRequest struct {
+type ApplicationsAPIStopApplicationCallMOHRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiStopApplicationCallMOHRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIStopApplicationCallMOHRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StopApplicationCallMOHExecute(r)
 }
 
@@ -3911,10 +3911,10 @@ StopApplicationCallMOH Stops playing a music on hold
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiStopApplicationCallMOHRequest
+	@return ApplicationsAPIStopApplicationCallMOHRequest
 */
-func (a *ApplicationsAPIService) StopApplicationCallMOH(ctx context.Context, applicationUuid string, callId string) ApiStopApplicationCallMOHRequest {
-	return ApiStopApplicationCallMOHRequest{
+func (a *ApplicationsAPIService) StopApplicationCallMOH(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIStopApplicationCallMOHRequest {
+	return ApplicationsAPIStopApplicationCallMOHRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -3923,7 +3923,7 @@ func (a *ApplicationsAPIService) StopApplicationCallMOH(ctx context.Context, app
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) StopApplicationCallMOHExecute(r ApiStopApplicationCallMOHRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) StopApplicationCallMOHExecute(r ApplicationsAPIStopApplicationCallMOHRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4023,14 +4023,14 @@ func (a *ApplicationsAPIService) StopApplicationCallMOHExecute(r ApiStopApplicat
 	return localVarHTTPResponse, nil
 }
 
-type ApiStopApplicationCallProgressRequest struct {
+type ApplicationsAPIStopApplicationCallProgressRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiStopApplicationCallProgressRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIStopApplicationCallProgressRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StopApplicationCallProgressExecute(r)
 }
 
@@ -4042,10 +4042,10 @@ StopApplicationCallProgress Stop playing the progress ringing tone.
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiStopApplicationCallProgressRequest
+	@return ApplicationsAPIStopApplicationCallProgressRequest
 */
-func (a *ApplicationsAPIService) StopApplicationCallProgress(ctx context.Context, applicationUuid string, callId string) ApiStopApplicationCallProgressRequest {
-	return ApiStopApplicationCallProgressRequest{
+func (a *ApplicationsAPIService) StopApplicationCallProgress(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIStopApplicationCallProgressRequest {
+	return ApplicationsAPIStopApplicationCallProgressRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -4054,7 +4054,7 @@ func (a *ApplicationsAPIService) StopApplicationCallProgress(ctx context.Context
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) StopApplicationCallProgressExecute(r ApiStopApplicationCallProgressRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) StopApplicationCallProgressExecute(r ApplicationsAPIStopApplicationCallProgressRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4154,14 +4154,14 @@ func (a *ApplicationsAPIService) StopApplicationCallProgressExecute(r ApiStopApp
 	return localVarHTTPResponse, nil
 }
 
-type ApiStopSnoopRequest struct {
+type ApplicationsAPIStopSnoopRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	snoopUuid       string
 }
 
-func (r ApiStopSnoopRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIStopSnoopRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StopSnoopExecute(r)
 }
 
@@ -4173,10 +4173,10 @@ StopSnoop Stop snooping
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param snoopUuid UUID of the snoop
-	@return ApiStopSnoopRequest
+	@return ApplicationsAPIStopSnoopRequest
 */
-func (a *ApplicationsAPIService) StopSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApiStopSnoopRequest {
-	return ApiStopSnoopRequest{
+func (a *ApplicationsAPIService) StopSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApplicationsAPIStopSnoopRequest {
+	return ApplicationsAPIStopSnoopRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -4185,7 +4185,7 @@ func (a *ApplicationsAPIService) StopSnoop(ctx context.Context, applicationUuid 
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) StopSnoopExecute(r ApiStopSnoopRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) StopSnoopExecute(r ApplicationsAPIStopSnoopRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -4285,14 +4285,14 @@ func (a *ApplicationsAPIService) StopSnoopExecute(r ApiStopSnoopRequest) (*http.
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnmuteApplicationCallRequest struct {
+type ApplicationsAPIUnmuteApplicationCallRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid string
 	callId          string
 }
 
-func (r ApiUnmuteApplicationCallRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIUnmuteApplicationCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnmuteApplicationCallExecute(r)
 }
 
@@ -4304,10 +4304,10 @@ UnmuteApplicationCall Unmute a call
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param callId ID of the call
-	@return ApiUnmuteApplicationCallRequest
+	@return ApplicationsAPIUnmuteApplicationCallRequest
 */
-func (a *ApplicationsAPIService) UnmuteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApiUnmuteApplicationCallRequest {
-	return ApiUnmuteApplicationCallRequest{
+func (a *ApplicationsAPIService) UnmuteApplicationCall(ctx context.Context, applicationUuid string, callId string) ApplicationsAPIUnmuteApplicationCallRequest {
+	return ApplicationsAPIUnmuteApplicationCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -4316,7 +4316,7 @@ func (a *ApplicationsAPIService) UnmuteApplicationCall(ctx context.Context, appl
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) UnmuteApplicationCallExecute(r ApiUnmuteApplicationCallRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) UnmuteApplicationCallExecute(r ApplicationsAPIUnmuteApplicationCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4416,7 +4416,7 @@ func (a *ApplicationsAPIService) UnmuteApplicationCallExecute(r ApiUnmuteApplica
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateSnoopRequest struct {
+type ApplicationsAPIUpdateSnoopRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	body            *ApplicationSnoopPut
@@ -4425,12 +4425,12 @@ type ApiUpdateSnoopRequest struct {
 }
 
 // snoop parameters
-func (r ApiUpdateSnoopRequest) Body(body ApplicationSnoopPut) ApiUpdateSnoopRequest {
+func (r ApplicationsAPIUpdateSnoopRequest) Body(body ApplicationSnoopPut) ApplicationsAPIUpdateSnoopRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateSnoopRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIUpdateSnoopRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSnoopExecute(r)
 }
 
@@ -4442,10 +4442,10 @@ UpdateSnoop Change snooping parameters
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid UUID of the application
 	@param snoopUuid UUID of the snoop
-	@return ApiUpdateSnoopRequest
+	@return ApplicationsAPIUpdateSnoopRequest
 */
-func (a *ApplicationsAPIService) UpdateSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApiUpdateSnoopRequest {
-	return ApiUpdateSnoopRequest{
+func (a *ApplicationsAPIService) UpdateSnoop(ctx context.Context, applicationUuid string, snoopUuid string) ApplicationsAPIUpdateSnoopRequest {
+	return ApplicationsAPIUpdateSnoopRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -4454,7 +4454,7 @@ func (a *ApplicationsAPIService) UpdateSnoop(ctx context.Context, applicationUui
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) UpdateSnoopExecute(r ApiUpdateSnoopRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) UpdateSnoopExecute(r ApplicationsAPIUpdateSnoopRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

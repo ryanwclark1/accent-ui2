@@ -30,12 +30,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param voicemailId
-		@return ApiAssociateUserVoicemailRequest
+		@return VoicemailsAPIAssociateUserVoicemailRequest
 	*/
-	AssociateUserVoicemail(ctx context.Context, userId string, voicemailId int32) ApiAssociateUserVoicemailRequest
+	AssociateUserVoicemail(ctx context.Context, userId string, voicemailId int32) VoicemailsAPIAssociateUserVoicemailRequest
 
 	// AssociateUserVoicemailExecute executes the request
-	AssociateUserVoicemailExecute(r ApiAssociateUserVoicemailRequest) (*http.Response, error)
+	AssociateUserVoicemailExecute(r VoicemailsAPIAssociateUserVoicemailRequest) (*http.Response, error)
 
 	/*
 		CreateUserVoicemail Create user voicemail
@@ -44,13 +44,13 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiCreateUserVoicemailRequest
+		@return VoicemailsAPICreateUserVoicemailRequest
 	*/
-	CreateUserVoicemail(ctx context.Context, userId string) ApiCreateUserVoicemailRequest
+	CreateUserVoicemail(ctx context.Context, userId string) VoicemailsAPICreateUserVoicemailRequest
 
 	// CreateUserVoicemailExecute executes the request
 	//  @return Voicemail
-	CreateUserVoicemailExecute(r ApiCreateUserVoicemailRequest) (*Voicemail, *http.Response, error)
+	CreateUserVoicemailExecute(r VoicemailsAPICreateUserVoicemailRequest) (*Voicemail, *http.Response, error)
 
 	/*
 		CreateVoicemail Create voicemail
@@ -58,13 +58,13 @@ type VoicemailsAPI interface {
 		**Required ACL:** `confd.voicemails.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateVoicemailRequest
+		@return VoicemailsAPICreateVoicemailRequest
 	*/
-	CreateVoicemail(ctx context.Context) ApiCreateVoicemailRequest
+	CreateVoicemail(ctx context.Context) VoicemailsAPICreateVoicemailRequest
 
 	// CreateVoicemailExecute executes the request
 	//  @return Voicemail
-	CreateVoicemailExecute(r ApiCreateVoicemailRequest) (*Voicemail, *http.Response, error)
+	CreateVoicemailExecute(r VoicemailsAPICreateVoicemailRequest) (*Voicemail, *http.Response, error)
 
 	/*
 		DeleteVoicemail Delete voicemail
@@ -75,12 +75,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId
-		@return ApiDeleteVoicemailRequest
+		@return VoicemailsAPIDeleteVoicemailRequest
 	*/
-	DeleteVoicemail(ctx context.Context, voicemailId int32) ApiDeleteVoicemailRequest
+	DeleteVoicemail(ctx context.Context, voicemailId int32) VoicemailsAPIDeleteVoicemailRequest
 
 	// DeleteVoicemailExecute executes the request
-	DeleteVoicemailExecute(r ApiDeleteVoicemailRequest) (*http.Response, error)
+	DeleteVoicemailExecute(r VoicemailsAPIDeleteVoicemailRequest) (*http.Response, error)
 
 	/*
 		DissociateUserVoicemail Dissociate user and voicemail
@@ -89,12 +89,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiDissociateUserVoicemailRequest
+		@return VoicemailsAPIDissociateUserVoicemailRequest
 	*/
-	DissociateUserVoicemail(ctx context.Context, userId string) ApiDissociateUserVoicemailRequest
+	DissociateUserVoicemail(ctx context.Context, userId string) VoicemailsAPIDissociateUserVoicemailRequest
 
 	// DissociateUserVoicemailExecute executes the request
-	DissociateUserVoicemailExecute(r ApiDissociateUserVoicemailRequest) (*http.Response, error)
+	DissociateUserVoicemailExecute(r VoicemailsAPIDissociateUserVoicemailRequest) (*http.Response, error)
 
 	/*
 		GetUserVoicemail Get user voicemails
@@ -103,13 +103,13 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiGetUserVoicemailRequest
+		@return VoicemailsAPIGetUserVoicemailRequest
 	*/
-	GetUserVoicemail(ctx context.Context, userId string) ApiGetUserVoicemailRequest
+	GetUserVoicemail(ctx context.Context, userId string) VoicemailsAPIGetUserVoicemailRequest
 
 	// GetUserVoicemailExecute executes the request
 	//  @return VoicemailItems
-	GetUserVoicemailExecute(r ApiGetUserVoicemailRequest) (*VoicemailItems, *http.Response, error)
+	GetUserVoicemailExecute(r VoicemailsAPIGetUserVoicemailRequest) (*VoicemailItems, *http.Response, error)
 
 	/*
 		GetVoicemail Get voicemail
@@ -118,13 +118,13 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId
-		@return ApiGetVoicemailRequest
+		@return VoicemailsAPIGetVoicemailRequest
 	*/
-	GetVoicemail(ctx context.Context, voicemailId int32) ApiGetVoicemailRequest
+	GetVoicemail(ctx context.Context, voicemailId int32) VoicemailsAPIGetVoicemailRequest
 
 	// GetVoicemailExecute executes the request
 	//  @return Voicemail
-	GetVoicemailExecute(r ApiGetVoicemailRequest) (*Voicemail, *http.Response, error)
+	GetVoicemailExecute(r VoicemailsAPIGetVoicemailRequest) (*Voicemail, *http.Response, error)
 
 	/*
 		ListAsteriskVoicemailZonemessages List Voicemail zonemessages options
@@ -132,13 +132,13 @@ type VoicemailsAPI interface {
 		**Required ACL:** `confd.asterisk.voicemail.zonemessages.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskVoicemailZonemessagesRequest
+		@return VoicemailsAPIListAsteriskVoicemailZonemessagesRequest
 	*/
-	ListAsteriskVoicemailZonemessages(ctx context.Context) ApiListAsteriskVoicemailZonemessagesRequest
+	ListAsteriskVoicemailZonemessages(ctx context.Context) VoicemailsAPIListAsteriskVoicemailZonemessagesRequest
 
 	// ListAsteriskVoicemailZonemessagesExecute executes the request
 	//  @return VoicemailZoneMessages
-	ListAsteriskVoicemailZonemessagesExecute(r ApiListAsteriskVoicemailZonemessagesRequest) (*VoicemailZoneMessages, *http.Response, error)
+	ListAsteriskVoicemailZonemessagesExecute(r VoicemailsAPIListAsteriskVoicemailZonemessagesRequest) (*VoicemailZoneMessages, *http.Response, error)
 
 	/*
 		ListVoicemails List voicemails
@@ -146,13 +146,13 @@ type VoicemailsAPI interface {
 		**Required ACL:** `confd.voicemails.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListVoicemailsRequest
+		@return VoicemailsAPIListVoicemailsRequest
 	*/
-	ListVoicemails(ctx context.Context) ApiListVoicemailsRequest
+	ListVoicemails(ctx context.Context) VoicemailsAPIListVoicemailsRequest
 
 	// ListVoicemailsExecute executes the request
 	//  @return VoicemailItems
-	ListVoicemailsExecute(r ApiListVoicemailsRequest) (*VoicemailItems, *http.Response, error)
+	ListVoicemailsExecute(r VoicemailsAPIListVoicemailsRequest) (*VoicemailItems, *http.Response, error)
 
 	/*
 		UpdateAsteriskVoicemailZonemessages Update Voicemail zonemessages option
@@ -160,12 +160,12 @@ type VoicemailsAPI interface {
 		**Required ACL:** `confd.asterisk.voicemail.zonemessages.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskVoicemailZonemessagesRequest
+		@return VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest
 	*/
-	UpdateAsteriskVoicemailZonemessages(ctx context.Context) ApiUpdateAsteriskVoicemailZonemessagesRequest
+	UpdateAsteriskVoicemailZonemessages(ctx context.Context) VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest
 
 	// UpdateAsteriskVoicemailZonemessagesExecute executes the request
-	UpdateAsteriskVoicemailZonemessagesExecute(r ApiUpdateAsteriskVoicemailZonemessagesRequest) (*http.Response, error)
+	UpdateAsteriskVoicemailZonemessagesExecute(r VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest) (*http.Response, error)
 
 	/*
 		UpdateVoicemail Update voicemail
@@ -174,25 +174,25 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId
-		@return ApiUpdateVoicemailRequest
+		@return VoicemailsAPIUpdateVoicemailRequest
 	*/
-	UpdateVoicemail(ctx context.Context, voicemailId int32) ApiUpdateVoicemailRequest
+	UpdateVoicemail(ctx context.Context, voicemailId int32) VoicemailsAPIUpdateVoicemailRequest
 
 	// UpdateVoicemailExecute executes the request
-	UpdateVoicemailExecute(r ApiUpdateVoicemailRequest) (*http.Response, error)
+	UpdateVoicemailExecute(r VoicemailsAPIUpdateVoicemailRequest) (*http.Response, error)
 }
 
 // VoicemailsAPIService VoicemailsAPI service
 type VoicemailsAPIService service
 
-type ApiAssociateUserVoicemailRequest struct {
+type VoicemailsAPIAssociateUserVoicemailRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	userId      string
 	voicemailId int32
 }
 
-func (r ApiAssociateUserVoicemailRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIAssociateUserVoicemailRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserVoicemailExecute(r)
 }
 
@@ -204,10 +204,10 @@ AssociateUserVoicemail Associate user and voicemail
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param voicemailId
-	@return ApiAssociateUserVoicemailRequest
+	@return VoicemailsAPIAssociateUserVoicemailRequest
 */
-func (a *VoicemailsAPIService) AssociateUserVoicemail(ctx context.Context, userId string, voicemailId int32) ApiAssociateUserVoicemailRequest {
-	return ApiAssociateUserVoicemailRequest{
+func (a *VoicemailsAPIService) AssociateUserVoicemail(ctx context.Context, userId string, voicemailId int32) VoicemailsAPIAssociateUserVoicemailRequest {
+	return VoicemailsAPIAssociateUserVoicemailRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userId:      userId,
@@ -216,7 +216,7 @@ func (a *VoicemailsAPIService) AssociateUserVoicemail(ctx context.Context, userI
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) AssociateUserVoicemailExecute(r ApiAssociateUserVoicemailRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) AssociateUserVoicemailExecute(r VoicemailsAPIAssociateUserVoicemailRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -316,7 +316,7 @@ func (a *VoicemailsAPIService) AssociateUserVoicemailExecute(r ApiAssociateUserV
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateUserVoicemailRequest struct {
+type VoicemailsAPICreateUserVoicemailRequest struct {
 	ctx          context.Context
 	ApiService   VoicemailsAPI
 	body         *Voicemail
@@ -325,18 +325,18 @@ type ApiCreateUserVoicemailRequest struct {
 }
 
 // Voicemail to create
-func (r ApiCreateUserVoicemailRequest) Body(body Voicemail) ApiCreateUserVoicemailRequest {
+func (r VoicemailsAPICreateUserVoicemailRequest) Body(body Voicemail) VoicemailsAPICreateUserVoicemailRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateUserVoicemailRequest) AccentTenant(accentTenant string) ApiCreateUserVoicemailRequest {
+func (r VoicemailsAPICreateUserVoicemailRequest) AccentTenant(accentTenant string) VoicemailsAPICreateUserVoicemailRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateUserVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
+func (r VoicemailsAPICreateUserVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
 	return r.ApiService.CreateUserVoicemailExecute(r)
 }
 
@@ -347,10 +347,10 @@ CreateUserVoicemail Create user voicemail
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiCreateUserVoicemailRequest
+	@return VoicemailsAPICreateUserVoicemailRequest
 */
-func (a *VoicemailsAPIService) CreateUserVoicemail(ctx context.Context, userId string) ApiCreateUserVoicemailRequest {
-	return ApiCreateUserVoicemailRequest{
+func (a *VoicemailsAPIService) CreateUserVoicemail(ctx context.Context, userId string) VoicemailsAPICreateUserVoicemailRequest {
+	return VoicemailsAPICreateUserVoicemailRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -360,7 +360,7 @@ func (a *VoicemailsAPIService) CreateUserVoicemail(ctx context.Context, userId s
 // Execute executes the request
 //
 //	@return Voicemail
-func (a *VoicemailsAPIService) CreateUserVoicemailExecute(r ApiCreateUserVoicemailRequest) (*Voicemail, *http.Response, error) {
+func (a *VoicemailsAPIService) CreateUserVoicemailExecute(r VoicemailsAPICreateUserVoicemailRequest) (*Voicemail, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -477,19 +477,19 @@ func (a *VoicemailsAPIService) CreateUserVoicemailExecute(r ApiCreateUserVoicema
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateVoicemailRequest struct {
+type VoicemailsAPICreateVoicemailRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	body       *Voicemail
 }
 
 // Voicemail to create
-func (r ApiCreateVoicemailRequest) Body(body Voicemail) ApiCreateVoicemailRequest {
+func (r VoicemailsAPICreateVoicemailRequest) Body(body Voicemail) VoicemailsAPICreateVoicemailRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
+func (r VoicemailsAPICreateVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
 	return r.ApiService.CreateVoicemailExecute(r)
 }
 
@@ -499,10 +499,10 @@ CreateVoicemail Create voicemail
 **Required ACL:** `confd.voicemails.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateVoicemailRequest
+	@return VoicemailsAPICreateVoicemailRequest
 */
-func (a *VoicemailsAPIService) CreateVoicemail(ctx context.Context) ApiCreateVoicemailRequest {
-	return ApiCreateVoicemailRequest{
+func (a *VoicemailsAPIService) CreateVoicemail(ctx context.Context) VoicemailsAPICreateVoicemailRequest {
+	return VoicemailsAPICreateVoicemailRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -511,7 +511,7 @@ func (a *VoicemailsAPIService) CreateVoicemail(ctx context.Context) ApiCreateVoi
 // Execute executes the request
 //
 //	@return Voicemail
-func (a *VoicemailsAPIService) CreateVoicemailExecute(r ApiCreateVoicemailRequest) (*Voicemail, *http.Response, error) {
+func (a *VoicemailsAPIService) CreateVoicemailExecute(r VoicemailsAPICreateVoicemailRequest) (*Voicemail, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -613,7 +613,7 @@ func (a *VoicemailsAPIService) CreateVoicemailExecute(r ApiCreateVoicemailReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteVoicemailRequest struct {
+type VoicemailsAPIDeleteVoicemailRequest struct {
 	ctx          context.Context
 	ApiService   VoicemailsAPI
 	voicemailId  int32
@@ -621,12 +621,12 @@ type ApiDeleteVoicemailRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteVoicemailRequest) AccentTenant(accentTenant string) ApiDeleteVoicemailRequest {
+func (r VoicemailsAPIDeleteVoicemailRequest) AccentTenant(accentTenant string) VoicemailsAPIDeleteVoicemailRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteVoicemailRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIDeleteVoicemailRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteVoicemailExecute(r)
 }
 
@@ -639,10 +639,10 @@ A voicemail can not be deleted if it is still attached to a user. The user must 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId
-	@return ApiDeleteVoicemailRequest
+	@return VoicemailsAPIDeleteVoicemailRequest
 */
-func (a *VoicemailsAPIService) DeleteVoicemail(ctx context.Context, voicemailId int32) ApiDeleteVoicemailRequest {
-	return ApiDeleteVoicemailRequest{
+func (a *VoicemailsAPIService) DeleteVoicemail(ctx context.Context, voicemailId int32) VoicemailsAPIDeleteVoicemailRequest {
+	return VoicemailsAPIDeleteVoicemailRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -650,7 +650,7 @@ func (a *VoicemailsAPIService) DeleteVoicemail(ctx context.Context, voicemailId 
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) DeleteVoicemailExecute(r ApiDeleteVoicemailRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) DeleteVoicemailExecute(r VoicemailsAPIDeleteVoicemailRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -752,13 +752,13 @@ func (a *VoicemailsAPIService) DeleteVoicemailExecute(r ApiDeleteVoicemailReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserVoicemailRequest struct {
+type VoicemailsAPIDissociateUserVoicemailRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	userId     string
 }
 
-func (r ApiDissociateUserVoicemailRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIDissociateUserVoicemailRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserVoicemailExecute(r)
 }
 
@@ -769,10 +769,10 @@ DissociateUserVoicemail Dissociate user and voicemail
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiDissociateUserVoicemailRequest
+	@return VoicemailsAPIDissociateUserVoicemailRequest
 */
-func (a *VoicemailsAPIService) DissociateUserVoicemail(ctx context.Context, userId string) ApiDissociateUserVoicemailRequest {
-	return ApiDissociateUserVoicemailRequest{
+func (a *VoicemailsAPIService) DissociateUserVoicemail(ctx context.Context, userId string) VoicemailsAPIDissociateUserVoicemailRequest {
+	return VoicemailsAPIDissociateUserVoicemailRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -780,7 +780,7 @@ func (a *VoicemailsAPIService) DissociateUserVoicemail(ctx context.Context, user
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) DissociateUserVoicemailExecute(r ApiDissociateUserVoicemailRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) DissociateUserVoicemailExecute(r VoicemailsAPIDissociateUserVoicemailRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -879,7 +879,7 @@ func (a *VoicemailsAPIService) DissociateUserVoicemailExecute(r ApiDissociateUse
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailRequest struct {
+type VoicemailsAPIGetUserVoicemailRequest struct {
 	ctx          context.Context
 	ApiService   VoicemailsAPI
 	userId       string
@@ -887,12 +887,12 @@ type ApiGetUserVoicemailRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserVoicemailRequest) AccentTenant(accentTenant string) ApiGetUserVoicemailRequest {
+func (r VoicemailsAPIGetUserVoicemailRequest) AccentTenant(accentTenant string) VoicemailsAPIGetUserVoicemailRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserVoicemailRequest) Execute() (*VoicemailItems, *http.Response, error) {
+func (r VoicemailsAPIGetUserVoicemailRequest) Execute() (*VoicemailItems, *http.Response, error) {
 	return r.ApiService.GetUserVoicemailExecute(r)
 }
 
@@ -903,10 +903,10 @@ GetUserVoicemail Get user voicemails
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiGetUserVoicemailRequest
+	@return VoicemailsAPIGetUserVoicemailRequest
 */
-func (a *VoicemailsAPIService) GetUserVoicemail(ctx context.Context, userId string) ApiGetUserVoicemailRequest {
-	return ApiGetUserVoicemailRequest{
+func (a *VoicemailsAPIService) GetUserVoicemail(ctx context.Context, userId string) VoicemailsAPIGetUserVoicemailRequest {
+	return VoicemailsAPIGetUserVoicemailRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -916,7 +916,7 @@ func (a *VoicemailsAPIService) GetUserVoicemail(ctx context.Context, userId stri
 // Execute executes the request
 //
 //	@return VoicemailItems
-func (a *VoicemailsAPIService) GetUserVoicemailExecute(r ApiGetUserVoicemailRequest) (*VoicemailItems, *http.Response, error) {
+func (a *VoicemailsAPIService) GetUserVoicemailExecute(r VoicemailsAPIGetUserVoicemailRequest) (*VoicemailItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1017,7 +1017,7 @@ func (a *VoicemailsAPIService) GetUserVoicemailExecute(r ApiGetUserVoicemailRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetVoicemailRequest struct {
+type VoicemailsAPIGetVoicemailRequest struct {
 	ctx          context.Context
 	ApiService   VoicemailsAPI
 	voicemailId  int32
@@ -1025,12 +1025,12 @@ type ApiGetVoicemailRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetVoicemailRequest) AccentTenant(accentTenant string) ApiGetVoicemailRequest {
+func (r VoicemailsAPIGetVoicemailRequest) AccentTenant(accentTenant string) VoicemailsAPIGetVoicemailRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
+func (r VoicemailsAPIGetVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
 	return r.ApiService.GetVoicemailExecute(r)
 }
 
@@ -1041,10 +1041,10 @@ GetVoicemail Get voicemail
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId
-	@return ApiGetVoicemailRequest
+	@return VoicemailsAPIGetVoicemailRequest
 */
-func (a *VoicemailsAPIService) GetVoicemail(ctx context.Context, voicemailId int32) ApiGetVoicemailRequest {
-	return ApiGetVoicemailRequest{
+func (a *VoicemailsAPIService) GetVoicemail(ctx context.Context, voicemailId int32) VoicemailsAPIGetVoicemailRequest {
+	return VoicemailsAPIGetVoicemailRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -1054,7 +1054,7 @@ func (a *VoicemailsAPIService) GetVoicemail(ctx context.Context, voicemailId int
 // Execute executes the request
 //
 //	@return Voicemail
-func (a *VoicemailsAPIService) GetVoicemailExecute(r ApiGetVoicemailRequest) (*Voicemail, *http.Response, error) {
+func (a *VoicemailsAPIService) GetVoicemailExecute(r VoicemailsAPIGetVoicemailRequest) (*Voicemail, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1155,12 +1155,12 @@ func (a *VoicemailsAPIService) GetVoicemailExecute(r ApiGetVoicemailRequest) (*V
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskVoicemailZonemessagesRequest struct {
+type VoicemailsAPIListAsteriskVoicemailZonemessagesRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 }
 
-func (r ApiListAsteriskVoicemailZonemessagesRequest) Execute() (*VoicemailZoneMessages, *http.Response, error) {
+func (r VoicemailsAPIListAsteriskVoicemailZonemessagesRequest) Execute() (*VoicemailZoneMessages, *http.Response, error) {
 	return r.ApiService.ListAsteriskVoicemailZonemessagesExecute(r)
 }
 
@@ -1170,10 +1170,10 @@ ListAsteriskVoicemailZonemessages List Voicemail zonemessages options
 **Required ACL:** `confd.asterisk.voicemail.zonemessages.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskVoicemailZonemessagesRequest
+	@return VoicemailsAPIListAsteriskVoicemailZonemessagesRequest
 */
-func (a *VoicemailsAPIService) ListAsteriskVoicemailZonemessages(ctx context.Context) ApiListAsteriskVoicemailZonemessagesRequest {
-	return ApiListAsteriskVoicemailZonemessagesRequest{
+func (a *VoicemailsAPIService) ListAsteriskVoicemailZonemessages(ctx context.Context) VoicemailsAPIListAsteriskVoicemailZonemessagesRequest {
+	return VoicemailsAPIListAsteriskVoicemailZonemessagesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1182,7 +1182,7 @@ func (a *VoicemailsAPIService) ListAsteriskVoicemailZonemessages(ctx context.Con
 // Execute executes the request
 //
 //	@return VoicemailZoneMessages
-func (a *VoicemailsAPIService) ListAsteriskVoicemailZonemessagesExecute(r ApiListAsteriskVoicemailZonemessagesRequest) (*VoicemailZoneMessages, *http.Response, error) {
+func (a *VoicemailsAPIService) ListAsteriskVoicemailZonemessagesExecute(r VoicemailsAPIListAsteriskVoicemailZonemessagesRequest) (*VoicemailZoneMessages, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1269,7 +1269,7 @@ func (a *VoicemailsAPIService) ListAsteriskVoicemailZonemessagesExecute(r ApiLis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListVoicemailsRequest struct {
+type VoicemailsAPIListVoicemailsRequest struct {
 	ctx          context.Context
 	ApiService   VoicemailsAPI
 	accentTenant *string
@@ -1282,48 +1282,48 @@ type ApiListVoicemailsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListVoicemailsRequest) AccentTenant(accentTenant string) ApiListVoicemailsRequest {
+func (r VoicemailsAPIListVoicemailsRequest) AccentTenant(accentTenant string) VoicemailsAPIListVoicemailsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListVoicemailsRequest) Recurse(recurse bool) ApiListVoicemailsRequest {
+func (r VoicemailsAPIListVoicemailsRequest) Recurse(recurse bool) VoicemailsAPIListVoicemailsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListVoicemailsRequest) Order(order string) ApiListVoicemailsRequest {
+func (r VoicemailsAPIListVoicemailsRequest) Order(order string) VoicemailsAPIListVoicemailsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListVoicemailsRequest) Direction(direction string) ApiListVoicemailsRequest {
+func (r VoicemailsAPIListVoicemailsRequest) Direction(direction string) VoicemailsAPIListVoicemailsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListVoicemailsRequest) Limit(limit int32) ApiListVoicemailsRequest {
+func (r VoicemailsAPIListVoicemailsRequest) Limit(limit int32) VoicemailsAPIListVoicemailsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListVoicemailsRequest) Offset(offset int32) ApiListVoicemailsRequest {
+func (r VoicemailsAPIListVoicemailsRequest) Offset(offset int32) VoicemailsAPIListVoicemailsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListVoicemailsRequest) Search(search string) ApiListVoicemailsRequest {
+func (r VoicemailsAPIListVoicemailsRequest) Search(search string) VoicemailsAPIListVoicemailsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListVoicemailsRequest) Execute() (*VoicemailItems, *http.Response, error) {
+func (r VoicemailsAPIListVoicemailsRequest) Execute() (*VoicemailItems, *http.Response, error) {
 	return r.ApiService.ListVoicemailsExecute(r)
 }
 
@@ -1333,10 +1333,10 @@ ListVoicemails List voicemails
 **Required ACL:** `confd.voicemails.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListVoicemailsRequest
+	@return VoicemailsAPIListVoicemailsRequest
 */
-func (a *VoicemailsAPIService) ListVoicemails(ctx context.Context) ApiListVoicemailsRequest {
-	return ApiListVoicemailsRequest{
+func (a *VoicemailsAPIService) ListVoicemails(ctx context.Context) VoicemailsAPIListVoicemailsRequest {
+	return VoicemailsAPIListVoicemailsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1345,7 +1345,7 @@ func (a *VoicemailsAPIService) ListVoicemails(ctx context.Context) ApiListVoicem
 // Execute executes the request
 //
 //	@return VoicemailItems
-func (a *VoicemailsAPIService) ListVoicemailsExecute(r ApiListVoicemailsRequest) (*VoicemailItems, *http.Response, error) {
+func (a *VoicemailsAPIService) ListVoicemailsExecute(r VoicemailsAPIListVoicemailsRequest) (*VoicemailItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1456,18 +1456,18 @@ func (a *VoicemailsAPIService) ListVoicemailsExecute(r ApiListVoicemailsRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskVoicemailZonemessagesRequest struct {
+type VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	body       *VoicemailZoneMessages
 }
 
-func (r ApiUpdateAsteriskVoicemailZonemessagesRequest) Body(body VoicemailZoneMessages) ApiUpdateAsteriskVoicemailZonemessagesRequest {
+func (r VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest) Body(body VoicemailZoneMessages) VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskVoicemailZonemessagesRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskVoicemailZonemessagesExecute(r)
 }
 
@@ -1477,17 +1477,17 @@ UpdateAsteriskVoicemailZonemessages Update Voicemail zonemessages option
 **Required ACL:** `confd.asterisk.voicemail.zonemessages.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskVoicemailZonemessagesRequest
+	@return VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest
 */
-func (a *VoicemailsAPIService) UpdateAsteriskVoicemailZonemessages(ctx context.Context) ApiUpdateAsteriskVoicemailZonemessagesRequest {
-	return ApiUpdateAsteriskVoicemailZonemessagesRequest{
+func (a *VoicemailsAPIService) UpdateAsteriskVoicemailZonemessages(ctx context.Context) VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest {
+	return VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) UpdateAsteriskVoicemailZonemessagesExecute(r ApiUpdateAsteriskVoicemailZonemessagesRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) UpdateAsteriskVoicemailZonemessagesExecute(r VoicemailsAPIUpdateAsteriskVoicemailZonemessagesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1590,7 +1590,7 @@ func (a *VoicemailsAPIService) UpdateAsteriskVoicemailZonemessagesExecute(r ApiU
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateVoicemailRequest struct {
+type VoicemailsAPIUpdateVoicemailRequest struct {
 	ctx          context.Context
 	ApiService   VoicemailsAPI
 	body         *Voicemail
@@ -1598,18 +1598,18 @@ type ApiUpdateVoicemailRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateVoicemailRequest) Body(body Voicemail) ApiUpdateVoicemailRequest {
+func (r VoicemailsAPIUpdateVoicemailRequest) Body(body Voicemail) VoicemailsAPIUpdateVoicemailRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateVoicemailRequest) AccentTenant(accentTenant string) ApiUpdateVoicemailRequest {
+func (r VoicemailsAPIUpdateVoicemailRequest) AccentTenant(accentTenant string) VoicemailsAPIUpdateVoicemailRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateVoicemailRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIUpdateVoicemailRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateVoicemailExecute(r)
 }
 
@@ -1620,10 +1620,10 @@ UpdateVoicemail Update voicemail
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId
-	@return ApiUpdateVoicemailRequest
+	@return VoicemailsAPIUpdateVoicemailRequest
 */
-func (a *VoicemailsAPIService) UpdateVoicemail(ctx context.Context, voicemailId int32) ApiUpdateVoicemailRequest {
-	return ApiUpdateVoicemailRequest{
+func (a *VoicemailsAPIService) UpdateVoicemail(ctx context.Context, voicemailId int32) VoicemailsAPIUpdateVoicemailRequest {
+	return VoicemailsAPIUpdateVoicemailRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -1631,7 +1631,7 @@ func (a *VoicemailsAPIService) UpdateVoicemail(ctx context.Context, voicemailId 
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) UpdateVoicemailExecute(r ApiUpdateVoicemailRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) UpdateVoicemailExecute(r VoicemailsAPIUpdateVoicemailRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

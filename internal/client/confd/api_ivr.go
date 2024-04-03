@@ -28,13 +28,13 @@ type IvrAPI interface {
 		**Required ACL:** `confd.ivr.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateIvrRequest
+		@return IvrAPICreateIvrRequest
 	*/
-	CreateIvr(ctx context.Context) ApiCreateIvrRequest
+	CreateIvr(ctx context.Context) IvrAPICreateIvrRequest
 
 	// CreateIvrExecute executes the request
 	//  @return Ivr
-	CreateIvrExecute(r ApiCreateIvrRequest) (*Ivr, *http.Response, error)
+	CreateIvrExecute(r IvrAPICreateIvrRequest) (*Ivr, *http.Response, error)
 
 	/*
 		DeleteIvr Delete IVR
@@ -43,12 +43,12 @@ type IvrAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param ivrId IVR's ID
-		@return ApiDeleteIvrRequest
+		@return IvrAPIDeleteIvrRequest
 	*/
-	DeleteIvr(ctx context.Context, ivrId int32) ApiDeleteIvrRequest
+	DeleteIvr(ctx context.Context, ivrId int32) IvrAPIDeleteIvrRequest
 
 	// DeleteIvrExecute executes the request
-	DeleteIvrExecute(r ApiDeleteIvrRequest) (*http.Response, error)
+	DeleteIvrExecute(r IvrAPIDeleteIvrRequest) (*http.Response, error)
 
 	/*
 		GetIvr Get IVR
@@ -57,13 +57,13 @@ type IvrAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param ivrId IVR's ID
-		@return ApiGetIvrRequest
+		@return IvrAPIGetIvrRequest
 	*/
-	GetIvr(ctx context.Context, ivrId int32) ApiGetIvrRequest
+	GetIvr(ctx context.Context, ivrId int32) IvrAPIGetIvrRequest
 
 	// GetIvrExecute executes the request
 	//  @return Ivr
-	GetIvrExecute(r ApiGetIvrRequest) (*Ivr, *http.Response, error)
+	GetIvrExecute(r IvrAPIGetIvrRequest) (*Ivr, *http.Response, error)
 
 	/*
 		ListIvr List IVR
@@ -71,13 +71,13 @@ type IvrAPI interface {
 		**Required ACL:** `confd.ivr.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListIvrRequest
+		@return IvrAPIListIvrRequest
 	*/
-	ListIvr(ctx context.Context) ApiListIvrRequest
+	ListIvr(ctx context.Context) IvrAPIListIvrRequest
 
 	// ListIvrExecute executes the request
 	//  @return IvrItems
-	ListIvrExecute(r ApiListIvrRequest) (*IvrItems, *http.Response, error)
+	ListIvrExecute(r IvrAPIListIvrRequest) (*IvrItems, *http.Response, error)
 
 	/*
 		UpdateIvr Update IVR
@@ -86,18 +86,18 @@ type IvrAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param ivrId IVR's ID
-		@return ApiUpdateIvrRequest
+		@return IvrAPIUpdateIvrRequest
 	*/
-	UpdateIvr(ctx context.Context, ivrId int32) ApiUpdateIvrRequest
+	UpdateIvr(ctx context.Context, ivrId int32) IvrAPIUpdateIvrRequest
 
 	// UpdateIvrExecute executes the request
-	UpdateIvrExecute(r ApiUpdateIvrRequest) (*http.Response, error)
+	UpdateIvrExecute(r IvrAPIUpdateIvrRequest) (*http.Response, error)
 }
 
 // IvrAPIService IvrAPI service
 type IvrAPIService service
 
-type ApiCreateIvrRequest struct {
+type IvrAPICreateIvrRequest struct {
 	ctx          context.Context
 	ApiService   IvrAPI
 	body         *Ivr
@@ -105,18 +105,18 @@ type ApiCreateIvrRequest struct {
 }
 
 // IVR to create
-func (r ApiCreateIvrRequest) Body(body Ivr) ApiCreateIvrRequest {
+func (r IvrAPICreateIvrRequest) Body(body Ivr) IvrAPICreateIvrRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateIvrRequest) AccentTenant(accentTenant string) ApiCreateIvrRequest {
+func (r IvrAPICreateIvrRequest) AccentTenant(accentTenant string) IvrAPICreateIvrRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateIvrRequest) Execute() (*Ivr, *http.Response, error) {
+func (r IvrAPICreateIvrRequest) Execute() (*Ivr, *http.Response, error) {
 	return r.ApiService.CreateIvrExecute(r)
 }
 
@@ -126,10 +126,10 @@ CreateIvr Create IVR
 **Required ACL:** `confd.ivr.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateIvrRequest
+	@return IvrAPICreateIvrRequest
 */
-func (a *IvrAPIService) CreateIvr(ctx context.Context) ApiCreateIvrRequest {
-	return ApiCreateIvrRequest{
+func (a *IvrAPIService) CreateIvr(ctx context.Context) IvrAPICreateIvrRequest {
+	return IvrAPICreateIvrRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -138,7 +138,7 @@ func (a *IvrAPIService) CreateIvr(ctx context.Context) ApiCreateIvrRequest {
 // Execute executes the request
 //
 //	@return Ivr
-func (a *IvrAPIService) CreateIvrExecute(r ApiCreateIvrRequest) (*Ivr, *http.Response, error) {
+func (a *IvrAPIService) CreateIvrExecute(r IvrAPICreateIvrRequest) (*Ivr, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -243,7 +243,7 @@ func (a *IvrAPIService) CreateIvrExecute(r ApiCreateIvrRequest) (*Ivr, *http.Res
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteIvrRequest struct {
+type IvrAPIDeleteIvrRequest struct {
 	ctx          context.Context
 	ApiService   IvrAPI
 	ivrId        int32
@@ -251,12 +251,12 @@ type ApiDeleteIvrRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteIvrRequest) AccentTenant(accentTenant string) ApiDeleteIvrRequest {
+func (r IvrAPIDeleteIvrRequest) AccentTenant(accentTenant string) IvrAPIDeleteIvrRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteIvrRequest) Execute() (*http.Response, error) {
+func (r IvrAPIDeleteIvrRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteIvrExecute(r)
 }
 
@@ -267,10 +267,10 @@ DeleteIvr Delete IVR
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param ivrId IVR's ID
-	@return ApiDeleteIvrRequest
+	@return IvrAPIDeleteIvrRequest
 */
-func (a *IvrAPIService) DeleteIvr(ctx context.Context, ivrId int32) ApiDeleteIvrRequest {
-	return ApiDeleteIvrRequest{
+func (a *IvrAPIService) DeleteIvr(ctx context.Context, ivrId int32) IvrAPIDeleteIvrRequest {
+	return IvrAPIDeleteIvrRequest{
 		ApiService: a,
 		ctx:        ctx,
 		ivrId:      ivrId,
@@ -278,7 +278,7 @@ func (a *IvrAPIService) DeleteIvr(ctx context.Context, ivrId int32) ApiDeleteIvr
 }
 
 // Execute executes the request
-func (a *IvrAPIService) DeleteIvrExecute(r ApiDeleteIvrRequest) (*http.Response, error) {
+func (a *IvrAPIService) DeleteIvrExecute(r IvrAPIDeleteIvrRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -380,7 +380,7 @@ func (a *IvrAPIService) DeleteIvrExecute(r ApiDeleteIvrRequest) (*http.Response,
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetIvrRequest struct {
+type IvrAPIGetIvrRequest struct {
 	ctx          context.Context
 	ApiService   IvrAPI
 	ivrId        int32
@@ -388,12 +388,12 @@ type ApiGetIvrRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetIvrRequest) AccentTenant(accentTenant string) ApiGetIvrRequest {
+func (r IvrAPIGetIvrRequest) AccentTenant(accentTenant string) IvrAPIGetIvrRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetIvrRequest) Execute() (*Ivr, *http.Response, error) {
+func (r IvrAPIGetIvrRequest) Execute() (*Ivr, *http.Response, error) {
 	return r.ApiService.GetIvrExecute(r)
 }
 
@@ -404,10 +404,10 @@ GetIvr Get IVR
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param ivrId IVR's ID
-	@return ApiGetIvrRequest
+	@return IvrAPIGetIvrRequest
 */
-func (a *IvrAPIService) GetIvr(ctx context.Context, ivrId int32) ApiGetIvrRequest {
-	return ApiGetIvrRequest{
+func (a *IvrAPIService) GetIvr(ctx context.Context, ivrId int32) IvrAPIGetIvrRequest {
+	return IvrAPIGetIvrRequest{
 		ApiService: a,
 		ctx:        ctx,
 		ivrId:      ivrId,
@@ -417,7 +417,7 @@ func (a *IvrAPIService) GetIvr(ctx context.Context, ivrId int32) ApiGetIvrReques
 // Execute executes the request
 //
 //	@return Ivr
-func (a *IvrAPIService) GetIvrExecute(r ApiGetIvrRequest) (*Ivr, *http.Response, error) {
+func (a *IvrAPIService) GetIvrExecute(r IvrAPIGetIvrRequest) (*Ivr, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -518,7 +518,7 @@ func (a *IvrAPIService) GetIvrExecute(r ApiGetIvrRequest) (*Ivr, *http.Response,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListIvrRequest struct {
+type IvrAPIListIvrRequest struct {
 	ctx          context.Context
 	ApiService   IvrAPI
 	accentTenant *string
@@ -531,48 +531,48 @@ type ApiListIvrRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListIvrRequest) AccentTenant(accentTenant string) ApiListIvrRequest {
+func (r IvrAPIListIvrRequest) AccentTenant(accentTenant string) IvrAPIListIvrRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListIvrRequest) Recurse(recurse bool) ApiListIvrRequest {
+func (r IvrAPIListIvrRequest) Recurse(recurse bool) IvrAPIListIvrRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListIvrRequest) Order(order string) ApiListIvrRequest {
+func (r IvrAPIListIvrRequest) Order(order string) IvrAPIListIvrRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListIvrRequest) Direction(direction string) ApiListIvrRequest {
+func (r IvrAPIListIvrRequest) Direction(direction string) IvrAPIListIvrRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListIvrRequest) Limit(limit int32) ApiListIvrRequest {
+func (r IvrAPIListIvrRequest) Limit(limit int32) IvrAPIListIvrRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListIvrRequest) Offset(offset int32) ApiListIvrRequest {
+func (r IvrAPIListIvrRequest) Offset(offset int32) IvrAPIListIvrRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListIvrRequest) Search(search string) ApiListIvrRequest {
+func (r IvrAPIListIvrRequest) Search(search string) IvrAPIListIvrRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListIvrRequest) Execute() (*IvrItems, *http.Response, error) {
+func (r IvrAPIListIvrRequest) Execute() (*IvrItems, *http.Response, error) {
 	return r.ApiService.ListIvrExecute(r)
 }
 
@@ -582,10 +582,10 @@ ListIvr List IVR
 **Required ACL:** `confd.ivr.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListIvrRequest
+	@return IvrAPIListIvrRequest
 */
-func (a *IvrAPIService) ListIvr(ctx context.Context) ApiListIvrRequest {
-	return ApiListIvrRequest{
+func (a *IvrAPIService) ListIvr(ctx context.Context) IvrAPIListIvrRequest {
+	return IvrAPIListIvrRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -594,7 +594,7 @@ func (a *IvrAPIService) ListIvr(ctx context.Context) ApiListIvrRequest {
 // Execute executes the request
 //
 //	@return IvrItems
-func (a *IvrAPIService) ListIvrExecute(r ApiListIvrRequest) (*IvrItems, *http.Response, error) {
+func (a *IvrAPIService) ListIvrExecute(r IvrAPIListIvrRequest) (*IvrItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -705,7 +705,7 @@ func (a *IvrAPIService) ListIvrExecute(r ApiListIvrRequest) (*IvrItems, *http.Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateIvrRequest struct {
+type IvrAPIUpdateIvrRequest struct {
 	ctx          context.Context
 	ApiService   IvrAPI
 	body         *Ivr
@@ -713,18 +713,18 @@ type ApiUpdateIvrRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateIvrRequest) Body(body Ivr) ApiUpdateIvrRequest {
+func (r IvrAPIUpdateIvrRequest) Body(body Ivr) IvrAPIUpdateIvrRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateIvrRequest) AccentTenant(accentTenant string) ApiUpdateIvrRequest {
+func (r IvrAPIUpdateIvrRequest) AccentTenant(accentTenant string) IvrAPIUpdateIvrRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateIvrRequest) Execute() (*http.Response, error) {
+func (r IvrAPIUpdateIvrRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateIvrExecute(r)
 }
 
@@ -735,10 +735,10 @@ UpdateIvr Update IVR
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param ivrId IVR's ID
-	@return ApiUpdateIvrRequest
+	@return IvrAPIUpdateIvrRequest
 */
-func (a *IvrAPIService) UpdateIvr(ctx context.Context, ivrId int32) ApiUpdateIvrRequest {
-	return ApiUpdateIvrRequest{
+func (a *IvrAPIService) UpdateIvr(ctx context.Context, ivrId int32) IvrAPIUpdateIvrRequest {
+	return IvrAPIUpdateIvrRequest{
 		ApiService: a,
 		ctx:        ctx,
 		ivrId:      ivrId,
@@ -746,7 +746,7 @@ func (a *IvrAPIService) UpdateIvr(ctx context.Context, ivrId int32) ApiUpdateIvr
 }
 
 // Execute executes the request
-func (a *IvrAPIService) UpdateIvrExecute(r ApiUpdateIvrRequest) (*http.Response, error) {
+func (a *IvrAPIService) UpdateIvrExecute(r IvrAPIUpdateIvrRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

@@ -29,12 +29,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiCheckUserVoicemailGreetingRequest
+		@return VoicemailsAPICheckUserVoicemailGreetingRequest
 	*/
-	CheckUserVoicemailGreeting(ctx context.Context, greeting string) ApiCheckUserVoicemailGreetingRequest
+	CheckUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPICheckUserVoicemailGreetingRequest
 
 	// CheckUserVoicemailGreetingExecute executes the request
-	CheckUserVoicemailGreetingExecute(r ApiCheckUserVoicemailGreetingRequest) (*http.Response, error)
+	CheckUserVoicemailGreetingExecute(r VoicemailsAPICheckUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		CheckVoicemailGreeting Check if greeting exists
@@ -44,12 +44,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param greeting The greeting
-		@return ApiCheckVoicemailGreetingRequest
+		@return VoicemailsAPICheckVoicemailGreetingRequest
 	*/
-	CheckVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiCheckVoicemailGreetingRequest
+	CheckVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPICheckVoicemailGreetingRequest
 
 	// CheckVoicemailGreetingExecute executes the request
-	CheckVoicemailGreetingExecute(r ApiCheckVoicemailGreetingRequest) (*http.Response, error)
+	CheckVoicemailGreetingExecute(r VoicemailsAPICheckVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		CopyUserVoicemailGreeting Copy a custom greeting
@@ -58,12 +58,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiCopyUserVoicemailGreetingRequest
+		@return VoicemailsAPICopyUserVoicemailGreetingRequest
 	*/
-	CopyUserVoicemailGreeting(ctx context.Context, greeting string) ApiCopyUserVoicemailGreetingRequest
+	CopyUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPICopyUserVoicemailGreetingRequest
 
 	// CopyUserVoicemailGreetingExecute executes the request
-	CopyUserVoicemailGreetingExecute(r ApiCopyUserVoicemailGreetingRequest) (*http.Response, error)
+	CopyUserVoicemailGreetingExecute(r VoicemailsAPICopyUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		CopyVoicemailGreeting Copy a custom greeting
@@ -73,12 +73,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param greeting The greeting
-		@return ApiCopyVoicemailGreetingRequest
+		@return VoicemailsAPICopyVoicemailGreetingRequest
 	*/
-	CopyVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiCopyVoicemailGreetingRequest
+	CopyVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPICopyVoicemailGreetingRequest
 
 	// CopyVoicemailGreetingExecute executes the request
-	CopyVoicemailGreetingExecute(r ApiCopyVoicemailGreetingRequest) (*http.Response, error)
+	CopyVoicemailGreetingExecute(r VoicemailsAPICopyVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		CreateUserVoicemailGreeting Create a custom greeting
@@ -87,12 +87,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiCreateUserVoicemailGreetingRequest
+		@return VoicemailsAPICreateUserVoicemailGreetingRequest
 	*/
-	CreateUserVoicemailGreeting(ctx context.Context, greeting string) ApiCreateUserVoicemailGreetingRequest
+	CreateUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPICreateUserVoicemailGreetingRequest
 
 	// CreateUserVoicemailGreetingExecute executes the request
-	CreateUserVoicemailGreetingExecute(r ApiCreateUserVoicemailGreetingRequest) (*http.Response, error)
+	CreateUserVoicemailGreetingExecute(r VoicemailsAPICreateUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		CreateVoicemailGreeting Create a custom greeting
@@ -102,12 +102,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param greeting The greeting
-		@return ApiCreateVoicemailGreetingRequest
+		@return VoicemailsAPICreateVoicemailGreetingRequest
 	*/
-	CreateVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiCreateVoicemailGreetingRequest
+	CreateVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPICreateVoicemailGreetingRequest
 
 	// CreateVoicemailGreetingExecute executes the request
-	CreateVoicemailGreetingExecute(r ApiCreateVoicemailGreetingRequest) (*http.Response, error)
+	CreateVoicemailGreetingExecute(r VoicemailsAPICreateVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		DeleteUserVoicemailGreeting Delete a custom greeting
@@ -116,12 +116,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiDeleteUserVoicemailGreetingRequest
+		@return VoicemailsAPIDeleteUserVoicemailGreetingRequest
 	*/
-	DeleteUserVoicemailGreeting(ctx context.Context, greeting string) ApiDeleteUserVoicemailGreetingRequest
+	DeleteUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPIDeleteUserVoicemailGreetingRequest
 
 	// DeleteUserVoicemailGreetingExecute executes the request
-	DeleteUserVoicemailGreetingExecute(r ApiDeleteUserVoicemailGreetingRequest) (*http.Response, error)
+	DeleteUserVoicemailGreetingExecute(r VoicemailsAPIDeleteUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		DeleteUserVoicemailMessage Delete a mesage
@@ -130,12 +130,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param messageId The message's ID
-		@return ApiDeleteUserVoicemailMessageRequest
+		@return VoicemailsAPIDeleteUserVoicemailMessageRequest
 	*/
-	DeleteUserVoicemailMessage(ctx context.Context, messageId string) ApiDeleteUserVoicemailMessageRequest
+	DeleteUserVoicemailMessage(ctx context.Context, messageId string) VoicemailsAPIDeleteUserVoicemailMessageRequest
 
 	// DeleteUserVoicemailMessageExecute executes the request
-	DeleteUserVoicemailMessageExecute(r ApiDeleteUserVoicemailMessageRequest) (*http.Response, error)
+	DeleteUserVoicemailMessageExecute(r VoicemailsAPIDeleteUserVoicemailMessageRequest) (*http.Response, error)
 
 	/*
 		DeleteVoicemailGreeting Delete a custom greeting
@@ -145,12 +145,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param greeting The greeting
-		@return ApiDeleteVoicemailGreetingRequest
+		@return VoicemailsAPIDeleteVoicemailGreetingRequest
 	*/
-	DeleteVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiDeleteVoicemailGreetingRequest
+	DeleteVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPIDeleteVoicemailGreetingRequest
 
 	// DeleteVoicemailGreetingExecute executes the request
-	DeleteVoicemailGreetingExecute(r ApiDeleteVoicemailGreetingRequest) (*http.Response, error)
+	DeleteVoicemailGreetingExecute(r VoicemailsAPIDeleteVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		DeleteVoicemailMessage Delete a mesage
@@ -160,12 +160,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param messageId The message's ID
-		@return ApiDeleteVoicemailMessageRequest
+		@return VoicemailsAPIDeleteVoicemailMessageRequest
 	*/
-	DeleteVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) ApiDeleteVoicemailMessageRequest
+	DeleteVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) VoicemailsAPIDeleteVoicemailMessageRequest
 
 	// DeleteVoicemailMessageExecute executes the request
-	DeleteVoicemailMessageExecute(r ApiDeleteVoicemailMessageRequest) (*http.Response, error)
+	DeleteVoicemailMessageExecute(r VoicemailsAPIDeleteVoicemailMessageRequest) (*http.Response, error)
 
 	/*
 		GetUserVoicemailFolder Get details of a folder
@@ -174,13 +174,13 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param folderId The folder's ID
-		@return ApiGetUserVoicemailFolderRequest
+		@return VoicemailsAPIGetUserVoicemailFolderRequest
 	*/
-	GetUserVoicemailFolder(ctx context.Context, folderId int32) ApiGetUserVoicemailFolderRequest
+	GetUserVoicemailFolder(ctx context.Context, folderId int32) VoicemailsAPIGetUserVoicemailFolderRequest
 
 	// GetUserVoicemailFolderExecute executes the request
 	//  @return VoicemailFolder
-	GetUserVoicemailFolderExecute(r ApiGetUserVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error)
+	GetUserVoicemailFolderExecute(r VoicemailsAPIGetUserVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error)
 
 	/*
 		GetUserVoicemailGreeting Get a custom greeting
@@ -189,12 +189,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiGetUserVoicemailGreetingRequest
+		@return VoicemailsAPIGetUserVoicemailGreetingRequest
 	*/
-	GetUserVoicemailGreeting(ctx context.Context, greeting string) ApiGetUserVoicemailGreetingRequest
+	GetUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPIGetUserVoicemailGreetingRequest
 
 	// GetUserVoicemailGreetingExecute executes the request
-	GetUserVoicemailGreetingExecute(r ApiGetUserVoicemailGreetingRequest) (*http.Response, error)
+	GetUserVoicemailGreetingExecute(r VoicemailsAPIGetUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		GetUserVoicemailMessage Get a message
@@ -203,13 +203,13 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param messageId The message's ID
-		@return ApiGetUserVoicemailMessageRequest
+		@return VoicemailsAPIGetUserVoicemailMessageRequest
 	*/
-	GetUserVoicemailMessage(ctx context.Context, messageId string) ApiGetUserVoicemailMessageRequest
+	GetUserVoicemailMessage(ctx context.Context, messageId string) VoicemailsAPIGetUserVoicemailMessageRequest
 
 	// GetUserVoicemailMessageExecute executes the request
 	//  @return VoicemailMessage
-	GetUserVoicemailMessageExecute(r ApiGetUserVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error)
+	GetUserVoicemailMessageExecute(r VoicemailsAPIGetUserVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error)
 
 	/*
 		GetUserVoicemailMessageRecording Get a message's recording
@@ -218,12 +218,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param messageId The message's ID
-		@return ApiGetUserVoicemailMessageRecordingRequest
+		@return VoicemailsAPIGetUserVoicemailMessageRecordingRequest
 	*/
-	GetUserVoicemailMessageRecording(ctx context.Context, messageId string) ApiGetUserVoicemailMessageRecordingRequest
+	GetUserVoicemailMessageRecording(ctx context.Context, messageId string) VoicemailsAPIGetUserVoicemailMessageRecordingRequest
 
 	// GetUserVoicemailMessageRecordingExecute executes the request
-	GetUserVoicemailMessageRecordingExecute(r ApiGetUserVoicemailMessageRecordingRequest) (*http.Response, error)
+	GetUserVoicemailMessageRecordingExecute(r VoicemailsAPIGetUserVoicemailMessageRecordingRequest) (*http.Response, error)
 
 	/*
 		GetVoicemail Get details of a voicemail
@@ -232,13 +232,13 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
-		@return ApiGetVoicemailRequest
+		@return VoicemailsAPIGetVoicemailRequest
 	*/
-	GetVoicemail(ctx context.Context, voicemailId int32) ApiGetVoicemailRequest
+	GetVoicemail(ctx context.Context, voicemailId int32) VoicemailsAPIGetVoicemailRequest
 
 	// GetVoicemailExecute executes the request
 	//  @return Voicemail
-	GetVoicemailExecute(r ApiGetVoicemailRequest) (*Voicemail, *http.Response, error)
+	GetVoicemailExecute(r VoicemailsAPIGetVoicemailRequest) (*Voicemail, *http.Response, error)
 
 	/*
 		GetVoicemailFolder Get details of a folder
@@ -248,13 +248,13 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param folderId The folder's ID
-		@return ApiGetVoicemailFolderRequest
+		@return VoicemailsAPIGetVoicemailFolderRequest
 	*/
-	GetVoicemailFolder(ctx context.Context, voicemailId int32, folderId int32) ApiGetVoicemailFolderRequest
+	GetVoicemailFolder(ctx context.Context, voicemailId int32, folderId int32) VoicemailsAPIGetVoicemailFolderRequest
 
 	// GetVoicemailFolderExecute executes the request
 	//  @return VoicemailFolder
-	GetVoicemailFolderExecute(r ApiGetVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error)
+	GetVoicemailFolderExecute(r VoicemailsAPIGetVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error)
 
 	/*
 		GetVoicemailGreeting Get a custom greeting
@@ -264,12 +264,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param greeting The greeting
-		@return ApiGetVoicemailGreetingRequest
+		@return VoicemailsAPIGetVoicemailGreetingRequest
 	*/
-	GetVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiGetVoicemailGreetingRequest
+	GetVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPIGetVoicemailGreetingRequest
 
 	// GetVoicemailGreetingExecute executes the request
-	GetVoicemailGreetingExecute(r ApiGetVoicemailGreetingRequest) (*http.Response, error)
+	GetVoicemailGreetingExecute(r VoicemailsAPIGetVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		GetVoicemailMessage Get a message
@@ -279,13 +279,13 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param messageId The message's ID
-		@return ApiGetVoicemailMessageRequest
+		@return VoicemailsAPIGetVoicemailMessageRequest
 	*/
-	GetVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) ApiGetVoicemailMessageRequest
+	GetVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) VoicemailsAPIGetVoicemailMessageRequest
 
 	// GetVoicemailMessageExecute executes the request
 	//  @return VoicemailMessage
-	GetVoicemailMessageExecute(r ApiGetVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error)
+	GetVoicemailMessageExecute(r VoicemailsAPIGetVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error)
 
 	/*
 		GetVoicemailMessageRecording Get a message's recording
@@ -295,12 +295,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param messageId The message's ID
-		@return ApiGetVoicemailMessageRecordingRequest
+		@return VoicemailsAPIGetVoicemailMessageRecordingRequest
 	*/
-	GetVoicemailMessageRecording(ctx context.Context, voicemailId int32, messageId string) ApiGetVoicemailMessageRecordingRequest
+	GetVoicemailMessageRecording(ctx context.Context, voicemailId int32, messageId string) VoicemailsAPIGetVoicemailMessageRecordingRequest
 
 	// GetVoicemailMessageRecordingExecute executes the request
-	GetVoicemailMessageRecordingExecute(r ApiGetVoicemailMessageRecordingRequest) (*http.Response, error)
+	GetVoicemailMessageRecordingExecute(r VoicemailsAPIGetVoicemailMessageRecordingRequest) (*http.Response, error)
 
 	/*
 		ListUserVoicemails Get details of the voicemail of the authenticated user
@@ -308,13 +308,13 @@ type VoicemailsAPI interface {
 		**Required ACL:** `calld.users.me.voicemails.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserVoicemailsRequest
+		@return VoicemailsAPIListUserVoicemailsRequest
 	*/
-	ListUserVoicemails(ctx context.Context) ApiListUserVoicemailsRequest
+	ListUserVoicemails(ctx context.Context) VoicemailsAPIListUserVoicemailsRequest
 
 	// ListUserVoicemailsExecute executes the request
 	//  @return Voicemail
-	ListUserVoicemailsExecute(r ApiListUserVoicemailsRequest) (*Voicemail, *http.Response, error)
+	ListUserVoicemailsExecute(r VoicemailsAPIListUserVoicemailsRequest) (*Voicemail, *http.Response, error)
 
 	/*
 		UpdateUserVoicemailGreeting Update a custom greeting
@@ -323,12 +323,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param greeting The greeting
-		@return ApiUpdateUserVoicemailGreetingRequest
+		@return VoicemailsAPIUpdateUserVoicemailGreetingRequest
 	*/
-	UpdateUserVoicemailGreeting(ctx context.Context, greeting string) ApiUpdateUserVoicemailGreetingRequest
+	UpdateUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPIUpdateUserVoicemailGreetingRequest
 
 	// UpdateUserVoicemailGreetingExecute executes the request
-	UpdateUserVoicemailGreetingExecute(r ApiUpdateUserVoicemailGreetingRequest) (*http.Response, error)
+	UpdateUserVoicemailGreetingExecute(r VoicemailsAPIUpdateUserVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		UpdateUserVoicemailMessage Update a message
@@ -337,12 +337,12 @@ type VoicemailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param messageId The message's ID
-		@return ApiUpdateUserVoicemailMessageRequest
+		@return VoicemailsAPIUpdateUserVoicemailMessageRequest
 	*/
-	UpdateUserVoicemailMessage(ctx context.Context, messageId string) ApiUpdateUserVoicemailMessageRequest
+	UpdateUserVoicemailMessage(ctx context.Context, messageId string) VoicemailsAPIUpdateUserVoicemailMessageRequest
 
 	// UpdateUserVoicemailMessageExecute executes the request
-	UpdateUserVoicemailMessageExecute(r ApiUpdateUserVoicemailMessageRequest) (*http.Response, error)
+	UpdateUserVoicemailMessageExecute(r VoicemailsAPIUpdateUserVoicemailMessageRequest) (*http.Response, error)
 
 	/*
 		UpdateVoicemailGreeting Update a custom greeting
@@ -352,12 +352,12 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param greeting The greeting
-		@return ApiUpdateVoicemailGreetingRequest
+		@return VoicemailsAPIUpdateVoicemailGreetingRequest
 	*/
-	UpdateVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiUpdateVoicemailGreetingRequest
+	UpdateVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPIUpdateVoicemailGreetingRequest
 
 	// UpdateVoicemailGreetingExecute executes the request
-	UpdateVoicemailGreetingExecute(r ApiUpdateVoicemailGreetingRequest) (*http.Response, error)
+	UpdateVoicemailGreetingExecute(r VoicemailsAPIUpdateVoicemailGreetingRequest) (*http.Response, error)
 
 	/*
 		UpdateVoicemailMessage Update a message
@@ -367,24 +367,24 @@ type VoicemailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param voicemailId The voicemail's ID
 		@param messageId The message's ID
-		@return ApiUpdateVoicemailMessageRequest
+		@return VoicemailsAPIUpdateVoicemailMessageRequest
 	*/
-	UpdateVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) ApiUpdateVoicemailMessageRequest
+	UpdateVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) VoicemailsAPIUpdateVoicemailMessageRequest
 
 	// UpdateVoicemailMessageExecute executes the request
-	UpdateVoicemailMessageExecute(r ApiUpdateVoicemailMessageRequest) (*http.Response, error)
+	UpdateVoicemailMessageExecute(r VoicemailsAPIUpdateVoicemailMessageRequest) (*http.Response, error)
 }
 
 // VoicemailsAPIService VoicemailsAPI service
 type VoicemailsAPIService service
 
-type ApiCheckUserVoicemailGreetingRequest struct {
+type VoicemailsAPICheckUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	greeting   string
 }
 
-func (r ApiCheckUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPICheckUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CheckUserVoicemailGreetingExecute(r)
 }
 
@@ -395,10 +395,10 @@ CheckUserVoicemailGreeting Check if greeting exists
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiCheckUserVoicemailGreetingRequest
+	@return VoicemailsAPICheckUserVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) CheckUserVoicemailGreeting(ctx context.Context, greeting string) ApiCheckUserVoicemailGreetingRequest {
-	return ApiCheckUserVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) CheckUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPICheckUserVoicemailGreetingRequest {
+	return VoicemailsAPICheckUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -406,7 +406,7 @@ func (a *VoicemailsAPIService) CheckUserVoicemailGreeting(ctx context.Context, g
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) CheckUserVoicemailGreetingExecute(r ApiCheckUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) CheckUserVoicemailGreetingExecute(r VoicemailsAPICheckUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodHead
 		localVarPostBody   interface{}
@@ -516,14 +516,14 @@ func (a *VoicemailsAPIService) CheckUserVoicemailGreetingExecute(r ApiCheckUserV
 	return localVarHTTPResponse, nil
 }
 
-type ApiCheckVoicemailGreetingRequest struct {
+type VoicemailsAPICheckVoicemailGreetingRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	voicemailId int32
 	greeting    string
 }
 
-func (r ApiCheckVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPICheckVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CheckVoicemailGreetingExecute(r)
 }
 
@@ -535,10 +535,10 @@ CheckVoicemailGreeting Check if greeting exists
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param greeting The greeting
-	@return ApiCheckVoicemailGreetingRequest
+	@return VoicemailsAPICheckVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) CheckVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiCheckVoicemailGreetingRequest {
-	return ApiCheckVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) CheckVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPICheckVoicemailGreetingRequest {
+	return VoicemailsAPICheckVoicemailGreetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -547,7 +547,7 @@ func (a *VoicemailsAPIService) CheckVoicemailGreeting(ctx context.Context, voice
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) CheckVoicemailGreetingExecute(r ApiCheckVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) CheckVoicemailGreetingExecute(r VoicemailsAPICheckVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodHead
 		localVarPostBody   interface{}
@@ -658,19 +658,19 @@ func (a *VoicemailsAPIService) CheckVoicemailGreetingExecute(r ApiCheckVoicemail
 	return localVarHTTPResponse, nil
 }
 
-type ApiCopyUserVoicemailGreetingRequest struct {
+type VoicemailsAPICopyUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	body       *GreetingCopy
 	greeting   string
 }
 
-func (r ApiCopyUserVoicemailGreetingRequest) Body(body GreetingCopy) ApiCopyUserVoicemailGreetingRequest {
+func (r VoicemailsAPICopyUserVoicemailGreetingRequest) Body(body GreetingCopy) VoicemailsAPICopyUserVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCopyUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPICopyUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CopyUserVoicemailGreetingExecute(r)
 }
 
@@ -681,10 +681,10 @@ CopyUserVoicemailGreeting Copy a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiCopyUserVoicemailGreetingRequest
+	@return VoicemailsAPICopyUserVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) CopyUserVoicemailGreeting(ctx context.Context, greeting string) ApiCopyUserVoicemailGreetingRequest {
-	return ApiCopyUserVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) CopyUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPICopyUserVoicemailGreetingRequest {
+	return VoicemailsAPICopyUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -692,7 +692,7 @@ func (a *VoicemailsAPIService) CopyUserVoicemailGreeting(ctx context.Context, gr
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) CopyUserVoicemailGreetingExecute(r ApiCopyUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) CopyUserVoicemailGreetingExecute(r VoicemailsAPICopyUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -807,7 +807,7 @@ func (a *VoicemailsAPIService) CopyUserVoicemailGreetingExecute(r ApiCopyUserVoi
 	return localVarHTTPResponse, nil
 }
 
-type ApiCopyVoicemailGreetingRequest struct {
+type VoicemailsAPICopyVoicemailGreetingRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	body        *GreetingCopy
@@ -815,12 +815,12 @@ type ApiCopyVoicemailGreetingRequest struct {
 	greeting    string
 }
 
-func (r ApiCopyVoicemailGreetingRequest) Body(body GreetingCopy) ApiCopyVoicemailGreetingRequest {
+func (r VoicemailsAPICopyVoicemailGreetingRequest) Body(body GreetingCopy) VoicemailsAPICopyVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCopyVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPICopyVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CopyVoicemailGreetingExecute(r)
 }
 
@@ -832,10 +832,10 @@ CopyVoicemailGreeting Copy a custom greeting
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param greeting The greeting
-	@return ApiCopyVoicemailGreetingRequest
+	@return VoicemailsAPICopyVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) CopyVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiCopyVoicemailGreetingRequest {
-	return ApiCopyVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) CopyVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPICopyVoicemailGreetingRequest {
+	return VoicemailsAPICopyVoicemailGreetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -844,7 +844,7 @@ func (a *VoicemailsAPIService) CopyVoicemailGreeting(ctx context.Context, voicem
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) CopyVoicemailGreetingExecute(r ApiCopyVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) CopyVoicemailGreetingExecute(r VoicemailsAPICopyVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -960,19 +960,19 @@ func (a *VoicemailsAPIService) CopyVoicemailGreetingExecute(r ApiCopyVoicemailGr
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateUserVoicemailGreetingRequest struct {
+type VoicemailsAPICreateUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	body       *map[string]interface{}
 	greeting   string
 }
 
-func (r ApiCreateUserVoicemailGreetingRequest) Body(body map[string]interface{}) ApiCreateUserVoicemailGreetingRequest {
+func (r VoicemailsAPICreateUserVoicemailGreetingRequest) Body(body map[string]interface{}) VoicemailsAPICreateUserVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPICreateUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CreateUserVoicemailGreetingExecute(r)
 }
 
@@ -983,10 +983,10 @@ CreateUserVoicemailGreeting Create a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiCreateUserVoicemailGreetingRequest
+	@return VoicemailsAPICreateUserVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) CreateUserVoicemailGreeting(ctx context.Context, greeting string) ApiCreateUserVoicemailGreetingRequest {
-	return ApiCreateUserVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) CreateUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPICreateUserVoicemailGreetingRequest {
+	return VoicemailsAPICreateUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -994,7 +994,7 @@ func (a *VoicemailsAPIService) CreateUserVoicemailGreeting(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) CreateUserVoicemailGreetingExecute(r ApiCreateUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) CreateUserVoicemailGreetingExecute(r VoicemailsAPICreateUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1109,7 +1109,7 @@ func (a *VoicemailsAPIService) CreateUserVoicemailGreetingExecute(r ApiCreateUse
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateVoicemailGreetingRequest struct {
+type VoicemailsAPICreateVoicemailGreetingRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	body        *map[string]interface{}
@@ -1117,12 +1117,12 @@ type ApiCreateVoicemailGreetingRequest struct {
 	greeting    string
 }
 
-func (r ApiCreateVoicemailGreetingRequest) Body(body map[string]interface{}) ApiCreateVoicemailGreetingRequest {
+func (r VoicemailsAPICreateVoicemailGreetingRequest) Body(body map[string]interface{}) VoicemailsAPICreateVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPICreateVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CreateVoicemailGreetingExecute(r)
 }
 
@@ -1134,10 +1134,10 @@ CreateVoicemailGreeting Create a custom greeting
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param greeting The greeting
-	@return ApiCreateVoicemailGreetingRequest
+	@return VoicemailsAPICreateVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) CreateVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiCreateVoicemailGreetingRequest {
-	return ApiCreateVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) CreateVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPICreateVoicemailGreetingRequest {
+	return VoicemailsAPICreateVoicemailGreetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -1146,7 +1146,7 @@ func (a *VoicemailsAPIService) CreateVoicemailGreeting(ctx context.Context, voic
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) CreateVoicemailGreetingExecute(r ApiCreateVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) CreateVoicemailGreetingExecute(r VoicemailsAPICreateVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1262,13 +1262,13 @@ func (a *VoicemailsAPIService) CreateVoicemailGreetingExecute(r ApiCreateVoicema
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserVoicemailGreetingRequest struct {
+type VoicemailsAPIDeleteUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	greeting   string
 }
 
-func (r ApiDeleteUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIDeleteUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserVoicemailGreetingExecute(r)
 }
 
@@ -1279,10 +1279,10 @@ DeleteUserVoicemailGreeting Delete a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiDeleteUserVoicemailGreetingRequest
+	@return VoicemailsAPIDeleteUserVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) DeleteUserVoicemailGreeting(ctx context.Context, greeting string) ApiDeleteUserVoicemailGreetingRequest {
-	return ApiDeleteUserVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) DeleteUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPIDeleteUserVoicemailGreetingRequest {
+	return VoicemailsAPIDeleteUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -1290,7 +1290,7 @@ func (a *VoicemailsAPIService) DeleteUserVoicemailGreeting(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) DeleteUserVoicemailGreetingExecute(r ApiDeleteUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) DeleteUserVoicemailGreetingExecute(r VoicemailsAPIDeleteUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1400,13 +1400,13 @@ func (a *VoicemailsAPIService) DeleteUserVoicemailGreetingExecute(r ApiDeleteUse
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserVoicemailMessageRequest struct {
+type VoicemailsAPIDeleteUserVoicemailMessageRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	messageId  string
 }
 
-func (r ApiDeleteUserVoicemailMessageRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIDeleteUserVoicemailMessageRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserVoicemailMessageExecute(r)
 }
 
@@ -1417,10 +1417,10 @@ DeleteUserVoicemailMessage Delete a mesage
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param messageId The message's ID
-	@return ApiDeleteUserVoicemailMessageRequest
+	@return VoicemailsAPIDeleteUserVoicemailMessageRequest
 */
-func (a *VoicemailsAPIService) DeleteUserVoicemailMessage(ctx context.Context, messageId string) ApiDeleteUserVoicemailMessageRequest {
-	return ApiDeleteUserVoicemailMessageRequest{
+func (a *VoicemailsAPIService) DeleteUserVoicemailMessage(ctx context.Context, messageId string) VoicemailsAPIDeleteUserVoicemailMessageRequest {
+	return VoicemailsAPIDeleteUserVoicemailMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		messageId:  messageId,
@@ -1428,7 +1428,7 @@ func (a *VoicemailsAPIService) DeleteUserVoicemailMessage(ctx context.Context, m
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) DeleteUserVoicemailMessageExecute(r ApiDeleteUserVoicemailMessageRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) DeleteUserVoicemailMessageExecute(r VoicemailsAPIDeleteUserVoicemailMessageRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1538,14 +1538,14 @@ func (a *VoicemailsAPIService) DeleteUserVoicemailMessageExecute(r ApiDeleteUser
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteVoicemailGreetingRequest struct {
+type VoicemailsAPIDeleteVoicemailGreetingRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	voicemailId int32
 	greeting    string
 }
 
-func (r ApiDeleteVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIDeleteVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteVoicemailGreetingExecute(r)
 }
 
@@ -1557,10 +1557,10 @@ DeleteVoicemailGreeting Delete a custom greeting
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param greeting The greeting
-	@return ApiDeleteVoicemailGreetingRequest
+	@return VoicemailsAPIDeleteVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) DeleteVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiDeleteVoicemailGreetingRequest {
-	return ApiDeleteVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) DeleteVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPIDeleteVoicemailGreetingRequest {
+	return VoicemailsAPIDeleteVoicemailGreetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -1569,7 +1569,7 @@ func (a *VoicemailsAPIService) DeleteVoicemailGreeting(ctx context.Context, voic
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) DeleteVoicemailGreetingExecute(r ApiDeleteVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) DeleteVoicemailGreetingExecute(r VoicemailsAPIDeleteVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1680,14 +1680,14 @@ func (a *VoicemailsAPIService) DeleteVoicemailGreetingExecute(r ApiDeleteVoicema
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteVoicemailMessageRequest struct {
+type VoicemailsAPIDeleteVoicemailMessageRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	voicemailId int32
 	messageId   string
 }
 
-func (r ApiDeleteVoicemailMessageRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIDeleteVoicemailMessageRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteVoicemailMessageExecute(r)
 }
 
@@ -1699,10 +1699,10 @@ DeleteVoicemailMessage Delete a mesage
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param messageId The message's ID
-	@return ApiDeleteVoicemailMessageRequest
+	@return VoicemailsAPIDeleteVoicemailMessageRequest
 */
-func (a *VoicemailsAPIService) DeleteVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) ApiDeleteVoicemailMessageRequest {
-	return ApiDeleteVoicemailMessageRequest{
+func (a *VoicemailsAPIService) DeleteVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) VoicemailsAPIDeleteVoicemailMessageRequest {
+	return VoicemailsAPIDeleteVoicemailMessageRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -1711,7 +1711,7 @@ func (a *VoicemailsAPIService) DeleteVoicemailMessage(ctx context.Context, voice
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) DeleteVoicemailMessageExecute(r ApiDeleteVoicemailMessageRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) DeleteVoicemailMessageExecute(r VoicemailsAPIDeleteVoicemailMessageRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1822,13 +1822,13 @@ func (a *VoicemailsAPIService) DeleteVoicemailMessageExecute(r ApiDeleteVoicemai
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailFolderRequest struct {
+type VoicemailsAPIGetUserVoicemailFolderRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	folderId   int32
 }
 
-func (r ApiGetUserVoicemailFolderRequest) Execute() (*VoicemailFolder, *http.Response, error) {
+func (r VoicemailsAPIGetUserVoicemailFolderRequest) Execute() (*VoicemailFolder, *http.Response, error) {
 	return r.ApiService.GetUserVoicemailFolderExecute(r)
 }
 
@@ -1839,10 +1839,10 @@ GetUserVoicemailFolder Get details of a folder
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param folderId The folder's ID
-	@return ApiGetUserVoicemailFolderRequest
+	@return VoicemailsAPIGetUserVoicemailFolderRequest
 */
-func (a *VoicemailsAPIService) GetUserVoicemailFolder(ctx context.Context, folderId int32) ApiGetUserVoicemailFolderRequest {
-	return ApiGetUserVoicemailFolderRequest{
+func (a *VoicemailsAPIService) GetUserVoicemailFolder(ctx context.Context, folderId int32) VoicemailsAPIGetUserVoicemailFolderRequest {
+	return VoicemailsAPIGetUserVoicemailFolderRequest{
 		ApiService: a,
 		ctx:        ctx,
 		folderId:   folderId,
@@ -1852,7 +1852,7 @@ func (a *VoicemailsAPIService) GetUserVoicemailFolder(ctx context.Context, folde
 // Execute executes the request
 //
 //	@return VoicemailFolder
-func (a *VoicemailsAPIService) GetUserVoicemailFolderExecute(r ApiGetUserVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error) {
+func (a *VoicemailsAPIService) GetUserVoicemailFolderExecute(r VoicemailsAPIGetUserVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1972,13 +1972,13 @@ func (a *VoicemailsAPIService) GetUserVoicemailFolderExecute(r ApiGetUserVoicema
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailGreetingRequest struct {
+type VoicemailsAPIGetUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	greeting   string
 }
 
-func (r ApiGetUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIGetUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetUserVoicemailGreetingExecute(r)
 }
 
@@ -1989,10 +1989,10 @@ GetUserVoicemailGreeting Get a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiGetUserVoicemailGreetingRequest
+	@return VoicemailsAPIGetUserVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) GetUserVoicemailGreeting(ctx context.Context, greeting string) ApiGetUserVoicemailGreetingRequest {
-	return ApiGetUserVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) GetUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPIGetUserVoicemailGreetingRequest {
+	return VoicemailsAPIGetUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -2000,7 +2000,7 @@ func (a *VoicemailsAPIService) GetUserVoicemailGreeting(ctx context.Context, gre
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) GetUserVoicemailGreetingExecute(r ApiGetUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) GetUserVoicemailGreetingExecute(r VoicemailsAPIGetUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -2110,13 +2110,13 @@ func (a *VoicemailsAPIService) GetUserVoicemailGreetingExecute(r ApiGetUserVoice
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailMessageRequest struct {
+type VoicemailsAPIGetUserVoicemailMessageRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	messageId  string
 }
 
-func (r ApiGetUserVoicemailMessageRequest) Execute() (*VoicemailMessage, *http.Response, error) {
+func (r VoicemailsAPIGetUserVoicemailMessageRequest) Execute() (*VoicemailMessage, *http.Response, error) {
 	return r.ApiService.GetUserVoicemailMessageExecute(r)
 }
 
@@ -2127,10 +2127,10 @@ GetUserVoicemailMessage Get a message
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param messageId The message's ID
-	@return ApiGetUserVoicemailMessageRequest
+	@return VoicemailsAPIGetUserVoicemailMessageRequest
 */
-func (a *VoicemailsAPIService) GetUserVoicemailMessage(ctx context.Context, messageId string) ApiGetUserVoicemailMessageRequest {
-	return ApiGetUserVoicemailMessageRequest{
+func (a *VoicemailsAPIService) GetUserVoicemailMessage(ctx context.Context, messageId string) VoicemailsAPIGetUserVoicemailMessageRequest {
+	return VoicemailsAPIGetUserVoicemailMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		messageId:  messageId,
@@ -2140,7 +2140,7 @@ func (a *VoicemailsAPIService) GetUserVoicemailMessage(ctx context.Context, mess
 // Execute executes the request
 //
 //	@return VoicemailMessage
-func (a *VoicemailsAPIService) GetUserVoicemailMessageExecute(r ApiGetUserVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error) {
+func (a *VoicemailsAPIService) GetUserVoicemailMessageExecute(r VoicemailsAPIGetUserVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2260,7 +2260,7 @@ func (a *VoicemailsAPIService) GetUserVoicemailMessageExecute(r ApiGetUserVoicem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailMessageRecordingRequest struct {
+type VoicemailsAPIGetUserVoicemailMessageRecordingRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	messageId  string
@@ -2269,18 +2269,18 @@ type ApiGetUserVoicemailMessageRecordingRequest struct {
 }
 
 // The token&#39;s ID
-func (r ApiGetUserVoicemailMessageRecordingRequest) Token(token string) ApiGetUserVoicemailMessageRecordingRequest {
+func (r VoicemailsAPIGetUserVoicemailMessageRecordingRequest) Token(token string) VoicemailsAPIGetUserVoicemailMessageRecordingRequest {
 	r.token = &token
 	return r
 }
 
 // Set to 1 to force download by browser
-func (r ApiGetUserVoicemailMessageRecordingRequest) Download(download string) ApiGetUserVoicemailMessageRecordingRequest {
+func (r VoicemailsAPIGetUserVoicemailMessageRecordingRequest) Download(download string) VoicemailsAPIGetUserVoicemailMessageRecordingRequest {
 	r.download = &download
 	return r
 }
 
-func (r ApiGetUserVoicemailMessageRecordingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIGetUserVoicemailMessageRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetUserVoicemailMessageRecordingExecute(r)
 }
 
@@ -2291,10 +2291,10 @@ GetUserVoicemailMessageRecording Get a message's recording
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param messageId The message's ID
-	@return ApiGetUserVoicemailMessageRecordingRequest
+	@return VoicemailsAPIGetUserVoicemailMessageRecordingRequest
 */
-func (a *VoicemailsAPIService) GetUserVoicemailMessageRecording(ctx context.Context, messageId string) ApiGetUserVoicemailMessageRecordingRequest {
-	return ApiGetUserVoicemailMessageRecordingRequest{
+func (a *VoicemailsAPIService) GetUserVoicemailMessageRecording(ctx context.Context, messageId string) VoicemailsAPIGetUserVoicemailMessageRecordingRequest {
+	return VoicemailsAPIGetUserVoicemailMessageRecordingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		messageId:  messageId,
@@ -2302,7 +2302,7 @@ func (a *VoicemailsAPIService) GetUserVoicemailMessageRecording(ctx context.Cont
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) GetUserVoicemailMessageRecordingExecute(r ApiGetUserVoicemailMessageRecordingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) GetUserVoicemailMessageRecordingExecute(r VoicemailsAPIGetUserVoicemailMessageRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -2418,13 +2418,13 @@ func (a *VoicemailsAPIService) GetUserVoicemailMessageRecordingExecute(r ApiGetU
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetVoicemailRequest struct {
+type VoicemailsAPIGetVoicemailRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	voicemailId int32
 }
 
-func (r ApiGetVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
+func (r VoicemailsAPIGetVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
 	return r.ApiService.GetVoicemailExecute(r)
 }
 
@@ -2435,10 +2435,10 @@ GetVoicemail Get details of a voicemail
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
-	@return ApiGetVoicemailRequest
+	@return VoicemailsAPIGetVoicemailRequest
 */
-func (a *VoicemailsAPIService) GetVoicemail(ctx context.Context, voicemailId int32) ApiGetVoicemailRequest {
-	return ApiGetVoicemailRequest{
+func (a *VoicemailsAPIService) GetVoicemail(ctx context.Context, voicemailId int32) VoicemailsAPIGetVoicemailRequest {
+	return VoicemailsAPIGetVoicemailRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -2448,7 +2448,7 @@ func (a *VoicemailsAPIService) GetVoicemail(ctx context.Context, voicemailId int
 // Execute executes the request
 //
 //	@return Voicemail
-func (a *VoicemailsAPIService) GetVoicemailExecute(r ApiGetVoicemailRequest) (*Voicemail, *http.Response, error) {
+func (a *VoicemailsAPIService) GetVoicemailExecute(r VoicemailsAPIGetVoicemailRequest) (*Voicemail, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2568,14 +2568,14 @@ func (a *VoicemailsAPIService) GetVoicemailExecute(r ApiGetVoicemailRequest) (*V
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetVoicemailFolderRequest struct {
+type VoicemailsAPIGetVoicemailFolderRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	voicemailId int32
 	folderId    int32
 }
 
-func (r ApiGetVoicemailFolderRequest) Execute() (*VoicemailFolder, *http.Response, error) {
+func (r VoicemailsAPIGetVoicemailFolderRequest) Execute() (*VoicemailFolder, *http.Response, error) {
 	return r.ApiService.GetVoicemailFolderExecute(r)
 }
 
@@ -2587,10 +2587,10 @@ GetVoicemailFolder Get details of a folder
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param folderId The folder's ID
-	@return ApiGetVoicemailFolderRequest
+	@return VoicemailsAPIGetVoicemailFolderRequest
 */
-func (a *VoicemailsAPIService) GetVoicemailFolder(ctx context.Context, voicemailId int32, folderId int32) ApiGetVoicemailFolderRequest {
-	return ApiGetVoicemailFolderRequest{
+func (a *VoicemailsAPIService) GetVoicemailFolder(ctx context.Context, voicemailId int32, folderId int32) VoicemailsAPIGetVoicemailFolderRequest {
+	return VoicemailsAPIGetVoicemailFolderRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -2601,7 +2601,7 @@ func (a *VoicemailsAPIService) GetVoicemailFolder(ctx context.Context, voicemail
 // Execute executes the request
 //
 //	@return VoicemailFolder
-func (a *VoicemailsAPIService) GetVoicemailFolderExecute(r ApiGetVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error) {
+func (a *VoicemailsAPIService) GetVoicemailFolderExecute(r VoicemailsAPIGetVoicemailFolderRequest) (*VoicemailFolder, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2722,14 +2722,14 @@ func (a *VoicemailsAPIService) GetVoicemailFolderExecute(r ApiGetVoicemailFolder
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetVoicemailGreetingRequest struct {
+type VoicemailsAPIGetVoicemailGreetingRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	voicemailId int32
 	greeting    string
 }
 
-func (r ApiGetVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIGetVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetVoicemailGreetingExecute(r)
 }
 
@@ -2741,10 +2741,10 @@ GetVoicemailGreeting Get a custom greeting
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param greeting The greeting
-	@return ApiGetVoicemailGreetingRequest
+	@return VoicemailsAPIGetVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) GetVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiGetVoicemailGreetingRequest {
-	return ApiGetVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) GetVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPIGetVoicemailGreetingRequest {
+	return VoicemailsAPIGetVoicemailGreetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -2753,7 +2753,7 @@ func (a *VoicemailsAPIService) GetVoicemailGreeting(ctx context.Context, voicema
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) GetVoicemailGreetingExecute(r ApiGetVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) GetVoicemailGreetingExecute(r VoicemailsAPIGetVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -2864,14 +2864,14 @@ func (a *VoicemailsAPIService) GetVoicemailGreetingExecute(r ApiGetVoicemailGree
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetVoicemailMessageRequest struct {
+type VoicemailsAPIGetVoicemailMessageRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	voicemailId int32
 	messageId   string
 }
 
-func (r ApiGetVoicemailMessageRequest) Execute() (*VoicemailMessage, *http.Response, error) {
+func (r VoicemailsAPIGetVoicemailMessageRequest) Execute() (*VoicemailMessage, *http.Response, error) {
 	return r.ApiService.GetVoicemailMessageExecute(r)
 }
 
@@ -2883,10 +2883,10 @@ GetVoicemailMessage Get a message
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param messageId The message's ID
-	@return ApiGetVoicemailMessageRequest
+	@return VoicemailsAPIGetVoicemailMessageRequest
 */
-func (a *VoicemailsAPIService) GetVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) ApiGetVoicemailMessageRequest {
-	return ApiGetVoicemailMessageRequest{
+func (a *VoicemailsAPIService) GetVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) VoicemailsAPIGetVoicemailMessageRequest {
+	return VoicemailsAPIGetVoicemailMessageRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -2897,7 +2897,7 @@ func (a *VoicemailsAPIService) GetVoicemailMessage(ctx context.Context, voicemai
 // Execute executes the request
 //
 //	@return VoicemailMessage
-func (a *VoicemailsAPIService) GetVoicemailMessageExecute(r ApiGetVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error) {
+func (a *VoicemailsAPIService) GetVoicemailMessageExecute(r VoicemailsAPIGetVoicemailMessageRequest) (*VoicemailMessage, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3018,7 +3018,7 @@ func (a *VoicemailsAPIService) GetVoicemailMessageExecute(r ApiGetVoicemailMessa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetVoicemailMessageRecordingRequest struct {
+type VoicemailsAPIGetVoicemailMessageRecordingRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	voicemailId int32
@@ -3028,18 +3028,18 @@ type ApiGetVoicemailMessageRecordingRequest struct {
 }
 
 // The token&#39;s ID
-func (r ApiGetVoicemailMessageRecordingRequest) Token(token string) ApiGetVoicemailMessageRecordingRequest {
+func (r VoicemailsAPIGetVoicemailMessageRecordingRequest) Token(token string) VoicemailsAPIGetVoicemailMessageRecordingRequest {
 	r.token = &token
 	return r
 }
 
 // Set to 1 to force download by browser
-func (r ApiGetVoicemailMessageRecordingRequest) Download(download string) ApiGetVoicemailMessageRecordingRequest {
+func (r VoicemailsAPIGetVoicemailMessageRecordingRequest) Download(download string) VoicemailsAPIGetVoicemailMessageRecordingRequest {
 	r.download = &download
 	return r
 }
 
-func (r ApiGetVoicemailMessageRecordingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIGetVoicemailMessageRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetVoicemailMessageRecordingExecute(r)
 }
 
@@ -3051,10 +3051,10 @@ GetVoicemailMessageRecording Get a message's recording
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param messageId The message's ID
-	@return ApiGetVoicemailMessageRecordingRequest
+	@return VoicemailsAPIGetVoicemailMessageRecordingRequest
 */
-func (a *VoicemailsAPIService) GetVoicemailMessageRecording(ctx context.Context, voicemailId int32, messageId string) ApiGetVoicemailMessageRecordingRequest {
-	return ApiGetVoicemailMessageRecordingRequest{
+func (a *VoicemailsAPIService) GetVoicemailMessageRecording(ctx context.Context, voicemailId int32, messageId string) VoicemailsAPIGetVoicemailMessageRecordingRequest {
+	return VoicemailsAPIGetVoicemailMessageRecordingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -3063,7 +3063,7 @@ func (a *VoicemailsAPIService) GetVoicemailMessageRecording(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) GetVoicemailMessageRecordingExecute(r ApiGetVoicemailMessageRecordingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) GetVoicemailMessageRecordingExecute(r VoicemailsAPIGetVoicemailMessageRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -3180,12 +3180,12 @@ func (a *VoicemailsAPIService) GetVoicemailMessageRecordingExecute(r ApiGetVoice
 	return localVarHTTPResponse, nil
 }
 
-type ApiListUserVoicemailsRequest struct {
+type VoicemailsAPIListUserVoicemailsRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 }
 
-func (r ApiListUserVoicemailsRequest) Execute() (*Voicemail, *http.Response, error) {
+func (r VoicemailsAPIListUserVoicemailsRequest) Execute() (*Voicemail, *http.Response, error) {
 	return r.ApiService.ListUserVoicemailsExecute(r)
 }
 
@@ -3195,10 +3195,10 @@ ListUserVoicemails Get details of the voicemail of the authenticated user
 **Required ACL:** `calld.users.me.voicemails.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserVoicemailsRequest
+	@return VoicemailsAPIListUserVoicemailsRequest
 */
-func (a *VoicemailsAPIService) ListUserVoicemails(ctx context.Context) ApiListUserVoicemailsRequest {
-	return ApiListUserVoicemailsRequest{
+func (a *VoicemailsAPIService) ListUserVoicemails(ctx context.Context) VoicemailsAPIListUserVoicemailsRequest {
+	return VoicemailsAPIListUserVoicemailsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3207,7 +3207,7 @@ func (a *VoicemailsAPIService) ListUserVoicemails(ctx context.Context) ApiListUs
 // Execute executes the request
 //
 //	@return Voicemail
-func (a *VoicemailsAPIService) ListUserVoicemailsExecute(r ApiListUserVoicemailsRequest) (*Voicemail, *http.Response, error) {
+func (a *VoicemailsAPIService) ListUserVoicemailsExecute(r VoicemailsAPIListUserVoicemailsRequest) (*Voicemail, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3326,19 +3326,19 @@ func (a *VoicemailsAPIService) ListUserVoicemailsExecute(r ApiListUserVoicemails
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserVoicemailGreetingRequest struct {
+type VoicemailsAPIUpdateUserVoicemailGreetingRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	body       *map[string]interface{}
 	greeting   string
 }
 
-func (r ApiUpdateUserVoicemailGreetingRequest) Body(body map[string]interface{}) ApiUpdateUserVoicemailGreetingRequest {
+func (r VoicemailsAPIUpdateUserVoicemailGreetingRequest) Body(body map[string]interface{}) VoicemailsAPIUpdateUserVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIUpdateUserVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserVoicemailGreetingExecute(r)
 }
 
@@ -3349,10 +3349,10 @@ UpdateUserVoicemailGreeting Update a custom greeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param greeting The greeting
-	@return ApiUpdateUserVoicemailGreetingRequest
+	@return VoicemailsAPIUpdateUserVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) UpdateUserVoicemailGreeting(ctx context.Context, greeting string) ApiUpdateUserVoicemailGreetingRequest {
-	return ApiUpdateUserVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) UpdateUserVoicemailGreeting(ctx context.Context, greeting string) VoicemailsAPIUpdateUserVoicemailGreetingRequest {
+	return VoicemailsAPIUpdateUserVoicemailGreetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		greeting:   greeting,
@@ -3360,7 +3360,7 @@ func (a *VoicemailsAPIService) UpdateUserVoicemailGreeting(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) UpdateUserVoicemailGreetingExecute(r ApiUpdateUserVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) UpdateUserVoicemailGreetingExecute(r VoicemailsAPIUpdateUserVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3475,7 +3475,7 @@ func (a *VoicemailsAPIService) UpdateUserVoicemailGreetingExecute(r ApiUpdateUse
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserVoicemailMessageRequest struct {
+type VoicemailsAPIUpdateUserVoicemailMessageRequest struct {
 	ctx        context.Context
 	ApiService VoicemailsAPI
 	body       *VoicemailMessageUpdate
@@ -3483,12 +3483,12 @@ type ApiUpdateUserVoicemailMessageRequest struct {
 }
 
 // Message
-func (r ApiUpdateUserVoicemailMessageRequest) Body(body VoicemailMessageUpdate) ApiUpdateUserVoicemailMessageRequest {
+func (r VoicemailsAPIUpdateUserVoicemailMessageRequest) Body(body VoicemailMessageUpdate) VoicemailsAPIUpdateUserVoicemailMessageRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserVoicemailMessageRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIUpdateUserVoicemailMessageRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserVoicemailMessageExecute(r)
 }
 
@@ -3499,10 +3499,10 @@ UpdateUserVoicemailMessage Update a message
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param messageId The message's ID
-	@return ApiUpdateUserVoicemailMessageRequest
+	@return VoicemailsAPIUpdateUserVoicemailMessageRequest
 */
-func (a *VoicemailsAPIService) UpdateUserVoicemailMessage(ctx context.Context, messageId string) ApiUpdateUserVoicemailMessageRequest {
-	return ApiUpdateUserVoicemailMessageRequest{
+func (a *VoicemailsAPIService) UpdateUserVoicemailMessage(ctx context.Context, messageId string) VoicemailsAPIUpdateUserVoicemailMessageRequest {
+	return VoicemailsAPIUpdateUserVoicemailMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		messageId:  messageId,
@@ -3510,7 +3510,7 @@ func (a *VoicemailsAPIService) UpdateUserVoicemailMessage(ctx context.Context, m
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) UpdateUserVoicemailMessageExecute(r ApiUpdateUserVoicemailMessageRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) UpdateUserVoicemailMessageExecute(r VoicemailsAPIUpdateUserVoicemailMessageRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3625,7 +3625,7 @@ func (a *VoicemailsAPIService) UpdateUserVoicemailMessageExecute(r ApiUpdateUser
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateVoicemailGreetingRequest struct {
+type VoicemailsAPIUpdateVoicemailGreetingRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	body        *map[string]interface{}
@@ -3633,12 +3633,12 @@ type ApiUpdateVoicemailGreetingRequest struct {
 	greeting    string
 }
 
-func (r ApiUpdateVoicemailGreetingRequest) Body(body map[string]interface{}) ApiUpdateVoicemailGreetingRequest {
+func (r VoicemailsAPIUpdateVoicemailGreetingRequest) Body(body map[string]interface{}) VoicemailsAPIUpdateVoicemailGreetingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateVoicemailGreetingRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIUpdateVoicemailGreetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateVoicemailGreetingExecute(r)
 }
 
@@ -3650,10 +3650,10 @@ UpdateVoicemailGreeting Update a custom greeting
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param greeting The greeting
-	@return ApiUpdateVoicemailGreetingRequest
+	@return VoicemailsAPIUpdateVoicemailGreetingRequest
 */
-func (a *VoicemailsAPIService) UpdateVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) ApiUpdateVoicemailGreetingRequest {
-	return ApiUpdateVoicemailGreetingRequest{
+func (a *VoicemailsAPIService) UpdateVoicemailGreeting(ctx context.Context, voicemailId int32, greeting string) VoicemailsAPIUpdateVoicemailGreetingRequest {
+	return VoicemailsAPIUpdateVoicemailGreetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -3662,7 +3662,7 @@ func (a *VoicemailsAPIService) UpdateVoicemailGreeting(ctx context.Context, voic
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) UpdateVoicemailGreetingExecute(r ApiUpdateVoicemailGreetingRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) UpdateVoicemailGreetingExecute(r VoicemailsAPIUpdateVoicemailGreetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3778,7 +3778,7 @@ func (a *VoicemailsAPIService) UpdateVoicemailGreetingExecute(r ApiUpdateVoicema
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateVoicemailMessageRequest struct {
+type VoicemailsAPIUpdateVoicemailMessageRequest struct {
 	ctx         context.Context
 	ApiService  VoicemailsAPI
 	body        *VoicemailMessageUpdate
@@ -3787,12 +3787,12 @@ type ApiUpdateVoicemailMessageRequest struct {
 }
 
 // Message
-func (r ApiUpdateVoicemailMessageRequest) Body(body VoicemailMessageUpdate) ApiUpdateVoicemailMessageRequest {
+func (r VoicemailsAPIUpdateVoicemailMessageRequest) Body(body VoicemailMessageUpdate) VoicemailsAPIUpdateVoicemailMessageRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateVoicemailMessageRequest) Execute() (*http.Response, error) {
+func (r VoicemailsAPIUpdateVoicemailMessageRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateVoicemailMessageExecute(r)
 }
 
@@ -3804,10 +3804,10 @@ UpdateVoicemailMessage Update a message
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param voicemailId The voicemail's ID
 	@param messageId The message's ID
-	@return ApiUpdateVoicemailMessageRequest
+	@return VoicemailsAPIUpdateVoicemailMessageRequest
 */
-func (a *VoicemailsAPIService) UpdateVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) ApiUpdateVoicemailMessageRequest {
-	return ApiUpdateVoicemailMessageRequest{
+func (a *VoicemailsAPIService) UpdateVoicemailMessage(ctx context.Context, voicemailId int32, messageId string) VoicemailsAPIUpdateVoicemailMessageRequest {
+	return VoicemailsAPIUpdateVoicemailMessageRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		voicemailId: voicemailId,
@@ -3816,7 +3816,7 @@ func (a *VoicemailsAPIService) UpdateVoicemailMessage(ctx context.Context, voice
 }
 
 // Execute executes the request
-func (a *VoicemailsAPIService) UpdateVoicemailMessageExecute(r ApiUpdateVoicemailMessageRequest) (*http.Response, error) {
+func (a *VoicemailsAPIService) UpdateVoicemailMessageExecute(r VoicemailsAPIUpdateVoicemailMessageRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

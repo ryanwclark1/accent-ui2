@@ -30,12 +30,12 @@ type AdhocConferencesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId ID of the adhoc conference
 		@param callId ID of the call
-		@return ApiAddParticipantToAdhocConferenceRequest
+		@return AdhocConferencesAPIAddParticipantToAdhocConferenceRequest
 	*/
-	AddParticipantToAdhocConference(ctx context.Context, conferenceId string, callId string) ApiAddParticipantToAdhocConferenceRequest
+	AddParticipantToAdhocConference(ctx context.Context, conferenceId string, callId string) AdhocConferencesAPIAddParticipantToAdhocConferenceRequest
 
 	// AddParticipantToAdhocConferenceExecute executes the request
-	AddParticipantToAdhocConferenceExecute(r ApiAddParticipantToAdhocConferenceRequest) (*http.Response, error)
+	AddParticipantToAdhocConferenceExecute(r AdhocConferencesAPIAddParticipantToAdhocConferenceRequest) (*http.Response, error)
 
 	/*
 		CreateAdhocConference Create an adhoc conference
@@ -43,13 +43,13 @@ type AdhocConferencesAPI interface {
 		**Required ACL:** `calld.users.me.conferences.adhoc.create`. An adhoc conference allows a user to merge multiple calls in one conversation. It acts like a conference room, but has no dedicated extension. The user creating the adhoc conference acts as the owner of the conference and controls who enters or leaves the conference. The conference will be destroyed when the owner leaves the conference.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateAdhocConferenceRequest
+		@return AdhocConferencesAPICreateAdhocConferenceRequest
 	*/
-	CreateAdhocConference(ctx context.Context) ApiCreateAdhocConferenceRequest
+	CreateAdhocConference(ctx context.Context) AdhocConferencesAPICreateAdhocConferenceRequest
 
 	// CreateAdhocConferenceExecute executes the request
 	//  @return AdhocConference
-	CreateAdhocConferenceExecute(r ApiCreateAdhocConferenceRequest) (*AdhocConference, *http.Response, error)
+	CreateAdhocConferenceExecute(r AdhocConferencesAPICreateAdhocConferenceRequest) (*AdhocConference, *http.Response, error)
 
 	/*
 		DeleteAdhocConference Delete an adhoc conference
@@ -58,13 +58,13 @@ type AdhocConferencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId ID of the adhoc conference
-		@return ApiDeleteAdhocConferenceRequest
+		@return AdhocConferencesAPIDeleteAdhocConferenceRequest
 	*/
-	DeleteAdhocConference(ctx context.Context, conferenceId string) ApiDeleteAdhocConferenceRequest
+	DeleteAdhocConference(ctx context.Context, conferenceId string) AdhocConferencesAPIDeleteAdhocConferenceRequest
 
 	// DeleteAdhocConferenceExecute executes the request
 	//  @return AdhocConference
-	DeleteAdhocConferenceExecute(r ApiDeleteAdhocConferenceRequest) (*AdhocConference, *http.Response, error)
+	DeleteAdhocConferenceExecute(r AdhocConferencesAPIDeleteAdhocConferenceRequest) (*AdhocConference, *http.Response, error)
 
 	/*
 		RemoveParticipantFromAdhocConference Remove a participant from an adhoc conference
@@ -74,25 +74,25 @@ type AdhocConferencesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId ID of the adhoc conference
 		@param callId ID of the call
-		@return ApiRemoveParticipantFromAdhocConferenceRequest
+		@return AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest
 	*/
-	RemoveParticipantFromAdhocConference(ctx context.Context, conferenceId string, callId string) ApiRemoveParticipantFromAdhocConferenceRequest
+	RemoveParticipantFromAdhocConference(ctx context.Context, conferenceId string, callId string) AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest
 
 	// RemoveParticipantFromAdhocConferenceExecute executes the request
-	RemoveParticipantFromAdhocConferenceExecute(r ApiRemoveParticipantFromAdhocConferenceRequest) (*http.Response, error)
+	RemoveParticipantFromAdhocConferenceExecute(r AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest) (*http.Response, error)
 }
 
 // AdhocConferencesAPIService AdhocConferencesAPI service
 type AdhocConferencesAPIService service
 
-type ApiAddParticipantToAdhocConferenceRequest struct {
+type AdhocConferencesAPIAddParticipantToAdhocConferenceRequest struct {
 	ctx          context.Context
 	ApiService   AdhocConferencesAPI
 	conferenceId string
 	callId       string
 }
 
-func (r ApiAddParticipantToAdhocConferenceRequest) Execute() (*http.Response, error) {
+func (r AdhocConferencesAPIAddParticipantToAdhocConferenceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddParticipantToAdhocConferenceExecute(r)
 }
 
@@ -104,10 +104,10 @@ AddParticipantToAdhocConference Add a participant into an adhoc conference
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId ID of the adhoc conference
 	@param callId ID of the call
-	@return ApiAddParticipantToAdhocConferenceRequest
+	@return AdhocConferencesAPIAddParticipantToAdhocConferenceRequest
 */
-func (a *AdhocConferencesAPIService) AddParticipantToAdhocConference(ctx context.Context, conferenceId string, callId string) ApiAddParticipantToAdhocConferenceRequest {
-	return ApiAddParticipantToAdhocConferenceRequest{
+func (a *AdhocConferencesAPIService) AddParticipantToAdhocConference(ctx context.Context, conferenceId string, callId string) AdhocConferencesAPIAddParticipantToAdhocConferenceRequest {
+	return AdhocConferencesAPIAddParticipantToAdhocConferenceRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -116,7 +116,7 @@ func (a *AdhocConferencesAPIService) AddParticipantToAdhocConference(ctx context
 }
 
 // Execute executes the request
-func (a *AdhocConferencesAPIService) AddParticipantToAdhocConferenceExecute(r ApiAddParticipantToAdhocConferenceRequest) (*http.Response, error) {
+func (a *AdhocConferencesAPIService) AddParticipantToAdhocConferenceExecute(r AdhocConferencesAPIAddParticipantToAdhocConferenceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -227,19 +227,19 @@ func (a *AdhocConferencesAPIService) AddParticipantToAdhocConferenceExecute(r Ap
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateAdhocConferenceRequest struct {
+type AdhocConferencesAPICreateAdhocConferenceRequest struct {
 	ctx        context.Context
 	ApiService AdhocConferencesAPI
 	body       *AdhocConferenceCreation
 }
 
 // Parameters of the conference calls
-func (r ApiCreateAdhocConferenceRequest) Body(body AdhocConferenceCreation) ApiCreateAdhocConferenceRequest {
+func (r AdhocConferencesAPICreateAdhocConferenceRequest) Body(body AdhocConferenceCreation) AdhocConferencesAPICreateAdhocConferenceRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateAdhocConferenceRequest) Execute() (*AdhocConference, *http.Response, error) {
+func (r AdhocConferencesAPICreateAdhocConferenceRequest) Execute() (*AdhocConference, *http.Response, error) {
 	return r.ApiService.CreateAdhocConferenceExecute(r)
 }
 
@@ -249,10 +249,10 @@ CreateAdhocConference Create an adhoc conference
 **Required ACL:** `calld.users.me.conferences.adhoc.create`. An adhoc conference allows a user to merge multiple calls in one conversation. It acts like a conference room, but has no dedicated extension. The user creating the adhoc conference acts as the owner of the conference and controls who enters or leaves the conference. The conference will be destroyed when the owner leaves the conference.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateAdhocConferenceRequest
+	@return AdhocConferencesAPICreateAdhocConferenceRequest
 */
-func (a *AdhocConferencesAPIService) CreateAdhocConference(ctx context.Context) ApiCreateAdhocConferenceRequest {
-	return ApiCreateAdhocConferenceRequest{
+func (a *AdhocConferencesAPIService) CreateAdhocConference(ctx context.Context) AdhocConferencesAPICreateAdhocConferenceRequest {
+	return AdhocConferencesAPICreateAdhocConferenceRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -261,7 +261,7 @@ func (a *AdhocConferencesAPIService) CreateAdhocConference(ctx context.Context) 
 // Execute executes the request
 //
 //	@return AdhocConference
-func (a *AdhocConferencesAPIService) CreateAdhocConferenceExecute(r ApiCreateAdhocConferenceRequest) (*AdhocConference, *http.Response, error) {
+func (a *AdhocConferencesAPIService) CreateAdhocConferenceExecute(r AdhocConferencesAPICreateAdhocConferenceRequest) (*AdhocConference, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -385,13 +385,13 @@ func (a *AdhocConferencesAPIService) CreateAdhocConferenceExecute(r ApiCreateAdh
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAdhocConferenceRequest struct {
+type AdhocConferencesAPIDeleteAdhocConferenceRequest struct {
 	ctx          context.Context
 	ApiService   AdhocConferencesAPI
 	conferenceId string
 }
 
-func (r ApiDeleteAdhocConferenceRequest) Execute() (*AdhocConference, *http.Response, error) {
+func (r AdhocConferencesAPIDeleteAdhocConferenceRequest) Execute() (*AdhocConference, *http.Response, error) {
 	return r.ApiService.DeleteAdhocConferenceExecute(r)
 }
 
@@ -402,10 +402,10 @@ DeleteAdhocConference Delete an adhoc conference
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId ID of the adhoc conference
-	@return ApiDeleteAdhocConferenceRequest
+	@return AdhocConferencesAPIDeleteAdhocConferenceRequest
 */
-func (a *AdhocConferencesAPIService) DeleteAdhocConference(ctx context.Context, conferenceId string) ApiDeleteAdhocConferenceRequest {
-	return ApiDeleteAdhocConferenceRequest{
+func (a *AdhocConferencesAPIService) DeleteAdhocConference(ctx context.Context, conferenceId string) AdhocConferencesAPIDeleteAdhocConferenceRequest {
+	return AdhocConferencesAPIDeleteAdhocConferenceRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -415,7 +415,7 @@ func (a *AdhocConferencesAPIService) DeleteAdhocConference(ctx context.Context, 
 // Execute executes the request
 //
 //	@return AdhocConference
-func (a *AdhocConferencesAPIService) DeleteAdhocConferenceExecute(r ApiDeleteAdhocConferenceRequest) (*AdhocConference, *http.Response, error) {
+func (a *AdhocConferencesAPIService) DeleteAdhocConferenceExecute(r AdhocConferencesAPIDeleteAdhocConferenceRequest) (*AdhocConference, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
 		localVarPostBody    interface{}
@@ -524,14 +524,14 @@ func (a *AdhocConferencesAPIService) DeleteAdhocConferenceExecute(r ApiDeleteAdh
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveParticipantFromAdhocConferenceRequest struct {
+type AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest struct {
 	ctx          context.Context
 	ApiService   AdhocConferencesAPI
 	conferenceId string
 	callId       string
 }
 
-func (r ApiRemoveParticipantFromAdhocConferenceRequest) Execute() (*http.Response, error) {
+func (r AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.RemoveParticipantFromAdhocConferenceExecute(r)
 }
 
@@ -543,10 +543,10 @@ RemoveParticipantFromAdhocConference Remove a participant from an adhoc conferen
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId ID of the adhoc conference
 	@param callId ID of the call
-	@return ApiRemoveParticipantFromAdhocConferenceRequest
+	@return AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest
 */
-func (a *AdhocConferencesAPIService) RemoveParticipantFromAdhocConference(ctx context.Context, conferenceId string, callId string) ApiRemoveParticipantFromAdhocConferenceRequest {
-	return ApiRemoveParticipantFromAdhocConferenceRequest{
+func (a *AdhocConferencesAPIService) RemoveParticipantFromAdhocConference(ctx context.Context, conferenceId string, callId string) AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest {
+	return AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -555,7 +555,7 @@ func (a *AdhocConferencesAPIService) RemoveParticipantFromAdhocConference(ctx co
 }
 
 // Execute executes the request
-func (a *AdhocConferencesAPIService) RemoveParticipantFromAdhocConferenceExecute(r ApiRemoveParticipantFromAdhocConferenceRequest) (*http.Response, error) {
+func (a *AdhocConferencesAPIService) RemoveParticipantFromAdhocConferenceExecute(r AdhocConferencesAPIRemoveParticipantFromAdhocConferenceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}

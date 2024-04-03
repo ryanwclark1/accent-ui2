@@ -27,13 +27,13 @@ type HaAPI interface {
 		**Required ACL:** `confd.ha.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetHaRequest
+		@return HaAPIGetHaRequest
 	*/
-	GetHa(ctx context.Context) ApiGetHaRequest
+	GetHa(ctx context.Context) HaAPIGetHaRequest
 
 	// GetHaExecute executes the request
 	//  @return HA
-	GetHaExecute(r ApiGetHaRequest) (*HA, *http.Response, error)
+	GetHaExecute(r HaAPIGetHaRequest) (*HA, *http.Response, error)
 
 	/*
 		UpdateHa Update High Availability configuration
@@ -41,23 +41,23 @@ type HaAPI interface {
 		**Required ACL:** `confd.ha.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateHaRequest
+		@return HaAPIUpdateHaRequest
 	*/
-	UpdateHa(ctx context.Context) ApiUpdateHaRequest
+	UpdateHa(ctx context.Context) HaAPIUpdateHaRequest
 
 	// UpdateHaExecute executes the request
-	UpdateHaExecute(r ApiUpdateHaRequest) (*http.Response, error)
+	UpdateHaExecute(r HaAPIUpdateHaRequest) (*http.Response, error)
 }
 
 // HaAPIService HaAPI service
 type HaAPIService service
 
-type ApiGetHaRequest struct {
+type HaAPIGetHaRequest struct {
 	ctx        context.Context
 	ApiService HaAPI
 }
 
-func (r ApiGetHaRequest) Execute() (*HA, *http.Response, error) {
+func (r HaAPIGetHaRequest) Execute() (*HA, *http.Response, error) {
 	return r.ApiService.GetHaExecute(r)
 }
 
@@ -67,10 +67,10 @@ GetHa Get High Availability configuration
 **Required ACL:** `confd.ha.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetHaRequest
+	@return HaAPIGetHaRequest
 */
-func (a *HaAPIService) GetHa(ctx context.Context) ApiGetHaRequest {
-	return ApiGetHaRequest{
+func (a *HaAPIService) GetHa(ctx context.Context) HaAPIGetHaRequest {
+	return HaAPIGetHaRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -79,7 +79,7 @@ func (a *HaAPIService) GetHa(ctx context.Context) ApiGetHaRequest {
 // Execute executes the request
 //
 //	@return HA
-func (a *HaAPIService) GetHaExecute(r ApiGetHaRequest) (*HA, *http.Response, error) {
+func (a *HaAPIService) GetHaExecute(r HaAPIGetHaRequest) (*HA, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -166,18 +166,18 @@ func (a *HaAPIService) GetHaExecute(r ApiGetHaRequest) (*HA, *http.Response, err
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateHaRequest struct {
+type HaAPIUpdateHaRequest struct {
 	ctx        context.Context
 	ApiService HaAPI
 	body       *HA
 }
 
-func (r ApiUpdateHaRequest) Body(body HA) ApiUpdateHaRequest {
+func (r HaAPIUpdateHaRequest) Body(body HA) HaAPIUpdateHaRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateHaRequest) Execute() (*http.Response, error) {
+func (r HaAPIUpdateHaRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateHaExecute(r)
 }
 
@@ -187,17 +187,17 @@ UpdateHa Update High Availability configuration
 **Required ACL:** `confd.ha.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateHaRequest
+	@return HaAPIUpdateHaRequest
 */
-func (a *HaAPIService) UpdateHa(ctx context.Context) ApiUpdateHaRequest {
-	return ApiUpdateHaRequest{
+func (a *HaAPIService) UpdateHa(ctx context.Context) HaAPIUpdateHaRequest {
+	return HaAPIUpdateHaRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *HaAPIService) UpdateHaExecute(r ApiUpdateHaRequest) (*http.Response, error) {
+func (a *HaAPIService) UpdateHaExecute(r HaAPIUpdateHaRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

@@ -37,31 +37,31 @@ type LinesAPI interface {
 
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListLinesRequest
+		@return LinesAPIListLinesRequest
 	*/
-	ListLines(ctx context.Context) ApiListLinesRequest
+	ListLines(ctx context.Context) LinesAPIListLinesRequest
 
 	// ListLinesExecute executes the request
 	//  @return EndpointLines
-	ListLinesExecute(r ApiListLinesRequest) (*EndpointLines, *http.Response, error)
+	ListLinesExecute(r LinesAPIListLinesRequest) (*EndpointLines, *http.Response, error)
 }
 
 // LinesAPIService LinesAPI service
 type LinesAPIService service
 
-type ApiListLinesRequest struct {
+type LinesAPIListLinesRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListLinesRequest) AccentTenant(accentTenant string) ApiListLinesRequest {
+func (r LinesAPIListLinesRequest) AccentTenant(accentTenant string) LinesAPIListLinesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListLinesRequest) Execute() (*EndpointLines, *http.Response, error) {
+func (r LinesAPIListLinesRequest) Execute() (*EndpointLines, *http.Response, error) {
 	return r.ApiService.ListLinesExecute(r)
 }
 
@@ -80,10 +80,10 @@ Lines with unsupported technologies will be listed but there status
 will be null
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListLinesRequest
+	@return LinesAPIListLinesRequest
 */
-func (a *LinesAPIService) ListLines(ctx context.Context) ApiListLinesRequest {
-	return ApiListLinesRequest{
+func (a *LinesAPIService) ListLines(ctx context.Context) LinesAPIListLinesRequest {
+	return LinesAPIListLinesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -92,7 +92,7 @@ func (a *LinesAPIService) ListLines(ctx context.Context) ApiListLinesRequest {
 // Execute executes the request
 //
 //	@return EndpointLines
-func (a *LinesAPIService) ListLinesExecute(r ApiListLinesRequest) (*EndpointLines, *http.Response, error) {
+func (a *LinesAPIService) ListLinesExecute(r LinesAPIListLinesRequest) (*EndpointLines, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

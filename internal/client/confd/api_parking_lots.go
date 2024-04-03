@@ -30,12 +30,12 @@ type ParkingLotsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param parkingLotId Parking Lot's ID
 		@param extensionId
-		@return ApiAssociateParkingLotExtensionRequest
+		@return ParkingLotsAPIAssociateParkingLotExtensionRequest
 	*/
-	AssociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ApiAssociateParkingLotExtensionRequest
+	AssociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ParkingLotsAPIAssociateParkingLotExtensionRequest
 
 	// AssociateParkingLotExtensionExecute executes the request
-	AssociateParkingLotExtensionExecute(r ApiAssociateParkingLotExtensionRequest) (*http.Response, error)
+	AssociateParkingLotExtensionExecute(r ParkingLotsAPIAssociateParkingLotExtensionRequest) (*http.Response, error)
 
 	/*
 		CreateParkingLot Create parking lot
@@ -43,13 +43,13 @@ type ParkingLotsAPI interface {
 		**Required ACL:** `confd.parkinglots.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateParkingLotRequest
+		@return ParkingLotsAPICreateParkingLotRequest
 	*/
-	CreateParkingLot(ctx context.Context) ApiCreateParkingLotRequest
+	CreateParkingLot(ctx context.Context) ParkingLotsAPICreateParkingLotRequest
 
 	// CreateParkingLotExecute executes the request
 	//  @return ParkingLot
-	CreateParkingLotExecute(r ApiCreateParkingLotRequest) (*ParkingLot, *http.Response, error)
+	CreateParkingLotExecute(r ParkingLotsAPICreateParkingLotRequest) (*ParkingLot, *http.Response, error)
 
 	/*
 		DeleteParkingLot Delete parking lot
@@ -58,12 +58,12 @@ type ParkingLotsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param parkingLotId Parking Lot's ID
-		@return ApiDeleteParkingLotRequest
+		@return ParkingLotsAPIDeleteParkingLotRequest
 	*/
-	DeleteParkingLot(ctx context.Context, parkingLotId int32) ApiDeleteParkingLotRequest
+	DeleteParkingLot(ctx context.Context, parkingLotId int32) ParkingLotsAPIDeleteParkingLotRequest
 
 	// DeleteParkingLotExecute executes the request
-	DeleteParkingLotExecute(r ApiDeleteParkingLotRequest) (*http.Response, error)
+	DeleteParkingLotExecute(r ParkingLotsAPIDeleteParkingLotRequest) (*http.Response, error)
 
 	/*
 		DissociateParkingLotExtension Dissociate parking lot and extension
@@ -73,12 +73,12 @@ type ParkingLotsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param parkingLotId Parking Lot's ID
 		@param extensionId
-		@return ApiDissociateParkingLotExtensionRequest
+		@return ParkingLotsAPIDissociateParkingLotExtensionRequest
 	*/
-	DissociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ApiDissociateParkingLotExtensionRequest
+	DissociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ParkingLotsAPIDissociateParkingLotExtensionRequest
 
 	// DissociateParkingLotExtensionExecute executes the request
-	DissociateParkingLotExtensionExecute(r ApiDissociateParkingLotExtensionRequest) (*http.Response, error)
+	DissociateParkingLotExtensionExecute(r ParkingLotsAPIDissociateParkingLotExtensionRequest) (*http.Response, error)
 
 	/*
 		GetParkingLot Get parking lot
@@ -87,13 +87,13 @@ type ParkingLotsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param parkingLotId Parking Lot's ID
-		@return ApiGetParkingLotRequest
+		@return ParkingLotsAPIGetParkingLotRequest
 	*/
-	GetParkingLot(ctx context.Context, parkingLotId int32) ApiGetParkingLotRequest
+	GetParkingLot(ctx context.Context, parkingLotId int32) ParkingLotsAPIGetParkingLotRequest
 
 	// GetParkingLotExecute executes the request
 	//  @return ParkingLot
-	GetParkingLotExecute(r ApiGetParkingLotRequest) (*ParkingLot, *http.Response, error)
+	GetParkingLotExecute(r ParkingLotsAPIGetParkingLotRequest) (*ParkingLot, *http.Response, error)
 
 	/*
 		ListParkingLots List parking lots
@@ -101,13 +101,13 @@ type ParkingLotsAPI interface {
 		**Required ACL:** `confd.parkinglots.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListParkingLotsRequest
+		@return ParkingLotsAPIListParkingLotsRequest
 	*/
-	ListParkingLots(ctx context.Context) ApiListParkingLotsRequest
+	ListParkingLots(ctx context.Context) ParkingLotsAPIListParkingLotsRequest
 
 	// ListParkingLotsExecute executes the request
 	//  @return ParkingLotItems
-	ListParkingLotsExecute(r ApiListParkingLotsRequest) (*ParkingLotItems, *http.Response, error)
+	ListParkingLotsExecute(r ParkingLotsAPIListParkingLotsRequest) (*ParkingLotItems, *http.Response, error)
 
 	/*
 		UpdateParkingLot Update parking lot
@@ -116,25 +116,25 @@ type ParkingLotsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param parkingLotId Parking Lot's ID
-		@return ApiUpdateParkingLotRequest
+		@return ParkingLotsAPIUpdateParkingLotRequest
 	*/
-	UpdateParkingLot(ctx context.Context, parkingLotId int32) ApiUpdateParkingLotRequest
+	UpdateParkingLot(ctx context.Context, parkingLotId int32) ParkingLotsAPIUpdateParkingLotRequest
 
 	// UpdateParkingLotExecute executes the request
-	UpdateParkingLotExecute(r ApiUpdateParkingLotRequest) (*http.Response, error)
+	UpdateParkingLotExecute(r ParkingLotsAPIUpdateParkingLotRequest) (*http.Response, error)
 }
 
 // ParkingLotsAPIService ParkingLotsAPI service
 type ParkingLotsAPIService service
 
-type ApiAssociateParkingLotExtensionRequest struct {
+type ParkingLotsAPIAssociateParkingLotExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ParkingLotsAPI
 	parkingLotId int32
 	extensionId  int32
 }
 
-func (r ApiAssociateParkingLotExtensionRequest) Execute() (*http.Response, error) {
+func (r ParkingLotsAPIAssociateParkingLotExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateParkingLotExtensionExecute(r)
 }
 
@@ -146,10 +146,10 @@ AssociateParkingLotExtension Associate parking_lot and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param parkingLotId Parking Lot's ID
 	@param extensionId
-	@return ApiAssociateParkingLotExtensionRequest
+	@return ParkingLotsAPIAssociateParkingLotExtensionRequest
 */
-func (a *ParkingLotsAPIService) AssociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ApiAssociateParkingLotExtensionRequest {
-	return ApiAssociateParkingLotExtensionRequest{
+func (a *ParkingLotsAPIService) AssociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ParkingLotsAPIAssociateParkingLotExtensionRequest {
+	return ParkingLotsAPIAssociateParkingLotExtensionRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		parkingLotId: parkingLotId,
@@ -158,7 +158,7 @@ func (a *ParkingLotsAPIService) AssociateParkingLotExtension(ctx context.Context
 }
 
 // Execute executes the request
-func (a *ParkingLotsAPIService) AssociateParkingLotExtensionExecute(r ApiAssociateParkingLotExtensionRequest) (*http.Response, error) {
+func (a *ParkingLotsAPIService) AssociateParkingLotExtensionExecute(r ParkingLotsAPIAssociateParkingLotExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -258,7 +258,7 @@ func (a *ParkingLotsAPIService) AssociateParkingLotExtensionExecute(r ApiAssocia
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateParkingLotRequest struct {
+type ParkingLotsAPICreateParkingLotRequest struct {
 	ctx          context.Context
 	ApiService   ParkingLotsAPI
 	body         *ParkingLot
@@ -266,18 +266,18 @@ type ApiCreateParkingLotRequest struct {
 }
 
 // Parking lot to create
-func (r ApiCreateParkingLotRequest) Body(body ParkingLot) ApiCreateParkingLotRequest {
+func (r ParkingLotsAPICreateParkingLotRequest) Body(body ParkingLot) ParkingLotsAPICreateParkingLotRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateParkingLotRequest) AccentTenant(accentTenant string) ApiCreateParkingLotRequest {
+func (r ParkingLotsAPICreateParkingLotRequest) AccentTenant(accentTenant string) ParkingLotsAPICreateParkingLotRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateParkingLotRequest) Execute() (*ParkingLot, *http.Response, error) {
+func (r ParkingLotsAPICreateParkingLotRequest) Execute() (*ParkingLot, *http.Response, error) {
 	return r.ApiService.CreateParkingLotExecute(r)
 }
 
@@ -287,10 +287,10 @@ CreateParkingLot Create parking lot
 **Required ACL:** `confd.parkinglots.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateParkingLotRequest
+	@return ParkingLotsAPICreateParkingLotRequest
 */
-func (a *ParkingLotsAPIService) CreateParkingLot(ctx context.Context) ApiCreateParkingLotRequest {
-	return ApiCreateParkingLotRequest{
+func (a *ParkingLotsAPIService) CreateParkingLot(ctx context.Context) ParkingLotsAPICreateParkingLotRequest {
+	return ParkingLotsAPICreateParkingLotRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -299,7 +299,7 @@ func (a *ParkingLotsAPIService) CreateParkingLot(ctx context.Context) ApiCreateP
 // Execute executes the request
 //
 //	@return ParkingLot
-func (a *ParkingLotsAPIService) CreateParkingLotExecute(r ApiCreateParkingLotRequest) (*ParkingLot, *http.Response, error) {
+func (a *ParkingLotsAPIService) CreateParkingLotExecute(r ParkingLotsAPICreateParkingLotRequest) (*ParkingLot, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -404,7 +404,7 @@ func (a *ParkingLotsAPIService) CreateParkingLotExecute(r ApiCreateParkingLotReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteParkingLotRequest struct {
+type ParkingLotsAPIDeleteParkingLotRequest struct {
 	ctx          context.Context
 	ApiService   ParkingLotsAPI
 	parkingLotId int32
@@ -412,12 +412,12 @@ type ApiDeleteParkingLotRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteParkingLotRequest) AccentTenant(accentTenant string) ApiDeleteParkingLotRequest {
+func (r ParkingLotsAPIDeleteParkingLotRequest) AccentTenant(accentTenant string) ParkingLotsAPIDeleteParkingLotRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteParkingLotRequest) Execute() (*http.Response, error) {
+func (r ParkingLotsAPIDeleteParkingLotRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteParkingLotExecute(r)
 }
 
@@ -428,10 +428,10 @@ DeleteParkingLot Delete parking lot
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param parkingLotId Parking Lot's ID
-	@return ApiDeleteParkingLotRequest
+	@return ParkingLotsAPIDeleteParkingLotRequest
 */
-func (a *ParkingLotsAPIService) DeleteParkingLot(ctx context.Context, parkingLotId int32) ApiDeleteParkingLotRequest {
-	return ApiDeleteParkingLotRequest{
+func (a *ParkingLotsAPIService) DeleteParkingLot(ctx context.Context, parkingLotId int32) ParkingLotsAPIDeleteParkingLotRequest {
+	return ParkingLotsAPIDeleteParkingLotRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		parkingLotId: parkingLotId,
@@ -439,7 +439,7 @@ func (a *ParkingLotsAPIService) DeleteParkingLot(ctx context.Context, parkingLot
 }
 
 // Execute executes the request
-func (a *ParkingLotsAPIService) DeleteParkingLotExecute(r ApiDeleteParkingLotRequest) (*http.Response, error) {
+func (a *ParkingLotsAPIService) DeleteParkingLotExecute(r ParkingLotsAPIDeleteParkingLotRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -541,14 +541,14 @@ func (a *ParkingLotsAPIService) DeleteParkingLotExecute(r ApiDeleteParkingLotReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateParkingLotExtensionRequest struct {
+type ParkingLotsAPIDissociateParkingLotExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ParkingLotsAPI
 	parkingLotId int32
 	extensionId  int32
 }
 
-func (r ApiDissociateParkingLotExtensionRequest) Execute() (*http.Response, error) {
+func (r ParkingLotsAPIDissociateParkingLotExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateParkingLotExtensionExecute(r)
 }
 
@@ -560,10 +560,10 @@ DissociateParkingLotExtension Dissociate parking lot and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param parkingLotId Parking Lot's ID
 	@param extensionId
-	@return ApiDissociateParkingLotExtensionRequest
+	@return ParkingLotsAPIDissociateParkingLotExtensionRequest
 */
-func (a *ParkingLotsAPIService) DissociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ApiDissociateParkingLotExtensionRequest {
-	return ApiDissociateParkingLotExtensionRequest{
+func (a *ParkingLotsAPIService) DissociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ParkingLotsAPIDissociateParkingLotExtensionRequest {
+	return ParkingLotsAPIDissociateParkingLotExtensionRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		parkingLotId: parkingLotId,
@@ -572,7 +572,7 @@ func (a *ParkingLotsAPIService) DissociateParkingLotExtension(ctx context.Contex
 }
 
 // Execute executes the request
-func (a *ParkingLotsAPIService) DissociateParkingLotExtensionExecute(r ApiDissociateParkingLotExtensionRequest) (*http.Response, error) {
+func (a *ParkingLotsAPIService) DissociateParkingLotExtensionExecute(r ParkingLotsAPIDissociateParkingLotExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -672,7 +672,7 @@ func (a *ParkingLotsAPIService) DissociateParkingLotExtensionExecute(r ApiDissoc
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetParkingLotRequest struct {
+type ParkingLotsAPIGetParkingLotRequest struct {
 	ctx          context.Context
 	ApiService   ParkingLotsAPI
 	parkingLotId int32
@@ -680,12 +680,12 @@ type ApiGetParkingLotRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetParkingLotRequest) AccentTenant(accentTenant string) ApiGetParkingLotRequest {
+func (r ParkingLotsAPIGetParkingLotRequest) AccentTenant(accentTenant string) ParkingLotsAPIGetParkingLotRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetParkingLotRequest) Execute() (*ParkingLot, *http.Response, error) {
+func (r ParkingLotsAPIGetParkingLotRequest) Execute() (*ParkingLot, *http.Response, error) {
 	return r.ApiService.GetParkingLotExecute(r)
 }
 
@@ -696,10 +696,10 @@ GetParkingLot Get parking lot
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param parkingLotId Parking Lot's ID
-	@return ApiGetParkingLotRequest
+	@return ParkingLotsAPIGetParkingLotRequest
 */
-func (a *ParkingLotsAPIService) GetParkingLot(ctx context.Context, parkingLotId int32) ApiGetParkingLotRequest {
-	return ApiGetParkingLotRequest{
+func (a *ParkingLotsAPIService) GetParkingLot(ctx context.Context, parkingLotId int32) ParkingLotsAPIGetParkingLotRequest {
+	return ParkingLotsAPIGetParkingLotRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		parkingLotId: parkingLotId,
@@ -709,7 +709,7 @@ func (a *ParkingLotsAPIService) GetParkingLot(ctx context.Context, parkingLotId 
 // Execute executes the request
 //
 //	@return ParkingLot
-func (a *ParkingLotsAPIService) GetParkingLotExecute(r ApiGetParkingLotRequest) (*ParkingLot, *http.Response, error) {
+func (a *ParkingLotsAPIService) GetParkingLotExecute(r ParkingLotsAPIGetParkingLotRequest) (*ParkingLot, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -810,7 +810,7 @@ func (a *ParkingLotsAPIService) GetParkingLotExecute(r ApiGetParkingLotRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListParkingLotsRequest struct {
+type ParkingLotsAPIListParkingLotsRequest struct {
 	ctx          context.Context
 	ApiService   ParkingLotsAPI
 	accentTenant *string
@@ -823,48 +823,48 @@ type ApiListParkingLotsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListParkingLotsRequest) AccentTenant(accentTenant string) ApiListParkingLotsRequest {
+func (r ParkingLotsAPIListParkingLotsRequest) AccentTenant(accentTenant string) ParkingLotsAPIListParkingLotsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListParkingLotsRequest) Recurse(recurse bool) ApiListParkingLotsRequest {
+func (r ParkingLotsAPIListParkingLotsRequest) Recurse(recurse bool) ParkingLotsAPIListParkingLotsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListParkingLotsRequest) Order(order string) ApiListParkingLotsRequest {
+func (r ParkingLotsAPIListParkingLotsRequest) Order(order string) ParkingLotsAPIListParkingLotsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListParkingLotsRequest) Direction(direction string) ApiListParkingLotsRequest {
+func (r ParkingLotsAPIListParkingLotsRequest) Direction(direction string) ParkingLotsAPIListParkingLotsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListParkingLotsRequest) Limit(limit int32) ApiListParkingLotsRequest {
+func (r ParkingLotsAPIListParkingLotsRequest) Limit(limit int32) ParkingLotsAPIListParkingLotsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListParkingLotsRequest) Offset(offset int32) ApiListParkingLotsRequest {
+func (r ParkingLotsAPIListParkingLotsRequest) Offset(offset int32) ParkingLotsAPIListParkingLotsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListParkingLotsRequest) Search(search string) ApiListParkingLotsRequest {
+func (r ParkingLotsAPIListParkingLotsRequest) Search(search string) ParkingLotsAPIListParkingLotsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListParkingLotsRequest) Execute() (*ParkingLotItems, *http.Response, error) {
+func (r ParkingLotsAPIListParkingLotsRequest) Execute() (*ParkingLotItems, *http.Response, error) {
 	return r.ApiService.ListParkingLotsExecute(r)
 }
 
@@ -874,10 +874,10 @@ ListParkingLots List parking lots
 **Required ACL:** `confd.parkinglots.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListParkingLotsRequest
+	@return ParkingLotsAPIListParkingLotsRequest
 */
-func (a *ParkingLotsAPIService) ListParkingLots(ctx context.Context) ApiListParkingLotsRequest {
-	return ApiListParkingLotsRequest{
+func (a *ParkingLotsAPIService) ListParkingLots(ctx context.Context) ParkingLotsAPIListParkingLotsRequest {
+	return ParkingLotsAPIListParkingLotsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -886,7 +886,7 @@ func (a *ParkingLotsAPIService) ListParkingLots(ctx context.Context) ApiListPark
 // Execute executes the request
 //
 //	@return ParkingLotItems
-func (a *ParkingLotsAPIService) ListParkingLotsExecute(r ApiListParkingLotsRequest) (*ParkingLotItems, *http.Response, error) {
+func (a *ParkingLotsAPIService) ListParkingLotsExecute(r ParkingLotsAPIListParkingLotsRequest) (*ParkingLotItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -997,7 +997,7 @@ func (a *ParkingLotsAPIService) ListParkingLotsExecute(r ApiListParkingLotsReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateParkingLotRequest struct {
+type ParkingLotsAPIUpdateParkingLotRequest struct {
 	ctx          context.Context
 	ApiService   ParkingLotsAPI
 	body         *ParkingLot
@@ -1005,18 +1005,18 @@ type ApiUpdateParkingLotRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateParkingLotRequest) Body(body ParkingLot) ApiUpdateParkingLotRequest {
+func (r ParkingLotsAPIUpdateParkingLotRequest) Body(body ParkingLot) ParkingLotsAPIUpdateParkingLotRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateParkingLotRequest) AccentTenant(accentTenant string) ApiUpdateParkingLotRequest {
+func (r ParkingLotsAPIUpdateParkingLotRequest) AccentTenant(accentTenant string) ParkingLotsAPIUpdateParkingLotRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateParkingLotRequest) Execute() (*http.Response, error) {
+func (r ParkingLotsAPIUpdateParkingLotRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateParkingLotExecute(r)
 }
 
@@ -1027,10 +1027,10 @@ UpdateParkingLot Update parking lot
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param parkingLotId Parking Lot's ID
-	@return ApiUpdateParkingLotRequest
+	@return ParkingLotsAPIUpdateParkingLotRequest
 */
-func (a *ParkingLotsAPIService) UpdateParkingLot(ctx context.Context, parkingLotId int32) ApiUpdateParkingLotRequest {
-	return ApiUpdateParkingLotRequest{
+func (a *ParkingLotsAPIService) UpdateParkingLot(ctx context.Context, parkingLotId int32) ParkingLotsAPIUpdateParkingLotRequest {
+	return ParkingLotsAPIUpdateParkingLotRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		parkingLotId: parkingLotId,
@@ -1038,7 +1038,7 @@ func (a *ParkingLotsAPIService) UpdateParkingLot(ctx context.Context, parkingLot
 }
 
 // Execute executes the request
-func (a *ParkingLotsAPIService) UpdateParkingLotExecute(r ApiUpdateParkingLotRequest) (*http.Response, error) {
+func (a *ParkingLotsAPIService) UpdateParkingLotExecute(r ParkingLotsAPIUpdateParkingLotRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

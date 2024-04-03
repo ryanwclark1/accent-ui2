@@ -27,13 +27,13 @@ type UserAPI interface {
 		**Required ACL:** `agentd.users.me.agents.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetUserAgentRequest
+		@return UserAPIGetUserAgentRequest
 	*/
-	GetUserAgent(ctx context.Context) ApiGetUserAgentRequest
+	GetUserAgent(ctx context.Context) UserAPIGetUserAgentRequest
 
 	// GetUserAgentExecute executes the request
 	//  @return AgentStatus
-	GetUserAgentExecute(r ApiGetUserAgentRequest) (*AgentStatus, *http.Response, error)
+	GetUserAgentExecute(r UserAPIGetUserAgentRequest) (*AgentStatus, *http.Response, error)
 
 	/*
 		LoginUserAgent Log the agent of the user holding the authentication token
@@ -41,12 +41,12 @@ type UserAPI interface {
 		**Required ACL:** `agentd.users.me.agents.login.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiLoginUserAgentRequest
+		@return UserAPILoginUserAgentRequest
 	*/
-	LoginUserAgent(ctx context.Context) ApiLoginUserAgentRequest
+	LoginUserAgent(ctx context.Context) UserAPILoginUserAgentRequest
 
 	// LoginUserAgentExecute executes the request
-	LoginUserAgentExecute(r ApiLoginUserAgentRequest) (*http.Response, error)
+	LoginUserAgentExecute(r UserAPILoginUserAgentRequest) (*http.Response, error)
 
 	/*
 		LogoffUserAgent Logoff the agent of the user holding the authentication token
@@ -54,12 +54,12 @@ type UserAPI interface {
 		**Required ACL:** `agentd.users.me.agents.logoff.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiLogoffUserAgentRequest
+		@return UserAPILogoffUserAgentRequest
 	*/
-	LogoffUserAgent(ctx context.Context) ApiLogoffUserAgentRequest
+	LogoffUserAgent(ctx context.Context) UserAPILogoffUserAgentRequest
 
 	// LogoffUserAgentExecute executes the request
-	LogoffUserAgentExecute(r ApiLogoffUserAgentRequest) (*http.Response, error)
+	LogoffUserAgentExecute(r UserAPILogoffUserAgentRequest) (*http.Response, error)
 
 	/*
 		PauseUserAgent Pause the agent of the user holding the authentication token
@@ -67,12 +67,12 @@ type UserAPI interface {
 		**Required ACL:** `agentd.users.me.agents.pause.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPauseUserAgentRequest
+		@return UserAPIPauseUserAgentRequest
 	*/
-	PauseUserAgent(ctx context.Context) ApiPauseUserAgentRequest
+	PauseUserAgent(ctx context.Context) UserAPIPauseUserAgentRequest
 
 	// PauseUserAgentExecute executes the request
-	PauseUserAgentExecute(r ApiPauseUserAgentRequest) (*http.Response, error)
+	PauseUserAgentExecute(r UserAPIPauseUserAgentRequest) (*http.Response, error)
 
 	/*
 		UnpauseUserAgent Unpause the agent of the user holding the authentication token
@@ -80,30 +80,30 @@ type UserAPI interface {
 		**Required ACL:** `agentd.users.me.agents.unpause.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUnpauseUserAgentRequest
+		@return UserAPIUnpauseUserAgentRequest
 	*/
-	UnpauseUserAgent(ctx context.Context) ApiUnpauseUserAgentRequest
+	UnpauseUserAgent(ctx context.Context) UserAPIUnpauseUserAgentRequest
 
 	// UnpauseUserAgentExecute executes the request
-	UnpauseUserAgentExecute(r ApiUnpauseUserAgentRequest) (*http.Response, error)
+	UnpauseUserAgentExecute(r UserAPIUnpauseUserAgentRequest) (*http.Response, error)
 }
 
 // UserAPIService UserAPI service
 type UserAPIService service
 
-type ApiGetUserAgentRequest struct {
+type UserAPIGetUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   UserAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserAgentRequest) AccentTenant(accentTenant string) ApiGetUserAgentRequest {
+func (r UserAPIGetUserAgentRequest) AccentTenant(accentTenant string) UserAPIGetUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserAgentRequest) Execute() (*AgentStatus, *http.Response, error) {
+func (r UserAPIGetUserAgentRequest) Execute() (*AgentStatus, *http.Response, error) {
 	return r.ApiService.GetUserAgentExecute(r)
 }
 
@@ -113,10 +113,10 @@ GetUserAgent Get agent status of the user holding the authentication token.
 **Required ACL:** `agentd.users.me.agents.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserAgentRequest
+	@return UserAPIGetUserAgentRequest
 */
-func (a *UserAPIService) GetUserAgent(ctx context.Context) ApiGetUserAgentRequest {
-	return ApiGetUserAgentRequest{
+func (a *UserAPIService) GetUserAgent(ctx context.Context) UserAPIGetUserAgentRequest {
+	return UserAPIGetUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -125,7 +125,7 @@ func (a *UserAPIService) GetUserAgent(ctx context.Context) ApiGetUserAgentReques
 // Execute executes the request
 //
 //	@return AgentStatus
-func (a *UserAPIService) GetUserAgentExecute(r ApiGetUserAgentRequest) (*AgentStatus, *http.Response, error) {
+func (a *UserAPIService) GetUserAgentExecute(r UserAPIGetUserAgentRequest) (*AgentStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -225,7 +225,7 @@ func (a *UserAPIService) GetUserAgentExecute(r ApiGetUserAgentRequest) (*AgentSt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiLoginUserAgentRequest struct {
+type UserAPILoginUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   UserAPI
 	body         *UserAgentLoginInfo
@@ -233,18 +233,18 @@ type ApiLoginUserAgentRequest struct {
 }
 
 // The line on which to log the agent
-func (r ApiLoginUserAgentRequest) Body(body UserAgentLoginInfo) ApiLoginUserAgentRequest {
+func (r UserAPILoginUserAgentRequest) Body(body UserAgentLoginInfo) UserAPILoginUserAgentRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLoginUserAgentRequest) AccentTenant(accentTenant string) ApiLoginUserAgentRequest {
+func (r UserAPILoginUserAgentRequest) AccentTenant(accentTenant string) UserAPILoginUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLoginUserAgentRequest) Execute() (*http.Response, error) {
+func (r UserAPILoginUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LoginUserAgentExecute(r)
 }
 
@@ -254,17 +254,17 @@ LoginUserAgent Log the agent of the user holding the authentication token
 **Required ACL:** `agentd.users.me.agents.login.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiLoginUserAgentRequest
+	@return UserAPILoginUserAgentRequest
 */
-func (a *UserAPIService) LoginUserAgent(ctx context.Context) ApiLoginUserAgentRequest {
-	return ApiLoginUserAgentRequest{
+func (a *UserAPIService) LoginUserAgent(ctx context.Context) UserAPILoginUserAgentRequest {
+	return UserAPILoginUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *UserAPIService) LoginUserAgentExecute(r ApiLoginUserAgentRequest) (*http.Response, error) {
+func (a *UserAPIService) LoginUserAgentExecute(r UserAPILoginUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -370,19 +370,19 @@ func (a *UserAPIService) LoginUserAgentExecute(r ApiLoginUserAgentRequest) (*htt
 	return localVarHTTPResponse, nil
 }
 
-type ApiLogoffUserAgentRequest struct {
+type UserAPILogoffUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   UserAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLogoffUserAgentRequest) AccentTenant(accentTenant string) ApiLogoffUserAgentRequest {
+func (r UserAPILogoffUserAgentRequest) AccentTenant(accentTenant string) UserAPILogoffUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLogoffUserAgentRequest) Execute() (*http.Response, error) {
+func (r UserAPILogoffUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LogoffUserAgentExecute(r)
 }
 
@@ -392,17 +392,17 @@ LogoffUserAgent Logoff the agent of the user holding the authentication token
 **Required ACL:** `agentd.users.me.agents.logoff.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiLogoffUserAgentRequest
+	@return UserAPILogoffUserAgentRequest
 */
-func (a *UserAPIService) LogoffUserAgent(ctx context.Context) ApiLogoffUserAgentRequest {
-	return ApiLogoffUserAgentRequest{
+func (a *UserAPIService) LogoffUserAgent(ctx context.Context) UserAPILogoffUserAgentRequest {
+	return UserAPILogoffUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *UserAPIService) LogoffUserAgentExecute(r ApiLogoffUserAgentRequest) (*http.Response, error) {
+func (a *UserAPIService) LogoffUserAgentExecute(r UserAPILogoffUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -503,7 +503,7 @@ func (a *UserAPIService) LogoffUserAgentExecute(r ApiLogoffUserAgentRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiPauseUserAgentRequest struct {
+type UserAPIPauseUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   UserAPI
 	body         *AgentPauseReason
@@ -511,18 +511,18 @@ type ApiPauseUserAgentRequest struct {
 }
 
 // The reason for pausing the agent
-func (r ApiPauseUserAgentRequest) Body(body AgentPauseReason) ApiPauseUserAgentRequest {
+func (r UserAPIPauseUserAgentRequest) Body(body AgentPauseReason) UserAPIPauseUserAgentRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiPauseUserAgentRequest) AccentTenant(accentTenant string) ApiPauseUserAgentRequest {
+func (r UserAPIPauseUserAgentRequest) AccentTenant(accentTenant string) UserAPIPauseUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPauseUserAgentRequest) Execute() (*http.Response, error) {
+func (r UserAPIPauseUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PauseUserAgentExecute(r)
 }
 
@@ -532,17 +532,17 @@ PauseUserAgent Pause the agent of the user holding the authentication token
 **Required ACL:** `agentd.users.me.agents.pause.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPauseUserAgentRequest
+	@return UserAPIPauseUserAgentRequest
 */
-func (a *UserAPIService) PauseUserAgent(ctx context.Context) ApiPauseUserAgentRequest {
-	return ApiPauseUserAgentRequest{
+func (a *UserAPIService) PauseUserAgent(ctx context.Context) UserAPIPauseUserAgentRequest {
+	return UserAPIPauseUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *UserAPIService) PauseUserAgentExecute(r ApiPauseUserAgentRequest) (*http.Response, error) {
+func (a *UserAPIService) PauseUserAgentExecute(r UserAPIPauseUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -645,19 +645,19 @@ func (a *UserAPIService) PauseUserAgentExecute(r ApiPauseUserAgentRequest) (*htt
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnpauseUserAgentRequest struct {
+type UserAPIUnpauseUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   UserAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUnpauseUserAgentRequest) AccentTenant(accentTenant string) ApiUnpauseUserAgentRequest {
+func (r UserAPIUnpauseUserAgentRequest) AccentTenant(accentTenant string) UserAPIUnpauseUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUnpauseUserAgentRequest) Execute() (*http.Response, error) {
+func (r UserAPIUnpauseUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnpauseUserAgentExecute(r)
 }
 
@@ -667,17 +667,17 @@ UnpauseUserAgent Unpause the agent of the user holding the authentication token
 **Required ACL:** `agentd.users.me.agents.unpause.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUnpauseUserAgentRequest
+	@return UserAPIUnpauseUserAgentRequest
 */
-func (a *UserAPIService) UnpauseUserAgent(ctx context.Context) ApiUnpauseUserAgentRequest {
-	return ApiUnpauseUserAgentRequest{
+func (a *UserAPIService) UnpauseUserAgent(ctx context.Context) UserAPIUnpauseUserAgentRequest {
+	return UserAPIUnpauseUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *UserAPIService) UnpauseUserAgentExecute(r ApiUnpauseUserAgentRequest) (*http.Response, error) {
+func (a *UserAPIService) UnpauseUserAgentExecute(r UserAPIUnpauseUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}

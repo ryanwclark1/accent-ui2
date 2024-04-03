@@ -30,12 +30,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param customId
-		@return ApiAssociateLineEndpointCustomRequest
+		@return EndpointsAPIAssociateLineEndpointCustomRequest
 	*/
-	AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiAssociateLineEndpointCustomRequest
+	AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) EndpointsAPIAssociateLineEndpointCustomRequest
 
 	// AssociateLineEndpointCustomExecute executes the request
-	AssociateLineEndpointCustomExecute(r ApiAssociateLineEndpointCustomRequest) (*http.Response, error)
+	AssociateLineEndpointCustomExecute(r EndpointsAPIAssociateLineEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		AssociateLineEndpointSccp Associate line and SCCP endpoint
@@ -45,12 +45,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sccpId
-		@return ApiAssociateLineEndpointSccpRequest
+		@return EndpointsAPIAssociateLineEndpointSccpRequest
 	*/
-	AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiAssociateLineEndpointSccpRequest
+	AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) EndpointsAPIAssociateLineEndpointSccpRequest
 
 	// AssociateLineEndpointSccpExecute executes the request
-	AssociateLineEndpointSccpExecute(r ApiAssociateLineEndpointSccpRequest) (*http.Response, error)
+	AssociateLineEndpointSccpExecute(r EndpointsAPIAssociateLineEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		AssociateLineEndpointSip Associate line and SIP endpoint
@@ -60,12 +60,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sipUuid
-		@return ApiAssociateLineEndpointSipRequest
+		@return EndpointsAPIAssociateLineEndpointSipRequest
 	*/
-	AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiAssociateLineEndpointSipRequest
+	AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) EndpointsAPIAssociateLineEndpointSipRequest
 
 	// AssociateLineEndpointSipExecute executes the request
-	AssociateLineEndpointSipExecute(r ApiAssociateLineEndpointSipRequest) (*http.Response, error)
+	AssociateLineEndpointSipExecute(r EndpointsAPIAssociateLineEndpointSipRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkEndpointCustom Associate trunk and Custom endpoint
@@ -75,12 +75,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param customId
-		@return ApiAssociateTrunkEndpointCustomRequest
+		@return EndpointsAPIAssociateTrunkEndpointCustomRequest
 	*/
-	AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiAssociateTrunkEndpointCustomRequest
+	AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) EndpointsAPIAssociateTrunkEndpointCustomRequest
 
 	// AssociateTrunkEndpointCustomExecute executes the request
-	AssociateTrunkEndpointCustomExecute(r ApiAssociateTrunkEndpointCustomRequest) (*http.Response, error)
+	AssociateTrunkEndpointCustomExecute(r EndpointsAPIAssociateTrunkEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkEndpointIax Associate trunk and IAX endpoint
@@ -90,12 +90,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiAssociateTrunkEndpointIaxRequest
+		@return EndpointsAPIAssociateTrunkEndpointIaxRequest
 	*/
-	AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkEndpointIaxRequest
+	AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) EndpointsAPIAssociateTrunkEndpointIaxRequest
 
 	// AssociateTrunkEndpointIaxExecute executes the request
-	AssociateTrunkEndpointIaxExecute(r ApiAssociateTrunkEndpointIaxRequest) (*http.Response, error)
+	AssociateTrunkEndpointIaxExecute(r EndpointsAPIAssociateTrunkEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkEndpointSip Associate trunk and SIP endpoint
@@ -105,12 +105,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param sipUuid
-		@return ApiAssociateTrunkEndpointSipRequest
+		@return EndpointsAPIAssociateTrunkEndpointSipRequest
 	*/
-	AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiAssociateTrunkEndpointSipRequest
+	AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) EndpointsAPIAssociateTrunkEndpointSipRequest
 
 	// AssociateTrunkEndpointSipExecute executes the request
-	AssociateTrunkEndpointSipExecute(r ApiAssociateTrunkEndpointSipRequest) (*http.Response, error)
+	AssociateTrunkEndpointSipExecute(r EndpointsAPIAssociateTrunkEndpointSipRequest) (*http.Response, error)
 
 	/*
 		CreateEndpointCustom Create Custom endpoint
@@ -118,13 +118,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.custom.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointCustomRequest
+		@return EndpointsAPICreateEndpointCustomRequest
 	*/
-	CreateEndpointCustom(ctx context.Context) ApiCreateEndpointCustomRequest
+	CreateEndpointCustom(ctx context.Context) EndpointsAPICreateEndpointCustomRequest
 
 	// CreateEndpointCustomExecute executes the request
 	//  @return EndpointCustom
-	CreateEndpointCustomExecute(r ApiCreateEndpointCustomRequest) (*EndpointCustom, *http.Response, error)
+	CreateEndpointCustomExecute(r EndpointsAPICreateEndpointCustomRequest) (*EndpointCustom, *http.Response, error)
 
 	/*
 		CreateEndpointIax Create IAX endpoint
@@ -132,13 +132,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.iax.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointIaxRequest
+		@return EndpointsAPICreateEndpointIaxRequest
 	*/
-	CreateEndpointIax(ctx context.Context) ApiCreateEndpointIaxRequest
+	CreateEndpointIax(ctx context.Context) EndpointsAPICreateEndpointIaxRequest
 
 	// CreateEndpointIaxExecute executes the request
 	//  @return EndpointIAX
-	CreateEndpointIaxExecute(r ApiCreateEndpointIaxRequest) (*EndpointIAX, *http.Response, error)
+	CreateEndpointIaxExecute(r EndpointsAPICreateEndpointIaxRequest) (*EndpointIAX, *http.Response, error)
 
 	/*
 		CreateEndpointSccp Create SCCP endpoint
@@ -146,13 +146,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.sccp.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointSccpRequest
+		@return EndpointsAPICreateEndpointSccpRequest
 	*/
-	CreateEndpointSccp(ctx context.Context) ApiCreateEndpointSccpRequest
+	CreateEndpointSccp(ctx context.Context) EndpointsAPICreateEndpointSccpRequest
 
 	// CreateEndpointSccpExecute executes the request
 	//  @return EndpointSccp
-	CreateEndpointSccpExecute(r ApiCreateEndpointSccpRequest) (*EndpointSccp, *http.Response, error)
+	CreateEndpointSccpExecute(r EndpointsAPICreateEndpointSccpRequest) (*EndpointSccp, *http.Response, error)
 
 	/*
 		CreateEndpointSip Create a SIP endpoint
@@ -160,13 +160,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.sip.create` Create a new SIP endpoint. This endpoint can inherit from other endpoints, only modify fields that have to be modified.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointSipRequest
+		@return EndpointsAPICreateEndpointSipRequest
 	*/
-	CreateEndpointSip(ctx context.Context) ApiCreateEndpointSipRequest
+	CreateEndpointSip(ctx context.Context) EndpointsAPICreateEndpointSipRequest
 
 	// CreateEndpointSipExecute executes the request
 	//  @return EndpointSIP
-	CreateEndpointSipExecute(r ApiCreateEndpointSipRequest) (*EndpointSIP, *http.Response, error)
+	CreateEndpointSipExecute(r EndpointsAPICreateEndpointSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		CreateEndpointSipTemplate Create a SIP endpoint template
@@ -174,13 +174,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.sip.templates.create` Create a new SIP endpoint configuration template. This endpoint can inherit from other templates, only modify fields that have to be modified.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointSipTemplateRequest
+		@return EndpointsAPICreateEndpointSipTemplateRequest
 	*/
-	CreateEndpointSipTemplate(ctx context.Context) ApiCreateEndpointSipTemplateRequest
+	CreateEndpointSipTemplate(ctx context.Context) EndpointsAPICreateEndpointSipTemplateRequest
 
 	// CreateEndpointSipTemplateExecute executes the request
 	//  @return EndpointSIP
-	CreateEndpointSipTemplateExecute(r ApiCreateEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error)
+	CreateEndpointSipTemplateExecute(r EndpointsAPICreateEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		DeleteEndpointCustom Delete Custom Endpoint
@@ -189,12 +189,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param customId
-		@return ApiDeleteEndpointCustomRequest
+		@return EndpointsAPIDeleteEndpointCustomRequest
 	*/
-	DeleteEndpointCustom(ctx context.Context, customId int32) ApiDeleteEndpointCustomRequest
+	DeleteEndpointCustom(ctx context.Context, customId int32) EndpointsAPIDeleteEndpointCustomRequest
 
 	// DeleteEndpointCustomExecute executes the request
-	DeleteEndpointCustomExecute(r ApiDeleteEndpointCustomRequest) (*http.Response, error)
+	DeleteEndpointCustomExecute(r EndpointsAPIDeleteEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		DeleteEndpointIax Delete IAX Endpoint
@@ -203,12 +203,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param iaxId
-		@return ApiDeleteEndpointIaxRequest
+		@return EndpointsAPIDeleteEndpointIaxRequest
 	*/
-	DeleteEndpointIax(ctx context.Context, iaxId int32) ApiDeleteEndpointIaxRequest
+	DeleteEndpointIax(ctx context.Context, iaxId int32) EndpointsAPIDeleteEndpointIaxRequest
 
 	// DeleteEndpointIaxExecute executes the request
-	DeleteEndpointIaxExecute(r ApiDeleteEndpointIaxRequest) (*http.Response, error)
+	DeleteEndpointIaxExecute(r EndpointsAPIDeleteEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		DeleteEndpointSccp Delete SCCP Endpoint
@@ -217,12 +217,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sccpId
-		@return ApiDeleteEndpointSccpRequest
+		@return EndpointsAPIDeleteEndpointSccpRequest
 	*/
-	DeleteEndpointSccp(ctx context.Context, sccpId int32) ApiDeleteEndpointSccpRequest
+	DeleteEndpointSccp(ctx context.Context, sccpId int32) EndpointsAPIDeleteEndpointSccpRequest
 
 	// DeleteEndpointSccpExecute executes the request
-	DeleteEndpointSccpExecute(r ApiDeleteEndpointSccpRequest) (*http.Response, error)
+	DeleteEndpointSccpExecute(r EndpointsAPIDeleteEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		DeleteEndpointSip Delete SIP Endpoint
@@ -231,12 +231,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sipUuid
-		@return ApiDeleteEndpointSipRequest
+		@return EndpointsAPIDeleteEndpointSipRequest
 	*/
-	DeleteEndpointSip(ctx context.Context, sipUuid string) ApiDeleteEndpointSipRequest
+	DeleteEndpointSip(ctx context.Context, sipUuid string) EndpointsAPIDeleteEndpointSipRequest
 
 	// DeleteEndpointSipExecute executes the request
-	DeleteEndpointSipExecute(r ApiDeleteEndpointSipRequest) (*http.Response, error)
+	DeleteEndpointSipExecute(r EndpointsAPIDeleteEndpointSipRequest) (*http.Response, error)
 
 	/*
 		DeleteEndpointSipTemplate Delete SIP Endpoint Template
@@ -245,12 +245,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateUuid
-		@return ApiDeleteEndpointSipTemplateRequest
+		@return EndpointsAPIDeleteEndpointSipTemplateRequest
 	*/
-	DeleteEndpointSipTemplate(ctx context.Context, templateUuid string) ApiDeleteEndpointSipTemplateRequest
+	DeleteEndpointSipTemplate(ctx context.Context, templateUuid string) EndpointsAPIDeleteEndpointSipTemplateRequest
 
 	// DeleteEndpointSipTemplateExecute executes the request
-	DeleteEndpointSipTemplateExecute(r ApiDeleteEndpointSipTemplateRequest) (*http.Response, error)
+	DeleteEndpointSipTemplateExecute(r EndpointsAPIDeleteEndpointSipTemplateRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointCustom Dissociate line and Custom endpoint
@@ -260,12 +260,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param customId
-		@return ApiDissociateLineEndpointCustomRequest
+		@return EndpointsAPIDissociateLineEndpointCustomRequest
 	*/
-	DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiDissociateLineEndpointCustomRequest
+	DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) EndpointsAPIDissociateLineEndpointCustomRequest
 
 	// DissociateLineEndpointCustomExecute executes the request
-	DissociateLineEndpointCustomExecute(r ApiDissociateLineEndpointCustomRequest) (*http.Response, error)
+	DissociateLineEndpointCustomExecute(r EndpointsAPIDissociateLineEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointSccp Dissociate line and SCCP endpoint
@@ -275,12 +275,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sccpId
-		@return ApiDissociateLineEndpointSccpRequest
+		@return EndpointsAPIDissociateLineEndpointSccpRequest
 	*/
-	DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiDissociateLineEndpointSccpRequest
+	DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) EndpointsAPIDissociateLineEndpointSccpRequest
 
 	// DissociateLineEndpointSccpExecute executes the request
-	DissociateLineEndpointSccpExecute(r ApiDissociateLineEndpointSccpRequest) (*http.Response, error)
+	DissociateLineEndpointSccpExecute(r EndpointsAPIDissociateLineEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointSip Dissociate line and SIP endpoint
@@ -290,12 +290,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sipUuid
-		@return ApiDissociateLineEndpointSipRequest
+		@return EndpointsAPIDissociateLineEndpointSipRequest
 	*/
-	DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiDissociateLineEndpointSipRequest
+	DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) EndpointsAPIDissociateLineEndpointSipRequest
 
 	// DissociateLineEndpointSipExecute executes the request
-	DissociateLineEndpointSipExecute(r ApiDissociateLineEndpointSipRequest) (*http.Response, error)
+	DissociateLineEndpointSipExecute(r EndpointsAPIDissociateLineEndpointSipRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointCustom Dissociate trunk and Custom endpoint
@@ -305,12 +305,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param customId
-		@return ApiDissociateTrunkEndpointCustomRequest
+		@return EndpointsAPIDissociateTrunkEndpointCustomRequest
 	*/
-	DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiDissociateTrunkEndpointCustomRequest
+	DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) EndpointsAPIDissociateTrunkEndpointCustomRequest
 
 	// DissociateTrunkEndpointCustomExecute executes the request
-	DissociateTrunkEndpointCustomExecute(r ApiDissociateTrunkEndpointCustomRequest) (*http.Response, error)
+	DissociateTrunkEndpointCustomExecute(r EndpointsAPIDissociateTrunkEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointIax Dissociate trunk and IAX endpoint
@@ -320,12 +320,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiDissociateTrunkEndpointIaxRequest
+		@return EndpointsAPIDissociateTrunkEndpointIaxRequest
 	*/
-	DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkEndpointIaxRequest
+	DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) EndpointsAPIDissociateTrunkEndpointIaxRequest
 
 	// DissociateTrunkEndpointIaxExecute executes the request
-	DissociateTrunkEndpointIaxExecute(r ApiDissociateTrunkEndpointIaxRequest) (*http.Response, error)
+	DissociateTrunkEndpointIaxExecute(r EndpointsAPIDissociateTrunkEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointSip Dissociate trunk and SIP endpoint
@@ -335,12 +335,12 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param sipUuid
-		@return ApiDissociateTrunkEndpointSipRequest
+		@return EndpointsAPIDissociateTrunkEndpointSipRequest
 	*/
-	DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiDissociateTrunkEndpointSipRequest
+	DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) EndpointsAPIDissociateTrunkEndpointSipRequest
 
 	// DissociateTrunkEndpointSipExecute executes the request
-	DissociateTrunkEndpointSipExecute(r ApiDissociateTrunkEndpointSipRequest) (*http.Response, error)
+	DissociateTrunkEndpointSipExecute(r EndpointsAPIDissociateTrunkEndpointSipRequest) (*http.Response, error)
 
 	/*
 		GetEndpointCustom Get Custom Endpoint
@@ -349,13 +349,13 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param customId
-		@return ApiGetEndpointCustomRequest
+		@return EndpointsAPIGetEndpointCustomRequest
 	*/
-	GetEndpointCustom(ctx context.Context, customId int32) ApiGetEndpointCustomRequest
+	GetEndpointCustom(ctx context.Context, customId int32) EndpointsAPIGetEndpointCustomRequest
 
 	// GetEndpointCustomExecute executes the request
 	//  @return EndpointCustom
-	GetEndpointCustomExecute(r ApiGetEndpointCustomRequest) (*EndpointCustom, *http.Response, error)
+	GetEndpointCustomExecute(r EndpointsAPIGetEndpointCustomRequest) (*EndpointCustom, *http.Response, error)
 
 	/*
 		GetEndpointIax Get IAX Endpoint
@@ -364,13 +364,13 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param iaxId
-		@return ApiGetEndpointIaxRequest
+		@return EndpointsAPIGetEndpointIaxRequest
 	*/
-	GetEndpointIax(ctx context.Context, iaxId int32) ApiGetEndpointIaxRequest
+	GetEndpointIax(ctx context.Context, iaxId int32) EndpointsAPIGetEndpointIaxRequest
 
 	// GetEndpointIaxExecute executes the request
 	//  @return EndpointIAX
-	GetEndpointIaxExecute(r ApiGetEndpointIaxRequest) (*EndpointIAX, *http.Response, error)
+	GetEndpointIaxExecute(r EndpointsAPIGetEndpointIaxRequest) (*EndpointIAX, *http.Response, error)
 
 	/*
 		GetEndpointSccp Get SCCP Endpoint
@@ -379,13 +379,13 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sccpId
-		@return ApiGetEndpointSccpRequest
+		@return EndpointsAPIGetEndpointSccpRequest
 	*/
-	GetEndpointSccp(ctx context.Context, sccpId int32) ApiGetEndpointSccpRequest
+	GetEndpointSccp(ctx context.Context, sccpId int32) EndpointsAPIGetEndpointSccpRequest
 
 	// GetEndpointSccpExecute executes the request
 	//  @return EndpointSccp
-	GetEndpointSccpExecute(r ApiGetEndpointSccpRequest) (*EndpointSccp, *http.Response, error)
+	GetEndpointSccpExecute(r EndpointsAPIGetEndpointSccpRequest) (*EndpointSccp, *http.Response, error)
 
 	/*
 		GetEndpointSip Get SIP Endpoint
@@ -394,13 +394,13 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sipUuid
-		@return ApiGetEndpointSipRequest
+		@return EndpointsAPIGetEndpointSipRequest
 	*/
-	GetEndpointSip(ctx context.Context, sipUuid string) ApiGetEndpointSipRequest
+	GetEndpointSip(ctx context.Context, sipUuid string) EndpointsAPIGetEndpointSipRequest
 
 	// GetEndpointSipExecute executes the request
 	//  @return EndpointSIP
-	GetEndpointSipExecute(r ApiGetEndpointSipRequest) (*EndpointSIP, *http.Response, error)
+	GetEndpointSipExecute(r EndpointsAPIGetEndpointSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		GetEndpointSipTemplate Get SIP Endpoint template
@@ -409,13 +409,13 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateUuid
-		@return ApiGetEndpointSipTemplateRequest
+		@return EndpointsAPIGetEndpointSipTemplateRequest
 	*/
-	GetEndpointSipTemplate(ctx context.Context, templateUuid string) ApiGetEndpointSipTemplateRequest
+	GetEndpointSipTemplate(ctx context.Context, templateUuid string) EndpointsAPIGetEndpointSipTemplateRequest
 
 	// GetEndpointSipTemplateExecute executes the request
 	//  @return EndpointSIP
-	GetEndpointSipTemplateExecute(r ApiGetEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error)
+	GetEndpointSipTemplateExecute(r EndpointsAPIGetEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		GetUserLineAssociatedEndpointsSip Get SIP endpoint of a line for a user
@@ -425,13 +425,13 @@ type EndpointsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param lineId
-		@return ApiGetUserLineAssociatedEndpointsSipRequest
+		@return EndpointsAPIGetUserLineAssociatedEndpointsSipRequest
 	*/
-	GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) ApiGetUserLineAssociatedEndpointsSipRequest
+	GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) EndpointsAPIGetUserLineAssociatedEndpointsSipRequest
 
 	// GetUserLineAssociatedEndpointsSipExecute executes the request
 	//  @return EndpointSIP
-	GetUserLineAssociatedEndpointsSipExecute(r ApiGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
+	GetUserLineAssociatedEndpointsSipExecute(r EndpointsAPIGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		GetUserLineMainAssociatedEndpointsSip Get SIP endpoint of main line for a user
@@ -440,13 +440,13 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
-		@return ApiGetUserLineMainAssociatedEndpointsSipRequest
+		@return EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest
 	*/
-	GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) ApiGetUserLineMainAssociatedEndpointsSipRequest
+	GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest
 
 	// GetUserLineMainAssociatedEndpointsSipExecute executes the request
 	//  @return EndpointSIP
-	GetUserLineMainAssociatedEndpointsSipExecute(r ApiGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
+	GetUserLineMainAssociatedEndpointsSipExecute(r EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		ListEndpointsCustom List Custom endpoints
@@ -454,13 +454,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.custom.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsCustomRequest
+		@return EndpointsAPIListEndpointsCustomRequest
 	*/
-	ListEndpointsCustom(ctx context.Context) ApiListEndpointsCustomRequest
+	ListEndpointsCustom(ctx context.Context) EndpointsAPIListEndpointsCustomRequest
 
 	// ListEndpointsCustomExecute executes the request
 	//  @return EndpointCustomItems
-	ListEndpointsCustomExecute(r ApiListEndpointsCustomRequest) (*EndpointCustomItems, *http.Response, error)
+	ListEndpointsCustomExecute(r EndpointsAPIListEndpointsCustomRequest) (*EndpointCustomItems, *http.Response, error)
 
 	/*
 		ListEndpointsIax List IAX endpoints
@@ -468,13 +468,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.iax.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsIaxRequest
+		@return EndpointsAPIListEndpointsIaxRequest
 	*/
-	ListEndpointsIax(ctx context.Context) ApiListEndpointsIaxRequest
+	ListEndpointsIax(ctx context.Context) EndpointsAPIListEndpointsIaxRequest
 
 	// ListEndpointsIaxExecute executes the request
 	//  @return EndpointIAXItems
-	ListEndpointsIaxExecute(r ApiListEndpointsIaxRequest) (*EndpointIAXItems, *http.Response, error)
+	ListEndpointsIaxExecute(r EndpointsAPIListEndpointsIaxRequest) (*EndpointIAXItems, *http.Response, error)
 
 	/*
 		ListEndpointsSccp List SCCP endpoints
@@ -482,13 +482,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.sccp.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsSccpRequest
+		@return EndpointsAPIListEndpointsSccpRequest
 	*/
-	ListEndpointsSccp(ctx context.Context) ApiListEndpointsSccpRequest
+	ListEndpointsSccp(ctx context.Context) EndpointsAPIListEndpointsSccpRequest
 
 	// ListEndpointsSccpExecute executes the request
 	//  @return EndpointSccpItems
-	ListEndpointsSccpExecute(r ApiListEndpointsSccpRequest) (*EndpointSccpItems, *http.Response, error)
+	ListEndpointsSccpExecute(r EndpointsAPIListEndpointsSccpRequest) (*EndpointSccpItems, *http.Response, error)
 
 	/*
 		ListEndpointsSip List SIP endpoints
@@ -500,13 +500,13 @@ type EndpointsAPI interface {
 
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsSipRequest
+		@return EndpointsAPIListEndpointsSipRequest
 	*/
-	ListEndpointsSip(ctx context.Context) ApiListEndpointsSipRequest
+	ListEndpointsSip(ctx context.Context) EndpointsAPIListEndpointsSipRequest
 
 	// ListEndpointsSipExecute executes the request
 	//  @return EndpointSIPItems
-	ListEndpointsSipExecute(r ApiListEndpointsSipRequest) (*EndpointSIPItems, *http.Response, error)
+	ListEndpointsSipExecute(r EndpointsAPIListEndpointsSipRequest) (*EndpointSIPItems, *http.Response, error)
 
 	/*
 		ListEndpointsSipTemplates List SIP endpoints templates
@@ -514,13 +514,13 @@ type EndpointsAPI interface {
 		**Required ACL:** `confd.endpoints.sip.templates.read` List all SIP configuration templates, each individual configuration includes only fields that it defines. Inherited fields from the templates or default values are not returned here.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsSipTemplatesRequest
+		@return EndpointsAPIListEndpointsSipTemplatesRequest
 	*/
-	ListEndpointsSipTemplates(ctx context.Context) ApiListEndpointsSipTemplatesRequest
+	ListEndpointsSipTemplates(ctx context.Context) EndpointsAPIListEndpointsSipTemplatesRequest
 
 	// ListEndpointsSipTemplatesExecute executes the request
 	//  @return EndpointSIPItems
-	ListEndpointsSipTemplatesExecute(r ApiListEndpointsSipTemplatesRequest) (*EndpointSIPItems, *http.Response, error)
+	ListEndpointsSipTemplatesExecute(r EndpointsAPIListEndpointsSipTemplatesRequest) (*EndpointSIPItems, *http.Response, error)
 
 	/*
 		UpdateEndpointCustom Update Custom Endpoint
@@ -529,12 +529,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param customId
-		@return ApiUpdateEndpointCustomRequest
+		@return EndpointsAPIUpdateEndpointCustomRequest
 	*/
-	UpdateEndpointCustom(ctx context.Context, customId int32) ApiUpdateEndpointCustomRequest
+	UpdateEndpointCustom(ctx context.Context, customId int32) EndpointsAPIUpdateEndpointCustomRequest
 
 	// UpdateEndpointCustomExecute executes the request
-	UpdateEndpointCustomExecute(r ApiUpdateEndpointCustomRequest) (*http.Response, error)
+	UpdateEndpointCustomExecute(r EndpointsAPIUpdateEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		UpdateEndpointIax Update IAX Endpoint
@@ -543,12 +543,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param iaxId
-		@return ApiUpdateEndpointIaxRequest
+		@return EndpointsAPIUpdateEndpointIaxRequest
 	*/
-	UpdateEndpointIax(ctx context.Context, iaxId int32) ApiUpdateEndpointIaxRequest
+	UpdateEndpointIax(ctx context.Context, iaxId int32) EndpointsAPIUpdateEndpointIaxRequest
 
 	// UpdateEndpointIaxExecute executes the request
-	UpdateEndpointIaxExecute(r ApiUpdateEndpointIaxRequest) (*http.Response, error)
+	UpdateEndpointIaxExecute(r EndpointsAPIUpdateEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		UpdateEndpointSccp Update SCCP Endpoint
@@ -557,12 +557,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sccpId
-		@return ApiUpdateEndpointSccpRequest
+		@return EndpointsAPIUpdateEndpointSccpRequest
 	*/
-	UpdateEndpointSccp(ctx context.Context, sccpId int32) ApiUpdateEndpointSccpRequest
+	UpdateEndpointSccp(ctx context.Context, sccpId int32) EndpointsAPIUpdateEndpointSccpRequest
 
 	// UpdateEndpointSccpExecute executes the request
-	UpdateEndpointSccpExecute(r ApiUpdateEndpointSccpRequest) (*http.Response, error)
+	UpdateEndpointSccpExecute(r EndpointsAPIUpdateEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		UpdateEndpointSip Update SIP Endpoint
@@ -571,12 +571,12 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sipUuid
-		@return ApiUpdateEndpointSipRequest
+		@return EndpointsAPIUpdateEndpointSipRequest
 	*/
-	UpdateEndpointSip(ctx context.Context, sipUuid string) ApiUpdateEndpointSipRequest
+	UpdateEndpointSip(ctx context.Context, sipUuid string) EndpointsAPIUpdateEndpointSipRequest
 
 	// UpdateEndpointSipExecute executes the request
-	UpdateEndpointSipExecute(r ApiUpdateEndpointSipRequest) (*http.Response, error)
+	UpdateEndpointSipExecute(r EndpointsAPIUpdateEndpointSipRequest) (*http.Response, error)
 
 	/*
 		UpdateEndpointSipTemplate Update SIP Endpoint Template
@@ -585,25 +585,25 @@ type EndpointsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateUuid
-		@return ApiUpdateEndpointSipTemplateRequest
+		@return EndpointsAPIUpdateEndpointSipTemplateRequest
 	*/
-	UpdateEndpointSipTemplate(ctx context.Context, templateUuid string) ApiUpdateEndpointSipTemplateRequest
+	UpdateEndpointSipTemplate(ctx context.Context, templateUuid string) EndpointsAPIUpdateEndpointSipTemplateRequest
 
 	// UpdateEndpointSipTemplateExecute executes the request
-	UpdateEndpointSipTemplateExecute(r ApiUpdateEndpointSipTemplateRequest) (*http.Response, error)
+	UpdateEndpointSipTemplateExecute(r EndpointsAPIUpdateEndpointSipTemplateRequest) (*http.Response, error)
 }
 
 // EndpointsAPIService EndpointsAPI service
 type EndpointsAPIService service
 
-type ApiAssociateLineEndpointCustomRequest struct {
+type EndpointsAPIAssociateLineEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	lineId     int32
 	customId   int32
 }
 
-func (r ApiAssociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIAssociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointCustomExecute(r)
 }
 
@@ -615,10 +615,10 @@ AssociateLineEndpointCustom Associate line and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param customId
-	@return ApiAssociateLineEndpointCustomRequest
+	@return EndpointsAPIAssociateLineEndpointCustomRequest
 */
-func (a *EndpointsAPIService) AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiAssociateLineEndpointCustomRequest {
-	return ApiAssociateLineEndpointCustomRequest{
+func (a *EndpointsAPIService) AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) EndpointsAPIAssociateLineEndpointCustomRequest {
+	return EndpointsAPIAssociateLineEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -627,7 +627,7 @@ func (a *EndpointsAPIService) AssociateLineEndpointCustom(ctx context.Context, l
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) AssociateLineEndpointCustomExecute(r ApiAssociateLineEndpointCustomRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) AssociateLineEndpointCustomExecute(r EndpointsAPIAssociateLineEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -727,14 +727,14 @@ func (a *EndpointsAPIService) AssociateLineEndpointCustomExecute(r ApiAssociateL
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineEndpointSccpRequest struct {
+type EndpointsAPIAssociateLineEndpointSccpRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	lineId     int32
 	sccpId     int32
 }
 
-func (r ApiAssociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIAssociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointSccpExecute(r)
 }
 
@@ -746,10 +746,10 @@ AssociateLineEndpointSccp Associate line and SCCP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sccpId
-	@return ApiAssociateLineEndpointSccpRequest
+	@return EndpointsAPIAssociateLineEndpointSccpRequest
 */
-func (a *EndpointsAPIService) AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiAssociateLineEndpointSccpRequest {
-	return ApiAssociateLineEndpointSccpRequest{
+func (a *EndpointsAPIService) AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) EndpointsAPIAssociateLineEndpointSccpRequest {
+	return EndpointsAPIAssociateLineEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -758,7 +758,7 @@ func (a *EndpointsAPIService) AssociateLineEndpointSccp(ctx context.Context, lin
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) AssociateLineEndpointSccpExecute(r ApiAssociateLineEndpointSccpRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) AssociateLineEndpointSccpExecute(r EndpointsAPIAssociateLineEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -858,14 +858,14 @@ func (a *EndpointsAPIService) AssociateLineEndpointSccpExecute(r ApiAssociateLin
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineEndpointSipRequest struct {
+type EndpointsAPIAssociateLineEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	lineId     int32
 	sipUuid    string
 }
 
-func (r ApiAssociateLineEndpointSipRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIAssociateLineEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointSipExecute(r)
 }
 
@@ -877,10 +877,10 @@ AssociateLineEndpointSip Associate line and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sipUuid
-	@return ApiAssociateLineEndpointSipRequest
+	@return EndpointsAPIAssociateLineEndpointSipRequest
 */
-func (a *EndpointsAPIService) AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiAssociateLineEndpointSipRequest {
-	return ApiAssociateLineEndpointSipRequest{
+func (a *EndpointsAPIService) AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) EndpointsAPIAssociateLineEndpointSipRequest {
+	return EndpointsAPIAssociateLineEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -889,7 +889,7 @@ func (a *EndpointsAPIService) AssociateLineEndpointSip(ctx context.Context, line
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) AssociateLineEndpointSipExecute(r ApiAssociateLineEndpointSipRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) AssociateLineEndpointSipExecute(r EndpointsAPIAssociateLineEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -989,14 +989,14 @@ func (a *EndpointsAPIService) AssociateLineEndpointSipExecute(r ApiAssociateLine
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkEndpointCustomRequest struct {
+type EndpointsAPIAssociateTrunkEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	trunkId    int32
 	customId   int32
 }
 
-func (r ApiAssociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIAssociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointCustomExecute(r)
 }
 
@@ -1008,10 +1008,10 @@ AssociateTrunkEndpointCustom Associate trunk and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param customId
-	@return ApiAssociateTrunkEndpointCustomRequest
+	@return EndpointsAPIAssociateTrunkEndpointCustomRequest
 */
-func (a *EndpointsAPIService) AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiAssociateTrunkEndpointCustomRequest {
-	return ApiAssociateTrunkEndpointCustomRequest{
+func (a *EndpointsAPIService) AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) EndpointsAPIAssociateTrunkEndpointCustomRequest {
+	return EndpointsAPIAssociateTrunkEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1020,7 +1020,7 @@ func (a *EndpointsAPIService) AssociateTrunkEndpointCustom(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) AssociateTrunkEndpointCustomExecute(r ApiAssociateTrunkEndpointCustomRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) AssociateTrunkEndpointCustomExecute(r EndpointsAPIAssociateTrunkEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1120,14 +1120,14 @@ func (a *EndpointsAPIService) AssociateTrunkEndpointCustomExecute(r ApiAssociate
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkEndpointIaxRequest struct {
+type EndpointsAPIAssociateTrunkEndpointIaxRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiAssociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIAssociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointIaxExecute(r)
 }
 
@@ -1139,10 +1139,10 @@ AssociateTrunkEndpointIax Associate trunk and IAX endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiAssociateTrunkEndpointIaxRequest
+	@return EndpointsAPIAssociateTrunkEndpointIaxRequest
 */
-func (a *EndpointsAPIService) AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkEndpointIaxRequest {
-	return ApiAssociateTrunkEndpointIaxRequest{
+func (a *EndpointsAPIService) AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) EndpointsAPIAssociateTrunkEndpointIaxRequest {
+	return EndpointsAPIAssociateTrunkEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1151,7 +1151,7 @@ func (a *EndpointsAPIService) AssociateTrunkEndpointIax(ctx context.Context, tru
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) AssociateTrunkEndpointIaxExecute(r ApiAssociateTrunkEndpointIaxRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) AssociateTrunkEndpointIaxExecute(r EndpointsAPIAssociateTrunkEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1251,14 +1251,14 @@ func (a *EndpointsAPIService) AssociateTrunkEndpointIaxExecute(r ApiAssociateTru
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkEndpointSipRequest struct {
+type EndpointsAPIAssociateTrunkEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	trunkId    int32
 	sipUuid    string
 }
 
-func (r ApiAssociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIAssociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointSipExecute(r)
 }
 
@@ -1270,10 +1270,10 @@ AssociateTrunkEndpointSip Associate trunk and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param sipUuid
-	@return ApiAssociateTrunkEndpointSipRequest
+	@return EndpointsAPIAssociateTrunkEndpointSipRequest
 */
-func (a *EndpointsAPIService) AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiAssociateTrunkEndpointSipRequest {
-	return ApiAssociateTrunkEndpointSipRequest{
+func (a *EndpointsAPIService) AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) EndpointsAPIAssociateTrunkEndpointSipRequest {
+	return EndpointsAPIAssociateTrunkEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1282,7 +1282,7 @@ func (a *EndpointsAPIService) AssociateTrunkEndpointSip(ctx context.Context, tru
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) AssociateTrunkEndpointSipExecute(r ApiAssociateTrunkEndpointSipRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) AssociateTrunkEndpointSipExecute(r EndpointsAPIAssociateTrunkEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1382,7 +1382,7 @@ func (a *EndpointsAPIService) AssociateTrunkEndpointSipExecute(r ApiAssociateTru
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointCustomRequest struct {
+type EndpointsAPICreateEndpointCustomRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointCustom
@@ -1390,18 +1390,18 @@ type ApiCreateEndpointCustomRequest struct {
 }
 
 // Custom Endpoint to create
-func (r ApiCreateEndpointCustomRequest) Body(body EndpointCustom) ApiCreateEndpointCustomRequest {
+func (r EndpointsAPICreateEndpointCustomRequest) Body(body EndpointCustom) EndpointsAPICreateEndpointCustomRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointCustomRequest) AccentTenant(accentTenant string) ApiCreateEndpointCustomRequest {
+func (r EndpointsAPICreateEndpointCustomRequest) AccentTenant(accentTenant string) EndpointsAPICreateEndpointCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointCustomRequest) Execute() (*EndpointCustom, *http.Response, error) {
+func (r EndpointsAPICreateEndpointCustomRequest) Execute() (*EndpointCustom, *http.Response, error) {
 	return r.ApiService.CreateEndpointCustomExecute(r)
 }
 
@@ -1411,10 +1411,10 @@ CreateEndpointCustom Create Custom endpoint
 **Required ACL:** `confd.endpoints.custom.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointCustomRequest
+	@return EndpointsAPICreateEndpointCustomRequest
 */
-func (a *EndpointsAPIService) CreateEndpointCustom(ctx context.Context) ApiCreateEndpointCustomRequest {
-	return ApiCreateEndpointCustomRequest{
+func (a *EndpointsAPIService) CreateEndpointCustom(ctx context.Context) EndpointsAPICreateEndpointCustomRequest {
+	return EndpointsAPICreateEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1423,7 +1423,7 @@ func (a *EndpointsAPIService) CreateEndpointCustom(ctx context.Context) ApiCreat
 // Execute executes the request
 //
 //	@return EndpointCustom
-func (a *EndpointsAPIService) CreateEndpointCustomExecute(r ApiCreateEndpointCustomRequest) (*EndpointCustom, *http.Response, error) {
+func (a *EndpointsAPIService) CreateEndpointCustomExecute(r EndpointsAPICreateEndpointCustomRequest) (*EndpointCustom, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1528,7 +1528,7 @@ func (a *EndpointsAPIService) CreateEndpointCustomExecute(r ApiCreateEndpointCus
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointIaxRequest struct {
+type EndpointsAPICreateEndpointIaxRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointIAX
@@ -1536,18 +1536,18 @@ type ApiCreateEndpointIaxRequest struct {
 }
 
 // IAX Endpoint to create
-func (r ApiCreateEndpointIaxRequest) Body(body EndpointIAX) ApiCreateEndpointIaxRequest {
+func (r EndpointsAPICreateEndpointIaxRequest) Body(body EndpointIAX) EndpointsAPICreateEndpointIaxRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointIaxRequest) AccentTenant(accentTenant string) ApiCreateEndpointIaxRequest {
+func (r EndpointsAPICreateEndpointIaxRequest) AccentTenant(accentTenant string) EndpointsAPICreateEndpointIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointIaxRequest) Execute() (*EndpointIAX, *http.Response, error) {
+func (r EndpointsAPICreateEndpointIaxRequest) Execute() (*EndpointIAX, *http.Response, error) {
 	return r.ApiService.CreateEndpointIaxExecute(r)
 }
 
@@ -1557,10 +1557,10 @@ CreateEndpointIax Create IAX endpoint
 **Required ACL:** `confd.endpoints.iax.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointIaxRequest
+	@return EndpointsAPICreateEndpointIaxRequest
 */
-func (a *EndpointsAPIService) CreateEndpointIax(ctx context.Context) ApiCreateEndpointIaxRequest {
-	return ApiCreateEndpointIaxRequest{
+func (a *EndpointsAPIService) CreateEndpointIax(ctx context.Context) EndpointsAPICreateEndpointIaxRequest {
+	return EndpointsAPICreateEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1569,7 +1569,7 @@ func (a *EndpointsAPIService) CreateEndpointIax(ctx context.Context) ApiCreateEn
 // Execute executes the request
 //
 //	@return EndpointIAX
-func (a *EndpointsAPIService) CreateEndpointIaxExecute(r ApiCreateEndpointIaxRequest) (*EndpointIAX, *http.Response, error) {
+func (a *EndpointsAPIService) CreateEndpointIaxExecute(r EndpointsAPICreateEndpointIaxRequest) (*EndpointIAX, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1671,7 +1671,7 @@ func (a *EndpointsAPIService) CreateEndpointIaxExecute(r ApiCreateEndpointIaxReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointSccpRequest struct {
+type EndpointsAPICreateEndpointSccpRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointSccp
@@ -1679,18 +1679,18 @@ type ApiCreateEndpointSccpRequest struct {
 }
 
 // SCCP Endpoint to create
-func (r ApiCreateEndpointSccpRequest) Body(body EndpointSccp) ApiCreateEndpointSccpRequest {
+func (r EndpointsAPICreateEndpointSccpRequest) Body(body EndpointSccp) EndpointsAPICreateEndpointSccpRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointSccpRequest) AccentTenant(accentTenant string) ApiCreateEndpointSccpRequest {
+func (r EndpointsAPICreateEndpointSccpRequest) AccentTenant(accentTenant string) EndpointsAPICreateEndpointSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointSccpRequest) Execute() (*EndpointSccp, *http.Response, error) {
+func (r EndpointsAPICreateEndpointSccpRequest) Execute() (*EndpointSccp, *http.Response, error) {
 	return r.ApiService.CreateEndpointSccpExecute(r)
 }
 
@@ -1700,10 +1700,10 @@ CreateEndpointSccp Create SCCP endpoint
 **Required ACL:** `confd.endpoints.sccp.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointSccpRequest
+	@return EndpointsAPICreateEndpointSccpRequest
 */
-func (a *EndpointsAPIService) CreateEndpointSccp(ctx context.Context) ApiCreateEndpointSccpRequest {
-	return ApiCreateEndpointSccpRequest{
+func (a *EndpointsAPIService) CreateEndpointSccp(ctx context.Context) EndpointsAPICreateEndpointSccpRequest {
+	return EndpointsAPICreateEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1712,7 +1712,7 @@ func (a *EndpointsAPIService) CreateEndpointSccp(ctx context.Context) ApiCreateE
 // Execute executes the request
 //
 //	@return EndpointSccp
-func (a *EndpointsAPIService) CreateEndpointSccpExecute(r ApiCreateEndpointSccpRequest) (*EndpointSccp, *http.Response, error) {
+func (a *EndpointsAPIService) CreateEndpointSccpExecute(r EndpointsAPICreateEndpointSccpRequest) (*EndpointSccp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1814,7 +1814,7 @@ func (a *EndpointsAPIService) CreateEndpointSccpExecute(r ApiCreateEndpointSccpR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointSipRequest struct {
+type EndpointsAPICreateEndpointSipRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointSIP
@@ -1822,18 +1822,18 @@ type ApiCreateEndpointSipRequest struct {
 }
 
 // SIP Endpoint to create
-func (r ApiCreateEndpointSipRequest) Body(body EndpointSIP) ApiCreateEndpointSipRequest {
+func (r EndpointsAPICreateEndpointSipRequest) Body(body EndpointSIP) EndpointsAPICreateEndpointSipRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointSipRequest) AccentTenant(accentTenant string) ApiCreateEndpointSipRequest {
+func (r EndpointsAPICreateEndpointSipRequest) AccentTenant(accentTenant string) EndpointsAPICreateEndpointSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r EndpointsAPICreateEndpointSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.CreateEndpointSipExecute(r)
 }
 
@@ -1843,10 +1843,10 @@ CreateEndpointSip Create a SIP endpoint
 **Required ACL:** `confd.endpoints.sip.create` Create a new SIP endpoint. This endpoint can inherit from other endpoints, only modify fields that have to be modified.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointSipRequest
+	@return EndpointsAPICreateEndpointSipRequest
 */
-func (a *EndpointsAPIService) CreateEndpointSip(ctx context.Context) ApiCreateEndpointSipRequest {
-	return ApiCreateEndpointSipRequest{
+func (a *EndpointsAPIService) CreateEndpointSip(ctx context.Context) EndpointsAPICreateEndpointSipRequest {
+	return EndpointsAPICreateEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1855,7 +1855,7 @@ func (a *EndpointsAPIService) CreateEndpointSip(ctx context.Context) ApiCreateEn
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *EndpointsAPIService) CreateEndpointSipExecute(r ApiCreateEndpointSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *EndpointsAPIService) CreateEndpointSipExecute(r EndpointsAPICreateEndpointSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1957,7 +1957,7 @@ func (a *EndpointsAPIService) CreateEndpointSipExecute(r ApiCreateEndpointSipReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointSipTemplateRequest struct {
+type EndpointsAPICreateEndpointSipTemplateRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointSIP
@@ -1965,18 +1965,18 @@ type ApiCreateEndpointSipTemplateRequest struct {
 }
 
 // SIP Endpoint to create
-func (r ApiCreateEndpointSipTemplateRequest) Body(body EndpointSIP) ApiCreateEndpointSipTemplateRequest {
+func (r EndpointsAPICreateEndpointSipTemplateRequest) Body(body EndpointSIP) EndpointsAPICreateEndpointSipTemplateRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointSipTemplateRequest) AccentTenant(accentTenant string) ApiCreateEndpointSipTemplateRequest {
+func (r EndpointsAPICreateEndpointSipTemplateRequest) AccentTenant(accentTenant string) EndpointsAPICreateEndpointSipTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointSipTemplateRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r EndpointsAPICreateEndpointSipTemplateRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.CreateEndpointSipTemplateExecute(r)
 }
 
@@ -1986,10 +1986,10 @@ CreateEndpointSipTemplate Create a SIP endpoint template
 **Required ACL:** `confd.endpoints.sip.templates.create` Create a new SIP endpoint configuration template. This endpoint can inherit from other templates, only modify fields that have to be modified.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointSipTemplateRequest
+	@return EndpointsAPICreateEndpointSipTemplateRequest
 */
-func (a *EndpointsAPIService) CreateEndpointSipTemplate(ctx context.Context) ApiCreateEndpointSipTemplateRequest {
-	return ApiCreateEndpointSipTemplateRequest{
+func (a *EndpointsAPIService) CreateEndpointSipTemplate(ctx context.Context) EndpointsAPICreateEndpointSipTemplateRequest {
+	return EndpointsAPICreateEndpointSipTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1998,7 +1998,7 @@ func (a *EndpointsAPIService) CreateEndpointSipTemplate(ctx context.Context) Api
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *EndpointsAPIService) CreateEndpointSipTemplateExecute(r ApiCreateEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error) {
+func (a *EndpointsAPIService) CreateEndpointSipTemplateExecute(r EndpointsAPICreateEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2100,7 +2100,7 @@ func (a *EndpointsAPIService) CreateEndpointSipTemplateExecute(r ApiCreateEndpoi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointCustomRequest struct {
+type EndpointsAPIDeleteEndpointCustomRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	customId     int32
@@ -2108,12 +2108,12 @@ type ApiDeleteEndpointCustomRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointCustomRequest) AccentTenant(accentTenant string) ApiDeleteEndpointCustomRequest {
+func (r EndpointsAPIDeleteEndpointCustomRequest) AccentTenant(accentTenant string) EndpointsAPIDeleteEndpointCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDeleteEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointCustomExecute(r)
 }
 
@@ -2124,10 +2124,10 @@ DeleteEndpointCustom Delete Custom Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customId
-	@return ApiDeleteEndpointCustomRequest
+	@return EndpointsAPIDeleteEndpointCustomRequest
 */
-func (a *EndpointsAPIService) DeleteEndpointCustom(ctx context.Context, customId int32) ApiDeleteEndpointCustomRequest {
-	return ApiDeleteEndpointCustomRequest{
+func (a *EndpointsAPIService) DeleteEndpointCustom(ctx context.Context, customId int32) EndpointsAPIDeleteEndpointCustomRequest {
+	return EndpointsAPIDeleteEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		customId:   customId,
@@ -2135,7 +2135,7 @@ func (a *EndpointsAPIService) DeleteEndpointCustom(ctx context.Context, customId
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DeleteEndpointCustomExecute(r ApiDeleteEndpointCustomRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DeleteEndpointCustomExecute(r EndpointsAPIDeleteEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2237,7 +2237,7 @@ func (a *EndpointsAPIService) DeleteEndpointCustomExecute(r ApiDeleteEndpointCus
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointIaxRequest struct {
+type EndpointsAPIDeleteEndpointIaxRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	iaxId        int32
@@ -2245,12 +2245,12 @@ type ApiDeleteEndpointIaxRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointIaxRequest) AccentTenant(accentTenant string) ApiDeleteEndpointIaxRequest {
+func (r EndpointsAPIDeleteEndpointIaxRequest) AccentTenant(accentTenant string) EndpointsAPIDeleteEndpointIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDeleteEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointIaxExecute(r)
 }
 
@@ -2261,10 +2261,10 @@ DeleteEndpointIax Delete IAX Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iaxId
-	@return ApiDeleteEndpointIaxRequest
+	@return EndpointsAPIDeleteEndpointIaxRequest
 */
-func (a *EndpointsAPIService) DeleteEndpointIax(ctx context.Context, iaxId int32) ApiDeleteEndpointIaxRequest {
-	return ApiDeleteEndpointIaxRequest{
+func (a *EndpointsAPIService) DeleteEndpointIax(ctx context.Context, iaxId int32) EndpointsAPIDeleteEndpointIaxRequest {
+	return EndpointsAPIDeleteEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		iaxId:      iaxId,
@@ -2272,7 +2272,7 @@ func (a *EndpointsAPIService) DeleteEndpointIax(ctx context.Context, iaxId int32
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DeleteEndpointIaxExecute(r ApiDeleteEndpointIaxRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DeleteEndpointIaxExecute(r EndpointsAPIDeleteEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2374,7 +2374,7 @@ func (a *EndpointsAPIService) DeleteEndpointIaxExecute(r ApiDeleteEndpointIaxReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointSccpRequest struct {
+type EndpointsAPIDeleteEndpointSccpRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	sccpId       int32
@@ -2382,12 +2382,12 @@ type ApiDeleteEndpointSccpRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointSccpRequest) AccentTenant(accentTenant string) ApiDeleteEndpointSccpRequest {
+func (r EndpointsAPIDeleteEndpointSccpRequest) AccentTenant(accentTenant string) EndpointsAPIDeleteEndpointSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDeleteEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointSccpExecute(r)
 }
 
@@ -2398,10 +2398,10 @@ DeleteEndpointSccp Delete SCCP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sccpId
-	@return ApiDeleteEndpointSccpRequest
+	@return EndpointsAPIDeleteEndpointSccpRequest
 */
-func (a *EndpointsAPIService) DeleteEndpointSccp(ctx context.Context, sccpId int32) ApiDeleteEndpointSccpRequest {
-	return ApiDeleteEndpointSccpRequest{
+func (a *EndpointsAPIService) DeleteEndpointSccp(ctx context.Context, sccpId int32) EndpointsAPIDeleteEndpointSccpRequest {
+	return EndpointsAPIDeleteEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sccpId:     sccpId,
@@ -2409,7 +2409,7 @@ func (a *EndpointsAPIService) DeleteEndpointSccp(ctx context.Context, sccpId int
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DeleteEndpointSccpExecute(r ApiDeleteEndpointSccpRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DeleteEndpointSccpExecute(r EndpointsAPIDeleteEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2511,7 +2511,7 @@ func (a *EndpointsAPIService) DeleteEndpointSccpExecute(r ApiDeleteEndpointSccpR
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointSipRequest struct {
+type EndpointsAPIDeleteEndpointSipRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	sipUuid      string
@@ -2519,12 +2519,12 @@ type ApiDeleteEndpointSipRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointSipRequest) AccentTenant(accentTenant string) ApiDeleteEndpointSipRequest {
+func (r EndpointsAPIDeleteEndpointSipRequest) AccentTenant(accentTenant string) EndpointsAPIDeleteEndpointSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointSipRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDeleteEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointSipExecute(r)
 }
 
@@ -2535,10 +2535,10 @@ DeleteEndpointSip Delete SIP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sipUuid
-	@return ApiDeleteEndpointSipRequest
+	@return EndpointsAPIDeleteEndpointSipRequest
 */
-func (a *EndpointsAPIService) DeleteEndpointSip(ctx context.Context, sipUuid string) ApiDeleteEndpointSipRequest {
-	return ApiDeleteEndpointSipRequest{
+func (a *EndpointsAPIService) DeleteEndpointSip(ctx context.Context, sipUuid string) EndpointsAPIDeleteEndpointSipRequest {
+	return EndpointsAPIDeleteEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sipUuid:    sipUuid,
@@ -2546,7 +2546,7 @@ func (a *EndpointsAPIService) DeleteEndpointSip(ctx context.Context, sipUuid str
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DeleteEndpointSipExecute(r ApiDeleteEndpointSipRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DeleteEndpointSipExecute(r EndpointsAPIDeleteEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2648,7 +2648,7 @@ func (a *EndpointsAPIService) DeleteEndpointSipExecute(r ApiDeleteEndpointSipReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointSipTemplateRequest struct {
+type EndpointsAPIDeleteEndpointSipTemplateRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	templateUuid string
@@ -2656,12 +2656,12 @@ type ApiDeleteEndpointSipTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointSipTemplateRequest) AccentTenant(accentTenant string) ApiDeleteEndpointSipTemplateRequest {
+func (r EndpointsAPIDeleteEndpointSipTemplateRequest) AccentTenant(accentTenant string) EndpointsAPIDeleteEndpointSipTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointSipTemplateRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDeleteEndpointSipTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointSipTemplateExecute(r)
 }
 
@@ -2672,10 +2672,10 @@ DeleteEndpointSipTemplate Delete SIP Endpoint Template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateUuid
-	@return ApiDeleteEndpointSipTemplateRequest
+	@return EndpointsAPIDeleteEndpointSipTemplateRequest
 */
-func (a *EndpointsAPIService) DeleteEndpointSipTemplate(ctx context.Context, templateUuid string) ApiDeleteEndpointSipTemplateRequest {
-	return ApiDeleteEndpointSipTemplateRequest{
+func (a *EndpointsAPIService) DeleteEndpointSipTemplate(ctx context.Context, templateUuid string) EndpointsAPIDeleteEndpointSipTemplateRequest {
+	return EndpointsAPIDeleteEndpointSipTemplateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		templateUuid: templateUuid,
@@ -2683,7 +2683,7 @@ func (a *EndpointsAPIService) DeleteEndpointSipTemplate(ctx context.Context, tem
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DeleteEndpointSipTemplateExecute(r ApiDeleteEndpointSipTemplateRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DeleteEndpointSipTemplateExecute(r EndpointsAPIDeleteEndpointSipTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2785,14 +2785,14 @@ func (a *EndpointsAPIService) DeleteEndpointSipTemplateExecute(r ApiDeleteEndpoi
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointCustomRequest struct {
+type EndpointsAPIDissociateLineEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	lineId     int32
 	customId   int32
 }
 
-func (r ApiDissociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDissociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointCustomExecute(r)
 }
 
@@ -2804,10 +2804,10 @@ DissociateLineEndpointCustom Dissociate line and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param customId
-	@return ApiDissociateLineEndpointCustomRequest
+	@return EndpointsAPIDissociateLineEndpointCustomRequest
 */
-func (a *EndpointsAPIService) DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiDissociateLineEndpointCustomRequest {
-	return ApiDissociateLineEndpointCustomRequest{
+func (a *EndpointsAPIService) DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) EndpointsAPIDissociateLineEndpointCustomRequest {
+	return EndpointsAPIDissociateLineEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -2816,7 +2816,7 @@ func (a *EndpointsAPIService) DissociateLineEndpointCustom(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DissociateLineEndpointCustomExecute(r ApiDissociateLineEndpointCustomRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DissociateLineEndpointCustomExecute(r EndpointsAPIDissociateLineEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2916,14 +2916,14 @@ func (a *EndpointsAPIService) DissociateLineEndpointCustomExecute(r ApiDissociat
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointSccpRequest struct {
+type EndpointsAPIDissociateLineEndpointSccpRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	lineId     int32
 	sccpId     int32
 }
 
-func (r ApiDissociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDissociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointSccpExecute(r)
 }
 
@@ -2935,10 +2935,10 @@ DissociateLineEndpointSccp Dissociate line and SCCP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sccpId
-	@return ApiDissociateLineEndpointSccpRequest
+	@return EndpointsAPIDissociateLineEndpointSccpRequest
 */
-func (a *EndpointsAPIService) DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiDissociateLineEndpointSccpRequest {
-	return ApiDissociateLineEndpointSccpRequest{
+func (a *EndpointsAPIService) DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) EndpointsAPIDissociateLineEndpointSccpRequest {
+	return EndpointsAPIDissociateLineEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -2947,7 +2947,7 @@ func (a *EndpointsAPIService) DissociateLineEndpointSccp(ctx context.Context, li
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DissociateLineEndpointSccpExecute(r ApiDissociateLineEndpointSccpRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DissociateLineEndpointSccpExecute(r EndpointsAPIDissociateLineEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3047,14 +3047,14 @@ func (a *EndpointsAPIService) DissociateLineEndpointSccpExecute(r ApiDissociateL
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointSipRequest struct {
+type EndpointsAPIDissociateLineEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	lineId     int32
 	sipUuid    string
 }
 
-func (r ApiDissociateLineEndpointSipRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDissociateLineEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointSipExecute(r)
 }
 
@@ -3066,10 +3066,10 @@ DissociateLineEndpointSip Dissociate line and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sipUuid
-	@return ApiDissociateLineEndpointSipRequest
+	@return EndpointsAPIDissociateLineEndpointSipRequest
 */
-func (a *EndpointsAPIService) DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiDissociateLineEndpointSipRequest {
-	return ApiDissociateLineEndpointSipRequest{
+func (a *EndpointsAPIService) DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) EndpointsAPIDissociateLineEndpointSipRequest {
+	return EndpointsAPIDissociateLineEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -3078,7 +3078,7 @@ func (a *EndpointsAPIService) DissociateLineEndpointSip(ctx context.Context, lin
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DissociateLineEndpointSipExecute(r ApiDissociateLineEndpointSipRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DissociateLineEndpointSipExecute(r EndpointsAPIDissociateLineEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3178,14 +3178,14 @@ func (a *EndpointsAPIService) DissociateLineEndpointSipExecute(r ApiDissociateLi
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointCustomRequest struct {
+type EndpointsAPIDissociateTrunkEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	trunkId    int32
 	customId   int32
 }
 
-func (r ApiDissociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDissociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointCustomExecute(r)
 }
 
@@ -3197,10 +3197,10 @@ DissociateTrunkEndpointCustom Dissociate trunk and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param customId
-	@return ApiDissociateTrunkEndpointCustomRequest
+	@return EndpointsAPIDissociateTrunkEndpointCustomRequest
 */
-func (a *EndpointsAPIService) DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiDissociateTrunkEndpointCustomRequest {
-	return ApiDissociateTrunkEndpointCustomRequest{
+func (a *EndpointsAPIService) DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) EndpointsAPIDissociateTrunkEndpointCustomRequest {
+	return EndpointsAPIDissociateTrunkEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -3209,7 +3209,7 @@ func (a *EndpointsAPIService) DissociateTrunkEndpointCustom(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DissociateTrunkEndpointCustomExecute(r ApiDissociateTrunkEndpointCustomRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DissociateTrunkEndpointCustomExecute(r EndpointsAPIDissociateTrunkEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3309,14 +3309,14 @@ func (a *EndpointsAPIService) DissociateTrunkEndpointCustomExecute(r ApiDissocia
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointIaxRequest struct {
+type EndpointsAPIDissociateTrunkEndpointIaxRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiDissociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDissociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointIaxExecute(r)
 }
 
@@ -3328,10 +3328,10 @@ DissociateTrunkEndpointIax Dissociate trunk and IAX endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiDissociateTrunkEndpointIaxRequest
+	@return EndpointsAPIDissociateTrunkEndpointIaxRequest
 */
-func (a *EndpointsAPIService) DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkEndpointIaxRequest {
-	return ApiDissociateTrunkEndpointIaxRequest{
+func (a *EndpointsAPIService) DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) EndpointsAPIDissociateTrunkEndpointIaxRequest {
+	return EndpointsAPIDissociateTrunkEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -3340,7 +3340,7 @@ func (a *EndpointsAPIService) DissociateTrunkEndpointIax(ctx context.Context, tr
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DissociateTrunkEndpointIaxExecute(r ApiDissociateTrunkEndpointIaxRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DissociateTrunkEndpointIaxExecute(r EndpointsAPIDissociateTrunkEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3440,14 +3440,14 @@ func (a *EndpointsAPIService) DissociateTrunkEndpointIaxExecute(r ApiDissociateT
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointSipRequest struct {
+type EndpointsAPIDissociateTrunkEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	trunkId    int32
 	sipUuid    string
 }
 
-func (r ApiDissociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIDissociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointSipExecute(r)
 }
 
@@ -3459,10 +3459,10 @@ DissociateTrunkEndpointSip Dissociate trunk and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param sipUuid
-	@return ApiDissociateTrunkEndpointSipRequest
+	@return EndpointsAPIDissociateTrunkEndpointSipRequest
 */
-func (a *EndpointsAPIService) DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiDissociateTrunkEndpointSipRequest {
-	return ApiDissociateTrunkEndpointSipRequest{
+func (a *EndpointsAPIService) DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) EndpointsAPIDissociateTrunkEndpointSipRequest {
+	return EndpointsAPIDissociateTrunkEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -3471,7 +3471,7 @@ func (a *EndpointsAPIService) DissociateTrunkEndpointSip(ctx context.Context, tr
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) DissociateTrunkEndpointSipExecute(r ApiDissociateTrunkEndpointSipRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) DissociateTrunkEndpointSipExecute(r EndpointsAPIDissociateTrunkEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3571,7 +3571,7 @@ func (a *EndpointsAPIService) DissociateTrunkEndpointSipExecute(r ApiDissociateT
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointCustomRequest struct {
+type EndpointsAPIGetEndpointCustomRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	customId     int32
@@ -3579,12 +3579,12 @@ type ApiGetEndpointCustomRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointCustomRequest) AccentTenant(accentTenant string) ApiGetEndpointCustomRequest {
+func (r EndpointsAPIGetEndpointCustomRequest) AccentTenant(accentTenant string) EndpointsAPIGetEndpointCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetEndpointCustomRequest) Execute() (*EndpointCustom, *http.Response, error) {
+func (r EndpointsAPIGetEndpointCustomRequest) Execute() (*EndpointCustom, *http.Response, error) {
 	return r.ApiService.GetEndpointCustomExecute(r)
 }
 
@@ -3595,10 +3595,10 @@ GetEndpointCustom Get Custom Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customId
-	@return ApiGetEndpointCustomRequest
+	@return EndpointsAPIGetEndpointCustomRequest
 */
-func (a *EndpointsAPIService) GetEndpointCustom(ctx context.Context, customId int32) ApiGetEndpointCustomRequest {
-	return ApiGetEndpointCustomRequest{
+func (a *EndpointsAPIService) GetEndpointCustom(ctx context.Context, customId int32) EndpointsAPIGetEndpointCustomRequest {
+	return EndpointsAPIGetEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		customId:   customId,
@@ -3608,7 +3608,7 @@ func (a *EndpointsAPIService) GetEndpointCustom(ctx context.Context, customId in
 // Execute executes the request
 //
 //	@return EndpointCustom
-func (a *EndpointsAPIService) GetEndpointCustomExecute(r ApiGetEndpointCustomRequest) (*EndpointCustom, *http.Response, error) {
+func (a *EndpointsAPIService) GetEndpointCustomExecute(r EndpointsAPIGetEndpointCustomRequest) (*EndpointCustom, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3709,7 +3709,7 @@ func (a *EndpointsAPIService) GetEndpointCustomExecute(r ApiGetEndpointCustomReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointIaxRequest struct {
+type EndpointsAPIGetEndpointIaxRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	iaxId        int32
@@ -3717,12 +3717,12 @@ type ApiGetEndpointIaxRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointIaxRequest) AccentTenant(accentTenant string) ApiGetEndpointIaxRequest {
+func (r EndpointsAPIGetEndpointIaxRequest) AccentTenant(accentTenant string) EndpointsAPIGetEndpointIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetEndpointIaxRequest) Execute() (*EndpointIAX, *http.Response, error) {
+func (r EndpointsAPIGetEndpointIaxRequest) Execute() (*EndpointIAX, *http.Response, error) {
 	return r.ApiService.GetEndpointIaxExecute(r)
 }
 
@@ -3733,10 +3733,10 @@ GetEndpointIax Get IAX Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iaxId
-	@return ApiGetEndpointIaxRequest
+	@return EndpointsAPIGetEndpointIaxRequest
 */
-func (a *EndpointsAPIService) GetEndpointIax(ctx context.Context, iaxId int32) ApiGetEndpointIaxRequest {
-	return ApiGetEndpointIaxRequest{
+func (a *EndpointsAPIService) GetEndpointIax(ctx context.Context, iaxId int32) EndpointsAPIGetEndpointIaxRequest {
+	return EndpointsAPIGetEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		iaxId:      iaxId,
@@ -3746,7 +3746,7 @@ func (a *EndpointsAPIService) GetEndpointIax(ctx context.Context, iaxId int32) A
 // Execute executes the request
 //
 //	@return EndpointIAX
-func (a *EndpointsAPIService) GetEndpointIaxExecute(r ApiGetEndpointIaxRequest) (*EndpointIAX, *http.Response, error) {
+func (a *EndpointsAPIService) GetEndpointIaxExecute(r EndpointsAPIGetEndpointIaxRequest) (*EndpointIAX, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3847,7 +3847,7 @@ func (a *EndpointsAPIService) GetEndpointIaxExecute(r ApiGetEndpointIaxRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointSccpRequest struct {
+type EndpointsAPIGetEndpointSccpRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	sccpId       int32
@@ -3855,12 +3855,12 @@ type ApiGetEndpointSccpRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointSccpRequest) AccentTenant(accentTenant string) ApiGetEndpointSccpRequest {
+func (r EndpointsAPIGetEndpointSccpRequest) AccentTenant(accentTenant string) EndpointsAPIGetEndpointSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetEndpointSccpRequest) Execute() (*EndpointSccp, *http.Response, error) {
+func (r EndpointsAPIGetEndpointSccpRequest) Execute() (*EndpointSccp, *http.Response, error) {
 	return r.ApiService.GetEndpointSccpExecute(r)
 }
 
@@ -3871,10 +3871,10 @@ GetEndpointSccp Get SCCP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sccpId
-	@return ApiGetEndpointSccpRequest
+	@return EndpointsAPIGetEndpointSccpRequest
 */
-func (a *EndpointsAPIService) GetEndpointSccp(ctx context.Context, sccpId int32) ApiGetEndpointSccpRequest {
-	return ApiGetEndpointSccpRequest{
+func (a *EndpointsAPIService) GetEndpointSccp(ctx context.Context, sccpId int32) EndpointsAPIGetEndpointSccpRequest {
+	return EndpointsAPIGetEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sccpId:     sccpId,
@@ -3884,7 +3884,7 @@ func (a *EndpointsAPIService) GetEndpointSccp(ctx context.Context, sccpId int32)
 // Execute executes the request
 //
 //	@return EndpointSccp
-func (a *EndpointsAPIService) GetEndpointSccpExecute(r ApiGetEndpointSccpRequest) (*EndpointSccp, *http.Response, error) {
+func (a *EndpointsAPIService) GetEndpointSccpExecute(r EndpointsAPIGetEndpointSccpRequest) (*EndpointSccp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3985,7 +3985,7 @@ func (a *EndpointsAPIService) GetEndpointSccpExecute(r ApiGetEndpointSccpRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointSipRequest struct {
+type EndpointsAPIGetEndpointSipRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	sipUuid      string
@@ -3994,18 +3994,18 @@ type ApiGetEndpointSipRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointSipRequest) AccentTenant(accentTenant string) ApiGetEndpointSipRequest {
+func (r EndpointsAPIGetEndpointSipRequest) AccentTenant(accentTenant string) EndpointsAPIGetEndpointSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Different view of the SIP endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to include only options that are defined on the specified endpoint.  The &#x60;merged&#x60; view includes all options from included templates.
-func (r ApiGetEndpointSipRequest) View(view string) ApiGetEndpointSipRequest {
+func (r EndpointsAPIGetEndpointSipRequest) View(view string) EndpointsAPIGetEndpointSipRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetEndpointSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r EndpointsAPIGetEndpointSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetEndpointSipExecute(r)
 }
 
@@ -4016,10 +4016,10 @@ GetEndpointSip Get SIP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sipUuid
-	@return ApiGetEndpointSipRequest
+	@return EndpointsAPIGetEndpointSipRequest
 */
-func (a *EndpointsAPIService) GetEndpointSip(ctx context.Context, sipUuid string) ApiGetEndpointSipRequest {
-	return ApiGetEndpointSipRequest{
+func (a *EndpointsAPIService) GetEndpointSip(ctx context.Context, sipUuid string) EndpointsAPIGetEndpointSipRequest {
+	return EndpointsAPIGetEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sipUuid:    sipUuid,
@@ -4029,7 +4029,7 @@ func (a *EndpointsAPIService) GetEndpointSip(ctx context.Context, sipUuid string
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *EndpointsAPIService) GetEndpointSipExecute(r ApiGetEndpointSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *EndpointsAPIService) GetEndpointSipExecute(r EndpointsAPIGetEndpointSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4133,7 +4133,7 @@ func (a *EndpointsAPIService) GetEndpointSipExecute(r ApiGetEndpointSipRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointSipTemplateRequest struct {
+type EndpointsAPIGetEndpointSipTemplateRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	templateUuid string
@@ -4141,12 +4141,12 @@ type ApiGetEndpointSipTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointSipTemplateRequest) AccentTenant(accentTenant string) ApiGetEndpointSipTemplateRequest {
+func (r EndpointsAPIGetEndpointSipTemplateRequest) AccentTenant(accentTenant string) EndpointsAPIGetEndpointSipTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetEndpointSipTemplateRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r EndpointsAPIGetEndpointSipTemplateRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetEndpointSipTemplateExecute(r)
 }
 
@@ -4157,10 +4157,10 @@ GetEndpointSipTemplate Get SIP Endpoint template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateUuid
-	@return ApiGetEndpointSipTemplateRequest
+	@return EndpointsAPIGetEndpointSipTemplateRequest
 */
-func (a *EndpointsAPIService) GetEndpointSipTemplate(ctx context.Context, templateUuid string) ApiGetEndpointSipTemplateRequest {
-	return ApiGetEndpointSipTemplateRequest{
+func (a *EndpointsAPIService) GetEndpointSipTemplate(ctx context.Context, templateUuid string) EndpointsAPIGetEndpointSipTemplateRequest {
+	return EndpointsAPIGetEndpointSipTemplateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		templateUuid: templateUuid,
@@ -4170,7 +4170,7 @@ func (a *EndpointsAPIService) GetEndpointSipTemplate(ctx context.Context, templa
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *EndpointsAPIService) GetEndpointSipTemplateExecute(r ApiGetEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error) {
+func (a *EndpointsAPIService) GetEndpointSipTemplateExecute(r EndpointsAPIGetEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4271,7 +4271,7 @@ func (a *EndpointsAPIService) GetEndpointSipTemplateExecute(r ApiGetEndpointSipT
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserLineAssociatedEndpointsSipRequest struct {
+type EndpointsAPIGetUserLineAssociatedEndpointsSipRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	userUuid   string
@@ -4280,12 +4280,12 @@ type ApiGetUserLineAssociatedEndpointsSipRequest struct {
 }
 
 // Different view of the SIP endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to include only options that are defined on the specified endpoint.  The &#x60;merged&#x60; view includes all options from included templates.
-func (r ApiGetUserLineAssociatedEndpointsSipRequest) View(view string) ApiGetUserLineAssociatedEndpointsSipRequest {
+func (r EndpointsAPIGetUserLineAssociatedEndpointsSipRequest) View(view string) EndpointsAPIGetUserLineAssociatedEndpointsSipRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetUserLineAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r EndpointsAPIGetUserLineAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetUserLineAssociatedEndpointsSipExecute(r)
 }
 
@@ -4297,10 +4297,10 @@ GetUserLineAssociatedEndpointsSip Get SIP endpoint of a line for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param lineId
-	@return ApiGetUserLineAssociatedEndpointsSipRequest
+	@return EndpointsAPIGetUserLineAssociatedEndpointsSipRequest
 */
-func (a *EndpointsAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) ApiGetUserLineAssociatedEndpointsSipRequest {
-	return ApiGetUserLineAssociatedEndpointsSipRequest{
+func (a *EndpointsAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) EndpointsAPIGetUserLineAssociatedEndpointsSipRequest {
+	return EndpointsAPIGetUserLineAssociatedEndpointsSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -4311,7 +4311,7 @@ func (a *EndpointsAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Cont
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *EndpointsAPIService) GetUserLineAssociatedEndpointsSipExecute(r ApiGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *EndpointsAPIService) GetUserLineAssociatedEndpointsSipExecute(r EndpointsAPIGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4403,7 +4403,7 @@ func (a *EndpointsAPIService) GetUserLineAssociatedEndpointsSipExecute(r ApiGetU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserLineMainAssociatedEndpointsSipRequest struct {
+type EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest struct {
 	ctx        context.Context
 	ApiService EndpointsAPI
 	userUuid   string
@@ -4411,12 +4411,12 @@ type ApiGetUserLineMainAssociatedEndpointsSipRequest struct {
 }
 
 // Different view of the SIP endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to include only options that are defined on the specified endpoint.  The &#x60;merged&#x60; view includes all options from included templates.
-func (r ApiGetUserLineMainAssociatedEndpointsSipRequest) View(view string) ApiGetUserLineMainAssociatedEndpointsSipRequest {
+func (r EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest) View(view string) EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetUserLineMainAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetUserLineMainAssociatedEndpointsSipExecute(r)
 }
 
@@ -4427,10 +4427,10 @@ GetUserLineMainAssociatedEndpointsSip Get SIP endpoint of main line for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
-	@return ApiGetUserLineMainAssociatedEndpointsSipRequest
+	@return EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest
 */
-func (a *EndpointsAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) ApiGetUserLineMainAssociatedEndpointsSipRequest {
-	return ApiGetUserLineMainAssociatedEndpointsSipRequest{
+func (a *EndpointsAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest {
+	return EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -4440,7 +4440,7 @@ func (a *EndpointsAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *EndpointsAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r ApiGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *EndpointsAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r EndpointsAPIGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4531,7 +4531,7 @@ func (a *EndpointsAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsCustomRequest struct {
+type EndpointsAPIListEndpointsCustomRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	accentTenant *string
@@ -4544,48 +4544,48 @@ type ApiListEndpointsCustomRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsCustomRequest) AccentTenant(accentTenant string) ApiListEndpointsCustomRequest {
+func (r EndpointsAPIListEndpointsCustomRequest) AccentTenant(accentTenant string) EndpointsAPIListEndpointsCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsCustomRequest) Recurse(recurse bool) ApiListEndpointsCustomRequest {
+func (r EndpointsAPIListEndpointsCustomRequest) Recurse(recurse bool) EndpointsAPIListEndpointsCustomRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsCustomRequest) Order(order string) ApiListEndpointsCustomRequest {
+func (r EndpointsAPIListEndpointsCustomRequest) Order(order string) EndpointsAPIListEndpointsCustomRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsCustomRequest) Direction(direction string) ApiListEndpointsCustomRequest {
+func (r EndpointsAPIListEndpointsCustomRequest) Direction(direction string) EndpointsAPIListEndpointsCustomRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsCustomRequest) Limit(limit int32) ApiListEndpointsCustomRequest {
+func (r EndpointsAPIListEndpointsCustomRequest) Limit(limit int32) EndpointsAPIListEndpointsCustomRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsCustomRequest) Offset(offset int32) ApiListEndpointsCustomRequest {
+func (r EndpointsAPIListEndpointsCustomRequest) Offset(offset int32) EndpointsAPIListEndpointsCustomRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsCustomRequest) Search(search string) ApiListEndpointsCustomRequest {
+func (r EndpointsAPIListEndpointsCustomRequest) Search(search string) EndpointsAPIListEndpointsCustomRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsCustomRequest) Execute() (*EndpointCustomItems, *http.Response, error) {
+func (r EndpointsAPIListEndpointsCustomRequest) Execute() (*EndpointCustomItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsCustomExecute(r)
 }
 
@@ -4595,10 +4595,10 @@ ListEndpointsCustom List Custom endpoints
 **Required ACL:** `confd.endpoints.custom.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsCustomRequest
+	@return EndpointsAPIListEndpointsCustomRequest
 */
-func (a *EndpointsAPIService) ListEndpointsCustom(ctx context.Context) ApiListEndpointsCustomRequest {
-	return ApiListEndpointsCustomRequest{
+func (a *EndpointsAPIService) ListEndpointsCustom(ctx context.Context) EndpointsAPIListEndpointsCustomRequest {
+	return EndpointsAPIListEndpointsCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -4607,7 +4607,7 @@ func (a *EndpointsAPIService) ListEndpointsCustom(ctx context.Context) ApiListEn
 // Execute executes the request
 //
 //	@return EndpointCustomItems
-func (a *EndpointsAPIService) ListEndpointsCustomExecute(r ApiListEndpointsCustomRequest) (*EndpointCustomItems, *http.Response, error) {
+func (a *EndpointsAPIService) ListEndpointsCustomExecute(r EndpointsAPIListEndpointsCustomRequest) (*EndpointCustomItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4718,7 +4718,7 @@ func (a *EndpointsAPIService) ListEndpointsCustomExecute(r ApiListEndpointsCusto
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsIaxRequest struct {
+type EndpointsAPIListEndpointsIaxRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	accentTenant *string
@@ -4731,48 +4731,48 @@ type ApiListEndpointsIaxRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsIaxRequest) AccentTenant(accentTenant string) ApiListEndpointsIaxRequest {
+func (r EndpointsAPIListEndpointsIaxRequest) AccentTenant(accentTenant string) EndpointsAPIListEndpointsIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsIaxRequest) Recurse(recurse bool) ApiListEndpointsIaxRequest {
+func (r EndpointsAPIListEndpointsIaxRequest) Recurse(recurse bool) EndpointsAPIListEndpointsIaxRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsIaxRequest) Order(order string) ApiListEndpointsIaxRequest {
+func (r EndpointsAPIListEndpointsIaxRequest) Order(order string) EndpointsAPIListEndpointsIaxRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsIaxRequest) Direction(direction string) ApiListEndpointsIaxRequest {
+func (r EndpointsAPIListEndpointsIaxRequest) Direction(direction string) EndpointsAPIListEndpointsIaxRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsIaxRequest) Limit(limit int32) ApiListEndpointsIaxRequest {
+func (r EndpointsAPIListEndpointsIaxRequest) Limit(limit int32) EndpointsAPIListEndpointsIaxRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsIaxRequest) Offset(offset int32) ApiListEndpointsIaxRequest {
+func (r EndpointsAPIListEndpointsIaxRequest) Offset(offset int32) EndpointsAPIListEndpointsIaxRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsIaxRequest) Search(search string) ApiListEndpointsIaxRequest {
+func (r EndpointsAPIListEndpointsIaxRequest) Search(search string) EndpointsAPIListEndpointsIaxRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsIaxRequest) Execute() (*EndpointIAXItems, *http.Response, error) {
+func (r EndpointsAPIListEndpointsIaxRequest) Execute() (*EndpointIAXItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsIaxExecute(r)
 }
 
@@ -4782,10 +4782,10 @@ ListEndpointsIax List IAX endpoints
 **Required ACL:** `confd.endpoints.iax.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsIaxRequest
+	@return EndpointsAPIListEndpointsIaxRequest
 */
-func (a *EndpointsAPIService) ListEndpointsIax(ctx context.Context) ApiListEndpointsIaxRequest {
-	return ApiListEndpointsIaxRequest{
+func (a *EndpointsAPIService) ListEndpointsIax(ctx context.Context) EndpointsAPIListEndpointsIaxRequest {
+	return EndpointsAPIListEndpointsIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -4794,7 +4794,7 @@ func (a *EndpointsAPIService) ListEndpointsIax(ctx context.Context) ApiListEndpo
 // Execute executes the request
 //
 //	@return EndpointIAXItems
-func (a *EndpointsAPIService) ListEndpointsIaxExecute(r ApiListEndpointsIaxRequest) (*EndpointIAXItems, *http.Response, error) {
+func (a *EndpointsAPIService) ListEndpointsIaxExecute(r EndpointsAPIListEndpointsIaxRequest) (*EndpointIAXItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4905,7 +4905,7 @@ func (a *EndpointsAPIService) ListEndpointsIaxExecute(r ApiListEndpointsIaxReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsSccpRequest struct {
+type EndpointsAPIListEndpointsSccpRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	accentTenant *string
@@ -4918,48 +4918,48 @@ type ApiListEndpointsSccpRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsSccpRequest) AccentTenant(accentTenant string) ApiListEndpointsSccpRequest {
+func (r EndpointsAPIListEndpointsSccpRequest) AccentTenant(accentTenant string) EndpointsAPIListEndpointsSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsSccpRequest) Recurse(recurse bool) ApiListEndpointsSccpRequest {
+func (r EndpointsAPIListEndpointsSccpRequest) Recurse(recurse bool) EndpointsAPIListEndpointsSccpRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsSccpRequest) Order(order string) ApiListEndpointsSccpRequest {
+func (r EndpointsAPIListEndpointsSccpRequest) Order(order string) EndpointsAPIListEndpointsSccpRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsSccpRequest) Direction(direction string) ApiListEndpointsSccpRequest {
+func (r EndpointsAPIListEndpointsSccpRequest) Direction(direction string) EndpointsAPIListEndpointsSccpRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsSccpRequest) Limit(limit int32) ApiListEndpointsSccpRequest {
+func (r EndpointsAPIListEndpointsSccpRequest) Limit(limit int32) EndpointsAPIListEndpointsSccpRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsSccpRequest) Offset(offset int32) ApiListEndpointsSccpRequest {
+func (r EndpointsAPIListEndpointsSccpRequest) Offset(offset int32) EndpointsAPIListEndpointsSccpRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsSccpRequest) Search(search string) ApiListEndpointsSccpRequest {
+func (r EndpointsAPIListEndpointsSccpRequest) Search(search string) EndpointsAPIListEndpointsSccpRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsSccpRequest) Execute() (*EndpointSccpItems, *http.Response, error) {
+func (r EndpointsAPIListEndpointsSccpRequest) Execute() (*EndpointSccpItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsSccpExecute(r)
 }
 
@@ -4969,10 +4969,10 @@ ListEndpointsSccp List SCCP endpoints
 **Required ACL:** `confd.endpoints.sccp.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsSccpRequest
+	@return EndpointsAPIListEndpointsSccpRequest
 */
-func (a *EndpointsAPIService) ListEndpointsSccp(ctx context.Context) ApiListEndpointsSccpRequest {
-	return ApiListEndpointsSccpRequest{
+func (a *EndpointsAPIService) ListEndpointsSccp(ctx context.Context) EndpointsAPIListEndpointsSccpRequest {
+	return EndpointsAPIListEndpointsSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -4981,7 +4981,7 @@ func (a *EndpointsAPIService) ListEndpointsSccp(ctx context.Context) ApiListEndp
 // Execute executes the request
 //
 //	@return EndpointSccpItems
-func (a *EndpointsAPIService) ListEndpointsSccpExecute(r ApiListEndpointsSccpRequest) (*EndpointSccpItems, *http.Response, error) {
+func (a *EndpointsAPIService) ListEndpointsSccpExecute(r EndpointsAPIListEndpointsSccpRequest) (*EndpointSccpItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5092,7 +5092,7 @@ func (a *EndpointsAPIService) ListEndpointsSccpExecute(r ApiListEndpointsSccpReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsSipRequest struct {
+type EndpointsAPIListEndpointsSipRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	accentTenant *string
@@ -5105,48 +5105,48 @@ type ApiListEndpointsSipRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsSipRequest) AccentTenant(accentTenant string) ApiListEndpointsSipRequest {
+func (r EndpointsAPIListEndpointsSipRequest) AccentTenant(accentTenant string) EndpointsAPIListEndpointsSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsSipRequest) Recurse(recurse bool) ApiListEndpointsSipRequest {
+func (r EndpointsAPIListEndpointsSipRequest) Recurse(recurse bool) EndpointsAPIListEndpointsSipRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsSipRequest) Order(order string) ApiListEndpointsSipRequest {
+func (r EndpointsAPIListEndpointsSipRequest) Order(order string) EndpointsAPIListEndpointsSipRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsSipRequest) Direction(direction string) ApiListEndpointsSipRequest {
+func (r EndpointsAPIListEndpointsSipRequest) Direction(direction string) EndpointsAPIListEndpointsSipRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsSipRequest) Limit(limit int32) ApiListEndpointsSipRequest {
+func (r EndpointsAPIListEndpointsSipRequest) Limit(limit int32) EndpointsAPIListEndpointsSipRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsSipRequest) Offset(offset int32) ApiListEndpointsSipRequest {
+func (r EndpointsAPIListEndpointsSipRequest) Offset(offset int32) EndpointsAPIListEndpointsSipRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsSipRequest) Search(search string) ApiListEndpointsSipRequest {
+func (r EndpointsAPIListEndpointsSipRequest) Search(search string) EndpointsAPIListEndpointsSipRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsSipRequest) Execute() (*EndpointSIPItems, *http.Response, error) {
+func (r EndpointsAPIListEndpointsSipRequest) Execute() (*EndpointSIPItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsSipExecute(r)
 }
 
@@ -5159,10 +5159,10 @@ List all SIP configurations, each individual configuration includes only fields 
 defines. Inherited fields from the templates or default values are not returned here.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsSipRequest
+	@return EndpointsAPIListEndpointsSipRequest
 */
-func (a *EndpointsAPIService) ListEndpointsSip(ctx context.Context) ApiListEndpointsSipRequest {
-	return ApiListEndpointsSipRequest{
+func (a *EndpointsAPIService) ListEndpointsSip(ctx context.Context) EndpointsAPIListEndpointsSipRequest {
+	return EndpointsAPIListEndpointsSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -5171,7 +5171,7 @@ func (a *EndpointsAPIService) ListEndpointsSip(ctx context.Context) ApiListEndpo
 // Execute executes the request
 //
 //	@return EndpointSIPItems
-func (a *EndpointsAPIService) ListEndpointsSipExecute(r ApiListEndpointsSipRequest) (*EndpointSIPItems, *http.Response, error) {
+func (a *EndpointsAPIService) ListEndpointsSipExecute(r EndpointsAPIListEndpointsSipRequest) (*EndpointSIPItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5282,7 +5282,7 @@ func (a *EndpointsAPIService) ListEndpointsSipExecute(r ApiListEndpointsSipReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsSipTemplatesRequest struct {
+type EndpointsAPIListEndpointsSipTemplatesRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	accentTenant *string
@@ -5295,48 +5295,48 @@ type ApiListEndpointsSipTemplatesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsSipTemplatesRequest) AccentTenant(accentTenant string) ApiListEndpointsSipTemplatesRequest {
+func (r EndpointsAPIListEndpointsSipTemplatesRequest) AccentTenant(accentTenant string) EndpointsAPIListEndpointsSipTemplatesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsSipTemplatesRequest) Recurse(recurse bool) ApiListEndpointsSipTemplatesRequest {
+func (r EndpointsAPIListEndpointsSipTemplatesRequest) Recurse(recurse bool) EndpointsAPIListEndpointsSipTemplatesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsSipTemplatesRequest) Order(order string) ApiListEndpointsSipTemplatesRequest {
+func (r EndpointsAPIListEndpointsSipTemplatesRequest) Order(order string) EndpointsAPIListEndpointsSipTemplatesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsSipTemplatesRequest) Direction(direction string) ApiListEndpointsSipTemplatesRequest {
+func (r EndpointsAPIListEndpointsSipTemplatesRequest) Direction(direction string) EndpointsAPIListEndpointsSipTemplatesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsSipTemplatesRequest) Limit(limit int32) ApiListEndpointsSipTemplatesRequest {
+func (r EndpointsAPIListEndpointsSipTemplatesRequest) Limit(limit int32) EndpointsAPIListEndpointsSipTemplatesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsSipTemplatesRequest) Offset(offset int32) ApiListEndpointsSipTemplatesRequest {
+func (r EndpointsAPIListEndpointsSipTemplatesRequest) Offset(offset int32) EndpointsAPIListEndpointsSipTemplatesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsSipTemplatesRequest) Search(search string) ApiListEndpointsSipTemplatesRequest {
+func (r EndpointsAPIListEndpointsSipTemplatesRequest) Search(search string) EndpointsAPIListEndpointsSipTemplatesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsSipTemplatesRequest) Execute() (*EndpointSIPItems, *http.Response, error) {
+func (r EndpointsAPIListEndpointsSipTemplatesRequest) Execute() (*EndpointSIPItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsSipTemplatesExecute(r)
 }
 
@@ -5346,10 +5346,10 @@ ListEndpointsSipTemplates List SIP endpoints templates
 **Required ACL:** `confd.endpoints.sip.templates.read` List all SIP configuration templates, each individual configuration includes only fields that it defines. Inherited fields from the templates or default values are not returned here.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsSipTemplatesRequest
+	@return EndpointsAPIListEndpointsSipTemplatesRequest
 */
-func (a *EndpointsAPIService) ListEndpointsSipTemplates(ctx context.Context) ApiListEndpointsSipTemplatesRequest {
-	return ApiListEndpointsSipTemplatesRequest{
+func (a *EndpointsAPIService) ListEndpointsSipTemplates(ctx context.Context) EndpointsAPIListEndpointsSipTemplatesRequest {
+	return EndpointsAPIListEndpointsSipTemplatesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -5358,7 +5358,7 @@ func (a *EndpointsAPIService) ListEndpointsSipTemplates(ctx context.Context) Api
 // Execute executes the request
 //
 //	@return EndpointSIPItems
-func (a *EndpointsAPIService) ListEndpointsSipTemplatesExecute(r ApiListEndpointsSipTemplatesRequest) (*EndpointSIPItems, *http.Response, error) {
+func (a *EndpointsAPIService) ListEndpointsSipTemplatesExecute(r EndpointsAPIListEndpointsSipTemplatesRequest) (*EndpointSIPItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5469,7 +5469,7 @@ func (a *EndpointsAPIService) ListEndpointsSipTemplatesExecute(r ApiListEndpoint
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointCustomRequest struct {
+type EndpointsAPIUpdateEndpointCustomRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointCustom
@@ -5477,18 +5477,18 @@ type ApiUpdateEndpointCustomRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointCustomRequest) Body(body EndpointCustom) ApiUpdateEndpointCustomRequest {
+func (r EndpointsAPIUpdateEndpointCustomRequest) Body(body EndpointCustom) EndpointsAPIUpdateEndpointCustomRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointCustomRequest) AccentTenant(accentTenant string) ApiUpdateEndpointCustomRequest {
+func (r EndpointsAPIUpdateEndpointCustomRequest) AccentTenant(accentTenant string) EndpointsAPIUpdateEndpointCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIUpdateEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointCustomExecute(r)
 }
 
@@ -5499,10 +5499,10 @@ UpdateEndpointCustom Update Custom Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customId
-	@return ApiUpdateEndpointCustomRequest
+	@return EndpointsAPIUpdateEndpointCustomRequest
 */
-func (a *EndpointsAPIService) UpdateEndpointCustom(ctx context.Context, customId int32) ApiUpdateEndpointCustomRequest {
-	return ApiUpdateEndpointCustomRequest{
+func (a *EndpointsAPIService) UpdateEndpointCustom(ctx context.Context, customId int32) EndpointsAPIUpdateEndpointCustomRequest {
+	return EndpointsAPIUpdateEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		customId:   customId,
@@ -5510,7 +5510,7 @@ func (a *EndpointsAPIService) UpdateEndpointCustom(ctx context.Context, customId
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) UpdateEndpointCustomExecute(r ApiUpdateEndpointCustomRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) UpdateEndpointCustomExecute(r EndpointsAPIUpdateEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -5617,7 +5617,7 @@ func (a *EndpointsAPIService) UpdateEndpointCustomExecute(r ApiUpdateEndpointCus
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointIaxRequest struct {
+type EndpointsAPIUpdateEndpointIaxRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointIAX
@@ -5625,18 +5625,18 @@ type ApiUpdateEndpointIaxRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointIaxRequest) Body(body EndpointIAX) ApiUpdateEndpointIaxRequest {
+func (r EndpointsAPIUpdateEndpointIaxRequest) Body(body EndpointIAX) EndpointsAPIUpdateEndpointIaxRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointIaxRequest) AccentTenant(accentTenant string) ApiUpdateEndpointIaxRequest {
+func (r EndpointsAPIUpdateEndpointIaxRequest) AccentTenant(accentTenant string) EndpointsAPIUpdateEndpointIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIUpdateEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointIaxExecute(r)
 }
 
@@ -5647,10 +5647,10 @@ UpdateEndpointIax Update IAX Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iaxId
-	@return ApiUpdateEndpointIaxRequest
+	@return EndpointsAPIUpdateEndpointIaxRequest
 */
-func (a *EndpointsAPIService) UpdateEndpointIax(ctx context.Context, iaxId int32) ApiUpdateEndpointIaxRequest {
-	return ApiUpdateEndpointIaxRequest{
+func (a *EndpointsAPIService) UpdateEndpointIax(ctx context.Context, iaxId int32) EndpointsAPIUpdateEndpointIaxRequest {
+	return EndpointsAPIUpdateEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		iaxId:      iaxId,
@@ -5658,7 +5658,7 @@ func (a *EndpointsAPIService) UpdateEndpointIax(ctx context.Context, iaxId int32
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) UpdateEndpointIaxExecute(r ApiUpdateEndpointIaxRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) UpdateEndpointIaxExecute(r EndpointsAPIUpdateEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -5765,7 +5765,7 @@ func (a *EndpointsAPIService) UpdateEndpointIaxExecute(r ApiUpdateEndpointIaxReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointSccpRequest struct {
+type EndpointsAPIUpdateEndpointSccpRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointSccp
@@ -5773,18 +5773,18 @@ type ApiUpdateEndpointSccpRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointSccpRequest) Body(body EndpointSccp) ApiUpdateEndpointSccpRequest {
+func (r EndpointsAPIUpdateEndpointSccpRequest) Body(body EndpointSccp) EndpointsAPIUpdateEndpointSccpRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointSccpRequest) AccentTenant(accentTenant string) ApiUpdateEndpointSccpRequest {
+func (r EndpointsAPIUpdateEndpointSccpRequest) AccentTenant(accentTenant string) EndpointsAPIUpdateEndpointSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIUpdateEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointSccpExecute(r)
 }
 
@@ -5795,10 +5795,10 @@ UpdateEndpointSccp Update SCCP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sccpId
-	@return ApiUpdateEndpointSccpRequest
+	@return EndpointsAPIUpdateEndpointSccpRequest
 */
-func (a *EndpointsAPIService) UpdateEndpointSccp(ctx context.Context, sccpId int32) ApiUpdateEndpointSccpRequest {
-	return ApiUpdateEndpointSccpRequest{
+func (a *EndpointsAPIService) UpdateEndpointSccp(ctx context.Context, sccpId int32) EndpointsAPIUpdateEndpointSccpRequest {
+	return EndpointsAPIUpdateEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sccpId:     sccpId,
@@ -5806,7 +5806,7 @@ func (a *EndpointsAPIService) UpdateEndpointSccp(ctx context.Context, sccpId int
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) UpdateEndpointSccpExecute(r ApiUpdateEndpointSccpRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) UpdateEndpointSccpExecute(r EndpointsAPIUpdateEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -5913,7 +5913,7 @@ func (a *EndpointsAPIService) UpdateEndpointSccpExecute(r ApiUpdateEndpointSccpR
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointSipRequest struct {
+type EndpointsAPIUpdateEndpointSipRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointSIP
@@ -5921,18 +5921,18 @@ type ApiUpdateEndpointSipRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointSipRequest) Body(body EndpointSIP) ApiUpdateEndpointSipRequest {
+func (r EndpointsAPIUpdateEndpointSipRequest) Body(body EndpointSIP) EndpointsAPIUpdateEndpointSipRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointSipRequest) AccentTenant(accentTenant string) ApiUpdateEndpointSipRequest {
+func (r EndpointsAPIUpdateEndpointSipRequest) AccentTenant(accentTenant string) EndpointsAPIUpdateEndpointSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointSipRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIUpdateEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointSipExecute(r)
 }
 
@@ -5943,10 +5943,10 @@ UpdateEndpointSip Update SIP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sipUuid
-	@return ApiUpdateEndpointSipRequest
+	@return EndpointsAPIUpdateEndpointSipRequest
 */
-func (a *EndpointsAPIService) UpdateEndpointSip(ctx context.Context, sipUuid string) ApiUpdateEndpointSipRequest {
-	return ApiUpdateEndpointSipRequest{
+func (a *EndpointsAPIService) UpdateEndpointSip(ctx context.Context, sipUuid string) EndpointsAPIUpdateEndpointSipRequest {
+	return EndpointsAPIUpdateEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sipUuid:    sipUuid,
@@ -5954,7 +5954,7 @@ func (a *EndpointsAPIService) UpdateEndpointSip(ctx context.Context, sipUuid str
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) UpdateEndpointSipExecute(r ApiUpdateEndpointSipRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) UpdateEndpointSipExecute(r EndpointsAPIUpdateEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -6061,7 +6061,7 @@ func (a *EndpointsAPIService) UpdateEndpointSipExecute(r ApiUpdateEndpointSipReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointSipTemplateRequest struct {
+type EndpointsAPIUpdateEndpointSipTemplateRequest struct {
 	ctx          context.Context
 	ApiService   EndpointsAPI
 	body         *EndpointSIP
@@ -6069,18 +6069,18 @@ type ApiUpdateEndpointSipTemplateRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointSipTemplateRequest) Body(body EndpointSIP) ApiUpdateEndpointSipTemplateRequest {
+func (r EndpointsAPIUpdateEndpointSipTemplateRequest) Body(body EndpointSIP) EndpointsAPIUpdateEndpointSipTemplateRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointSipTemplateRequest) AccentTenant(accentTenant string) ApiUpdateEndpointSipTemplateRequest {
+func (r EndpointsAPIUpdateEndpointSipTemplateRequest) AccentTenant(accentTenant string) EndpointsAPIUpdateEndpointSipTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointSipTemplateRequest) Execute() (*http.Response, error) {
+func (r EndpointsAPIUpdateEndpointSipTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointSipTemplateExecute(r)
 }
 
@@ -6091,10 +6091,10 @@ UpdateEndpointSipTemplate Update SIP Endpoint Template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateUuid
-	@return ApiUpdateEndpointSipTemplateRequest
+	@return EndpointsAPIUpdateEndpointSipTemplateRequest
 */
-func (a *EndpointsAPIService) UpdateEndpointSipTemplate(ctx context.Context, templateUuid string) ApiUpdateEndpointSipTemplateRequest {
-	return ApiUpdateEndpointSipTemplateRequest{
+func (a *EndpointsAPIService) UpdateEndpointSipTemplate(ctx context.Context, templateUuid string) EndpointsAPIUpdateEndpointSipTemplateRequest {
+	return EndpointsAPIUpdateEndpointSipTemplateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		templateUuid: templateUuid,
@@ -6102,7 +6102,7 @@ func (a *EndpointsAPIService) UpdateEndpointSipTemplate(ctx context.Context, tem
 }
 
 // Execute executes the request
-func (a *EndpointsAPIService) UpdateEndpointSipTemplateExecute(r ApiUpdateEndpointSipTemplateRequest) (*http.Response, error) {
+func (a *EndpointsAPIService) UpdateEndpointSipTemplateExecute(r EndpointsAPIUpdateEndpointSipTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

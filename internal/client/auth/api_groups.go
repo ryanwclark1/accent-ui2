@@ -30,12 +30,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-		@return ApiAddGroupPolicyRequest
+		@return GroupsAPIAddGroupPolicyRequest
 	*/
-	AddGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) ApiAddGroupPolicyRequest
+	AddGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) GroupsAPIAddGroupPolicyRequest
 
 	// AddGroupPolicyExecute executes the request
-	AddGroupPolicyExecute(r ApiAddGroupPolicyRequest) (*http.Response, error)
+	AddGroupPolicyExecute(r GroupsAPIAddGroupPolicyRequest) (*http.Response, error)
 
 	/*
 		AddGroupUser Associate a group to a user
@@ -45,12 +45,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
 		@param userUuid The UUID of the user
-		@return ApiAddGroupUserRequest
+		@return GroupsAPIAddGroupUserRequest
 	*/
-	AddGroupUser(ctx context.Context, groupUuid string, userUuid string) ApiAddGroupUserRequest
+	AddGroupUser(ctx context.Context, groupUuid string, userUuid string) GroupsAPIAddGroupUserRequest
 
 	// AddGroupUserExecute executes the request
-	AddGroupUserExecute(r ApiAddGroupUserRequest) (*http.Response, error)
+	AddGroupUserExecute(r GroupsAPIAddGroupUserRequest) (*http.Response, error)
 
 	/*
 		DeleteGroup Delete a group
@@ -59,12 +59,12 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
-		@return ApiDeleteGroupRequest
+		@return GroupsAPIDeleteGroupRequest
 	*/
-	DeleteGroup(ctx context.Context, groupUuid string) ApiDeleteGroupRequest
+	DeleteGroup(ctx context.Context, groupUuid string) GroupsAPIDeleteGroupRequest
 
 	// DeleteGroupExecute executes the request
-	DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Response, error)
+	DeleteGroupExecute(r GroupsAPIDeleteGroupRequest) (*http.Response, error)
 
 	/*
 		DeleteGroupPolicy Dissociate a policy from a group
@@ -74,12 +74,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-		@return ApiDeleteGroupPolicyRequest
+		@return GroupsAPIDeleteGroupPolicyRequest
 	*/
-	DeleteGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) ApiDeleteGroupPolicyRequest
+	DeleteGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) GroupsAPIDeleteGroupPolicyRequest
 
 	// DeleteGroupPolicyExecute executes the request
-	DeleteGroupPolicyExecute(r ApiDeleteGroupPolicyRequest) (*http.Response, error)
+	DeleteGroupPolicyExecute(r GroupsAPIDeleteGroupPolicyRequest) (*http.Response, error)
 
 	/*
 		EditGroup Modify a group
@@ -88,13 +88,13 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
-		@return ApiEditGroupRequest
+		@return GroupsAPIEditGroupRequest
 	*/
-	EditGroup(ctx context.Context, groupUuid string) ApiEditGroupRequest
+	EditGroup(ctx context.Context, groupUuid string) GroupsAPIEditGroupRequest
 
 	// EditGroupExecute executes the request
 	//  @return GroupResult
-	EditGroupExecute(r ApiEditGroupRequest) (*GroupResult, *http.Response, error)
+	EditGroupExecute(r GroupsAPIEditGroupRequest) (*GroupResult, *http.Response, error)
 
 	/*
 		GetGroup Retrieves the details of a group
@@ -103,13 +103,13 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
-		@return ApiGetGroupRequest
+		@return GroupsAPIGetGroupRequest
 	*/
-	GetGroup(ctx context.Context, groupUuid string) ApiGetGroupRequest
+	GetGroup(ctx context.Context, groupUuid string) GroupsAPIGetGroupRequest
 
 	// GetGroupExecute executes the request
 	//  @return GroupResult
-	GetGroupExecute(r ApiGetGroupRequest) (*GroupResult, *http.Response, error)
+	GetGroupExecute(r GroupsAPIGetGroupRequest) (*GroupResult, *http.Response, error)
 
 	/*
 		GetGroupPolicies Retrieves the list of policies associated to a group
@@ -118,13 +118,13 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
-		@return ApiGetGroupPoliciesRequest
+		@return GroupsAPIGetGroupPoliciesRequest
 	*/
-	GetGroupPolicies(ctx context.Context, groupUuid string) ApiGetGroupPoliciesRequest
+	GetGroupPolicies(ctx context.Context, groupUuid string) GroupsAPIGetGroupPoliciesRequest
 
 	// GetGroupPoliciesExecute executes the request
 	//  @return GetPoliciesResult
-	GetGroupPoliciesExecute(r ApiGetGroupPoliciesRequest) (*GetPoliciesResult, *http.Response, error)
+	GetGroupPoliciesExecute(r GroupsAPIGetGroupPoliciesRequest) (*GetPoliciesResult, *http.Response, error)
 
 	/*
 		GetGroupUsers Retrieves the list of users associated to a group
@@ -133,13 +133,13 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
-		@return ApiGetGroupUsersRequest
+		@return GroupsAPIGetGroupUsersRequest
 	*/
-	GetGroupUsers(ctx context.Context, groupUuid string) ApiGetGroupUsersRequest
+	GetGroupUsers(ctx context.Context, groupUuid string) GroupsAPIGetGroupUsersRequest
 
 	// GetGroupUsersExecute executes the request
 	//  @return UserList
-	GetGroupUsersExecute(r ApiGetGroupUsersRequest) (*UserList, *http.Response, error)
+	GetGroupUsersExecute(r GroupsAPIGetGroupUsersRequest) (*UserList, *http.Response, error)
 
 	/*
 		RemoveGroupUser Dissociate a user from a group
@@ -149,25 +149,25 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
 		@param userUuid The UUID of the user
-		@return ApiRemoveGroupUserRequest
+		@return GroupsAPIRemoveGroupUserRequest
 	*/
-	RemoveGroupUser(ctx context.Context, groupUuid string, userUuid string) ApiRemoveGroupUserRequest
+	RemoveGroupUser(ctx context.Context, groupUuid string, userUuid string) GroupsAPIRemoveGroupUserRequest
 
 	// RemoveGroupUserExecute executes the request
-	RemoveGroupUserExecute(r ApiRemoveGroupUserRequest) (*http.Response, error)
+	RemoveGroupUserExecute(r GroupsAPIRemoveGroupUserRequest) (*http.Response, error)
 }
 
 // GroupsAPIService GroupsAPI service
 type GroupsAPIService service
 
-type ApiAddGroupPolicyRequest struct {
+type GroupsAPIAddGroupPolicyRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	groupUuid  string
 	policyUuid string
 }
 
-func (r ApiAddGroupPolicyRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIAddGroupPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddGroupPolicyExecute(r)
 }
 
@@ -179,10 +179,10 @@ AddGroupPolicy Associate a group to a policy
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-	@return ApiAddGroupPolicyRequest
+	@return GroupsAPIAddGroupPolicyRequest
 */
-func (a *GroupsAPIService) AddGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) ApiAddGroupPolicyRequest {
-	return ApiAddGroupPolicyRequest{
+func (a *GroupsAPIService) AddGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) GroupsAPIAddGroupPolicyRequest {
+	return GroupsAPIAddGroupPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -191,7 +191,7 @@ func (a *GroupsAPIService) AddGroupPolicy(ctx context.Context, groupUuid string,
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) AddGroupPolicyExecute(r ApiAddGroupPolicyRequest) (*http.Response, error) {
+func (a *GroupsAPIService) AddGroupPolicyExecute(r GroupsAPIAddGroupPolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -280,14 +280,14 @@ func (a *GroupsAPIService) AddGroupPolicyExecute(r ApiAddGroupPolicyRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiAddGroupUserRequest struct {
+type GroupsAPIAddGroupUserRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	groupUuid  string
 	userUuid   string
 }
 
-func (r ApiAddGroupUserRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIAddGroupUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddGroupUserExecute(r)
 }
 
@@ -299,10 +299,10 @@ AddGroupUser Associate a group to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
 	@param userUuid The UUID of the user
-	@return ApiAddGroupUserRequest
+	@return GroupsAPIAddGroupUserRequest
 */
-func (a *GroupsAPIService) AddGroupUser(ctx context.Context, groupUuid string, userUuid string) ApiAddGroupUserRequest {
-	return ApiAddGroupUserRequest{
+func (a *GroupsAPIService) AddGroupUser(ctx context.Context, groupUuid string, userUuid string) GroupsAPIAddGroupUserRequest {
+	return GroupsAPIAddGroupUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -311,7 +311,7 @@ func (a *GroupsAPIService) AddGroupUser(ctx context.Context, groupUuid string, u
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) AddGroupUserExecute(r ApiAddGroupUserRequest) (*http.Response, error) {
+func (a *GroupsAPIService) AddGroupUserExecute(r GroupsAPIAddGroupUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -400,7 +400,7 @@ func (a *GroupsAPIService) AddGroupUserExecute(r ApiAddGroupUserRequest) (*http.
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteGroupRequest struct {
+type GroupsAPIDeleteGroupRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	groupUuid    string
@@ -408,12 +408,12 @@ type ApiDeleteGroupRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteGroupRequest) AccentTenant(accentTenant string) ApiDeleteGroupRequest {
+func (r GroupsAPIDeleteGroupRequest) AccentTenant(accentTenant string) GroupsAPIDeleteGroupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteGroupRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIDeleteGroupRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteGroupExecute(r)
 }
 
@@ -424,10 +424,10 @@ DeleteGroup Delete a group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
-	@return ApiDeleteGroupRequest
+	@return GroupsAPIDeleteGroupRequest
 */
-func (a *GroupsAPIService) DeleteGroup(ctx context.Context, groupUuid string) ApiDeleteGroupRequest {
-	return ApiDeleteGroupRequest{
+func (a *GroupsAPIService) DeleteGroup(ctx context.Context, groupUuid string) GroupsAPIDeleteGroupRequest {
+	return GroupsAPIDeleteGroupRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -435,7 +435,7 @@ func (a *GroupsAPIService) DeleteGroup(ctx context.Context, groupUuid string) Ap
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Response, error) {
+func (a *GroupsAPIService) DeleteGroupExecute(r GroupsAPIDeleteGroupRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -548,14 +548,14 @@ func (a *GroupsAPIService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteGroupPolicyRequest struct {
+type GroupsAPIDeleteGroupPolicyRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	groupUuid  string
 	policyUuid string
 }
 
-func (r ApiDeleteGroupPolicyRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIDeleteGroupPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteGroupPolicyExecute(r)
 }
 
@@ -567,10 +567,10 @@ DeleteGroupPolicy Dissociate a policy from a group
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
-	@return ApiDeleteGroupPolicyRequest
+	@return GroupsAPIDeleteGroupPolicyRequest
 */
-func (a *GroupsAPIService) DeleteGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) ApiDeleteGroupPolicyRequest {
-	return ApiDeleteGroupPolicyRequest{
+func (a *GroupsAPIService) DeleteGroupPolicy(ctx context.Context, groupUuid string, policyUuid string) GroupsAPIDeleteGroupPolicyRequest {
+	return GroupsAPIDeleteGroupPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -579,7 +579,7 @@ func (a *GroupsAPIService) DeleteGroupPolicy(ctx context.Context, groupUuid stri
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) DeleteGroupPolicyExecute(r ApiDeleteGroupPolicyRequest) (*http.Response, error) {
+func (a *GroupsAPIService) DeleteGroupPolicyExecute(r GroupsAPIDeleteGroupPolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -668,7 +668,7 @@ func (a *GroupsAPIService) DeleteGroupPolicyExecute(r ApiDeleteGroupPolicyReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiEditGroupRequest struct {
+type GroupsAPIEditGroupRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	body         *GroupPut
@@ -677,18 +677,18 @@ type ApiEditGroupRequest struct {
 }
 
 // The group parameters
-func (r ApiEditGroupRequest) Body(body GroupPut) ApiEditGroupRequest {
+func (r GroupsAPIEditGroupRequest) Body(body GroupPut) GroupsAPIEditGroupRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiEditGroupRequest) AccentTenant(accentTenant string) ApiEditGroupRequest {
+func (r GroupsAPIEditGroupRequest) AccentTenant(accentTenant string) GroupsAPIEditGroupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiEditGroupRequest) Execute() (*GroupResult, *http.Response, error) {
+func (r GroupsAPIEditGroupRequest) Execute() (*GroupResult, *http.Response, error) {
 	return r.ApiService.EditGroupExecute(r)
 }
 
@@ -699,10 +699,10 @@ EditGroup Modify a group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
-	@return ApiEditGroupRequest
+	@return GroupsAPIEditGroupRequest
 */
-func (a *GroupsAPIService) EditGroup(ctx context.Context, groupUuid string) ApiEditGroupRequest {
-	return ApiEditGroupRequest{
+func (a *GroupsAPIService) EditGroup(ctx context.Context, groupUuid string) GroupsAPIEditGroupRequest {
+	return GroupsAPIEditGroupRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -712,7 +712,7 @@ func (a *GroupsAPIService) EditGroup(ctx context.Context, groupUuid string) ApiE
 // Execute executes the request
 //
 //	@return GroupResult
-func (a *GroupsAPIService) EditGroupExecute(r ApiEditGroupRequest) (*GroupResult, *http.Response, error) {
+func (a *GroupsAPIService) EditGroupExecute(r GroupsAPIEditGroupRequest) (*GroupResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -829,7 +829,7 @@ func (a *GroupsAPIService) EditGroupExecute(r ApiEditGroupRequest) (*GroupResult
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetGroupRequest struct {
+type GroupsAPIGetGroupRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	groupUuid    string
@@ -837,12 +837,12 @@ type ApiGetGroupRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetGroupRequest) AccentTenant(accentTenant string) ApiGetGroupRequest {
+func (r GroupsAPIGetGroupRequest) AccentTenant(accentTenant string) GroupsAPIGetGroupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetGroupRequest) Execute() (*GroupResult, *http.Response, error) {
+func (r GroupsAPIGetGroupRequest) Execute() (*GroupResult, *http.Response, error) {
 	return r.ApiService.GetGroupExecute(r)
 }
 
@@ -853,10 +853,10 @@ GetGroup Retrieves the details of a group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
-	@return ApiGetGroupRequest
+	@return GroupsAPIGetGroupRequest
 */
-func (a *GroupsAPIService) GetGroup(ctx context.Context, groupUuid string) ApiGetGroupRequest {
-	return ApiGetGroupRequest{
+func (a *GroupsAPIService) GetGroup(ctx context.Context, groupUuid string) GroupsAPIGetGroupRequest {
+	return GroupsAPIGetGroupRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -866,7 +866,7 @@ func (a *GroupsAPIService) GetGroup(ctx context.Context, groupUuid string) ApiGe
 // Execute executes the request
 //
 //	@return GroupResult
-func (a *GroupsAPIService) GetGroupExecute(r ApiGetGroupRequest) (*GroupResult, *http.Response, error) {
+func (a *GroupsAPIService) GetGroupExecute(r GroupsAPIGetGroupRequest) (*GroupResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -989,7 +989,7 @@ func (a *GroupsAPIService) GetGroupExecute(r ApiGetGroupRequest) (*GroupResult, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetGroupPoliciesRequest struct {
+type GroupsAPIGetGroupPoliciesRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	groupUuid  string
@@ -1001,36 +1001,36 @@ type ApiGetGroupPoliciesRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetGroupPoliciesRequest) Order(order string) ApiGetGroupPoliciesRequest {
+func (r GroupsAPIGetGroupPoliciesRequest) Order(order string) GroupsAPIGetGroupPoliciesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetGroupPoliciesRequest) Direction(direction string) ApiGetGroupPoliciesRequest {
+func (r GroupsAPIGetGroupPoliciesRequest) Direction(direction string) GroupsAPIGetGroupPoliciesRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetGroupPoliciesRequest) Limit(limit int32) ApiGetGroupPoliciesRequest {
+func (r GroupsAPIGetGroupPoliciesRequest) Limit(limit int32) GroupsAPIGetGroupPoliciesRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetGroupPoliciesRequest) Offset(offset int32) ApiGetGroupPoliciesRequest {
+func (r GroupsAPIGetGroupPoliciesRequest) Offset(offset int32) GroupsAPIGetGroupPoliciesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetGroupPoliciesRequest) Search(search string) ApiGetGroupPoliciesRequest {
+func (r GroupsAPIGetGroupPoliciesRequest) Search(search string) GroupsAPIGetGroupPoliciesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetGroupPoliciesRequest) Execute() (*GetPoliciesResult, *http.Response, error) {
+func (r GroupsAPIGetGroupPoliciesRequest) Execute() (*GetPoliciesResult, *http.Response, error) {
 	return r.ApiService.GetGroupPoliciesExecute(r)
 }
 
@@ -1041,10 +1041,10 @@ GetGroupPolicies Retrieves the list of policies associated to a group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
-	@return ApiGetGroupPoliciesRequest
+	@return GroupsAPIGetGroupPoliciesRequest
 */
-func (a *GroupsAPIService) GetGroupPolicies(ctx context.Context, groupUuid string) ApiGetGroupPoliciesRequest {
-	return ApiGetGroupPoliciesRequest{
+func (a *GroupsAPIService) GetGroupPolicies(ctx context.Context, groupUuid string) GroupsAPIGetGroupPoliciesRequest {
+	return GroupsAPIGetGroupPoliciesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -1054,7 +1054,7 @@ func (a *GroupsAPIService) GetGroupPolicies(ctx context.Context, groupUuid strin
 // Execute executes the request
 //
 //	@return GetPoliciesResult
-func (a *GroupsAPIService) GetGroupPoliciesExecute(r ApiGetGroupPoliciesRequest) (*GetPoliciesResult, *http.Response, error) {
+func (a *GroupsAPIService) GetGroupPoliciesExecute(r GroupsAPIGetGroupPoliciesRequest) (*GetPoliciesResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1192,7 +1192,7 @@ func (a *GroupsAPIService) GetGroupPoliciesExecute(r ApiGetGroupPoliciesRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetGroupUsersRequest struct {
+type GroupsAPIGetGroupUsersRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	groupUuid  string
@@ -1204,36 +1204,36 @@ type ApiGetGroupUsersRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetGroupUsersRequest) Order(order string) ApiGetGroupUsersRequest {
+func (r GroupsAPIGetGroupUsersRequest) Order(order string) GroupsAPIGetGroupUsersRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetGroupUsersRequest) Direction(direction string) ApiGetGroupUsersRequest {
+func (r GroupsAPIGetGroupUsersRequest) Direction(direction string) GroupsAPIGetGroupUsersRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetGroupUsersRequest) Limit(limit int32) ApiGetGroupUsersRequest {
+func (r GroupsAPIGetGroupUsersRequest) Limit(limit int32) GroupsAPIGetGroupUsersRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetGroupUsersRequest) Offset(offset int32) ApiGetGroupUsersRequest {
+func (r GroupsAPIGetGroupUsersRequest) Offset(offset int32) GroupsAPIGetGroupUsersRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetGroupUsersRequest) Search(search string) ApiGetGroupUsersRequest {
+func (r GroupsAPIGetGroupUsersRequest) Search(search string) GroupsAPIGetGroupUsersRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetGroupUsersRequest) Execute() (*UserList, *http.Response, error) {
+func (r GroupsAPIGetGroupUsersRequest) Execute() (*UserList, *http.Response, error) {
 	return r.ApiService.GetGroupUsersExecute(r)
 }
 
@@ -1244,10 +1244,10 @@ GetGroupUsers Retrieves the list of users associated to a group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
-	@return ApiGetGroupUsersRequest
+	@return GroupsAPIGetGroupUsersRequest
 */
-func (a *GroupsAPIService) GetGroupUsers(ctx context.Context, groupUuid string) ApiGetGroupUsersRequest {
-	return ApiGetGroupUsersRequest{
+func (a *GroupsAPIService) GetGroupUsers(ctx context.Context, groupUuid string) GroupsAPIGetGroupUsersRequest {
+	return GroupsAPIGetGroupUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -1257,7 +1257,7 @@ func (a *GroupsAPIService) GetGroupUsers(ctx context.Context, groupUuid string) 
 // Execute executes the request
 //
 //	@return UserList
-func (a *GroupsAPIService) GetGroupUsersExecute(r ApiGetGroupUsersRequest) (*UserList, *http.Response, error) {
+func (a *GroupsAPIService) GetGroupUsersExecute(r GroupsAPIGetGroupUsersRequest) (*UserList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1395,14 +1395,14 @@ func (a *GroupsAPIService) GetGroupUsersExecute(r ApiGetGroupUsersRequest) (*Use
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveGroupUserRequest struct {
+type GroupsAPIRemoveGroupUserRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	groupUuid  string
 	userUuid   string
 }
 
-func (r ApiRemoveGroupUserRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIRemoveGroupUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.RemoveGroupUserExecute(r)
 }
 
@@ -1414,10 +1414,10 @@ RemoveGroupUser Dissociate a user from a group
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
 	@param userUuid The UUID of the user
-	@return ApiRemoveGroupUserRequest
+	@return GroupsAPIRemoveGroupUserRequest
 */
-func (a *GroupsAPIService) RemoveGroupUser(ctx context.Context, groupUuid string, userUuid string) ApiRemoveGroupUserRequest {
-	return ApiRemoveGroupUserRequest{
+func (a *GroupsAPIService) RemoveGroupUser(ctx context.Context, groupUuid string, userUuid string) GroupsAPIRemoveGroupUserRequest {
+	return GroupsAPIRemoveGroupUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -1426,7 +1426,7 @@ func (a *GroupsAPIService) RemoveGroupUser(ctx context.Context, groupUuid string
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) RemoveGroupUserExecute(r ApiRemoveGroupUserRequest) (*http.Response, error) {
+func (a *GroupsAPIService) RemoveGroupUserExecute(r GroupsAPIRemoveGroupUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}

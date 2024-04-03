@@ -28,13 +28,13 @@ type FaxesAPI interface {
 		**Required ACL:** `calld.faxes.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiSendFaxRequest
+		@return FaxesAPISendFaxRequest
 	*/
-	SendFax(ctx context.Context) ApiSendFaxRequest
+	SendFax(ctx context.Context) FaxesAPISendFaxRequest
 
 	// SendFaxExecute executes the request
 	//  @return Fax
-	SendFaxExecute(r ApiSendFaxRequest) (*Fax, *http.Response, error)
+	SendFaxExecute(r FaxesAPISendFaxRequest) (*Fax, *http.Response, error)
 
 	/*
 		SendUserFax Send a fax as the user detected from the token
@@ -42,19 +42,19 @@ type FaxesAPI interface {
 		**Required ACL:** `calld.users.me.faxes.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiSendUserFaxRequest
+		@return FaxesAPISendUserFaxRequest
 	*/
-	SendUserFax(ctx context.Context) ApiSendUserFaxRequest
+	SendUserFax(ctx context.Context) FaxesAPISendUserFaxRequest
 
 	// SendUserFaxExecute executes the request
 	//  @return Fax
-	SendUserFaxExecute(r ApiSendUserFaxRequest) (*Fax, *http.Response, error)
+	SendUserFaxExecute(r FaxesAPISendUserFaxRequest) (*Fax, *http.Response, error)
 }
 
 // FaxesAPIService FaxesAPI service
 type FaxesAPIService service
 
-type ApiSendFaxRequest struct {
+type FaxesAPISendFaxRequest struct {
 	ctx          context.Context
 	ApiService   FaxesAPI
 	faxContent   *os.File
@@ -66,42 +66,42 @@ type ApiSendFaxRequest struct {
 }
 
 // The fax file content, in PDF format
-func (r ApiSendFaxRequest) FaxContent(faxContent *os.File) ApiSendFaxRequest {
+func (r FaxesAPISendFaxRequest) FaxContent(faxContent *os.File) FaxesAPISendFaxRequest {
 	r.faxContent = faxContent
 	return r
 }
 
 // Context of the recipient of the fax
-func (r ApiSendFaxRequest) Context(context string) ApiSendFaxRequest {
+func (r FaxesAPISendFaxRequest) Context(context string) FaxesAPISendFaxRequest {
 	r.context = &context
 	return r
 }
 
 // Extension of the recipient of the fax
-func (r ApiSendFaxRequest) Extension(extension string) ApiSendFaxRequest {
+func (r FaxesAPISendFaxRequest) Extension(extension string) FaxesAPISendFaxRequest {
 	r.extension = &extension
 	return r
 }
 
 // Caller ID that will be presented to the recipient of the fax. Example: \&quot;my-name &lt;+15551112222&gt;\&quot;
-func (r ApiSendFaxRequest) CallerId(callerId string) ApiSendFaxRequest {
+func (r FaxesAPISendFaxRequest) CallerId(callerId string) FaxesAPISendFaxRequest {
 	r.callerId = &callerId
 	return r
 }
 
 // Extension to compose before sending fax. Useful for fax in IVR
-func (r ApiSendFaxRequest) IvrExtension(ivrExtension string) ApiSendFaxRequest {
+func (r FaxesAPISendFaxRequest) IvrExtension(ivrExtension string) FaxesAPISendFaxRequest {
 	r.ivrExtension = &ivrExtension
 	return r
 }
 
 // Time waiting before sending fax when destination has answered (in seconds)
-func (r ApiSendFaxRequest) WaitTime(waitTime int32) ApiSendFaxRequest {
+func (r FaxesAPISendFaxRequest) WaitTime(waitTime int32) FaxesAPISendFaxRequest {
 	r.waitTime = &waitTime
 	return r
 }
 
-func (r ApiSendFaxRequest) Execute() (*Fax, *http.Response, error) {
+func (r FaxesAPISendFaxRequest) Execute() (*Fax, *http.Response, error) {
 	return r.ApiService.SendFaxExecute(r)
 }
 
@@ -111,10 +111,10 @@ SendFax Send a fax
 **Required ACL:** `calld.faxes.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiSendFaxRequest
+	@return FaxesAPISendFaxRequest
 */
-func (a *FaxesAPIService) SendFax(ctx context.Context) ApiSendFaxRequest {
-	return ApiSendFaxRequest{
+func (a *FaxesAPIService) SendFax(ctx context.Context) FaxesAPISendFaxRequest {
+	return FaxesAPISendFaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -123,7 +123,7 @@ func (a *FaxesAPIService) SendFax(ctx context.Context) ApiSendFaxRequest {
 // Execute executes the request
 //
 //	@return Fax
-func (a *FaxesAPIService) SendFaxExecute(r ApiSendFaxRequest) (*Fax, *http.Response, error) {
+func (a *FaxesAPIService) SendFaxExecute(r FaxesAPISendFaxRequest) (*Fax, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -256,7 +256,7 @@ func (a *FaxesAPIService) SendFaxExecute(r ApiSendFaxRequest) (*Fax, *http.Respo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSendUserFaxRequest struct {
+type FaxesAPISendUserFaxRequest struct {
 	ctx          context.Context
 	ApiService   FaxesAPI
 	faxContent   *os.File
@@ -267,36 +267,36 @@ type ApiSendUserFaxRequest struct {
 }
 
 // The fax file content, in PDF format
-func (r ApiSendUserFaxRequest) FaxContent(faxContent *os.File) ApiSendUserFaxRequest {
+func (r FaxesAPISendUserFaxRequest) FaxContent(faxContent *os.File) FaxesAPISendUserFaxRequest {
 	r.faxContent = faxContent
 	return r
 }
 
 // Extension of the recipient of the fax
-func (r ApiSendUserFaxRequest) Extension(extension string) ApiSendUserFaxRequest {
+func (r FaxesAPISendUserFaxRequest) Extension(extension string) FaxesAPISendUserFaxRequest {
 	r.extension = &extension
 	return r
 }
 
 // Caller ID that will be presented to the recipient of the fax. Example: \&quot;my-name &lt;+15551112222&gt;\&quot;
-func (r ApiSendUserFaxRequest) CallerId(callerId string) ApiSendUserFaxRequest {
+func (r FaxesAPISendUserFaxRequest) CallerId(callerId string) FaxesAPISendUserFaxRequest {
 	r.callerId = &callerId
 	return r
 }
 
 // Extension to compose before sending fax. Useful for fax in IVR
-func (r ApiSendUserFaxRequest) IvrExtension(ivrExtension string) ApiSendUserFaxRequest {
+func (r FaxesAPISendUserFaxRequest) IvrExtension(ivrExtension string) FaxesAPISendUserFaxRequest {
 	r.ivrExtension = &ivrExtension
 	return r
 }
 
 // Time waiting before sending fax when destination has answered (in seconds)
-func (r ApiSendUserFaxRequest) WaitTime(waitTime int32) ApiSendUserFaxRequest {
+func (r FaxesAPISendUserFaxRequest) WaitTime(waitTime int32) FaxesAPISendUserFaxRequest {
 	r.waitTime = &waitTime
 	return r
 }
 
-func (r ApiSendUserFaxRequest) Execute() (*Fax, *http.Response, error) {
+func (r FaxesAPISendUserFaxRequest) Execute() (*Fax, *http.Response, error) {
 	return r.ApiService.SendUserFaxExecute(r)
 }
 
@@ -306,10 +306,10 @@ SendUserFax Send a fax as the user detected from the token
 **Required ACL:** `calld.users.me.faxes.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiSendUserFaxRequest
+	@return FaxesAPISendUserFaxRequest
 */
-func (a *FaxesAPIService) SendUserFax(ctx context.Context) ApiSendUserFaxRequest {
-	return ApiSendUserFaxRequest{
+func (a *FaxesAPIService) SendUserFax(ctx context.Context) FaxesAPISendUserFaxRequest {
+	return FaxesAPISendUserFaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -318,7 +318,7 @@ func (a *FaxesAPIService) SendUserFax(ctx context.Context) ApiSendUserFaxRequest
 // Execute executes the request
 //
 //	@return Fax
-func (a *FaxesAPIService) SendUserFaxExecute(r ApiSendUserFaxRequest) (*Fax, *http.Response, error) {
+func (a *FaxesAPIService) SendUserFaxExecute(r FaxesAPISendUserFaxRequest) (*Fax, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}

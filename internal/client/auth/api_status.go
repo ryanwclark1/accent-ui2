@@ -27,23 +27,23 @@ type StatusAPI interface {
 		This endpoint is not authenticated
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCheckStatusRequest
+		@return StatusAPICheckStatusRequest
 	*/
-	CheckStatus(ctx context.Context) ApiCheckStatusRequest
+	CheckStatus(ctx context.Context) StatusAPICheckStatusRequest
 
 	// CheckStatusExecute executes the request
-	CheckStatusExecute(r ApiCheckStatusRequest) (*http.Response, error)
+	CheckStatusExecute(r StatusAPICheckStatusRequest) (*http.Response, error)
 }
 
 // StatusAPIService StatusAPI service
 type StatusAPIService service
 
-type ApiCheckStatusRequest struct {
+type StatusAPICheckStatusRequest struct {
 	ctx        context.Context
 	ApiService StatusAPI
 }
 
-func (r ApiCheckStatusRequest) Execute() (*http.Response, error) {
+func (r StatusAPICheckStatusRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CheckStatusExecute(r)
 }
 
@@ -53,17 +53,17 @@ CheckStatus Check if accent-auth is OK
 This endpoint is not authenticated
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCheckStatusRequest
+	@return StatusAPICheckStatusRequest
 */
-func (a *StatusAPIService) CheckStatus(ctx context.Context) ApiCheckStatusRequest {
-	return ApiCheckStatusRequest{
+func (a *StatusAPIService) CheckStatus(ctx context.Context) StatusAPICheckStatusRequest {
+	return StatusAPICheckStatusRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *StatusAPIService) CheckStatusExecute(r ApiCheckStatusRequest) (*http.Response, error) {
+func (a *StatusAPIService) CheckStatusExecute(r StatusAPICheckStatusRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodHead
 		localVarPostBody   interface{}

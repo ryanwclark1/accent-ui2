@@ -30,12 +30,12 @@ type SccpAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sccpId
-		@return ApiAssociateLineEndpointSccpRequest
+		@return SccpAPIAssociateLineEndpointSccpRequest
 	*/
-	AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiAssociateLineEndpointSccpRequest
+	AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) SccpAPIAssociateLineEndpointSccpRequest
 
 	// AssociateLineEndpointSccpExecute executes the request
-	AssociateLineEndpointSccpExecute(r ApiAssociateLineEndpointSccpRequest) (*http.Response, error)
+	AssociateLineEndpointSccpExecute(r SccpAPIAssociateLineEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		CreateEndpointSccp Create SCCP endpoint
@@ -43,13 +43,13 @@ type SccpAPI interface {
 		**Required ACL:** `confd.endpoints.sccp.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointSccpRequest
+		@return SccpAPICreateEndpointSccpRequest
 	*/
-	CreateEndpointSccp(ctx context.Context) ApiCreateEndpointSccpRequest
+	CreateEndpointSccp(ctx context.Context) SccpAPICreateEndpointSccpRequest
 
 	// CreateEndpointSccpExecute executes the request
 	//  @return EndpointSccp
-	CreateEndpointSccpExecute(r ApiCreateEndpointSccpRequest) (*EndpointSccp, *http.Response, error)
+	CreateEndpointSccpExecute(r SccpAPICreateEndpointSccpRequest) (*EndpointSccp, *http.Response, error)
 
 	/*
 		DeleteEndpointSccp Delete SCCP Endpoint
@@ -58,12 +58,12 @@ type SccpAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sccpId
-		@return ApiDeleteEndpointSccpRequest
+		@return SccpAPIDeleteEndpointSccpRequest
 	*/
-	DeleteEndpointSccp(ctx context.Context, sccpId int32) ApiDeleteEndpointSccpRequest
+	DeleteEndpointSccp(ctx context.Context, sccpId int32) SccpAPIDeleteEndpointSccpRequest
 
 	// DeleteEndpointSccpExecute executes the request
-	DeleteEndpointSccpExecute(r ApiDeleteEndpointSccpRequest) (*http.Response, error)
+	DeleteEndpointSccpExecute(r SccpAPIDeleteEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointSccp Dissociate line and SCCP endpoint
@@ -73,12 +73,12 @@ type SccpAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sccpId
-		@return ApiDissociateLineEndpointSccpRequest
+		@return SccpAPIDissociateLineEndpointSccpRequest
 	*/
-	DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiDissociateLineEndpointSccpRequest
+	DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) SccpAPIDissociateLineEndpointSccpRequest
 
 	// DissociateLineEndpointSccpExecute executes the request
-	DissociateLineEndpointSccpExecute(r ApiDissociateLineEndpointSccpRequest) (*http.Response, error)
+	DissociateLineEndpointSccpExecute(r SccpAPIDissociateLineEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		GetEndpointSccp Get SCCP Endpoint
@@ -87,13 +87,13 @@ type SccpAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sccpId
-		@return ApiGetEndpointSccpRequest
+		@return SccpAPIGetEndpointSccpRequest
 	*/
-	GetEndpointSccp(ctx context.Context, sccpId int32) ApiGetEndpointSccpRequest
+	GetEndpointSccp(ctx context.Context, sccpId int32) SccpAPIGetEndpointSccpRequest
 
 	// GetEndpointSccpExecute executes the request
 	//  @return EndpointSccp
-	GetEndpointSccpExecute(r ApiGetEndpointSccpRequest) (*EndpointSccp, *http.Response, error)
+	GetEndpointSccpExecute(r SccpAPIGetEndpointSccpRequest) (*EndpointSccp, *http.Response, error)
 
 	/*
 		ListAsteriskSccpGeneral List SCCP general options
@@ -101,13 +101,13 @@ type SccpAPI interface {
 		**Required ACL:** `confd.asterisk.sccp.general.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskSccpGeneralRequest
+		@return SccpAPIListAsteriskSccpGeneralRequest
 	*/
-	ListAsteriskSccpGeneral(ctx context.Context) ApiListAsteriskSccpGeneralRequest
+	ListAsteriskSccpGeneral(ctx context.Context) SccpAPIListAsteriskSccpGeneralRequest
 
 	// ListAsteriskSccpGeneralExecute executes the request
 	//  @return SCCPGeneral
-	ListAsteriskSccpGeneralExecute(r ApiListAsteriskSccpGeneralRequest) (*SCCPGeneral, *http.Response, error)
+	ListAsteriskSccpGeneralExecute(r SccpAPIListAsteriskSccpGeneralRequest) (*SCCPGeneral, *http.Response, error)
 
 	/*
 		ListEndpointsSccp List SCCP endpoints
@@ -115,13 +115,13 @@ type SccpAPI interface {
 		**Required ACL:** `confd.endpoints.sccp.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsSccpRequest
+		@return SccpAPIListEndpointsSccpRequest
 	*/
-	ListEndpointsSccp(ctx context.Context) ApiListEndpointsSccpRequest
+	ListEndpointsSccp(ctx context.Context) SccpAPIListEndpointsSccpRequest
 
 	// ListEndpointsSccpExecute executes the request
 	//  @return EndpointSccpItems
-	ListEndpointsSccpExecute(r ApiListEndpointsSccpRequest) (*EndpointSccpItems, *http.Response, error)
+	ListEndpointsSccpExecute(r SccpAPIListEndpointsSccpRequest) (*EndpointSccpItems, *http.Response, error)
 
 	/*
 		UpdateAsteriskSccpGeneral Update SCCP general option
@@ -129,12 +129,12 @@ type SccpAPI interface {
 		**Required ACL:** `confd.asterisk.sccp.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskSccpGeneralRequest
+		@return SccpAPIUpdateAsteriskSccpGeneralRequest
 	*/
-	UpdateAsteriskSccpGeneral(ctx context.Context) ApiUpdateAsteriskSccpGeneralRequest
+	UpdateAsteriskSccpGeneral(ctx context.Context) SccpAPIUpdateAsteriskSccpGeneralRequest
 
 	// UpdateAsteriskSccpGeneralExecute executes the request
-	UpdateAsteriskSccpGeneralExecute(r ApiUpdateAsteriskSccpGeneralRequest) (*http.Response, error)
+	UpdateAsteriskSccpGeneralExecute(r SccpAPIUpdateAsteriskSccpGeneralRequest) (*http.Response, error)
 
 	/*
 		UpdateEndpointSccp Update SCCP Endpoint
@@ -143,25 +143,25 @@ type SccpAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sccpId
-		@return ApiUpdateEndpointSccpRequest
+		@return SccpAPIUpdateEndpointSccpRequest
 	*/
-	UpdateEndpointSccp(ctx context.Context, sccpId int32) ApiUpdateEndpointSccpRequest
+	UpdateEndpointSccp(ctx context.Context, sccpId int32) SccpAPIUpdateEndpointSccpRequest
 
 	// UpdateEndpointSccpExecute executes the request
-	UpdateEndpointSccpExecute(r ApiUpdateEndpointSccpRequest) (*http.Response, error)
+	UpdateEndpointSccpExecute(r SccpAPIUpdateEndpointSccpRequest) (*http.Response, error)
 }
 
 // SccpAPIService SccpAPI service
 type SccpAPIService service
 
-type ApiAssociateLineEndpointSccpRequest struct {
+type SccpAPIAssociateLineEndpointSccpRequest struct {
 	ctx        context.Context
 	ApiService SccpAPI
 	lineId     int32
 	sccpId     int32
 }
 
-func (r ApiAssociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r SccpAPIAssociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointSccpExecute(r)
 }
 
@@ -173,10 +173,10 @@ AssociateLineEndpointSccp Associate line and SCCP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sccpId
-	@return ApiAssociateLineEndpointSccpRequest
+	@return SccpAPIAssociateLineEndpointSccpRequest
 */
-func (a *SccpAPIService) AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiAssociateLineEndpointSccpRequest {
-	return ApiAssociateLineEndpointSccpRequest{
+func (a *SccpAPIService) AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) SccpAPIAssociateLineEndpointSccpRequest {
+	return SccpAPIAssociateLineEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -185,7 +185,7 @@ func (a *SccpAPIService) AssociateLineEndpointSccp(ctx context.Context, lineId i
 }
 
 // Execute executes the request
-func (a *SccpAPIService) AssociateLineEndpointSccpExecute(r ApiAssociateLineEndpointSccpRequest) (*http.Response, error) {
+func (a *SccpAPIService) AssociateLineEndpointSccpExecute(r SccpAPIAssociateLineEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -285,7 +285,7 @@ func (a *SccpAPIService) AssociateLineEndpointSccpExecute(r ApiAssociateLineEndp
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointSccpRequest struct {
+type SccpAPICreateEndpointSccpRequest struct {
 	ctx          context.Context
 	ApiService   SccpAPI
 	body         *EndpointSccp
@@ -293,18 +293,18 @@ type ApiCreateEndpointSccpRequest struct {
 }
 
 // SCCP Endpoint to create
-func (r ApiCreateEndpointSccpRequest) Body(body EndpointSccp) ApiCreateEndpointSccpRequest {
+func (r SccpAPICreateEndpointSccpRequest) Body(body EndpointSccp) SccpAPICreateEndpointSccpRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointSccpRequest) AccentTenant(accentTenant string) ApiCreateEndpointSccpRequest {
+func (r SccpAPICreateEndpointSccpRequest) AccentTenant(accentTenant string) SccpAPICreateEndpointSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointSccpRequest) Execute() (*EndpointSccp, *http.Response, error) {
+func (r SccpAPICreateEndpointSccpRequest) Execute() (*EndpointSccp, *http.Response, error) {
 	return r.ApiService.CreateEndpointSccpExecute(r)
 }
 
@@ -314,10 +314,10 @@ CreateEndpointSccp Create SCCP endpoint
 **Required ACL:** `confd.endpoints.sccp.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointSccpRequest
+	@return SccpAPICreateEndpointSccpRequest
 */
-func (a *SccpAPIService) CreateEndpointSccp(ctx context.Context) ApiCreateEndpointSccpRequest {
-	return ApiCreateEndpointSccpRequest{
+func (a *SccpAPIService) CreateEndpointSccp(ctx context.Context) SccpAPICreateEndpointSccpRequest {
+	return SccpAPICreateEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -326,7 +326,7 @@ func (a *SccpAPIService) CreateEndpointSccp(ctx context.Context) ApiCreateEndpoi
 // Execute executes the request
 //
 //	@return EndpointSccp
-func (a *SccpAPIService) CreateEndpointSccpExecute(r ApiCreateEndpointSccpRequest) (*EndpointSccp, *http.Response, error) {
+func (a *SccpAPIService) CreateEndpointSccpExecute(r SccpAPICreateEndpointSccpRequest) (*EndpointSccp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -428,7 +428,7 @@ func (a *SccpAPIService) CreateEndpointSccpExecute(r ApiCreateEndpointSccpReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointSccpRequest struct {
+type SccpAPIDeleteEndpointSccpRequest struct {
 	ctx          context.Context
 	ApiService   SccpAPI
 	sccpId       int32
@@ -436,12 +436,12 @@ type ApiDeleteEndpointSccpRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointSccpRequest) AccentTenant(accentTenant string) ApiDeleteEndpointSccpRequest {
+func (r SccpAPIDeleteEndpointSccpRequest) AccentTenant(accentTenant string) SccpAPIDeleteEndpointSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r SccpAPIDeleteEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointSccpExecute(r)
 }
 
@@ -452,10 +452,10 @@ DeleteEndpointSccp Delete SCCP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sccpId
-	@return ApiDeleteEndpointSccpRequest
+	@return SccpAPIDeleteEndpointSccpRequest
 */
-func (a *SccpAPIService) DeleteEndpointSccp(ctx context.Context, sccpId int32) ApiDeleteEndpointSccpRequest {
-	return ApiDeleteEndpointSccpRequest{
+func (a *SccpAPIService) DeleteEndpointSccp(ctx context.Context, sccpId int32) SccpAPIDeleteEndpointSccpRequest {
+	return SccpAPIDeleteEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sccpId:     sccpId,
@@ -463,7 +463,7 @@ func (a *SccpAPIService) DeleteEndpointSccp(ctx context.Context, sccpId int32) A
 }
 
 // Execute executes the request
-func (a *SccpAPIService) DeleteEndpointSccpExecute(r ApiDeleteEndpointSccpRequest) (*http.Response, error) {
+func (a *SccpAPIService) DeleteEndpointSccpExecute(r SccpAPIDeleteEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -565,14 +565,14 @@ func (a *SccpAPIService) DeleteEndpointSccpExecute(r ApiDeleteEndpointSccpReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointSccpRequest struct {
+type SccpAPIDissociateLineEndpointSccpRequest struct {
 	ctx        context.Context
 	ApiService SccpAPI
 	lineId     int32
 	sccpId     int32
 }
 
-func (r ApiDissociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r SccpAPIDissociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointSccpExecute(r)
 }
 
@@ -584,10 +584,10 @@ DissociateLineEndpointSccp Dissociate line and SCCP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sccpId
-	@return ApiDissociateLineEndpointSccpRequest
+	@return SccpAPIDissociateLineEndpointSccpRequest
 */
-func (a *SccpAPIService) DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiDissociateLineEndpointSccpRequest {
-	return ApiDissociateLineEndpointSccpRequest{
+func (a *SccpAPIService) DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) SccpAPIDissociateLineEndpointSccpRequest {
+	return SccpAPIDissociateLineEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -596,7 +596,7 @@ func (a *SccpAPIService) DissociateLineEndpointSccp(ctx context.Context, lineId 
 }
 
 // Execute executes the request
-func (a *SccpAPIService) DissociateLineEndpointSccpExecute(r ApiDissociateLineEndpointSccpRequest) (*http.Response, error) {
+func (a *SccpAPIService) DissociateLineEndpointSccpExecute(r SccpAPIDissociateLineEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -696,7 +696,7 @@ func (a *SccpAPIService) DissociateLineEndpointSccpExecute(r ApiDissociateLineEn
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointSccpRequest struct {
+type SccpAPIGetEndpointSccpRequest struct {
 	ctx          context.Context
 	ApiService   SccpAPI
 	sccpId       int32
@@ -704,12 +704,12 @@ type ApiGetEndpointSccpRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointSccpRequest) AccentTenant(accentTenant string) ApiGetEndpointSccpRequest {
+func (r SccpAPIGetEndpointSccpRequest) AccentTenant(accentTenant string) SccpAPIGetEndpointSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetEndpointSccpRequest) Execute() (*EndpointSccp, *http.Response, error) {
+func (r SccpAPIGetEndpointSccpRequest) Execute() (*EndpointSccp, *http.Response, error) {
 	return r.ApiService.GetEndpointSccpExecute(r)
 }
 
@@ -720,10 +720,10 @@ GetEndpointSccp Get SCCP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sccpId
-	@return ApiGetEndpointSccpRequest
+	@return SccpAPIGetEndpointSccpRequest
 */
-func (a *SccpAPIService) GetEndpointSccp(ctx context.Context, sccpId int32) ApiGetEndpointSccpRequest {
-	return ApiGetEndpointSccpRequest{
+func (a *SccpAPIService) GetEndpointSccp(ctx context.Context, sccpId int32) SccpAPIGetEndpointSccpRequest {
+	return SccpAPIGetEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sccpId:     sccpId,
@@ -733,7 +733,7 @@ func (a *SccpAPIService) GetEndpointSccp(ctx context.Context, sccpId int32) ApiG
 // Execute executes the request
 //
 //	@return EndpointSccp
-func (a *SccpAPIService) GetEndpointSccpExecute(r ApiGetEndpointSccpRequest) (*EndpointSccp, *http.Response, error) {
+func (a *SccpAPIService) GetEndpointSccpExecute(r SccpAPIGetEndpointSccpRequest) (*EndpointSccp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -834,12 +834,12 @@ func (a *SccpAPIService) GetEndpointSccpExecute(r ApiGetEndpointSccpRequest) (*E
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskSccpGeneralRequest struct {
+type SccpAPIListAsteriskSccpGeneralRequest struct {
 	ctx        context.Context
 	ApiService SccpAPI
 }
 
-func (r ApiListAsteriskSccpGeneralRequest) Execute() (*SCCPGeneral, *http.Response, error) {
+func (r SccpAPIListAsteriskSccpGeneralRequest) Execute() (*SCCPGeneral, *http.Response, error) {
 	return r.ApiService.ListAsteriskSccpGeneralExecute(r)
 }
 
@@ -849,10 +849,10 @@ ListAsteriskSccpGeneral List SCCP general options
 **Required ACL:** `confd.asterisk.sccp.general.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskSccpGeneralRequest
+	@return SccpAPIListAsteriskSccpGeneralRequest
 */
-func (a *SccpAPIService) ListAsteriskSccpGeneral(ctx context.Context) ApiListAsteriskSccpGeneralRequest {
-	return ApiListAsteriskSccpGeneralRequest{
+func (a *SccpAPIService) ListAsteriskSccpGeneral(ctx context.Context) SccpAPIListAsteriskSccpGeneralRequest {
+	return SccpAPIListAsteriskSccpGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -861,7 +861,7 @@ func (a *SccpAPIService) ListAsteriskSccpGeneral(ctx context.Context) ApiListAst
 // Execute executes the request
 //
 //	@return SCCPGeneral
-func (a *SccpAPIService) ListAsteriskSccpGeneralExecute(r ApiListAsteriskSccpGeneralRequest) (*SCCPGeneral, *http.Response, error) {
+func (a *SccpAPIService) ListAsteriskSccpGeneralExecute(r SccpAPIListAsteriskSccpGeneralRequest) (*SCCPGeneral, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -948,7 +948,7 @@ func (a *SccpAPIService) ListAsteriskSccpGeneralExecute(r ApiListAsteriskSccpGen
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsSccpRequest struct {
+type SccpAPIListEndpointsSccpRequest struct {
 	ctx          context.Context
 	ApiService   SccpAPI
 	accentTenant *string
@@ -961,48 +961,48 @@ type ApiListEndpointsSccpRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsSccpRequest) AccentTenant(accentTenant string) ApiListEndpointsSccpRequest {
+func (r SccpAPIListEndpointsSccpRequest) AccentTenant(accentTenant string) SccpAPIListEndpointsSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsSccpRequest) Recurse(recurse bool) ApiListEndpointsSccpRequest {
+func (r SccpAPIListEndpointsSccpRequest) Recurse(recurse bool) SccpAPIListEndpointsSccpRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsSccpRequest) Order(order string) ApiListEndpointsSccpRequest {
+func (r SccpAPIListEndpointsSccpRequest) Order(order string) SccpAPIListEndpointsSccpRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsSccpRequest) Direction(direction string) ApiListEndpointsSccpRequest {
+func (r SccpAPIListEndpointsSccpRequest) Direction(direction string) SccpAPIListEndpointsSccpRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsSccpRequest) Limit(limit int32) ApiListEndpointsSccpRequest {
+func (r SccpAPIListEndpointsSccpRequest) Limit(limit int32) SccpAPIListEndpointsSccpRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsSccpRequest) Offset(offset int32) ApiListEndpointsSccpRequest {
+func (r SccpAPIListEndpointsSccpRequest) Offset(offset int32) SccpAPIListEndpointsSccpRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsSccpRequest) Search(search string) ApiListEndpointsSccpRequest {
+func (r SccpAPIListEndpointsSccpRequest) Search(search string) SccpAPIListEndpointsSccpRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsSccpRequest) Execute() (*EndpointSccpItems, *http.Response, error) {
+func (r SccpAPIListEndpointsSccpRequest) Execute() (*EndpointSccpItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsSccpExecute(r)
 }
 
@@ -1012,10 +1012,10 @@ ListEndpointsSccp List SCCP endpoints
 **Required ACL:** `confd.endpoints.sccp.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsSccpRequest
+	@return SccpAPIListEndpointsSccpRequest
 */
-func (a *SccpAPIService) ListEndpointsSccp(ctx context.Context) ApiListEndpointsSccpRequest {
-	return ApiListEndpointsSccpRequest{
+func (a *SccpAPIService) ListEndpointsSccp(ctx context.Context) SccpAPIListEndpointsSccpRequest {
+	return SccpAPIListEndpointsSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1024,7 +1024,7 @@ func (a *SccpAPIService) ListEndpointsSccp(ctx context.Context) ApiListEndpoints
 // Execute executes the request
 //
 //	@return EndpointSccpItems
-func (a *SccpAPIService) ListEndpointsSccpExecute(r ApiListEndpointsSccpRequest) (*EndpointSccpItems, *http.Response, error) {
+func (a *SccpAPIService) ListEndpointsSccpExecute(r SccpAPIListEndpointsSccpRequest) (*EndpointSccpItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1135,18 +1135,18 @@ func (a *SccpAPIService) ListEndpointsSccpExecute(r ApiListEndpointsSccpRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskSccpGeneralRequest struct {
+type SccpAPIUpdateAsteriskSccpGeneralRequest struct {
 	ctx        context.Context
 	ApiService SccpAPI
 	body       *SCCPGeneral
 }
 
-func (r ApiUpdateAsteriskSccpGeneralRequest) Body(body SCCPGeneral) ApiUpdateAsteriskSccpGeneralRequest {
+func (r SccpAPIUpdateAsteriskSccpGeneralRequest) Body(body SCCPGeneral) SccpAPIUpdateAsteriskSccpGeneralRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskSccpGeneralRequest) Execute() (*http.Response, error) {
+func (r SccpAPIUpdateAsteriskSccpGeneralRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskSccpGeneralExecute(r)
 }
 
@@ -1156,17 +1156,17 @@ UpdateAsteriskSccpGeneral Update SCCP general option
 **Required ACL:** `confd.asterisk.sccp.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskSccpGeneralRequest
+	@return SccpAPIUpdateAsteriskSccpGeneralRequest
 */
-func (a *SccpAPIService) UpdateAsteriskSccpGeneral(ctx context.Context) ApiUpdateAsteriskSccpGeneralRequest {
-	return ApiUpdateAsteriskSccpGeneralRequest{
+func (a *SccpAPIService) UpdateAsteriskSccpGeneral(ctx context.Context) SccpAPIUpdateAsteriskSccpGeneralRequest {
+	return SccpAPIUpdateAsteriskSccpGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SccpAPIService) UpdateAsteriskSccpGeneralExecute(r ApiUpdateAsteriskSccpGeneralRequest) (*http.Response, error) {
+func (a *SccpAPIService) UpdateAsteriskSccpGeneralExecute(r SccpAPIUpdateAsteriskSccpGeneralRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1269,7 +1269,7 @@ func (a *SccpAPIService) UpdateAsteriskSccpGeneralExecute(r ApiUpdateAsteriskScc
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointSccpRequest struct {
+type SccpAPIUpdateEndpointSccpRequest struct {
 	ctx          context.Context
 	ApiService   SccpAPI
 	body         *EndpointSccp
@@ -1277,18 +1277,18 @@ type ApiUpdateEndpointSccpRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointSccpRequest) Body(body EndpointSccp) ApiUpdateEndpointSccpRequest {
+func (r SccpAPIUpdateEndpointSccpRequest) Body(body EndpointSccp) SccpAPIUpdateEndpointSccpRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointSccpRequest) AccentTenant(accentTenant string) ApiUpdateEndpointSccpRequest {
+func (r SccpAPIUpdateEndpointSccpRequest) AccentTenant(accentTenant string) SccpAPIUpdateEndpointSccpRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r SccpAPIUpdateEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointSccpExecute(r)
 }
 
@@ -1299,10 +1299,10 @@ UpdateEndpointSccp Update SCCP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sccpId
-	@return ApiUpdateEndpointSccpRequest
+	@return SccpAPIUpdateEndpointSccpRequest
 */
-func (a *SccpAPIService) UpdateEndpointSccp(ctx context.Context, sccpId int32) ApiUpdateEndpointSccpRequest {
-	return ApiUpdateEndpointSccpRequest{
+func (a *SccpAPIService) UpdateEndpointSccp(ctx context.Context, sccpId int32) SccpAPIUpdateEndpointSccpRequest {
+	return SccpAPIUpdateEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sccpId:     sccpId,
@@ -1310,7 +1310,7 @@ func (a *SccpAPIService) UpdateEndpointSccp(ctx context.Context, sccpId int32) A
 }
 
 // Execute executes the request
-func (a *SccpAPIService) UpdateEndpointSccpExecute(r ApiUpdateEndpointSccpRequest) (*http.Response, error) {
+func (a *SccpAPIService) UpdateEndpointSccpExecute(r SccpAPIUpdateEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

@@ -27,12 +27,12 @@ type ConfigAPI interface {
 		**Required ACL:** `calld.config.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetConfigRequest
+		@return ConfigAPIGetConfigRequest
 	*/
-	GetConfig(ctx context.Context) ApiGetConfigRequest
+	GetConfig(ctx context.Context) ConfigAPIGetConfigRequest
 
 	// GetConfigExecute executes the request
-	GetConfigExecute(r ApiGetConfigRequest) (*http.Response, error)
+	GetConfigExecute(r ConfigAPIGetConfigRequest) (*http.Response, error)
 
 	/*
 		PatchConfig Update the current configuration.
@@ -40,23 +40,23 @@ type ConfigAPI interface {
 		**Required ACL:** `calld.config.update` Changes are not persistent across service restart.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPatchConfigRequest
+		@return ConfigAPIPatchConfigRequest
 	*/
-	PatchConfig(ctx context.Context) ApiPatchConfigRequest
+	PatchConfig(ctx context.Context) ConfigAPIPatchConfigRequest
 
 	// PatchConfigExecute executes the request
-	PatchConfigExecute(r ApiPatchConfigRequest) (*http.Response, error)
+	PatchConfigExecute(r ConfigAPIPatchConfigRequest) (*http.Response, error)
 }
 
 // ConfigAPIService ConfigAPI service
 type ConfigAPIService service
 
-type ApiGetConfigRequest struct {
+type ConfigAPIGetConfigRequest struct {
 	ctx        context.Context
 	ApiService ConfigAPI
 }
 
-func (r ApiGetConfigRequest) Execute() (*http.Response, error) {
+func (r ConfigAPIGetConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetConfigExecute(r)
 }
 
@@ -66,17 +66,17 @@ GetConfig Show the current configuration
 **Required ACL:** `calld.config.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetConfigRequest
+	@return ConfigAPIGetConfigRequest
 */
-func (a *ConfigAPIService) GetConfig(ctx context.Context) ApiGetConfigRequest {
-	return ApiGetConfigRequest{
+func (a *ConfigAPIService) GetConfig(ctx context.Context) ConfigAPIGetConfigRequest {
+	return ConfigAPIGetConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ConfigAPIService) GetConfigExecute(r ApiGetConfigRequest) (*http.Response, error) {
+func (a *ConfigAPIService) GetConfigExecute(r ConfigAPIGetConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -153,19 +153,19 @@ func (a *ConfigAPIService) GetConfigExecute(r ApiGetConfigRequest) (*http.Respon
 	return localVarHTTPResponse, nil
 }
 
-type ApiPatchConfigRequest struct {
+type ConfigAPIPatchConfigRequest struct {
 	ctx         context.Context
 	ApiService  ConfigAPI
 	configPatch *[]ConfigPatchItem
 }
 
 // See https://en.wikipedia.org/wiki/JSON_Patch.
-func (r ApiPatchConfigRequest) ConfigPatch(configPatch []ConfigPatchItem) ApiPatchConfigRequest {
+func (r ConfigAPIPatchConfigRequest) ConfigPatch(configPatch []ConfigPatchItem) ConfigAPIPatchConfigRequest {
 	r.configPatch = &configPatch
 	return r
 }
 
-func (r ApiPatchConfigRequest) Execute() (*http.Response, error) {
+func (r ConfigAPIPatchConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PatchConfigExecute(r)
 }
 
@@ -175,17 +175,17 @@ PatchConfig Update the current configuration.
 **Required ACL:** `calld.config.update` Changes are not persistent across service restart.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPatchConfigRequest
+	@return ConfigAPIPatchConfigRequest
 */
-func (a *ConfigAPIService) PatchConfig(ctx context.Context) ApiPatchConfigRequest {
-	return ApiPatchConfigRequest{
+func (a *ConfigAPIService) PatchConfig(ctx context.Context) ConfigAPIPatchConfigRequest {
+	return ConfigAPIPatchConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ConfigAPIService) PatchConfigExecute(r ApiPatchConfigRequest) (*http.Response, error) {
+func (a *ConfigAPIService) PatchConfigExecute(r ConfigAPIPatchConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPatch
 		localVarPostBody   interface{}

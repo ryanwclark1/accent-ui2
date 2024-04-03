@@ -29,12 +29,12 @@ type TokenAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param token The token to query
-		@return ApiCheckTokenContextRequest
+		@return TokenAPICheckTokenContextRequest
 	*/
-	CheckTokenContext(ctx context.Context, token string) ApiCheckTokenContextRequest
+	CheckTokenContext(ctx context.Context, token string) TokenAPICheckTokenContextRequest
 
 	// CheckTokenContextExecute executes the request
-	CheckTokenContextExecute(r ApiCheckTokenContextRequest) (*http.Response, error)
+	CheckTokenContextExecute(r TokenAPICheckTokenContextRequest) (*http.Response, error)
 
 	/*
 		CheckTokenScopes Check a token against scopes
@@ -43,13 +43,13 @@ type TokenAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param token The token to query
-		@return ApiCheckTokenScopesRequest
+		@return TokenAPICheckTokenScopesRequest
 	*/
-	CheckTokenScopes(ctx context.Context, token string) ApiCheckTokenScopesRequest
+	CheckTokenScopes(ctx context.Context, token string) TokenAPICheckTokenScopesRequest
 
 	// CheckTokenScopesExecute executes the request
 	//  @return ScopeList
-	CheckTokenScopesExecute(r ApiCheckTokenScopesRequest) (*ScopeList, *http.Response, error)
+	CheckTokenScopesExecute(r TokenAPICheckTokenScopesRequest) (*ScopeList, *http.Response, error)
 
 	/*
 		CreateToken Creates a token
@@ -63,13 +63,13 @@ type TokenAPI interface {
 	For more details about the backends, see http://documentation.accent.community/en/latest/system/accent-auth/stock_plugins.html#backends-plugins
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateTokenRequest
+		@return TokenAPICreateTokenRequest
 	*/
-	CreateToken(ctx context.Context) ApiCreateTokenRequest
+	CreateToken(ctx context.Context) TokenAPICreateTokenRequest
 
 	// CreateTokenExecute executes the request
 	//  @return Token
-	CreateTokenExecute(r ApiCreateTokenRequest) (*Token, *http.Response, error)
+	CreateTokenExecute(r TokenAPICreateTokenRequest) (*Token, *http.Response, error)
 
 	/*
 		DeleteRefreshTokens Delete a user's refresh token
@@ -79,12 +79,12 @@ type TokenAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuidOrMe The UUID of the user or `me` to refer to the user doing the query
 		@param clientId The client_id of the refresh token to revoke
-		@return ApiDeleteRefreshTokensRequest
+		@return TokenAPIDeleteRefreshTokensRequest
 	*/
-	DeleteRefreshTokens(ctx context.Context, userUuidOrMe string, clientId string) ApiDeleteRefreshTokensRequest
+	DeleteRefreshTokens(ctx context.Context, userUuidOrMe string, clientId string) TokenAPIDeleteRefreshTokensRequest
 
 	// DeleteRefreshTokensExecute executes the request
-	DeleteRefreshTokensExecute(r ApiDeleteRefreshTokensRequest) (*http.Response, error)
+	DeleteRefreshTokensExecute(r TokenAPIDeleteRefreshTokensRequest) (*http.Response, error)
 
 	/*
 		GetToken Retrieves token data
@@ -93,13 +93,13 @@ type TokenAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param token The token to query
-		@return ApiGetTokenRequest
+		@return TokenAPIGetTokenRequest
 	*/
-	GetToken(ctx context.Context, token string) ApiGetTokenRequest
+	GetToken(ctx context.Context, token string) TokenAPIGetTokenRequest
 
 	// GetTokenExecute executes the request
 	//  @return Token
-	GetTokenExecute(r ApiGetTokenRequest) (*Token, *http.Response, error)
+	GetTokenExecute(r TokenAPIGetTokenRequest) (*Token, *http.Response, error)
 
 	/*
 		GetTokens Retrieve a list of refresh tokens that have been created on the system
@@ -107,13 +107,13 @@ type TokenAPI interface {
 		**Required ACL**: `auth.tokens.read` Finds all refresh tokens and return the list. Access tokens are not included in the result.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetTokensRequest
+		@return TokenAPIGetTokensRequest
 	*/
-	GetTokens(ctx context.Context) ApiGetTokensRequest
+	GetTokens(ctx context.Context) TokenAPIGetTokensRequest
 
 	// GetTokensExecute executes the request
 	//  @return RefreshTokenList
-	GetTokensExecute(r ApiGetTokensRequest) (*RefreshTokenList, *http.Response, error)
+	GetTokensExecute(r TokenAPIGetTokensRequest) (*RefreshTokenList, *http.Response, error)
 
 	/*
 		GetUserTokens Retrieve a user's refresh token list
@@ -124,31 +124,31 @@ type TokenAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuidOrMe The UUID of the user or `me` to refer to the user doing the query
-		@return ApiGetUserTokensRequest
+		@return TokenAPIGetUserTokensRequest
 	*/
-	GetUserTokens(ctx context.Context, userUuidOrMe string) ApiGetUserTokensRequest
+	GetUserTokens(ctx context.Context, userUuidOrMe string) TokenAPIGetUserTokensRequest
 
 	// GetUserTokensExecute executes the request
 	//  @return RefreshTokenList
-	GetUserTokensExecute(r ApiGetUserTokensRequest) (*RefreshTokenList, *http.Response, error)
+	GetUserTokensExecute(r TokenAPIGetUserTokensRequest) (*RefreshTokenList, *http.Response, error)
 
 	/*
 		RevokeToken Revoke a token
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param token The token to query
-		@return ApiRevokeTokenRequest
+		@return TokenAPIRevokeTokenRequest
 	*/
-	RevokeToken(ctx context.Context, token string) ApiRevokeTokenRequest
+	RevokeToken(ctx context.Context, token string) TokenAPIRevokeTokenRequest
 
 	// RevokeTokenExecute executes the request
-	RevokeTokenExecute(r ApiRevokeTokenRequest) (*http.Response, error)
+	RevokeTokenExecute(r TokenAPIRevokeTokenRequest) (*http.Response, error)
 }
 
 // TokenAPIService TokenAPI service
 type TokenAPIService service
 
-type ApiCheckTokenContextRequest struct {
+type TokenAPICheckTokenContextRequest struct {
 	ctx        context.Context
 	ApiService TokenAPI
 	token      string
@@ -157,18 +157,18 @@ type ApiCheckTokenContextRequest struct {
 }
 
 // The required ACL
-func (r ApiCheckTokenContextRequest) Scope(scope string) ApiCheckTokenContextRequest {
+func (r TokenAPICheckTokenContextRequest) Scope(scope string) TokenAPICheckTokenContextRequest {
 	r.scope = &scope
 	return r
 }
 
 // A tenant UUID to check against
-func (r ApiCheckTokenContextRequest) Tenant(tenant string) ApiCheckTokenContextRequest {
+func (r TokenAPICheckTokenContextRequest) Tenant(tenant string) TokenAPICheckTokenContextRequest {
 	r.tenant = &tenant
 	return r
 }
 
-func (r ApiCheckTokenContextRequest) Execute() (*http.Response, error) {
+func (r TokenAPICheckTokenContextRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CheckTokenContextExecute(r)
 }
 
@@ -179,10 +179,10 @@ Checks if a token is valid in a given context.  If a scope is given, the token m
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param token The token to query
-	@return ApiCheckTokenContextRequest
+	@return TokenAPICheckTokenContextRequest
 */
-func (a *TokenAPIService) CheckTokenContext(ctx context.Context, token string) ApiCheckTokenContextRequest {
-	return ApiCheckTokenContextRequest{
+func (a *TokenAPIService) CheckTokenContext(ctx context.Context, token string) TokenAPICheckTokenContextRequest {
+	return TokenAPICheckTokenContextRequest{
 		ApiService: a,
 		ctx:        ctx,
 		token:      token,
@@ -190,7 +190,7 @@ func (a *TokenAPIService) CheckTokenContext(ctx context.Context, token string) A
 }
 
 // Execute executes the request
-func (a *TokenAPIService) CheckTokenContextExecute(r ApiCheckTokenContextRequest) (*http.Response, error) {
+func (a *TokenAPIService) CheckTokenContextExecute(r TokenAPICheckTokenContextRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodHead
 		localVarPostBody   interface{}
@@ -292,7 +292,7 @@ func (a *TokenAPIService) CheckTokenContextExecute(r ApiCheckTokenContextRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiCheckTokenScopesRequest struct {
+type TokenAPICheckTokenScopesRequest struct {
 	ctx        context.Context
 	ApiService TokenAPI
 	body       *ScopeCheckRequest
@@ -300,12 +300,12 @@ type ApiCheckTokenScopesRequest struct {
 }
 
 // The token scopes check parameters
-func (r ApiCheckTokenScopesRequest) Body(body ScopeCheckRequest) ApiCheckTokenScopesRequest {
+func (r TokenAPICheckTokenScopesRequest) Body(body ScopeCheckRequest) TokenAPICheckTokenScopesRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCheckTokenScopesRequest) Execute() (*ScopeList, *http.Response, error) {
+func (r TokenAPICheckTokenScopesRequest) Execute() (*ScopeList, *http.Response, error) {
 	return r.ApiService.CheckTokenScopesExecute(r)
 }
 
@@ -316,10 +316,10 @@ Checks if a token is valid for given scopes.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param token The token to query
-	@return ApiCheckTokenScopesRequest
+	@return TokenAPICheckTokenScopesRequest
 */
-func (a *TokenAPIService) CheckTokenScopes(ctx context.Context, token string) ApiCheckTokenScopesRequest {
-	return ApiCheckTokenScopesRequest{
+func (a *TokenAPIService) CheckTokenScopes(ctx context.Context, token string) TokenAPICheckTokenScopesRequest {
+	return TokenAPICheckTokenScopesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		token:      token,
@@ -329,7 +329,7 @@ func (a *TokenAPIService) CheckTokenScopes(ctx context.Context, token string) Ap
 // Execute executes the request
 //
 //	@return ScopeList
-func (a *TokenAPIService) CheckTokenScopesExecute(r ApiCheckTokenScopesRequest) (*ScopeList, *http.Response, error) {
+func (a *TokenAPIService) CheckTokenScopesExecute(r TokenAPICheckTokenScopesRequest) (*ScopeList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -451,7 +451,7 @@ func (a *TokenAPIService) CheckTokenScopesExecute(r ApiCheckTokenScopesRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateTokenRequest struct {
+type TokenAPICreateTokenRequest struct {
 	ctx               context.Context
 	ApiService        TokenAPI
 	body              *CreateTokenRequest
@@ -459,18 +459,18 @@ type ApiCreateTokenRequest struct {
 }
 
 // The token creation parameters
-func (r ApiCreateTokenRequest) Body(body CreateTokenRequest) ApiCreateTokenRequest {
+func (r TokenAPICreateTokenRequest) Body(body CreateTokenRequest) TokenAPICreateTokenRequest {
 	r.body = &body
 	return r
 }
 
 // The session type
-func (r ApiCreateTokenRequest) AccentSessionType(accentSessionType string) ApiCreateTokenRequest {
+func (r TokenAPICreateTokenRequest) AccentSessionType(accentSessionType string) TokenAPICreateTokenRequest {
 	r.accentSessionType = &accentSessionType
 	return r
 }
 
-func (r ApiCreateTokenRequest) Execute() (*Token, *http.Response, error) {
+func (r TokenAPICreateTokenRequest) Execute() (*Token, *http.Response, error) {
 	return r.ApiService.CreateTokenExecute(r)
 }
 
@@ -486,10 +486,10 @@ The username/password and refresh_token method of authentication are mutually ex
 For more details about the backends, see http://documentation.accent.community/en/latest/system/accent-auth/stock_plugins.html#backends-plugins
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateTokenRequest
+	@return TokenAPICreateTokenRequest
 */
-func (a *TokenAPIService) CreateToken(ctx context.Context) ApiCreateTokenRequest {
-	return ApiCreateTokenRequest{
+func (a *TokenAPIService) CreateToken(ctx context.Context) TokenAPICreateTokenRequest {
+	return TokenAPICreateTokenRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -498,7 +498,7 @@ func (a *TokenAPIService) CreateToken(ctx context.Context) ApiCreateTokenRequest
 // Execute executes the request
 //
 //	@return Token
-func (a *TokenAPIService) CreateTokenExecute(r ApiCreateTokenRequest) (*Token, *http.Response, error) {
+func (a *TokenAPIService) CreateTokenExecute(r TokenAPICreateTokenRequest) (*Token, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -597,14 +597,14 @@ func (a *TokenAPIService) CreateTokenExecute(r ApiCreateTokenRequest) (*Token, *
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteRefreshTokensRequest struct {
+type TokenAPIDeleteRefreshTokensRequest struct {
 	ctx          context.Context
 	ApiService   TokenAPI
 	userUuidOrMe string
 	clientId     string
 }
 
-func (r ApiDeleteRefreshTokensRequest) Execute() (*http.Response, error) {
+func (r TokenAPIDeleteRefreshTokensRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteRefreshTokensExecute(r)
 }
 
@@ -616,10 +616,10 @@ DeleteRefreshTokens Delete a user's refresh token
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuidOrMe The UUID of the user or `me` to refer to the user doing the query
 	@param clientId The client_id of the refresh token to revoke
-	@return ApiDeleteRefreshTokensRequest
+	@return TokenAPIDeleteRefreshTokensRequest
 */
-func (a *TokenAPIService) DeleteRefreshTokens(ctx context.Context, userUuidOrMe string, clientId string) ApiDeleteRefreshTokensRequest {
-	return ApiDeleteRefreshTokensRequest{
+func (a *TokenAPIService) DeleteRefreshTokens(ctx context.Context, userUuidOrMe string, clientId string) TokenAPIDeleteRefreshTokensRequest {
+	return TokenAPIDeleteRefreshTokensRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		userUuidOrMe: userUuidOrMe,
@@ -628,7 +628,7 @@ func (a *TokenAPIService) DeleteRefreshTokens(ctx context.Context, userUuidOrMe 
 }
 
 // Execute executes the request
-func (a *TokenAPIService) DeleteRefreshTokensExecute(r ApiDeleteRefreshTokensRequest) (*http.Response, error) {
+func (a *TokenAPIService) DeleteRefreshTokensExecute(r TokenAPIDeleteRefreshTokensRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -739,7 +739,7 @@ func (a *TokenAPIService) DeleteRefreshTokensExecute(r ApiDeleteRefreshTokensReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetTokenRequest struct {
+type TokenAPIGetTokenRequest struct {
 	ctx        context.Context
 	ApiService TokenAPI
 	token      string
@@ -748,18 +748,18 @@ type ApiGetTokenRequest struct {
 }
 
 // The required ACL
-func (r ApiGetTokenRequest) Scope(scope string) ApiGetTokenRequest {
+func (r TokenAPIGetTokenRequest) Scope(scope string) TokenAPIGetTokenRequest {
 	r.scope = &scope
 	return r
 }
 
 // A tenant UUID to check against
-func (r ApiGetTokenRequest) Tenant(tenant string) ApiGetTokenRequest {
+func (r TokenAPIGetTokenRequest) Tenant(tenant string) TokenAPIGetTokenRequest {
 	r.tenant = &tenant
 	return r
 }
 
-func (r ApiGetTokenRequest) Execute() (*Token, *http.Response, error) {
+func (r TokenAPIGetTokenRequest) Execute() (*Token, *http.Response, error) {
 	return r.ApiService.GetTokenExecute(r)
 }
 
@@ -770,10 +770,10 @@ Checks if a token is valid in a given context and return the token data.  If a s
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param token The token to query
-	@return ApiGetTokenRequest
+	@return TokenAPIGetTokenRequest
 */
-func (a *TokenAPIService) GetToken(ctx context.Context, token string) ApiGetTokenRequest {
-	return ApiGetTokenRequest{
+func (a *TokenAPIService) GetToken(ctx context.Context, token string) TokenAPIGetTokenRequest {
+	return TokenAPIGetTokenRequest{
 		ApiService: a,
 		ctx:        ctx,
 		token:      token,
@@ -783,7 +783,7 @@ func (a *TokenAPIService) GetToken(ctx context.Context, token string) ApiGetToke
 // Execute executes the request
 //
 //	@return Token
-func (a *TokenAPIService) GetTokenExecute(r ApiGetTokenRequest) (*Token, *http.Response, error) {
+func (a *TokenAPIService) GetTokenExecute(r TokenAPIGetTokenRequest) (*Token, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -895,7 +895,7 @@ func (a *TokenAPIService) GetTokenExecute(r ApiGetTokenRequest) (*Token, *http.R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTokensRequest struct {
+type TokenAPIGetTokensRequest struct {
 	ctx          context.Context
 	ApiService   TokenAPI
 	accentTenant *string
@@ -908,48 +908,48 @@ type ApiGetTokensRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetTokensRequest) AccentTenant(accentTenant string) ApiGetTokensRequest {
+func (r TokenAPIGetTokensRequest) AccentTenant(accentTenant string) TokenAPIGetTokensRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiGetTokensRequest) Recurse(recurse bool) ApiGetTokensRequest {
+func (r TokenAPIGetTokensRequest) Recurse(recurse bool) TokenAPIGetTokensRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetTokensRequest) Order(order string) ApiGetTokensRequest {
+func (r TokenAPIGetTokensRequest) Order(order string) TokenAPIGetTokensRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetTokensRequest) Direction(direction string) ApiGetTokensRequest {
+func (r TokenAPIGetTokensRequest) Direction(direction string) TokenAPIGetTokensRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetTokensRequest) Limit(limit int32) ApiGetTokensRequest {
+func (r TokenAPIGetTokensRequest) Limit(limit int32) TokenAPIGetTokensRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetTokensRequest) Offset(offset int32) ApiGetTokensRequest {
+func (r TokenAPIGetTokensRequest) Offset(offset int32) TokenAPIGetTokensRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetTokensRequest) Search(search string) ApiGetTokensRequest {
+func (r TokenAPIGetTokensRequest) Search(search string) TokenAPIGetTokensRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetTokensRequest) Execute() (*RefreshTokenList, *http.Response, error) {
+func (r TokenAPIGetTokensRequest) Execute() (*RefreshTokenList, *http.Response, error) {
 	return r.ApiService.GetTokensExecute(r)
 }
 
@@ -959,10 +959,10 @@ GetTokens Retrieve a list of refresh tokens that have been created on the system
 **Required ACL**: `auth.tokens.read` Finds all refresh tokens and return the list. Access tokens are not included in the result.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetTokensRequest
+	@return TokenAPIGetTokensRequest
 */
-func (a *TokenAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
-	return ApiGetTokensRequest{
+func (a *TokenAPIService) GetTokens(ctx context.Context) TokenAPIGetTokensRequest {
+	return TokenAPIGetTokensRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -971,7 +971,7 @@ func (a *TokenAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
 // Execute executes the request
 //
 //	@return RefreshTokenList
-func (a *TokenAPIService) GetTokensExecute(r ApiGetTokensRequest) (*RefreshTokenList, *http.Response, error) {
+func (a *TokenAPIService) GetTokensExecute(r TokenAPIGetTokensRequest) (*RefreshTokenList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1117,7 +1117,7 @@ func (a *TokenAPIService) GetTokensExecute(r ApiGetTokensRequest) (*RefreshToken
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserTokensRequest struct {
+type TokenAPIGetUserTokensRequest struct {
 	ctx          context.Context
 	ApiService   TokenAPI
 	userUuidOrMe string
@@ -1130,42 +1130,42 @@ type ApiGetUserTokensRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserTokensRequest) AccentTenant(accentTenant string) ApiGetUserTokensRequest {
+func (r TokenAPIGetUserTokensRequest) AccentTenant(accentTenant string) TokenAPIGetUserTokensRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetUserTokensRequest) Order(order string) ApiGetUserTokensRequest {
+func (r TokenAPIGetUserTokensRequest) Order(order string) TokenAPIGetUserTokensRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserTokensRequest) Direction(direction string) ApiGetUserTokensRequest {
+func (r TokenAPIGetUserTokensRequest) Direction(direction string) TokenAPIGetUserTokensRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserTokensRequest) Limit(limit int32) ApiGetUserTokensRequest {
+func (r TokenAPIGetUserTokensRequest) Limit(limit int32) TokenAPIGetUserTokensRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserTokensRequest) Offset(offset int32) ApiGetUserTokensRequest {
+func (r TokenAPIGetUserTokensRequest) Offset(offset int32) TokenAPIGetUserTokensRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetUserTokensRequest) Search(search string) ApiGetUserTokensRequest {
+func (r TokenAPIGetUserTokensRequest) Search(search string) TokenAPIGetUserTokensRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetUserTokensRequest) Execute() (*RefreshTokenList, *http.Response, error) {
+func (r TokenAPIGetUserTokensRequest) Execute() (*RefreshTokenList, *http.Response, error) {
 	return r.ApiService.GetUserTokensExecute(r)
 }
 
@@ -1178,10 +1178,10 @@ Doing a query with the `user_uuid` `me` will result in the current user's token 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuidOrMe The UUID of the user or `me` to refer to the user doing the query
-	@return ApiGetUserTokensRequest
+	@return TokenAPIGetUserTokensRequest
 */
-func (a *TokenAPIService) GetUserTokens(ctx context.Context, userUuidOrMe string) ApiGetUserTokensRequest {
-	return ApiGetUserTokensRequest{
+func (a *TokenAPIService) GetUserTokens(ctx context.Context, userUuidOrMe string) TokenAPIGetUserTokensRequest {
+	return TokenAPIGetUserTokensRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		userUuidOrMe: userUuidOrMe,
@@ -1191,7 +1191,7 @@ func (a *TokenAPIService) GetUserTokens(ctx context.Context, userUuidOrMe string
 // Execute executes the request
 //
 //	@return RefreshTokenList
-func (a *TokenAPIService) GetUserTokensExecute(r ApiGetUserTokensRequest) (*RefreshTokenList, *http.Response, error) {
+func (a *TokenAPIService) GetUserTokensExecute(r TokenAPIGetUserTokensRequest) (*RefreshTokenList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1343,13 +1343,13 @@ func (a *TokenAPIService) GetUserTokensExecute(r ApiGetUserTokensRequest) (*Refr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRevokeTokenRequest struct {
+type TokenAPIRevokeTokenRequest struct {
 	ctx        context.Context
 	ApiService TokenAPI
 	token      string
 }
 
-func (r ApiRevokeTokenRequest) Execute() (*http.Response, error) {
+func (r TokenAPIRevokeTokenRequest) Execute() (*http.Response, error) {
 	return r.ApiService.RevokeTokenExecute(r)
 }
 
@@ -1358,10 +1358,10 @@ RevokeToken Revoke a token
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param token The token to query
-	@return ApiRevokeTokenRequest
+	@return TokenAPIRevokeTokenRequest
 */
-func (a *TokenAPIService) RevokeToken(ctx context.Context, token string) ApiRevokeTokenRequest {
-	return ApiRevokeTokenRequest{
+func (a *TokenAPIService) RevokeToken(ctx context.Context, token string) TokenAPIRevokeTokenRequest {
+	return TokenAPIRevokeTokenRequest{
 		ApiService: a,
 		ctx:        ctx,
 		token:      token,
@@ -1369,7 +1369,7 @@ func (a *TokenAPIService) RevokeToken(ctx context.Context, token string) ApiRevo
 }
 
 // Execute executes the request
-func (a *TokenAPIService) RevokeTokenExecute(r ApiRevokeTokenRequest) (*http.Response, error) {
+func (a *TokenAPIService) RevokeTokenExecute(r TokenAPIRevokeTokenRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}

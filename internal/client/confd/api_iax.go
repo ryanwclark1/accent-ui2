@@ -30,12 +30,12 @@ type IaxAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiAssociateTrunkEndpointIaxRequest
+		@return IaxAPIAssociateTrunkEndpointIaxRequest
 	*/
-	AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkEndpointIaxRequest
+	AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) IaxAPIAssociateTrunkEndpointIaxRequest
 
 	// AssociateTrunkEndpointIaxExecute executes the request
-	AssociateTrunkEndpointIaxExecute(r ApiAssociateTrunkEndpointIaxRequest) (*http.Response, error)
+	AssociateTrunkEndpointIaxExecute(r IaxAPIAssociateTrunkEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkRegisterIax Associate trunk and IAX register
@@ -45,12 +45,12 @@ type IaxAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiAssociateTrunkRegisterIaxRequest
+		@return IaxAPIAssociateTrunkRegisterIaxRequest
 	*/
-	AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkRegisterIaxRequest
+	AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) IaxAPIAssociateTrunkRegisterIaxRequest
 
 	// AssociateTrunkRegisterIaxExecute executes the request
-	AssociateTrunkRegisterIaxExecute(r ApiAssociateTrunkRegisterIaxRequest) (*http.Response, error)
+	AssociateTrunkRegisterIaxExecute(r IaxAPIAssociateTrunkRegisterIaxRequest) (*http.Response, error)
 
 	/*
 		CreateEndpointIax Create IAX endpoint
@@ -58,13 +58,13 @@ type IaxAPI interface {
 		**Required ACL:** `confd.endpoints.iax.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointIaxRequest
+		@return IaxAPICreateEndpointIaxRequest
 	*/
-	CreateEndpointIax(ctx context.Context) ApiCreateEndpointIaxRequest
+	CreateEndpointIax(ctx context.Context) IaxAPICreateEndpointIaxRequest
 
 	// CreateEndpointIaxExecute executes the request
 	//  @return EndpointIAX
-	CreateEndpointIaxExecute(r ApiCreateEndpointIaxRequest) (*EndpointIAX, *http.Response, error)
+	CreateEndpointIaxExecute(r IaxAPICreateEndpointIaxRequest) (*EndpointIAX, *http.Response, error)
 
 	/*
 		CreateRegisterIax Create register_iax
@@ -72,13 +72,13 @@ type IaxAPI interface {
 		**Required ACL:** `confd.registers.iax.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateRegisterIaxRequest
+		@return IaxAPICreateRegisterIaxRequest
 	*/
-	CreateRegisterIax(ctx context.Context) ApiCreateRegisterIaxRequest
+	CreateRegisterIax(ctx context.Context) IaxAPICreateRegisterIaxRequest
 
 	// CreateRegisterIaxExecute executes the request
 	//  @return RegisterIAX
-	CreateRegisterIaxExecute(r ApiCreateRegisterIaxRequest) (*RegisterIAX, *http.Response, error)
+	CreateRegisterIaxExecute(r IaxAPICreateRegisterIaxRequest) (*RegisterIAX, *http.Response, error)
 
 	/*
 		DeleteEndpointIax Delete IAX Endpoint
@@ -87,12 +87,12 @@ type IaxAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param iaxId
-		@return ApiDeleteEndpointIaxRequest
+		@return IaxAPIDeleteEndpointIaxRequest
 	*/
-	DeleteEndpointIax(ctx context.Context, iaxId int32) ApiDeleteEndpointIaxRequest
+	DeleteEndpointIax(ctx context.Context, iaxId int32) IaxAPIDeleteEndpointIaxRequest
 
 	// DeleteEndpointIaxExecute executes the request
-	DeleteEndpointIaxExecute(r ApiDeleteEndpointIaxRequest) (*http.Response, error)
+	DeleteEndpointIaxExecute(r IaxAPIDeleteEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		DeleteRegisterIax Delete register IAX
@@ -101,12 +101,12 @@ type IaxAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registerIaxId Register IAX's ID
-		@return ApiDeleteRegisterIaxRequest
+		@return IaxAPIDeleteRegisterIaxRequest
 	*/
-	DeleteRegisterIax(ctx context.Context, registerIaxId int32) ApiDeleteRegisterIaxRequest
+	DeleteRegisterIax(ctx context.Context, registerIaxId int32) IaxAPIDeleteRegisterIaxRequest
 
 	// DeleteRegisterIaxExecute executes the request
-	DeleteRegisterIaxExecute(r ApiDeleteRegisterIaxRequest) (*http.Response, error)
+	DeleteRegisterIaxExecute(r IaxAPIDeleteRegisterIaxRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointIax Dissociate trunk and IAX endpoint
@@ -116,12 +116,12 @@ type IaxAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiDissociateTrunkEndpointIaxRequest
+		@return IaxAPIDissociateTrunkEndpointIaxRequest
 	*/
-	DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkEndpointIaxRequest
+	DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) IaxAPIDissociateTrunkEndpointIaxRequest
 
 	// DissociateTrunkEndpointIaxExecute executes the request
-	DissociateTrunkEndpointIaxExecute(r ApiDissociateTrunkEndpointIaxRequest) (*http.Response, error)
+	DissociateTrunkEndpointIaxExecute(r IaxAPIDissociateTrunkEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkRegisterIax Dissociate trunk and IAX register
@@ -131,12 +131,12 @@ type IaxAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiDissociateTrunkRegisterIaxRequest
+		@return IaxAPIDissociateTrunkRegisterIaxRequest
 	*/
-	DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkRegisterIaxRequest
+	DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) IaxAPIDissociateTrunkRegisterIaxRequest
 
 	// DissociateTrunkRegisterIaxExecute executes the request
-	DissociateTrunkRegisterIaxExecute(r ApiDissociateTrunkRegisterIaxRequest) (*http.Response, error)
+	DissociateTrunkRegisterIaxExecute(r IaxAPIDissociateTrunkRegisterIaxRequest) (*http.Response, error)
 
 	/*
 		GetEndpointIax Get IAX Endpoint
@@ -145,13 +145,13 @@ type IaxAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param iaxId
-		@return ApiGetEndpointIaxRequest
+		@return IaxAPIGetEndpointIaxRequest
 	*/
-	GetEndpointIax(ctx context.Context, iaxId int32) ApiGetEndpointIaxRequest
+	GetEndpointIax(ctx context.Context, iaxId int32) IaxAPIGetEndpointIaxRequest
 
 	// GetEndpointIaxExecute executes the request
 	//  @return EndpointIAX
-	GetEndpointIaxExecute(r ApiGetEndpointIaxRequest) (*EndpointIAX, *http.Response, error)
+	GetEndpointIaxExecute(r IaxAPIGetEndpointIaxRequest) (*EndpointIAX, *http.Response, error)
 
 	/*
 		GetRegisterIax Get register IAX
@@ -160,13 +160,13 @@ type IaxAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registerIaxId Register IAX's ID
-		@return ApiGetRegisterIaxRequest
+		@return IaxAPIGetRegisterIaxRequest
 	*/
-	GetRegisterIax(ctx context.Context, registerIaxId int32) ApiGetRegisterIaxRequest
+	GetRegisterIax(ctx context.Context, registerIaxId int32) IaxAPIGetRegisterIaxRequest
 
 	// GetRegisterIaxExecute executes the request
 	//  @return RegisterIAX
-	GetRegisterIaxExecute(r ApiGetRegisterIaxRequest) (*RegisterIAX, *http.Response, error)
+	GetRegisterIaxExecute(r IaxAPIGetRegisterIaxRequest) (*RegisterIAX, *http.Response, error)
 
 	/*
 		ListAsteriskIaxCallnumberlimits List IAX callnumberlimits options
@@ -174,13 +174,13 @@ type IaxAPI interface {
 		**Required ACL:** `confd.asterisk.iax.callnumberlimits.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskIaxCallnumberlimitsRequest
+		@return IaxAPIListAsteriskIaxCallnumberlimitsRequest
 	*/
-	ListAsteriskIaxCallnumberlimits(ctx context.Context) ApiListAsteriskIaxCallnumberlimitsRequest
+	ListAsteriskIaxCallnumberlimits(ctx context.Context) IaxAPIListAsteriskIaxCallnumberlimitsRequest
 
 	// ListAsteriskIaxCallnumberlimitsExecute executes the request
 	//  @return IAXCallNumberLimitss
-	ListAsteriskIaxCallnumberlimitsExecute(r ApiListAsteriskIaxCallnumberlimitsRequest) (*IAXCallNumberLimitss, *http.Response, error)
+	ListAsteriskIaxCallnumberlimitsExecute(r IaxAPIListAsteriskIaxCallnumberlimitsRequest) (*IAXCallNumberLimitss, *http.Response, error)
 
 	/*
 		ListEndpointsIax List IAX endpoints
@@ -188,13 +188,13 @@ type IaxAPI interface {
 		**Required ACL:** `confd.endpoints.iax.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsIaxRequest
+		@return IaxAPIListEndpointsIaxRequest
 	*/
-	ListEndpointsIax(ctx context.Context) ApiListEndpointsIaxRequest
+	ListEndpointsIax(ctx context.Context) IaxAPIListEndpointsIaxRequest
 
 	// ListEndpointsIaxExecute executes the request
 	//  @return EndpointIAXItems
-	ListEndpointsIaxExecute(r ApiListEndpointsIaxRequest) (*EndpointIAXItems, *http.Response, error)
+	ListEndpointsIaxExecute(r IaxAPIListEndpointsIaxRequest) (*EndpointIAXItems, *http.Response, error)
 
 	/*
 		ListRegistersIax List registers iax
@@ -202,13 +202,13 @@ type IaxAPI interface {
 		**Required ACL:** `confd.registers.iax.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListRegistersIaxRequest
+		@return IaxAPIListRegistersIaxRequest
 	*/
-	ListRegistersIax(ctx context.Context) ApiListRegistersIaxRequest
+	ListRegistersIax(ctx context.Context) IaxAPIListRegistersIaxRequest
 
 	// ListRegistersIaxExecute executes the request
 	//  @return RegisterIAXItems
-	ListRegistersIaxExecute(r ApiListRegistersIaxRequest) (*RegisterIAXItems, *http.Response, error)
+	ListRegistersIaxExecute(r IaxAPIListRegistersIaxRequest) (*RegisterIAXItems, *http.Response, error)
 
 	/*
 		UpdateAsteriskIaxCallnumberlimits Update IAX callnumberlimits option
@@ -216,12 +216,12 @@ type IaxAPI interface {
 		**Required ACL:** `confd.asterisk.iax.callnumberlimits.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskIaxCallnumberlimitsRequest
+		@return IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest
 	*/
-	UpdateAsteriskIaxCallnumberlimits(ctx context.Context) ApiUpdateAsteriskIaxCallnumberlimitsRequest
+	UpdateAsteriskIaxCallnumberlimits(ctx context.Context) IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest
 
 	// UpdateAsteriskIaxCallnumberlimitsExecute executes the request
-	UpdateAsteriskIaxCallnumberlimitsExecute(r ApiUpdateAsteriskIaxCallnumberlimitsRequest) (*http.Response, error)
+	UpdateAsteriskIaxCallnumberlimitsExecute(r IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest) (*http.Response, error)
 
 	/*
 		UpdateEndpointIax Update IAX Endpoint
@@ -230,12 +230,12 @@ type IaxAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param iaxId
-		@return ApiUpdateEndpointIaxRequest
+		@return IaxAPIUpdateEndpointIaxRequest
 	*/
-	UpdateEndpointIax(ctx context.Context, iaxId int32) ApiUpdateEndpointIaxRequest
+	UpdateEndpointIax(ctx context.Context, iaxId int32) IaxAPIUpdateEndpointIaxRequest
 
 	// UpdateEndpointIaxExecute executes the request
-	UpdateEndpointIaxExecute(r ApiUpdateEndpointIaxRequest) (*http.Response, error)
+	UpdateEndpointIaxExecute(r IaxAPIUpdateEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		UpdateRegisterIax Update register IAX
@@ -244,25 +244,25 @@ type IaxAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registerIaxId Register IAX's ID
-		@return ApiUpdateRegisterIaxRequest
+		@return IaxAPIUpdateRegisterIaxRequest
 	*/
-	UpdateRegisterIax(ctx context.Context, registerIaxId int32) ApiUpdateRegisterIaxRequest
+	UpdateRegisterIax(ctx context.Context, registerIaxId int32) IaxAPIUpdateRegisterIaxRequest
 
 	// UpdateRegisterIaxExecute executes the request
-	UpdateRegisterIaxExecute(r ApiUpdateRegisterIaxRequest) (*http.Response, error)
+	UpdateRegisterIaxExecute(r IaxAPIUpdateRegisterIaxRequest) (*http.Response, error)
 }
 
 // IaxAPIService IaxAPI service
 type IaxAPIService service
 
-type ApiAssociateTrunkEndpointIaxRequest struct {
+type IaxAPIAssociateTrunkEndpointIaxRequest struct {
 	ctx        context.Context
 	ApiService IaxAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiAssociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r IaxAPIAssociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointIaxExecute(r)
 }
 
@@ -274,10 +274,10 @@ AssociateTrunkEndpointIax Associate trunk and IAX endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiAssociateTrunkEndpointIaxRequest
+	@return IaxAPIAssociateTrunkEndpointIaxRequest
 */
-func (a *IaxAPIService) AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkEndpointIaxRequest {
-	return ApiAssociateTrunkEndpointIaxRequest{
+func (a *IaxAPIService) AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) IaxAPIAssociateTrunkEndpointIaxRequest {
+	return IaxAPIAssociateTrunkEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -286,7 +286,7 @@ func (a *IaxAPIService) AssociateTrunkEndpointIax(ctx context.Context, trunkId i
 }
 
 // Execute executes the request
-func (a *IaxAPIService) AssociateTrunkEndpointIaxExecute(r ApiAssociateTrunkEndpointIaxRequest) (*http.Response, error) {
+func (a *IaxAPIService) AssociateTrunkEndpointIaxExecute(r IaxAPIAssociateTrunkEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -386,14 +386,14 @@ func (a *IaxAPIService) AssociateTrunkEndpointIaxExecute(r ApiAssociateTrunkEndp
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkRegisterIaxRequest struct {
+type IaxAPIAssociateTrunkRegisterIaxRequest struct {
 	ctx        context.Context
 	ApiService IaxAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiAssociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r IaxAPIAssociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkRegisterIaxExecute(r)
 }
 
@@ -405,10 +405,10 @@ AssociateTrunkRegisterIax Associate trunk and IAX register
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiAssociateTrunkRegisterIaxRequest
+	@return IaxAPIAssociateTrunkRegisterIaxRequest
 */
-func (a *IaxAPIService) AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkRegisterIaxRequest {
-	return ApiAssociateTrunkRegisterIaxRequest{
+func (a *IaxAPIService) AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) IaxAPIAssociateTrunkRegisterIaxRequest {
+	return IaxAPIAssociateTrunkRegisterIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -417,7 +417,7 @@ func (a *IaxAPIService) AssociateTrunkRegisterIax(ctx context.Context, trunkId i
 }
 
 // Execute executes the request
-func (a *IaxAPIService) AssociateTrunkRegisterIaxExecute(r ApiAssociateTrunkRegisterIaxRequest) (*http.Response, error) {
+func (a *IaxAPIService) AssociateTrunkRegisterIaxExecute(r IaxAPIAssociateTrunkRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -517,7 +517,7 @@ func (a *IaxAPIService) AssociateTrunkRegisterIaxExecute(r ApiAssociateTrunkRegi
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointIaxRequest struct {
+type IaxAPICreateEndpointIaxRequest struct {
 	ctx          context.Context
 	ApiService   IaxAPI
 	body         *EndpointIAX
@@ -525,18 +525,18 @@ type ApiCreateEndpointIaxRequest struct {
 }
 
 // IAX Endpoint to create
-func (r ApiCreateEndpointIaxRequest) Body(body EndpointIAX) ApiCreateEndpointIaxRequest {
+func (r IaxAPICreateEndpointIaxRequest) Body(body EndpointIAX) IaxAPICreateEndpointIaxRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointIaxRequest) AccentTenant(accentTenant string) ApiCreateEndpointIaxRequest {
+func (r IaxAPICreateEndpointIaxRequest) AccentTenant(accentTenant string) IaxAPICreateEndpointIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointIaxRequest) Execute() (*EndpointIAX, *http.Response, error) {
+func (r IaxAPICreateEndpointIaxRequest) Execute() (*EndpointIAX, *http.Response, error) {
 	return r.ApiService.CreateEndpointIaxExecute(r)
 }
 
@@ -546,10 +546,10 @@ CreateEndpointIax Create IAX endpoint
 **Required ACL:** `confd.endpoints.iax.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointIaxRequest
+	@return IaxAPICreateEndpointIaxRequest
 */
-func (a *IaxAPIService) CreateEndpointIax(ctx context.Context) ApiCreateEndpointIaxRequest {
-	return ApiCreateEndpointIaxRequest{
+func (a *IaxAPIService) CreateEndpointIax(ctx context.Context) IaxAPICreateEndpointIaxRequest {
+	return IaxAPICreateEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -558,7 +558,7 @@ func (a *IaxAPIService) CreateEndpointIax(ctx context.Context) ApiCreateEndpoint
 // Execute executes the request
 //
 //	@return EndpointIAX
-func (a *IaxAPIService) CreateEndpointIaxExecute(r ApiCreateEndpointIaxRequest) (*EndpointIAX, *http.Response, error) {
+func (a *IaxAPIService) CreateEndpointIaxExecute(r IaxAPICreateEndpointIaxRequest) (*EndpointIAX, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -660,19 +660,19 @@ func (a *IaxAPIService) CreateEndpointIaxExecute(r ApiCreateEndpointIaxRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateRegisterIaxRequest struct {
+type IaxAPICreateRegisterIaxRequest struct {
 	ctx        context.Context
 	ApiService IaxAPI
 	body       *RegisterIAX
 }
 
 // Register iax to create
-func (r ApiCreateRegisterIaxRequest) Body(body RegisterIAX) ApiCreateRegisterIaxRequest {
+func (r IaxAPICreateRegisterIaxRequest) Body(body RegisterIAX) IaxAPICreateRegisterIaxRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateRegisterIaxRequest) Execute() (*RegisterIAX, *http.Response, error) {
+func (r IaxAPICreateRegisterIaxRequest) Execute() (*RegisterIAX, *http.Response, error) {
 	return r.ApiService.CreateRegisterIaxExecute(r)
 }
 
@@ -682,10 +682,10 @@ CreateRegisterIax Create register_iax
 **Required ACL:** `confd.registers.iax.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateRegisterIaxRequest
+	@return IaxAPICreateRegisterIaxRequest
 */
-func (a *IaxAPIService) CreateRegisterIax(ctx context.Context) ApiCreateRegisterIaxRequest {
-	return ApiCreateRegisterIaxRequest{
+func (a *IaxAPIService) CreateRegisterIax(ctx context.Context) IaxAPICreateRegisterIaxRequest {
+	return IaxAPICreateRegisterIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -694,7 +694,7 @@ func (a *IaxAPIService) CreateRegisterIax(ctx context.Context) ApiCreateRegister
 // Execute executes the request
 //
 //	@return RegisterIAX
-func (a *IaxAPIService) CreateRegisterIaxExecute(r ApiCreateRegisterIaxRequest) (*RegisterIAX, *http.Response, error) {
+func (a *IaxAPIService) CreateRegisterIaxExecute(r IaxAPICreateRegisterIaxRequest) (*RegisterIAX, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -796,7 +796,7 @@ func (a *IaxAPIService) CreateRegisterIaxExecute(r ApiCreateRegisterIaxRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointIaxRequest struct {
+type IaxAPIDeleteEndpointIaxRequest struct {
 	ctx          context.Context
 	ApiService   IaxAPI
 	iaxId        int32
@@ -804,12 +804,12 @@ type ApiDeleteEndpointIaxRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointIaxRequest) AccentTenant(accentTenant string) ApiDeleteEndpointIaxRequest {
+func (r IaxAPIDeleteEndpointIaxRequest) AccentTenant(accentTenant string) IaxAPIDeleteEndpointIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r IaxAPIDeleteEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointIaxExecute(r)
 }
 
@@ -820,10 +820,10 @@ DeleteEndpointIax Delete IAX Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iaxId
-	@return ApiDeleteEndpointIaxRequest
+	@return IaxAPIDeleteEndpointIaxRequest
 */
-func (a *IaxAPIService) DeleteEndpointIax(ctx context.Context, iaxId int32) ApiDeleteEndpointIaxRequest {
-	return ApiDeleteEndpointIaxRequest{
+func (a *IaxAPIService) DeleteEndpointIax(ctx context.Context, iaxId int32) IaxAPIDeleteEndpointIaxRequest {
+	return IaxAPIDeleteEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		iaxId:      iaxId,
@@ -831,7 +831,7 @@ func (a *IaxAPIService) DeleteEndpointIax(ctx context.Context, iaxId int32) ApiD
 }
 
 // Execute executes the request
-func (a *IaxAPIService) DeleteEndpointIaxExecute(r ApiDeleteEndpointIaxRequest) (*http.Response, error) {
+func (a *IaxAPIService) DeleteEndpointIaxExecute(r IaxAPIDeleteEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -933,13 +933,13 @@ func (a *IaxAPIService) DeleteEndpointIaxExecute(r ApiDeleteEndpointIaxRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteRegisterIaxRequest struct {
+type IaxAPIDeleteRegisterIaxRequest struct {
 	ctx           context.Context
 	ApiService    IaxAPI
 	registerIaxId int32
 }
 
-func (r ApiDeleteRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r IaxAPIDeleteRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteRegisterIaxExecute(r)
 }
 
@@ -950,10 +950,10 @@ DeleteRegisterIax Delete register IAX
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registerIaxId Register IAX's ID
-	@return ApiDeleteRegisterIaxRequest
+	@return IaxAPIDeleteRegisterIaxRequest
 */
-func (a *IaxAPIService) DeleteRegisterIax(ctx context.Context, registerIaxId int32) ApiDeleteRegisterIaxRequest {
-	return ApiDeleteRegisterIaxRequest{
+func (a *IaxAPIService) DeleteRegisterIax(ctx context.Context, registerIaxId int32) IaxAPIDeleteRegisterIaxRequest {
+	return IaxAPIDeleteRegisterIaxRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		registerIaxId: registerIaxId,
@@ -961,7 +961,7 @@ func (a *IaxAPIService) DeleteRegisterIax(ctx context.Context, registerIaxId int
 }
 
 // Execute executes the request
-func (a *IaxAPIService) DeleteRegisterIaxExecute(r ApiDeleteRegisterIaxRequest) (*http.Response, error) {
+func (a *IaxAPIService) DeleteRegisterIaxExecute(r IaxAPIDeleteRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1060,14 +1060,14 @@ func (a *IaxAPIService) DeleteRegisterIaxExecute(r ApiDeleteRegisterIaxRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointIaxRequest struct {
+type IaxAPIDissociateTrunkEndpointIaxRequest struct {
 	ctx        context.Context
 	ApiService IaxAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiDissociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r IaxAPIDissociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointIaxExecute(r)
 }
 
@@ -1079,10 +1079,10 @@ DissociateTrunkEndpointIax Dissociate trunk and IAX endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiDissociateTrunkEndpointIaxRequest
+	@return IaxAPIDissociateTrunkEndpointIaxRequest
 */
-func (a *IaxAPIService) DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkEndpointIaxRequest {
-	return ApiDissociateTrunkEndpointIaxRequest{
+func (a *IaxAPIService) DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) IaxAPIDissociateTrunkEndpointIaxRequest {
+	return IaxAPIDissociateTrunkEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1091,7 +1091,7 @@ func (a *IaxAPIService) DissociateTrunkEndpointIax(ctx context.Context, trunkId 
 }
 
 // Execute executes the request
-func (a *IaxAPIService) DissociateTrunkEndpointIaxExecute(r ApiDissociateTrunkEndpointIaxRequest) (*http.Response, error) {
+func (a *IaxAPIService) DissociateTrunkEndpointIaxExecute(r IaxAPIDissociateTrunkEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1191,14 +1191,14 @@ func (a *IaxAPIService) DissociateTrunkEndpointIaxExecute(r ApiDissociateTrunkEn
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkRegisterIaxRequest struct {
+type IaxAPIDissociateTrunkRegisterIaxRequest struct {
 	ctx        context.Context
 	ApiService IaxAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiDissociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r IaxAPIDissociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkRegisterIaxExecute(r)
 }
 
@@ -1210,10 +1210,10 @@ DissociateTrunkRegisterIax Dissociate trunk and IAX register
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiDissociateTrunkRegisterIaxRequest
+	@return IaxAPIDissociateTrunkRegisterIaxRequest
 */
-func (a *IaxAPIService) DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkRegisterIaxRequest {
-	return ApiDissociateTrunkRegisterIaxRequest{
+func (a *IaxAPIService) DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) IaxAPIDissociateTrunkRegisterIaxRequest {
+	return IaxAPIDissociateTrunkRegisterIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1222,7 +1222,7 @@ func (a *IaxAPIService) DissociateTrunkRegisterIax(ctx context.Context, trunkId 
 }
 
 // Execute executes the request
-func (a *IaxAPIService) DissociateTrunkRegisterIaxExecute(r ApiDissociateTrunkRegisterIaxRequest) (*http.Response, error) {
+func (a *IaxAPIService) DissociateTrunkRegisterIaxExecute(r IaxAPIDissociateTrunkRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1322,7 +1322,7 @@ func (a *IaxAPIService) DissociateTrunkRegisterIaxExecute(r ApiDissociateTrunkRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointIaxRequest struct {
+type IaxAPIGetEndpointIaxRequest struct {
 	ctx          context.Context
 	ApiService   IaxAPI
 	iaxId        int32
@@ -1330,12 +1330,12 @@ type ApiGetEndpointIaxRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointIaxRequest) AccentTenant(accentTenant string) ApiGetEndpointIaxRequest {
+func (r IaxAPIGetEndpointIaxRequest) AccentTenant(accentTenant string) IaxAPIGetEndpointIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetEndpointIaxRequest) Execute() (*EndpointIAX, *http.Response, error) {
+func (r IaxAPIGetEndpointIaxRequest) Execute() (*EndpointIAX, *http.Response, error) {
 	return r.ApiService.GetEndpointIaxExecute(r)
 }
 
@@ -1346,10 +1346,10 @@ GetEndpointIax Get IAX Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iaxId
-	@return ApiGetEndpointIaxRequest
+	@return IaxAPIGetEndpointIaxRequest
 */
-func (a *IaxAPIService) GetEndpointIax(ctx context.Context, iaxId int32) ApiGetEndpointIaxRequest {
-	return ApiGetEndpointIaxRequest{
+func (a *IaxAPIService) GetEndpointIax(ctx context.Context, iaxId int32) IaxAPIGetEndpointIaxRequest {
+	return IaxAPIGetEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		iaxId:      iaxId,
@@ -1359,7 +1359,7 @@ func (a *IaxAPIService) GetEndpointIax(ctx context.Context, iaxId int32) ApiGetE
 // Execute executes the request
 //
 //	@return EndpointIAX
-func (a *IaxAPIService) GetEndpointIaxExecute(r ApiGetEndpointIaxRequest) (*EndpointIAX, *http.Response, error) {
+func (a *IaxAPIService) GetEndpointIaxExecute(r IaxAPIGetEndpointIaxRequest) (*EndpointIAX, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1460,13 +1460,13 @@ func (a *IaxAPIService) GetEndpointIaxExecute(r ApiGetEndpointIaxRequest) (*Endp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetRegisterIaxRequest struct {
+type IaxAPIGetRegisterIaxRequest struct {
 	ctx           context.Context
 	ApiService    IaxAPI
 	registerIaxId int32
 }
 
-func (r ApiGetRegisterIaxRequest) Execute() (*RegisterIAX, *http.Response, error) {
+func (r IaxAPIGetRegisterIaxRequest) Execute() (*RegisterIAX, *http.Response, error) {
 	return r.ApiService.GetRegisterIaxExecute(r)
 }
 
@@ -1477,10 +1477,10 @@ GetRegisterIax Get register IAX
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registerIaxId Register IAX's ID
-	@return ApiGetRegisterIaxRequest
+	@return IaxAPIGetRegisterIaxRequest
 */
-func (a *IaxAPIService) GetRegisterIax(ctx context.Context, registerIaxId int32) ApiGetRegisterIaxRequest {
-	return ApiGetRegisterIaxRequest{
+func (a *IaxAPIService) GetRegisterIax(ctx context.Context, registerIaxId int32) IaxAPIGetRegisterIaxRequest {
+	return IaxAPIGetRegisterIaxRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		registerIaxId: registerIaxId,
@@ -1490,7 +1490,7 @@ func (a *IaxAPIService) GetRegisterIax(ctx context.Context, registerIaxId int32)
 // Execute executes the request
 //
 //	@return RegisterIAX
-func (a *IaxAPIService) GetRegisterIaxExecute(r ApiGetRegisterIaxRequest) (*RegisterIAX, *http.Response, error) {
+func (a *IaxAPIService) GetRegisterIaxExecute(r IaxAPIGetRegisterIaxRequest) (*RegisterIAX, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1588,12 +1588,12 @@ func (a *IaxAPIService) GetRegisterIaxExecute(r ApiGetRegisterIaxRequest) (*Regi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskIaxCallnumberlimitsRequest struct {
+type IaxAPIListAsteriskIaxCallnumberlimitsRequest struct {
 	ctx        context.Context
 	ApiService IaxAPI
 }
 
-func (r ApiListAsteriskIaxCallnumberlimitsRequest) Execute() (*IAXCallNumberLimitss, *http.Response, error) {
+func (r IaxAPIListAsteriskIaxCallnumberlimitsRequest) Execute() (*IAXCallNumberLimitss, *http.Response, error) {
 	return r.ApiService.ListAsteriskIaxCallnumberlimitsExecute(r)
 }
 
@@ -1603,10 +1603,10 @@ ListAsteriskIaxCallnumberlimits List IAX callnumberlimits options
 **Required ACL:** `confd.asterisk.iax.callnumberlimits.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskIaxCallnumberlimitsRequest
+	@return IaxAPIListAsteriskIaxCallnumberlimitsRequest
 */
-func (a *IaxAPIService) ListAsteriskIaxCallnumberlimits(ctx context.Context) ApiListAsteriskIaxCallnumberlimitsRequest {
-	return ApiListAsteriskIaxCallnumberlimitsRequest{
+func (a *IaxAPIService) ListAsteriskIaxCallnumberlimits(ctx context.Context) IaxAPIListAsteriskIaxCallnumberlimitsRequest {
+	return IaxAPIListAsteriskIaxCallnumberlimitsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1615,7 +1615,7 @@ func (a *IaxAPIService) ListAsteriskIaxCallnumberlimits(ctx context.Context) Api
 // Execute executes the request
 //
 //	@return IAXCallNumberLimitss
-func (a *IaxAPIService) ListAsteriskIaxCallnumberlimitsExecute(r ApiListAsteriskIaxCallnumberlimitsRequest) (*IAXCallNumberLimitss, *http.Response, error) {
+func (a *IaxAPIService) ListAsteriskIaxCallnumberlimitsExecute(r IaxAPIListAsteriskIaxCallnumberlimitsRequest) (*IAXCallNumberLimitss, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1702,7 +1702,7 @@ func (a *IaxAPIService) ListAsteriskIaxCallnumberlimitsExecute(r ApiListAsterisk
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsIaxRequest struct {
+type IaxAPIListEndpointsIaxRequest struct {
 	ctx          context.Context
 	ApiService   IaxAPI
 	accentTenant *string
@@ -1715,48 +1715,48 @@ type ApiListEndpointsIaxRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsIaxRequest) AccentTenant(accentTenant string) ApiListEndpointsIaxRequest {
+func (r IaxAPIListEndpointsIaxRequest) AccentTenant(accentTenant string) IaxAPIListEndpointsIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsIaxRequest) Recurse(recurse bool) ApiListEndpointsIaxRequest {
+func (r IaxAPIListEndpointsIaxRequest) Recurse(recurse bool) IaxAPIListEndpointsIaxRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsIaxRequest) Order(order string) ApiListEndpointsIaxRequest {
+func (r IaxAPIListEndpointsIaxRequest) Order(order string) IaxAPIListEndpointsIaxRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsIaxRequest) Direction(direction string) ApiListEndpointsIaxRequest {
+func (r IaxAPIListEndpointsIaxRequest) Direction(direction string) IaxAPIListEndpointsIaxRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsIaxRequest) Limit(limit int32) ApiListEndpointsIaxRequest {
+func (r IaxAPIListEndpointsIaxRequest) Limit(limit int32) IaxAPIListEndpointsIaxRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsIaxRequest) Offset(offset int32) ApiListEndpointsIaxRequest {
+func (r IaxAPIListEndpointsIaxRequest) Offset(offset int32) IaxAPIListEndpointsIaxRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsIaxRequest) Search(search string) ApiListEndpointsIaxRequest {
+func (r IaxAPIListEndpointsIaxRequest) Search(search string) IaxAPIListEndpointsIaxRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsIaxRequest) Execute() (*EndpointIAXItems, *http.Response, error) {
+func (r IaxAPIListEndpointsIaxRequest) Execute() (*EndpointIAXItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsIaxExecute(r)
 }
 
@@ -1766,10 +1766,10 @@ ListEndpointsIax List IAX endpoints
 **Required ACL:** `confd.endpoints.iax.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsIaxRequest
+	@return IaxAPIListEndpointsIaxRequest
 */
-func (a *IaxAPIService) ListEndpointsIax(ctx context.Context) ApiListEndpointsIaxRequest {
-	return ApiListEndpointsIaxRequest{
+func (a *IaxAPIService) ListEndpointsIax(ctx context.Context) IaxAPIListEndpointsIaxRequest {
+	return IaxAPIListEndpointsIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1778,7 +1778,7 @@ func (a *IaxAPIService) ListEndpointsIax(ctx context.Context) ApiListEndpointsIa
 // Execute executes the request
 //
 //	@return EndpointIAXItems
-func (a *IaxAPIService) ListEndpointsIaxExecute(r ApiListEndpointsIaxRequest) (*EndpointIAXItems, *http.Response, error) {
+func (a *IaxAPIService) ListEndpointsIaxExecute(r IaxAPIListEndpointsIaxRequest) (*EndpointIAXItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1889,7 +1889,7 @@ func (a *IaxAPIService) ListEndpointsIaxExecute(r ApiListEndpointsIaxRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListRegistersIaxRequest struct {
+type IaxAPIListRegistersIaxRequest struct {
 	ctx        context.Context
 	ApiService IaxAPI
 	order      *string
@@ -1900,36 +1900,36 @@ type ApiListRegistersIaxRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListRegistersIaxRequest) Order(order string) ApiListRegistersIaxRequest {
+func (r IaxAPIListRegistersIaxRequest) Order(order string) IaxAPIListRegistersIaxRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListRegistersIaxRequest) Direction(direction string) ApiListRegistersIaxRequest {
+func (r IaxAPIListRegistersIaxRequest) Direction(direction string) IaxAPIListRegistersIaxRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListRegistersIaxRequest) Limit(limit int32) ApiListRegistersIaxRequest {
+func (r IaxAPIListRegistersIaxRequest) Limit(limit int32) IaxAPIListRegistersIaxRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListRegistersIaxRequest) Offset(offset int32) ApiListRegistersIaxRequest {
+func (r IaxAPIListRegistersIaxRequest) Offset(offset int32) IaxAPIListRegistersIaxRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListRegistersIaxRequest) Search(search string) ApiListRegistersIaxRequest {
+func (r IaxAPIListRegistersIaxRequest) Search(search string) IaxAPIListRegistersIaxRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListRegistersIaxRequest) Execute() (*RegisterIAXItems, *http.Response, error) {
+func (r IaxAPIListRegistersIaxRequest) Execute() (*RegisterIAXItems, *http.Response, error) {
 	return r.ApiService.ListRegistersIaxExecute(r)
 }
 
@@ -1939,10 +1939,10 @@ ListRegistersIax List registers iax
 **Required ACL:** `confd.registers.iax.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListRegistersIaxRequest
+	@return IaxAPIListRegistersIaxRequest
 */
-func (a *IaxAPIService) ListRegistersIax(ctx context.Context) ApiListRegistersIaxRequest {
-	return ApiListRegistersIaxRequest{
+func (a *IaxAPIService) ListRegistersIax(ctx context.Context) IaxAPIListRegistersIaxRequest {
+	return IaxAPIListRegistersIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1951,7 +1951,7 @@ func (a *IaxAPIService) ListRegistersIax(ctx context.Context) ApiListRegistersIa
 // Execute executes the request
 //
 //	@return RegisterIAXItems
-func (a *IaxAPIService) ListRegistersIaxExecute(r ApiListRegistersIaxRequest) (*RegisterIAXItems, *http.Response, error) {
+func (a *IaxAPIService) ListRegistersIaxExecute(r IaxAPIListRegistersIaxRequest) (*RegisterIAXItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2053,18 +2053,18 @@ func (a *IaxAPIService) ListRegistersIaxExecute(r ApiListRegistersIaxRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskIaxCallnumberlimitsRequest struct {
+type IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest struct {
 	ctx        context.Context
 	ApiService IaxAPI
 	body       *IAXCallNumberLimitss
 }
 
-func (r ApiUpdateAsteriskIaxCallnumberlimitsRequest) Body(body IAXCallNumberLimitss) ApiUpdateAsteriskIaxCallnumberlimitsRequest {
+func (r IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest) Body(body IAXCallNumberLimitss) IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskIaxCallnumberlimitsRequest) Execute() (*http.Response, error) {
+func (r IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskIaxCallnumberlimitsExecute(r)
 }
 
@@ -2074,17 +2074,17 @@ UpdateAsteriskIaxCallnumberlimits Update IAX callnumberlimits option
 **Required ACL:** `confd.asterisk.iax.callnumberlimits.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskIaxCallnumberlimitsRequest
+	@return IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest
 */
-func (a *IaxAPIService) UpdateAsteriskIaxCallnumberlimits(ctx context.Context) ApiUpdateAsteriskIaxCallnumberlimitsRequest {
-	return ApiUpdateAsteriskIaxCallnumberlimitsRequest{
+func (a *IaxAPIService) UpdateAsteriskIaxCallnumberlimits(ctx context.Context) IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest {
+	return IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *IaxAPIService) UpdateAsteriskIaxCallnumberlimitsExecute(r ApiUpdateAsteriskIaxCallnumberlimitsRequest) (*http.Response, error) {
+func (a *IaxAPIService) UpdateAsteriskIaxCallnumberlimitsExecute(r IaxAPIUpdateAsteriskIaxCallnumberlimitsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2187,7 +2187,7 @@ func (a *IaxAPIService) UpdateAsteriskIaxCallnumberlimitsExecute(r ApiUpdateAste
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointIaxRequest struct {
+type IaxAPIUpdateEndpointIaxRequest struct {
 	ctx          context.Context
 	ApiService   IaxAPI
 	body         *EndpointIAX
@@ -2195,18 +2195,18 @@ type ApiUpdateEndpointIaxRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointIaxRequest) Body(body EndpointIAX) ApiUpdateEndpointIaxRequest {
+func (r IaxAPIUpdateEndpointIaxRequest) Body(body EndpointIAX) IaxAPIUpdateEndpointIaxRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointIaxRequest) AccentTenant(accentTenant string) ApiUpdateEndpointIaxRequest {
+func (r IaxAPIUpdateEndpointIaxRequest) AccentTenant(accentTenant string) IaxAPIUpdateEndpointIaxRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r IaxAPIUpdateEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointIaxExecute(r)
 }
 
@@ -2217,10 +2217,10 @@ UpdateEndpointIax Update IAX Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param iaxId
-	@return ApiUpdateEndpointIaxRequest
+	@return IaxAPIUpdateEndpointIaxRequest
 */
-func (a *IaxAPIService) UpdateEndpointIax(ctx context.Context, iaxId int32) ApiUpdateEndpointIaxRequest {
-	return ApiUpdateEndpointIaxRequest{
+func (a *IaxAPIService) UpdateEndpointIax(ctx context.Context, iaxId int32) IaxAPIUpdateEndpointIaxRequest {
+	return IaxAPIUpdateEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		iaxId:      iaxId,
@@ -2228,7 +2228,7 @@ func (a *IaxAPIService) UpdateEndpointIax(ctx context.Context, iaxId int32) ApiU
 }
 
 // Execute executes the request
-func (a *IaxAPIService) UpdateEndpointIaxExecute(r ApiUpdateEndpointIaxRequest) (*http.Response, error) {
+func (a *IaxAPIService) UpdateEndpointIaxExecute(r IaxAPIUpdateEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2335,19 +2335,19 @@ func (a *IaxAPIService) UpdateEndpointIaxExecute(r ApiUpdateEndpointIaxRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateRegisterIaxRequest struct {
+type IaxAPIUpdateRegisterIaxRequest struct {
 	ctx           context.Context
 	ApiService    IaxAPI
 	body          *RegisterIAX
 	registerIaxId int32
 }
 
-func (r ApiUpdateRegisterIaxRequest) Body(body RegisterIAX) ApiUpdateRegisterIaxRequest {
+func (r IaxAPIUpdateRegisterIaxRequest) Body(body RegisterIAX) IaxAPIUpdateRegisterIaxRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r IaxAPIUpdateRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateRegisterIaxExecute(r)
 }
 
@@ -2358,10 +2358,10 @@ UpdateRegisterIax Update register IAX
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registerIaxId Register IAX's ID
-	@return ApiUpdateRegisterIaxRequest
+	@return IaxAPIUpdateRegisterIaxRequest
 */
-func (a *IaxAPIService) UpdateRegisterIax(ctx context.Context, registerIaxId int32) ApiUpdateRegisterIaxRequest {
-	return ApiUpdateRegisterIaxRequest{
+func (a *IaxAPIService) UpdateRegisterIax(ctx context.Context, registerIaxId int32) IaxAPIUpdateRegisterIaxRequest {
+	return IaxAPIUpdateRegisterIaxRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		registerIaxId: registerIaxId,
@@ -2369,7 +2369,7 @@ func (a *IaxAPIService) UpdateRegisterIax(ctx context.Context, registerIaxId int
 }
 
 // Execute executes the request
-func (a *IaxAPIService) UpdateRegisterIaxExecute(r ApiUpdateRegisterIaxRequest) (*http.Response, error) {
+func (a *IaxAPIService) UpdateRegisterIaxExecute(r IaxAPIUpdateRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

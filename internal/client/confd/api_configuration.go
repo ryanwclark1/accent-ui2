@@ -27,13 +27,13 @@ type ConfigurationAPI interface {
 		**Required ACL:** `confd.configuration.live_reload.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetConfigurationRequest
+		@return ConfigurationAPIGetConfigurationRequest
 	*/
-	GetConfiguration(ctx context.Context) ApiGetConfigurationRequest
+	GetConfiguration(ctx context.Context) ConfigurationAPIGetConfigurationRequest
 
 	// GetConfigurationExecute executes the request
 	//  @return LiveReload
-	GetConfigurationExecute(r ApiGetConfigurationRequest) (*LiveReload, *http.Response, error)
+	GetConfigurationExecute(r ConfigurationAPIGetConfigurationRequest) (*LiveReload, *http.Response, error)
 
 	/*
 		UpdateConfiguration Update live reload status
@@ -41,23 +41,23 @@ type ConfigurationAPI interface {
 		**Required ACL:** `confd.configuration.live_reload.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateConfigurationRequest
+		@return ConfigurationAPIUpdateConfigurationRequest
 	*/
-	UpdateConfiguration(ctx context.Context) ApiUpdateConfigurationRequest
+	UpdateConfiguration(ctx context.Context) ConfigurationAPIUpdateConfigurationRequest
 
 	// UpdateConfigurationExecute executes the request
-	UpdateConfigurationExecute(r ApiUpdateConfigurationRequest) (*http.Response, error)
+	UpdateConfigurationExecute(r ConfigurationAPIUpdateConfigurationRequest) (*http.Response, error)
 }
 
 // ConfigurationAPIService ConfigurationAPI service
 type ConfigurationAPIService service
 
-type ApiGetConfigurationRequest struct {
+type ConfigurationAPIGetConfigurationRequest struct {
 	ctx        context.Context
 	ApiService ConfigurationAPI
 }
 
-func (r ApiGetConfigurationRequest) Execute() (*LiveReload, *http.Response, error) {
+func (r ConfigurationAPIGetConfigurationRequest) Execute() (*LiveReload, *http.Response, error) {
 	return r.ApiService.GetConfigurationExecute(r)
 }
 
@@ -67,10 +67,10 @@ GetConfiguration Get live reload status
 **Required ACL:** `confd.configuration.live_reload.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetConfigurationRequest
+	@return ConfigurationAPIGetConfigurationRequest
 */
-func (a *ConfigurationAPIService) GetConfiguration(ctx context.Context) ApiGetConfigurationRequest {
-	return ApiGetConfigurationRequest{
+func (a *ConfigurationAPIService) GetConfiguration(ctx context.Context) ConfigurationAPIGetConfigurationRequest {
+	return ConfigurationAPIGetConfigurationRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -79,7 +79,7 @@ func (a *ConfigurationAPIService) GetConfiguration(ctx context.Context) ApiGetCo
 // Execute executes the request
 //
 //	@return LiveReload
-func (a *ConfigurationAPIService) GetConfigurationExecute(r ApiGetConfigurationRequest) (*LiveReload, *http.Response, error) {
+func (a *ConfigurationAPIService) GetConfigurationExecute(r ConfigurationAPIGetConfigurationRequest) (*LiveReload, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -166,18 +166,18 @@ func (a *ConfigurationAPIService) GetConfigurationExecute(r ApiGetConfigurationR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateConfigurationRequest struct {
+type ConfigurationAPIUpdateConfigurationRequest struct {
 	ctx        context.Context
 	ApiService ConfigurationAPI
 	body       *LiveReload
 }
 
-func (r ApiUpdateConfigurationRequest) Body(body LiveReload) ApiUpdateConfigurationRequest {
+func (r ConfigurationAPIUpdateConfigurationRequest) Body(body LiveReload) ConfigurationAPIUpdateConfigurationRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateConfigurationRequest) Execute() (*http.Response, error) {
+func (r ConfigurationAPIUpdateConfigurationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateConfigurationExecute(r)
 }
 
@@ -187,17 +187,17 @@ UpdateConfiguration Update live reload status
 **Required ACL:** `confd.configuration.live_reload.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateConfigurationRequest
+	@return ConfigurationAPIUpdateConfigurationRequest
 */
-func (a *ConfigurationAPIService) UpdateConfiguration(ctx context.Context) ApiUpdateConfigurationRequest {
-	return ApiUpdateConfigurationRequest{
+func (a *ConfigurationAPIService) UpdateConfiguration(ctx context.Context) ConfigurationAPIUpdateConfigurationRequest {
+	return ConfigurationAPIUpdateConfigurationRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ConfigurationAPIService) UpdateConfigurationExecute(r ApiUpdateConfigurationRequest) (*http.Response, error) {
+func (a *ConfigurationAPIService) UpdateConfigurationExecute(r ConfigurationAPIUpdateConfigurationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

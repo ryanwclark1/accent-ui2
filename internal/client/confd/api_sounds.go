@@ -28,13 +28,13 @@ type SoundsAPI interface {
 		**Required ACL:** `confd.sounds.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateSoundsRequest
+		@return SoundsAPICreateSoundsRequest
 	*/
-	CreateSounds(ctx context.Context) ApiCreateSoundsRequest
+	CreateSounds(ctx context.Context) SoundsAPICreateSoundsRequest
 
 	// CreateSoundsExecute executes the request
 	//  @return Sound
-	CreateSoundsExecute(r ApiCreateSoundsRequest) (*Sound, *http.Response, error)
+	CreateSoundsExecute(r SoundsAPICreateSoundsRequest) (*Sound, *http.Response, error)
 
 	/*
 		DeleteSounds Delete sound category
@@ -46,12 +46,12 @@ type SoundsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param soundCategory
-		@return ApiDeleteSoundsRequest
+		@return SoundsAPIDeleteSoundsRequest
 	*/
-	DeleteSounds(ctx context.Context, soundCategory string) ApiDeleteSoundsRequest
+	DeleteSounds(ctx context.Context, soundCategory string) SoundsAPIDeleteSoundsRequest
 
 	// DeleteSoundsExecute executes the request
-	DeleteSoundsExecute(r ApiDeleteSoundsRequest) (*http.Response, error)
+	DeleteSoundsExecute(r SoundsAPIDeleteSoundsRequest) (*http.Response, error)
 
 	/*
 		DeleteSoundsFiles Delete audio file
@@ -61,12 +61,12 @@ type SoundsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param soundCategory
 		@param soundFilename
-		@return ApiDeleteSoundsFilesRequest
+		@return SoundsAPIDeleteSoundsFilesRequest
 	*/
-	DeleteSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) ApiDeleteSoundsFilesRequest
+	DeleteSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) SoundsAPIDeleteSoundsFilesRequest
 
 	// DeleteSoundsFilesExecute executes the request
-	DeleteSoundsFilesExecute(r ApiDeleteSoundsFilesRequest) (*http.Response, error)
+	DeleteSoundsFilesExecute(r SoundsAPIDeleteSoundsFilesRequest) (*http.Response, error)
 
 	/*
 		GetSounds Get sound category
@@ -75,13 +75,13 @@ type SoundsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param soundCategory
-		@return ApiGetSoundsRequest
+		@return SoundsAPIGetSoundsRequest
 	*/
-	GetSounds(ctx context.Context, soundCategory string) ApiGetSoundsRequest
+	GetSounds(ctx context.Context, soundCategory string) SoundsAPIGetSoundsRequest
 
 	// GetSoundsExecute executes the request
 	//  @return Sound
-	GetSoundsExecute(r ApiGetSoundsRequest) (*Sound, *http.Response, error)
+	GetSoundsExecute(r SoundsAPIGetSoundsRequest) (*Sound, *http.Response, error)
 
 	/*
 		GetSoundsFiles Get audio file
@@ -91,12 +91,12 @@ type SoundsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param soundCategory
 		@param soundFilename
-		@return ApiGetSoundsFilesRequest
+		@return SoundsAPIGetSoundsFilesRequest
 	*/
-	GetSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) ApiGetSoundsFilesRequest
+	GetSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) SoundsAPIGetSoundsFilesRequest
 
 	// GetSoundsFilesExecute executes the request
-	GetSoundsFilesExecute(r ApiGetSoundsFilesRequest) (*http.Response, error)
+	GetSoundsFilesExecute(r SoundsAPIGetSoundsFilesRequest) (*http.Response, error)
 
 	/*
 		ListSounds List sound categories
@@ -104,13 +104,13 @@ type SoundsAPI interface {
 		**Required ACL:** `confd.sounds.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSoundsRequest
+		@return SoundsAPIListSoundsRequest
 	*/
-	ListSounds(ctx context.Context) ApiListSoundsRequest
+	ListSounds(ctx context.Context) SoundsAPIListSoundsRequest
 
 	// ListSoundsExecute executes the request
 	//  @return SoundItems
-	ListSoundsExecute(r ApiListSoundsRequest) (*SoundItems, *http.Response, error)
+	ListSoundsExecute(r SoundsAPIListSoundsRequest) (*SoundItems, *http.Response, error)
 
 	/*
 		ListSoundsLanguages List all languages for sounds
@@ -118,13 +118,13 @@ type SoundsAPI interface {
 		**Required ACL:** `confd.sounds.languages.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSoundsLanguagesRequest
+		@return SoundsAPIListSoundsLanguagesRequest
 	*/
-	ListSoundsLanguages(ctx context.Context) ApiListSoundsLanguagesRequest
+	ListSoundsLanguages(ctx context.Context) SoundsAPIListSoundsLanguagesRequest
 
 	// ListSoundsLanguagesExecute executes the request
 	//  @return SoundLanguageItems
-	ListSoundsLanguagesExecute(r ApiListSoundsLanguagesRequest) (*SoundLanguageItems, *http.Response, error)
+	ListSoundsLanguagesExecute(r SoundsAPIListSoundsLanguagesRequest) (*SoundLanguageItems, *http.Response, error)
 
 	/*
 		UpdateSoundsFiles Add or update audio file
@@ -134,18 +134,18 @@ type SoundsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param soundCategory
 		@param soundFilename
-		@return ApiUpdateSoundsFilesRequest
+		@return SoundsAPIUpdateSoundsFilesRequest
 	*/
-	UpdateSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) ApiUpdateSoundsFilesRequest
+	UpdateSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) SoundsAPIUpdateSoundsFilesRequest
 
 	// UpdateSoundsFilesExecute executes the request
-	UpdateSoundsFilesExecute(r ApiUpdateSoundsFilesRequest) (*http.Response, error)
+	UpdateSoundsFilesExecute(r SoundsAPIUpdateSoundsFilesRequest) (*http.Response, error)
 }
 
 // SoundsAPIService SoundsAPI service
 type SoundsAPIService service
 
-type ApiCreateSoundsRequest struct {
+type SoundsAPICreateSoundsRequest struct {
 	ctx          context.Context
 	ApiService   SoundsAPI
 	body         *Sound
@@ -153,18 +153,18 @@ type ApiCreateSoundsRequest struct {
 }
 
 // Sound category to create
-func (r ApiCreateSoundsRequest) Body(body Sound) ApiCreateSoundsRequest {
+func (r SoundsAPICreateSoundsRequest) Body(body Sound) SoundsAPICreateSoundsRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateSoundsRequest) AccentTenant(accentTenant string) ApiCreateSoundsRequest {
+func (r SoundsAPICreateSoundsRequest) AccentTenant(accentTenant string) SoundsAPICreateSoundsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateSoundsRequest) Execute() (*Sound, *http.Response, error) {
+func (r SoundsAPICreateSoundsRequest) Execute() (*Sound, *http.Response, error) {
 	return r.ApiService.CreateSoundsExecute(r)
 }
 
@@ -174,10 +174,10 @@ CreateSounds Create sound category
 **Required ACL:** `confd.sounds.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateSoundsRequest
+	@return SoundsAPICreateSoundsRequest
 */
-func (a *SoundsAPIService) CreateSounds(ctx context.Context) ApiCreateSoundsRequest {
-	return ApiCreateSoundsRequest{
+func (a *SoundsAPIService) CreateSounds(ctx context.Context) SoundsAPICreateSoundsRequest {
+	return SoundsAPICreateSoundsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -186,7 +186,7 @@ func (a *SoundsAPIService) CreateSounds(ctx context.Context) ApiCreateSoundsRequ
 // Execute executes the request
 //
 //	@return Sound
-func (a *SoundsAPIService) CreateSoundsExecute(r ApiCreateSoundsRequest) (*Sound, *http.Response, error) {
+func (a *SoundsAPIService) CreateSoundsExecute(r SoundsAPICreateSoundsRequest) (*Sound, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -291,7 +291,7 @@ func (a *SoundsAPIService) CreateSoundsExecute(r ApiCreateSoundsRequest) (*Sound
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteSoundsRequest struct {
+type SoundsAPIDeleteSoundsRequest struct {
 	ctx           context.Context
 	ApiService    SoundsAPI
 	soundCategory string
@@ -299,12 +299,12 @@ type ApiDeleteSoundsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteSoundsRequest) AccentTenant(accentTenant string) ApiDeleteSoundsRequest {
+func (r SoundsAPIDeleteSoundsRequest) AccentTenant(accentTenant string) SoundsAPIDeleteSoundsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteSoundsRequest) Execute() (*http.Response, error) {
+func (r SoundsAPIDeleteSoundsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteSoundsExecute(r)
 }
 
@@ -317,10 +317,10 @@ Delete the sound category and associated audio files.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param soundCategory
-	@return ApiDeleteSoundsRequest
+	@return SoundsAPIDeleteSoundsRequest
 */
-func (a *SoundsAPIService) DeleteSounds(ctx context.Context, soundCategory string) ApiDeleteSoundsRequest {
-	return ApiDeleteSoundsRequest{
+func (a *SoundsAPIService) DeleteSounds(ctx context.Context, soundCategory string) SoundsAPIDeleteSoundsRequest {
+	return SoundsAPIDeleteSoundsRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		soundCategory: soundCategory,
@@ -328,7 +328,7 @@ func (a *SoundsAPIService) DeleteSounds(ctx context.Context, soundCategory strin
 }
 
 // Execute executes the request
-func (a *SoundsAPIService) DeleteSoundsExecute(r ApiDeleteSoundsRequest) (*http.Response, error) {
+func (a *SoundsAPIService) DeleteSoundsExecute(r SoundsAPIDeleteSoundsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -430,7 +430,7 @@ func (a *SoundsAPIService) DeleteSoundsExecute(r ApiDeleteSoundsRequest) (*http.
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteSoundsFilesRequest struct {
+type SoundsAPIDeleteSoundsFilesRequest struct {
 	ctx           context.Context
 	ApiService    SoundsAPI
 	soundCategory string
@@ -441,24 +441,24 @@ type ApiDeleteSoundsFilesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteSoundsFilesRequest) AccentTenant(accentTenant string) ApiDeleteSoundsFilesRequest {
+func (r SoundsAPIDeleteSoundsFilesRequest) AccentTenant(accentTenant string) SoundsAPIDeleteSoundsFilesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Language of the sound
-func (r ApiDeleteSoundsFilesRequest) Language(language string) ApiDeleteSoundsFilesRequest {
+func (r SoundsAPIDeleteSoundsFilesRequest) Language(language string) SoundsAPIDeleteSoundsFilesRequest {
 	r.language = &language
 	return r
 }
 
 // Format of the sound
-func (r ApiDeleteSoundsFilesRequest) Format(format string) ApiDeleteSoundsFilesRequest {
+func (r SoundsAPIDeleteSoundsFilesRequest) Format(format string) SoundsAPIDeleteSoundsFilesRequest {
 	r.format = &format
 	return r
 }
 
-func (r ApiDeleteSoundsFilesRequest) Execute() (*http.Response, error) {
+func (r SoundsAPIDeleteSoundsFilesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteSoundsFilesExecute(r)
 }
 
@@ -470,10 +470,10 @@ DeleteSoundsFiles Delete audio file
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param soundCategory
 	@param soundFilename
-	@return ApiDeleteSoundsFilesRequest
+	@return SoundsAPIDeleteSoundsFilesRequest
 */
-func (a *SoundsAPIService) DeleteSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) ApiDeleteSoundsFilesRequest {
-	return ApiDeleteSoundsFilesRequest{
+func (a *SoundsAPIService) DeleteSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) SoundsAPIDeleteSoundsFilesRequest {
+	return SoundsAPIDeleteSoundsFilesRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		soundCategory: soundCategory,
@@ -482,7 +482,7 @@ func (a *SoundsAPIService) DeleteSoundsFiles(ctx context.Context, soundCategory 
 }
 
 // Execute executes the request
-func (a *SoundsAPIService) DeleteSoundsFilesExecute(r ApiDeleteSoundsFilesRequest) (*http.Response, error) {
+func (a *SoundsAPIService) DeleteSoundsFilesExecute(r SoundsAPIDeleteSoundsFilesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -580,7 +580,7 @@ func (a *SoundsAPIService) DeleteSoundsFilesExecute(r ApiDeleteSoundsFilesReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetSoundsRequest struct {
+type SoundsAPIGetSoundsRequest struct {
 	ctx           context.Context
 	ApiService    SoundsAPI
 	soundCategory string
@@ -588,12 +588,12 @@ type ApiGetSoundsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetSoundsRequest) AccentTenant(accentTenant string) ApiGetSoundsRequest {
+func (r SoundsAPIGetSoundsRequest) AccentTenant(accentTenant string) SoundsAPIGetSoundsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetSoundsRequest) Execute() (*Sound, *http.Response, error) {
+func (r SoundsAPIGetSoundsRequest) Execute() (*Sound, *http.Response, error) {
 	return r.ApiService.GetSoundsExecute(r)
 }
 
@@ -604,10 +604,10 @@ GetSounds Get sound category
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param soundCategory
-	@return ApiGetSoundsRequest
+	@return SoundsAPIGetSoundsRequest
 */
-func (a *SoundsAPIService) GetSounds(ctx context.Context, soundCategory string) ApiGetSoundsRequest {
-	return ApiGetSoundsRequest{
+func (a *SoundsAPIService) GetSounds(ctx context.Context, soundCategory string) SoundsAPIGetSoundsRequest {
+	return SoundsAPIGetSoundsRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		soundCategory: soundCategory,
@@ -617,7 +617,7 @@ func (a *SoundsAPIService) GetSounds(ctx context.Context, soundCategory string) 
 // Execute executes the request
 //
 //	@return Sound
-func (a *SoundsAPIService) GetSoundsExecute(r ApiGetSoundsRequest) (*Sound, *http.Response, error) {
+func (a *SoundsAPIService) GetSoundsExecute(r SoundsAPIGetSoundsRequest) (*Sound, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -718,7 +718,7 @@ func (a *SoundsAPIService) GetSoundsExecute(r ApiGetSoundsRequest) (*Sound, *htt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSoundsFilesRequest struct {
+type SoundsAPIGetSoundsFilesRequest struct {
 	ctx           context.Context
 	ApiService    SoundsAPI
 	soundCategory string
@@ -729,24 +729,24 @@ type ApiGetSoundsFilesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetSoundsFilesRequest) AccentTenant(accentTenant string) ApiGetSoundsFilesRequest {
+func (r SoundsAPIGetSoundsFilesRequest) AccentTenant(accentTenant string) SoundsAPIGetSoundsFilesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Language of the sound
-func (r ApiGetSoundsFilesRequest) Language(language string) ApiGetSoundsFilesRequest {
+func (r SoundsAPIGetSoundsFilesRequest) Language(language string) SoundsAPIGetSoundsFilesRequest {
 	r.language = &language
 	return r
 }
 
 // Format of the sound
-func (r ApiGetSoundsFilesRequest) Format(format string) ApiGetSoundsFilesRequest {
+func (r SoundsAPIGetSoundsFilesRequest) Format(format string) SoundsAPIGetSoundsFilesRequest {
 	r.format = &format
 	return r
 }
 
-func (r ApiGetSoundsFilesRequest) Execute() (*http.Response, error) {
+func (r SoundsAPIGetSoundsFilesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetSoundsFilesExecute(r)
 }
 
@@ -758,10 +758,10 @@ GetSoundsFiles Get audio file
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param soundCategory
 	@param soundFilename
-	@return ApiGetSoundsFilesRequest
+	@return SoundsAPIGetSoundsFilesRequest
 */
-func (a *SoundsAPIService) GetSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) ApiGetSoundsFilesRequest {
-	return ApiGetSoundsFilesRequest{
+func (a *SoundsAPIService) GetSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) SoundsAPIGetSoundsFilesRequest {
+	return SoundsAPIGetSoundsFilesRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		soundCategory: soundCategory,
@@ -770,7 +770,7 @@ func (a *SoundsAPIService) GetSoundsFiles(ctx context.Context, soundCategory str
 }
 
 // Execute executes the request
-func (a *SoundsAPIService) GetSoundsFilesExecute(r ApiGetSoundsFilesRequest) (*http.Response, error) {
+func (a *SoundsAPIService) GetSoundsFilesExecute(r SoundsAPIGetSoundsFilesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -868,7 +868,7 @@ func (a *SoundsAPIService) GetSoundsFilesExecute(r ApiGetSoundsFilesRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiListSoundsRequest struct {
+type SoundsAPIListSoundsRequest struct {
 	ctx          context.Context
 	ApiService   SoundsAPI
 	accentTenant *string
@@ -881,48 +881,48 @@ type ApiListSoundsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListSoundsRequest) AccentTenant(accentTenant string) ApiListSoundsRequest {
+func (r SoundsAPIListSoundsRequest) AccentTenant(accentTenant string) SoundsAPIListSoundsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListSoundsRequest) Recurse(recurse bool) ApiListSoundsRequest {
+func (r SoundsAPIListSoundsRequest) Recurse(recurse bool) SoundsAPIListSoundsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListSoundsRequest) Order(order string) ApiListSoundsRequest {
+func (r SoundsAPIListSoundsRequest) Order(order string) SoundsAPIListSoundsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListSoundsRequest) Direction(direction string) ApiListSoundsRequest {
+func (r SoundsAPIListSoundsRequest) Direction(direction string) SoundsAPIListSoundsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListSoundsRequest) Limit(limit int32) ApiListSoundsRequest {
+func (r SoundsAPIListSoundsRequest) Limit(limit int32) SoundsAPIListSoundsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListSoundsRequest) Offset(offset int32) ApiListSoundsRequest {
+func (r SoundsAPIListSoundsRequest) Offset(offset int32) SoundsAPIListSoundsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListSoundsRequest) Search(search string) ApiListSoundsRequest {
+func (r SoundsAPIListSoundsRequest) Search(search string) SoundsAPIListSoundsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListSoundsRequest) Execute() (*SoundItems, *http.Response, error) {
+func (r SoundsAPIListSoundsRequest) Execute() (*SoundItems, *http.Response, error) {
 	return r.ApiService.ListSoundsExecute(r)
 }
 
@@ -932,10 +932,10 @@ ListSounds List sound categories
 **Required ACL:** `confd.sounds.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListSoundsRequest
+	@return SoundsAPIListSoundsRequest
 */
-func (a *SoundsAPIService) ListSounds(ctx context.Context) ApiListSoundsRequest {
-	return ApiListSoundsRequest{
+func (a *SoundsAPIService) ListSounds(ctx context.Context) SoundsAPIListSoundsRequest {
+	return SoundsAPIListSoundsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -944,7 +944,7 @@ func (a *SoundsAPIService) ListSounds(ctx context.Context) ApiListSoundsRequest 
 // Execute executes the request
 //
 //	@return SoundItems
-func (a *SoundsAPIService) ListSoundsExecute(r ApiListSoundsRequest) (*SoundItems, *http.Response, error) {
+func (a *SoundsAPIService) ListSoundsExecute(r SoundsAPIListSoundsRequest) (*SoundItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1055,12 +1055,12 @@ func (a *SoundsAPIService) ListSoundsExecute(r ApiListSoundsRequest) (*SoundItem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSoundsLanguagesRequest struct {
+type SoundsAPIListSoundsLanguagesRequest struct {
 	ctx        context.Context
 	ApiService SoundsAPI
 }
 
-func (r ApiListSoundsLanguagesRequest) Execute() (*SoundLanguageItems, *http.Response, error) {
+func (r SoundsAPIListSoundsLanguagesRequest) Execute() (*SoundLanguageItems, *http.Response, error) {
 	return r.ApiService.ListSoundsLanguagesExecute(r)
 }
 
@@ -1070,10 +1070,10 @@ ListSoundsLanguages List all languages for sounds
 **Required ACL:** `confd.sounds.languages.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListSoundsLanguagesRequest
+	@return SoundsAPIListSoundsLanguagesRequest
 */
-func (a *SoundsAPIService) ListSoundsLanguages(ctx context.Context) ApiListSoundsLanguagesRequest {
-	return ApiListSoundsLanguagesRequest{
+func (a *SoundsAPIService) ListSoundsLanguages(ctx context.Context) SoundsAPIListSoundsLanguagesRequest {
+	return SoundsAPIListSoundsLanguagesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1082,7 +1082,7 @@ func (a *SoundsAPIService) ListSoundsLanguages(ctx context.Context) ApiListSound
 // Execute executes the request
 //
 //	@return SoundLanguageItems
-func (a *SoundsAPIService) ListSoundsLanguagesExecute(r ApiListSoundsLanguagesRequest) (*SoundLanguageItems, *http.Response, error) {
+func (a *SoundsAPIService) ListSoundsLanguagesExecute(r SoundsAPIListSoundsLanguagesRequest) (*SoundLanguageItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1169,7 +1169,7 @@ func (a *SoundsAPIService) ListSoundsLanguagesExecute(r ApiListSoundsLanguagesRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateSoundsFilesRequest struct {
+type SoundsAPIUpdateSoundsFilesRequest struct {
 	ctx           context.Context
 	ApiService    SoundsAPI
 	body          *map[string]interface{}
@@ -1180,30 +1180,30 @@ type ApiUpdateSoundsFilesRequest struct {
 	format        *string
 }
 
-func (r ApiUpdateSoundsFilesRequest) Body(body map[string]interface{}) ApiUpdateSoundsFilesRequest {
+func (r SoundsAPIUpdateSoundsFilesRequest) Body(body map[string]interface{}) SoundsAPIUpdateSoundsFilesRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateSoundsFilesRequest) AccentTenant(accentTenant string) ApiUpdateSoundsFilesRequest {
+func (r SoundsAPIUpdateSoundsFilesRequest) AccentTenant(accentTenant string) SoundsAPIUpdateSoundsFilesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Language of the sound
-func (r ApiUpdateSoundsFilesRequest) Language(language string) ApiUpdateSoundsFilesRequest {
+func (r SoundsAPIUpdateSoundsFilesRequest) Language(language string) SoundsAPIUpdateSoundsFilesRequest {
 	r.language = &language
 	return r
 }
 
 // Format of the sound
-func (r ApiUpdateSoundsFilesRequest) Format(format string) ApiUpdateSoundsFilesRequest {
+func (r SoundsAPIUpdateSoundsFilesRequest) Format(format string) SoundsAPIUpdateSoundsFilesRequest {
 	r.format = &format
 	return r
 }
 
-func (r ApiUpdateSoundsFilesRequest) Execute() (*http.Response, error) {
+func (r SoundsAPIUpdateSoundsFilesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSoundsFilesExecute(r)
 }
 
@@ -1215,10 +1215,10 @@ UpdateSoundsFiles Add or update audio file
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param soundCategory
 	@param soundFilename
-	@return ApiUpdateSoundsFilesRequest
+	@return SoundsAPIUpdateSoundsFilesRequest
 */
-func (a *SoundsAPIService) UpdateSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) ApiUpdateSoundsFilesRequest {
-	return ApiUpdateSoundsFilesRequest{
+func (a *SoundsAPIService) UpdateSoundsFiles(ctx context.Context, soundCategory string, soundFilename string) SoundsAPIUpdateSoundsFilesRequest {
+	return SoundsAPIUpdateSoundsFilesRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		soundCategory: soundCategory,
@@ -1227,7 +1227,7 @@ func (a *SoundsAPIService) UpdateSoundsFiles(ctx context.Context, soundCategory 
 }
 
 // Execute executes the request
-func (a *SoundsAPIService) UpdateSoundsFilesExecute(r ApiUpdateSoundsFilesRequest) (*http.Response, error) {
+func (a *SoundsAPIService) UpdateSoundsFilesExecute(r SoundsAPIUpdateSoundsFilesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

@@ -33,12 +33,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param applicationUuid Application's UUID
-		@return ApiAssociateLineApplicationRequest
+		@return ApplicationsAPIAssociateLineApplicationRequest
 	*/
-	AssociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApiAssociateLineApplicationRequest
+	AssociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApplicationsAPIAssociateLineApplicationRequest
 
 	// AssociateLineApplicationExecute executes the request
-	AssociateLineApplicationExecute(r ApiAssociateLineApplicationRequest) (*http.Response, error)
+	AssociateLineApplicationExecute(r ApplicationsAPIAssociateLineApplicationRequest) (*http.Response, error)
 
 	/*
 		CreateApplication Create application
@@ -46,13 +46,13 @@ type ApplicationsAPI interface {
 		**Required ACL:** `confd.applications.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateApplicationRequest
+		@return ApplicationsAPICreateApplicationRequest
 	*/
-	CreateApplication(ctx context.Context) ApiCreateApplicationRequest
+	CreateApplication(ctx context.Context) ApplicationsAPICreateApplicationRequest
 
 	// CreateApplicationExecute executes the request
 	//  @return Application
-	CreateApplicationExecute(r ApiCreateApplicationRequest) (*Application, *http.Response, error)
+	CreateApplicationExecute(r ApplicationsAPICreateApplicationRequest) (*Application, *http.Response, error)
 
 	/*
 		DeleteApplication Delete application
@@ -61,12 +61,12 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid Application's UUID
-		@return ApiDeleteApplicationRequest
+		@return ApplicationsAPIDeleteApplicationRequest
 	*/
-	DeleteApplication(ctx context.Context, applicationUuid int32) ApiDeleteApplicationRequest
+	DeleteApplication(ctx context.Context, applicationUuid int32) ApplicationsAPIDeleteApplicationRequest
 
 	// DeleteApplicationExecute executes the request
-	DeleteApplicationExecute(r ApiDeleteApplicationRequest) (*http.Response, error)
+	DeleteApplicationExecute(r ApplicationsAPIDeleteApplicationRequest) (*http.Response, error)
 
 	/*
 		DissociateLineApplication Dissociate line and application
@@ -76,12 +76,12 @@ type ApplicationsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param applicationUuid Application's UUID
-		@return ApiDissociateLineApplicationRequest
+		@return ApplicationsAPIDissociateLineApplicationRequest
 	*/
-	DissociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApiDissociateLineApplicationRequest
+	DissociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApplicationsAPIDissociateLineApplicationRequest
 
 	// DissociateLineApplicationExecute executes the request
-	DissociateLineApplicationExecute(r ApiDissociateLineApplicationRequest) (*http.Response, error)
+	DissociateLineApplicationExecute(r ApplicationsAPIDissociateLineApplicationRequest) (*http.Response, error)
 
 	/*
 		GetApplication Get application
@@ -90,13 +90,13 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid Application's UUID
-		@return ApiGetApplicationRequest
+		@return ApplicationsAPIGetApplicationRequest
 	*/
-	GetApplication(ctx context.Context, applicationUuid int32) ApiGetApplicationRequest
+	GetApplication(ctx context.Context, applicationUuid int32) ApplicationsAPIGetApplicationRequest
 
 	// GetApplicationExecute executes the request
 	//  @return Application
-	GetApplicationExecute(r ApiGetApplicationRequest) (*Application, *http.Response, error)
+	GetApplicationExecute(r ApplicationsAPIGetApplicationRequest) (*Application, *http.Response, error)
 
 	/*
 		ListApplications List application
@@ -104,13 +104,13 @@ type ApplicationsAPI interface {
 		**Required ACL:** `confd.applications.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListApplicationsRequest
+		@return ApplicationsAPIListApplicationsRequest
 	*/
-	ListApplications(ctx context.Context) ApiListApplicationsRequest
+	ListApplications(ctx context.Context) ApplicationsAPIListApplicationsRequest
 
 	// ListApplicationsExecute executes the request
 	//  @return ApplicationItems
-	ListApplicationsExecute(r ApiListApplicationsRequest) (*ApplicationItems, *http.Response, error)
+	ListApplicationsExecute(r ApplicationsAPIListApplicationsRequest) (*ApplicationItems, *http.Response, error)
 
 	/*
 		UpdateApplication Update application
@@ -119,18 +119,18 @@ type ApplicationsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param applicationUuid Application's UUID
-		@return ApiUpdateApplicationRequest
+		@return ApplicationsAPIUpdateApplicationRequest
 	*/
-	UpdateApplication(ctx context.Context, applicationUuid int32) ApiUpdateApplicationRequest
+	UpdateApplication(ctx context.Context, applicationUuid int32) ApplicationsAPIUpdateApplicationRequest
 
 	// UpdateApplicationExecute executes the request
-	UpdateApplicationExecute(r ApiUpdateApplicationRequest) (*http.Response, error)
+	UpdateApplicationExecute(r ApplicationsAPIUpdateApplicationRequest) (*http.Response, error)
 }
 
 // ApplicationsAPIService ApplicationsAPI service
 type ApplicationsAPIService service
 
-type ApiAssociateLineApplicationRequest struct {
+type ApplicationsAPIAssociateLineApplicationRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	lineId          int32
@@ -139,12 +139,12 @@ type ApiAssociateLineApplicationRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateLineApplicationRequest) AccentTenant(accentTenant string) ApiAssociateLineApplicationRequest {
+func (r ApplicationsAPIAssociateLineApplicationRequest) AccentTenant(accentTenant string) ApplicationsAPIAssociateLineApplicationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateLineApplicationRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIAssociateLineApplicationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineApplicationExecute(r)
 }
 
@@ -158,10 +158,10 @@ AssociateLineApplication Associate line and application
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param applicationUuid Application's UUID
-	@return ApiAssociateLineApplicationRequest
+	@return ApplicationsAPIAssociateLineApplicationRequest
 */
-func (a *ApplicationsAPIService) AssociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApiAssociateLineApplicationRequest {
-	return ApiAssociateLineApplicationRequest{
+func (a *ApplicationsAPIService) AssociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApplicationsAPIAssociateLineApplicationRequest {
+	return ApplicationsAPIAssociateLineApplicationRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		lineId:          lineId,
@@ -170,7 +170,7 @@ func (a *ApplicationsAPIService) AssociateLineApplication(ctx context.Context, l
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) AssociateLineApplicationExecute(r ApiAssociateLineApplicationRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) AssociateLineApplicationExecute(r ApplicationsAPIAssociateLineApplicationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -273,7 +273,7 @@ func (a *ApplicationsAPIService) AssociateLineApplicationExecute(r ApiAssociateL
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateApplicationRequest struct {
+type ApplicationsAPICreateApplicationRequest struct {
 	ctx          context.Context
 	ApiService   ApplicationsAPI
 	body         *Application
@@ -281,18 +281,18 @@ type ApiCreateApplicationRequest struct {
 }
 
 // Application parameters
-func (r ApiCreateApplicationRequest) Body(body Application) ApiCreateApplicationRequest {
+func (r ApplicationsAPICreateApplicationRequest) Body(body Application) ApplicationsAPICreateApplicationRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateApplicationRequest) AccentTenant(accentTenant string) ApiCreateApplicationRequest {
+func (r ApplicationsAPICreateApplicationRequest) AccentTenant(accentTenant string) ApplicationsAPICreateApplicationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateApplicationRequest) Execute() (*Application, *http.Response, error) {
+func (r ApplicationsAPICreateApplicationRequest) Execute() (*Application, *http.Response, error) {
 	return r.ApiService.CreateApplicationExecute(r)
 }
 
@@ -302,10 +302,10 @@ CreateApplication Create application
 **Required ACL:** `confd.applications.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateApplicationRequest
+	@return ApplicationsAPICreateApplicationRequest
 */
-func (a *ApplicationsAPIService) CreateApplication(ctx context.Context) ApiCreateApplicationRequest {
-	return ApiCreateApplicationRequest{
+func (a *ApplicationsAPIService) CreateApplication(ctx context.Context) ApplicationsAPICreateApplicationRequest {
+	return ApplicationsAPICreateApplicationRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -314,7 +314,7 @@ func (a *ApplicationsAPIService) CreateApplication(ctx context.Context) ApiCreat
 // Execute executes the request
 //
 //	@return Application
-func (a *ApplicationsAPIService) CreateApplicationExecute(r ApiCreateApplicationRequest) (*Application, *http.Response, error) {
+func (a *ApplicationsAPIService) CreateApplicationExecute(r ApplicationsAPICreateApplicationRequest) (*Application, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -419,7 +419,7 @@ func (a *ApplicationsAPIService) CreateApplicationExecute(r ApiCreateApplication
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteApplicationRequest struct {
+type ApplicationsAPIDeleteApplicationRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid int32
@@ -427,12 +427,12 @@ type ApiDeleteApplicationRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteApplicationRequest) AccentTenant(accentTenant string) ApiDeleteApplicationRequest {
+func (r ApplicationsAPIDeleteApplicationRequest) AccentTenant(accentTenant string) ApplicationsAPIDeleteApplicationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteApplicationRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIDeleteApplicationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteApplicationExecute(r)
 }
 
@@ -443,10 +443,10 @@ DeleteApplication Delete application
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid Application's UUID
-	@return ApiDeleteApplicationRequest
+	@return ApplicationsAPIDeleteApplicationRequest
 */
-func (a *ApplicationsAPIService) DeleteApplication(ctx context.Context, applicationUuid int32) ApiDeleteApplicationRequest {
-	return ApiDeleteApplicationRequest{
+func (a *ApplicationsAPIService) DeleteApplication(ctx context.Context, applicationUuid int32) ApplicationsAPIDeleteApplicationRequest {
+	return ApplicationsAPIDeleteApplicationRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -454,7 +454,7 @@ func (a *ApplicationsAPIService) DeleteApplication(ctx context.Context, applicat
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) DeleteApplicationExecute(r ApiDeleteApplicationRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) DeleteApplicationExecute(r ApplicationsAPIDeleteApplicationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -556,7 +556,7 @@ func (a *ApplicationsAPIService) DeleteApplicationExecute(r ApiDeleteApplication
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineApplicationRequest struct {
+type ApplicationsAPIDissociateLineApplicationRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	lineId          int32
@@ -565,12 +565,12 @@ type ApiDissociateLineApplicationRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateLineApplicationRequest) AccentTenant(accentTenant string) ApiDissociateLineApplicationRequest {
+func (r ApplicationsAPIDissociateLineApplicationRequest) AccentTenant(accentTenant string) ApplicationsAPIDissociateLineApplicationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateLineApplicationRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIDissociateLineApplicationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineApplicationExecute(r)
 }
 
@@ -582,10 +582,10 @@ DissociateLineApplication Dissociate line and application
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param applicationUuid Application's UUID
-	@return ApiDissociateLineApplicationRequest
+	@return ApplicationsAPIDissociateLineApplicationRequest
 */
-func (a *ApplicationsAPIService) DissociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApiDissociateLineApplicationRequest {
-	return ApiDissociateLineApplicationRequest{
+func (a *ApplicationsAPIService) DissociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApplicationsAPIDissociateLineApplicationRequest {
+	return ApplicationsAPIDissociateLineApplicationRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		lineId:          lineId,
@@ -594,7 +594,7 @@ func (a *ApplicationsAPIService) DissociateLineApplication(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) DissociateLineApplicationExecute(r ApiDissociateLineApplicationRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) DissociateLineApplicationExecute(r ApplicationsAPIDissociateLineApplicationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -697,7 +697,7 @@ func (a *ApplicationsAPIService) DissociateLineApplicationExecute(r ApiDissociat
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetApplicationRequest struct {
+type ApplicationsAPIGetApplicationRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	applicationUuid int32
@@ -705,12 +705,12 @@ type ApiGetApplicationRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetApplicationRequest) AccentTenant(accentTenant string) ApiGetApplicationRequest {
+func (r ApplicationsAPIGetApplicationRequest) AccentTenant(accentTenant string) ApplicationsAPIGetApplicationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetApplicationRequest) Execute() (*Application, *http.Response, error) {
+func (r ApplicationsAPIGetApplicationRequest) Execute() (*Application, *http.Response, error) {
 	return r.ApiService.GetApplicationExecute(r)
 }
 
@@ -721,10 +721,10 @@ GetApplication Get application
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid Application's UUID
-	@return ApiGetApplicationRequest
+	@return ApplicationsAPIGetApplicationRequest
 */
-func (a *ApplicationsAPIService) GetApplication(ctx context.Context, applicationUuid int32) ApiGetApplicationRequest {
-	return ApiGetApplicationRequest{
+func (a *ApplicationsAPIService) GetApplication(ctx context.Context, applicationUuid int32) ApplicationsAPIGetApplicationRequest {
+	return ApplicationsAPIGetApplicationRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -734,7 +734,7 @@ func (a *ApplicationsAPIService) GetApplication(ctx context.Context, application
 // Execute executes the request
 //
 //	@return Application
-func (a *ApplicationsAPIService) GetApplicationExecute(r ApiGetApplicationRequest) (*Application, *http.Response, error) {
+func (a *ApplicationsAPIService) GetApplicationExecute(r ApplicationsAPIGetApplicationRequest) (*Application, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -835,7 +835,7 @@ func (a *ApplicationsAPIService) GetApplicationExecute(r ApiGetApplicationReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListApplicationsRequest struct {
+type ApplicationsAPIListApplicationsRequest struct {
 	ctx          context.Context
 	ApiService   ApplicationsAPI
 	accentTenant *string
@@ -848,48 +848,48 @@ type ApiListApplicationsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListApplicationsRequest) AccentTenant(accentTenant string) ApiListApplicationsRequest {
+func (r ApplicationsAPIListApplicationsRequest) AccentTenant(accentTenant string) ApplicationsAPIListApplicationsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListApplicationsRequest) Recurse(recurse bool) ApiListApplicationsRequest {
+func (r ApplicationsAPIListApplicationsRequest) Recurse(recurse bool) ApplicationsAPIListApplicationsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListApplicationsRequest) Order(order string) ApiListApplicationsRequest {
+func (r ApplicationsAPIListApplicationsRequest) Order(order string) ApplicationsAPIListApplicationsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListApplicationsRequest) Direction(direction string) ApiListApplicationsRequest {
+func (r ApplicationsAPIListApplicationsRequest) Direction(direction string) ApplicationsAPIListApplicationsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListApplicationsRequest) Limit(limit int32) ApiListApplicationsRequest {
+func (r ApplicationsAPIListApplicationsRequest) Limit(limit int32) ApplicationsAPIListApplicationsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListApplicationsRequest) Offset(offset int32) ApiListApplicationsRequest {
+func (r ApplicationsAPIListApplicationsRequest) Offset(offset int32) ApplicationsAPIListApplicationsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListApplicationsRequest) Search(search string) ApiListApplicationsRequest {
+func (r ApplicationsAPIListApplicationsRequest) Search(search string) ApplicationsAPIListApplicationsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListApplicationsRequest) Execute() (*ApplicationItems, *http.Response, error) {
+func (r ApplicationsAPIListApplicationsRequest) Execute() (*ApplicationItems, *http.Response, error) {
 	return r.ApiService.ListApplicationsExecute(r)
 }
 
@@ -899,10 +899,10 @@ ListApplications List application
 **Required ACL:** `confd.applications.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListApplicationsRequest
+	@return ApplicationsAPIListApplicationsRequest
 */
-func (a *ApplicationsAPIService) ListApplications(ctx context.Context) ApiListApplicationsRequest {
-	return ApiListApplicationsRequest{
+func (a *ApplicationsAPIService) ListApplications(ctx context.Context) ApplicationsAPIListApplicationsRequest {
+	return ApplicationsAPIListApplicationsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -911,7 +911,7 @@ func (a *ApplicationsAPIService) ListApplications(ctx context.Context) ApiListAp
 // Execute executes the request
 //
 //	@return ApplicationItems
-func (a *ApplicationsAPIService) ListApplicationsExecute(r ApiListApplicationsRequest) (*ApplicationItems, *http.Response, error) {
+func (a *ApplicationsAPIService) ListApplicationsExecute(r ApplicationsAPIListApplicationsRequest) (*ApplicationItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1022,7 +1022,7 @@ func (a *ApplicationsAPIService) ListApplicationsExecute(r ApiListApplicationsRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateApplicationRequest struct {
+type ApplicationsAPIUpdateApplicationRequest struct {
 	ctx             context.Context
 	ApiService      ApplicationsAPI
 	body            *Application
@@ -1030,18 +1030,18 @@ type ApiUpdateApplicationRequest struct {
 	accentTenant    *string
 }
 
-func (r ApiUpdateApplicationRequest) Body(body Application) ApiUpdateApplicationRequest {
+func (r ApplicationsAPIUpdateApplicationRequest) Body(body Application) ApplicationsAPIUpdateApplicationRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateApplicationRequest) AccentTenant(accentTenant string) ApiUpdateApplicationRequest {
+func (r ApplicationsAPIUpdateApplicationRequest) AccentTenant(accentTenant string) ApplicationsAPIUpdateApplicationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateApplicationRequest) Execute() (*http.Response, error) {
+func (r ApplicationsAPIUpdateApplicationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateApplicationExecute(r)
 }
 
@@ -1052,10 +1052,10 @@ UpdateApplication Update application
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param applicationUuid Application's UUID
-	@return ApiUpdateApplicationRequest
+	@return ApplicationsAPIUpdateApplicationRequest
 */
-func (a *ApplicationsAPIService) UpdateApplication(ctx context.Context, applicationUuid int32) ApiUpdateApplicationRequest {
-	return ApiUpdateApplicationRequest{
+func (a *ApplicationsAPIService) UpdateApplication(ctx context.Context, applicationUuid int32) ApplicationsAPIUpdateApplicationRequest {
+	return ApplicationsAPIUpdateApplicationRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		applicationUuid: applicationUuid,
@@ -1063,7 +1063,7 @@ func (a *ApplicationsAPIService) UpdateApplication(ctx context.Context, applicat
 }
 
 // Execute executes the request
-func (a *ApplicationsAPIService) UpdateApplicationExecute(r ApiUpdateApplicationRequest) (*http.Response, error) {
+func (a *ApplicationsAPIService) UpdateApplicationExecute(r ApplicationsAPIUpdateApplicationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

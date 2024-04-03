@@ -29,13 +29,13 @@ type MeetingsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Unique identifier of the meeting
-		@return ApiGetGuestMeetingStatusRequest
+		@return MeetingsAPIGetGuestMeetingStatusRequest
 	*/
-	GetGuestMeetingStatus(ctx context.Context, meetingUuid string) ApiGetGuestMeetingStatusRequest
+	GetGuestMeetingStatus(ctx context.Context, meetingUuid string) MeetingsAPIGetGuestMeetingStatusRequest
 
 	// GetGuestMeetingStatusExecute executes the request
 	//  @return MeetingStatus
-	GetGuestMeetingStatusExecute(r ApiGetGuestMeetingStatusRequest) (*MeetingStatus, *http.Response, error)
+	GetGuestMeetingStatusExecute(r MeetingsAPIGetGuestMeetingStatusRequest) (*MeetingStatus, *http.Response, error)
 
 	/*
 		KickMeetingParticipant Kick a participant from a meeting
@@ -45,12 +45,12 @@ type MeetingsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Unique identifier of the meeting
 		@param participantId Unique identifier of the participant
-		@return ApiKickMeetingParticipantRequest
+		@return MeetingsAPIKickMeetingParticipantRequest
 	*/
-	KickMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) ApiKickMeetingParticipantRequest
+	KickMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) MeetingsAPIKickMeetingParticipantRequest
 
 	// KickMeetingParticipantExecute executes the request
-	KickMeetingParticipantExecute(r ApiKickMeetingParticipantRequest) (*http.Response, error)
+	KickMeetingParticipantExecute(r MeetingsAPIKickMeetingParticipantRequest) (*http.Response, error)
 
 	/*
 		KickUserMeetingParticipant Kick a participant from a meeting as a user
@@ -60,12 +60,12 @@ type MeetingsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Unique identifier of the meeting
 		@param participantId Unique identifier of the participant
-		@return ApiKickUserMeetingParticipantRequest
+		@return MeetingsAPIKickUserMeetingParticipantRequest
 	*/
-	KickUserMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) ApiKickUserMeetingParticipantRequest
+	KickUserMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) MeetingsAPIKickUserMeetingParticipantRequest
 
 	// KickUserMeetingParticipantExecute executes the request
-	KickUserMeetingParticipantExecute(r ApiKickUserMeetingParticipantRequest) (*http.Response, error)
+	KickUserMeetingParticipantExecute(r MeetingsAPIKickUserMeetingParticipantRequest) (*http.Response, error)
 
 	/*
 		ListMeetingParticipants List participants of a meeting
@@ -74,13 +74,13 @@ type MeetingsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Unique identifier of the meeting
-		@return ApiListMeetingParticipantsRequest
+		@return MeetingsAPIListMeetingParticipantsRequest
 	*/
-	ListMeetingParticipants(ctx context.Context, meetingUuid string) ApiListMeetingParticipantsRequest
+	ListMeetingParticipants(ctx context.Context, meetingUuid string) MeetingsAPIListMeetingParticipantsRequest
 
 	// ListMeetingParticipantsExecute executes the request
 	//  @return ParticipantList
-	ListMeetingParticipantsExecute(r ApiListMeetingParticipantsRequest) (*ParticipantList, *http.Response, error)
+	ListMeetingParticipantsExecute(r MeetingsAPIListMeetingParticipantsRequest) (*ParticipantList, *http.Response, error)
 
 	/*
 		ListUserMeetingParticipants List participants of a meeting as a user
@@ -89,25 +89,25 @@ type MeetingsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Unique identifier of the meeting
-		@return ApiListUserMeetingParticipantsRequest
+		@return MeetingsAPIListUserMeetingParticipantsRequest
 	*/
-	ListUserMeetingParticipants(ctx context.Context, meetingUuid string) ApiListUserMeetingParticipantsRequest
+	ListUserMeetingParticipants(ctx context.Context, meetingUuid string) MeetingsAPIListUserMeetingParticipantsRequest
 
 	// ListUserMeetingParticipantsExecute executes the request
 	//  @return ParticipantList
-	ListUserMeetingParticipantsExecute(r ApiListUserMeetingParticipantsRequest) (*ParticipantList, *http.Response, error)
+	ListUserMeetingParticipantsExecute(r MeetingsAPIListUserMeetingParticipantsRequest) (*ParticipantList, *http.Response, error)
 }
 
 // MeetingsAPIService MeetingsAPI service
 type MeetingsAPIService service
 
-type ApiGetGuestMeetingStatusRequest struct {
+type MeetingsAPIGetGuestMeetingStatusRequest struct {
 	ctx         context.Context
 	ApiService  MeetingsAPI
 	meetingUuid string
 }
 
-func (r ApiGetGuestMeetingStatusRequest) Execute() (*MeetingStatus, *http.Response, error) {
+func (r MeetingsAPIGetGuestMeetingStatusRequest) Execute() (*MeetingStatus, *http.Response, error) {
 	return r.ApiService.GetGuestMeetingStatusExecute(r)
 }
 
@@ -118,10 +118,10 @@ Returns the status of a meeting that should be visible to a guest.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Unique identifier of the meeting
-	@return ApiGetGuestMeetingStatusRequest
+	@return MeetingsAPIGetGuestMeetingStatusRequest
 */
-func (a *MeetingsAPIService) GetGuestMeetingStatus(ctx context.Context, meetingUuid string) ApiGetGuestMeetingStatusRequest {
-	return ApiGetGuestMeetingStatusRequest{
+func (a *MeetingsAPIService) GetGuestMeetingStatus(ctx context.Context, meetingUuid string) MeetingsAPIGetGuestMeetingStatusRequest {
+	return MeetingsAPIGetGuestMeetingStatusRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		meetingUuid: meetingUuid,
@@ -131,7 +131,7 @@ func (a *MeetingsAPIService) GetGuestMeetingStatus(ctx context.Context, meetingU
 // Execute executes the request
 //
 //	@return MeetingStatus
-func (a *MeetingsAPIService) GetGuestMeetingStatusExecute(r ApiGetGuestMeetingStatusRequest) (*MeetingStatus, *http.Response, error) {
+func (a *MeetingsAPIService) GetGuestMeetingStatusExecute(r MeetingsAPIGetGuestMeetingStatusRequest) (*MeetingStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -240,14 +240,14 @@ func (a *MeetingsAPIService) GetGuestMeetingStatusExecute(r ApiGetGuestMeetingSt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiKickMeetingParticipantRequest struct {
+type MeetingsAPIKickMeetingParticipantRequest struct {
 	ctx           context.Context
 	ApiService    MeetingsAPI
 	meetingUuid   string
 	participantId string
 }
 
-func (r ApiKickMeetingParticipantRequest) Execute() (*http.Response, error) {
+func (r MeetingsAPIKickMeetingParticipantRequest) Execute() (*http.Response, error) {
 	return r.ApiService.KickMeetingParticipantExecute(r)
 }
 
@@ -259,10 +259,10 @@ KickMeetingParticipant Kick a participant from a meeting
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Unique identifier of the meeting
 	@param participantId Unique identifier of the participant
-	@return ApiKickMeetingParticipantRequest
+	@return MeetingsAPIKickMeetingParticipantRequest
 */
-func (a *MeetingsAPIService) KickMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) ApiKickMeetingParticipantRequest {
-	return ApiKickMeetingParticipantRequest{
+func (a *MeetingsAPIService) KickMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) MeetingsAPIKickMeetingParticipantRequest {
+	return MeetingsAPIKickMeetingParticipantRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		meetingUuid:   meetingUuid,
@@ -271,7 +271,7 @@ func (a *MeetingsAPIService) KickMeetingParticipant(ctx context.Context, meeting
 }
 
 // Execute executes the request
-func (a *MeetingsAPIService) KickMeetingParticipantExecute(r ApiKickMeetingParticipantRequest) (*http.Response, error) {
+func (a *MeetingsAPIService) KickMeetingParticipantExecute(r MeetingsAPIKickMeetingParticipantRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -371,14 +371,14 @@ func (a *MeetingsAPIService) KickMeetingParticipantExecute(r ApiKickMeetingParti
 	return localVarHTTPResponse, nil
 }
 
-type ApiKickUserMeetingParticipantRequest struct {
+type MeetingsAPIKickUserMeetingParticipantRequest struct {
 	ctx           context.Context
 	ApiService    MeetingsAPI
 	meetingUuid   string
 	participantId string
 }
 
-func (r ApiKickUserMeetingParticipantRequest) Execute() (*http.Response, error) {
+func (r MeetingsAPIKickUserMeetingParticipantRequest) Execute() (*http.Response, error) {
 	return r.ApiService.KickUserMeetingParticipantExecute(r)
 }
 
@@ -390,10 +390,10 @@ KickUserMeetingParticipant Kick a participant from a meeting as a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Unique identifier of the meeting
 	@param participantId Unique identifier of the participant
-	@return ApiKickUserMeetingParticipantRequest
+	@return MeetingsAPIKickUserMeetingParticipantRequest
 */
-func (a *MeetingsAPIService) KickUserMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) ApiKickUserMeetingParticipantRequest {
-	return ApiKickUserMeetingParticipantRequest{
+func (a *MeetingsAPIService) KickUserMeetingParticipant(ctx context.Context, meetingUuid string, participantId string) MeetingsAPIKickUserMeetingParticipantRequest {
+	return MeetingsAPIKickUserMeetingParticipantRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		meetingUuid:   meetingUuid,
@@ -402,7 +402,7 @@ func (a *MeetingsAPIService) KickUserMeetingParticipant(ctx context.Context, mee
 }
 
 // Execute executes the request
-func (a *MeetingsAPIService) KickUserMeetingParticipantExecute(r ApiKickUserMeetingParticipantRequest) (*http.Response, error) {
+func (a *MeetingsAPIService) KickUserMeetingParticipantExecute(r MeetingsAPIKickUserMeetingParticipantRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -502,13 +502,13 @@ func (a *MeetingsAPIService) KickUserMeetingParticipantExecute(r ApiKickUserMeet
 	return localVarHTTPResponse, nil
 }
 
-type ApiListMeetingParticipantsRequest struct {
+type MeetingsAPIListMeetingParticipantsRequest struct {
 	ctx         context.Context
 	ApiService  MeetingsAPI
 	meetingUuid string
 }
 
-func (r ApiListMeetingParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
+func (r MeetingsAPIListMeetingParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
 	return r.ApiService.ListMeetingParticipantsExecute(r)
 }
 
@@ -519,10 +519,10 @@ ListMeetingParticipants List participants of a meeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Unique identifier of the meeting
-	@return ApiListMeetingParticipantsRequest
+	@return MeetingsAPIListMeetingParticipantsRequest
 */
-func (a *MeetingsAPIService) ListMeetingParticipants(ctx context.Context, meetingUuid string) ApiListMeetingParticipantsRequest {
-	return ApiListMeetingParticipantsRequest{
+func (a *MeetingsAPIService) ListMeetingParticipants(ctx context.Context, meetingUuid string) MeetingsAPIListMeetingParticipantsRequest {
+	return MeetingsAPIListMeetingParticipantsRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		meetingUuid: meetingUuid,
@@ -532,7 +532,7 @@ func (a *MeetingsAPIService) ListMeetingParticipants(ctx context.Context, meetin
 // Execute executes the request
 //
 //	@return ParticipantList
-func (a *MeetingsAPIService) ListMeetingParticipantsExecute(r ApiListMeetingParticipantsRequest) (*ParticipantList, *http.Response, error) {
+func (a *MeetingsAPIService) ListMeetingParticipantsExecute(r MeetingsAPIListMeetingParticipantsRequest) (*ParticipantList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -641,13 +641,13 @@ func (a *MeetingsAPIService) ListMeetingParticipantsExecute(r ApiListMeetingPart
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserMeetingParticipantsRequest struct {
+type MeetingsAPIListUserMeetingParticipantsRequest struct {
 	ctx         context.Context
 	ApiService  MeetingsAPI
 	meetingUuid string
 }
 
-func (r ApiListUserMeetingParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
+func (r MeetingsAPIListUserMeetingParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
 	return r.ApiService.ListUserMeetingParticipantsExecute(r)
 }
 
@@ -658,10 +658,10 @@ ListUserMeetingParticipants List participants of a meeting as a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Unique identifier of the meeting
-	@return ApiListUserMeetingParticipantsRequest
+	@return MeetingsAPIListUserMeetingParticipantsRequest
 */
-func (a *MeetingsAPIService) ListUserMeetingParticipants(ctx context.Context, meetingUuid string) ApiListUserMeetingParticipantsRequest {
-	return ApiListUserMeetingParticipantsRequest{
+func (a *MeetingsAPIService) ListUserMeetingParticipants(ctx context.Context, meetingUuid string) MeetingsAPIListUserMeetingParticipantsRequest {
+	return MeetingsAPIListUserMeetingParticipantsRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		meetingUuid: meetingUuid,
@@ -671,7 +671,7 @@ func (a *MeetingsAPIService) ListUserMeetingParticipants(ctx context.Context, me
 // Execute executes the request
 //
 //	@return ParticipantList
-func (a *MeetingsAPIService) ListUserMeetingParticipantsExecute(r ApiListUserMeetingParticipantsRequest) (*ParticipantList, *http.Response, error) {
+func (a *MeetingsAPIService) ListUserMeetingParticipantsExecute(r MeetingsAPIListUserMeetingParticipantsRequest) (*ParticipantList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

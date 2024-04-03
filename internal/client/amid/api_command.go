@@ -29,31 +29,31 @@ type CommandAPI interface {
 	See https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+AMI+Actions for more details about the AMI message parameters.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCommandAsteriskManagerRequest
+		@return CommandAPICommandAsteriskManagerRequest
 	*/
-	CommandAsteriskManager(ctx context.Context) ApiCommandAsteriskManagerRequest
+	CommandAsteriskManager(ctx context.Context) CommandAPICommandAsteriskManagerRequest
 
 	// CommandAsteriskManagerExecute executes the request
 	//  @return CommandResponse
-	CommandAsteriskManagerExecute(r ApiCommandAsteriskManagerRequest) (*CommandResponse, *http.Response, error)
+	CommandAsteriskManagerExecute(r CommandAPICommandAsteriskManagerRequest) (*CommandResponse, *http.Response, error)
 }
 
 // CommandAPIService CommandAPI service
 type CommandAPIService service
 
-type ApiCommandAsteriskManagerRequest struct {
+type CommandAPICommandAsteriskManagerRequest struct {
 	ctx        context.Context
 	ApiService CommandAPI
 	command    *Command
 }
 
 // The command to send to the manager.
-func (r ApiCommandAsteriskManagerRequest) Command(command Command) ApiCommandAsteriskManagerRequest {
+func (r CommandAPICommandAsteriskManagerRequest) Command(command Command) CommandAPICommandAsteriskManagerRequest {
 	r.command = &command
 	return r
 }
 
-func (r ApiCommandAsteriskManagerRequest) Execute() (*CommandResponse, *http.Response, error) {
+func (r CommandAPICommandAsteriskManagerRequest) Execute() (*CommandResponse, *http.Response, error) {
 	return r.ApiService.CommandAsteriskManagerExecute(r)
 }
 
@@ -65,10 +65,10 @@ This endpoint sends a command to the Asterisk Manager.
 See https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+AMI+Actions for more details about the AMI message parameters.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCommandAsteriskManagerRequest
+	@return CommandAPICommandAsteriskManagerRequest
 */
-func (a *CommandAPIService) CommandAsteriskManager(ctx context.Context) ApiCommandAsteriskManagerRequest {
-	return ApiCommandAsteriskManagerRequest{
+func (a *CommandAPIService) CommandAsteriskManager(ctx context.Context) CommandAPICommandAsteriskManagerRequest {
+	return CommandAPICommandAsteriskManagerRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -77,7 +77,7 @@ func (a *CommandAPIService) CommandAsteriskManager(ctx context.Context) ApiComma
 // Execute executes the request
 //
 //	@return CommandResponse
-func (a *CommandAPIService) CommandAsteriskManagerExecute(r ApiCommandAsteriskManagerRequest) (*CommandResponse, *http.Response, error) {
+func (a *CommandAPIService) CommandAsteriskManagerExecute(r CommandAPICommandAsteriskManagerRequest) (*CommandResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}

@@ -28,13 +28,13 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.configure.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetConfigureRequest
+		@return ProvdAPIGetConfigureRequest
 	*/
-	GetConfigure(ctx context.Context) ApiGetConfigureRequest
+	GetConfigure(ctx context.Context) ProvdAPIGetConfigureRequest
 
 	// GetConfigureExecute executes the request
 	//  @return GeneralConfigsObject
-	GetConfigureExecute(r ApiGetConfigureRequest) (*GeneralConfigsObject, *http.Response, error)
+	GetConfigureExecute(r ProvdAPIGetConfigureRequest) (*GeneralConfigsObject, *http.Response, error)
 
 	/*
 		GetConfigureParamId Get the configuration parameter value
@@ -43,13 +43,13 @@ type ProvdAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param paramId Configuration parameter ID
-		@return ApiGetConfigureParamIdRequest
+		@return ProvdAPIGetConfigureParamIdRequest
 	*/
-	GetConfigureParamId(ctx context.Context, paramId string) ApiGetConfigureParamIdRequest
+	GetConfigureParamId(ctx context.Context, paramId string) ProvdAPIGetConfigureParamIdRequest
 
 	// GetConfigureParamIdExecute executes the request
 	//  @return Param
-	GetConfigureParamIdExecute(r ApiGetConfigureParamIdRequest) (*Param, *http.Response, error)
+	GetConfigureParamIdExecute(r ProvdAPIGetConfigureParamIdRequest) (*Param, *http.Response, error)
 
 	/*
 		GetProvd Get the Provd Manager resource
@@ -57,13 +57,13 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.read` The provd manager resource represents the main entry point to the accent-provd REST API
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetProvdRequest
+		@return ProvdAPIGetProvdRequest
 	*/
-	GetProvd(ctx context.Context) ApiGetProvdRequest
+	GetProvd(ctx context.Context) ProvdAPIGetProvdRequest
 
 	// GetProvdExecute executes the request
 	//  @return LinksObject
-	GetProvdExecute(r ApiGetProvdRequest) (*LinksObject, *http.Response, error)
+	GetProvdExecute(r ProvdAPIGetProvdRequest) (*LinksObject, *http.Response, error)
 
 	/*
 		PutConfigureFtpProxy Update the configuration's ftp_proxy
@@ -71,12 +71,12 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.configure.ftp_proxy.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPutConfigureFtpProxyRequest
+		@return ProvdAPIPutConfigureFtpProxyRequest
 	*/
-	PutConfigureFtpProxy(ctx context.Context) ApiPutConfigureFtpProxyRequest
+	PutConfigureFtpProxy(ctx context.Context) ProvdAPIPutConfigureFtpProxyRequest
 
 	// PutConfigureFtpProxyExecute executes the request
-	PutConfigureFtpProxyExecute(r ApiPutConfigureFtpProxyRequest) (*http.Response, error)
+	PutConfigureFtpProxyExecute(r ProvdAPIPutConfigureFtpProxyRequest) (*http.Response, error)
 
 	/*
 		PutConfigureHttpProxy Update the configuration's http_proxy
@@ -84,12 +84,12 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.configure.http_proxy.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPutConfigureHttpProxyRequest
+		@return ProvdAPIPutConfigureHttpProxyRequest
 	*/
-	PutConfigureHttpProxy(ctx context.Context) ApiPutConfigureHttpProxyRequest
+	PutConfigureHttpProxy(ctx context.Context) ProvdAPIPutConfigureHttpProxyRequest
 
 	// PutConfigureHttpProxyExecute executes the request
-	PutConfigureHttpProxyExecute(r ApiPutConfigureHttpProxyRequest) (*http.Response, error)
+	PutConfigureHttpProxyExecute(r ProvdAPIPutConfigureHttpProxyRequest) (*http.Response, error)
 
 	/*
 		PutConfigureHttpsProxy Update the configuration's https_proxy
@@ -97,12 +97,12 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.configure.https_proxy.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPutConfigureHttpsProxyRequest
+		@return ProvdAPIPutConfigureHttpsProxyRequest
 	*/
-	PutConfigureHttpsProxy(ctx context.Context) ApiPutConfigureHttpsProxyRequest
+	PutConfigureHttpsProxy(ctx context.Context) ProvdAPIPutConfigureHttpsProxyRequest
 
 	// PutConfigureHttpsProxyExecute executes the request
-	PutConfigureHttpsProxyExecute(r ApiPutConfigureHttpsProxyRequest) (*http.Response, error)
+	PutConfigureHttpsProxyExecute(r ProvdAPIPutConfigureHttpsProxyRequest) (*http.Response, error)
 
 	/*
 		PutConfigureLocale Update the configuration's locale
@@ -110,12 +110,12 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.configure.locale.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPutConfigureLocaleRequest
+		@return ProvdAPIPutConfigureLocaleRequest
 	*/
-	PutConfigureLocale(ctx context.Context) ApiPutConfigureLocaleRequest
+	PutConfigureLocale(ctx context.Context) ProvdAPIPutConfigureLocaleRequest
 
 	// PutConfigureLocaleExecute executes the request
-	PutConfigureLocaleExecute(r ApiPutConfigureLocaleRequest) (*http.Response, error)
+	PutConfigureLocaleExecute(r ProvdAPIPutConfigureLocaleRequest) (*http.Response, error)
 
 	/*
 		PutConfigureNAT Update the configuration's NAT
@@ -123,12 +123,12 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.configure.nat.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPutConfigureNATRequest
+		@return ProvdAPIPutConfigureNATRequest
 	*/
-	PutConfigureNAT(ctx context.Context) ApiPutConfigureNATRequest
+	PutConfigureNAT(ctx context.Context) ProvdAPIPutConfigureNATRequest
 
 	// PutConfigureNATExecute executes the request
-	PutConfigureNATExecute(r ApiPutConfigureNATRequest) (*http.Response, error)
+	PutConfigureNATExecute(r ProvdAPIPutConfigureNATRequest) (*http.Response, error)
 
 	/*
 		PutConfigureParamId Set the value of a parameter
@@ -137,12 +137,12 @@ type ProvdAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param paramId Configuration parameter ID
-		@return ApiPutConfigureParamIdRequest
+		@return ProvdAPIPutConfigureParamIdRequest
 	*/
-	PutConfigureParamId(ctx context.Context, paramId string) ApiPutConfigureParamIdRequest
+	PutConfigureParamId(ctx context.Context, paramId string) ProvdAPIPutConfigureParamIdRequest
 
 	// PutConfigureParamIdExecute executes the request
-	PutConfigureParamIdExecute(r ApiPutConfigureParamIdRequest) (*http.Response, error)
+	PutConfigureParamIdExecute(r ProvdAPIPutConfigureParamIdRequest) (*http.Response, error)
 
 	/*
 		PutConfigurePluginServer Update the configuration's plugin_server
@@ -150,12 +150,12 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.configure.plugin_server.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPutConfigurePluginServerRequest
+		@return ProvdAPIPutConfigurePluginServerRequest
 	*/
-	PutConfigurePluginServer(ctx context.Context) ApiPutConfigurePluginServerRequest
+	PutConfigurePluginServer(ctx context.Context) ProvdAPIPutConfigurePluginServerRequest
 
 	// PutConfigurePluginServerExecute executes the request
-	PutConfigurePluginServerExecute(r ApiPutConfigurePluginServerRequest) (*http.Response, error)
+	PutConfigurePluginServerExecute(r ProvdAPIPutConfigurePluginServerRequest) (*http.Response, error)
 
 	/*
 		PutConfigureProvisioningKey Update the tenant provisioning key
@@ -163,23 +163,23 @@ type ProvdAPI interface {
 		**Required ACL:** `provd.configure.{tenant_uuid}.provisioning_key.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPutConfigureProvisioningKeyRequest
+		@return ProvdAPIPutConfigureProvisioningKeyRequest
 	*/
-	PutConfigureProvisioningKey(ctx context.Context) ApiPutConfigureProvisioningKeyRequest
+	PutConfigureProvisioningKey(ctx context.Context) ProvdAPIPutConfigureProvisioningKeyRequest
 
 	// PutConfigureProvisioningKeyExecute executes the request
-	PutConfigureProvisioningKeyExecute(r ApiPutConfigureProvisioningKeyRequest) (*http.Response, error)
+	PutConfigureProvisioningKeyExecute(r ProvdAPIPutConfigureProvisioningKeyRequest) (*http.Response, error)
 }
 
 // ProvdAPIService ProvdAPI service
 type ProvdAPIService service
 
-type ApiGetConfigureRequest struct {
+type ProvdAPIGetConfigureRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 }
 
-func (r ApiGetConfigureRequest) Execute() (*GeneralConfigsObject, *http.Response, error) {
+func (r ProvdAPIGetConfigureRequest) Execute() (*GeneralConfigsObject, *http.Response, error) {
 	return r.ApiService.GetConfigureExecute(r)
 }
 
@@ -189,10 +189,10 @@ GetConfigure Get the general provd configuration
 **Required ACL:** `provd.configure.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetConfigureRequest
+	@return ProvdAPIGetConfigureRequest
 */
-func (a *ProvdAPIService) GetConfigure(ctx context.Context) ApiGetConfigureRequest {
-	return ApiGetConfigureRequest{
+func (a *ProvdAPIService) GetConfigure(ctx context.Context) ProvdAPIGetConfigureRequest {
+	return ProvdAPIGetConfigureRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -201,7 +201,7 @@ func (a *ProvdAPIService) GetConfigure(ctx context.Context) ApiGetConfigureReque
 // Execute executes the request
 //
 //	@return GeneralConfigsObject
-func (a *ProvdAPIService) GetConfigureExecute(r ApiGetConfigureRequest) (*GeneralConfigsObject, *http.Response, error) {
+func (a *ProvdAPIService) GetConfigureExecute(r ProvdAPIGetConfigureRequest) (*GeneralConfigsObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -288,7 +288,7 @@ func (a *ProvdAPIService) GetConfigureExecute(r ApiGetConfigureRequest) (*Genera
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetConfigureParamIdRequest struct {
+type ProvdAPIGetConfigureParamIdRequest struct {
 	ctx          context.Context
 	ApiService   ProvdAPI
 	paramId      string
@@ -296,12 +296,12 @@ type ApiGetConfigureParamIdRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiGetConfigureParamIdRequest) AccentTenant(accentTenant string) ApiGetConfigureParamIdRequest {
+func (r ProvdAPIGetConfigureParamIdRequest) AccentTenant(accentTenant string) ProvdAPIGetConfigureParamIdRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetConfigureParamIdRequest) Execute() (*Param, *http.Response, error) {
+func (r ProvdAPIGetConfigureParamIdRequest) Execute() (*Param, *http.Response, error) {
 	return r.ApiService.GetConfigureParamIdExecute(r)
 }
 
@@ -312,10 +312,10 @@ GetConfigureParamId Get the configuration parameter value
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param paramId Configuration parameter ID
-	@return ApiGetConfigureParamIdRequest
+	@return ProvdAPIGetConfigureParamIdRequest
 */
-func (a *ProvdAPIService) GetConfigureParamId(ctx context.Context, paramId string) ApiGetConfigureParamIdRequest {
-	return ApiGetConfigureParamIdRequest{
+func (a *ProvdAPIService) GetConfigureParamId(ctx context.Context, paramId string) ProvdAPIGetConfigureParamIdRequest {
+	return ProvdAPIGetConfigureParamIdRequest{
 		ApiService: a,
 		ctx:        ctx,
 		paramId:    paramId,
@@ -325,7 +325,7 @@ func (a *ProvdAPIService) GetConfigureParamId(ctx context.Context, paramId strin
 // Execute executes the request
 //
 //	@return Param
-func (a *ProvdAPIService) GetConfigureParamIdExecute(r ApiGetConfigureParamIdRequest) (*Param, *http.Response, error) {
+func (a *ProvdAPIService) GetConfigureParamIdExecute(r ProvdAPIGetConfigureParamIdRequest) (*Param, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -426,12 +426,12 @@ func (a *ProvdAPIService) GetConfigureParamIdExecute(r ApiGetConfigureParamIdReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProvdRequest struct {
+type ProvdAPIGetProvdRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 }
 
-func (r ApiGetProvdRequest) Execute() (*LinksObject, *http.Response, error) {
+func (r ProvdAPIGetProvdRequest) Execute() (*LinksObject, *http.Response, error) {
 	return r.ApiService.GetProvdExecute(r)
 }
 
@@ -441,10 +441,10 @@ GetProvd Get the Provd Manager resource
 **Required ACL:** `provd.read` The provd manager resource represents the main entry point to the accent-provd REST API
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetProvdRequest
+	@return ProvdAPIGetProvdRequest
 */
-func (a *ProvdAPIService) GetProvd(ctx context.Context) ApiGetProvdRequest {
-	return ApiGetProvdRequest{
+func (a *ProvdAPIService) GetProvd(ctx context.Context) ProvdAPIGetProvdRequest {
+	return ProvdAPIGetProvdRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -453,7 +453,7 @@ func (a *ProvdAPIService) GetProvd(ctx context.Context) ApiGetProvdRequest {
 // Execute executes the request
 //
 //	@return LinksObject
-func (a *ProvdAPIService) GetProvdExecute(r ApiGetProvdRequest) (*LinksObject, *http.Response, error) {
+func (a *ProvdAPIService) GetProvdExecute(r ProvdAPIGetProvdRequest) (*LinksObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -540,19 +540,19 @@ func (a *ProvdAPIService) GetProvdExecute(r ApiGetProvdRequest) (*LinksObject, *
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPutConfigureFtpProxyRequest struct {
+type ProvdAPIPutConfigureFtpProxyRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 	body       *FtpProxy
 }
 
 // Configuration parameter body definition
-func (r ApiPutConfigureFtpProxyRequest) Body(body FtpProxy) ApiPutConfigureFtpProxyRequest {
+func (r ProvdAPIPutConfigureFtpProxyRequest) Body(body FtpProxy) ProvdAPIPutConfigureFtpProxyRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPutConfigureFtpProxyRequest) Execute() (*http.Response, error) {
+func (r ProvdAPIPutConfigureFtpProxyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutConfigureFtpProxyExecute(r)
 }
 
@@ -562,17 +562,17 @@ PutConfigureFtpProxy Update the configuration's ftp_proxy
 **Required ACL:** `provd.configure.ftp_proxy.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutConfigureFtpProxyRequest
+	@return ProvdAPIPutConfigureFtpProxyRequest
 */
-func (a *ProvdAPIService) PutConfigureFtpProxy(ctx context.Context) ApiPutConfigureFtpProxyRequest {
-	return ApiPutConfigureFtpProxyRequest{
+func (a *ProvdAPIService) PutConfigureFtpProxy(ctx context.Context) ProvdAPIPutConfigureFtpProxyRequest {
+	return ProvdAPIPutConfigureFtpProxyRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ProvdAPIService) PutConfigureFtpProxyExecute(r ApiPutConfigureFtpProxyRequest) (*http.Response, error) {
+func (a *ProvdAPIService) PutConfigureFtpProxyExecute(r ProvdAPIPutConfigureFtpProxyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -672,19 +672,19 @@ func (a *ProvdAPIService) PutConfigureFtpProxyExecute(r ApiPutConfigureFtpProxyR
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutConfigureHttpProxyRequest struct {
+type ProvdAPIPutConfigureHttpProxyRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 	body       *HttpProxy
 }
 
 // Configuration parameter body definition
-func (r ApiPutConfigureHttpProxyRequest) Body(body HttpProxy) ApiPutConfigureHttpProxyRequest {
+func (r ProvdAPIPutConfigureHttpProxyRequest) Body(body HttpProxy) ProvdAPIPutConfigureHttpProxyRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPutConfigureHttpProxyRequest) Execute() (*http.Response, error) {
+func (r ProvdAPIPutConfigureHttpProxyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutConfigureHttpProxyExecute(r)
 }
 
@@ -694,17 +694,17 @@ PutConfigureHttpProxy Update the configuration's http_proxy
 **Required ACL:** `provd.configure.http_proxy.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutConfigureHttpProxyRequest
+	@return ProvdAPIPutConfigureHttpProxyRequest
 */
-func (a *ProvdAPIService) PutConfigureHttpProxy(ctx context.Context) ApiPutConfigureHttpProxyRequest {
-	return ApiPutConfigureHttpProxyRequest{
+func (a *ProvdAPIService) PutConfigureHttpProxy(ctx context.Context) ProvdAPIPutConfigureHttpProxyRequest {
+	return ProvdAPIPutConfigureHttpProxyRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ProvdAPIService) PutConfigureHttpProxyExecute(r ApiPutConfigureHttpProxyRequest) (*http.Response, error) {
+func (a *ProvdAPIService) PutConfigureHttpProxyExecute(r ProvdAPIPutConfigureHttpProxyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -804,19 +804,19 @@ func (a *ProvdAPIService) PutConfigureHttpProxyExecute(r ApiPutConfigureHttpProx
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutConfigureHttpsProxyRequest struct {
+type ProvdAPIPutConfigureHttpsProxyRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 	body       *HttpsProxy
 }
 
 // Configuration parameter body definition
-func (r ApiPutConfigureHttpsProxyRequest) Body(body HttpsProxy) ApiPutConfigureHttpsProxyRequest {
+func (r ProvdAPIPutConfigureHttpsProxyRequest) Body(body HttpsProxy) ProvdAPIPutConfigureHttpsProxyRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPutConfigureHttpsProxyRequest) Execute() (*http.Response, error) {
+func (r ProvdAPIPutConfigureHttpsProxyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutConfigureHttpsProxyExecute(r)
 }
 
@@ -826,17 +826,17 @@ PutConfigureHttpsProxy Update the configuration's https_proxy
 **Required ACL:** `provd.configure.https_proxy.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutConfigureHttpsProxyRequest
+	@return ProvdAPIPutConfigureHttpsProxyRequest
 */
-func (a *ProvdAPIService) PutConfigureHttpsProxy(ctx context.Context) ApiPutConfigureHttpsProxyRequest {
-	return ApiPutConfigureHttpsProxyRequest{
+func (a *ProvdAPIService) PutConfigureHttpsProxy(ctx context.Context) ProvdAPIPutConfigureHttpsProxyRequest {
+	return ProvdAPIPutConfigureHttpsProxyRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ProvdAPIService) PutConfigureHttpsProxyExecute(r ApiPutConfigureHttpsProxyRequest) (*http.Response, error) {
+func (a *ProvdAPIService) PutConfigureHttpsProxyExecute(r ProvdAPIPutConfigureHttpsProxyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -936,19 +936,19 @@ func (a *ProvdAPIService) PutConfigureHttpsProxyExecute(r ApiPutConfigureHttpsPr
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutConfigureLocaleRequest struct {
+type ProvdAPIPutConfigureLocaleRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 	body       *Locale
 }
 
 // Configuration parameter body definition
-func (r ApiPutConfigureLocaleRequest) Body(body Locale) ApiPutConfigureLocaleRequest {
+func (r ProvdAPIPutConfigureLocaleRequest) Body(body Locale) ProvdAPIPutConfigureLocaleRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPutConfigureLocaleRequest) Execute() (*http.Response, error) {
+func (r ProvdAPIPutConfigureLocaleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutConfigureLocaleExecute(r)
 }
 
@@ -958,17 +958,17 @@ PutConfigureLocale Update the configuration's locale
 **Required ACL:** `provd.configure.locale.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutConfigureLocaleRequest
+	@return ProvdAPIPutConfigureLocaleRequest
 */
-func (a *ProvdAPIService) PutConfigureLocale(ctx context.Context) ApiPutConfigureLocaleRequest {
-	return ApiPutConfigureLocaleRequest{
+func (a *ProvdAPIService) PutConfigureLocale(ctx context.Context) ProvdAPIPutConfigureLocaleRequest {
+	return ProvdAPIPutConfigureLocaleRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ProvdAPIService) PutConfigureLocaleExecute(r ApiPutConfigureLocaleRequest) (*http.Response, error) {
+func (a *ProvdAPIService) PutConfigureLocaleExecute(r ProvdAPIPutConfigureLocaleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1068,19 +1068,19 @@ func (a *ProvdAPIService) PutConfigureLocaleExecute(r ApiPutConfigureLocaleReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutConfigureNATRequest struct {
+type ProvdAPIPutConfigureNATRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 	body       *Nat
 }
 
 // Configuration parameter body definition
-func (r ApiPutConfigureNATRequest) Body(body Nat) ApiPutConfigureNATRequest {
+func (r ProvdAPIPutConfigureNATRequest) Body(body Nat) ProvdAPIPutConfigureNATRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPutConfigureNATRequest) Execute() (*http.Response, error) {
+func (r ProvdAPIPutConfigureNATRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutConfigureNATExecute(r)
 }
 
@@ -1090,17 +1090,17 @@ PutConfigureNAT Update the configuration's NAT
 **Required ACL:** `provd.configure.nat.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutConfigureNATRequest
+	@return ProvdAPIPutConfigureNATRequest
 */
-func (a *ProvdAPIService) PutConfigureNAT(ctx context.Context) ApiPutConfigureNATRequest {
-	return ApiPutConfigureNATRequest{
+func (a *ProvdAPIService) PutConfigureNAT(ctx context.Context) ProvdAPIPutConfigureNATRequest {
+	return ProvdAPIPutConfigureNATRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ProvdAPIService) PutConfigureNATExecute(r ApiPutConfigureNATRequest) (*http.Response, error) {
+func (a *ProvdAPIService) PutConfigureNATExecute(r ProvdAPIPutConfigureNATRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1200,7 +1200,7 @@ func (a *ProvdAPIService) PutConfigureNATExecute(r ApiPutConfigureNATRequest) (*
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutConfigureParamIdRequest struct {
+type ProvdAPIPutConfigureParamIdRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 	paramId    string
@@ -1208,12 +1208,12 @@ type ApiPutConfigureParamIdRequest struct {
 }
 
 // Configuration parameter body definition
-func (r ApiPutConfigureParamIdRequest) Body(body Param) ApiPutConfigureParamIdRequest {
+func (r ProvdAPIPutConfigureParamIdRequest) Body(body Param) ProvdAPIPutConfigureParamIdRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPutConfigureParamIdRequest) Execute() (*http.Response, error) {
+func (r ProvdAPIPutConfigureParamIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutConfigureParamIdExecute(r)
 }
 
@@ -1224,10 +1224,10 @@ PutConfigureParamId Set the value of a parameter
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param paramId Configuration parameter ID
-	@return ApiPutConfigureParamIdRequest
+	@return ProvdAPIPutConfigureParamIdRequest
 */
-func (a *ProvdAPIService) PutConfigureParamId(ctx context.Context, paramId string) ApiPutConfigureParamIdRequest {
-	return ApiPutConfigureParamIdRequest{
+func (a *ProvdAPIService) PutConfigureParamId(ctx context.Context, paramId string) ProvdAPIPutConfigureParamIdRequest {
+	return ProvdAPIPutConfigureParamIdRequest{
 		ApiService: a,
 		ctx:        ctx,
 		paramId:    paramId,
@@ -1235,7 +1235,7 @@ func (a *ProvdAPIService) PutConfigureParamId(ctx context.Context, paramId strin
 }
 
 // Execute executes the request
-func (a *ProvdAPIService) PutConfigureParamIdExecute(r ApiPutConfigureParamIdRequest) (*http.Response, error) {
+func (a *ProvdAPIService) PutConfigureParamIdExecute(r ProvdAPIPutConfigureParamIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1336,19 +1336,19 @@ func (a *ProvdAPIService) PutConfigureParamIdExecute(r ApiPutConfigureParamIdReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutConfigurePluginServerRequest struct {
+type ProvdAPIPutConfigurePluginServerRequest struct {
 	ctx        context.Context
 	ApiService ProvdAPI
 	body       *PluginServer
 }
 
 // Configuration parameter body definition
-func (r ApiPutConfigurePluginServerRequest) Body(body PluginServer) ApiPutConfigurePluginServerRequest {
+func (r ProvdAPIPutConfigurePluginServerRequest) Body(body PluginServer) ProvdAPIPutConfigurePluginServerRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPutConfigurePluginServerRequest) Execute() (*http.Response, error) {
+func (r ProvdAPIPutConfigurePluginServerRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutConfigurePluginServerExecute(r)
 }
 
@@ -1358,17 +1358,17 @@ PutConfigurePluginServer Update the configuration's plugin_server
 **Required ACL:** `provd.configure.plugin_server.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutConfigurePluginServerRequest
+	@return ProvdAPIPutConfigurePluginServerRequest
 */
-func (a *ProvdAPIService) PutConfigurePluginServer(ctx context.Context) ApiPutConfigurePluginServerRequest {
-	return ApiPutConfigurePluginServerRequest{
+func (a *ProvdAPIService) PutConfigurePluginServer(ctx context.Context) ProvdAPIPutConfigurePluginServerRequest {
+	return ProvdAPIPutConfigurePluginServerRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ProvdAPIService) PutConfigurePluginServerExecute(r ApiPutConfigurePluginServerRequest) (*http.Response, error) {
+func (a *ProvdAPIService) PutConfigurePluginServerExecute(r ProvdAPIPutConfigurePluginServerRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1468,7 +1468,7 @@ func (a *ProvdAPIService) PutConfigurePluginServerExecute(r ApiPutConfigurePlugi
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutConfigureProvisioningKeyRequest struct {
+type ProvdAPIPutConfigureProvisioningKeyRequest struct {
 	ctx          context.Context
 	ApiService   ProvdAPI
 	body         *ProvisioningKey
@@ -1476,18 +1476,18 @@ type ApiPutConfigureProvisioningKeyRequest struct {
 }
 
 // Configuration parameter body definition
-func (r ApiPutConfigureProvisioningKeyRequest) Body(body ProvisioningKey) ApiPutConfigureProvisioningKeyRequest {
+func (r ProvdAPIPutConfigureProvisioningKeyRequest) Body(body ProvisioningKey) ProvdAPIPutConfigureProvisioningKeyRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiPutConfigureProvisioningKeyRequest) AccentTenant(accentTenant string) ApiPutConfigureProvisioningKeyRequest {
+func (r ProvdAPIPutConfigureProvisioningKeyRequest) AccentTenant(accentTenant string) ProvdAPIPutConfigureProvisioningKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPutConfigureProvisioningKeyRequest) Execute() (*http.Response, error) {
+func (r ProvdAPIPutConfigureProvisioningKeyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutConfigureProvisioningKeyExecute(r)
 }
 
@@ -1497,17 +1497,17 @@ PutConfigureProvisioningKey Update the tenant provisioning key
 **Required ACL:** `provd.configure.{tenant_uuid}.provisioning_key.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPutConfigureProvisioningKeyRequest
+	@return ProvdAPIPutConfigureProvisioningKeyRequest
 */
-func (a *ProvdAPIService) PutConfigureProvisioningKey(ctx context.Context) ApiPutConfigureProvisioningKeyRequest {
-	return ApiPutConfigureProvisioningKeyRequest{
+func (a *ProvdAPIService) PutConfigureProvisioningKey(ctx context.Context) ProvdAPIPutConfigureProvisioningKeyRequest {
+	return ProvdAPIPutConfigureProvisioningKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ProvdAPIService) PutConfigureProvisioningKeyExecute(r ApiPutConfigureProvisioningKeyRequest) (*http.Response, error) {
+func (a *ProvdAPIService) PutConfigureProvisioningKeyExecute(r ProvdAPIPutConfigureProvisioningKeyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

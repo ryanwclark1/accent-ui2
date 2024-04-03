@@ -29,13 +29,13 @@ type PresencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserPresenceRequest
+		@return PresencesAPIGetUserPresenceRequest
 	*/
-	GetUserPresence(ctx context.Context, userUuid string) ApiGetUserPresenceRequest
+	GetUserPresence(ctx context.Context, userUuid string) PresencesAPIGetUserPresenceRequest
 
 	// GetUserPresenceExecute executes the request
 	//  @return Presence
-	GetUserPresenceExecute(r ApiGetUserPresenceRequest) (*Presence, *http.Response, error)
+	GetUserPresenceExecute(r PresencesAPIGetUserPresenceRequest) (*Presence, *http.Response, error)
 
 	/*
 		ListPresences List presences
@@ -43,13 +43,13 @@ type PresencesAPI interface {
 		**Required ACL:** `chatd.users.presences.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListPresencesRequest
+		@return PresencesAPIListPresencesRequest
 	*/
-	ListPresences(ctx context.Context) ApiListPresencesRequest
+	ListPresences(ctx context.Context) PresencesAPIListPresencesRequest
 
 	// ListPresencesExecute executes the request
 	//  @return PresenceList
-	ListPresencesExecute(r ApiListPresencesRequest) (*PresenceList, *http.Response, error)
+	ListPresencesExecute(r PresencesAPIListPresencesRequest) (*PresenceList, *http.Response, error)
 
 	/*
 		UpdateUserPresence Update user presence
@@ -58,18 +58,18 @@ type PresencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiUpdateUserPresenceRequest
+		@return PresencesAPIUpdateUserPresenceRequest
 	*/
-	UpdateUserPresence(ctx context.Context, userUuid string) ApiUpdateUserPresenceRequest
+	UpdateUserPresence(ctx context.Context, userUuid string) PresencesAPIUpdateUserPresenceRequest
 
 	// UpdateUserPresenceExecute executes the request
-	UpdateUserPresenceExecute(r ApiUpdateUserPresenceRequest) (*http.Response, error)
+	UpdateUserPresenceExecute(r PresencesAPIUpdateUserPresenceRequest) (*http.Response, error)
 }
 
 // PresencesAPIService PresencesAPI service
 type PresencesAPIService service
 
-type ApiGetUserPresenceRequest struct {
+type PresencesAPIGetUserPresenceRequest struct {
 	ctx          context.Context
 	ApiService   PresencesAPI
 	userUuid     string
@@ -77,12 +77,12 @@ type ApiGetUserPresenceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserPresenceRequest) AccentTenant(accentTenant string) ApiGetUserPresenceRequest {
+func (r PresencesAPIGetUserPresenceRequest) AccentTenant(accentTenant string) PresencesAPIGetUserPresenceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserPresenceRequest) Execute() (*Presence, *http.Response, error) {
+func (r PresencesAPIGetUserPresenceRequest) Execute() (*Presence, *http.Response, error) {
 	return r.ApiService.GetUserPresenceExecute(r)
 }
 
@@ -93,10 +93,10 @@ GetUserPresence Get user presence
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserPresenceRequest
+	@return PresencesAPIGetUserPresenceRequest
 */
-func (a *PresencesAPIService) GetUserPresence(ctx context.Context, userUuid string) ApiGetUserPresenceRequest {
-	return ApiGetUserPresenceRequest{
+func (a *PresencesAPIService) GetUserPresence(ctx context.Context, userUuid string) PresencesAPIGetUserPresenceRequest {
+	return PresencesAPIGetUserPresenceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -106,7 +106,7 @@ func (a *PresencesAPIService) GetUserPresence(ctx context.Context, userUuid stri
 // Execute executes the request
 //
 //	@return Presence
-func (a *PresencesAPIService) GetUserPresenceExecute(r ApiGetUserPresenceRequest) (*Presence, *http.Response, error) {
+func (a *PresencesAPIService) GetUserPresenceExecute(r PresencesAPIGetUserPresenceRequest) (*Presence, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -207,7 +207,7 @@ func (a *PresencesAPIService) GetUserPresenceExecute(r ApiGetUserPresenceRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListPresencesRequest struct {
+type PresencesAPIListPresencesRequest struct {
 	ctx          context.Context
 	ApiService   PresencesAPI
 	accentTenant *string
@@ -216,24 +216,24 @@ type ApiListPresencesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListPresencesRequest) AccentTenant(accentTenant string) ApiListPresencesRequest {
+func (r PresencesAPIListPresencesRequest) AccentTenant(accentTenant string) PresencesAPIListPresencesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListPresencesRequest) Recurse(recurse bool) ApiListPresencesRequest {
+func (r PresencesAPIListPresencesRequest) Recurse(recurse bool) PresencesAPIListPresencesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Filter by user_uuid. Many uuid can be specified. A logical AND is used for filtering. Each uuid MUST be separated by a comma (,).
-func (r ApiListPresencesRequest) UserUuid(userUuid []string) ApiListPresencesRequest {
+func (r PresencesAPIListPresencesRequest) UserUuid(userUuid []string) PresencesAPIListPresencesRequest {
 	r.userUuid = &userUuid
 	return r
 }
 
-func (r ApiListPresencesRequest) Execute() (*PresenceList, *http.Response, error) {
+func (r PresencesAPIListPresencesRequest) Execute() (*PresenceList, *http.Response, error) {
 	return r.ApiService.ListPresencesExecute(r)
 }
 
@@ -243,10 +243,10 @@ ListPresences List presences
 **Required ACL:** `chatd.users.presences.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListPresencesRequest
+	@return PresencesAPIListPresencesRequest
 */
-func (a *PresencesAPIService) ListPresences(ctx context.Context) ApiListPresencesRequest {
-	return ApiListPresencesRequest{
+func (a *PresencesAPIService) ListPresences(ctx context.Context) PresencesAPIListPresencesRequest {
+	return PresencesAPIListPresencesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -255,7 +255,7 @@ func (a *PresencesAPIService) ListPresences(ctx context.Context) ApiListPresence
 // Execute executes the request
 //
 //	@return PresenceList
-func (a *PresencesAPIService) ListPresencesExecute(r ApiListPresencesRequest) (*PresenceList, *http.Response, error) {
+func (a *PresencesAPIService) ListPresencesExecute(r PresencesAPIListPresencesRequest) (*PresenceList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -354,7 +354,7 @@ func (a *PresencesAPIService) ListPresencesExecute(r ApiListPresencesRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserPresenceRequest struct {
+type PresencesAPIUpdateUserPresenceRequest struct {
 	ctx          context.Context
 	ApiService   PresencesAPI
 	body         *Presence
@@ -362,18 +362,18 @@ type ApiUpdateUserPresenceRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserPresenceRequest) Body(body Presence) ApiUpdateUserPresenceRequest {
+func (r PresencesAPIUpdateUserPresenceRequest) Body(body Presence) PresencesAPIUpdateUserPresenceRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserPresenceRequest) AccentTenant(accentTenant string) ApiUpdateUserPresenceRequest {
+func (r PresencesAPIUpdateUserPresenceRequest) AccentTenant(accentTenant string) PresencesAPIUpdateUserPresenceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserPresenceRequest) Execute() (*http.Response, error) {
+func (r PresencesAPIUpdateUserPresenceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserPresenceExecute(r)
 }
 
@@ -384,10 +384,10 @@ UpdateUserPresence Update user presence
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiUpdateUserPresenceRequest
+	@return PresencesAPIUpdateUserPresenceRequest
 */
-func (a *PresencesAPIService) UpdateUserPresence(ctx context.Context, userUuid string) ApiUpdateUserPresenceRequest {
-	return ApiUpdateUserPresenceRequest{
+func (a *PresencesAPIService) UpdateUserPresence(ctx context.Context, userUuid string) PresencesAPIUpdateUserPresenceRequest {
+	return PresencesAPIUpdateUserPresenceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -395,7 +395,7 @@ func (a *PresencesAPIService) UpdateUserPresence(ctx context.Context, userUuid s
 }
 
 // Execute executes the request
-func (a *PresencesAPIService) UpdateUserPresenceExecute(r ApiUpdateUserPresenceRequest) (*http.Response, error) {
+func (a *PresencesAPIService) UpdateUserPresenceExecute(r PresencesAPIUpdateUserPresenceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

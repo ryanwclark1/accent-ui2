@@ -31,13 +31,13 @@ type UsersAPI interface {
 This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` query string to bypass headers 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCurrentUserCDRRequest
+	@return UsersAPIGetCurrentUserCDRRequest
 	*/
-	GetCurrentUserCDR(ctx context.Context) ApiGetCurrentUserCDRRequest
+	GetCurrentUserCDR(ctx context.Context) UsersAPIGetCurrentUserCDRRequest
 
 	// GetCurrentUserCDRExecute executes the request
 	//  @return CDRList
-	GetCurrentUserCDRExecute(r ApiGetCurrentUserCDRRequest) (*CDRList, *http.Response, error)
+	GetCurrentUserCDRExecute(r UsersAPIGetCurrentUserCDRRequest) (*CDRList, *http.Response, error)
 
 	/*
 	GetUserCDR List CDR of the given user
@@ -47,19 +47,19 @@ This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` que
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid UUID of the given user
-	@return ApiGetUserCDRRequest
+	@return UsersAPIGetUserCDRRequest
 	*/
-	GetUserCDR(ctx context.Context, userUuid string) ApiGetUserCDRRequest
+	GetUserCDR(ctx context.Context, userUuid string) UsersAPIGetUserCDRRequest
 
 	// GetUserCDRExecute executes the request
 	//  @return CDRList
-	GetUserCDRExecute(r ApiGetUserCDRRequest) (*CDRList, *http.Response, error)
+	GetUserCDRExecute(r UsersAPIGetUserCDRRequest) (*CDRList, *http.Response, error)
 }
 
 // UsersAPIService UsersAPI service
 type UsersAPIService service
 
-type ApiGetCurrentUserCDRRequest struct {
+type UsersAPIGetCurrentUserCDRRequest struct {
 	ctx context.Context
 	ApiService UsersAPI
 	from *time.Time
@@ -79,90 +79,90 @@ type ApiGetCurrentUserCDRRequest struct {
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetCurrentUserCDRRequest) From(from time.Time) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) From(from time.Time) UsersAPIGetCurrentUserCDRRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetCurrentUserCDRRequest) Until(until time.Time) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Until(until time.Time) UsersAPIGetCurrentUserCDRRequest {
 	r.until = &until
 	return r
 }
 
 // Maximum number of items to return in the list. Default to 1000 if not specified.
-func (r ApiGetCurrentUserCDRRequest) Limit(limit int32) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Limit(limit int32) UsersAPIGetCurrentUserCDRRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiGetCurrentUserCDRRequest) Offset(offset int32) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Offset(offset int32) UsersAPIGetCurrentUserCDRRequest {
 	r.offset = &offset
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned. Unsupported values: &#x60;&#x60;end&#x60;&#x60;.
-func (r ApiGetCurrentUserCDRRequest) Order(order string) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Order(order string) UsersAPIGetCurrentUserCDRRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetCurrentUserCDRRequest) Direction(direction string) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Direction(direction string) UsersAPIGetCurrentUserCDRRequest {
 	r.direction = &direction
 	return r
 }
 
 // Filter list of items
-func (r ApiGetCurrentUserCDRRequest) Search(search string) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Search(search string) UsersAPIGetCurrentUserCDRRequest {
 	r.search = &search
 	return r
 }
 
 // Filter list of items
-func (r ApiGetCurrentUserCDRRequest) CallDirection(callDirection string) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) CallDirection(callDirection string) UsersAPIGetCurrentUserCDRRequest {
 	r.callDirection = &callDirection
 	return r
 }
 
 // Filter by source_extension and destination_extension. A wildcard (underscore) can be used at the start and/or the end of the number.
-func (r ApiGetCurrentUserCDRRequest) Number(number string) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Number(number string) UsersAPIGetCurrentUserCDRRequest {
 	r.number = &number
 	return r
 }
 
 // Ignore CDR created before the given CDR ID.
-func (r ApiGetCurrentUserCDRRequest) FromId(fromId int32) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) FromId(fromId int32) UsersAPIGetCurrentUserCDRRequest {
 	r.fromId = &fromId
 	return r
 }
 
 // Filter by user_uuid. Many uuid can be specified. Each uuid MUST be separated by a comma (,). Many uuid will perform a logical OR.
-func (r ApiGetCurrentUserCDRRequest) UserUuid(userUuid []string) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) UserUuid(userUuid []string) UsersAPIGetCurrentUserCDRRequest {
 	r.userUuid = &userUuid
 	return r
 }
 
 // Will only return one result for the selected field
-func (r ApiGetCurrentUserCDRRequest) Distinct(distinct string) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Distinct(distinct string) UsersAPIGetCurrentUserCDRRequest {
 	r.distinct = &distinct
 	return r
 }
 
 // Filter by recorded status.
-func (r ApiGetCurrentUserCDRRequest) Recorded(recorded bool) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Recorded(recorded bool) UsersAPIGetCurrentUserCDRRequest {
 	r.recorded = &recorded
 	return r
 }
 
 // Overrides the Content-Type header. This is used to be able to have a downloadable link. Allowed values are \&quot;csv\&quot; and \&quot;json\&quot;
-func (r ApiGetCurrentUserCDRRequest) Format(format string) ApiGetCurrentUserCDRRequest {
+func (r UsersAPIGetCurrentUserCDRRequest) Format(format string) UsersAPIGetCurrentUserCDRRequest {
 	r.format = &format
 	return r
 }
 
-func (r ApiGetCurrentUserCDRRequest) Execute() (*CDRList, *http.Response, error) {
+func (r UsersAPIGetCurrentUserCDRRequest) Execute() (*CDRList, *http.Response, error) {
 	return r.ApiService.GetCurrentUserCDRExecute(r)
 }
 
@@ -173,10 +173,10 @@ GetCurrentUserCDR List CDR of the authenticated user
 This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` query string to bypass headers 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCurrentUserCDRRequest
+ @return UsersAPIGetCurrentUserCDRRequest
 */
-func (a *UsersAPIService) GetCurrentUserCDR(ctx context.Context) ApiGetCurrentUserCDRRequest {
-	return ApiGetCurrentUserCDRRequest{
+func (a *UsersAPIService) GetCurrentUserCDR(ctx context.Context) UsersAPIGetCurrentUserCDRRequest {
+	return UsersAPIGetCurrentUserCDRRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -184,7 +184,7 @@ func (a *UsersAPIService) GetCurrentUserCDR(ctx context.Context) ApiGetCurrentUs
 
 // Execute executes the request
 //  @return CDRList
-func (a *UsersAPIService) GetCurrentUserCDRExecute(r ApiGetCurrentUserCDRRequest) (*CDRList, *http.Response, error) {
+func (a *UsersAPIService) GetCurrentUserCDRExecute(r UsersAPIGetCurrentUserCDRRequest) (*CDRList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -323,7 +323,7 @@ func (a *UsersAPIService) GetCurrentUserCDRExecute(r ApiGetCurrentUserCDRRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserCDRRequest struct {
+type UsersAPIGetUserCDRRequest struct {
 	ctx context.Context
 	ApiService UsersAPI
 	userUuid string
@@ -343,84 +343,84 @@ type ApiGetUserCDRRequest struct {
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetUserCDRRequest) From(from time.Time) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) From(from time.Time) UsersAPIGetUserCDRRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetUserCDRRequest) Until(until time.Time) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Until(until time.Time) UsersAPIGetUserCDRRequest {
 	r.until = &until
 	return r
 }
 
 // Maximum number of items to return in the list. Default to 1000 if not specified.
-func (r ApiGetUserCDRRequest) Limit(limit int32) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Limit(limit int32) UsersAPIGetUserCDRRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiGetUserCDRRequest) Offset(offset int32) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Offset(offset int32) UsersAPIGetUserCDRRequest {
 	r.offset = &offset
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned. Unsupported values: &#x60;&#x60;end&#x60;&#x60;.
-func (r ApiGetUserCDRRequest) Order(order string) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Order(order string) UsersAPIGetUserCDRRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserCDRRequest) Direction(direction string) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Direction(direction string) UsersAPIGetUserCDRRequest {
 	r.direction = &direction
 	return r
 }
 
 // Filter list of items
-func (r ApiGetUserCDRRequest) Search(search string) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Search(search string) UsersAPIGetUserCDRRequest {
 	r.search = &search
 	return r
 }
 
 // Filter list of items
-func (r ApiGetUserCDRRequest) CallDirection(callDirection string) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) CallDirection(callDirection string) UsersAPIGetUserCDRRequest {
 	r.callDirection = &callDirection
 	return r
 }
 
 // Filter by source_extension and destination_extension. A wildcard (underscore) can be used at the start and/or the end of the number.
-func (r ApiGetUserCDRRequest) Number(number string) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Number(number string) UsersAPIGetUserCDRRequest {
 	r.number = &number
 	return r
 }
 
 // Ignore CDR created before the given CDR ID.
-func (r ApiGetUserCDRRequest) FromId(fromId int32) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) FromId(fromId int32) UsersAPIGetUserCDRRequest {
 	r.fromId = &fromId
 	return r
 }
 
 // Will only return one result for the selected field
-func (r ApiGetUserCDRRequest) Distinct(distinct string) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Distinct(distinct string) UsersAPIGetUserCDRRequest {
 	r.distinct = &distinct
 	return r
 }
 
 // Filter by recorded status.
-func (r ApiGetUserCDRRequest) Recorded(recorded bool) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Recorded(recorded bool) UsersAPIGetUserCDRRequest {
 	r.recorded = &recorded
 	return r
 }
 
 // Overrides the Content-Type header. This is used to be able to have a downloadable link. Allowed values are \&quot;csv\&quot; and \&quot;json\&quot;
-func (r ApiGetUserCDRRequest) Format(format string) ApiGetUserCDRRequest {
+func (r UsersAPIGetUserCDRRequest) Format(format string) UsersAPIGetUserCDRRequest {
 	r.format = &format
 	return r
 }
 
-func (r ApiGetUserCDRRequest) Execute() (*CDRList, *http.Response, error) {
+func (r UsersAPIGetUserCDRRequest) Execute() (*CDRList, *http.Response, error) {
 	return r.ApiService.GetUserCDRExecute(r)
 }
 
@@ -432,10 +432,10 @@ This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` que
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param userUuid UUID of the given user
- @return ApiGetUserCDRRequest
+ @return UsersAPIGetUserCDRRequest
 */
-func (a *UsersAPIService) GetUserCDR(ctx context.Context, userUuid string) ApiGetUserCDRRequest {
-	return ApiGetUserCDRRequest{
+func (a *UsersAPIService) GetUserCDR(ctx context.Context, userUuid string) UsersAPIGetUserCDRRequest {
+	return UsersAPIGetUserCDRRequest{
 		ApiService: a,
 		ctx: ctx,
 		userUuid: userUuid,
@@ -444,7 +444,7 @@ func (a *UsersAPIService) GetUserCDR(ctx context.Context, userUuid string) ApiGe
 
 // Execute executes the request
 //  @return CDRList
-func (a *UsersAPIService) GetUserCDRExecute(r ApiGetUserCDRRequest) (*CDRList, *http.Response, error) {
+func (a *UsersAPIService) GetUserCDRExecute(r UsersAPIGetUserCDRRequest) (*CDRList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

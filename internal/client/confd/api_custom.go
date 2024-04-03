@@ -30,12 +30,12 @@ type CustomAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param customId
-		@return ApiAssociateLineEndpointCustomRequest
+		@return CustomAPIAssociateLineEndpointCustomRequest
 	*/
-	AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiAssociateLineEndpointCustomRequest
+	AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) CustomAPIAssociateLineEndpointCustomRequest
 
 	// AssociateLineEndpointCustomExecute executes the request
-	AssociateLineEndpointCustomExecute(r ApiAssociateLineEndpointCustomRequest) (*http.Response, error)
+	AssociateLineEndpointCustomExecute(r CustomAPIAssociateLineEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkEndpointCustom Associate trunk and Custom endpoint
@@ -45,12 +45,12 @@ type CustomAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param customId
-		@return ApiAssociateTrunkEndpointCustomRequest
+		@return CustomAPIAssociateTrunkEndpointCustomRequest
 	*/
-	AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiAssociateTrunkEndpointCustomRequest
+	AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) CustomAPIAssociateTrunkEndpointCustomRequest
 
 	// AssociateTrunkEndpointCustomExecute executes the request
-	AssociateTrunkEndpointCustomExecute(r ApiAssociateTrunkEndpointCustomRequest) (*http.Response, error)
+	AssociateTrunkEndpointCustomExecute(r CustomAPIAssociateTrunkEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		CreateEndpointCustom Create Custom endpoint
@@ -58,13 +58,13 @@ type CustomAPI interface {
 		**Required ACL:** `confd.endpoints.custom.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointCustomRequest
+		@return CustomAPICreateEndpointCustomRequest
 	*/
-	CreateEndpointCustom(ctx context.Context) ApiCreateEndpointCustomRequest
+	CreateEndpointCustom(ctx context.Context) CustomAPICreateEndpointCustomRequest
 
 	// CreateEndpointCustomExecute executes the request
 	//  @return EndpointCustom
-	CreateEndpointCustomExecute(r ApiCreateEndpointCustomRequest) (*EndpointCustom, *http.Response, error)
+	CreateEndpointCustomExecute(r CustomAPICreateEndpointCustomRequest) (*EndpointCustom, *http.Response, error)
 
 	/*
 		DeleteEndpointCustom Delete Custom Endpoint
@@ -73,12 +73,12 @@ type CustomAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param customId
-		@return ApiDeleteEndpointCustomRequest
+		@return CustomAPIDeleteEndpointCustomRequest
 	*/
-	DeleteEndpointCustom(ctx context.Context, customId int32) ApiDeleteEndpointCustomRequest
+	DeleteEndpointCustom(ctx context.Context, customId int32) CustomAPIDeleteEndpointCustomRequest
 
 	// DeleteEndpointCustomExecute executes the request
-	DeleteEndpointCustomExecute(r ApiDeleteEndpointCustomRequest) (*http.Response, error)
+	DeleteEndpointCustomExecute(r CustomAPIDeleteEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointCustom Dissociate line and Custom endpoint
@@ -88,12 +88,12 @@ type CustomAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param customId
-		@return ApiDissociateLineEndpointCustomRequest
+		@return CustomAPIDissociateLineEndpointCustomRequest
 	*/
-	DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiDissociateLineEndpointCustomRequest
+	DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) CustomAPIDissociateLineEndpointCustomRequest
 
 	// DissociateLineEndpointCustomExecute executes the request
-	DissociateLineEndpointCustomExecute(r ApiDissociateLineEndpointCustomRequest) (*http.Response, error)
+	DissociateLineEndpointCustomExecute(r CustomAPIDissociateLineEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointCustom Dissociate trunk and Custom endpoint
@@ -103,12 +103,12 @@ type CustomAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param customId
-		@return ApiDissociateTrunkEndpointCustomRequest
+		@return CustomAPIDissociateTrunkEndpointCustomRequest
 	*/
-	DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiDissociateTrunkEndpointCustomRequest
+	DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) CustomAPIDissociateTrunkEndpointCustomRequest
 
 	// DissociateTrunkEndpointCustomExecute executes the request
-	DissociateTrunkEndpointCustomExecute(r ApiDissociateTrunkEndpointCustomRequest) (*http.Response, error)
+	DissociateTrunkEndpointCustomExecute(r CustomAPIDissociateTrunkEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		GetEndpointCustom Get Custom Endpoint
@@ -117,13 +117,13 @@ type CustomAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param customId
-		@return ApiGetEndpointCustomRequest
+		@return CustomAPIGetEndpointCustomRequest
 	*/
-	GetEndpointCustom(ctx context.Context, customId int32) ApiGetEndpointCustomRequest
+	GetEndpointCustom(ctx context.Context, customId int32) CustomAPIGetEndpointCustomRequest
 
 	// GetEndpointCustomExecute executes the request
 	//  @return EndpointCustom
-	GetEndpointCustomExecute(r ApiGetEndpointCustomRequest) (*EndpointCustom, *http.Response, error)
+	GetEndpointCustomExecute(r CustomAPIGetEndpointCustomRequest) (*EndpointCustom, *http.Response, error)
 
 	/*
 		ListEndpointsCustom List Custom endpoints
@@ -131,13 +131,13 @@ type CustomAPI interface {
 		**Required ACL:** `confd.endpoints.custom.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsCustomRequest
+		@return CustomAPIListEndpointsCustomRequest
 	*/
-	ListEndpointsCustom(ctx context.Context) ApiListEndpointsCustomRequest
+	ListEndpointsCustom(ctx context.Context) CustomAPIListEndpointsCustomRequest
 
 	// ListEndpointsCustomExecute executes the request
 	//  @return EndpointCustomItems
-	ListEndpointsCustomExecute(r ApiListEndpointsCustomRequest) (*EndpointCustomItems, *http.Response, error)
+	ListEndpointsCustomExecute(r CustomAPIListEndpointsCustomRequest) (*EndpointCustomItems, *http.Response, error)
 
 	/*
 		UpdateEndpointCustom Update Custom Endpoint
@@ -146,25 +146,25 @@ type CustomAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param customId
-		@return ApiUpdateEndpointCustomRequest
+		@return CustomAPIUpdateEndpointCustomRequest
 	*/
-	UpdateEndpointCustom(ctx context.Context, customId int32) ApiUpdateEndpointCustomRequest
+	UpdateEndpointCustom(ctx context.Context, customId int32) CustomAPIUpdateEndpointCustomRequest
 
 	// UpdateEndpointCustomExecute executes the request
-	UpdateEndpointCustomExecute(r ApiUpdateEndpointCustomRequest) (*http.Response, error)
+	UpdateEndpointCustomExecute(r CustomAPIUpdateEndpointCustomRequest) (*http.Response, error)
 }
 
 // CustomAPIService CustomAPI service
 type CustomAPIService service
 
-type ApiAssociateLineEndpointCustomRequest struct {
+type CustomAPIAssociateLineEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService CustomAPI
 	lineId     int32
 	customId   int32
 }
 
-func (r ApiAssociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r CustomAPIAssociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointCustomExecute(r)
 }
 
@@ -176,10 +176,10 @@ AssociateLineEndpointCustom Associate line and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param customId
-	@return ApiAssociateLineEndpointCustomRequest
+	@return CustomAPIAssociateLineEndpointCustomRequest
 */
-func (a *CustomAPIService) AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiAssociateLineEndpointCustomRequest {
-	return ApiAssociateLineEndpointCustomRequest{
+func (a *CustomAPIService) AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) CustomAPIAssociateLineEndpointCustomRequest {
+	return CustomAPIAssociateLineEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -188,7 +188,7 @@ func (a *CustomAPIService) AssociateLineEndpointCustom(ctx context.Context, line
 }
 
 // Execute executes the request
-func (a *CustomAPIService) AssociateLineEndpointCustomExecute(r ApiAssociateLineEndpointCustomRequest) (*http.Response, error) {
+func (a *CustomAPIService) AssociateLineEndpointCustomExecute(r CustomAPIAssociateLineEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -288,14 +288,14 @@ func (a *CustomAPIService) AssociateLineEndpointCustomExecute(r ApiAssociateLine
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkEndpointCustomRequest struct {
+type CustomAPIAssociateTrunkEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService CustomAPI
 	trunkId    int32
 	customId   int32
 }
 
-func (r ApiAssociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r CustomAPIAssociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointCustomExecute(r)
 }
 
@@ -307,10 +307,10 @@ AssociateTrunkEndpointCustom Associate trunk and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param customId
-	@return ApiAssociateTrunkEndpointCustomRequest
+	@return CustomAPIAssociateTrunkEndpointCustomRequest
 */
-func (a *CustomAPIService) AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiAssociateTrunkEndpointCustomRequest {
-	return ApiAssociateTrunkEndpointCustomRequest{
+func (a *CustomAPIService) AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) CustomAPIAssociateTrunkEndpointCustomRequest {
+	return CustomAPIAssociateTrunkEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -319,7 +319,7 @@ func (a *CustomAPIService) AssociateTrunkEndpointCustom(ctx context.Context, tru
 }
 
 // Execute executes the request
-func (a *CustomAPIService) AssociateTrunkEndpointCustomExecute(r ApiAssociateTrunkEndpointCustomRequest) (*http.Response, error) {
+func (a *CustomAPIService) AssociateTrunkEndpointCustomExecute(r CustomAPIAssociateTrunkEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -419,7 +419,7 @@ func (a *CustomAPIService) AssociateTrunkEndpointCustomExecute(r ApiAssociateTru
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointCustomRequest struct {
+type CustomAPICreateEndpointCustomRequest struct {
 	ctx          context.Context
 	ApiService   CustomAPI
 	body         *EndpointCustom
@@ -427,18 +427,18 @@ type ApiCreateEndpointCustomRequest struct {
 }
 
 // Custom Endpoint to create
-func (r ApiCreateEndpointCustomRequest) Body(body EndpointCustom) ApiCreateEndpointCustomRequest {
+func (r CustomAPICreateEndpointCustomRequest) Body(body EndpointCustom) CustomAPICreateEndpointCustomRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointCustomRequest) AccentTenant(accentTenant string) ApiCreateEndpointCustomRequest {
+func (r CustomAPICreateEndpointCustomRequest) AccentTenant(accentTenant string) CustomAPICreateEndpointCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointCustomRequest) Execute() (*EndpointCustom, *http.Response, error) {
+func (r CustomAPICreateEndpointCustomRequest) Execute() (*EndpointCustom, *http.Response, error) {
 	return r.ApiService.CreateEndpointCustomExecute(r)
 }
 
@@ -448,10 +448,10 @@ CreateEndpointCustom Create Custom endpoint
 **Required ACL:** `confd.endpoints.custom.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointCustomRequest
+	@return CustomAPICreateEndpointCustomRequest
 */
-func (a *CustomAPIService) CreateEndpointCustom(ctx context.Context) ApiCreateEndpointCustomRequest {
-	return ApiCreateEndpointCustomRequest{
+func (a *CustomAPIService) CreateEndpointCustom(ctx context.Context) CustomAPICreateEndpointCustomRequest {
+	return CustomAPICreateEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -460,7 +460,7 @@ func (a *CustomAPIService) CreateEndpointCustom(ctx context.Context) ApiCreateEn
 // Execute executes the request
 //
 //	@return EndpointCustom
-func (a *CustomAPIService) CreateEndpointCustomExecute(r ApiCreateEndpointCustomRequest) (*EndpointCustom, *http.Response, error) {
+func (a *CustomAPIService) CreateEndpointCustomExecute(r CustomAPICreateEndpointCustomRequest) (*EndpointCustom, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -565,7 +565,7 @@ func (a *CustomAPIService) CreateEndpointCustomExecute(r ApiCreateEndpointCustom
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointCustomRequest struct {
+type CustomAPIDeleteEndpointCustomRequest struct {
 	ctx          context.Context
 	ApiService   CustomAPI
 	customId     int32
@@ -573,12 +573,12 @@ type ApiDeleteEndpointCustomRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointCustomRequest) AccentTenant(accentTenant string) ApiDeleteEndpointCustomRequest {
+func (r CustomAPIDeleteEndpointCustomRequest) AccentTenant(accentTenant string) CustomAPIDeleteEndpointCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r CustomAPIDeleteEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointCustomExecute(r)
 }
 
@@ -589,10 +589,10 @@ DeleteEndpointCustom Delete Custom Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customId
-	@return ApiDeleteEndpointCustomRequest
+	@return CustomAPIDeleteEndpointCustomRequest
 */
-func (a *CustomAPIService) DeleteEndpointCustom(ctx context.Context, customId int32) ApiDeleteEndpointCustomRequest {
-	return ApiDeleteEndpointCustomRequest{
+func (a *CustomAPIService) DeleteEndpointCustom(ctx context.Context, customId int32) CustomAPIDeleteEndpointCustomRequest {
+	return CustomAPIDeleteEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		customId:   customId,
@@ -600,7 +600,7 @@ func (a *CustomAPIService) DeleteEndpointCustom(ctx context.Context, customId in
 }
 
 // Execute executes the request
-func (a *CustomAPIService) DeleteEndpointCustomExecute(r ApiDeleteEndpointCustomRequest) (*http.Response, error) {
+func (a *CustomAPIService) DeleteEndpointCustomExecute(r CustomAPIDeleteEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -702,14 +702,14 @@ func (a *CustomAPIService) DeleteEndpointCustomExecute(r ApiDeleteEndpointCustom
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointCustomRequest struct {
+type CustomAPIDissociateLineEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService CustomAPI
 	lineId     int32
 	customId   int32
 }
 
-func (r ApiDissociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r CustomAPIDissociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointCustomExecute(r)
 }
 
@@ -721,10 +721,10 @@ DissociateLineEndpointCustom Dissociate line and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param customId
-	@return ApiDissociateLineEndpointCustomRequest
+	@return CustomAPIDissociateLineEndpointCustomRequest
 */
-func (a *CustomAPIService) DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiDissociateLineEndpointCustomRequest {
-	return ApiDissociateLineEndpointCustomRequest{
+func (a *CustomAPIService) DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) CustomAPIDissociateLineEndpointCustomRequest {
+	return CustomAPIDissociateLineEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -733,7 +733,7 @@ func (a *CustomAPIService) DissociateLineEndpointCustom(ctx context.Context, lin
 }
 
 // Execute executes the request
-func (a *CustomAPIService) DissociateLineEndpointCustomExecute(r ApiDissociateLineEndpointCustomRequest) (*http.Response, error) {
+func (a *CustomAPIService) DissociateLineEndpointCustomExecute(r CustomAPIDissociateLineEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -833,14 +833,14 @@ func (a *CustomAPIService) DissociateLineEndpointCustomExecute(r ApiDissociateLi
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointCustomRequest struct {
+type CustomAPIDissociateTrunkEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService CustomAPI
 	trunkId    int32
 	customId   int32
 }
 
-func (r ApiDissociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r CustomAPIDissociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointCustomExecute(r)
 }
 
@@ -852,10 +852,10 @@ DissociateTrunkEndpointCustom Dissociate trunk and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param customId
-	@return ApiDissociateTrunkEndpointCustomRequest
+	@return CustomAPIDissociateTrunkEndpointCustomRequest
 */
-func (a *CustomAPIService) DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiDissociateTrunkEndpointCustomRequest {
-	return ApiDissociateTrunkEndpointCustomRequest{
+func (a *CustomAPIService) DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) CustomAPIDissociateTrunkEndpointCustomRequest {
+	return CustomAPIDissociateTrunkEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -864,7 +864,7 @@ func (a *CustomAPIService) DissociateTrunkEndpointCustom(ctx context.Context, tr
 }
 
 // Execute executes the request
-func (a *CustomAPIService) DissociateTrunkEndpointCustomExecute(r ApiDissociateTrunkEndpointCustomRequest) (*http.Response, error) {
+func (a *CustomAPIService) DissociateTrunkEndpointCustomExecute(r CustomAPIDissociateTrunkEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -964,7 +964,7 @@ func (a *CustomAPIService) DissociateTrunkEndpointCustomExecute(r ApiDissociateT
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointCustomRequest struct {
+type CustomAPIGetEndpointCustomRequest struct {
 	ctx          context.Context
 	ApiService   CustomAPI
 	customId     int32
@@ -972,12 +972,12 @@ type ApiGetEndpointCustomRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointCustomRequest) AccentTenant(accentTenant string) ApiGetEndpointCustomRequest {
+func (r CustomAPIGetEndpointCustomRequest) AccentTenant(accentTenant string) CustomAPIGetEndpointCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetEndpointCustomRequest) Execute() (*EndpointCustom, *http.Response, error) {
+func (r CustomAPIGetEndpointCustomRequest) Execute() (*EndpointCustom, *http.Response, error) {
 	return r.ApiService.GetEndpointCustomExecute(r)
 }
 
@@ -988,10 +988,10 @@ GetEndpointCustom Get Custom Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customId
-	@return ApiGetEndpointCustomRequest
+	@return CustomAPIGetEndpointCustomRequest
 */
-func (a *CustomAPIService) GetEndpointCustom(ctx context.Context, customId int32) ApiGetEndpointCustomRequest {
-	return ApiGetEndpointCustomRequest{
+func (a *CustomAPIService) GetEndpointCustom(ctx context.Context, customId int32) CustomAPIGetEndpointCustomRequest {
+	return CustomAPIGetEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		customId:   customId,
@@ -1001,7 +1001,7 @@ func (a *CustomAPIService) GetEndpointCustom(ctx context.Context, customId int32
 // Execute executes the request
 //
 //	@return EndpointCustom
-func (a *CustomAPIService) GetEndpointCustomExecute(r ApiGetEndpointCustomRequest) (*EndpointCustom, *http.Response, error) {
+func (a *CustomAPIService) GetEndpointCustomExecute(r CustomAPIGetEndpointCustomRequest) (*EndpointCustom, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1102,7 +1102,7 @@ func (a *CustomAPIService) GetEndpointCustomExecute(r ApiGetEndpointCustomReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsCustomRequest struct {
+type CustomAPIListEndpointsCustomRequest struct {
 	ctx          context.Context
 	ApiService   CustomAPI
 	accentTenant *string
@@ -1115,48 +1115,48 @@ type ApiListEndpointsCustomRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsCustomRequest) AccentTenant(accentTenant string) ApiListEndpointsCustomRequest {
+func (r CustomAPIListEndpointsCustomRequest) AccentTenant(accentTenant string) CustomAPIListEndpointsCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsCustomRequest) Recurse(recurse bool) ApiListEndpointsCustomRequest {
+func (r CustomAPIListEndpointsCustomRequest) Recurse(recurse bool) CustomAPIListEndpointsCustomRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsCustomRequest) Order(order string) ApiListEndpointsCustomRequest {
+func (r CustomAPIListEndpointsCustomRequest) Order(order string) CustomAPIListEndpointsCustomRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsCustomRequest) Direction(direction string) ApiListEndpointsCustomRequest {
+func (r CustomAPIListEndpointsCustomRequest) Direction(direction string) CustomAPIListEndpointsCustomRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsCustomRequest) Limit(limit int32) ApiListEndpointsCustomRequest {
+func (r CustomAPIListEndpointsCustomRequest) Limit(limit int32) CustomAPIListEndpointsCustomRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsCustomRequest) Offset(offset int32) ApiListEndpointsCustomRequest {
+func (r CustomAPIListEndpointsCustomRequest) Offset(offset int32) CustomAPIListEndpointsCustomRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsCustomRequest) Search(search string) ApiListEndpointsCustomRequest {
+func (r CustomAPIListEndpointsCustomRequest) Search(search string) CustomAPIListEndpointsCustomRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsCustomRequest) Execute() (*EndpointCustomItems, *http.Response, error) {
+func (r CustomAPIListEndpointsCustomRequest) Execute() (*EndpointCustomItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsCustomExecute(r)
 }
 
@@ -1166,10 +1166,10 @@ ListEndpointsCustom List Custom endpoints
 **Required ACL:** `confd.endpoints.custom.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsCustomRequest
+	@return CustomAPIListEndpointsCustomRequest
 */
-func (a *CustomAPIService) ListEndpointsCustom(ctx context.Context) ApiListEndpointsCustomRequest {
-	return ApiListEndpointsCustomRequest{
+func (a *CustomAPIService) ListEndpointsCustom(ctx context.Context) CustomAPIListEndpointsCustomRequest {
+	return CustomAPIListEndpointsCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1178,7 +1178,7 @@ func (a *CustomAPIService) ListEndpointsCustom(ctx context.Context) ApiListEndpo
 // Execute executes the request
 //
 //	@return EndpointCustomItems
-func (a *CustomAPIService) ListEndpointsCustomExecute(r ApiListEndpointsCustomRequest) (*EndpointCustomItems, *http.Response, error) {
+func (a *CustomAPIService) ListEndpointsCustomExecute(r CustomAPIListEndpointsCustomRequest) (*EndpointCustomItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1289,7 +1289,7 @@ func (a *CustomAPIService) ListEndpointsCustomExecute(r ApiListEndpointsCustomRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointCustomRequest struct {
+type CustomAPIUpdateEndpointCustomRequest struct {
 	ctx          context.Context
 	ApiService   CustomAPI
 	body         *EndpointCustom
@@ -1297,18 +1297,18 @@ type ApiUpdateEndpointCustomRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointCustomRequest) Body(body EndpointCustom) ApiUpdateEndpointCustomRequest {
+func (r CustomAPIUpdateEndpointCustomRequest) Body(body EndpointCustom) CustomAPIUpdateEndpointCustomRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointCustomRequest) AccentTenant(accentTenant string) ApiUpdateEndpointCustomRequest {
+func (r CustomAPIUpdateEndpointCustomRequest) AccentTenant(accentTenant string) CustomAPIUpdateEndpointCustomRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r CustomAPIUpdateEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointCustomExecute(r)
 }
 
@@ -1319,10 +1319,10 @@ UpdateEndpointCustom Update Custom Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param customId
-	@return ApiUpdateEndpointCustomRequest
+	@return CustomAPIUpdateEndpointCustomRequest
 */
-func (a *CustomAPIService) UpdateEndpointCustom(ctx context.Context, customId int32) ApiUpdateEndpointCustomRequest {
-	return ApiUpdateEndpointCustomRequest{
+func (a *CustomAPIService) UpdateEndpointCustom(ctx context.Context, customId int32) CustomAPIUpdateEndpointCustomRequest {
+	return CustomAPIUpdateEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		customId:   customId,
@@ -1330,7 +1330,7 @@ func (a *CustomAPIService) UpdateEndpointCustom(ctx context.Context, customId in
 }
 
 // Execute executes the request
-func (a *CustomAPIService) UpdateEndpointCustomExecute(r ApiUpdateEndpointCustomRequest) (*http.Response, error) {
+func (a *CustomAPIService) UpdateEndpointCustomExecute(r CustomAPIUpdateEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

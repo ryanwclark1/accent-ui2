@@ -27,12 +27,12 @@ type BackendsAPI interface {
 		**Required ACL:** `auth.backends.ldap.delete`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiDeleteLDAPBackendConfigRequest
+		@return BackendsAPIDeleteLDAPBackendConfigRequest
 	*/
-	DeleteLDAPBackendConfig(ctx context.Context) ApiDeleteLDAPBackendConfigRequest
+	DeleteLDAPBackendConfig(ctx context.Context) BackendsAPIDeleteLDAPBackendConfigRequest
 
 	// DeleteLDAPBackendConfigExecute executes the request
-	DeleteLDAPBackendConfigExecute(r ApiDeleteLDAPBackendConfigRequest) (*http.Response, error)
+	DeleteLDAPBackendConfigExecute(r BackendsAPIDeleteLDAPBackendConfigRequest) (*http.Response, error)
 
 	/*
 		GetBackends Get list of activated backends
@@ -40,13 +40,13 @@ type BackendsAPI interface {
 		Retrieves the list of activated backends
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetBackendsRequest
+		@return BackendsAPIGetBackendsRequest
 	*/
-	GetBackends(ctx context.Context) ApiGetBackendsRequest
+	GetBackends(ctx context.Context) BackendsAPIGetBackendsRequest
 
 	// GetBackendsExecute executes the request
 	//  @return BackendList
-	GetBackendsExecute(r ApiGetBackendsRequest) (*BackendList, *http.Response, error)
+	GetBackendsExecute(r BackendsAPIGetBackendsRequest) (*BackendList, *http.Response, error)
 
 	/*
 		GetLDAPBackendConfig Get current tenant's LDAP backend configuration. If there is no configuration, all the fields will be `null`.
@@ -54,13 +54,13 @@ type BackendsAPI interface {
 		**Required ACL:** `auth.backends.ldap.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetLDAPBackendConfigRequest
+		@return BackendsAPIGetLDAPBackendConfigRequest
 	*/
-	GetLDAPBackendConfig(ctx context.Context) ApiGetLDAPBackendConfigRequest
+	GetLDAPBackendConfig(ctx context.Context) BackendsAPIGetLDAPBackendConfigRequest
 
 	// GetLDAPBackendConfigExecute executes the request
 	//  @return LDAPBackendConfig
-	GetLDAPBackendConfigExecute(r ApiGetLDAPBackendConfigRequest) (*LDAPBackendConfig, *http.Response, error)
+	GetLDAPBackendConfigExecute(r BackendsAPIGetLDAPBackendConfigRequest) (*LDAPBackendConfig, *http.Response, error)
 
 	/*
 		UpdateLDAPBackendConfig Update current tenant's LDAP backend configuration
@@ -68,31 +68,31 @@ type BackendsAPI interface {
 		**Required ACL:** `auth.backends.ldap.update
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateLDAPBackendConfigRequest
+		@return BackendsAPIUpdateLDAPBackendConfigRequest
 	*/
-	UpdateLDAPBackendConfig(ctx context.Context) ApiUpdateLDAPBackendConfigRequest
+	UpdateLDAPBackendConfig(ctx context.Context) BackendsAPIUpdateLDAPBackendConfigRequest
 
 	// UpdateLDAPBackendConfigExecute executes the request
 	//  @return LDAPBackendConfig
-	UpdateLDAPBackendConfigExecute(r ApiUpdateLDAPBackendConfigRequest) (*LDAPBackendConfig, *http.Response, error)
+	UpdateLDAPBackendConfigExecute(r BackendsAPIUpdateLDAPBackendConfigRequest) (*LDAPBackendConfig, *http.Response, error)
 }
 
 // BackendsAPIService BackendsAPI service
 type BackendsAPIService service
 
-type ApiDeleteLDAPBackendConfigRequest struct {
+type BackendsAPIDeleteLDAPBackendConfigRequest struct {
 	ctx          context.Context
 	ApiService   BackendsAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteLDAPBackendConfigRequest) AccentTenant(accentTenant string) ApiDeleteLDAPBackendConfigRequest {
+func (r BackendsAPIDeleteLDAPBackendConfigRequest) AccentTenant(accentTenant string) BackendsAPIDeleteLDAPBackendConfigRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteLDAPBackendConfigRequest) Execute() (*http.Response, error) {
+func (r BackendsAPIDeleteLDAPBackendConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteLDAPBackendConfigExecute(r)
 }
 
@@ -102,17 +102,17 @@ DeleteLDAPBackendConfig Delete current tenant's LDAP backend configuration
 **Required ACL:** `auth.backends.ldap.delete`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteLDAPBackendConfigRequest
+	@return BackendsAPIDeleteLDAPBackendConfigRequest
 */
-func (a *BackendsAPIService) DeleteLDAPBackendConfig(ctx context.Context) ApiDeleteLDAPBackendConfigRequest {
-	return ApiDeleteLDAPBackendConfigRequest{
+func (a *BackendsAPIService) DeleteLDAPBackendConfig(ctx context.Context) BackendsAPIDeleteLDAPBackendConfigRequest {
+	return BackendsAPIDeleteLDAPBackendConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *BackendsAPIService) DeleteLDAPBackendConfigExecute(r ApiDeleteLDAPBackendConfigRequest) (*http.Response, error) {
+func (a *BackendsAPIService) DeleteLDAPBackendConfigExecute(r BackendsAPIDeleteLDAPBackendConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -202,12 +202,12 @@ func (a *BackendsAPIService) DeleteLDAPBackendConfigExecute(r ApiDeleteLDAPBacke
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetBackendsRequest struct {
+type BackendsAPIGetBackendsRequest struct {
 	ctx        context.Context
 	ApiService BackendsAPI
 }
 
-func (r ApiGetBackendsRequest) Execute() (*BackendList, *http.Response, error) {
+func (r BackendsAPIGetBackendsRequest) Execute() (*BackendList, *http.Response, error) {
 	return r.ApiService.GetBackendsExecute(r)
 }
 
@@ -217,10 +217,10 @@ GetBackends Get list of activated backends
 Retrieves the list of activated backends
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetBackendsRequest
+	@return BackendsAPIGetBackendsRequest
 */
-func (a *BackendsAPIService) GetBackends(ctx context.Context) ApiGetBackendsRequest {
-	return ApiGetBackendsRequest{
+func (a *BackendsAPIService) GetBackends(ctx context.Context) BackendsAPIGetBackendsRequest {
+	return BackendsAPIGetBackendsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -229,7 +229,7 @@ func (a *BackendsAPIService) GetBackends(ctx context.Context) ApiGetBackendsRequ
 // Execute executes the request
 //
 //	@return BackendList
-func (a *BackendsAPIService) GetBackendsExecute(r ApiGetBackendsRequest) (*BackendList, *http.Response, error) {
+func (a *BackendsAPIService) GetBackendsExecute(r BackendsAPIGetBackendsRequest) (*BackendList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -302,19 +302,19 @@ func (a *BackendsAPIService) GetBackendsExecute(r ApiGetBackendsRequest) (*Backe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLDAPBackendConfigRequest struct {
+type BackendsAPIGetLDAPBackendConfigRequest struct {
 	ctx          context.Context
 	ApiService   BackendsAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetLDAPBackendConfigRequest) AccentTenant(accentTenant string) ApiGetLDAPBackendConfigRequest {
+func (r BackendsAPIGetLDAPBackendConfigRequest) AccentTenant(accentTenant string) BackendsAPIGetLDAPBackendConfigRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetLDAPBackendConfigRequest) Execute() (*LDAPBackendConfig, *http.Response, error) {
+func (r BackendsAPIGetLDAPBackendConfigRequest) Execute() (*LDAPBackendConfig, *http.Response, error) {
 	return r.ApiService.GetLDAPBackendConfigExecute(r)
 }
 
@@ -324,10 +324,10 @@ GetLDAPBackendConfig Get current tenant's LDAP backend configuration. If there i
 **Required ACL:** `auth.backends.ldap.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetLDAPBackendConfigRequest
+	@return BackendsAPIGetLDAPBackendConfigRequest
 */
-func (a *BackendsAPIService) GetLDAPBackendConfig(ctx context.Context) ApiGetLDAPBackendConfigRequest {
-	return ApiGetLDAPBackendConfigRequest{
+func (a *BackendsAPIService) GetLDAPBackendConfig(ctx context.Context) BackendsAPIGetLDAPBackendConfigRequest {
+	return BackendsAPIGetLDAPBackendConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -336,7 +336,7 @@ func (a *BackendsAPIService) GetLDAPBackendConfig(ctx context.Context) ApiGetLDA
 // Execute executes the request
 //
 //	@return LDAPBackendConfig
-func (a *BackendsAPIService) GetLDAPBackendConfigExecute(r ApiGetLDAPBackendConfigRequest) (*LDAPBackendConfig, *http.Response, error) {
+func (a *BackendsAPIService) GetLDAPBackendConfigExecute(r BackendsAPIGetLDAPBackendConfigRequest) (*LDAPBackendConfig, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -436,7 +436,7 @@ func (a *BackendsAPIService) GetLDAPBackendConfigExecute(r ApiGetLDAPBackendConf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateLDAPBackendConfigRequest struct {
+type BackendsAPIUpdateLDAPBackendConfigRequest struct {
 	ctx          context.Context
 	ApiService   BackendsAPI
 	body         *LDAPBackendConfigEdit
@@ -444,18 +444,18 @@ type ApiUpdateLDAPBackendConfigRequest struct {
 }
 
 // The LDAP backend configuration
-func (r ApiUpdateLDAPBackendConfigRequest) Body(body LDAPBackendConfigEdit) ApiUpdateLDAPBackendConfigRequest {
+func (r BackendsAPIUpdateLDAPBackendConfigRequest) Body(body LDAPBackendConfigEdit) BackendsAPIUpdateLDAPBackendConfigRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateLDAPBackendConfigRequest) AccentTenant(accentTenant string) ApiUpdateLDAPBackendConfigRequest {
+func (r BackendsAPIUpdateLDAPBackendConfigRequest) AccentTenant(accentTenant string) BackendsAPIUpdateLDAPBackendConfigRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateLDAPBackendConfigRequest) Execute() (*LDAPBackendConfig, *http.Response, error) {
+func (r BackendsAPIUpdateLDAPBackendConfigRequest) Execute() (*LDAPBackendConfig, *http.Response, error) {
 	return r.ApiService.UpdateLDAPBackendConfigExecute(r)
 }
 
@@ -465,10 +465,10 @@ UpdateLDAPBackendConfig Update current tenant's LDAP backend configuration
 **Required ACL:** `auth.backends.ldap.update
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateLDAPBackendConfigRequest
+	@return BackendsAPIUpdateLDAPBackendConfigRequest
 */
-func (a *BackendsAPIService) UpdateLDAPBackendConfig(ctx context.Context) ApiUpdateLDAPBackendConfigRequest {
-	return ApiUpdateLDAPBackendConfigRequest{
+func (a *BackendsAPIService) UpdateLDAPBackendConfig(ctx context.Context) BackendsAPIUpdateLDAPBackendConfigRequest {
+	return BackendsAPIUpdateLDAPBackendConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -477,7 +477,7 @@ func (a *BackendsAPIService) UpdateLDAPBackendConfig(ctx context.Context) ApiUpd
 // Execute executes the request
 //
 //	@return LDAPBackendConfig
-func (a *BackendsAPIService) UpdateLDAPBackendConfigExecute(r ApiUpdateLDAPBackendConfigRequest) (*LDAPBackendConfig, *http.Response, error) {
+func (a *BackendsAPIService) UpdateLDAPBackendConfigExecute(r BackendsAPIUpdateLDAPBackendConfigRequest) (*LDAPBackendConfig, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}

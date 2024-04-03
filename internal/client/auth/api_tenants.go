@@ -28,13 +28,13 @@ type TenantsAPI interface {
 		**Required ACL:** `auth.tenants.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateTenantRequest
+		@return TenantsAPICreateTenantRequest
 	*/
-	CreateTenant(ctx context.Context) ApiCreateTenantRequest
+	CreateTenant(ctx context.Context) TenantsAPICreateTenantRequest
 
 	// CreateTenantExecute executes the request
 	//  @return TenantPostResponse
-	CreateTenantExecute(r ApiCreateTenantRequest) (*TenantPostResponse, *http.Response, error)
+	CreateTenantExecute(r TenantsAPICreateTenantRequest) (*TenantPostResponse, *http.Response, error)
 
 	/*
 		DeleteTenant Delete a tenant
@@ -43,12 +43,12 @@ type TenantsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param tenantUuid The UUID of the tenant
-		@return ApiDeleteTenantRequest
+		@return TenantsAPIDeleteTenantRequest
 	*/
-	DeleteTenant(ctx context.Context, tenantUuid string) ApiDeleteTenantRequest
+	DeleteTenant(ctx context.Context, tenantUuid string) TenantsAPIDeleteTenantRequest
 
 	// DeleteTenantExecute executes the request
-	DeleteTenantExecute(r ApiDeleteTenantRequest) (*http.Response, error)
+	DeleteTenantExecute(r TenantsAPIDeleteTenantRequest) (*http.Response, error)
 
 	/*
 		GetTenant Retrieves the details of a tenant
@@ -57,13 +57,13 @@ type TenantsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param tenantUuid The UUID of the tenant
-		@return ApiGetTenantRequest
+		@return TenantsAPIGetTenantRequest
 	*/
-	GetTenant(ctx context.Context, tenantUuid string) ApiGetTenantRequest
+	GetTenant(ctx context.Context, tenantUuid string) TenantsAPIGetTenantRequest
 
 	// GetTenantExecute executes the request
 	//  @return TenantResult
-	GetTenantExecute(r ApiGetTenantRequest) (*TenantResult, *http.Response, error)
+	GetTenantExecute(r TenantsAPIGetTenantRequest) (*TenantResult, *http.Response, error)
 
 	/*
 		GetTenants Retrieves the list of tenants
@@ -71,13 +71,13 @@ type TenantsAPI interface {
 		**Required ACL**: `auth.tenants.read` Tenants can be filtered by domain name using the `domain_name` query string to do an exact match on one of its domain names or using the `search` query string for a fuzzy match.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetTenantsRequest
+		@return TenantsAPIGetTenantsRequest
 	*/
-	GetTenants(ctx context.Context) ApiGetTenantsRequest
+	GetTenants(ctx context.Context) TenantsAPIGetTenantsRequest
 
 	// GetTenantsExecute executes the request
 	//  @return TenantList
-	GetTenantsExecute(r ApiGetTenantsRequest) (*TenantList, *http.Response, error)
+	GetTenantsExecute(r TenantsAPIGetTenantsRequest) (*TenantList, *http.Response, error)
 
 	/*
 		UpdateTenant Modify a tenant
@@ -86,19 +86,19 @@ type TenantsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param tenantUuid The UUID of the tenant
-		@return ApiUpdateTenantRequest
+		@return TenantsAPIUpdateTenantRequest
 	*/
-	UpdateTenant(ctx context.Context, tenantUuid string) ApiUpdateTenantRequest
+	UpdateTenant(ctx context.Context, tenantUuid string) TenantsAPIUpdateTenantRequest
 
 	// UpdateTenantExecute executes the request
 	//  @return TenantPostResponse
-	UpdateTenantExecute(r ApiUpdateTenantRequest) (*TenantPostResponse, *http.Response, error)
+	UpdateTenantExecute(r TenantsAPIUpdateTenantRequest) (*TenantPostResponse, *http.Response, error)
 }
 
 // TenantsAPIService TenantsAPI service
 type TenantsAPIService service
 
-type ApiCreateTenantRequest struct {
+type TenantsAPICreateTenantRequest struct {
 	ctx          context.Context
 	ApiService   TenantsAPI
 	body         *TenantCreate
@@ -106,18 +106,18 @@ type ApiCreateTenantRequest struct {
 }
 
 // The tenant creation parameters
-func (r ApiCreateTenantRequest) Body(body TenantCreate) ApiCreateTenantRequest {
+func (r TenantsAPICreateTenantRequest) Body(body TenantCreate) TenantsAPICreateTenantRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateTenantRequest) AccentTenant(accentTenant string) ApiCreateTenantRequest {
+func (r TenantsAPICreateTenantRequest) AccentTenant(accentTenant string) TenantsAPICreateTenantRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateTenantRequest) Execute() (*TenantPostResponse, *http.Response, error) {
+func (r TenantsAPICreateTenantRequest) Execute() (*TenantPostResponse, *http.Response, error) {
 	return r.ApiService.CreateTenantExecute(r)
 }
 
@@ -127,10 +127,10 @@ CreateTenant Creates a new tenant
 **Required ACL:** `auth.tenants.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateTenantRequest
+	@return TenantsAPICreateTenantRequest
 */
-func (a *TenantsAPIService) CreateTenant(ctx context.Context) ApiCreateTenantRequest {
-	return ApiCreateTenantRequest{
+func (a *TenantsAPIService) CreateTenant(ctx context.Context) TenantsAPICreateTenantRequest {
+	return TenantsAPICreateTenantRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -139,7 +139,7 @@ func (a *TenantsAPIService) CreateTenant(ctx context.Context) ApiCreateTenantReq
 // Execute executes the request
 //
 //	@return TenantPostResponse
-func (a *TenantsAPIService) CreateTenantExecute(r ApiCreateTenantRequest) (*TenantPostResponse, *http.Response, error) {
+func (a *TenantsAPIService) CreateTenantExecute(r TenantsAPICreateTenantRequest) (*TenantPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -241,13 +241,13 @@ func (a *TenantsAPIService) CreateTenantExecute(r ApiCreateTenantRequest) (*Tena
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteTenantRequest struct {
+type TenantsAPIDeleteTenantRequest struct {
 	ctx        context.Context
 	ApiService TenantsAPI
 	tenantUuid string
 }
 
-func (r ApiDeleteTenantRequest) Execute() (*http.Response, error) {
+func (r TenantsAPIDeleteTenantRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteTenantExecute(r)
 }
 
@@ -258,10 +258,10 @@ DeleteTenant Delete a tenant
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param tenantUuid The UUID of the tenant
-	@return ApiDeleteTenantRequest
+	@return TenantsAPIDeleteTenantRequest
 */
-func (a *TenantsAPIService) DeleteTenant(ctx context.Context, tenantUuid string) ApiDeleteTenantRequest {
-	return ApiDeleteTenantRequest{
+func (a *TenantsAPIService) DeleteTenant(ctx context.Context, tenantUuid string) TenantsAPIDeleteTenantRequest {
+	return TenantsAPIDeleteTenantRequest{
 		ApiService: a,
 		ctx:        ctx,
 		tenantUuid: tenantUuid,
@@ -269,7 +269,7 @@ func (a *TenantsAPIService) DeleteTenant(ctx context.Context, tenantUuid string)
 }
 
 // Execute executes the request
-func (a *TenantsAPIService) DeleteTenantExecute(r ApiDeleteTenantRequest) (*http.Response, error) {
+func (a *TenantsAPIService) DeleteTenantExecute(r TenantsAPIDeleteTenantRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -379,13 +379,13 @@ func (a *TenantsAPIService) DeleteTenantExecute(r ApiDeleteTenantRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetTenantRequest struct {
+type TenantsAPIGetTenantRequest struct {
 	ctx        context.Context
 	ApiService TenantsAPI
 	tenantUuid string
 }
 
-func (r ApiGetTenantRequest) Execute() (*TenantResult, *http.Response, error) {
+func (r TenantsAPIGetTenantRequest) Execute() (*TenantResult, *http.Response, error) {
 	return r.ApiService.GetTenantExecute(r)
 }
 
@@ -396,10 +396,10 @@ GetTenant Retrieves the details of a tenant
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param tenantUuid The UUID of the tenant
-	@return ApiGetTenantRequest
+	@return TenantsAPIGetTenantRequest
 */
-func (a *TenantsAPIService) GetTenant(ctx context.Context, tenantUuid string) ApiGetTenantRequest {
-	return ApiGetTenantRequest{
+func (a *TenantsAPIService) GetTenant(ctx context.Context, tenantUuid string) TenantsAPIGetTenantRequest {
+	return TenantsAPIGetTenantRequest{
 		ApiService: a,
 		ctx:        ctx,
 		tenantUuid: tenantUuid,
@@ -409,7 +409,7 @@ func (a *TenantsAPIService) GetTenant(ctx context.Context, tenantUuid string) Ap
 // Execute executes the request
 //
 //	@return TenantResult
-func (a *TenantsAPIService) GetTenantExecute(r ApiGetTenantRequest) (*TenantResult, *http.Response, error) {
+func (a *TenantsAPIService) GetTenantExecute(r TenantsAPIGetTenantRequest) (*TenantResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -529,7 +529,7 @@ func (a *TenantsAPIService) GetTenantExecute(r ApiGetTenantRequest) (*TenantResu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTenantsRequest struct {
+type TenantsAPIGetTenantsRequest struct {
 	ctx          context.Context
 	ApiService   TenantsAPI
 	order        *string
@@ -541,42 +541,42 @@ type ApiGetTenantsRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetTenantsRequest) Order(order string) ApiGetTenantsRequest {
+func (r TenantsAPIGetTenantsRequest) Order(order string) TenantsAPIGetTenantsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetTenantsRequest) Direction(direction string) ApiGetTenantsRequest {
+func (r TenantsAPIGetTenantsRequest) Direction(direction string) TenantsAPIGetTenantsRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetTenantsRequest) Limit(limit int32) ApiGetTenantsRequest {
+func (r TenantsAPIGetTenantsRequest) Limit(limit int32) TenantsAPIGetTenantsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetTenantsRequest) Offset(offset int32) ApiGetTenantsRequest {
+func (r TenantsAPIGetTenantsRequest) Offset(offset int32) TenantsAPIGetTenantsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetTenantsRequest) Search(search string) ApiGetTenantsRequest {
+func (r TenantsAPIGetTenantsRequest) Search(search string) TenantsAPIGetTenantsRequest {
 	r.search = &search
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetTenantsRequest) AccentTenant(accentTenant string) ApiGetTenantsRequest {
+func (r TenantsAPIGetTenantsRequest) AccentTenant(accentTenant string) TenantsAPIGetTenantsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetTenantsRequest) Execute() (*TenantList, *http.Response, error) {
+func (r TenantsAPIGetTenantsRequest) Execute() (*TenantList, *http.Response, error) {
 	return r.ApiService.GetTenantsExecute(r)
 }
 
@@ -586,10 +586,10 @@ GetTenants Retrieves the list of tenants
 **Required ACL**: `auth.tenants.read` Tenants can be filtered by domain name using the `domain_name` query string to do an exact match on one of its domain names or using the `search` query string for a fuzzy match.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetTenantsRequest
+	@return TenantsAPIGetTenantsRequest
 */
-func (a *TenantsAPIService) GetTenants(ctx context.Context) ApiGetTenantsRequest {
-	return ApiGetTenantsRequest{
+func (a *TenantsAPIService) GetTenants(ctx context.Context) TenantsAPIGetTenantsRequest {
+	return TenantsAPIGetTenantsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -598,7 +598,7 @@ func (a *TenantsAPIService) GetTenants(ctx context.Context) ApiGetTenantsRequest
 // Execute executes the request
 //
 //	@return TenantList
-func (a *TenantsAPIService) GetTenantsExecute(r ApiGetTenantsRequest) (*TenantList, *http.Response, error) {
+func (a *TenantsAPIService) GetTenantsExecute(r TenantsAPIGetTenantsRequest) (*TenantList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -706,7 +706,7 @@ func (a *TenantsAPIService) GetTenantsExecute(r ApiGetTenantsRequest) (*TenantLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateTenantRequest struct {
+type TenantsAPIUpdateTenantRequest struct {
 	ctx        context.Context
 	ApiService TenantsAPI
 	body       *TenantEdit
@@ -714,12 +714,12 @@ type ApiUpdateTenantRequest struct {
 }
 
 // The tenant parameters
-func (r ApiUpdateTenantRequest) Body(body TenantEdit) ApiUpdateTenantRequest {
+func (r TenantsAPIUpdateTenantRequest) Body(body TenantEdit) TenantsAPIUpdateTenantRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateTenantRequest) Execute() (*TenantPostResponse, *http.Response, error) {
+func (r TenantsAPIUpdateTenantRequest) Execute() (*TenantPostResponse, *http.Response, error) {
 	return r.ApiService.UpdateTenantExecute(r)
 }
 
@@ -730,10 +730,10 @@ UpdateTenant Modify a tenant
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param tenantUuid The UUID of the tenant
-	@return ApiUpdateTenantRequest
+	@return TenantsAPIUpdateTenantRequest
 */
-func (a *TenantsAPIService) UpdateTenant(ctx context.Context, tenantUuid string) ApiUpdateTenantRequest {
-	return ApiUpdateTenantRequest{
+func (a *TenantsAPIService) UpdateTenant(ctx context.Context, tenantUuid string) TenantsAPIUpdateTenantRequest {
+	return TenantsAPIUpdateTenantRequest{
 		ApiService: a,
 		ctx:        ctx,
 		tenantUuid: tenantUuid,
@@ -743,7 +743,7 @@ func (a *TenantsAPIService) UpdateTenant(ctx context.Context, tenantUuid string)
 // Execute executes the request
 //
 //	@return TenantPostResponse
-func (a *TenantsAPIService) UpdateTenantExecute(r ApiUpdateTenantRequest) (*TenantPostResponse, *http.Response, error) {
+func (a *TenantsAPIService) UpdateTenantExecute(r TenantsAPIUpdateTenantRequest) (*TenantPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}

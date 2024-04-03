@@ -28,13 +28,13 @@ type PluginAPI interface {
 		**Required ACL:** `plugind.market.read` Allow the administrator to get a list of available plugins
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetMarketRequest
+		@return PluginAPIGetMarketRequest
 	*/
-	GetMarket(ctx context.Context) ApiGetMarketRequest
+	GetMarket(ctx context.Context) PluginAPIGetMarketRequest
 
 	// GetMarketExecute executes the request
 	//  @return GetMarketResult
-	GetMarketExecute(r ApiGetMarketRequest) (*GetMarketResult, *http.Response, error)
+	GetMarketExecute(r PluginAPIGetMarketRequest) (*GetMarketResult, *http.Response, error)
 
 	/*
 		GetMarketPlugin Fetch the information about a plugin from the market
@@ -44,13 +44,13 @@ type PluginAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param namespace The plugin's namespace
 		@param name The plugin's name
-		@return ApiGetMarketPluginRequest
+		@return PluginAPIGetMarketPluginRequest
 	*/
-	GetMarketPlugin(ctx context.Context, namespace string, name string) ApiGetMarketPluginRequest
+	GetMarketPlugin(ctx context.Context, namespace string, name string) PluginAPIGetMarketPluginRequest
 
 	// GetMarketPluginExecute executes the request
 	//  @return MarketPluginList
-	GetMarketPluginExecute(r ApiGetMarketPluginRequest) (*MarketPluginList, *http.Response, error)
+	GetMarketPluginExecute(r PluginAPIGetMarketPluginRequest) (*MarketPluginList, *http.Response, error)
 
 	/*
 		GetPlugin Fetch the information about a plugin that has been installed
@@ -60,13 +60,13 @@ type PluginAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param namespace The plugin's namespace
 		@param name The plugin's name
-		@return ApiGetPluginRequest
+		@return PluginAPIGetPluginRequest
 	*/
-	GetPlugin(ctx context.Context, namespace string, name string) ApiGetPluginRequest
+	GetPlugin(ctx context.Context, namespace string, name string) PluginAPIGetPluginRequest
 
 	// GetPluginExecute executes the request
 	//  @return PluginMetadata
-	GetPluginExecute(r ApiGetPluginRequest) (*PluginMetadata, *http.Response, error)
+	GetPluginExecute(r PluginAPIGetPluginRequest) (*PluginMetadata, *http.Response, error)
 
 	/*
 		GetPlugins List installed plugins
@@ -74,13 +74,13 @@ type PluginAPI interface {
 		**Required ACL:** `plugind.plugins.read` Allow the administrator to get a list of all installed plugins
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetPluginsRequest
+		@return PluginAPIGetPluginsRequest
 	*/
-	GetPlugins(ctx context.Context) ApiGetPluginsRequest
+	GetPlugins(ctx context.Context) PluginAPIGetPluginsRequest
 
 	// GetPluginsExecute executes the request
 	//  @return GetPluginsResult
-	GetPluginsExecute(r ApiGetPluginsRequest) (*GetPluginsResult, *http.Response, error)
+	GetPluginsExecute(r PluginAPIGetPluginsRequest) (*GetPluginsResult, *http.Response, error)
 
 	/*
 		InstallPlugin Install a plugin
@@ -88,13 +88,13 @@ type PluginAPI interface {
 		**Required ACL:** `plugind.plugins.create` Allow the administrator to install a plugin on the server.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiInstallPluginRequest
+		@return PluginAPIInstallPluginRequest
 	*/
-	InstallPlugin(ctx context.Context) ApiInstallPluginRequest
+	InstallPlugin(ctx context.Context) PluginAPIInstallPluginRequest
 
 	// InstallPluginExecute executes the request
 	//  @return InstallResponse
-	InstallPluginExecute(r ApiInstallPluginRequest) (*InstallResponse, *http.Response, error)
+	InstallPluginExecute(r PluginAPIInstallPluginRequest) (*InstallResponse, *http.Response, error)
 
 	/*
 		UninstallPlugin Uninstall a plugin
@@ -104,18 +104,18 @@ type PluginAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param namespace The plugin's namespace
 		@param name The plugin's name
-		@return ApiUninstallPluginRequest
+		@return PluginAPIUninstallPluginRequest
 	*/
-	UninstallPlugin(ctx context.Context, namespace string, name string) ApiUninstallPluginRequest
+	UninstallPlugin(ctx context.Context, namespace string, name string) PluginAPIUninstallPluginRequest
 
 	// UninstallPluginExecute executes the request
-	UninstallPluginExecute(r ApiUninstallPluginRequest) (*http.Response, error)
+	UninstallPluginExecute(r PluginAPIUninstallPluginRequest) (*http.Response, error)
 }
 
 // PluginAPIService PluginAPI service
 type PluginAPIService service
 
-type ApiGetMarketRequest struct {
+type PluginAPIGetMarketRequest struct {
 	ctx        context.Context
 	ApiService PluginAPI
 	limit      *int32
@@ -129,54 +129,54 @@ type ApiGetMarketRequest struct {
 }
 
 // Maximum number of items to return in the list
-func (r ApiGetMarketRequest) Limit(limit int32) ApiGetMarketRequest {
+func (r PluginAPIGetMarketRequest) Limit(limit int32) PluginAPIGetMarketRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiGetMarketRequest) Offset(offset int32) ApiGetMarketRequest {
+func (r PluginAPIGetMarketRequest) Offset(offset int32) PluginAPIGetMarketRequest {
 	r.offset = &offset
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetMarketRequest) Order(order string) ApiGetMarketRequest {
+func (r PluginAPIGetMarketRequest) Order(order string) PluginAPIGetMarketRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetMarketRequest) Direction(direction string) ApiGetMarketRequest {
+func (r PluginAPIGetMarketRequest) Direction(direction string) PluginAPIGetMarketRequest {
 	r.direction = &direction
 	return r
 }
 
 // Filter list of items, this search is applied to all fields and is not strict (eba matches Sébastien)
-func (r ApiGetMarketRequest) Search(search string) ApiGetMarketRequest {
+func (r PluginAPIGetMarketRequest) Search(search string) PluginAPIGetMarketRequest {
 	r.search = &search
 	return r
 }
 
 // Search by namespace
-func (r ApiGetMarketRequest) Namespace(namespace string) ApiGetMarketRequest {
+func (r PluginAPIGetMarketRequest) Namespace(namespace string) PluginAPIGetMarketRequest {
 	r.namespace = &namespace
 	return r
 }
 
 // Search by name
-func (r ApiGetMarketRequest) Name(name string) ApiGetMarketRequest {
+func (r PluginAPIGetMarketRequest) Name(name string) PluginAPIGetMarketRequest {
 	r.name = &name
 	return r
 }
 
 // Filter installed plugins
-func (r ApiGetMarketRequest) Installed(installed bool) ApiGetMarketRequest {
+func (r PluginAPIGetMarketRequest) Installed(installed bool) PluginAPIGetMarketRequest {
 	r.installed = &installed
 	return r
 }
 
-func (r ApiGetMarketRequest) Execute() (*GetMarketResult, *http.Response, error) {
+func (r PluginAPIGetMarketRequest) Execute() (*GetMarketResult, *http.Response, error) {
 	return r.ApiService.GetMarketExecute(r)
 }
 
@@ -186,10 +186,10 @@ GetMarket List plugins available on the configured market
 **Required ACL:** `plugind.market.read` Allow the administrator to get a list of available plugins
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetMarketRequest
+	@return PluginAPIGetMarketRequest
 */
-func (a *PluginAPIService) GetMarket(ctx context.Context) ApiGetMarketRequest {
-	return ApiGetMarketRequest{
+func (a *PluginAPIService) GetMarket(ctx context.Context) PluginAPIGetMarketRequest {
+	return PluginAPIGetMarketRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -198,7 +198,7 @@ func (a *PluginAPIService) GetMarket(ctx context.Context) ApiGetMarketRequest {
 // Execute executes the request
 //
 //	@return GetMarketResult
-func (a *PluginAPIService) GetMarketExecute(r ApiGetMarketRequest) (*GetMarketResult, *http.Response, error) {
+func (a *PluginAPIService) GetMarketExecute(r PluginAPIGetMarketRequest) (*GetMarketResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -309,14 +309,14 @@ func (a *PluginAPIService) GetMarketExecute(r ApiGetMarketRequest) (*GetMarketRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMarketPluginRequest struct {
+type PluginAPIGetMarketPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginAPI
 	namespace  string
 	name       string
 }
 
-func (r ApiGetMarketPluginRequest) Execute() (*MarketPluginList, *http.Response, error) {
+func (r PluginAPIGetMarketPluginRequest) Execute() (*MarketPluginList, *http.Response, error) {
 	return r.ApiService.GetMarketPluginExecute(r)
 }
 
@@ -328,10 +328,10 @@ GetMarketPlugin Fetch the information about a plugin from the market
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param namespace The plugin's namespace
 	@param name The plugin's name
-	@return ApiGetMarketPluginRequest
+	@return PluginAPIGetMarketPluginRequest
 */
-func (a *PluginAPIService) GetMarketPlugin(ctx context.Context, namespace string, name string) ApiGetMarketPluginRequest {
-	return ApiGetMarketPluginRequest{
+func (a *PluginAPIService) GetMarketPlugin(ctx context.Context, namespace string, name string) PluginAPIGetMarketPluginRequest {
+	return PluginAPIGetMarketPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 		namespace:  namespace,
@@ -342,7 +342,7 @@ func (a *PluginAPIService) GetMarketPlugin(ctx context.Context, namespace string
 // Execute executes the request
 //
 //	@return MarketPluginList
-func (a *PluginAPIService) GetMarketPluginExecute(r ApiGetMarketPluginRequest) (*MarketPluginList, *http.Response, error) {
+func (a *PluginAPIService) GetMarketPluginExecute(r PluginAPIGetMarketPluginRequest) (*MarketPluginList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -452,14 +452,14 @@ func (a *PluginAPIService) GetMarketPluginExecute(r ApiGetMarketPluginRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPluginRequest struct {
+type PluginAPIGetPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginAPI
 	namespace  string
 	name       string
 }
 
-func (r ApiGetPluginRequest) Execute() (*PluginMetadata, *http.Response, error) {
+func (r PluginAPIGetPluginRequest) Execute() (*PluginMetadata, *http.Response, error) {
 	return r.ApiService.GetPluginExecute(r)
 }
 
@@ -471,10 +471,10 @@ GetPlugin Fetch the information about a plugin that has been installed
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param namespace The plugin's namespace
 	@param name The plugin's name
-	@return ApiGetPluginRequest
+	@return PluginAPIGetPluginRequest
 */
-func (a *PluginAPIService) GetPlugin(ctx context.Context, namespace string, name string) ApiGetPluginRequest {
-	return ApiGetPluginRequest{
+func (a *PluginAPIService) GetPlugin(ctx context.Context, namespace string, name string) PluginAPIGetPluginRequest {
+	return PluginAPIGetPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 		namespace:  namespace,
@@ -485,7 +485,7 @@ func (a *PluginAPIService) GetPlugin(ctx context.Context, namespace string, name
 // Execute executes the request
 //
 //	@return PluginMetadata
-func (a *PluginAPIService) GetPluginExecute(r ApiGetPluginRequest) (*PluginMetadata, *http.Response, error) {
+func (a *PluginAPIService) GetPluginExecute(r PluginAPIGetPluginRequest) (*PluginMetadata, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -595,12 +595,12 @@ func (a *PluginAPIService) GetPluginExecute(r ApiGetPluginRequest) (*PluginMetad
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPluginsRequest struct {
+type PluginAPIGetPluginsRequest struct {
 	ctx        context.Context
 	ApiService PluginAPI
 }
 
-func (r ApiGetPluginsRequest) Execute() (*GetPluginsResult, *http.Response, error) {
+func (r PluginAPIGetPluginsRequest) Execute() (*GetPluginsResult, *http.Response, error) {
 	return r.ApiService.GetPluginsExecute(r)
 }
 
@@ -610,10 +610,10 @@ GetPlugins List installed plugins
 **Required ACL:** `plugind.plugins.read` Allow the administrator to get a list of all installed plugins
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPluginsRequest
+	@return PluginAPIGetPluginsRequest
 */
-func (a *PluginAPIService) GetPlugins(ctx context.Context) ApiGetPluginsRequest {
-	return ApiGetPluginsRequest{
+func (a *PluginAPIService) GetPlugins(ctx context.Context) PluginAPIGetPluginsRequest {
+	return PluginAPIGetPluginsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -622,7 +622,7 @@ func (a *PluginAPIService) GetPlugins(ctx context.Context) ApiGetPluginsRequest 
 // Execute executes the request
 //
 //	@return GetPluginsResult
-func (a *PluginAPIService) GetPluginsExecute(r ApiGetPluginsRequest) (*GetPluginsResult, *http.Response, error) {
+func (a *PluginAPIService) GetPluginsExecute(r PluginAPIGetPluginsRequest) (*GetPluginsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -709,7 +709,7 @@ func (a *PluginAPIService) GetPluginsExecute(r ApiGetPluginsRequest) (*GetPlugin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstallPluginRequest struct {
+type PluginAPIInstallPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginAPI
 	body       *PluginInstallParameters
@@ -717,18 +717,18 @@ type ApiInstallPluginRequest struct {
 }
 
 // The plugins&#39; installation parameters
-func (r ApiInstallPluginRequest) Body(body PluginInstallParameters) ApiInstallPluginRequest {
+func (r PluginAPIInstallPluginRequest) Body(body PluginInstallParameters) PluginAPIInstallPluginRequest {
 	r.body = &body
 	return r
 }
 
 // With this option the plugin will be reinstalled if it is already installed
-func (r ApiInstallPluginRequest) Reinstall(reinstall bool) ApiInstallPluginRequest {
+func (r PluginAPIInstallPluginRequest) Reinstall(reinstall bool) PluginAPIInstallPluginRequest {
 	r.reinstall = &reinstall
 	return r
 }
 
-func (r ApiInstallPluginRequest) Execute() (*InstallResponse, *http.Response, error) {
+func (r PluginAPIInstallPluginRequest) Execute() (*InstallResponse, *http.Response, error) {
 	return r.ApiService.InstallPluginExecute(r)
 }
 
@@ -738,10 +738,10 @@ InstallPlugin Install a plugin
 **Required ACL:** `plugind.plugins.create` Allow the administrator to install a plugin on the server.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInstallPluginRequest
+	@return PluginAPIInstallPluginRequest
 */
-func (a *PluginAPIService) InstallPlugin(ctx context.Context) ApiInstallPluginRequest {
-	return ApiInstallPluginRequest{
+func (a *PluginAPIService) InstallPlugin(ctx context.Context) PluginAPIInstallPluginRequest {
+	return PluginAPIInstallPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -750,7 +750,7 @@ func (a *PluginAPIService) InstallPlugin(ctx context.Context) ApiInstallPluginRe
 // Execute executes the request
 //
 //	@return InstallResponse
-func (a *PluginAPIService) InstallPluginExecute(r ApiInstallPluginRequest) (*InstallResponse, *http.Response, error) {
+func (a *PluginAPIService) InstallPluginExecute(r PluginAPIInstallPluginRequest) (*InstallResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -855,14 +855,14 @@ func (a *PluginAPIService) InstallPluginExecute(r ApiInstallPluginRequest) (*Ins
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUninstallPluginRequest struct {
+type PluginAPIUninstallPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginAPI
 	namespace  string
 	name       string
 }
 
-func (r ApiUninstallPluginRequest) Execute() (*http.Response, error) {
+func (r PluginAPIUninstallPluginRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UninstallPluginExecute(r)
 }
 
@@ -874,10 +874,10 @@ UninstallPlugin Uninstall a plugin
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param namespace The plugin's namespace
 	@param name The plugin's name
-	@return ApiUninstallPluginRequest
+	@return PluginAPIUninstallPluginRequest
 */
-func (a *PluginAPIService) UninstallPlugin(ctx context.Context, namespace string, name string) ApiUninstallPluginRequest {
-	return ApiUninstallPluginRequest{
+func (a *PluginAPIService) UninstallPlugin(ctx context.Context, namespace string, name string) PluginAPIUninstallPluginRequest {
+	return PluginAPIUninstallPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 		namespace:  namespace,
@@ -886,7 +886,7 @@ func (a *PluginAPIService) UninstallPlugin(ctx context.Context, namespace string
 }
 
 // Execute executes the request
-func (a *PluginAPIService) UninstallPluginExecute(r ApiUninstallPluginRequest) (*http.Response, error) {
+func (a *PluginAPIService) UninstallPluginExecute(r PluginAPIUninstallPluginRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}

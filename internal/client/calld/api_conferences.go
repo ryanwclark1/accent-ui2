@@ -30,12 +30,12 @@ type ConferencesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Unique identifier of the conference
 		@param participantId Unique identifier of the participant
-		@return ApiKickParticipantRequest
+		@return ConferencesAPIKickParticipantRequest
 	*/
-	KickParticipant(ctx context.Context, conferenceId string, participantId string) ApiKickParticipantRequest
+	KickParticipant(ctx context.Context, conferenceId string, participantId string) ConferencesAPIKickParticipantRequest
 
 	// KickParticipantExecute executes the request
-	KickParticipantExecute(r ApiKickParticipantRequest) (*http.Response, error)
+	KickParticipantExecute(r ConferencesAPIKickParticipantRequest) (*http.Response, error)
 
 	/*
 		ListConferenceParticipants List participants of a conference
@@ -44,13 +44,13 @@ type ConferencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Unique identifier of the conference
-		@return ApiListConferenceParticipantsRequest
+		@return ConferencesAPIListConferenceParticipantsRequest
 	*/
-	ListConferenceParticipants(ctx context.Context, conferenceId string) ApiListConferenceParticipantsRequest
+	ListConferenceParticipants(ctx context.Context, conferenceId string) ConferencesAPIListConferenceParticipantsRequest
 
 	// ListConferenceParticipantsExecute executes the request
 	//  @return ParticipantList
-	ListConferenceParticipantsExecute(r ApiListConferenceParticipantsRequest) (*ParticipantList, *http.Response, error)
+	ListConferenceParticipantsExecute(r ConferencesAPIListConferenceParticipantsRequest) (*ParticipantList, *http.Response, error)
 
 	/*
 		ListUserConferenceParticipants List participants of a conference as a user
@@ -59,13 +59,13 @@ type ConferencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Unique identifier of the conference
-		@return ApiListUserConferenceParticipantsRequest
+		@return ConferencesAPIListUserConferenceParticipantsRequest
 	*/
-	ListUserConferenceParticipants(ctx context.Context, conferenceId string) ApiListUserConferenceParticipantsRequest
+	ListUserConferenceParticipants(ctx context.Context, conferenceId string) ConferencesAPIListUserConferenceParticipantsRequest
 
 	// ListUserConferenceParticipantsExecute executes the request
 	//  @return ParticipantList
-	ListUserConferenceParticipantsExecute(r ApiListUserConferenceParticipantsRequest) (*ParticipantList, *http.Response, error)
+	ListUserConferenceParticipantsExecute(r ConferencesAPIListUserConferenceParticipantsRequest) (*ParticipantList, *http.Response, error)
 
 	/*
 		MuteParticipant Mute a participant in a conference
@@ -75,12 +75,12 @@ type ConferencesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Unique identifier of the conference
 		@param participantId Unique identifier of the participant
-		@return ApiMuteParticipantRequest
+		@return ConferencesAPIMuteParticipantRequest
 	*/
-	MuteParticipant(ctx context.Context, conferenceId string, participantId string) ApiMuteParticipantRequest
+	MuteParticipant(ctx context.Context, conferenceId string, participantId string) ConferencesAPIMuteParticipantRequest
 
 	// MuteParticipantExecute executes the request
-	MuteParticipantExecute(r ApiMuteParticipantRequest) (*http.Response, error)
+	MuteParticipantExecute(r ConferencesAPIMuteParticipantRequest) (*http.Response, error)
 
 	/*
 		StartConferenceRecording Record a conference
@@ -89,12 +89,12 @@ type ConferencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Unique identifier of the conference
-		@return ApiStartConferenceRecordingRequest
+		@return ConferencesAPIStartConferenceRecordingRequest
 	*/
-	StartConferenceRecording(ctx context.Context, conferenceId string) ApiStartConferenceRecordingRequest
+	StartConferenceRecording(ctx context.Context, conferenceId string) ConferencesAPIStartConferenceRecordingRequest
 
 	// StartConferenceRecordingExecute executes the request
-	StartConferenceRecordingExecute(r ApiStartConferenceRecordingRequest) (*http.Response, error)
+	StartConferenceRecordingExecute(r ConferencesAPIStartConferenceRecordingRequest) (*http.Response, error)
 
 	/*
 		StopConferenceRecording Stop recording a conference
@@ -103,12 +103,12 @@ type ConferencesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Unique identifier of the conference
-		@return ApiStopConferenceRecordingRequest
+		@return ConferencesAPIStopConferenceRecordingRequest
 	*/
-	StopConferenceRecording(ctx context.Context, conferenceId string) ApiStopConferenceRecordingRequest
+	StopConferenceRecording(ctx context.Context, conferenceId string) ConferencesAPIStopConferenceRecordingRequest
 
 	// StopConferenceRecordingExecute executes the request
-	StopConferenceRecordingExecute(r ApiStopConferenceRecordingRequest) (*http.Response, error)
+	StopConferenceRecordingExecute(r ConferencesAPIStopConferenceRecordingRequest) (*http.Response, error)
 
 	/*
 		UnmuteParticipant Unmute a participant in a conference
@@ -118,25 +118,25 @@ type ConferencesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Unique identifier of the conference
 		@param participantId Unique identifier of the participant
-		@return ApiUnmuteParticipantRequest
+		@return ConferencesAPIUnmuteParticipantRequest
 	*/
-	UnmuteParticipant(ctx context.Context, conferenceId string, participantId string) ApiUnmuteParticipantRequest
+	UnmuteParticipant(ctx context.Context, conferenceId string, participantId string) ConferencesAPIUnmuteParticipantRequest
 
 	// UnmuteParticipantExecute executes the request
-	UnmuteParticipantExecute(r ApiUnmuteParticipantRequest) (*http.Response, error)
+	UnmuteParticipantExecute(r ConferencesAPIUnmuteParticipantRequest) (*http.Response, error)
 }
 
 // ConferencesAPIService ConferencesAPI service
 type ConferencesAPIService service
 
-type ApiKickParticipantRequest struct {
+type ConferencesAPIKickParticipantRequest struct {
 	ctx           context.Context
 	ApiService    ConferencesAPI
 	conferenceId  string
 	participantId string
 }
 
-func (r ApiKickParticipantRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIKickParticipantRequest) Execute() (*http.Response, error) {
 	return r.ApiService.KickParticipantExecute(r)
 }
 
@@ -148,10 +148,10 @@ KickParticipant Kick participant from a conference
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Unique identifier of the conference
 	@param participantId Unique identifier of the participant
-	@return ApiKickParticipantRequest
+	@return ConferencesAPIKickParticipantRequest
 */
-func (a *ConferencesAPIService) KickParticipant(ctx context.Context, conferenceId string, participantId string) ApiKickParticipantRequest {
-	return ApiKickParticipantRequest{
+func (a *ConferencesAPIService) KickParticipant(ctx context.Context, conferenceId string, participantId string) ConferencesAPIKickParticipantRequest {
+	return ConferencesAPIKickParticipantRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		conferenceId:  conferenceId,
@@ -160,7 +160,7 @@ func (a *ConferencesAPIService) KickParticipant(ctx context.Context, conferenceI
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) KickParticipantExecute(r ApiKickParticipantRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) KickParticipantExecute(r ConferencesAPIKickParticipantRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -260,13 +260,13 @@ func (a *ConferencesAPIService) KickParticipantExecute(r ApiKickParticipantReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiListConferenceParticipantsRequest struct {
+type ConferencesAPIListConferenceParticipantsRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	conferenceId string
 }
 
-func (r ApiListConferenceParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
+func (r ConferencesAPIListConferenceParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
 	return r.ApiService.ListConferenceParticipantsExecute(r)
 }
 
@@ -277,10 +277,10 @@ ListConferenceParticipants List participants of a conference
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Unique identifier of the conference
-	@return ApiListConferenceParticipantsRequest
+	@return ConferencesAPIListConferenceParticipantsRequest
 */
-func (a *ConferencesAPIService) ListConferenceParticipants(ctx context.Context, conferenceId string) ApiListConferenceParticipantsRequest {
-	return ApiListConferenceParticipantsRequest{
+func (a *ConferencesAPIService) ListConferenceParticipants(ctx context.Context, conferenceId string) ConferencesAPIListConferenceParticipantsRequest {
+	return ConferencesAPIListConferenceParticipantsRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -290,7 +290,7 @@ func (a *ConferencesAPIService) ListConferenceParticipants(ctx context.Context, 
 // Execute executes the request
 //
 //	@return ParticipantList
-func (a *ConferencesAPIService) ListConferenceParticipantsExecute(r ApiListConferenceParticipantsRequest) (*ParticipantList, *http.Response, error) {
+func (a *ConferencesAPIService) ListConferenceParticipantsExecute(r ConferencesAPIListConferenceParticipantsRequest) (*ParticipantList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -399,13 +399,13 @@ func (a *ConferencesAPIService) ListConferenceParticipantsExecute(r ApiListConfe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserConferenceParticipantsRequest struct {
+type ConferencesAPIListUserConferenceParticipantsRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	conferenceId string
 }
 
-func (r ApiListUserConferenceParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
+func (r ConferencesAPIListUserConferenceParticipantsRequest) Execute() (*ParticipantList, *http.Response, error) {
 	return r.ApiService.ListUserConferenceParticipantsExecute(r)
 }
 
@@ -416,10 +416,10 @@ ListUserConferenceParticipants List participants of a conference as a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Unique identifier of the conference
-	@return ApiListUserConferenceParticipantsRequest
+	@return ConferencesAPIListUserConferenceParticipantsRequest
 */
-func (a *ConferencesAPIService) ListUserConferenceParticipants(ctx context.Context, conferenceId string) ApiListUserConferenceParticipantsRequest {
-	return ApiListUserConferenceParticipantsRequest{
+func (a *ConferencesAPIService) ListUserConferenceParticipants(ctx context.Context, conferenceId string) ConferencesAPIListUserConferenceParticipantsRequest {
+	return ConferencesAPIListUserConferenceParticipantsRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -429,7 +429,7 @@ func (a *ConferencesAPIService) ListUserConferenceParticipants(ctx context.Conte
 // Execute executes the request
 //
 //	@return ParticipantList
-func (a *ConferencesAPIService) ListUserConferenceParticipantsExecute(r ApiListUserConferenceParticipantsRequest) (*ParticipantList, *http.Response, error) {
+func (a *ConferencesAPIService) ListUserConferenceParticipantsExecute(r ConferencesAPIListUserConferenceParticipantsRequest) (*ParticipantList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -538,14 +538,14 @@ func (a *ConferencesAPIService) ListUserConferenceParticipantsExecute(r ApiListU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiMuteParticipantRequest struct {
+type ConferencesAPIMuteParticipantRequest struct {
 	ctx           context.Context
 	ApiService    ConferencesAPI
 	conferenceId  string
 	participantId string
 }
 
-func (r ApiMuteParticipantRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIMuteParticipantRequest) Execute() (*http.Response, error) {
 	return r.ApiService.MuteParticipantExecute(r)
 }
 
@@ -557,10 +557,10 @@ MuteParticipant Mute a participant in a conference
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Unique identifier of the conference
 	@param participantId Unique identifier of the participant
-	@return ApiMuteParticipantRequest
+	@return ConferencesAPIMuteParticipantRequest
 */
-func (a *ConferencesAPIService) MuteParticipant(ctx context.Context, conferenceId string, participantId string) ApiMuteParticipantRequest {
-	return ApiMuteParticipantRequest{
+func (a *ConferencesAPIService) MuteParticipant(ctx context.Context, conferenceId string, participantId string) ConferencesAPIMuteParticipantRequest {
+	return ConferencesAPIMuteParticipantRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		conferenceId:  conferenceId,
@@ -569,7 +569,7 @@ func (a *ConferencesAPIService) MuteParticipant(ctx context.Context, conferenceI
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) MuteParticipantExecute(r ApiMuteParticipantRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) MuteParticipantExecute(r ConferencesAPIMuteParticipantRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -669,13 +669,13 @@ func (a *ConferencesAPIService) MuteParticipantExecute(r ApiMuteParticipantReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiStartConferenceRecordingRequest struct {
+type ConferencesAPIStartConferenceRecordingRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	conferenceId string
 }
 
-func (r ApiStartConferenceRecordingRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIStartConferenceRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StartConferenceRecordingExecute(r)
 }
 
@@ -686,10 +686,10 @@ StartConferenceRecording Record a conference
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Unique identifier of the conference
-	@return ApiStartConferenceRecordingRequest
+	@return ConferencesAPIStartConferenceRecordingRequest
 */
-func (a *ConferencesAPIService) StartConferenceRecording(ctx context.Context, conferenceId string) ApiStartConferenceRecordingRequest {
-	return ApiStartConferenceRecordingRequest{
+func (a *ConferencesAPIService) StartConferenceRecording(ctx context.Context, conferenceId string) ConferencesAPIStartConferenceRecordingRequest {
+	return ConferencesAPIStartConferenceRecordingRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -697,7 +697,7 @@ func (a *ConferencesAPIService) StartConferenceRecording(ctx context.Context, co
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) StartConferenceRecordingExecute(r ApiStartConferenceRecordingRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) StartConferenceRecordingExecute(r ConferencesAPIStartConferenceRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -807,13 +807,13 @@ func (a *ConferencesAPIService) StartConferenceRecordingExecute(r ApiStartConfer
 	return localVarHTTPResponse, nil
 }
 
-type ApiStopConferenceRecordingRequest struct {
+type ConferencesAPIStopConferenceRecordingRequest struct {
 	ctx          context.Context
 	ApiService   ConferencesAPI
 	conferenceId string
 }
 
-func (r ApiStopConferenceRecordingRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIStopConferenceRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StopConferenceRecordingExecute(r)
 }
 
@@ -824,10 +824,10 @@ StopConferenceRecording Stop recording a conference
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Unique identifier of the conference
-	@return ApiStopConferenceRecordingRequest
+	@return ConferencesAPIStopConferenceRecordingRequest
 */
-func (a *ConferencesAPIService) StopConferenceRecording(ctx context.Context, conferenceId string) ApiStopConferenceRecordingRequest {
-	return ApiStopConferenceRecordingRequest{
+func (a *ConferencesAPIService) StopConferenceRecording(ctx context.Context, conferenceId string) ConferencesAPIStopConferenceRecordingRequest {
+	return ConferencesAPIStopConferenceRecordingRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -835,7 +835,7 @@ func (a *ConferencesAPIService) StopConferenceRecording(ctx context.Context, con
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) StopConferenceRecordingExecute(r ApiStopConferenceRecordingRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) StopConferenceRecordingExecute(r ConferencesAPIStopConferenceRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -945,14 +945,14 @@ func (a *ConferencesAPIService) StopConferenceRecordingExecute(r ApiStopConferen
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnmuteParticipantRequest struct {
+type ConferencesAPIUnmuteParticipantRequest struct {
 	ctx           context.Context
 	ApiService    ConferencesAPI
 	conferenceId  string
 	participantId string
 }
 
-func (r ApiUnmuteParticipantRequest) Execute() (*http.Response, error) {
+func (r ConferencesAPIUnmuteParticipantRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnmuteParticipantExecute(r)
 }
 
@@ -964,10 +964,10 @@ UnmuteParticipant Unmute a participant in a conference
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Unique identifier of the conference
 	@param participantId Unique identifier of the participant
-	@return ApiUnmuteParticipantRequest
+	@return ConferencesAPIUnmuteParticipantRequest
 */
-func (a *ConferencesAPIService) UnmuteParticipant(ctx context.Context, conferenceId string, participantId string) ApiUnmuteParticipantRequest {
-	return ApiUnmuteParticipantRequest{
+func (a *ConferencesAPIService) UnmuteParticipant(ctx context.Context, conferenceId string, participantId string) ConferencesAPIUnmuteParticipantRequest {
+	return ConferencesAPIUnmuteParticipantRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		conferenceId:  conferenceId,
@@ -976,7 +976,7 @@ func (a *ConferencesAPIService) UnmuteParticipant(ctx context.Context, conferenc
 }
 
 // Execute executes the request
-func (a *ConferencesAPIService) UnmuteParticipantExecute(r ApiUnmuteParticipantRequest) (*http.Response, error) {
+func (a *ConferencesAPIService) UnmuteParticipantExecute(r ConferencesAPIUnmuteParticipantRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

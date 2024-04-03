@@ -29,12 +29,12 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device's ID
-		@return ApiAssignUnallocatedDeviceTenantRequest
+		@return DevicesAPIAssignUnallocatedDeviceTenantRequest
 	*/
-	AssignUnallocatedDeviceTenant(ctx context.Context, deviceId string) ApiAssignUnallocatedDeviceTenantRequest
+	AssignUnallocatedDeviceTenant(ctx context.Context, deviceId string) DevicesAPIAssignUnallocatedDeviceTenantRequest
 
 	// AssignUnallocatedDeviceTenantExecute executes the request
-	AssignUnallocatedDeviceTenantExecute(r ApiAssignUnallocatedDeviceTenantRequest) (*http.Response, error)
+	AssignUnallocatedDeviceTenantExecute(r DevicesAPIAssignUnallocatedDeviceTenantRequest) (*http.Response, error)
 
 	/*
 		AssociateLineDevice Associate line and device
@@ -44,12 +44,12 @@ type DevicesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param deviceId Device's ID
-		@return ApiAssociateLineDeviceRequest
+		@return DevicesAPIAssociateLineDeviceRequest
 	*/
-	AssociateLineDevice(ctx context.Context, lineId int32, deviceId string) ApiAssociateLineDeviceRequest
+	AssociateLineDevice(ctx context.Context, lineId int32, deviceId string) DevicesAPIAssociateLineDeviceRequest
 
 	// AssociateLineDeviceExecute executes the request
-	AssociateLineDeviceExecute(r ApiAssociateLineDeviceRequest) (*http.Response, error)
+	AssociateLineDeviceExecute(r DevicesAPIAssociateLineDeviceRequest) (*http.Response, error)
 
 	/*
 		CreateDevice Create device
@@ -57,13 +57,13 @@ type DevicesAPI interface {
 		**Required ACL:** `confd.devices.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateDeviceRequest
+		@return DevicesAPICreateDeviceRequest
 	*/
-	CreateDevice(ctx context.Context) ApiCreateDeviceRequest
+	CreateDevice(ctx context.Context) DevicesAPICreateDeviceRequest
 
 	// CreateDeviceExecute executes the request
 	//  @return Device
-	CreateDeviceExecute(r ApiCreateDeviceRequest) (*Device, *http.Response, error)
+	CreateDeviceExecute(r DevicesAPICreateDeviceRequest) (*Device, *http.Response, error)
 
 	/*
 		DeleteDevice Delete device
@@ -74,12 +74,12 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device's ID
-		@return ApiDeleteDeviceRequest
+		@return DevicesAPIDeleteDeviceRequest
 	*/
-	DeleteDevice(ctx context.Context, deviceId string) ApiDeleteDeviceRequest
+	DeleteDevice(ctx context.Context, deviceId string) DevicesAPIDeleteDeviceRequest
 
 	// DeleteDeviceExecute executes the request
-	DeleteDeviceExecute(r ApiDeleteDeviceRequest) (*http.Response, error)
+	DeleteDeviceExecute(r DevicesAPIDeleteDeviceRequest) (*http.Response, error)
 
 	/*
 		DissociateLineDevice Dissociate line and device
@@ -89,12 +89,12 @@ type DevicesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param deviceId Device's ID
-		@return ApiDissociateLineDeviceRequest
+		@return DevicesAPIDissociateLineDeviceRequest
 	*/
-	DissociateLineDevice(ctx context.Context, lineId int32, deviceId string) ApiDissociateLineDeviceRequest
+	DissociateLineDevice(ctx context.Context, lineId int32, deviceId string) DevicesAPIDissociateLineDeviceRequest
 
 	// DissociateLineDeviceExecute executes the request
-	DissociateLineDeviceExecute(r ApiDissociateLineDeviceRequest) (*http.Response, error)
+	DissociateLineDeviceExecute(r DevicesAPIDissociateLineDeviceRequest) (*http.Response, error)
 
 	/*
 		GetDevice Get device
@@ -103,13 +103,13 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device's ID
-		@return ApiGetDeviceRequest
+		@return DevicesAPIGetDeviceRequest
 	*/
-	GetDevice(ctx context.Context, deviceId string) ApiGetDeviceRequest
+	GetDevice(ctx context.Context, deviceId string) DevicesAPIGetDeviceRequest
 
 	// GetDeviceExecute executes the request
 	//  @return Device
-	GetDeviceExecute(r ApiGetDeviceRequest) (*Device, *http.Response, error)
+	GetDeviceExecute(r DevicesAPIGetDeviceRequest) (*Device, *http.Response, error)
 
 	/*
 		GetDeviceLineAssociation List lines associated to device
@@ -118,13 +118,13 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device's ID
-		@return ApiGetDeviceLineAssociationRequest
+		@return DevicesAPIGetDeviceLineAssociationRequest
 	*/
-	GetDeviceLineAssociation(ctx context.Context, deviceId string) ApiGetDeviceLineAssociationRequest
+	GetDeviceLineAssociation(ctx context.Context, deviceId string) DevicesAPIGetDeviceLineAssociationRequest
 
 	// GetDeviceLineAssociationExecute executes the request
 	//  @return LineDeviceItems
-	GetDeviceLineAssociationExecute(r ApiGetDeviceLineAssociationRequest) (*LineDeviceItems, *http.Response, error)
+	GetDeviceLineAssociationExecute(r DevicesAPIGetDeviceLineAssociationRequest) (*LineDeviceItems, *http.Response, error)
 
 	/*
 		GetLineDevice Get Device associated to Line
@@ -133,13 +133,13 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
-		@return ApiGetLineDeviceRequest
+		@return DevicesAPIGetLineDeviceRequest
 	*/
-	GetLineDevice(ctx context.Context, lineId int32) ApiGetLineDeviceRequest
+	GetLineDevice(ctx context.Context, lineId int32) DevicesAPIGetLineDeviceRequest
 
 	// GetLineDeviceExecute executes the request
 	//  @return LineDevice
-	GetLineDeviceExecute(r ApiGetLineDeviceRequest) (*LineDevice, *http.Response, error)
+	GetLineDeviceExecute(r DevicesAPIGetLineDeviceRequest) (*LineDevice, *http.Response, error)
 
 	/*
 		ListDevices List devices
@@ -147,13 +147,13 @@ type DevicesAPI interface {
 		**Required ACL:** `confd.devices.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListDevicesRequest
+		@return DevicesAPIListDevicesRequest
 	*/
-	ListDevices(ctx context.Context) ApiListDevicesRequest
+	ListDevices(ctx context.Context) DevicesAPIListDevicesRequest
 
 	// ListDevicesExecute executes the request
 	//  @return DeviceItems
-	ListDevicesExecute(r ApiListDevicesRequest) (*DeviceItems, *http.Response, error)
+	ListDevicesExecute(r DevicesAPIListDevicesRequest) (*DeviceItems, *http.Response, error)
 
 	/*
 		ListUnallocatedDevices List unallocated devices
@@ -161,13 +161,13 @@ type DevicesAPI interface {
 		**Required ACL:** `confd.devices.unallocated.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUnallocatedDevicesRequest
+		@return DevicesAPIListUnallocatedDevicesRequest
 	*/
-	ListUnallocatedDevices(ctx context.Context) ApiListUnallocatedDevicesRequest
+	ListUnallocatedDevices(ctx context.Context) DevicesAPIListUnallocatedDevicesRequest
 
 	// ListUnallocatedDevicesExecute executes the request
 	//  @return DeviceItems
-	ListUnallocatedDevicesExecute(r ApiListUnallocatedDevicesRequest) (*DeviceItems, *http.Response, error)
+	ListUnallocatedDevicesExecute(r DevicesAPIListUnallocatedDevicesRequest) (*DeviceItems, *http.Response, error)
 
 	/*
 		ResetDeviceAutoprov Reset device to autoprov
@@ -178,12 +178,12 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device's ID
-		@return ApiResetDeviceAutoprovRequest
+		@return DevicesAPIResetDeviceAutoprovRequest
 	*/
-	ResetDeviceAutoprov(ctx context.Context, deviceId string) ApiResetDeviceAutoprovRequest
+	ResetDeviceAutoprov(ctx context.Context, deviceId string) DevicesAPIResetDeviceAutoprovRequest
 
 	// ResetDeviceAutoprovExecute executes the request
-	ResetDeviceAutoprovExecute(r ApiResetDeviceAutoprovRequest) (*http.Response, error)
+	ResetDeviceAutoprovExecute(r DevicesAPIResetDeviceAutoprovRequest) (*http.Response, error)
 
 	/*
 		SynchronizeDevice Synchronize device
@@ -194,12 +194,12 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device's ID
-		@return ApiSynchronizeDeviceRequest
+		@return DevicesAPISynchronizeDeviceRequest
 	*/
-	SynchronizeDevice(ctx context.Context, deviceId string) ApiSynchronizeDeviceRequest
+	SynchronizeDevice(ctx context.Context, deviceId string) DevicesAPISynchronizeDeviceRequest
 
 	// SynchronizeDeviceExecute executes the request
-	SynchronizeDeviceExecute(r ApiSynchronizeDeviceRequest) (*http.Response, error)
+	SynchronizeDeviceExecute(r DevicesAPISynchronizeDeviceRequest) (*http.Response, error)
 
 	/*
 		UpdateDevice Update device
@@ -208,18 +208,18 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device's ID
-		@return ApiUpdateDeviceRequest
+		@return DevicesAPIUpdateDeviceRequest
 	*/
-	UpdateDevice(ctx context.Context, deviceId string) ApiUpdateDeviceRequest
+	UpdateDevice(ctx context.Context, deviceId string) DevicesAPIUpdateDeviceRequest
 
 	// UpdateDeviceExecute executes the request
-	UpdateDeviceExecute(r ApiUpdateDeviceRequest) (*http.Response, error)
+	UpdateDeviceExecute(r DevicesAPIUpdateDeviceRequest) (*http.Response, error)
 }
 
 // DevicesAPIService DevicesAPI service
 type DevicesAPIService service
 
-type ApiAssignUnallocatedDeviceTenantRequest struct {
+type DevicesAPIAssignUnallocatedDeviceTenantRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -227,12 +227,12 @@ type ApiAssignUnallocatedDeviceTenantRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssignUnallocatedDeviceTenantRequest) AccentTenant(accentTenant string) ApiAssignUnallocatedDeviceTenantRequest {
+func (r DevicesAPIAssignUnallocatedDeviceTenantRequest) AccentTenant(accentTenant string) DevicesAPIAssignUnallocatedDeviceTenantRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssignUnallocatedDeviceTenantRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIAssignUnallocatedDeviceTenantRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssignUnallocatedDeviceTenantExecute(r)
 }
 
@@ -243,10 +243,10 @@ AssignUnallocatedDeviceTenant Assign unallocated device tenant
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device's ID
-	@return ApiAssignUnallocatedDeviceTenantRequest
+	@return DevicesAPIAssignUnallocatedDeviceTenantRequest
 */
-func (a *DevicesAPIService) AssignUnallocatedDeviceTenant(ctx context.Context, deviceId string) ApiAssignUnallocatedDeviceTenantRequest {
-	return ApiAssignUnallocatedDeviceTenantRequest{
+func (a *DevicesAPIService) AssignUnallocatedDeviceTenant(ctx context.Context, deviceId string) DevicesAPIAssignUnallocatedDeviceTenantRequest {
+	return DevicesAPIAssignUnallocatedDeviceTenantRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -254,7 +254,7 @@ func (a *DevicesAPIService) AssignUnallocatedDeviceTenant(ctx context.Context, d
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) AssignUnallocatedDeviceTenantExecute(r ApiAssignUnallocatedDeviceTenantRequest) (*http.Response, error) {
+func (a *DevicesAPIService) AssignUnallocatedDeviceTenantExecute(r DevicesAPIAssignUnallocatedDeviceTenantRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -356,7 +356,7 @@ func (a *DevicesAPIService) AssignUnallocatedDeviceTenantExecute(r ApiAssignUnal
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineDeviceRequest struct {
+type DevicesAPIAssociateLineDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	lineId       int32
@@ -365,12 +365,12 @@ type ApiAssociateLineDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateLineDeviceRequest) AccentTenant(accentTenant string) ApiAssociateLineDeviceRequest {
+func (r DevicesAPIAssociateLineDeviceRequest) AccentTenant(accentTenant string) DevicesAPIAssociateLineDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateLineDeviceRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIAssociateLineDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineDeviceExecute(r)
 }
 
@@ -382,10 +382,10 @@ AssociateLineDevice Associate line and device
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param deviceId Device's ID
-	@return ApiAssociateLineDeviceRequest
+	@return DevicesAPIAssociateLineDeviceRequest
 */
-func (a *DevicesAPIService) AssociateLineDevice(ctx context.Context, lineId int32, deviceId string) ApiAssociateLineDeviceRequest {
-	return ApiAssociateLineDeviceRequest{
+func (a *DevicesAPIService) AssociateLineDevice(ctx context.Context, lineId int32, deviceId string) DevicesAPIAssociateLineDeviceRequest {
+	return DevicesAPIAssociateLineDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -394,7 +394,7 @@ func (a *DevicesAPIService) AssociateLineDevice(ctx context.Context, lineId int3
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) AssociateLineDeviceExecute(r ApiAssociateLineDeviceRequest) (*http.Response, error) {
+func (a *DevicesAPIService) AssociateLineDeviceExecute(r DevicesAPIAssociateLineDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -497,7 +497,7 @@ func (a *DevicesAPIService) AssociateLineDeviceExecute(r ApiAssociateLineDeviceR
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateDeviceRequest struct {
+type DevicesAPICreateDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	body         *Device
@@ -505,18 +505,18 @@ type ApiCreateDeviceRequest struct {
 }
 
 // Device to create
-func (r ApiCreateDeviceRequest) Body(body Device) ApiCreateDeviceRequest {
+func (r DevicesAPICreateDeviceRequest) Body(body Device) DevicesAPICreateDeviceRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateDeviceRequest) AccentTenant(accentTenant string) ApiCreateDeviceRequest {
+func (r DevicesAPICreateDeviceRequest) AccentTenant(accentTenant string) DevicesAPICreateDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateDeviceRequest) Execute() (*Device, *http.Response, error) {
+func (r DevicesAPICreateDeviceRequest) Execute() (*Device, *http.Response, error) {
 	return r.ApiService.CreateDeviceExecute(r)
 }
 
@@ -526,10 +526,10 @@ CreateDevice Create device
 **Required ACL:** `confd.devices.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateDeviceRequest
+	@return DevicesAPICreateDeviceRequest
 */
-func (a *DevicesAPIService) CreateDevice(ctx context.Context) ApiCreateDeviceRequest {
-	return ApiCreateDeviceRequest{
+func (a *DevicesAPIService) CreateDevice(ctx context.Context) DevicesAPICreateDeviceRequest {
+	return DevicesAPICreateDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -538,7 +538,7 @@ func (a *DevicesAPIService) CreateDevice(ctx context.Context) ApiCreateDeviceReq
 // Execute executes the request
 //
 //	@return Device
-func (a *DevicesAPIService) CreateDeviceExecute(r ApiCreateDeviceRequest) (*Device, *http.Response, error) {
+func (a *DevicesAPIService) CreateDeviceExecute(r DevicesAPICreateDeviceRequest) (*Device, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -640,7 +640,7 @@ func (a *DevicesAPIService) CreateDeviceExecute(r ApiCreateDeviceRequest) (*Devi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDeviceRequest struct {
+type DevicesAPIDeleteDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -648,12 +648,12 @@ type ApiDeleteDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteDeviceRequest) AccentTenant(accentTenant string) ApiDeleteDeviceRequest {
+func (r DevicesAPIDeleteDeviceRequest) AccentTenant(accentTenant string) DevicesAPIDeleteDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteDeviceRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIDeleteDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteDeviceExecute(r)
 }
 
@@ -666,10 +666,10 @@ A device can not be deleted if it is linked to a line. You must dissociate the l
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device's ID
-	@return ApiDeleteDeviceRequest
+	@return DevicesAPIDeleteDeviceRequest
 */
-func (a *DevicesAPIService) DeleteDevice(ctx context.Context, deviceId string) ApiDeleteDeviceRequest {
-	return ApiDeleteDeviceRequest{
+func (a *DevicesAPIService) DeleteDevice(ctx context.Context, deviceId string) DevicesAPIDeleteDeviceRequest {
+	return DevicesAPIDeleteDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -677,7 +677,7 @@ func (a *DevicesAPIService) DeleteDevice(ctx context.Context, deviceId string) A
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) DeleteDeviceExecute(r ApiDeleteDeviceRequest) (*http.Response, error) {
+func (a *DevicesAPIService) DeleteDeviceExecute(r DevicesAPIDeleteDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -779,7 +779,7 @@ func (a *DevicesAPIService) DeleteDeviceExecute(r ApiDeleteDeviceRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineDeviceRequest struct {
+type DevicesAPIDissociateLineDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	lineId       int32
@@ -788,12 +788,12 @@ type ApiDissociateLineDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateLineDeviceRequest) AccentTenant(accentTenant string) ApiDissociateLineDeviceRequest {
+func (r DevicesAPIDissociateLineDeviceRequest) AccentTenant(accentTenant string) DevicesAPIDissociateLineDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateLineDeviceRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIDissociateLineDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineDeviceExecute(r)
 }
 
@@ -805,10 +805,10 @@ DissociateLineDevice Dissociate line and device
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param deviceId Device's ID
-	@return ApiDissociateLineDeviceRequest
+	@return DevicesAPIDissociateLineDeviceRequest
 */
-func (a *DevicesAPIService) DissociateLineDevice(ctx context.Context, lineId int32, deviceId string) ApiDissociateLineDeviceRequest {
-	return ApiDissociateLineDeviceRequest{
+func (a *DevicesAPIService) DissociateLineDevice(ctx context.Context, lineId int32, deviceId string) DevicesAPIDissociateLineDeviceRequest {
+	return DevicesAPIDissociateLineDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -817,7 +817,7 @@ func (a *DevicesAPIService) DissociateLineDevice(ctx context.Context, lineId int
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) DissociateLineDeviceExecute(r ApiDissociateLineDeviceRequest) (*http.Response, error) {
+func (a *DevicesAPIService) DissociateLineDeviceExecute(r DevicesAPIDissociateLineDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -920,7 +920,7 @@ func (a *DevicesAPIService) DissociateLineDeviceExecute(r ApiDissociateLineDevic
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetDeviceRequest struct {
+type DevicesAPIGetDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -928,12 +928,12 @@ type ApiGetDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetDeviceRequest) AccentTenant(accentTenant string) ApiGetDeviceRequest {
+func (r DevicesAPIGetDeviceRequest) AccentTenant(accentTenant string) DevicesAPIGetDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetDeviceRequest) Execute() (*Device, *http.Response, error) {
+func (r DevicesAPIGetDeviceRequest) Execute() (*Device, *http.Response, error) {
 	return r.ApiService.GetDeviceExecute(r)
 }
 
@@ -944,10 +944,10 @@ GetDevice Get device
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device's ID
-	@return ApiGetDeviceRequest
+	@return DevicesAPIGetDeviceRequest
 */
-func (a *DevicesAPIService) GetDevice(ctx context.Context, deviceId string) ApiGetDeviceRequest {
-	return ApiGetDeviceRequest{
+func (a *DevicesAPIService) GetDevice(ctx context.Context, deviceId string) DevicesAPIGetDeviceRequest {
+	return DevicesAPIGetDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -957,7 +957,7 @@ func (a *DevicesAPIService) GetDevice(ctx context.Context, deviceId string) ApiG
 // Execute executes the request
 //
 //	@return Device
-func (a *DevicesAPIService) GetDeviceExecute(r ApiGetDeviceRequest) (*Device, *http.Response, error) {
+func (a *DevicesAPIService) GetDeviceExecute(r DevicesAPIGetDeviceRequest) (*Device, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1058,7 +1058,7 @@ func (a *DevicesAPIService) GetDeviceExecute(r ApiGetDeviceRequest) (*Device, *h
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDeviceLineAssociationRequest struct {
+type DevicesAPIGetDeviceLineAssociationRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -1066,12 +1066,12 @@ type ApiGetDeviceLineAssociationRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetDeviceLineAssociationRequest) AccentTenant(accentTenant string) ApiGetDeviceLineAssociationRequest {
+func (r DevicesAPIGetDeviceLineAssociationRequest) AccentTenant(accentTenant string) DevicesAPIGetDeviceLineAssociationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetDeviceLineAssociationRequest) Execute() (*LineDeviceItems, *http.Response, error) {
+func (r DevicesAPIGetDeviceLineAssociationRequest) Execute() (*LineDeviceItems, *http.Response, error) {
 	return r.ApiService.GetDeviceLineAssociationExecute(r)
 }
 
@@ -1082,10 +1082,10 @@ GetDeviceLineAssociation List lines associated to device
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device's ID
-	@return ApiGetDeviceLineAssociationRequest
+	@return DevicesAPIGetDeviceLineAssociationRequest
 */
-func (a *DevicesAPIService) GetDeviceLineAssociation(ctx context.Context, deviceId string) ApiGetDeviceLineAssociationRequest {
-	return ApiGetDeviceLineAssociationRequest{
+func (a *DevicesAPIService) GetDeviceLineAssociation(ctx context.Context, deviceId string) DevicesAPIGetDeviceLineAssociationRequest {
+	return DevicesAPIGetDeviceLineAssociationRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -1095,7 +1095,7 @@ func (a *DevicesAPIService) GetDeviceLineAssociation(ctx context.Context, device
 // Execute executes the request
 //
 //	@return LineDeviceItems
-func (a *DevicesAPIService) GetDeviceLineAssociationExecute(r ApiGetDeviceLineAssociationRequest) (*LineDeviceItems, *http.Response, error) {
+func (a *DevicesAPIService) GetDeviceLineAssociationExecute(r DevicesAPIGetDeviceLineAssociationRequest) (*LineDeviceItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1196,7 +1196,7 @@ func (a *DevicesAPIService) GetDeviceLineAssociationExecute(r ApiGetDeviceLineAs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLineDeviceRequest struct {
+type DevicesAPIGetLineDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	lineId       int32
@@ -1204,12 +1204,12 @@ type ApiGetLineDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetLineDeviceRequest) AccentTenant(accentTenant string) ApiGetLineDeviceRequest {
+func (r DevicesAPIGetLineDeviceRequest) AccentTenant(accentTenant string) DevicesAPIGetLineDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetLineDeviceRequest) Execute() (*LineDevice, *http.Response, error) {
+func (r DevicesAPIGetLineDeviceRequest) Execute() (*LineDevice, *http.Response, error) {
 	return r.ApiService.GetLineDeviceExecute(r)
 }
 
@@ -1220,10 +1220,10 @@ GetLineDevice Get Device associated to Line
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
-	@return ApiGetLineDeviceRequest
+	@return DevicesAPIGetLineDeviceRequest
 */
-func (a *DevicesAPIService) GetLineDevice(ctx context.Context, lineId int32) ApiGetLineDeviceRequest {
-	return ApiGetLineDeviceRequest{
+func (a *DevicesAPIService) GetLineDevice(ctx context.Context, lineId int32) DevicesAPIGetLineDeviceRequest {
+	return DevicesAPIGetLineDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -1233,7 +1233,7 @@ func (a *DevicesAPIService) GetLineDevice(ctx context.Context, lineId int32) Api
 // Execute executes the request
 //
 //	@return LineDevice
-func (a *DevicesAPIService) GetLineDeviceExecute(r ApiGetLineDeviceRequest) (*LineDevice, *http.Response, error) {
+func (a *DevicesAPIService) GetLineDeviceExecute(r DevicesAPIGetLineDeviceRequest) (*LineDevice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1345,7 +1345,7 @@ func (a *DevicesAPIService) GetLineDeviceExecute(r ApiGetLineDeviceRequest) (*Li
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDevicesRequest struct {
+type DevicesAPIListDevicesRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	accentTenant *string
@@ -1358,48 +1358,48 @@ type ApiListDevicesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListDevicesRequest) AccentTenant(accentTenant string) ApiListDevicesRequest {
+func (r DevicesAPIListDevicesRequest) AccentTenant(accentTenant string) DevicesAPIListDevicesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListDevicesRequest) Recurse(recurse bool) ApiListDevicesRequest {
+func (r DevicesAPIListDevicesRequest) Recurse(recurse bool) DevicesAPIListDevicesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListDevicesRequest) Order(order string) ApiListDevicesRequest {
+func (r DevicesAPIListDevicesRequest) Order(order string) DevicesAPIListDevicesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListDevicesRequest) Direction(direction string) ApiListDevicesRequest {
+func (r DevicesAPIListDevicesRequest) Direction(direction string) DevicesAPIListDevicesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListDevicesRequest) Limit(limit int32) ApiListDevicesRequest {
+func (r DevicesAPIListDevicesRequest) Limit(limit int32) DevicesAPIListDevicesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListDevicesRequest) Offset(offset int32) ApiListDevicesRequest {
+func (r DevicesAPIListDevicesRequest) Offset(offset int32) DevicesAPIListDevicesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListDevicesRequest) Search(search string) ApiListDevicesRequest {
+func (r DevicesAPIListDevicesRequest) Search(search string) DevicesAPIListDevicesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListDevicesRequest) Execute() (*DeviceItems, *http.Response, error) {
+func (r DevicesAPIListDevicesRequest) Execute() (*DeviceItems, *http.Response, error) {
 	return r.ApiService.ListDevicesExecute(r)
 }
 
@@ -1409,10 +1409,10 @@ ListDevices List devices
 **Required ACL:** `confd.devices.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListDevicesRequest
+	@return DevicesAPIListDevicesRequest
 */
-func (a *DevicesAPIService) ListDevices(ctx context.Context) ApiListDevicesRequest {
-	return ApiListDevicesRequest{
+func (a *DevicesAPIService) ListDevices(ctx context.Context) DevicesAPIListDevicesRequest {
+	return DevicesAPIListDevicesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1421,7 +1421,7 @@ func (a *DevicesAPIService) ListDevices(ctx context.Context) ApiListDevicesReque
 // Execute executes the request
 //
 //	@return DeviceItems
-func (a *DevicesAPIService) ListDevicesExecute(r ApiListDevicesRequest) (*DeviceItems, *http.Response, error) {
+func (a *DevicesAPIService) ListDevicesExecute(r DevicesAPIListDevicesRequest) (*DeviceItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1542,7 +1542,7 @@ func (a *DevicesAPIService) ListDevicesExecute(r ApiListDevicesRequest) (*Device
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUnallocatedDevicesRequest struct {
+type DevicesAPIListUnallocatedDevicesRequest struct {
 	ctx        context.Context
 	ApiService DevicesAPI
 	order      *string
@@ -1553,36 +1553,36 @@ type ApiListUnallocatedDevicesRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListUnallocatedDevicesRequest) Order(order string) ApiListUnallocatedDevicesRequest {
+func (r DevicesAPIListUnallocatedDevicesRequest) Order(order string) DevicesAPIListUnallocatedDevicesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListUnallocatedDevicesRequest) Direction(direction string) ApiListUnallocatedDevicesRequest {
+func (r DevicesAPIListUnallocatedDevicesRequest) Direction(direction string) DevicesAPIListUnallocatedDevicesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListUnallocatedDevicesRequest) Limit(limit int32) ApiListUnallocatedDevicesRequest {
+func (r DevicesAPIListUnallocatedDevicesRequest) Limit(limit int32) DevicesAPIListUnallocatedDevicesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListUnallocatedDevicesRequest) Offset(offset int32) ApiListUnallocatedDevicesRequest {
+func (r DevicesAPIListUnallocatedDevicesRequest) Offset(offset int32) DevicesAPIListUnallocatedDevicesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListUnallocatedDevicesRequest) Search(search string) ApiListUnallocatedDevicesRequest {
+func (r DevicesAPIListUnallocatedDevicesRequest) Search(search string) DevicesAPIListUnallocatedDevicesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListUnallocatedDevicesRequest) Execute() (*DeviceItems, *http.Response, error) {
+func (r DevicesAPIListUnallocatedDevicesRequest) Execute() (*DeviceItems, *http.Response, error) {
 	return r.ApiService.ListUnallocatedDevicesExecute(r)
 }
 
@@ -1592,10 +1592,10 @@ ListUnallocatedDevices List unallocated devices
 **Required ACL:** `confd.devices.unallocated.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUnallocatedDevicesRequest
+	@return DevicesAPIListUnallocatedDevicesRequest
 */
-func (a *DevicesAPIService) ListUnallocatedDevices(ctx context.Context) ApiListUnallocatedDevicesRequest {
-	return ApiListUnallocatedDevicesRequest{
+func (a *DevicesAPIService) ListUnallocatedDevices(ctx context.Context) DevicesAPIListUnallocatedDevicesRequest {
+	return DevicesAPIListUnallocatedDevicesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1604,7 +1604,7 @@ func (a *DevicesAPIService) ListUnallocatedDevices(ctx context.Context) ApiListU
 // Execute executes the request
 //
 //	@return DeviceItems
-func (a *DevicesAPIService) ListUnallocatedDevicesExecute(r ApiListUnallocatedDevicesRequest) (*DeviceItems, *http.Response, error) {
+func (a *DevicesAPIService) ListUnallocatedDevicesExecute(r DevicesAPIListUnallocatedDevicesRequest) (*DeviceItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1716,7 +1716,7 @@ func (a *DevicesAPIService) ListUnallocatedDevicesExecute(r ApiListUnallocatedDe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiResetDeviceAutoprovRequest struct {
+type DevicesAPIResetDeviceAutoprovRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -1724,12 +1724,12 @@ type ApiResetDeviceAutoprovRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiResetDeviceAutoprovRequest) AccentTenant(accentTenant string) ApiResetDeviceAutoprovRequest {
+func (r DevicesAPIResetDeviceAutoprovRequest) AccentTenant(accentTenant string) DevicesAPIResetDeviceAutoprovRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiResetDeviceAutoprovRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIResetDeviceAutoprovRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ResetDeviceAutoprovExecute(r)
 }
 
@@ -1742,10 +1742,10 @@ Resets a device into ‘autoprov’ mode. Once in autoprov, a device can be repr
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device's ID
-	@return ApiResetDeviceAutoprovRequest
+	@return DevicesAPIResetDeviceAutoprovRequest
 */
-func (a *DevicesAPIService) ResetDeviceAutoprov(ctx context.Context, deviceId string) ApiResetDeviceAutoprovRequest {
-	return ApiResetDeviceAutoprovRequest{
+func (a *DevicesAPIService) ResetDeviceAutoprov(ctx context.Context, deviceId string) DevicesAPIResetDeviceAutoprovRequest {
+	return DevicesAPIResetDeviceAutoprovRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -1753,7 +1753,7 @@ func (a *DevicesAPIService) ResetDeviceAutoprov(ctx context.Context, deviceId st
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) ResetDeviceAutoprovExecute(r ApiResetDeviceAutoprovRequest) (*http.Response, error) {
+func (a *DevicesAPIService) ResetDeviceAutoprovExecute(r DevicesAPIResetDeviceAutoprovRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -1855,7 +1855,7 @@ func (a *DevicesAPIService) ResetDeviceAutoprovExecute(r ApiResetDeviceAutoprovR
 	return localVarHTTPResponse, nil
 }
 
-type ApiSynchronizeDeviceRequest struct {
+type DevicesAPISynchronizeDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -1863,12 +1863,12 @@ type ApiSynchronizeDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiSynchronizeDeviceRequest) AccentTenant(accentTenant string) ApiSynchronizeDeviceRequest {
+func (r DevicesAPISynchronizeDeviceRequest) AccentTenant(accentTenant string) DevicesAPISynchronizeDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiSynchronizeDeviceRequest) Execute() (*http.Response, error) {
+func (r DevicesAPISynchronizeDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.SynchronizeDeviceExecute(r)
 }
 
@@ -1881,10 +1881,10 @@ Synchronize a device’s configuration. Used when a configuration has been modif
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device's ID
-	@return ApiSynchronizeDeviceRequest
+	@return DevicesAPISynchronizeDeviceRequest
 */
-func (a *DevicesAPIService) SynchronizeDevice(ctx context.Context, deviceId string) ApiSynchronizeDeviceRequest {
-	return ApiSynchronizeDeviceRequest{
+func (a *DevicesAPIService) SynchronizeDevice(ctx context.Context, deviceId string) DevicesAPISynchronizeDeviceRequest {
+	return DevicesAPISynchronizeDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -1892,7 +1892,7 @@ func (a *DevicesAPIService) SynchronizeDevice(ctx context.Context, deviceId stri
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) SynchronizeDeviceExecute(r ApiSynchronizeDeviceRequest) (*http.Response, error) {
+func (a *DevicesAPIService) SynchronizeDeviceExecute(r DevicesAPISynchronizeDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -1994,7 +1994,7 @@ func (a *DevicesAPIService) SynchronizeDeviceExecute(r ApiSynchronizeDeviceReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateDeviceRequest struct {
+type DevicesAPIUpdateDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	body         *Device
@@ -2002,18 +2002,18 @@ type ApiUpdateDeviceRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateDeviceRequest) Body(body Device) ApiUpdateDeviceRequest {
+func (r DevicesAPIUpdateDeviceRequest) Body(body Device) DevicesAPIUpdateDeviceRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateDeviceRequest) AccentTenant(accentTenant string) ApiUpdateDeviceRequest {
+func (r DevicesAPIUpdateDeviceRequest) AccentTenant(accentTenant string) DevicesAPIUpdateDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateDeviceRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIUpdateDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateDeviceExecute(r)
 }
 
@@ -2024,10 +2024,10 @@ UpdateDevice Update device
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device's ID
-	@return ApiUpdateDeviceRequest
+	@return DevicesAPIUpdateDeviceRequest
 */
-func (a *DevicesAPIService) UpdateDevice(ctx context.Context, deviceId string) ApiUpdateDeviceRequest {
-	return ApiUpdateDeviceRequest{
+func (a *DevicesAPIService) UpdateDevice(ctx context.Context, deviceId string) DevicesAPIUpdateDeviceRequest {
+	return DevicesAPIUpdateDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -2035,7 +2035,7 @@ func (a *DevicesAPIService) UpdateDevice(ctx context.Context, deviceId string) A
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) UpdateDeviceExecute(r ApiUpdateDeviceRequest) (*http.Response, error) {
+func (a *DevicesAPIService) UpdateDeviceExecute(r DevicesAPIUpdateDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

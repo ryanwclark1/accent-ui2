@@ -28,13 +28,13 @@ type MarketAPI interface {
 		**Required ACL:** `plugind.market.read` Allow the administrator to get a list of available plugins
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetMarketRequest
+		@return MarketAPIGetMarketRequest
 	*/
-	GetMarket(ctx context.Context) ApiGetMarketRequest
+	GetMarket(ctx context.Context) MarketAPIGetMarketRequest
 
 	// GetMarketExecute executes the request
 	//  @return GetMarketResult
-	GetMarketExecute(r ApiGetMarketRequest) (*GetMarketResult, *http.Response, error)
+	GetMarketExecute(r MarketAPIGetMarketRequest) (*GetMarketResult, *http.Response, error)
 
 	/*
 		GetMarketPlugin Fetch the information about a plugin from the market
@@ -44,19 +44,19 @@ type MarketAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param namespace The plugin's namespace
 		@param name The plugin's name
-		@return ApiGetMarketPluginRequest
+		@return MarketAPIGetMarketPluginRequest
 	*/
-	GetMarketPlugin(ctx context.Context, namespace string, name string) ApiGetMarketPluginRequest
+	GetMarketPlugin(ctx context.Context, namespace string, name string) MarketAPIGetMarketPluginRequest
 
 	// GetMarketPluginExecute executes the request
 	//  @return MarketPluginList
-	GetMarketPluginExecute(r ApiGetMarketPluginRequest) (*MarketPluginList, *http.Response, error)
+	GetMarketPluginExecute(r MarketAPIGetMarketPluginRequest) (*MarketPluginList, *http.Response, error)
 }
 
 // MarketAPIService MarketAPI service
 type MarketAPIService service
 
-type ApiGetMarketRequest struct {
+type MarketAPIGetMarketRequest struct {
 	ctx        context.Context
 	ApiService MarketAPI
 	limit      *int32
@@ -70,54 +70,54 @@ type ApiGetMarketRequest struct {
 }
 
 // Maximum number of items to return in the list
-func (r ApiGetMarketRequest) Limit(limit int32) ApiGetMarketRequest {
+func (r MarketAPIGetMarketRequest) Limit(limit int32) MarketAPIGetMarketRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiGetMarketRequest) Offset(offset int32) ApiGetMarketRequest {
+func (r MarketAPIGetMarketRequest) Offset(offset int32) MarketAPIGetMarketRequest {
 	r.offset = &offset
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetMarketRequest) Order(order string) ApiGetMarketRequest {
+func (r MarketAPIGetMarketRequest) Order(order string) MarketAPIGetMarketRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetMarketRequest) Direction(direction string) ApiGetMarketRequest {
+func (r MarketAPIGetMarketRequest) Direction(direction string) MarketAPIGetMarketRequest {
 	r.direction = &direction
 	return r
 }
 
 // Filter list of items, this search is applied to all fields and is not strict (eba matches Sébastien)
-func (r ApiGetMarketRequest) Search(search string) ApiGetMarketRequest {
+func (r MarketAPIGetMarketRequest) Search(search string) MarketAPIGetMarketRequest {
 	r.search = &search
 	return r
 }
 
 // Search by namespace
-func (r ApiGetMarketRequest) Namespace(namespace string) ApiGetMarketRequest {
+func (r MarketAPIGetMarketRequest) Namespace(namespace string) MarketAPIGetMarketRequest {
 	r.namespace = &namespace
 	return r
 }
 
 // Search by name
-func (r ApiGetMarketRequest) Name(name string) ApiGetMarketRequest {
+func (r MarketAPIGetMarketRequest) Name(name string) MarketAPIGetMarketRequest {
 	r.name = &name
 	return r
 }
 
 // Filter installed plugins
-func (r ApiGetMarketRequest) Installed(installed bool) ApiGetMarketRequest {
+func (r MarketAPIGetMarketRequest) Installed(installed bool) MarketAPIGetMarketRequest {
 	r.installed = &installed
 	return r
 }
 
-func (r ApiGetMarketRequest) Execute() (*GetMarketResult, *http.Response, error) {
+func (r MarketAPIGetMarketRequest) Execute() (*GetMarketResult, *http.Response, error) {
 	return r.ApiService.GetMarketExecute(r)
 }
 
@@ -127,10 +127,10 @@ GetMarket List plugins available on the configured market
 **Required ACL:** `plugind.market.read` Allow the administrator to get a list of available plugins
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetMarketRequest
+	@return MarketAPIGetMarketRequest
 */
-func (a *MarketAPIService) GetMarket(ctx context.Context) ApiGetMarketRequest {
-	return ApiGetMarketRequest{
+func (a *MarketAPIService) GetMarket(ctx context.Context) MarketAPIGetMarketRequest {
+	return MarketAPIGetMarketRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -139,7 +139,7 @@ func (a *MarketAPIService) GetMarket(ctx context.Context) ApiGetMarketRequest {
 // Execute executes the request
 //
 //	@return GetMarketResult
-func (a *MarketAPIService) GetMarketExecute(r ApiGetMarketRequest) (*GetMarketResult, *http.Response, error) {
+func (a *MarketAPIService) GetMarketExecute(r MarketAPIGetMarketRequest) (*GetMarketResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -250,14 +250,14 @@ func (a *MarketAPIService) GetMarketExecute(r ApiGetMarketRequest) (*GetMarketRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMarketPluginRequest struct {
+type MarketAPIGetMarketPluginRequest struct {
 	ctx        context.Context
 	ApiService MarketAPI
 	namespace  string
 	name       string
 }
 
-func (r ApiGetMarketPluginRequest) Execute() (*MarketPluginList, *http.Response, error) {
+func (r MarketAPIGetMarketPluginRequest) Execute() (*MarketPluginList, *http.Response, error) {
 	return r.ApiService.GetMarketPluginExecute(r)
 }
 
@@ -269,10 +269,10 @@ GetMarketPlugin Fetch the information about a plugin from the market
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param namespace The plugin's namespace
 	@param name The plugin's name
-	@return ApiGetMarketPluginRequest
+	@return MarketAPIGetMarketPluginRequest
 */
-func (a *MarketAPIService) GetMarketPlugin(ctx context.Context, namespace string, name string) ApiGetMarketPluginRequest {
-	return ApiGetMarketPluginRequest{
+func (a *MarketAPIService) GetMarketPlugin(ctx context.Context, namespace string, name string) MarketAPIGetMarketPluginRequest {
+	return MarketAPIGetMarketPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 		namespace:  namespace,
@@ -283,7 +283,7 @@ func (a *MarketAPIService) GetMarketPlugin(ctx context.Context, namespace string
 // Execute executes the request
 //
 //	@return MarketPluginList
-func (a *MarketAPIService) GetMarketPluginExecute(r ApiGetMarketPluginRequest) (*MarketPluginList, *http.Response, error) {
+func (a *MarketAPIService) GetMarketPluginExecute(r MarketAPIGetMarketPluginRequest) (*MarketPluginList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

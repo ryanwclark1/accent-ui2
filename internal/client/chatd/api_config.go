@@ -27,23 +27,23 @@ type ConfigAPI interface {
 		**Required ACL:** `chatd.config.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetConfigRequest
+		@return ConfigAPIGetConfigRequest
 	*/
-	GetConfig(ctx context.Context) ApiGetConfigRequest
+	GetConfig(ctx context.Context) ConfigAPIGetConfigRequest
 
 	// GetConfigExecute executes the request
-	GetConfigExecute(r ApiGetConfigRequest) (*http.Response, error)
+	GetConfigExecute(r ConfigAPIGetConfigRequest) (*http.Response, error)
 }
 
 // ConfigAPIService ConfigAPI service
 type ConfigAPIService service
 
-type ApiGetConfigRequest struct {
+type ConfigAPIGetConfigRequest struct {
 	ctx        context.Context
 	ApiService ConfigAPI
 }
 
-func (r ApiGetConfigRequest) Execute() (*http.Response, error) {
+func (r ConfigAPIGetConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetConfigExecute(r)
 }
 
@@ -53,17 +53,17 @@ GetConfig Show the current configuration
 **Required ACL:** `chatd.config.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetConfigRequest
+	@return ConfigAPIGetConfigRequest
 */
-func (a *ConfigAPIService) GetConfig(ctx context.Context) ApiGetConfigRequest {
-	return ApiGetConfigRequest{
+func (a *ConfigAPIService) GetConfig(ctx context.Context) ConfigAPIGetConfigRequest {
+	return ConfigAPIGetConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ConfigAPIService) GetConfigExecute(r ApiGetConfigRequest) (*http.Response, error) {
+func (a *ConfigAPIService) GetConfigExecute(r ConfigAPIGetConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}

@@ -27,13 +27,13 @@ type DhcpAPI interface {
 		**Required ACL:** `confd.dhcp.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetDhcpRequest
+		@return DhcpAPIGetDhcpRequest
 	*/
-	GetDhcp(ctx context.Context) ApiGetDhcpRequest
+	GetDhcp(ctx context.Context) DhcpAPIGetDhcpRequest
 
 	// GetDhcpExecute executes the request
 	//  @return DHCP
-	GetDhcpExecute(r ApiGetDhcpRequest) (*DHCP, *http.Response, error)
+	GetDhcpExecute(r DhcpAPIGetDhcpRequest) (*DHCP, *http.Response, error)
 
 	/*
 		UpdateDhcp Update DHCP configuration
@@ -41,23 +41,23 @@ type DhcpAPI interface {
 		**Required ACL:** `confd.dhcp.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateDhcpRequest
+		@return DhcpAPIUpdateDhcpRequest
 	*/
-	UpdateDhcp(ctx context.Context) ApiUpdateDhcpRequest
+	UpdateDhcp(ctx context.Context) DhcpAPIUpdateDhcpRequest
 
 	// UpdateDhcpExecute executes the request
-	UpdateDhcpExecute(r ApiUpdateDhcpRequest) (*http.Response, error)
+	UpdateDhcpExecute(r DhcpAPIUpdateDhcpRequest) (*http.Response, error)
 }
 
 // DhcpAPIService DhcpAPI service
 type DhcpAPIService service
 
-type ApiGetDhcpRequest struct {
+type DhcpAPIGetDhcpRequest struct {
 	ctx        context.Context
 	ApiService DhcpAPI
 }
 
-func (r ApiGetDhcpRequest) Execute() (*DHCP, *http.Response, error) {
+func (r DhcpAPIGetDhcpRequest) Execute() (*DHCP, *http.Response, error) {
 	return r.ApiService.GetDhcpExecute(r)
 }
 
@@ -67,10 +67,10 @@ GetDhcp Get DHCP configuration
 **Required ACL:** `confd.dhcp.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetDhcpRequest
+	@return DhcpAPIGetDhcpRequest
 */
-func (a *DhcpAPIService) GetDhcp(ctx context.Context) ApiGetDhcpRequest {
-	return ApiGetDhcpRequest{
+func (a *DhcpAPIService) GetDhcp(ctx context.Context) DhcpAPIGetDhcpRequest {
+	return DhcpAPIGetDhcpRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -79,7 +79,7 @@ func (a *DhcpAPIService) GetDhcp(ctx context.Context) ApiGetDhcpRequest {
 // Execute executes the request
 //
 //	@return DHCP
-func (a *DhcpAPIService) GetDhcpExecute(r ApiGetDhcpRequest) (*DHCP, *http.Response, error) {
+func (a *DhcpAPIService) GetDhcpExecute(r DhcpAPIGetDhcpRequest) (*DHCP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -166,18 +166,18 @@ func (a *DhcpAPIService) GetDhcpExecute(r ApiGetDhcpRequest) (*DHCP, *http.Respo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateDhcpRequest struct {
+type DhcpAPIUpdateDhcpRequest struct {
 	ctx        context.Context
 	ApiService DhcpAPI
 	body       *DHCP
 }
 
-func (r ApiUpdateDhcpRequest) Body(body DHCP) ApiUpdateDhcpRequest {
+func (r DhcpAPIUpdateDhcpRequest) Body(body DHCP) DhcpAPIUpdateDhcpRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateDhcpRequest) Execute() (*http.Response, error) {
+func (r DhcpAPIUpdateDhcpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateDhcpExecute(r)
 }
 
@@ -187,17 +187,17 @@ UpdateDhcp Update DHCP configuration
 **Required ACL:** `confd.dhcp.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateDhcpRequest
+	@return DhcpAPIUpdateDhcpRequest
 */
-func (a *DhcpAPIService) UpdateDhcp(ctx context.Context) ApiUpdateDhcpRequest {
-	return ApiUpdateDhcpRequest{
+func (a *DhcpAPIService) UpdateDhcp(ctx context.Context) DhcpAPIUpdateDhcpRequest {
+	return DhcpAPIUpdateDhcpRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *DhcpAPIService) UpdateDhcpExecute(r ApiUpdateDhcpRequest) (*http.Response, error) {
+func (a *DhcpAPIService) UpdateDhcpExecute(r DhcpAPIUpdateDhcpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

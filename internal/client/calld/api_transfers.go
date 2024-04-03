@@ -29,12 +29,12 @@ type TransfersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transferId Unique identifier of the transfer
-		@return ApiCancelTransferRequest
+		@return TransfersAPICancelTransferRequest
 	*/
-	CancelTransfer(ctx context.Context, transferId string) ApiCancelTransferRequest
+	CancelTransfer(ctx context.Context, transferId string) TransfersAPICancelTransferRequest
 
 	// CancelTransferExecute executes the request
-	CancelTransferExecute(r ApiCancelTransferRequest) (*http.Response, error)
+	CancelTransferExecute(r TransfersAPICancelTransferRequest) (*http.Response, error)
 
 	/*
 		CancelUserTransfer Cancel a transfer
@@ -43,12 +43,12 @@ type TransfersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transferId Unique identifier of the transfer
-		@return ApiCancelUserTransferRequest
+		@return TransfersAPICancelUserTransferRequest
 	*/
-	CancelUserTransfer(ctx context.Context, transferId string) ApiCancelUserTransferRequest
+	CancelUserTransfer(ctx context.Context, transferId string) TransfersAPICancelUserTransferRequest
 
 	// CancelUserTransferExecute executes the request
-	CancelUserTransferExecute(r ApiCancelUserTransferRequest) (*http.Response, error)
+	CancelUserTransferExecute(r TransfersAPICancelUserTransferRequest) (*http.Response, error)
 
 	/*
 		CompleteTransfer Complete a transfer
@@ -57,12 +57,12 @@ type TransfersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transferId Unique identifier of the transfer
-		@return ApiCompleteTransferRequest
+		@return TransfersAPICompleteTransferRequest
 	*/
-	CompleteTransfer(ctx context.Context, transferId string) ApiCompleteTransferRequest
+	CompleteTransfer(ctx context.Context, transferId string) TransfersAPICompleteTransferRequest
 
 	// CompleteTransferExecute executes the request
-	CompleteTransferExecute(r ApiCompleteTransferRequest) (*http.Response, error)
+	CompleteTransferExecute(r TransfersAPICompleteTransferRequest) (*http.Response, error)
 
 	/*
 		CompleteUserTransfer Complete a transfer
@@ -71,12 +71,12 @@ type TransfersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transferId Unique identifier of the transfer
-		@return ApiCompleteUserTransferRequest
+		@return TransfersAPICompleteUserTransferRequest
 	*/
-	CompleteUserTransfer(ctx context.Context, transferId string) ApiCompleteUserTransferRequest
+	CompleteUserTransfer(ctx context.Context, transferId string) TransfersAPICompleteUserTransferRequest
 
 	// CompleteUserTransferExecute executes the request
-	CompleteUserTransferExecute(r ApiCompleteUserTransferRequest) (*http.Response, error)
+	CompleteUserTransferExecute(r TransfersAPICompleteUserTransferRequest) (*http.Response, error)
 
 	/*
 		GetTransfer Get details of a transfer
@@ -85,13 +85,13 @@ type TransfersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transferId Unique identifier of the transfer
-		@return ApiGetTransferRequest
+		@return TransfersAPIGetTransferRequest
 	*/
-	GetTransfer(ctx context.Context, transferId string) ApiGetTransferRequest
+	GetTransfer(ctx context.Context, transferId string) TransfersAPIGetTransferRequest
 
 	// GetTransferExecute executes the request
 	//  @return Transfer
-	GetTransferExecute(r ApiGetTransferRequest) (*Transfer, *http.Response, error)
+	GetTransferExecute(r TransfersAPIGetTransferRequest) (*Transfer, *http.Response, error)
 
 	/*
 		InitiateTransfer Initiate a transfer
@@ -99,13 +99,13 @@ type TransfersAPI interface {
 		**Required ACL:** `calld.transfers.create` The only way to cancel the transfer from the initiator is to use `DELETE /transfers/<id>` (i.e. sending DTMF `*0` will not work).
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiInitiateTransferRequest
+		@return TransfersAPIInitiateTransferRequest
 	*/
-	InitiateTransfer(ctx context.Context) ApiInitiateTransferRequest
+	InitiateTransfer(ctx context.Context) TransfersAPIInitiateTransferRequest
 
 	// InitiateTransferExecute executes the request
 	//  @return Transfer
-	InitiateTransferExecute(r ApiInitiateTransferRequest) (*Transfer, *http.Response, error)
+	InitiateTransferExecute(r TransfersAPIInitiateTransferRequest) (*Transfer, *http.Response, error)
 
 	/*
 		InitiateUserTransfer Initiate a transfer from the authenticated user
@@ -113,13 +113,13 @@ type TransfersAPI interface {
 		**Required ACL:** `calld.users.me.transfers.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiInitiateUserTransferRequest
+		@return TransfersAPIInitiateUserTransferRequest
 	*/
-	InitiateUserTransfer(ctx context.Context) ApiInitiateUserTransferRequest
+	InitiateUserTransfer(ctx context.Context) TransfersAPIInitiateUserTransferRequest
 
 	// InitiateUserTransferExecute executes the request
 	//  @return Transfer
-	InitiateUserTransferExecute(r ApiInitiateUserTransferRequest) (*Transfer, *http.Response, error)
+	InitiateUserTransferExecute(r TransfersAPIInitiateUserTransferRequest) (*Transfer, *http.Response, error)
 
 	/*
 		ListUserTransfers Get the transfers of the authenticated user
@@ -127,25 +127,25 @@ type TransfersAPI interface {
 		**Required ACL:** `calld.users.me.transfers.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserTransfersRequest
+		@return TransfersAPIListUserTransfersRequest
 	*/
-	ListUserTransfers(ctx context.Context) ApiListUserTransfersRequest
+	ListUserTransfers(ctx context.Context) TransfersAPIListUserTransfersRequest
 
 	// ListUserTransfersExecute executes the request
 	//  @return TransferList
-	ListUserTransfersExecute(r ApiListUserTransfersRequest) (*TransferList, *http.Response, error)
+	ListUserTransfersExecute(r TransfersAPIListUserTransfersRequest) (*TransferList, *http.Response, error)
 }
 
 // TransfersAPIService TransfersAPI service
 type TransfersAPIService service
 
-type ApiCancelTransferRequest struct {
+type TransfersAPICancelTransferRequest struct {
 	ctx        context.Context
 	ApiService TransfersAPI
 	transferId string
 }
 
-func (r ApiCancelTransferRequest) Execute() (*http.Response, error) {
+func (r TransfersAPICancelTransferRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CancelTransferExecute(r)
 }
 
@@ -156,10 +156,10 @@ CancelTransfer Cancel a transfer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transferId Unique identifier of the transfer
-	@return ApiCancelTransferRequest
+	@return TransfersAPICancelTransferRequest
 */
-func (a *TransfersAPIService) CancelTransfer(ctx context.Context, transferId string) ApiCancelTransferRequest {
-	return ApiCancelTransferRequest{
+func (a *TransfersAPIService) CancelTransfer(ctx context.Context, transferId string) TransfersAPICancelTransferRequest {
+	return TransfersAPICancelTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 		transferId: transferId,
@@ -167,7 +167,7 @@ func (a *TransfersAPIService) CancelTransfer(ctx context.Context, transferId str
 }
 
 // Execute executes the request
-func (a *TransfersAPIService) CancelTransferExecute(r ApiCancelTransferRequest) (*http.Response, error) {
+func (a *TransfersAPIService) CancelTransferExecute(r TransfersAPICancelTransferRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -266,13 +266,13 @@ func (a *TransfersAPIService) CancelTransferExecute(r ApiCancelTransferRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiCancelUserTransferRequest struct {
+type TransfersAPICancelUserTransferRequest struct {
 	ctx        context.Context
 	ApiService TransfersAPI
 	transferId string
 }
 
-func (r ApiCancelUserTransferRequest) Execute() (*http.Response, error) {
+func (r TransfersAPICancelUserTransferRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CancelUserTransferExecute(r)
 }
 
@@ -283,10 +283,10 @@ CancelUserTransfer Cancel a transfer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transferId Unique identifier of the transfer
-	@return ApiCancelUserTransferRequest
+	@return TransfersAPICancelUserTransferRequest
 */
-func (a *TransfersAPIService) CancelUserTransfer(ctx context.Context, transferId string) ApiCancelUserTransferRequest {
-	return ApiCancelUserTransferRequest{
+func (a *TransfersAPIService) CancelUserTransfer(ctx context.Context, transferId string) TransfersAPICancelUserTransferRequest {
+	return TransfersAPICancelUserTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 		transferId: transferId,
@@ -294,7 +294,7 @@ func (a *TransfersAPIService) CancelUserTransfer(ctx context.Context, transferId
 }
 
 // Execute executes the request
-func (a *TransfersAPIService) CancelUserTransferExecute(r ApiCancelUserTransferRequest) (*http.Response, error) {
+func (a *TransfersAPIService) CancelUserTransferExecute(r TransfersAPICancelUserTransferRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -404,13 +404,13 @@ func (a *TransfersAPIService) CancelUserTransferExecute(r ApiCancelUserTransferR
 	return localVarHTTPResponse, nil
 }
 
-type ApiCompleteTransferRequest struct {
+type TransfersAPICompleteTransferRequest struct {
 	ctx        context.Context
 	ApiService TransfersAPI
 	transferId string
 }
 
-func (r ApiCompleteTransferRequest) Execute() (*http.Response, error) {
+func (r TransfersAPICompleteTransferRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CompleteTransferExecute(r)
 }
 
@@ -421,10 +421,10 @@ CompleteTransfer Complete a transfer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transferId Unique identifier of the transfer
-	@return ApiCompleteTransferRequest
+	@return TransfersAPICompleteTransferRequest
 */
-func (a *TransfersAPIService) CompleteTransfer(ctx context.Context, transferId string) ApiCompleteTransferRequest {
-	return ApiCompleteTransferRequest{
+func (a *TransfersAPIService) CompleteTransfer(ctx context.Context, transferId string) TransfersAPICompleteTransferRequest {
+	return TransfersAPICompleteTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 		transferId: transferId,
@@ -432,7 +432,7 @@ func (a *TransfersAPIService) CompleteTransfer(ctx context.Context, transferId s
 }
 
 // Execute executes the request
-func (a *TransfersAPIService) CompleteTransferExecute(r ApiCompleteTransferRequest) (*http.Response, error) {
+func (a *TransfersAPIService) CompleteTransferExecute(r TransfersAPICompleteTransferRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -531,13 +531,13 @@ func (a *TransfersAPIService) CompleteTransferExecute(r ApiCompleteTransferReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiCompleteUserTransferRequest struct {
+type TransfersAPICompleteUserTransferRequest struct {
 	ctx        context.Context
 	ApiService TransfersAPI
 	transferId string
 }
 
-func (r ApiCompleteUserTransferRequest) Execute() (*http.Response, error) {
+func (r TransfersAPICompleteUserTransferRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CompleteUserTransferExecute(r)
 }
 
@@ -548,10 +548,10 @@ CompleteUserTransfer Complete a transfer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transferId Unique identifier of the transfer
-	@return ApiCompleteUserTransferRequest
+	@return TransfersAPICompleteUserTransferRequest
 */
-func (a *TransfersAPIService) CompleteUserTransfer(ctx context.Context, transferId string) ApiCompleteUserTransferRequest {
-	return ApiCompleteUserTransferRequest{
+func (a *TransfersAPIService) CompleteUserTransfer(ctx context.Context, transferId string) TransfersAPICompleteUserTransferRequest {
+	return TransfersAPICompleteUserTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 		transferId: transferId,
@@ -559,7 +559,7 @@ func (a *TransfersAPIService) CompleteUserTransfer(ctx context.Context, transfer
 }
 
 // Execute executes the request
-func (a *TransfersAPIService) CompleteUserTransferExecute(r ApiCompleteUserTransferRequest) (*http.Response, error) {
+func (a *TransfersAPIService) CompleteUserTransferExecute(r TransfersAPICompleteUserTransferRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -669,13 +669,13 @@ func (a *TransfersAPIService) CompleteUserTransferExecute(r ApiCompleteUserTrans
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetTransferRequest struct {
+type TransfersAPIGetTransferRequest struct {
 	ctx        context.Context
 	ApiService TransfersAPI
 	transferId string
 }
 
-func (r ApiGetTransferRequest) Execute() (*Transfer, *http.Response, error) {
+func (r TransfersAPIGetTransferRequest) Execute() (*Transfer, *http.Response, error) {
 	return r.ApiService.GetTransferExecute(r)
 }
 
@@ -686,10 +686,10 @@ GetTransfer Get details of a transfer
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transferId Unique identifier of the transfer
-	@return ApiGetTransferRequest
+	@return TransfersAPIGetTransferRequest
 */
-func (a *TransfersAPIService) GetTransfer(ctx context.Context, transferId string) ApiGetTransferRequest {
-	return ApiGetTransferRequest{
+func (a *TransfersAPIService) GetTransfer(ctx context.Context, transferId string) TransfersAPIGetTransferRequest {
+	return TransfersAPIGetTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 		transferId: transferId,
@@ -699,7 +699,7 @@ func (a *TransfersAPIService) GetTransfer(ctx context.Context, transferId string
 // Execute executes the request
 //
 //	@return Transfer
-func (a *TransfersAPIService) GetTransferExecute(r ApiGetTransferRequest) (*Transfer, *http.Response, error) {
+func (a *TransfersAPIService) GetTransferExecute(r TransfersAPIGetTransferRequest) (*Transfer, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -808,19 +808,19 @@ func (a *TransfersAPIService) GetTransferExecute(r ApiGetTransferRequest) (*Tran
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInitiateTransferRequest struct {
+type TransfersAPIInitiateTransferRequest struct {
 	ctx        context.Context
 	ApiService TransfersAPI
 	body       *TransferRequest
 }
 
 // Parameters of the transfer
-func (r ApiInitiateTransferRequest) Body(body TransferRequest) ApiInitiateTransferRequest {
+func (r TransfersAPIInitiateTransferRequest) Body(body TransferRequest) TransfersAPIInitiateTransferRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiInitiateTransferRequest) Execute() (*Transfer, *http.Response, error) {
+func (r TransfersAPIInitiateTransferRequest) Execute() (*Transfer, *http.Response, error) {
 	return r.ApiService.InitiateTransferExecute(r)
 }
 
@@ -830,10 +830,10 @@ InitiateTransfer Initiate a transfer
 **Required ACL:** `calld.transfers.create` The only way to cancel the transfer from the initiator is to use `DELETE /transfers/<id>` (i.e. sending DTMF `*0` will not work).
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInitiateTransferRequest
+	@return TransfersAPIInitiateTransferRequest
 */
-func (a *TransfersAPIService) InitiateTransfer(ctx context.Context) ApiInitiateTransferRequest {
-	return ApiInitiateTransferRequest{
+func (a *TransfersAPIService) InitiateTransfer(ctx context.Context) TransfersAPIInitiateTransferRequest {
+	return TransfersAPIInitiateTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -842,7 +842,7 @@ func (a *TransfersAPIService) InitiateTransfer(ctx context.Context) ApiInitiateT
 // Execute executes the request
 //
 //	@return Transfer
-func (a *TransfersAPIService) InitiateTransferExecute(r ApiInitiateTransferRequest) (*Transfer, *http.Response, error) {
+func (a *TransfersAPIService) InitiateTransferExecute(r TransfersAPIInitiateTransferRequest) (*Transfer, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -966,19 +966,19 @@ func (a *TransfersAPIService) InitiateTransferExecute(r ApiInitiateTransferReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInitiateUserTransferRequest struct {
+type TransfersAPIInitiateUserTransferRequest struct {
 	ctx        context.Context
 	ApiService TransfersAPI
 	body       *UserTransferRequest
 }
 
 // Parameters of the transfer
-func (r ApiInitiateUserTransferRequest) Body(body UserTransferRequest) ApiInitiateUserTransferRequest {
+func (r TransfersAPIInitiateUserTransferRequest) Body(body UserTransferRequest) TransfersAPIInitiateUserTransferRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiInitiateUserTransferRequest) Execute() (*Transfer, *http.Response, error) {
+func (r TransfersAPIInitiateUserTransferRequest) Execute() (*Transfer, *http.Response, error) {
 	return r.ApiService.InitiateUserTransferExecute(r)
 }
 
@@ -988,10 +988,10 @@ InitiateUserTransfer Initiate a transfer from the authenticated user
 **Required ACL:** `calld.users.me.transfers.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInitiateUserTransferRequest
+	@return TransfersAPIInitiateUserTransferRequest
 */
-func (a *TransfersAPIService) InitiateUserTransfer(ctx context.Context) ApiInitiateUserTransferRequest {
-	return ApiInitiateUserTransferRequest{
+func (a *TransfersAPIService) InitiateUserTransfer(ctx context.Context) TransfersAPIInitiateUserTransferRequest {
+	return TransfersAPIInitiateUserTransferRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1000,7 +1000,7 @@ func (a *TransfersAPIService) InitiateUserTransfer(ctx context.Context) ApiIniti
 // Execute executes the request
 //
 //	@return Transfer
-func (a *TransfersAPIService) InitiateUserTransferExecute(r ApiInitiateUserTransferRequest) (*Transfer, *http.Response, error) {
+func (a *TransfersAPIService) InitiateUserTransferExecute(r TransfersAPIInitiateUserTransferRequest) (*Transfer, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1135,12 +1135,12 @@ func (a *TransfersAPIService) InitiateUserTransferExecute(r ApiInitiateUserTrans
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserTransfersRequest struct {
+type TransfersAPIListUserTransfersRequest struct {
 	ctx        context.Context
 	ApiService TransfersAPI
 }
 
-func (r ApiListUserTransfersRequest) Execute() (*TransferList, *http.Response, error) {
+func (r TransfersAPIListUserTransfersRequest) Execute() (*TransferList, *http.Response, error) {
 	return r.ApiService.ListUserTransfersExecute(r)
 }
 
@@ -1150,10 +1150,10 @@ ListUserTransfers Get the transfers of the authenticated user
 **Required ACL:** `calld.users.me.transfers.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserTransfersRequest
+	@return TransfersAPIListUserTransfersRequest
 */
-func (a *TransfersAPIService) ListUserTransfers(ctx context.Context) ApiListUserTransfersRequest {
-	return ApiListUserTransfersRequest{
+func (a *TransfersAPIService) ListUserTransfers(ctx context.Context) TransfersAPIListUserTransfersRequest {
+	return TransfersAPIListUserTransfersRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1162,7 +1162,7 @@ func (a *TransfersAPIService) ListUserTransfers(ctx context.Context) ApiListUser
 // Execute executes the request
 //
 //	@return TransferList
-func (a *TransfersAPIService) ListUserTransfersExecute(r ApiListUserTransfersRequest) (*TransferList, *http.Response, error) {
+func (a *TransfersAPIService) ListUserTransfersExecute(r TransfersAPIListUserTransfersRequest) (*TransferList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

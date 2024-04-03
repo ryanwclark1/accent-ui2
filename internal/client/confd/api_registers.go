@@ -30,12 +30,12 @@ type RegistersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiAssociateTrunkRegisterIaxRequest
+		@return RegistersAPIAssociateTrunkRegisterIaxRequest
 	*/
-	AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkRegisterIaxRequest
+	AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) RegistersAPIAssociateTrunkRegisterIaxRequest
 
 	// AssociateTrunkRegisterIaxExecute executes the request
-	AssociateTrunkRegisterIaxExecute(r ApiAssociateTrunkRegisterIaxRequest) (*http.Response, error)
+	AssociateTrunkRegisterIaxExecute(r RegistersAPIAssociateTrunkRegisterIaxRequest) (*http.Response, error)
 
 	/*
 		CreateRegisterIax Create register_iax
@@ -43,13 +43,13 @@ type RegistersAPI interface {
 		**Required ACL:** `confd.registers.iax.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateRegisterIaxRequest
+		@return RegistersAPICreateRegisterIaxRequest
 	*/
-	CreateRegisterIax(ctx context.Context) ApiCreateRegisterIaxRequest
+	CreateRegisterIax(ctx context.Context) RegistersAPICreateRegisterIaxRequest
 
 	// CreateRegisterIaxExecute executes the request
 	//  @return RegisterIAX
-	CreateRegisterIaxExecute(r ApiCreateRegisterIaxRequest) (*RegisterIAX, *http.Response, error)
+	CreateRegisterIaxExecute(r RegistersAPICreateRegisterIaxRequest) (*RegisterIAX, *http.Response, error)
 
 	/*
 		DeleteRegisterIax Delete register IAX
@@ -58,12 +58,12 @@ type RegistersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registerIaxId Register IAX's ID
-		@return ApiDeleteRegisterIaxRequest
+		@return RegistersAPIDeleteRegisterIaxRequest
 	*/
-	DeleteRegisterIax(ctx context.Context, registerIaxId int32) ApiDeleteRegisterIaxRequest
+	DeleteRegisterIax(ctx context.Context, registerIaxId int32) RegistersAPIDeleteRegisterIaxRequest
 
 	// DeleteRegisterIaxExecute executes the request
-	DeleteRegisterIaxExecute(r ApiDeleteRegisterIaxRequest) (*http.Response, error)
+	DeleteRegisterIaxExecute(r RegistersAPIDeleteRegisterIaxRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkRegisterIax Dissociate trunk and IAX register
@@ -73,12 +73,12 @@ type RegistersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiDissociateTrunkRegisterIaxRequest
+		@return RegistersAPIDissociateTrunkRegisterIaxRequest
 	*/
-	DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkRegisterIaxRequest
+	DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) RegistersAPIDissociateTrunkRegisterIaxRequest
 
 	// DissociateTrunkRegisterIaxExecute executes the request
-	DissociateTrunkRegisterIaxExecute(r ApiDissociateTrunkRegisterIaxRequest) (*http.Response, error)
+	DissociateTrunkRegisterIaxExecute(r RegistersAPIDissociateTrunkRegisterIaxRequest) (*http.Response, error)
 
 	/*
 		GetRegisterIax Get register IAX
@@ -87,13 +87,13 @@ type RegistersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registerIaxId Register IAX's ID
-		@return ApiGetRegisterIaxRequest
+		@return RegistersAPIGetRegisterIaxRequest
 	*/
-	GetRegisterIax(ctx context.Context, registerIaxId int32) ApiGetRegisterIaxRequest
+	GetRegisterIax(ctx context.Context, registerIaxId int32) RegistersAPIGetRegisterIaxRequest
 
 	// GetRegisterIaxExecute executes the request
 	//  @return RegisterIAX
-	GetRegisterIaxExecute(r ApiGetRegisterIaxRequest) (*RegisterIAX, *http.Response, error)
+	GetRegisterIaxExecute(r RegistersAPIGetRegisterIaxRequest) (*RegisterIAX, *http.Response, error)
 
 	/*
 		ListRegistersIax List registers iax
@@ -101,13 +101,13 @@ type RegistersAPI interface {
 		**Required ACL:** `confd.registers.iax.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListRegistersIaxRequest
+		@return RegistersAPIListRegistersIaxRequest
 	*/
-	ListRegistersIax(ctx context.Context) ApiListRegistersIaxRequest
+	ListRegistersIax(ctx context.Context) RegistersAPIListRegistersIaxRequest
 
 	// ListRegistersIaxExecute executes the request
 	//  @return RegisterIAXItems
-	ListRegistersIaxExecute(r ApiListRegistersIaxRequest) (*RegisterIAXItems, *http.Response, error)
+	ListRegistersIaxExecute(r RegistersAPIListRegistersIaxRequest) (*RegisterIAXItems, *http.Response, error)
 
 	/*
 		UpdateRegisterIax Update register IAX
@@ -116,25 +116,25 @@ type RegistersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registerIaxId Register IAX's ID
-		@return ApiUpdateRegisterIaxRequest
+		@return RegistersAPIUpdateRegisterIaxRequest
 	*/
-	UpdateRegisterIax(ctx context.Context, registerIaxId int32) ApiUpdateRegisterIaxRequest
+	UpdateRegisterIax(ctx context.Context, registerIaxId int32) RegistersAPIUpdateRegisterIaxRequest
 
 	// UpdateRegisterIaxExecute executes the request
-	UpdateRegisterIaxExecute(r ApiUpdateRegisterIaxRequest) (*http.Response, error)
+	UpdateRegisterIaxExecute(r RegistersAPIUpdateRegisterIaxRequest) (*http.Response, error)
 }
 
 // RegistersAPIService RegistersAPI service
 type RegistersAPIService service
 
-type ApiAssociateTrunkRegisterIaxRequest struct {
+type RegistersAPIAssociateTrunkRegisterIaxRequest struct {
 	ctx        context.Context
 	ApiService RegistersAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiAssociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r RegistersAPIAssociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkRegisterIaxExecute(r)
 }
 
@@ -146,10 +146,10 @@ AssociateTrunkRegisterIax Associate trunk and IAX register
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiAssociateTrunkRegisterIaxRequest
+	@return RegistersAPIAssociateTrunkRegisterIaxRequest
 */
-func (a *RegistersAPIService) AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkRegisterIaxRequest {
-	return ApiAssociateTrunkRegisterIaxRequest{
+func (a *RegistersAPIService) AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) RegistersAPIAssociateTrunkRegisterIaxRequest {
+	return RegistersAPIAssociateTrunkRegisterIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -158,7 +158,7 @@ func (a *RegistersAPIService) AssociateTrunkRegisterIax(ctx context.Context, tru
 }
 
 // Execute executes the request
-func (a *RegistersAPIService) AssociateTrunkRegisterIaxExecute(r ApiAssociateTrunkRegisterIaxRequest) (*http.Response, error) {
+func (a *RegistersAPIService) AssociateTrunkRegisterIaxExecute(r RegistersAPIAssociateTrunkRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -258,19 +258,19 @@ func (a *RegistersAPIService) AssociateTrunkRegisterIaxExecute(r ApiAssociateTru
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateRegisterIaxRequest struct {
+type RegistersAPICreateRegisterIaxRequest struct {
 	ctx        context.Context
 	ApiService RegistersAPI
 	body       *RegisterIAX
 }
 
 // Register iax to create
-func (r ApiCreateRegisterIaxRequest) Body(body RegisterIAX) ApiCreateRegisterIaxRequest {
+func (r RegistersAPICreateRegisterIaxRequest) Body(body RegisterIAX) RegistersAPICreateRegisterIaxRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateRegisterIaxRequest) Execute() (*RegisterIAX, *http.Response, error) {
+func (r RegistersAPICreateRegisterIaxRequest) Execute() (*RegisterIAX, *http.Response, error) {
 	return r.ApiService.CreateRegisterIaxExecute(r)
 }
 
@@ -280,10 +280,10 @@ CreateRegisterIax Create register_iax
 **Required ACL:** `confd.registers.iax.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateRegisterIaxRequest
+	@return RegistersAPICreateRegisterIaxRequest
 */
-func (a *RegistersAPIService) CreateRegisterIax(ctx context.Context) ApiCreateRegisterIaxRequest {
-	return ApiCreateRegisterIaxRequest{
+func (a *RegistersAPIService) CreateRegisterIax(ctx context.Context) RegistersAPICreateRegisterIaxRequest {
+	return RegistersAPICreateRegisterIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -292,7 +292,7 @@ func (a *RegistersAPIService) CreateRegisterIax(ctx context.Context) ApiCreateRe
 // Execute executes the request
 //
 //	@return RegisterIAX
-func (a *RegistersAPIService) CreateRegisterIaxExecute(r ApiCreateRegisterIaxRequest) (*RegisterIAX, *http.Response, error) {
+func (a *RegistersAPIService) CreateRegisterIaxExecute(r RegistersAPICreateRegisterIaxRequest) (*RegisterIAX, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -394,13 +394,13 @@ func (a *RegistersAPIService) CreateRegisterIaxExecute(r ApiCreateRegisterIaxReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteRegisterIaxRequest struct {
+type RegistersAPIDeleteRegisterIaxRequest struct {
 	ctx           context.Context
 	ApiService    RegistersAPI
 	registerIaxId int32
 }
 
-func (r ApiDeleteRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r RegistersAPIDeleteRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteRegisterIaxExecute(r)
 }
 
@@ -411,10 +411,10 @@ DeleteRegisterIax Delete register IAX
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registerIaxId Register IAX's ID
-	@return ApiDeleteRegisterIaxRequest
+	@return RegistersAPIDeleteRegisterIaxRequest
 */
-func (a *RegistersAPIService) DeleteRegisterIax(ctx context.Context, registerIaxId int32) ApiDeleteRegisterIaxRequest {
-	return ApiDeleteRegisterIaxRequest{
+func (a *RegistersAPIService) DeleteRegisterIax(ctx context.Context, registerIaxId int32) RegistersAPIDeleteRegisterIaxRequest {
+	return RegistersAPIDeleteRegisterIaxRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		registerIaxId: registerIaxId,
@@ -422,7 +422,7 @@ func (a *RegistersAPIService) DeleteRegisterIax(ctx context.Context, registerIax
 }
 
 // Execute executes the request
-func (a *RegistersAPIService) DeleteRegisterIaxExecute(r ApiDeleteRegisterIaxRequest) (*http.Response, error) {
+func (a *RegistersAPIService) DeleteRegisterIaxExecute(r RegistersAPIDeleteRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -521,14 +521,14 @@ func (a *RegistersAPIService) DeleteRegisterIaxExecute(r ApiDeleteRegisterIaxReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkRegisterIaxRequest struct {
+type RegistersAPIDissociateTrunkRegisterIaxRequest struct {
 	ctx        context.Context
 	ApiService RegistersAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiDissociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r RegistersAPIDissociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkRegisterIaxExecute(r)
 }
 
@@ -540,10 +540,10 @@ DissociateTrunkRegisterIax Dissociate trunk and IAX register
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiDissociateTrunkRegisterIaxRequest
+	@return RegistersAPIDissociateTrunkRegisterIaxRequest
 */
-func (a *RegistersAPIService) DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkRegisterIaxRequest {
-	return ApiDissociateTrunkRegisterIaxRequest{
+func (a *RegistersAPIService) DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) RegistersAPIDissociateTrunkRegisterIaxRequest {
+	return RegistersAPIDissociateTrunkRegisterIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -552,7 +552,7 @@ func (a *RegistersAPIService) DissociateTrunkRegisterIax(ctx context.Context, tr
 }
 
 // Execute executes the request
-func (a *RegistersAPIService) DissociateTrunkRegisterIaxExecute(r ApiDissociateTrunkRegisterIaxRequest) (*http.Response, error) {
+func (a *RegistersAPIService) DissociateTrunkRegisterIaxExecute(r RegistersAPIDissociateTrunkRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -652,13 +652,13 @@ func (a *RegistersAPIService) DissociateTrunkRegisterIaxExecute(r ApiDissociateT
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetRegisterIaxRequest struct {
+type RegistersAPIGetRegisterIaxRequest struct {
 	ctx           context.Context
 	ApiService    RegistersAPI
 	registerIaxId int32
 }
 
-func (r ApiGetRegisterIaxRequest) Execute() (*RegisterIAX, *http.Response, error) {
+func (r RegistersAPIGetRegisterIaxRequest) Execute() (*RegisterIAX, *http.Response, error) {
 	return r.ApiService.GetRegisterIaxExecute(r)
 }
 
@@ -669,10 +669,10 @@ GetRegisterIax Get register IAX
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registerIaxId Register IAX's ID
-	@return ApiGetRegisterIaxRequest
+	@return RegistersAPIGetRegisterIaxRequest
 */
-func (a *RegistersAPIService) GetRegisterIax(ctx context.Context, registerIaxId int32) ApiGetRegisterIaxRequest {
-	return ApiGetRegisterIaxRequest{
+func (a *RegistersAPIService) GetRegisterIax(ctx context.Context, registerIaxId int32) RegistersAPIGetRegisterIaxRequest {
+	return RegistersAPIGetRegisterIaxRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		registerIaxId: registerIaxId,
@@ -682,7 +682,7 @@ func (a *RegistersAPIService) GetRegisterIax(ctx context.Context, registerIaxId 
 // Execute executes the request
 //
 //	@return RegisterIAX
-func (a *RegistersAPIService) GetRegisterIaxExecute(r ApiGetRegisterIaxRequest) (*RegisterIAX, *http.Response, error) {
+func (a *RegistersAPIService) GetRegisterIaxExecute(r RegistersAPIGetRegisterIaxRequest) (*RegisterIAX, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -780,7 +780,7 @@ func (a *RegistersAPIService) GetRegisterIaxExecute(r ApiGetRegisterIaxRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListRegistersIaxRequest struct {
+type RegistersAPIListRegistersIaxRequest struct {
 	ctx        context.Context
 	ApiService RegistersAPI
 	order      *string
@@ -791,36 +791,36 @@ type ApiListRegistersIaxRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListRegistersIaxRequest) Order(order string) ApiListRegistersIaxRequest {
+func (r RegistersAPIListRegistersIaxRequest) Order(order string) RegistersAPIListRegistersIaxRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListRegistersIaxRequest) Direction(direction string) ApiListRegistersIaxRequest {
+func (r RegistersAPIListRegistersIaxRequest) Direction(direction string) RegistersAPIListRegistersIaxRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListRegistersIaxRequest) Limit(limit int32) ApiListRegistersIaxRequest {
+func (r RegistersAPIListRegistersIaxRequest) Limit(limit int32) RegistersAPIListRegistersIaxRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListRegistersIaxRequest) Offset(offset int32) ApiListRegistersIaxRequest {
+func (r RegistersAPIListRegistersIaxRequest) Offset(offset int32) RegistersAPIListRegistersIaxRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListRegistersIaxRequest) Search(search string) ApiListRegistersIaxRequest {
+func (r RegistersAPIListRegistersIaxRequest) Search(search string) RegistersAPIListRegistersIaxRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListRegistersIaxRequest) Execute() (*RegisterIAXItems, *http.Response, error) {
+func (r RegistersAPIListRegistersIaxRequest) Execute() (*RegisterIAXItems, *http.Response, error) {
 	return r.ApiService.ListRegistersIaxExecute(r)
 }
 
@@ -830,10 +830,10 @@ ListRegistersIax List registers iax
 **Required ACL:** `confd.registers.iax.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListRegistersIaxRequest
+	@return RegistersAPIListRegistersIaxRequest
 */
-func (a *RegistersAPIService) ListRegistersIax(ctx context.Context) ApiListRegistersIaxRequest {
-	return ApiListRegistersIaxRequest{
+func (a *RegistersAPIService) ListRegistersIax(ctx context.Context) RegistersAPIListRegistersIaxRequest {
+	return RegistersAPIListRegistersIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -842,7 +842,7 @@ func (a *RegistersAPIService) ListRegistersIax(ctx context.Context) ApiListRegis
 // Execute executes the request
 //
 //	@return RegisterIAXItems
-func (a *RegistersAPIService) ListRegistersIaxExecute(r ApiListRegistersIaxRequest) (*RegisterIAXItems, *http.Response, error) {
+func (a *RegistersAPIService) ListRegistersIaxExecute(r RegistersAPIListRegistersIaxRequest) (*RegisterIAXItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -944,19 +944,19 @@ func (a *RegistersAPIService) ListRegistersIaxExecute(r ApiListRegistersIaxReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateRegisterIaxRequest struct {
+type RegistersAPIUpdateRegisterIaxRequest struct {
 	ctx           context.Context
 	ApiService    RegistersAPI
 	body          *RegisterIAX
 	registerIaxId int32
 }
 
-func (r ApiUpdateRegisterIaxRequest) Body(body RegisterIAX) ApiUpdateRegisterIaxRequest {
+func (r RegistersAPIUpdateRegisterIaxRequest) Body(body RegisterIAX) RegistersAPIUpdateRegisterIaxRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r RegistersAPIUpdateRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateRegisterIaxExecute(r)
 }
 
@@ -967,10 +967,10 @@ UpdateRegisterIax Update register IAX
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registerIaxId Register IAX's ID
-	@return ApiUpdateRegisterIaxRequest
+	@return RegistersAPIUpdateRegisterIaxRequest
 */
-func (a *RegistersAPIService) UpdateRegisterIax(ctx context.Context, registerIaxId int32) ApiUpdateRegisterIaxRequest {
-	return ApiUpdateRegisterIaxRequest{
+func (a *RegistersAPIService) UpdateRegisterIax(ctx context.Context, registerIaxId int32) RegistersAPIUpdateRegisterIaxRequest {
+	return RegistersAPIUpdateRegisterIaxRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		registerIaxId: registerIaxId,
@@ -978,7 +978,7 @@ func (a *RegistersAPIService) UpdateRegisterIax(ctx context.Context, registerIax
 }
 
 // Execute executes the request
-func (a *RegistersAPIService) UpdateRegisterIaxExecute(r ApiUpdateRegisterIaxRequest) (*http.Response, error) {
+func (a *RegistersAPIService) UpdateRegisterIaxExecute(r RegistersAPIUpdateRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

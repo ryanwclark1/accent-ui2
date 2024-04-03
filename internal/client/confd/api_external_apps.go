@@ -29,13 +29,13 @@ type ExternalAppsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param appName External App's name
-		@return ApiCreateExternalAppRequest
+		@return ExternalAppsAPICreateExternalAppRequest
 	*/
-	CreateExternalApp(ctx context.Context, appName string) ApiCreateExternalAppRequest
+	CreateExternalApp(ctx context.Context, appName string) ExternalAppsAPICreateExternalAppRequest
 
 	// CreateExternalAppExecute executes the request
 	//  @return ExternalApp
-	CreateExternalAppExecute(r ApiCreateExternalAppRequest) (*ExternalApp, *http.Response, error)
+	CreateExternalAppExecute(r ExternalAppsAPICreateExternalAppRequest) (*ExternalApp, *http.Response, error)
 
 	/*
 		CreateUserExternalApp Create user external app
@@ -45,13 +45,13 @@ type ExternalAppsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param appName External App's name
-		@return ApiCreateUserExternalAppRequest
+		@return ExternalAppsAPICreateUserExternalAppRequest
 	*/
-	CreateUserExternalApp(ctx context.Context, userUuid string, appName string) ApiCreateUserExternalAppRequest
+	CreateUserExternalApp(ctx context.Context, userUuid string, appName string) ExternalAppsAPICreateUserExternalAppRequest
 
 	// CreateUserExternalAppExecute executes the request
 	//  @return UserExternalApp
-	CreateUserExternalAppExecute(r ApiCreateUserExternalAppRequest) (*UserExternalApp, *http.Response, error)
+	CreateUserExternalAppExecute(r ExternalAppsAPICreateUserExternalAppRequest) (*UserExternalApp, *http.Response, error)
 
 	/*
 		DeleteExternalApp Delete external app
@@ -60,12 +60,12 @@ type ExternalAppsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param appName External App's name
-		@return ApiDeleteExternalAppRequest
+		@return ExternalAppsAPIDeleteExternalAppRequest
 	*/
-	DeleteExternalApp(ctx context.Context, appName string) ApiDeleteExternalAppRequest
+	DeleteExternalApp(ctx context.Context, appName string) ExternalAppsAPIDeleteExternalAppRequest
 
 	// DeleteExternalAppExecute executes the request
-	DeleteExternalAppExecute(r ApiDeleteExternalAppRequest) (*http.Response, error)
+	DeleteExternalAppExecute(r ExternalAppsAPIDeleteExternalAppRequest) (*http.Response, error)
 
 	/*
 		DeleteUserExternalApp Delete user external app
@@ -75,12 +75,12 @@ type ExternalAppsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param appName External App's name
-		@return ApiDeleteUserExternalAppRequest
+		@return ExternalAppsAPIDeleteUserExternalAppRequest
 	*/
-	DeleteUserExternalApp(ctx context.Context, userUuid string, appName string) ApiDeleteUserExternalAppRequest
+	DeleteUserExternalApp(ctx context.Context, userUuid string, appName string) ExternalAppsAPIDeleteUserExternalAppRequest
 
 	// DeleteUserExternalAppExecute executes the request
-	DeleteUserExternalAppExecute(r ApiDeleteUserExternalAppRequest) (*http.Response, error)
+	DeleteUserExternalAppExecute(r ExternalAppsAPIDeleteUserExternalAppRequest) (*http.Response, error)
 
 	/*
 		GetExternalApp Get external app
@@ -89,13 +89,13 @@ type ExternalAppsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param appName External App's name
-		@return ApiGetExternalAppRequest
+		@return ExternalAppsAPIGetExternalAppRequest
 	*/
-	GetExternalApp(ctx context.Context, appName string) ApiGetExternalAppRequest
+	GetExternalApp(ctx context.Context, appName string) ExternalAppsAPIGetExternalAppRequest
 
 	// GetExternalAppExecute executes the request
 	//  @return ExternalApp
-	GetExternalAppExecute(r ApiGetExternalAppRequest) (*ExternalApp, *http.Response, error)
+	GetExternalAppExecute(r ExternalAppsAPIGetExternalAppRequest) (*ExternalApp, *http.Response, error)
 
 	/*
 		GetUserExternalApp Get user external app
@@ -105,13 +105,13 @@ type ExternalAppsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param appName External App's name
-		@return ApiGetUserExternalAppRequest
+		@return ExternalAppsAPIGetUserExternalAppRequest
 	*/
-	GetUserExternalApp(ctx context.Context, userUuid string, appName string) ApiGetUserExternalAppRequest
+	GetUserExternalApp(ctx context.Context, userUuid string, appName string) ExternalAppsAPIGetUserExternalAppRequest
 
 	// GetUserExternalAppExecute executes the request
 	//  @return UserExternalApp
-	GetUserExternalAppExecute(r ApiGetUserExternalAppRequest) (*UserExternalApp, *http.Response, error)
+	GetUserExternalAppExecute(r ExternalAppsAPIGetUserExternalAppRequest) (*UserExternalApp, *http.Response, error)
 
 	/*
 		ListExternalApps List external apps
@@ -119,13 +119,13 @@ type ExternalAppsAPI interface {
 		**Required ACL:** `confd.external.apps.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListExternalAppsRequest
+		@return ExternalAppsAPIListExternalAppsRequest
 	*/
-	ListExternalApps(ctx context.Context) ApiListExternalAppsRequest
+	ListExternalApps(ctx context.Context) ExternalAppsAPIListExternalAppsRequest
 
 	// ListExternalAppsExecute executes the request
 	//  @return ExternalAppItems
-	ListExternalAppsExecute(r ApiListExternalAppsRequest) (*ExternalAppItems, *http.Response, error)
+	ListExternalAppsExecute(r ExternalAppsAPIListExternalAppsRequest) (*ExternalAppItems, *http.Response, error)
 
 	/*
 		ListUserExternalApps List user external apps
@@ -134,13 +134,13 @@ type ExternalAppsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
-		@return ApiListUserExternalAppsRequest
+		@return ExternalAppsAPIListUserExternalAppsRequest
 	*/
-	ListUserExternalApps(ctx context.Context, userUuid string) ApiListUserExternalAppsRequest
+	ListUserExternalApps(ctx context.Context, userUuid string) ExternalAppsAPIListUserExternalAppsRequest
 
 	// ListUserExternalAppsExecute executes the request
 	//  @return UserExternalAppItems
-	ListUserExternalAppsExecute(r ApiListUserExternalAppsRequest) (*UserExternalAppItems, *http.Response, error)
+	ListUserExternalAppsExecute(r ExternalAppsAPIListUserExternalAppsRequest) (*UserExternalAppItems, *http.Response, error)
 
 	/*
 		UpdateExternalApp Update external app
@@ -149,12 +149,12 @@ type ExternalAppsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param appName External App's name
-		@return ApiUpdateExternalAppRequest
+		@return ExternalAppsAPIUpdateExternalAppRequest
 	*/
-	UpdateExternalApp(ctx context.Context, appName string) ApiUpdateExternalAppRequest
+	UpdateExternalApp(ctx context.Context, appName string) ExternalAppsAPIUpdateExternalAppRequest
 
 	// UpdateExternalAppExecute executes the request
-	UpdateExternalAppExecute(r ApiUpdateExternalAppRequest) (*http.Response, error)
+	UpdateExternalAppExecute(r ExternalAppsAPIUpdateExternalAppRequest) (*http.Response, error)
 
 	/*
 		UpdateUserExternalApp Update user external app
@@ -164,18 +164,18 @@ type ExternalAppsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param appName External App's name
-		@return ApiUpdateUserExternalAppRequest
+		@return ExternalAppsAPIUpdateUserExternalAppRequest
 	*/
-	UpdateUserExternalApp(ctx context.Context, userUuid string, appName string) ApiUpdateUserExternalAppRequest
+	UpdateUserExternalApp(ctx context.Context, userUuid string, appName string) ExternalAppsAPIUpdateUserExternalAppRequest
 
 	// UpdateUserExternalAppExecute executes the request
-	UpdateUserExternalAppExecute(r ApiUpdateUserExternalAppRequest) (*http.Response, error)
+	UpdateUserExternalAppExecute(r ExternalAppsAPIUpdateUserExternalAppRequest) (*http.Response, error)
 }
 
 // ExternalAppsAPIService ExternalAppsAPI service
 type ExternalAppsAPIService service
 
-type ApiCreateExternalAppRequest struct {
+type ExternalAppsAPICreateExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	body         *ExternalApp
@@ -184,18 +184,18 @@ type ApiCreateExternalAppRequest struct {
 }
 
 // External app to create
-func (r ApiCreateExternalAppRequest) Body(body ExternalApp) ApiCreateExternalAppRequest {
+func (r ExternalAppsAPICreateExternalAppRequest) Body(body ExternalApp) ExternalAppsAPICreateExternalAppRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateExternalAppRequest) AccentTenant(accentTenant string) ApiCreateExternalAppRequest {
+func (r ExternalAppsAPICreateExternalAppRequest) AccentTenant(accentTenant string) ExternalAppsAPICreateExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateExternalAppRequest) Execute() (*ExternalApp, *http.Response, error) {
+func (r ExternalAppsAPICreateExternalAppRequest) Execute() (*ExternalApp, *http.Response, error) {
 	return r.ApiService.CreateExternalAppExecute(r)
 }
 
@@ -206,10 +206,10 @@ CreateExternalApp Create external app
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param appName External App's name
-	@return ApiCreateExternalAppRequest
+	@return ExternalAppsAPICreateExternalAppRequest
 */
-func (a *ExternalAppsAPIService) CreateExternalApp(ctx context.Context, appName string) ApiCreateExternalAppRequest {
-	return ApiCreateExternalAppRequest{
+func (a *ExternalAppsAPIService) CreateExternalApp(ctx context.Context, appName string) ExternalAppsAPICreateExternalAppRequest {
+	return ExternalAppsAPICreateExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		appName:    appName,
@@ -219,7 +219,7 @@ func (a *ExternalAppsAPIService) CreateExternalApp(ctx context.Context, appName 
 // Execute executes the request
 //
 //	@return ExternalApp
-func (a *ExternalAppsAPIService) CreateExternalAppExecute(r ApiCreateExternalAppRequest) (*ExternalApp, *http.Response, error) {
+func (a *ExternalAppsAPIService) CreateExternalAppExecute(r ExternalAppsAPICreateExternalAppRequest) (*ExternalApp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -325,7 +325,7 @@ func (a *ExternalAppsAPIService) CreateExternalAppExecute(r ApiCreateExternalApp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateUserExternalAppRequest struct {
+type ExternalAppsAPICreateUserExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	body         *UserExternalApp
@@ -335,18 +335,18 @@ type ApiCreateUserExternalAppRequest struct {
 }
 
 // External app to create
-func (r ApiCreateUserExternalAppRequest) Body(body UserExternalApp) ApiCreateUserExternalAppRequest {
+func (r ExternalAppsAPICreateUserExternalAppRequest) Body(body UserExternalApp) ExternalAppsAPICreateUserExternalAppRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateUserExternalAppRequest) AccentTenant(accentTenant string) ApiCreateUserExternalAppRequest {
+func (r ExternalAppsAPICreateUserExternalAppRequest) AccentTenant(accentTenant string) ExternalAppsAPICreateUserExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateUserExternalAppRequest) Execute() (*UserExternalApp, *http.Response, error) {
+func (r ExternalAppsAPICreateUserExternalAppRequest) Execute() (*UserExternalApp, *http.Response, error) {
 	return r.ApiService.CreateUserExternalAppExecute(r)
 }
 
@@ -358,10 +358,10 @@ CreateUserExternalApp Create user external app
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param appName External App's name
-	@return ApiCreateUserExternalAppRequest
+	@return ExternalAppsAPICreateUserExternalAppRequest
 */
-func (a *ExternalAppsAPIService) CreateUserExternalApp(ctx context.Context, userUuid string, appName string) ApiCreateUserExternalAppRequest {
-	return ApiCreateUserExternalAppRequest{
+func (a *ExternalAppsAPIService) CreateUserExternalApp(ctx context.Context, userUuid string, appName string) ExternalAppsAPICreateUserExternalAppRequest {
+	return ExternalAppsAPICreateUserExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -372,7 +372,7 @@ func (a *ExternalAppsAPIService) CreateUserExternalApp(ctx context.Context, user
 // Execute executes the request
 //
 //	@return UserExternalApp
-func (a *ExternalAppsAPIService) CreateUserExternalAppExecute(r ApiCreateUserExternalAppRequest) (*UserExternalApp, *http.Response, error) {
+func (a *ExternalAppsAPIService) CreateUserExternalAppExecute(r ExternalAppsAPICreateUserExternalAppRequest) (*UserExternalApp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -479,7 +479,7 @@ func (a *ExternalAppsAPIService) CreateUserExternalAppExecute(r ApiCreateUserExt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteExternalAppRequest struct {
+type ExternalAppsAPIDeleteExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	appName      string
@@ -487,12 +487,12 @@ type ApiDeleteExternalAppRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteExternalAppRequest) AccentTenant(accentTenant string) ApiDeleteExternalAppRequest {
+func (r ExternalAppsAPIDeleteExternalAppRequest) AccentTenant(accentTenant string) ExternalAppsAPIDeleteExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteExternalAppRequest) Execute() (*http.Response, error) {
+func (r ExternalAppsAPIDeleteExternalAppRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteExternalAppExecute(r)
 }
 
@@ -503,10 +503,10 @@ DeleteExternalApp Delete external app
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param appName External App's name
-	@return ApiDeleteExternalAppRequest
+	@return ExternalAppsAPIDeleteExternalAppRequest
 */
-func (a *ExternalAppsAPIService) DeleteExternalApp(ctx context.Context, appName string) ApiDeleteExternalAppRequest {
-	return ApiDeleteExternalAppRequest{
+func (a *ExternalAppsAPIService) DeleteExternalApp(ctx context.Context, appName string) ExternalAppsAPIDeleteExternalAppRequest {
+	return ExternalAppsAPIDeleteExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		appName:    appName,
@@ -514,7 +514,7 @@ func (a *ExternalAppsAPIService) DeleteExternalApp(ctx context.Context, appName 
 }
 
 // Execute executes the request
-func (a *ExternalAppsAPIService) DeleteExternalAppExecute(r ApiDeleteExternalAppRequest) (*http.Response, error) {
+func (a *ExternalAppsAPIService) DeleteExternalAppExecute(r ExternalAppsAPIDeleteExternalAppRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -616,7 +616,7 @@ func (a *ExternalAppsAPIService) DeleteExternalAppExecute(r ApiDeleteExternalApp
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserExternalAppRequest struct {
+type ExternalAppsAPIDeleteUserExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	userUuid     string
@@ -625,12 +625,12 @@ type ApiDeleteUserExternalAppRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteUserExternalAppRequest) AccentTenant(accentTenant string) ApiDeleteUserExternalAppRequest {
+func (r ExternalAppsAPIDeleteUserExternalAppRequest) AccentTenant(accentTenant string) ExternalAppsAPIDeleteUserExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteUserExternalAppRequest) Execute() (*http.Response, error) {
+func (r ExternalAppsAPIDeleteUserExternalAppRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserExternalAppExecute(r)
 }
 
@@ -642,10 +642,10 @@ DeleteUserExternalApp Delete user external app
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param appName External App's name
-	@return ApiDeleteUserExternalAppRequest
+	@return ExternalAppsAPIDeleteUserExternalAppRequest
 */
-func (a *ExternalAppsAPIService) DeleteUserExternalApp(ctx context.Context, userUuid string, appName string) ApiDeleteUserExternalAppRequest {
-	return ApiDeleteUserExternalAppRequest{
+func (a *ExternalAppsAPIService) DeleteUserExternalApp(ctx context.Context, userUuid string, appName string) ExternalAppsAPIDeleteUserExternalAppRequest {
+	return ExternalAppsAPIDeleteUserExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -654,7 +654,7 @@ func (a *ExternalAppsAPIService) DeleteUserExternalApp(ctx context.Context, user
 }
 
 // Execute executes the request
-func (a *ExternalAppsAPIService) DeleteUserExternalAppExecute(r ApiDeleteUserExternalAppRequest) (*http.Response, error) {
+func (a *ExternalAppsAPIService) DeleteUserExternalAppExecute(r ExternalAppsAPIDeleteUserExternalAppRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -757,7 +757,7 @@ func (a *ExternalAppsAPIService) DeleteUserExternalAppExecute(r ApiDeleteUserExt
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetExternalAppRequest struct {
+type ExternalAppsAPIGetExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	appName      string
@@ -765,12 +765,12 @@ type ApiGetExternalAppRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetExternalAppRequest) AccentTenant(accentTenant string) ApiGetExternalAppRequest {
+func (r ExternalAppsAPIGetExternalAppRequest) AccentTenant(accentTenant string) ExternalAppsAPIGetExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetExternalAppRequest) Execute() (*ExternalApp, *http.Response, error) {
+func (r ExternalAppsAPIGetExternalAppRequest) Execute() (*ExternalApp, *http.Response, error) {
 	return r.ApiService.GetExternalAppExecute(r)
 }
 
@@ -781,10 +781,10 @@ GetExternalApp Get external app
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param appName External App's name
-	@return ApiGetExternalAppRequest
+	@return ExternalAppsAPIGetExternalAppRequest
 */
-func (a *ExternalAppsAPIService) GetExternalApp(ctx context.Context, appName string) ApiGetExternalAppRequest {
-	return ApiGetExternalAppRequest{
+func (a *ExternalAppsAPIService) GetExternalApp(ctx context.Context, appName string) ExternalAppsAPIGetExternalAppRequest {
+	return ExternalAppsAPIGetExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		appName:    appName,
@@ -794,7 +794,7 @@ func (a *ExternalAppsAPIService) GetExternalApp(ctx context.Context, appName str
 // Execute executes the request
 //
 //	@return ExternalApp
-func (a *ExternalAppsAPIService) GetExternalAppExecute(r ApiGetExternalAppRequest) (*ExternalApp, *http.Response, error) {
+func (a *ExternalAppsAPIService) GetExternalAppExecute(r ExternalAppsAPIGetExternalAppRequest) (*ExternalApp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -895,7 +895,7 @@ func (a *ExternalAppsAPIService) GetExternalAppExecute(r ApiGetExternalAppReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserExternalAppRequest struct {
+type ExternalAppsAPIGetUserExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	userUuid     string
@@ -905,18 +905,18 @@ type ApiGetUserExternalAppRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserExternalAppRequest) AccentTenant(accentTenant string) ApiGetUserExternalAppRequest {
+func (r ExternalAppsAPIGetUserExternalAppRequest) AccentTenant(accentTenant string) ExternalAppsAPIGetUserExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Different view of the external app endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to return the user value for this external app  The &#x60;fallback&#x60; view return the user value for this external app, but if not found, will fallback to the tenant configured value  **WARNING**: Using fallback view on list will disabled all pagination and search features
-func (r ApiGetUserExternalAppRequest) View(view string) ApiGetUserExternalAppRequest {
+func (r ExternalAppsAPIGetUserExternalAppRequest) View(view string) ExternalAppsAPIGetUserExternalAppRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetUserExternalAppRequest) Execute() (*UserExternalApp, *http.Response, error) {
+func (r ExternalAppsAPIGetUserExternalAppRequest) Execute() (*UserExternalApp, *http.Response, error) {
 	return r.ApiService.GetUserExternalAppExecute(r)
 }
 
@@ -928,10 +928,10 @@ GetUserExternalApp Get user external app
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param appName External App's name
-	@return ApiGetUserExternalAppRequest
+	@return ExternalAppsAPIGetUserExternalAppRequest
 */
-func (a *ExternalAppsAPIService) GetUserExternalApp(ctx context.Context, userUuid string, appName string) ApiGetUserExternalAppRequest {
-	return ApiGetUserExternalAppRequest{
+func (a *ExternalAppsAPIService) GetUserExternalApp(ctx context.Context, userUuid string, appName string) ExternalAppsAPIGetUserExternalAppRequest {
+	return ExternalAppsAPIGetUserExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -942,7 +942,7 @@ func (a *ExternalAppsAPIService) GetUserExternalApp(ctx context.Context, userUui
 // Execute executes the request
 //
 //	@return UserExternalApp
-func (a *ExternalAppsAPIService) GetUserExternalAppExecute(r ApiGetUserExternalAppRequest) (*UserExternalApp, *http.Response, error) {
+func (a *ExternalAppsAPIService) GetUserExternalAppExecute(r ExternalAppsAPIGetUserExternalAppRequest) (*UserExternalApp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1047,7 +1047,7 @@ func (a *ExternalAppsAPIService) GetUserExternalAppExecute(r ApiGetUserExternalA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListExternalAppsRequest struct {
+type ExternalAppsAPIListExternalAppsRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	accentTenant *string
@@ -1060,48 +1060,48 @@ type ApiListExternalAppsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListExternalAppsRequest) AccentTenant(accentTenant string) ApiListExternalAppsRequest {
+func (r ExternalAppsAPIListExternalAppsRequest) AccentTenant(accentTenant string) ExternalAppsAPIListExternalAppsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListExternalAppsRequest) Recurse(recurse bool) ApiListExternalAppsRequest {
+func (r ExternalAppsAPIListExternalAppsRequest) Recurse(recurse bool) ExternalAppsAPIListExternalAppsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListExternalAppsRequest) Order(order string) ApiListExternalAppsRequest {
+func (r ExternalAppsAPIListExternalAppsRequest) Order(order string) ExternalAppsAPIListExternalAppsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListExternalAppsRequest) Direction(direction string) ApiListExternalAppsRequest {
+func (r ExternalAppsAPIListExternalAppsRequest) Direction(direction string) ExternalAppsAPIListExternalAppsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListExternalAppsRequest) Limit(limit int32) ApiListExternalAppsRequest {
+func (r ExternalAppsAPIListExternalAppsRequest) Limit(limit int32) ExternalAppsAPIListExternalAppsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListExternalAppsRequest) Offset(offset int32) ApiListExternalAppsRequest {
+func (r ExternalAppsAPIListExternalAppsRequest) Offset(offset int32) ExternalAppsAPIListExternalAppsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListExternalAppsRequest) Search(search string) ApiListExternalAppsRequest {
+func (r ExternalAppsAPIListExternalAppsRequest) Search(search string) ExternalAppsAPIListExternalAppsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListExternalAppsRequest) Execute() (*ExternalAppItems, *http.Response, error) {
+func (r ExternalAppsAPIListExternalAppsRequest) Execute() (*ExternalAppItems, *http.Response, error) {
 	return r.ApiService.ListExternalAppsExecute(r)
 }
 
@@ -1111,10 +1111,10 @@ ListExternalApps List external apps
 **Required ACL:** `confd.external.apps.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListExternalAppsRequest
+	@return ExternalAppsAPIListExternalAppsRequest
 */
-func (a *ExternalAppsAPIService) ListExternalApps(ctx context.Context) ApiListExternalAppsRequest {
-	return ApiListExternalAppsRequest{
+func (a *ExternalAppsAPIService) ListExternalApps(ctx context.Context) ExternalAppsAPIListExternalAppsRequest {
+	return ExternalAppsAPIListExternalAppsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1123,7 +1123,7 @@ func (a *ExternalAppsAPIService) ListExternalApps(ctx context.Context) ApiListEx
 // Execute executes the request
 //
 //	@return ExternalAppItems
-func (a *ExternalAppsAPIService) ListExternalAppsExecute(r ApiListExternalAppsRequest) (*ExternalAppItems, *http.Response, error) {
+func (a *ExternalAppsAPIService) ListExternalAppsExecute(r ExternalAppsAPIListExternalAppsRequest) (*ExternalAppItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1234,7 +1234,7 @@ func (a *ExternalAppsAPIService) ListExternalAppsExecute(r ApiListExternalAppsRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserExternalAppsRequest struct {
+type ExternalAppsAPIListUserExternalAppsRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	userUuid     string
@@ -1248,48 +1248,48 @@ type ApiListUserExternalAppsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListUserExternalAppsRequest) AccentTenant(accentTenant string) ApiListUserExternalAppsRequest {
+func (r ExternalAppsAPIListUserExternalAppsRequest) AccentTenant(accentTenant string) ExternalAppsAPIListUserExternalAppsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListUserExternalAppsRequest) Order(order string) ApiListUserExternalAppsRequest {
+func (r ExternalAppsAPIListUserExternalAppsRequest) Order(order string) ExternalAppsAPIListUserExternalAppsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListUserExternalAppsRequest) Direction(direction string) ApiListUserExternalAppsRequest {
+func (r ExternalAppsAPIListUserExternalAppsRequest) Direction(direction string) ExternalAppsAPIListUserExternalAppsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListUserExternalAppsRequest) Limit(limit int32) ApiListUserExternalAppsRequest {
+func (r ExternalAppsAPIListUserExternalAppsRequest) Limit(limit int32) ExternalAppsAPIListUserExternalAppsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListUserExternalAppsRequest) Offset(offset int32) ApiListUserExternalAppsRequest {
+func (r ExternalAppsAPIListUserExternalAppsRequest) Offset(offset int32) ExternalAppsAPIListUserExternalAppsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListUserExternalAppsRequest) Search(search string) ApiListUserExternalAppsRequest {
+func (r ExternalAppsAPIListUserExternalAppsRequest) Search(search string) ExternalAppsAPIListUserExternalAppsRequest {
 	r.search = &search
 	return r
 }
 
 // Different view of the external app endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to return the user value for this external app  The &#x60;fallback&#x60; view return the user value for this external app, but if not found, will fallback to the tenant configured value  **WARNING**: Using fallback view on list will disabled all pagination and search features
-func (r ApiListUserExternalAppsRequest) View(view string) ApiListUserExternalAppsRequest {
+func (r ExternalAppsAPIListUserExternalAppsRequest) View(view string) ExternalAppsAPIListUserExternalAppsRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiListUserExternalAppsRequest) Execute() (*UserExternalAppItems, *http.Response, error) {
+func (r ExternalAppsAPIListUserExternalAppsRequest) Execute() (*UserExternalAppItems, *http.Response, error) {
 	return r.ApiService.ListUserExternalAppsExecute(r)
 }
 
@@ -1300,10 +1300,10 @@ ListUserExternalApps List user external apps
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
-	@return ApiListUserExternalAppsRequest
+	@return ExternalAppsAPIListUserExternalAppsRequest
 */
-func (a *ExternalAppsAPIService) ListUserExternalApps(ctx context.Context, userUuid string) ApiListUserExternalAppsRequest {
-	return ApiListUserExternalAppsRequest{
+func (a *ExternalAppsAPIService) ListUserExternalApps(ctx context.Context, userUuid string) ExternalAppsAPIListUserExternalAppsRequest {
+	return ExternalAppsAPIListUserExternalAppsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1313,7 +1313,7 @@ func (a *ExternalAppsAPIService) ListUserExternalApps(ctx context.Context, userU
 // Execute executes the request
 //
 //	@return UserExternalAppItems
-func (a *ExternalAppsAPIService) ListUserExternalAppsExecute(r ApiListUserExternalAppsRequest) (*UserExternalAppItems, *http.Response, error) {
+func (a *ExternalAppsAPIService) ListUserExternalAppsExecute(r ExternalAppsAPIListUserExternalAppsRequest) (*UserExternalAppItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1422,7 +1422,7 @@ func (a *ExternalAppsAPIService) ListUserExternalAppsExecute(r ApiListUserExtern
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateExternalAppRequest struct {
+type ExternalAppsAPIUpdateExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	body         *ExternalApp
@@ -1430,18 +1430,18 @@ type ApiUpdateExternalAppRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateExternalAppRequest) Body(body ExternalApp) ApiUpdateExternalAppRequest {
+func (r ExternalAppsAPIUpdateExternalAppRequest) Body(body ExternalApp) ExternalAppsAPIUpdateExternalAppRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateExternalAppRequest) AccentTenant(accentTenant string) ApiUpdateExternalAppRequest {
+func (r ExternalAppsAPIUpdateExternalAppRequest) AccentTenant(accentTenant string) ExternalAppsAPIUpdateExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateExternalAppRequest) Execute() (*http.Response, error) {
+func (r ExternalAppsAPIUpdateExternalAppRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateExternalAppExecute(r)
 }
 
@@ -1452,10 +1452,10 @@ UpdateExternalApp Update external app
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param appName External App's name
-	@return ApiUpdateExternalAppRequest
+	@return ExternalAppsAPIUpdateExternalAppRequest
 */
-func (a *ExternalAppsAPIService) UpdateExternalApp(ctx context.Context, appName string) ApiUpdateExternalAppRequest {
-	return ApiUpdateExternalAppRequest{
+func (a *ExternalAppsAPIService) UpdateExternalApp(ctx context.Context, appName string) ExternalAppsAPIUpdateExternalAppRequest {
+	return ExternalAppsAPIUpdateExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		appName:    appName,
@@ -1463,7 +1463,7 @@ func (a *ExternalAppsAPIService) UpdateExternalApp(ctx context.Context, appName 
 }
 
 // Execute executes the request
-func (a *ExternalAppsAPIService) UpdateExternalAppExecute(r ApiUpdateExternalAppRequest) (*http.Response, error) {
+func (a *ExternalAppsAPIService) UpdateExternalAppExecute(r ExternalAppsAPIUpdateExternalAppRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1570,7 +1570,7 @@ func (a *ExternalAppsAPIService) UpdateExternalAppExecute(r ApiUpdateExternalApp
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserExternalAppRequest struct {
+type ExternalAppsAPIUpdateUserExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAppsAPI
 	body         *UserExternalApp
@@ -1579,18 +1579,18 @@ type ApiUpdateUserExternalAppRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserExternalAppRequest) Body(body UserExternalApp) ApiUpdateUserExternalAppRequest {
+func (r ExternalAppsAPIUpdateUserExternalAppRequest) Body(body UserExternalApp) ExternalAppsAPIUpdateUserExternalAppRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserExternalAppRequest) AccentTenant(accentTenant string) ApiUpdateUserExternalAppRequest {
+func (r ExternalAppsAPIUpdateUserExternalAppRequest) AccentTenant(accentTenant string) ExternalAppsAPIUpdateUserExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserExternalAppRequest) Execute() (*http.Response, error) {
+func (r ExternalAppsAPIUpdateUserExternalAppRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserExternalAppExecute(r)
 }
 
@@ -1602,10 +1602,10 @@ UpdateUserExternalApp Update user external app
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param appName External App's name
-	@return ApiUpdateUserExternalAppRequest
+	@return ExternalAppsAPIUpdateUserExternalAppRequest
 */
-func (a *ExternalAppsAPIService) UpdateUserExternalApp(ctx context.Context, userUuid string, appName string) ApiUpdateUserExternalAppRequest {
-	return ApiUpdateUserExternalAppRequest{
+func (a *ExternalAppsAPIService) UpdateUserExternalApp(ctx context.Context, userUuid string, appName string) ExternalAppsAPIUpdateUserExternalAppRequest {
+	return ExternalAppsAPIUpdateUserExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1614,7 +1614,7 @@ func (a *ExternalAppsAPIService) UpdateUserExternalApp(ctx context.Context, user
 }
 
 // Execute executes the request
-func (a *ExternalAppsAPIService) UpdateUserExternalAppExecute(r ApiUpdateUserExternalAppRequest) (*http.Response, error) {
+func (a *ExternalAppsAPIService) UpdateUserExternalAppExecute(r ExternalAppsAPIUpdateUserExternalAppRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

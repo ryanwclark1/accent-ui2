@@ -29,13 +29,13 @@ type SwitchboardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid
-		@return ApiGetSwitchboardFallbackRequest
+		@return SwitchboardsAPIGetSwitchboardFallbackRequest
 	*/
-	GetSwitchboardFallback(ctx context.Context, switchboardUuid string) ApiGetSwitchboardFallbackRequest
+	GetSwitchboardFallback(ctx context.Context, switchboardUuid string) SwitchboardsAPIGetSwitchboardFallbackRequest
 
 	// GetSwitchboardFallbackExecute executes the request
 	//  @return SwitchboardFallbacks
-	GetSwitchboardFallbackExecute(r ApiGetSwitchboardFallbackRequest) (*SwitchboardFallbacks, *http.Response, error)
+	GetSwitchboardFallbackExecute(r SwitchboardsAPIGetSwitchboardFallbackRequest) (*SwitchboardFallbacks, *http.Response, error)
 
 	/*
 		SwitchboardsGet List switchboards
@@ -43,13 +43,13 @@ type SwitchboardsAPI interface {
 		**Required ACL:** `confd.switchboards.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiSwitchboardsGetRequest
+		@return SwitchboardsAPISwitchboardsGetRequest
 	*/
-	SwitchboardsGet(ctx context.Context) ApiSwitchboardsGetRequest
+	SwitchboardsGet(ctx context.Context) SwitchboardsAPISwitchboardsGetRequest
 
 	// SwitchboardsGetExecute executes the request
 	//  @return SwitchboardsGet200Response
-	SwitchboardsGetExecute(r ApiSwitchboardsGetRequest) (*SwitchboardsGet200Response, *http.Response, error)
+	SwitchboardsGetExecute(r SwitchboardsAPISwitchboardsGetRequest) (*SwitchboardsGet200Response, *http.Response, error)
 
 	/*
 		SwitchboardsPost Create a switchboard
@@ -57,13 +57,13 @@ type SwitchboardsAPI interface {
 		**Required ACL:** `confd.switchboard.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiSwitchboardsPostRequest
+		@return SwitchboardsAPISwitchboardsPostRequest
 	*/
-	SwitchboardsPost(ctx context.Context) ApiSwitchboardsPostRequest
+	SwitchboardsPost(ctx context.Context) SwitchboardsAPISwitchboardsPostRequest
 
 	// SwitchboardsPostExecute executes the request
 	//  @return Switchboard
-	SwitchboardsPostExecute(r ApiSwitchboardsPostRequest) (*Switchboard, *http.Response, error)
+	SwitchboardsPostExecute(r SwitchboardsAPISwitchboardsPostRequest) (*Switchboard, *http.Response, error)
 
 	/*
 		SwitchboardsSwitchboardUuidDelete Delete a switchboard
@@ -72,12 +72,12 @@ type SwitchboardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid
-		@return ApiSwitchboardsSwitchboardUuidDeleteRequest
+		@return SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest
 	*/
-	SwitchboardsSwitchboardUuidDelete(ctx context.Context, switchboardUuid string) ApiSwitchboardsSwitchboardUuidDeleteRequest
+	SwitchboardsSwitchboardUuidDelete(ctx context.Context, switchboardUuid string) SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest
 
 	// SwitchboardsSwitchboardUuidDeleteExecute executes the request
-	SwitchboardsSwitchboardUuidDeleteExecute(r ApiSwitchboardsSwitchboardUuidDeleteRequest) (*http.Response, error)
+	SwitchboardsSwitchboardUuidDeleteExecute(r SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest) (*http.Response, error)
 
 	/*
 		SwitchboardsSwitchboardUuidGet Get a switchboard
@@ -86,13 +86,13 @@ type SwitchboardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid
-		@return ApiSwitchboardsSwitchboardUuidGetRequest
+		@return SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest
 	*/
-	SwitchboardsSwitchboardUuidGet(ctx context.Context, switchboardUuid string) ApiSwitchboardsSwitchboardUuidGetRequest
+	SwitchboardsSwitchboardUuidGet(ctx context.Context, switchboardUuid string) SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest
 
 	// SwitchboardsSwitchboardUuidGetExecute executes the request
 	//  @return Switchboard
-	SwitchboardsSwitchboardUuidGetExecute(r ApiSwitchboardsSwitchboardUuidGetRequest) (*Switchboard, *http.Response, error)
+	SwitchboardsSwitchboardUuidGetExecute(r SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest) (*Switchboard, *http.Response, error)
 
 	/*
 		SwitchboardsSwitchboardUuidPut Update a switchboard
@@ -101,12 +101,12 @@ type SwitchboardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid
-		@return ApiSwitchboardsSwitchboardUuidPutRequest
+		@return SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest
 	*/
-	SwitchboardsSwitchboardUuidPut(ctx context.Context, switchboardUuid string) ApiSwitchboardsSwitchboardUuidPutRequest
+	SwitchboardsSwitchboardUuidPut(ctx context.Context, switchboardUuid string) SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest
 
 	// SwitchboardsSwitchboardUuidPutExecute executes the request
-	SwitchboardsSwitchboardUuidPutExecute(r ApiSwitchboardsSwitchboardUuidPutRequest) (*http.Response, error)
+	SwitchboardsSwitchboardUuidPutExecute(r SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest) (*http.Response, error)
 
 	/*
 		UpdateSwitchboardFallback Update switchboard's fallbacks
@@ -117,12 +117,12 @@ type SwitchboardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid
-		@return ApiUpdateSwitchboardFallbackRequest
+		@return SwitchboardsAPIUpdateSwitchboardFallbackRequest
 	*/
-	UpdateSwitchboardFallback(ctx context.Context, switchboardUuid string) ApiUpdateSwitchboardFallbackRequest
+	UpdateSwitchboardFallback(ctx context.Context, switchboardUuid string) SwitchboardsAPIUpdateSwitchboardFallbackRequest
 
 	// UpdateSwitchboardFallbackExecute executes the request
-	UpdateSwitchboardFallbackExecute(r ApiUpdateSwitchboardFallbackRequest) (*http.Response, error)
+	UpdateSwitchboardFallbackExecute(r SwitchboardsAPIUpdateSwitchboardFallbackRequest) (*http.Response, error)
 
 	/*
 		UpdateSwitchboardMemberUsers Update switchboard and members
@@ -135,18 +135,18 @@ type SwitchboardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid
-		@return ApiUpdateSwitchboardMemberUsersRequest
+		@return SwitchboardsAPIUpdateSwitchboardMemberUsersRequest
 	*/
-	UpdateSwitchboardMemberUsers(ctx context.Context, switchboardUuid string) ApiUpdateSwitchboardMemberUsersRequest
+	UpdateSwitchboardMemberUsers(ctx context.Context, switchboardUuid string) SwitchboardsAPIUpdateSwitchboardMemberUsersRequest
 
 	// UpdateSwitchboardMemberUsersExecute executes the request
-	UpdateSwitchboardMemberUsersExecute(r ApiUpdateSwitchboardMemberUsersRequest) (*http.Response, error)
+	UpdateSwitchboardMemberUsersExecute(r SwitchboardsAPIUpdateSwitchboardMemberUsersRequest) (*http.Response, error)
 }
 
 // SwitchboardsAPIService SwitchboardsAPI service
 type SwitchboardsAPIService service
 
-type ApiGetSwitchboardFallbackRequest struct {
+type SwitchboardsAPIGetSwitchboardFallbackRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -154,12 +154,12 @@ type ApiGetSwitchboardFallbackRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetSwitchboardFallbackRequest) AccentTenant(accentTenant string) ApiGetSwitchboardFallbackRequest {
+func (r SwitchboardsAPIGetSwitchboardFallbackRequest) AccentTenant(accentTenant string) SwitchboardsAPIGetSwitchboardFallbackRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetSwitchboardFallbackRequest) Execute() (*SwitchboardFallbacks, *http.Response, error) {
+func (r SwitchboardsAPIGetSwitchboardFallbackRequest) Execute() (*SwitchboardFallbacks, *http.Response, error) {
 	return r.ApiService.GetSwitchboardFallbackExecute(r)
 }
 
@@ -170,10 +170,10 @@ GetSwitchboardFallback List all fallbacks for switchboard
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid
-	@return ApiGetSwitchboardFallbackRequest
+	@return SwitchboardsAPIGetSwitchboardFallbackRequest
 */
-func (a *SwitchboardsAPIService) GetSwitchboardFallback(ctx context.Context, switchboardUuid string) ApiGetSwitchboardFallbackRequest {
-	return ApiGetSwitchboardFallbackRequest{
+func (a *SwitchboardsAPIService) GetSwitchboardFallback(ctx context.Context, switchboardUuid string) SwitchboardsAPIGetSwitchboardFallbackRequest {
+	return SwitchboardsAPIGetSwitchboardFallbackRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -183,7 +183,7 @@ func (a *SwitchboardsAPIService) GetSwitchboardFallback(ctx context.Context, swi
 // Execute executes the request
 //
 //	@return SwitchboardFallbacks
-func (a *SwitchboardsAPIService) GetSwitchboardFallbackExecute(r ApiGetSwitchboardFallbackRequest) (*SwitchboardFallbacks, *http.Response, error) {
+func (a *SwitchboardsAPIService) GetSwitchboardFallbackExecute(r SwitchboardsAPIGetSwitchboardFallbackRequest) (*SwitchboardFallbacks, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -274,7 +274,7 @@ func (a *SwitchboardsAPIService) GetSwitchboardFallbackExecute(r ApiGetSwitchboa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSwitchboardsGetRequest struct {
+type SwitchboardsAPISwitchboardsGetRequest struct {
 	ctx          context.Context
 	ApiService   SwitchboardsAPI
 	accentTenant *string
@@ -287,48 +287,48 @@ type ApiSwitchboardsGetRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiSwitchboardsGetRequest) AccentTenant(accentTenant string) ApiSwitchboardsGetRequest {
+func (r SwitchboardsAPISwitchboardsGetRequest) AccentTenant(accentTenant string) SwitchboardsAPISwitchboardsGetRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiSwitchboardsGetRequest) Recurse(recurse bool) ApiSwitchboardsGetRequest {
+func (r SwitchboardsAPISwitchboardsGetRequest) Recurse(recurse bool) SwitchboardsAPISwitchboardsGetRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiSwitchboardsGetRequest) Order(order string) ApiSwitchboardsGetRequest {
+func (r SwitchboardsAPISwitchboardsGetRequest) Order(order string) SwitchboardsAPISwitchboardsGetRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiSwitchboardsGetRequest) Direction(direction string) ApiSwitchboardsGetRequest {
+func (r SwitchboardsAPISwitchboardsGetRequest) Direction(direction string) SwitchboardsAPISwitchboardsGetRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiSwitchboardsGetRequest) Limit(limit int32) ApiSwitchboardsGetRequest {
+func (r SwitchboardsAPISwitchboardsGetRequest) Limit(limit int32) SwitchboardsAPISwitchboardsGetRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiSwitchboardsGetRequest) Offset(offset int32) ApiSwitchboardsGetRequest {
+func (r SwitchboardsAPISwitchboardsGetRequest) Offset(offset int32) SwitchboardsAPISwitchboardsGetRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiSwitchboardsGetRequest) Search(search string) ApiSwitchboardsGetRequest {
+func (r SwitchboardsAPISwitchboardsGetRequest) Search(search string) SwitchboardsAPISwitchboardsGetRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiSwitchboardsGetRequest) Execute() (*SwitchboardsGet200Response, *http.Response, error) {
+func (r SwitchboardsAPISwitchboardsGetRequest) Execute() (*SwitchboardsGet200Response, *http.Response, error) {
 	return r.ApiService.SwitchboardsGetExecute(r)
 }
 
@@ -338,10 +338,10 @@ SwitchboardsGet List switchboards
 **Required ACL:** `confd.switchboards.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiSwitchboardsGetRequest
+	@return SwitchboardsAPISwitchboardsGetRequest
 */
-func (a *SwitchboardsAPIService) SwitchboardsGet(ctx context.Context) ApiSwitchboardsGetRequest {
-	return ApiSwitchboardsGetRequest{
+func (a *SwitchboardsAPIService) SwitchboardsGet(ctx context.Context) SwitchboardsAPISwitchboardsGetRequest {
+	return SwitchboardsAPISwitchboardsGetRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -350,7 +350,7 @@ func (a *SwitchboardsAPIService) SwitchboardsGet(ctx context.Context) ApiSwitchb
 // Execute executes the request
 //
 //	@return SwitchboardsGet200Response
-func (a *SwitchboardsAPIService) SwitchboardsGetExecute(r ApiSwitchboardsGetRequest) (*SwitchboardsGet200Response, *http.Response, error) {
+func (a *SwitchboardsAPIService) SwitchboardsGetExecute(r SwitchboardsAPISwitchboardsGetRequest) (*SwitchboardsGet200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -461,7 +461,7 @@ func (a *SwitchboardsAPIService) SwitchboardsGetExecute(r ApiSwitchboardsGetRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSwitchboardsPostRequest struct {
+type SwitchboardsAPISwitchboardsPostRequest struct {
 	ctx          context.Context
 	ApiService   SwitchboardsAPI
 	body         *Switchboard
@@ -469,18 +469,18 @@ type ApiSwitchboardsPostRequest struct {
 }
 
 // Switchboard parameters
-func (r ApiSwitchboardsPostRequest) Body(body Switchboard) ApiSwitchboardsPostRequest {
+func (r SwitchboardsAPISwitchboardsPostRequest) Body(body Switchboard) SwitchboardsAPISwitchboardsPostRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiSwitchboardsPostRequest) AccentTenant(accentTenant string) ApiSwitchboardsPostRequest {
+func (r SwitchboardsAPISwitchboardsPostRequest) AccentTenant(accentTenant string) SwitchboardsAPISwitchboardsPostRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiSwitchboardsPostRequest) Execute() (*Switchboard, *http.Response, error) {
+func (r SwitchboardsAPISwitchboardsPostRequest) Execute() (*Switchboard, *http.Response, error) {
 	return r.ApiService.SwitchboardsPostExecute(r)
 }
 
@@ -490,10 +490,10 @@ SwitchboardsPost Create a switchboard
 **Required ACL:** `confd.switchboard.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiSwitchboardsPostRequest
+	@return SwitchboardsAPISwitchboardsPostRequest
 */
-func (a *SwitchboardsAPIService) SwitchboardsPost(ctx context.Context) ApiSwitchboardsPostRequest {
-	return ApiSwitchboardsPostRequest{
+func (a *SwitchboardsAPIService) SwitchboardsPost(ctx context.Context) SwitchboardsAPISwitchboardsPostRequest {
+	return SwitchboardsAPISwitchboardsPostRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -502,7 +502,7 @@ func (a *SwitchboardsAPIService) SwitchboardsPost(ctx context.Context) ApiSwitch
 // Execute executes the request
 //
 //	@return Switchboard
-func (a *SwitchboardsAPIService) SwitchboardsPostExecute(r ApiSwitchboardsPostRequest) (*Switchboard, *http.Response, error) {
+func (a *SwitchboardsAPIService) SwitchboardsPostExecute(r SwitchboardsAPISwitchboardsPostRequest) (*Switchboard, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -607,7 +607,7 @@ func (a *SwitchboardsAPIService) SwitchboardsPostExecute(r ApiSwitchboardsPostRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSwitchboardsSwitchboardUuidDeleteRequest struct {
+type SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -615,12 +615,12 @@ type ApiSwitchboardsSwitchboardUuidDeleteRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiSwitchboardsSwitchboardUuidDeleteRequest) AccentTenant(accentTenant string) ApiSwitchboardsSwitchboardUuidDeleteRequest {
+func (r SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest) AccentTenant(accentTenant string) SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiSwitchboardsSwitchboardUuidDeleteRequest) Execute() (*http.Response, error) {
+func (r SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.SwitchboardsSwitchboardUuidDeleteExecute(r)
 }
 
@@ -631,10 +631,10 @@ SwitchboardsSwitchboardUuidDelete Delete a switchboard
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid
-	@return ApiSwitchboardsSwitchboardUuidDeleteRequest
+	@return SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest
 */
-func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidDelete(ctx context.Context, switchboardUuid string) ApiSwitchboardsSwitchboardUuidDeleteRequest {
-	return ApiSwitchboardsSwitchboardUuidDeleteRequest{
+func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidDelete(ctx context.Context, switchboardUuid string) SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest {
+	return SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -642,7 +642,7 @@ func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidDelete(ctx context.C
 }
 
 // Execute executes the request
-func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidDeleteExecute(r ApiSwitchboardsSwitchboardUuidDeleteRequest) (*http.Response, error) {
+func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidDeleteExecute(r SwitchboardsAPISwitchboardsSwitchboardUuidDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -733,7 +733,7 @@ func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidDeleteExecute(r ApiS
 	return localVarHTTPResponse, nil
 }
 
-type ApiSwitchboardsSwitchboardUuidGetRequest struct {
+type SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -741,12 +741,12 @@ type ApiSwitchboardsSwitchboardUuidGetRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiSwitchboardsSwitchboardUuidGetRequest) AccentTenant(accentTenant string) ApiSwitchboardsSwitchboardUuidGetRequest {
+func (r SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest) AccentTenant(accentTenant string) SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiSwitchboardsSwitchboardUuidGetRequest) Execute() (*Switchboard, *http.Response, error) {
+func (r SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest) Execute() (*Switchboard, *http.Response, error) {
 	return r.ApiService.SwitchboardsSwitchboardUuidGetExecute(r)
 }
 
@@ -757,10 +757,10 @@ SwitchboardsSwitchboardUuidGet Get a switchboard
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid
-	@return ApiSwitchboardsSwitchboardUuidGetRequest
+	@return SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest
 */
-func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidGet(ctx context.Context, switchboardUuid string) ApiSwitchboardsSwitchboardUuidGetRequest {
-	return ApiSwitchboardsSwitchboardUuidGetRequest{
+func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidGet(ctx context.Context, switchboardUuid string) SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest {
+	return SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -770,7 +770,7 @@ func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidGet(ctx context.Cont
 // Execute executes the request
 //
 //	@return Switchboard
-func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidGetExecute(r ApiSwitchboardsSwitchboardUuidGetRequest) (*Switchboard, *http.Response, error) {
+func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidGetExecute(r SwitchboardsAPISwitchboardsSwitchboardUuidGetRequest) (*Switchboard, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -871,7 +871,7 @@ func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidGetExecute(r ApiSwit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSwitchboardsSwitchboardUuidPutRequest struct {
+type SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	body            *Switchboard
@@ -879,18 +879,18 @@ type ApiSwitchboardsSwitchboardUuidPutRequest struct {
 	accentTenant    *string
 }
 
-func (r ApiSwitchboardsSwitchboardUuidPutRequest) Body(body Switchboard) ApiSwitchboardsSwitchboardUuidPutRequest {
+func (r SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest) Body(body Switchboard) SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiSwitchboardsSwitchboardUuidPutRequest) AccentTenant(accentTenant string) ApiSwitchboardsSwitchboardUuidPutRequest {
+func (r SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest) AccentTenant(accentTenant string) SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiSwitchboardsSwitchboardUuidPutRequest) Execute() (*http.Response, error) {
+func (r SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest) Execute() (*http.Response, error) {
 	return r.ApiService.SwitchboardsSwitchboardUuidPutExecute(r)
 }
 
@@ -901,10 +901,10 @@ SwitchboardsSwitchboardUuidPut Update a switchboard
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid
-	@return ApiSwitchboardsSwitchboardUuidPutRequest
+	@return SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest
 */
-func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidPut(ctx context.Context, switchboardUuid string) ApiSwitchboardsSwitchboardUuidPutRequest {
-	return ApiSwitchboardsSwitchboardUuidPutRequest{
+func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidPut(ctx context.Context, switchboardUuid string) SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest {
+	return SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -912,7 +912,7 @@ func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidPut(ctx context.Cont
 }
 
 // Execute executes the request
-func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidPutExecute(r ApiSwitchboardsSwitchboardUuidPutRequest) (*http.Response, error) {
+func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidPutExecute(r SwitchboardsAPISwitchboardsSwitchboardUuidPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1019,7 +1019,7 @@ func (a *SwitchboardsAPIService) SwitchboardsSwitchboardUuidPutExecute(r ApiSwit
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateSwitchboardFallbackRequest struct {
+type SwitchboardsAPIUpdateSwitchboardFallbackRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -1028,18 +1028,18 @@ type ApiUpdateSwitchboardFallbackRequest struct {
 }
 
 // Fallbacks for switchboard
-func (r ApiUpdateSwitchboardFallbackRequest) Body(body SwitchboardFallbacks) ApiUpdateSwitchboardFallbackRequest {
+func (r SwitchboardsAPIUpdateSwitchboardFallbackRequest) Body(body SwitchboardFallbacks) SwitchboardsAPIUpdateSwitchboardFallbackRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateSwitchboardFallbackRequest) AccentTenant(accentTenant string) ApiUpdateSwitchboardFallbackRequest {
+func (r SwitchboardsAPIUpdateSwitchboardFallbackRequest) AccentTenant(accentTenant string) SwitchboardsAPIUpdateSwitchboardFallbackRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateSwitchboardFallbackRequest) Execute() (*http.Response, error) {
+func (r SwitchboardsAPIUpdateSwitchboardFallbackRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSwitchboardFallbackExecute(r)
 }
 
@@ -1052,10 +1052,10 @@ UpdateSwitchboardFallback Update switchboard's fallbacks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid
-	@return ApiUpdateSwitchboardFallbackRequest
+	@return SwitchboardsAPIUpdateSwitchboardFallbackRequest
 */
-func (a *SwitchboardsAPIService) UpdateSwitchboardFallback(ctx context.Context, switchboardUuid string) ApiUpdateSwitchboardFallbackRequest {
-	return ApiUpdateSwitchboardFallbackRequest{
+func (a *SwitchboardsAPIService) UpdateSwitchboardFallback(ctx context.Context, switchboardUuid string) SwitchboardsAPIUpdateSwitchboardFallbackRequest {
+	return SwitchboardsAPIUpdateSwitchboardFallbackRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -1063,7 +1063,7 @@ func (a *SwitchboardsAPIService) UpdateSwitchboardFallback(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *SwitchboardsAPIService) UpdateSwitchboardFallbackExecute(r ApiUpdateSwitchboardFallbackRequest) (*http.Response, error) {
+func (a *SwitchboardsAPIService) UpdateSwitchboardFallbackExecute(r SwitchboardsAPIUpdateSwitchboardFallbackRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1167,7 +1167,7 @@ func (a *SwitchboardsAPIService) UpdateSwitchboardFallbackExecute(r ApiUpdateSwi
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateSwitchboardMemberUsersRequest struct {
+type SwitchboardsAPIUpdateSwitchboardMemberUsersRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	body            *UsersUuid
@@ -1175,12 +1175,12 @@ type ApiUpdateSwitchboardMemberUsersRequest struct {
 }
 
 // Users to associate with the switchboard
-func (r ApiUpdateSwitchboardMemberUsersRequest) Body(body UsersUuid) ApiUpdateSwitchboardMemberUsersRequest {
+func (r SwitchboardsAPIUpdateSwitchboardMemberUsersRequest) Body(body UsersUuid) SwitchboardsAPIUpdateSwitchboardMemberUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateSwitchboardMemberUsersRequest) Execute() (*http.Response, error) {
+func (r SwitchboardsAPIUpdateSwitchboardMemberUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSwitchboardMemberUsersExecute(r)
 }
 
@@ -1194,10 +1194,10 @@ This endpoint removes all members which are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid
-	@return ApiUpdateSwitchboardMemberUsersRequest
+	@return SwitchboardsAPIUpdateSwitchboardMemberUsersRequest
 */
-func (a *SwitchboardsAPIService) UpdateSwitchboardMemberUsers(ctx context.Context, switchboardUuid string) ApiUpdateSwitchboardMemberUsersRequest {
-	return ApiUpdateSwitchboardMemberUsersRequest{
+func (a *SwitchboardsAPIService) UpdateSwitchboardMemberUsers(ctx context.Context, switchboardUuid string) SwitchboardsAPIUpdateSwitchboardMemberUsersRequest {
+	return SwitchboardsAPIUpdateSwitchboardMemberUsersRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -1205,7 +1205,7 @@ func (a *SwitchboardsAPIService) UpdateSwitchboardMemberUsers(ctx context.Contex
 }
 
 // Execute executes the request
-func (a *SwitchboardsAPIService) UpdateSwitchboardMemberUsersExecute(r ApiUpdateSwitchboardMemberUsersRequest) (*http.Response, error) {
+func (a *SwitchboardsAPIService) UpdateSwitchboardMemberUsersExecute(r SwitchboardsAPIUpdateSwitchboardMemberUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

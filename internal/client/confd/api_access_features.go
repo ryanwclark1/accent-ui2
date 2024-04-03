@@ -28,13 +28,13 @@ type AccessFeaturesAPI interface {
 		**Required ACL:** `confd.access_features.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateAccessFeatureRequest
+		@return AccessFeaturesAPICreateAccessFeatureRequest
 	*/
-	CreateAccessFeature(ctx context.Context) ApiCreateAccessFeatureRequest
+	CreateAccessFeature(ctx context.Context) AccessFeaturesAPICreateAccessFeatureRequest
 
 	// CreateAccessFeatureExecute executes the request
 	//  @return AccessFeature
-	CreateAccessFeatureExecute(r ApiCreateAccessFeatureRequest) (*AccessFeature, *http.Response, error)
+	CreateAccessFeatureExecute(r AccessFeaturesAPICreateAccessFeatureRequest) (*AccessFeature, *http.Response, error)
 
 	/*
 		DeleteAccessFeature Delete access feature
@@ -43,12 +43,12 @@ type AccessFeaturesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param accessFeatureId Access feature ID
-		@return ApiDeleteAccessFeatureRequest
+		@return AccessFeaturesAPIDeleteAccessFeatureRequest
 	*/
-	DeleteAccessFeature(ctx context.Context, accessFeatureId int32) ApiDeleteAccessFeatureRequest
+	DeleteAccessFeature(ctx context.Context, accessFeatureId int32) AccessFeaturesAPIDeleteAccessFeatureRequest
 
 	// DeleteAccessFeatureExecute executes the request
-	DeleteAccessFeatureExecute(r ApiDeleteAccessFeatureRequest) (*http.Response, error)
+	DeleteAccessFeatureExecute(r AccessFeaturesAPIDeleteAccessFeatureRequest) (*http.Response, error)
 
 	/*
 		GetAccessFeature Get access_feature
@@ -57,13 +57,13 @@ type AccessFeaturesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param accessFeatureId Access feature ID
-		@return ApiGetAccessFeatureRequest
+		@return AccessFeaturesAPIGetAccessFeatureRequest
 	*/
-	GetAccessFeature(ctx context.Context, accessFeatureId int32) ApiGetAccessFeatureRequest
+	GetAccessFeature(ctx context.Context, accessFeatureId int32) AccessFeaturesAPIGetAccessFeatureRequest
 
 	// GetAccessFeatureExecute executes the request
 	//  @return AccessFeature
-	GetAccessFeatureExecute(r ApiGetAccessFeatureRequest) (*AccessFeature, *http.Response, error)
+	GetAccessFeatureExecute(r AccessFeaturesAPIGetAccessFeatureRequest) (*AccessFeature, *http.Response, error)
 
 	/*
 		ListAccessFeatures List access features
@@ -71,13 +71,13 @@ type AccessFeaturesAPI interface {
 		**Required ACL:** `confd.access_features.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAccessFeaturesRequest
+		@return AccessFeaturesAPIListAccessFeaturesRequest
 	*/
-	ListAccessFeatures(ctx context.Context) ApiListAccessFeaturesRequest
+	ListAccessFeatures(ctx context.Context) AccessFeaturesAPIListAccessFeaturesRequest
 
 	// ListAccessFeaturesExecute executes the request
 	//  @return AccessFeatureItems
-	ListAccessFeaturesExecute(r ApiListAccessFeaturesRequest) (*AccessFeatureItems, *http.Response, error)
+	ListAccessFeaturesExecute(r AccessFeaturesAPIListAccessFeaturesRequest) (*AccessFeatureItems, *http.Response, error)
 
 	/*
 		UpdateAccessFeature Update access_feature
@@ -86,30 +86,30 @@ type AccessFeaturesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param accessFeatureId Access feature ID
-		@return ApiUpdateAccessFeatureRequest
+		@return AccessFeaturesAPIUpdateAccessFeatureRequest
 	*/
-	UpdateAccessFeature(ctx context.Context, accessFeatureId int32) ApiUpdateAccessFeatureRequest
+	UpdateAccessFeature(ctx context.Context, accessFeatureId int32) AccessFeaturesAPIUpdateAccessFeatureRequest
 
 	// UpdateAccessFeatureExecute executes the request
-	UpdateAccessFeatureExecute(r ApiUpdateAccessFeatureRequest) (*http.Response, error)
+	UpdateAccessFeatureExecute(r AccessFeaturesAPIUpdateAccessFeatureRequest) (*http.Response, error)
 }
 
 // AccessFeaturesAPIService AccessFeaturesAPI service
 type AccessFeaturesAPIService service
 
-type ApiCreateAccessFeatureRequest struct {
+type AccessFeaturesAPICreateAccessFeatureRequest struct {
 	ctx        context.Context
 	ApiService AccessFeaturesAPI
 	body       *AccessFeature
 }
 
 // Access feature to create
-func (r ApiCreateAccessFeatureRequest) Body(body AccessFeature) ApiCreateAccessFeatureRequest {
+func (r AccessFeaturesAPICreateAccessFeatureRequest) Body(body AccessFeature) AccessFeaturesAPICreateAccessFeatureRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateAccessFeatureRequest) Execute() (*AccessFeature, *http.Response, error) {
+func (r AccessFeaturesAPICreateAccessFeatureRequest) Execute() (*AccessFeature, *http.Response, error) {
 	return r.ApiService.CreateAccessFeatureExecute(r)
 }
 
@@ -119,10 +119,10 @@ CreateAccessFeature Create access_feature
 **Required ACL:** `confd.access_features.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateAccessFeatureRequest
+	@return AccessFeaturesAPICreateAccessFeatureRequest
 */
-func (a *AccessFeaturesAPIService) CreateAccessFeature(ctx context.Context) ApiCreateAccessFeatureRequest {
-	return ApiCreateAccessFeatureRequest{
+func (a *AccessFeaturesAPIService) CreateAccessFeature(ctx context.Context) AccessFeaturesAPICreateAccessFeatureRequest {
+	return AccessFeaturesAPICreateAccessFeatureRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -131,7 +131,7 @@ func (a *AccessFeaturesAPIService) CreateAccessFeature(ctx context.Context) ApiC
 // Execute executes the request
 //
 //	@return AccessFeature
-func (a *AccessFeaturesAPIService) CreateAccessFeatureExecute(r ApiCreateAccessFeatureRequest) (*AccessFeature, *http.Response, error) {
+func (a *AccessFeaturesAPIService) CreateAccessFeatureExecute(r AccessFeaturesAPICreateAccessFeatureRequest) (*AccessFeature, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -233,13 +233,13 @@ func (a *AccessFeaturesAPIService) CreateAccessFeatureExecute(r ApiCreateAccessF
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAccessFeatureRequest struct {
+type AccessFeaturesAPIDeleteAccessFeatureRequest struct {
 	ctx             context.Context
 	ApiService      AccessFeaturesAPI
 	accessFeatureId int32
 }
 
-func (r ApiDeleteAccessFeatureRequest) Execute() (*http.Response, error) {
+func (r AccessFeaturesAPIDeleteAccessFeatureRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteAccessFeatureExecute(r)
 }
 
@@ -250,10 +250,10 @@ DeleteAccessFeature Delete access feature
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param accessFeatureId Access feature ID
-	@return ApiDeleteAccessFeatureRequest
+	@return AccessFeaturesAPIDeleteAccessFeatureRequest
 */
-func (a *AccessFeaturesAPIService) DeleteAccessFeature(ctx context.Context, accessFeatureId int32) ApiDeleteAccessFeatureRequest {
-	return ApiDeleteAccessFeatureRequest{
+func (a *AccessFeaturesAPIService) DeleteAccessFeature(ctx context.Context, accessFeatureId int32) AccessFeaturesAPIDeleteAccessFeatureRequest {
+	return AccessFeaturesAPIDeleteAccessFeatureRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		accessFeatureId: accessFeatureId,
@@ -261,7 +261,7 @@ func (a *AccessFeaturesAPIService) DeleteAccessFeature(ctx context.Context, acce
 }
 
 // Execute executes the request
-func (a *AccessFeaturesAPIService) DeleteAccessFeatureExecute(r ApiDeleteAccessFeatureRequest) (*http.Response, error) {
+func (a *AccessFeaturesAPIService) DeleteAccessFeatureExecute(r AccessFeaturesAPIDeleteAccessFeatureRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -360,13 +360,13 @@ func (a *AccessFeaturesAPIService) DeleteAccessFeatureExecute(r ApiDeleteAccessF
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetAccessFeatureRequest struct {
+type AccessFeaturesAPIGetAccessFeatureRequest struct {
 	ctx             context.Context
 	ApiService      AccessFeaturesAPI
 	accessFeatureId int32
 }
 
-func (r ApiGetAccessFeatureRequest) Execute() (*AccessFeature, *http.Response, error) {
+func (r AccessFeaturesAPIGetAccessFeatureRequest) Execute() (*AccessFeature, *http.Response, error) {
 	return r.ApiService.GetAccessFeatureExecute(r)
 }
 
@@ -377,10 +377,10 @@ GetAccessFeature Get access_feature
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param accessFeatureId Access feature ID
-	@return ApiGetAccessFeatureRequest
+	@return AccessFeaturesAPIGetAccessFeatureRequest
 */
-func (a *AccessFeaturesAPIService) GetAccessFeature(ctx context.Context, accessFeatureId int32) ApiGetAccessFeatureRequest {
-	return ApiGetAccessFeatureRequest{
+func (a *AccessFeaturesAPIService) GetAccessFeature(ctx context.Context, accessFeatureId int32) AccessFeaturesAPIGetAccessFeatureRequest {
+	return AccessFeaturesAPIGetAccessFeatureRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		accessFeatureId: accessFeatureId,
@@ -390,7 +390,7 @@ func (a *AccessFeaturesAPIService) GetAccessFeature(ctx context.Context, accessF
 // Execute executes the request
 //
 //	@return AccessFeature
-func (a *AccessFeaturesAPIService) GetAccessFeatureExecute(r ApiGetAccessFeatureRequest) (*AccessFeature, *http.Response, error) {
+func (a *AccessFeaturesAPIService) GetAccessFeatureExecute(r AccessFeaturesAPIGetAccessFeatureRequest) (*AccessFeature, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -488,7 +488,7 @@ func (a *AccessFeaturesAPIService) GetAccessFeatureExecute(r ApiGetAccessFeature
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAccessFeaturesRequest struct {
+type AccessFeaturesAPIListAccessFeaturesRequest struct {
 	ctx        context.Context
 	ApiService AccessFeaturesAPI
 	order      *string
@@ -499,36 +499,36 @@ type ApiListAccessFeaturesRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListAccessFeaturesRequest) Order(order string) ApiListAccessFeaturesRequest {
+func (r AccessFeaturesAPIListAccessFeaturesRequest) Order(order string) AccessFeaturesAPIListAccessFeaturesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListAccessFeaturesRequest) Direction(direction string) ApiListAccessFeaturesRequest {
+func (r AccessFeaturesAPIListAccessFeaturesRequest) Direction(direction string) AccessFeaturesAPIListAccessFeaturesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListAccessFeaturesRequest) Limit(limit int32) ApiListAccessFeaturesRequest {
+func (r AccessFeaturesAPIListAccessFeaturesRequest) Limit(limit int32) AccessFeaturesAPIListAccessFeaturesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListAccessFeaturesRequest) Offset(offset int32) ApiListAccessFeaturesRequest {
+func (r AccessFeaturesAPIListAccessFeaturesRequest) Offset(offset int32) AccessFeaturesAPIListAccessFeaturesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListAccessFeaturesRequest) Search(search string) ApiListAccessFeaturesRequest {
+func (r AccessFeaturesAPIListAccessFeaturesRequest) Search(search string) AccessFeaturesAPIListAccessFeaturesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListAccessFeaturesRequest) Execute() (*AccessFeatureItems, *http.Response, error) {
+func (r AccessFeaturesAPIListAccessFeaturesRequest) Execute() (*AccessFeatureItems, *http.Response, error) {
 	return r.ApiService.ListAccessFeaturesExecute(r)
 }
 
@@ -538,10 +538,10 @@ ListAccessFeatures List access features
 **Required ACL:** `confd.access_features.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAccessFeaturesRequest
+	@return AccessFeaturesAPIListAccessFeaturesRequest
 */
-func (a *AccessFeaturesAPIService) ListAccessFeatures(ctx context.Context) ApiListAccessFeaturesRequest {
-	return ApiListAccessFeaturesRequest{
+func (a *AccessFeaturesAPIService) ListAccessFeatures(ctx context.Context) AccessFeaturesAPIListAccessFeaturesRequest {
+	return AccessFeaturesAPIListAccessFeaturesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -550,7 +550,7 @@ func (a *AccessFeaturesAPIService) ListAccessFeatures(ctx context.Context) ApiLi
 // Execute executes the request
 //
 //	@return AccessFeatureItems
-func (a *AccessFeaturesAPIService) ListAccessFeaturesExecute(r ApiListAccessFeaturesRequest) (*AccessFeatureItems, *http.Response, error) {
+func (a *AccessFeaturesAPIService) ListAccessFeaturesExecute(r AccessFeaturesAPIListAccessFeaturesRequest) (*AccessFeatureItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -652,19 +652,19 @@ func (a *AccessFeaturesAPIService) ListAccessFeaturesExecute(r ApiListAccessFeat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAccessFeatureRequest struct {
+type AccessFeaturesAPIUpdateAccessFeatureRequest struct {
 	ctx             context.Context
 	ApiService      AccessFeaturesAPI
 	body            *AccessFeature
 	accessFeatureId int32
 }
 
-func (r ApiUpdateAccessFeatureRequest) Body(body AccessFeature) ApiUpdateAccessFeatureRequest {
+func (r AccessFeaturesAPIUpdateAccessFeatureRequest) Body(body AccessFeature) AccessFeaturesAPIUpdateAccessFeatureRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAccessFeatureRequest) Execute() (*http.Response, error) {
+func (r AccessFeaturesAPIUpdateAccessFeatureRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAccessFeatureExecute(r)
 }
 
@@ -675,10 +675,10 @@ UpdateAccessFeature Update access_feature
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param accessFeatureId Access feature ID
-	@return ApiUpdateAccessFeatureRequest
+	@return AccessFeaturesAPIUpdateAccessFeatureRequest
 */
-func (a *AccessFeaturesAPIService) UpdateAccessFeature(ctx context.Context, accessFeatureId int32) ApiUpdateAccessFeatureRequest {
-	return ApiUpdateAccessFeatureRequest{
+func (a *AccessFeaturesAPIService) UpdateAccessFeature(ctx context.Context, accessFeatureId int32) AccessFeaturesAPIUpdateAccessFeatureRequest {
+	return AccessFeaturesAPIUpdateAccessFeatureRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		accessFeatureId: accessFeatureId,
@@ -686,7 +686,7 @@ func (a *AccessFeaturesAPIService) UpdateAccessFeature(ctx context.Context, acce
 }
 
 // Execute executes the request
-func (a *AccessFeaturesAPIService) UpdateAccessFeatureExecute(r ApiUpdateAccessFeatureRequest) (*http.Response, error) {
+func (a *AccessFeaturesAPIService) UpdateAccessFeatureExecute(r AccessFeaturesAPIUpdateAccessFeatureRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

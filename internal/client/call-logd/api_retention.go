@@ -28,13 +28,13 @@ type RetentionAPI interface {
 	**Required ACL:** `call-logd.retention.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetRetentionRequest
+	@return RetentionAPIGetRetentionRequest
 	*/
-	GetRetention(ctx context.Context) ApiGetRetentionRequest
+	GetRetention(ctx context.Context) RetentionAPIGetRetentionRequest
 
 	// GetRetentionExecute executes the request
 	//  @return Retention
-	GetRetentionExecute(r ApiGetRetentionRequest) (*Retention, *http.Response, error)
+	GetRetentionExecute(r RetentionAPIGetRetentionRequest) (*Retention, *http.Response, error)
 
 	/*
 	UpdateRetention Update retention configuration
@@ -42,30 +42,30 @@ type RetentionAPI interface {
 	**Required ACL:** `call-logd.retention.update` **WARNING** This endpoint reset undefined keys to `null`. 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateRetentionRequest
+	@return RetentionAPIUpdateRetentionRequest
 	*/
-	UpdateRetention(ctx context.Context) ApiUpdateRetentionRequest
+	UpdateRetention(ctx context.Context) RetentionAPIUpdateRetentionRequest
 
 	// UpdateRetentionExecute executes the request
-	UpdateRetentionExecute(r ApiUpdateRetentionRequest) (*http.Response, error)
+	UpdateRetentionExecute(r RetentionAPIUpdateRetentionRequest) (*http.Response, error)
 }
 
 // RetentionAPIService RetentionAPI service
 type RetentionAPIService service
 
-type ApiGetRetentionRequest struct {
+type RetentionAPIGetRetentionRequest struct {
 	ctx context.Context
 	ApiService RetentionAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetRetentionRequest) AccentTenant(accentTenant string) ApiGetRetentionRequest {
+func (r RetentionAPIGetRetentionRequest) AccentTenant(accentTenant string) RetentionAPIGetRetentionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetRetentionRequest) Execute() (*Retention, *http.Response, error) {
+func (r RetentionAPIGetRetentionRequest) Execute() (*Retention, *http.Response, error) {
 	return r.ApiService.GetRetentionExecute(r)
 }
 
@@ -75,10 +75,10 @@ GetRetention Retention configuration
 **Required ACL:** `call-logd.retention.read`
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetRetentionRequest
+ @return RetentionAPIGetRetentionRequest
 */
-func (a *RetentionAPIService) GetRetention(ctx context.Context) ApiGetRetentionRequest {
-	return ApiGetRetentionRequest{
+func (a *RetentionAPIService) GetRetention(ctx context.Context) RetentionAPIGetRetentionRequest {
+	return RetentionAPIGetRetentionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -86,7 +86,7 @@ func (a *RetentionAPIService) GetRetention(ctx context.Context) ApiGetRetentionR
 
 // Execute executes the request
 //  @return Retention
-func (a *RetentionAPIService) GetRetentionExecute(r ApiGetRetentionRequest) (*Retention, *http.Response, error) {
+func (a *RetentionAPIService) GetRetentionExecute(r RetentionAPIGetRetentionRequest) (*Retention, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -186,7 +186,7 @@ func (a *RetentionAPIService) GetRetentionExecute(r ApiGetRetentionRequest) (*Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateRetentionRequest struct {
+type RetentionAPIUpdateRetentionRequest struct {
 	ctx context.Context
 	ApiService RetentionAPI
 	body *Retention
@@ -194,18 +194,18 @@ type ApiUpdateRetentionRequest struct {
 }
 
 // The retention configuration to apply
-func (r ApiUpdateRetentionRequest) Body(body Retention) ApiUpdateRetentionRequest {
+func (r RetentionAPIUpdateRetentionRequest) Body(body Retention) RetentionAPIUpdateRetentionRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateRetentionRequest) AccentTenant(accentTenant string) ApiUpdateRetentionRequest {
+func (r RetentionAPIUpdateRetentionRequest) AccentTenant(accentTenant string) RetentionAPIUpdateRetentionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateRetentionRequest) Execute() (*http.Response, error) {
+func (r RetentionAPIUpdateRetentionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateRetentionExecute(r)
 }
 
@@ -215,17 +215,17 @@ UpdateRetention Update retention configuration
 **Required ACL:** `call-logd.retention.update` **WARNING** This endpoint reset undefined keys to `null`. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUpdateRetentionRequest
+ @return RetentionAPIUpdateRetentionRequest
 */
-func (a *RetentionAPIService) UpdateRetention(ctx context.Context) ApiUpdateRetentionRequest {
-	return ApiUpdateRetentionRequest{
+func (a *RetentionAPIService) UpdateRetention(ctx context.Context) RetentionAPIUpdateRetentionRequest {
+	return RetentionAPIUpdateRetentionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *RetentionAPIService) UpdateRetentionExecute(r ApiUpdateRetentionRequest) (*http.Response, error) {
+func (a *RetentionAPIService) UpdateRetentionExecute(r RetentionAPIUpdateRetentionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

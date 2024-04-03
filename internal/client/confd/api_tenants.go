@@ -29,13 +29,13 @@ type TenantsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param tenantUuid Resource UUID
-		@return ApiGetTenantRequest
+		@return TenantsAPIGetTenantRequest
 	*/
-	GetTenant(ctx context.Context, tenantUuid string) ApiGetTenantRequest
+	GetTenant(ctx context.Context, tenantUuid string) TenantsAPIGetTenantRequest
 
 	// GetTenantExecute executes the request
 	//  @return Tenant
-	GetTenantExecute(r ApiGetTenantRequest) (*Tenant, *http.Response, error)
+	GetTenantExecute(r TenantsAPIGetTenantRequest) (*Tenant, *http.Response, error)
 
 	/*
 		ListTenants List tenants
@@ -43,19 +43,19 @@ type TenantsAPI interface {
 		**Required ACL**: `confd.tenants.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListTenantsRequest
+		@return TenantsAPIListTenantsRequest
 	*/
-	ListTenants(ctx context.Context) ApiListTenantsRequest
+	ListTenants(ctx context.Context) TenantsAPIListTenantsRequest
 
 	// ListTenantsExecute executes the request
 	//  @return TenantItems
-	ListTenantsExecute(r ApiListTenantsRequest) (*TenantItems, *http.Response, error)
+	ListTenantsExecute(r TenantsAPIListTenantsRequest) (*TenantItems, *http.Response, error)
 }
 
 // TenantsAPIService TenantsAPI service
 type TenantsAPIService service
 
-type ApiGetTenantRequest struct {
+type TenantsAPIGetTenantRequest struct {
 	ctx          context.Context
 	ApiService   TenantsAPI
 	tenantUuid   string
@@ -63,12 +63,12 @@ type ApiGetTenantRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetTenantRequest) AccentTenant(accentTenant string) ApiGetTenantRequest {
+func (r TenantsAPIGetTenantRequest) AccentTenant(accentTenant string) TenantsAPIGetTenantRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetTenantRequest) Execute() (*Tenant, *http.Response, error) {
+func (r TenantsAPIGetTenantRequest) Execute() (*Tenant, *http.Response, error) {
 	return r.ApiService.GetTenantExecute(r)
 }
 
@@ -79,10 +79,10 @@ GetTenant Get tenant
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param tenantUuid Resource UUID
-	@return ApiGetTenantRequest
+	@return TenantsAPIGetTenantRequest
 */
-func (a *TenantsAPIService) GetTenant(ctx context.Context, tenantUuid string) ApiGetTenantRequest {
-	return ApiGetTenantRequest{
+func (a *TenantsAPIService) GetTenant(ctx context.Context, tenantUuid string) TenantsAPIGetTenantRequest {
+	return TenantsAPIGetTenantRequest{
 		ApiService: a,
 		ctx:        ctx,
 		tenantUuid: tenantUuid,
@@ -92,7 +92,7 @@ func (a *TenantsAPIService) GetTenant(ctx context.Context, tenantUuid string) Ap
 // Execute executes the request
 //
 //	@return Tenant
-func (a *TenantsAPIService) GetTenantExecute(r ApiGetTenantRequest) (*Tenant, *http.Response, error) {
+func (a *TenantsAPIService) GetTenantExecute(r TenantsAPIGetTenantRequest) (*Tenant, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -193,7 +193,7 @@ func (a *TenantsAPIService) GetTenantExecute(r ApiGetTenantRequest) (*Tenant, *h
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListTenantsRequest struct {
+type TenantsAPIListTenantsRequest struct {
 	ctx          context.Context
 	ApiService   TenantsAPI
 	accentTenant *string
@@ -206,48 +206,48 @@ type ApiListTenantsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListTenantsRequest) AccentTenant(accentTenant string) ApiListTenantsRequest {
+func (r TenantsAPIListTenantsRequest) AccentTenant(accentTenant string) TenantsAPIListTenantsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListTenantsRequest) Recurse(recurse bool) ApiListTenantsRequest {
+func (r TenantsAPIListTenantsRequest) Recurse(recurse bool) TenantsAPIListTenantsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListTenantsRequest) Order(order string) ApiListTenantsRequest {
+func (r TenantsAPIListTenantsRequest) Order(order string) TenantsAPIListTenantsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListTenantsRequest) Direction(direction string) ApiListTenantsRequest {
+func (r TenantsAPIListTenantsRequest) Direction(direction string) TenantsAPIListTenantsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListTenantsRequest) Limit(limit int32) ApiListTenantsRequest {
+func (r TenantsAPIListTenantsRequest) Limit(limit int32) TenantsAPIListTenantsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListTenantsRequest) Offset(offset int32) ApiListTenantsRequest {
+func (r TenantsAPIListTenantsRequest) Offset(offset int32) TenantsAPIListTenantsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListTenantsRequest) Search(search string) ApiListTenantsRequest {
+func (r TenantsAPIListTenantsRequest) Search(search string) TenantsAPIListTenantsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListTenantsRequest) Execute() (*TenantItems, *http.Response, error) {
+func (r TenantsAPIListTenantsRequest) Execute() (*TenantItems, *http.Response, error) {
 	return r.ApiService.ListTenantsExecute(r)
 }
 
@@ -257,10 +257,10 @@ ListTenants List tenants
 **Required ACL**: `confd.tenants.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListTenantsRequest
+	@return TenantsAPIListTenantsRequest
 */
-func (a *TenantsAPIService) ListTenants(ctx context.Context) ApiListTenantsRequest {
-	return ApiListTenantsRequest{
+func (a *TenantsAPIService) ListTenants(ctx context.Context) TenantsAPIListTenantsRequest {
+	return TenantsAPIListTenantsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -269,7 +269,7 @@ func (a *TenantsAPIService) ListTenants(ctx context.Context) ApiListTenantsReque
 // Execute executes the request
 //
 //	@return TenantItems
-func (a *TenantsAPIService) ListTenantsExecute(r ApiListTenantsRequest) (*TenantItems, *http.Response, error) {
+func (a *TenantsAPIService) ListTenantsExecute(r TenantsAPIListTenantsRequest) (*TenantItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

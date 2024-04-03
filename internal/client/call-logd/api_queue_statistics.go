@@ -37,13 +37,13 @@ aggregation of all calls over the whole specified period.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId ID of the queue.
-	@return ApiGetQueueQoSStatisticsRequest
+	@return QueueStatisticsAPIGetQueueQoSStatisticsRequest
 	*/
-	GetQueueQoSStatistics(ctx context.Context, queueId int32) ApiGetQueueQoSStatisticsRequest
+	GetQueueQoSStatistics(ctx context.Context, queueId int32) QueueStatisticsAPIGetQueueQoSStatisticsRequest
 
 	// GetQueueQoSStatisticsExecute executes the request
 	//  @return QueueQoSStatistics
-	GetQueueQoSStatisticsExecute(r ApiGetQueueQoSStatisticsRequest) (*QueueQoSStatistics, *http.Response, error)
+	GetQueueQoSStatisticsExecute(r QueueStatisticsAPIGetQueueQoSStatisticsRequest) (*QueueQoSStatistics, *http.Response, error)
 
 	/*
 	GetQueueStatistics Statistics for a specific queue
@@ -56,13 +56,13 @@ aggregation of all calls over the whole specified period.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId ID of the queue.
-	@return ApiGetQueueStatisticsRequest
+	@return QueueStatisticsAPIGetQueueStatisticsRequest
 	*/
-	GetQueueStatistics(ctx context.Context, queueId int32) ApiGetQueueStatisticsRequest
+	GetQueueStatistics(ctx context.Context, queueId int32) QueueStatisticsAPIGetQueueStatisticsRequest
 
 	// GetQueueStatisticsExecute executes the request
 	//  @return QueueStatistics
-	GetQueueStatisticsExecute(r ApiGetQueueStatisticsRequest) (*QueueStatistics, *http.Response, error)
+	GetQueueStatisticsExecute(r QueueStatisticsAPIGetQueueStatisticsRequest) (*QueueStatistics, *http.Response, error)
 
 	/*
 	GetQueuesStatistics Statistics for all queues
@@ -72,19 +72,19 @@ Statistics are aggregated by queues over the period specified by the `from` and 
 **Notice**: Statistics are generated every 6 hours 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetQueuesStatisticsRequest
+	@return QueueStatisticsAPIGetQueuesStatisticsRequest
 	*/
-	GetQueuesStatistics(ctx context.Context) ApiGetQueuesStatisticsRequest
+	GetQueuesStatistics(ctx context.Context) QueueStatisticsAPIGetQueuesStatisticsRequest
 
 	// GetQueuesStatisticsExecute executes the request
 	//  @return QueuesStatistics
-	GetQueuesStatisticsExecute(r ApiGetQueuesStatisticsRequest) (*QueuesStatistics, *http.Response, error)
+	GetQueuesStatisticsExecute(r QueueStatisticsAPIGetQueuesStatisticsRequest) (*QueuesStatistics, *http.Response, error)
 }
 
 // QueueStatisticsAPIService QueueStatisticsAPI service
 type QueueStatisticsAPIService service
 
-type ApiGetQueueQoSStatisticsRequest struct {
+type QueueStatisticsAPIGetQueueQoSStatisticsRequest struct {
 	ctx context.Context
 	ApiService QueueStatisticsAPI
 	queueId int32
@@ -100,60 +100,60 @@ type ApiGetQueueQoSStatisticsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetQueueQoSStatisticsRequest) AccentTenant(accentTenant string) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) AccentTenant(accentTenant string) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetQueueQoSStatisticsRequest) From(from time.Time) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) From(from time.Time) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetQueueQoSStatisticsRequest) Until(until time.Time) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) Until(until time.Time) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.until = &until
 	return r
 }
 
 // Aggregation interval. An empty value means no interval, so an aggregation on all values.
-func (r ApiGetQueueQoSStatisticsRequest) Interval(interval string) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) Interval(interval string) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.interval = &interval
 	return r
 }
 
 // The steps of quality of service times used for the interval generation.
-func (r ApiGetQueueQoSStatisticsRequest) QosThresholds(qosThresholds []int32) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) QosThresholds(qosThresholds []int32) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.qosThresholds = &qosThresholds
 	return r
 }
 
 // The time at which a day starts, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetQueueQoSStatisticsRequest) DayStartTime(dayStartTime string) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) DayStartTime(dayStartTime string) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.dayStartTime = &dayStartTime
 	return r
 }
 
 // The time at which a day ends, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetQueueQoSStatisticsRequest) DayEndTime(dayEndTime string) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) DayEndTime(dayEndTime string) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.dayEndTime = &dayEndTime
 	return r
 }
 
 // The days of the week that should be included. A week starts on Monday (1) and ends on Sunday (7).
-func (r ApiGetQueueQoSStatisticsRequest) WeekDays(weekDays []int32) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) WeekDays(weekDays []int32) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.weekDays = &weekDays
 	return r
 }
 
 // Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
-func (r ApiGetQueueQoSStatisticsRequest) Timezone(timezone string) ApiGetQueueQoSStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) Timezone(timezone string) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.timezone = &timezone
 	return r
 }
 
-func (r ApiGetQueueQoSStatisticsRequest) Execute() (*QueueQoSStatistics, *http.Response, error) {
+func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) Execute() (*QueueQoSStatistics, *http.Response, error) {
 	return r.ApiService.GetQueueQoSStatisticsExecute(r)
 }
 
@@ -170,10 +170,10 @@ aggregation of all calls over the whole specified period.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param queueId ID of the queue.
- @return ApiGetQueueQoSStatisticsRequest
+ @return QueueStatisticsAPIGetQueueQoSStatisticsRequest
 */
-func (a *QueueStatisticsAPIService) GetQueueQoSStatistics(ctx context.Context, queueId int32) ApiGetQueueQoSStatisticsRequest {
-	return ApiGetQueueQoSStatisticsRequest{
+func (a *QueueStatisticsAPIService) GetQueueQoSStatistics(ctx context.Context, queueId int32) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
+	return QueueStatisticsAPIGetQueueQoSStatisticsRequest{
 		ApiService: a,
 		ctx: ctx,
 		queueId: queueId,
@@ -182,7 +182,7 @@ func (a *QueueStatisticsAPIService) GetQueueQoSStatistics(ctx context.Context, q
 
 // Execute executes the request
 //  @return QueueQoSStatistics
-func (a *QueueStatisticsAPIService) GetQueueQoSStatisticsExecute(r ApiGetQueueQoSStatisticsRequest) (*QueueQoSStatistics, *http.Response, error) {
+func (a *QueueStatisticsAPIService) GetQueueQoSStatisticsExecute(r QueueStatisticsAPIGetQueueQoSStatisticsRequest) (*QueueQoSStatistics, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -324,7 +324,7 @@ func (a *QueueStatisticsAPIService) GetQueueQoSStatisticsExecute(r ApiGetQueueQo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetQueueStatisticsRequest struct {
+type QueueStatisticsAPIGetQueueStatisticsRequest struct {
 	ctx context.Context
 	ApiService QueueStatisticsAPI
 	queueId int32
@@ -340,60 +340,60 @@ type ApiGetQueueStatisticsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetQueueStatisticsRequest) AccentTenant(accentTenant string) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) AccentTenant(accentTenant string) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetQueueStatisticsRequest) From(from time.Time) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) From(from time.Time) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetQueueStatisticsRequest) Until(until time.Time) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) Until(until time.Time) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.until = &until
 	return r
 }
 
 // Aggregation interval. An empty value means no interval, so an aggregation on all values.
-func (r ApiGetQueueStatisticsRequest) Interval(interval string) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) Interval(interval string) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.interval = &interval
 	return r
 }
 
 // The number of seconds representing a good quality of service.
-func (r ApiGetQueueStatisticsRequest) QosThreshold(qosThreshold int32) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) QosThreshold(qosThreshold int32) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.qosThreshold = &qosThreshold
 	return r
 }
 
 // The time at which a day starts, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetQueueStatisticsRequest) DayStartTime(dayStartTime string) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) DayStartTime(dayStartTime string) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.dayStartTime = &dayStartTime
 	return r
 }
 
 // The time at which a day ends, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetQueueStatisticsRequest) DayEndTime(dayEndTime string) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) DayEndTime(dayEndTime string) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.dayEndTime = &dayEndTime
 	return r
 }
 
 // The days of the week that should be included. A week starts on Monday (1) and ends on Sunday (7).
-func (r ApiGetQueueStatisticsRequest) WeekDays(weekDays []int32) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) WeekDays(weekDays []int32) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.weekDays = &weekDays
 	return r
 }
 
 // Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
-func (r ApiGetQueueStatisticsRequest) Timezone(timezone string) ApiGetQueueStatisticsRequest {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) Timezone(timezone string) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.timezone = &timezone
 	return r
 }
 
-func (r ApiGetQueueStatisticsRequest) Execute() (*QueueStatistics, *http.Response, error) {
+func (r QueueStatisticsAPIGetQueueStatisticsRequest) Execute() (*QueueStatistics, *http.Response, error) {
 	return r.ApiService.GetQueueStatisticsExecute(r)
 }
 
@@ -408,10 +408,10 @@ aggregation of all calls over the whole specified period.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param queueId ID of the queue.
- @return ApiGetQueueStatisticsRequest
+ @return QueueStatisticsAPIGetQueueStatisticsRequest
 */
-func (a *QueueStatisticsAPIService) GetQueueStatistics(ctx context.Context, queueId int32) ApiGetQueueStatisticsRequest {
-	return ApiGetQueueStatisticsRequest{
+func (a *QueueStatisticsAPIService) GetQueueStatistics(ctx context.Context, queueId int32) QueueStatisticsAPIGetQueueStatisticsRequest {
+	return QueueStatisticsAPIGetQueueStatisticsRequest{
 		ApiService: a,
 		ctx: ctx,
 		queueId: queueId,
@@ -420,7 +420,7 @@ func (a *QueueStatisticsAPIService) GetQueueStatistics(ctx context.Context, queu
 
 // Execute executes the request
 //  @return QueueStatistics
-func (a *QueueStatisticsAPIService) GetQueueStatisticsExecute(r ApiGetQueueStatisticsRequest) (*QueueStatistics, *http.Response, error) {
+func (a *QueueStatisticsAPIService) GetQueueStatisticsExecute(r QueueStatisticsAPIGetQueueStatisticsRequest) (*QueueStatistics, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -562,7 +562,7 @@ func (a *QueueStatisticsAPIService) GetQueueStatisticsExecute(r ApiGetQueueStati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetQueuesStatisticsRequest struct {
+type QueueStatisticsAPIGetQueuesStatisticsRequest struct {
 	ctx context.Context
 	ApiService QueueStatisticsAPI
 	accentTenant *string
@@ -576,54 +576,54 @@ type ApiGetQueuesStatisticsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetQueuesStatisticsRequest) AccentTenant(accentTenant string) ApiGetQueuesStatisticsRequest {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) AccentTenant(accentTenant string) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetQueuesStatisticsRequest) From(from time.Time) ApiGetQueuesStatisticsRequest {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) From(from time.Time) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetQueuesStatisticsRequest) Until(until time.Time) ApiGetQueuesStatisticsRequest {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) Until(until time.Time) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.until = &until
 	return r
 }
 
 // The number of seconds representing a good quality of service.
-func (r ApiGetQueuesStatisticsRequest) QosThreshold(qosThreshold int32) ApiGetQueuesStatisticsRequest {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) QosThreshold(qosThreshold int32) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.qosThreshold = &qosThreshold
 	return r
 }
 
 // The time at which a day starts, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetQueuesStatisticsRequest) DayStartTime(dayStartTime string) ApiGetQueuesStatisticsRequest {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) DayStartTime(dayStartTime string) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.dayStartTime = &dayStartTime
 	return r
 }
 
 // The time at which a day ends, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetQueuesStatisticsRequest) DayEndTime(dayEndTime string) ApiGetQueuesStatisticsRequest {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) DayEndTime(dayEndTime string) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.dayEndTime = &dayEndTime
 	return r
 }
 
 // The days of the week that should be included. A week starts on Monday (1) and ends on Sunday (7).
-func (r ApiGetQueuesStatisticsRequest) WeekDays(weekDays []int32) ApiGetQueuesStatisticsRequest {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) WeekDays(weekDays []int32) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.weekDays = &weekDays
 	return r
 }
 
 // Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
-func (r ApiGetQueuesStatisticsRequest) Timezone(timezone string) ApiGetQueuesStatisticsRequest {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) Timezone(timezone string) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.timezone = &timezone
 	return r
 }
 
-func (r ApiGetQueuesStatisticsRequest) Execute() (*QueuesStatistics, *http.Response, error) {
+func (r QueueStatisticsAPIGetQueuesStatisticsRequest) Execute() (*QueuesStatistics, *http.Response, error) {
 	return r.ApiService.GetQueuesStatisticsExecute(r)
 }
 
@@ -635,10 +635,10 @@ Statistics are aggregated by queues over the period specified by the `from` and 
 **Notice**: Statistics are generated every 6 hours 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetQueuesStatisticsRequest
+ @return QueueStatisticsAPIGetQueuesStatisticsRequest
 */
-func (a *QueueStatisticsAPIService) GetQueuesStatistics(ctx context.Context) ApiGetQueuesStatisticsRequest {
-	return ApiGetQueuesStatisticsRequest{
+func (a *QueueStatisticsAPIService) GetQueuesStatistics(ctx context.Context) QueueStatisticsAPIGetQueuesStatisticsRequest {
+	return QueueStatisticsAPIGetQueuesStatisticsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -646,7 +646,7 @@ func (a *QueueStatisticsAPIService) GetQueuesStatistics(ctx context.Context) Api
 
 // Execute executes the request
 //  @return QueuesStatistics
-func (a *QueueStatisticsAPIService) GetQueuesStatisticsExecute(r ApiGetQueuesStatisticsRequest) (*QueuesStatistics, *http.Response, error) {
+func (a *QueueStatisticsAPIService) GetQueuesStatisticsExecute(r QueueStatisticsAPIGetQueuesStatisticsRequest) (*QueuesStatistics, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

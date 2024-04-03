@@ -31,13 +31,13 @@ type AgentStatisticsAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId ID of the agent.
-	@return ApiGetAgentStatisticsRequest
+	@return AgentStatisticsAPIGetAgentStatisticsRequest
 	*/
-	GetAgentStatistics(ctx context.Context, agentId int32) ApiGetAgentStatisticsRequest
+	GetAgentStatistics(ctx context.Context, agentId int32) AgentStatisticsAPIGetAgentStatisticsRequest
 
 	// GetAgentStatisticsExecute executes the request
 	//  @return AgentStatistics
-	GetAgentStatisticsExecute(r ApiGetAgentStatisticsRequest) (*AgentStatistics, *http.Response, error)
+	GetAgentStatisticsExecute(r AgentStatisticsAPIGetAgentStatisticsRequest) (*AgentStatistics, *http.Response, error)
 
 	/*
 	GetAgentsStatistics Statistics for all agents
@@ -46,19 +46,19 @@ type AgentStatisticsAPI interface {
 Statistics are aggregated by agents over the period specified by the `from` and `until` query parameters.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetAgentsStatisticsRequest
+	@return AgentStatisticsAPIGetAgentsStatisticsRequest
 	*/
-	GetAgentsStatistics(ctx context.Context) ApiGetAgentsStatisticsRequest
+	GetAgentsStatistics(ctx context.Context) AgentStatisticsAPIGetAgentsStatisticsRequest
 
 	// GetAgentsStatisticsExecute executes the request
 	//  @return AgentsStatistics
-	GetAgentsStatisticsExecute(r ApiGetAgentsStatisticsRequest) (*AgentsStatistics, *http.Response, error)
+	GetAgentsStatisticsExecute(r AgentStatisticsAPIGetAgentsStatisticsRequest) (*AgentsStatistics, *http.Response, error)
 }
 
 // AgentStatisticsAPIService AgentStatisticsAPI service
 type AgentStatisticsAPIService service
 
-type ApiGetAgentStatisticsRequest struct {
+type AgentStatisticsAPIGetAgentStatisticsRequest struct {
 	ctx context.Context
 	ApiService AgentStatisticsAPI
 	agentId int32
@@ -73,54 +73,54 @@ type ApiGetAgentStatisticsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetAgentStatisticsRequest) AccentTenant(accentTenant string) ApiGetAgentStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) AccentTenant(accentTenant string) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetAgentStatisticsRequest) From(from time.Time) ApiGetAgentStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) From(from time.Time) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetAgentStatisticsRequest) Until(until time.Time) ApiGetAgentStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) Until(until time.Time) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.until = &until
 	return r
 }
 
 // Aggregation interval. An empty value means no interval, so an aggregation on all values.
-func (r ApiGetAgentStatisticsRequest) Interval(interval string) ApiGetAgentStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) Interval(interval string) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.interval = &interval
 	return r
 }
 
 // The time at which a day starts, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetAgentStatisticsRequest) DayStartTime(dayStartTime string) ApiGetAgentStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) DayStartTime(dayStartTime string) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.dayStartTime = &dayStartTime
 	return r
 }
 
 // The time at which a day ends, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetAgentStatisticsRequest) DayEndTime(dayEndTime string) ApiGetAgentStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) DayEndTime(dayEndTime string) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.dayEndTime = &dayEndTime
 	return r
 }
 
 // The days of the week that should be included. A week starts on Monday (1) and ends on Sunday (7).
-func (r ApiGetAgentStatisticsRequest) WeekDays(weekDays []int32) ApiGetAgentStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) WeekDays(weekDays []int32) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.weekDays = &weekDays
 	return r
 }
 
 // Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
-func (r ApiGetAgentStatisticsRequest) Timezone(timezone string) ApiGetAgentStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) Timezone(timezone string) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.timezone = &timezone
 	return r
 }
 
-func (r ApiGetAgentStatisticsRequest) Execute() (*AgentStatistics, *http.Response, error) {
+func (r AgentStatisticsAPIGetAgentStatisticsRequest) Execute() (*AgentStatistics, *http.Response, error) {
 	return r.ApiService.GetAgentStatisticsExecute(r)
 }
 
@@ -131,10 +131,10 @@ GetAgentStatistics Statistics for a specific agent
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param agentId ID of the agent.
- @return ApiGetAgentStatisticsRequest
+ @return AgentStatisticsAPIGetAgentStatisticsRequest
 */
-func (a *AgentStatisticsAPIService) GetAgentStatistics(ctx context.Context, agentId int32) ApiGetAgentStatisticsRequest {
-	return ApiGetAgentStatisticsRequest{
+func (a *AgentStatisticsAPIService) GetAgentStatistics(ctx context.Context, agentId int32) AgentStatisticsAPIGetAgentStatisticsRequest {
+	return AgentStatisticsAPIGetAgentStatisticsRequest{
 		ApiService: a,
 		ctx: ctx,
 		agentId: agentId,
@@ -143,7 +143,7 @@ func (a *AgentStatisticsAPIService) GetAgentStatistics(ctx context.Context, agen
 
 // Execute executes the request
 //  @return AgentStatistics
-func (a *AgentStatisticsAPIService) GetAgentStatisticsExecute(r ApiGetAgentStatisticsRequest) (*AgentStatistics, *http.Response, error) {
+func (a *AgentStatisticsAPIService) GetAgentStatisticsExecute(r AgentStatisticsAPIGetAgentStatisticsRequest) (*AgentStatistics, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -282,7 +282,7 @@ func (a *AgentStatisticsAPIService) GetAgentStatisticsExecute(r ApiGetAgentStati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAgentsStatisticsRequest struct {
+type AgentStatisticsAPIGetAgentsStatisticsRequest struct {
 	ctx context.Context
 	ApiService AgentStatisticsAPI
 	accentTenant *string
@@ -295,48 +295,48 @@ type ApiGetAgentsStatisticsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetAgentsStatisticsRequest) AccentTenant(accentTenant string) ApiGetAgentsStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentsStatisticsRequest) AccentTenant(accentTenant string) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetAgentsStatisticsRequest) From(from time.Time) ApiGetAgentsStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentsStatisticsRequest) From(from time.Time) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetAgentsStatisticsRequest) Until(until time.Time) ApiGetAgentsStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentsStatisticsRequest) Until(until time.Time) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.until = &until
 	return r
 }
 
 // The time at which a day starts, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetAgentsStatisticsRequest) DayStartTime(dayStartTime string) ApiGetAgentsStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentsStatisticsRequest) DayStartTime(dayStartTime string) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.dayStartTime = &dayStartTime
 	return r
 }
 
 // The time at which a day ends, inclusively. Accepted format is &#x60;HH:MM&#x60;, minutes are ignored.
-func (r ApiGetAgentsStatisticsRequest) DayEndTime(dayEndTime string) ApiGetAgentsStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentsStatisticsRequest) DayEndTime(dayEndTime string) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.dayEndTime = &dayEndTime
 	return r
 }
 
 // The days of the week that should be included. A week starts on Monday (1) and ends on Sunday (7).
-func (r ApiGetAgentsStatisticsRequest) WeekDays(weekDays []int32) ApiGetAgentsStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentsStatisticsRequest) WeekDays(weekDays []int32) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.weekDays = &weekDays
 	return r
 }
 
 // Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
-func (r ApiGetAgentsStatisticsRequest) Timezone(timezone string) ApiGetAgentsStatisticsRequest {
+func (r AgentStatisticsAPIGetAgentsStatisticsRequest) Timezone(timezone string) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.timezone = &timezone
 	return r
 }
 
-func (r ApiGetAgentsStatisticsRequest) Execute() (*AgentsStatistics, *http.Response, error) {
+func (r AgentStatisticsAPIGetAgentsStatisticsRequest) Execute() (*AgentsStatistics, *http.Response, error) {
 	return r.ApiService.GetAgentsStatisticsExecute(r)
 }
 
@@ -347,10 +347,10 @@ GetAgentsStatistics Statistics for all agents
 Statistics are aggregated by agents over the period specified by the `from` and `until` query parameters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetAgentsStatisticsRequest
+ @return AgentStatisticsAPIGetAgentsStatisticsRequest
 */
-func (a *AgentStatisticsAPIService) GetAgentsStatistics(ctx context.Context) ApiGetAgentsStatisticsRequest {
-	return ApiGetAgentsStatisticsRequest{
+func (a *AgentStatisticsAPIService) GetAgentsStatistics(ctx context.Context) AgentStatisticsAPIGetAgentsStatisticsRequest {
+	return AgentStatisticsAPIGetAgentsStatisticsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -358,7 +358,7 @@ func (a *AgentStatisticsAPIService) GetAgentsStatistics(ctx context.Context) Api
 
 // Execute executes the request
 //  @return AgentsStatistics
-func (a *AgentStatisticsAPIService) GetAgentsStatisticsExecute(r ApiGetAgentsStatisticsRequest) (*AgentsStatistics, *http.Response, error) {
+func (a *AgentStatisticsAPIService) GetAgentsStatisticsExecute(r AgentStatisticsAPIGetAgentsStatisticsRequest) (*AgentsStatistics, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

@@ -29,12 +29,12 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent's ID
-		@return ApiAddAgentByIdRequest
+		@return AgentAPIAddAgentByIdRequest
 	*/
-	AddAgentById(ctx context.Context, agentId int32) ApiAddAgentByIdRequest
+	AddAgentById(ctx context.Context, agentId int32) AgentAPIAddAgentByIdRequest
 
 	// AddAgentByIdExecute executes the request
-	AddAgentByIdExecute(r ApiAddAgentByIdRequest) (*http.Response, error)
+	AddAgentByIdExecute(r AgentAPIAddAgentByIdRequest) (*http.Response, error)
 
 	/*
 		GetAgentById Get agent status.
@@ -43,13 +43,13 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent's ID
-		@return ApiGetAgentByIdRequest
+		@return AgentAPIGetAgentByIdRequest
 	*/
-	GetAgentById(ctx context.Context, agentId int32) ApiGetAgentByIdRequest
+	GetAgentById(ctx context.Context, agentId int32) AgentAPIGetAgentByIdRequest
 
 	// GetAgentByIdExecute executes the request
 	//  @return AgentStatus
-	GetAgentByIdExecute(r ApiGetAgentByIdRequest) (*AgentStatus, *http.Response, error)
+	GetAgentByIdExecute(r AgentAPIGetAgentByIdRequest) (*AgentStatus, *http.Response, error)
 
 	/*
 		GetAgentByNumber Get agent status.
@@ -58,13 +58,13 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentNumber Agent's number
-		@return ApiGetAgentByNumberRequest
+		@return AgentAPIGetAgentByNumberRequest
 	*/
-	GetAgentByNumber(ctx context.Context, agentNumber string) ApiGetAgentByNumberRequest
+	GetAgentByNumber(ctx context.Context, agentNumber string) AgentAPIGetAgentByNumberRequest
 
 	// GetAgentByNumberExecute executes the request
 	//  @return AgentStatus
-	GetAgentByNumberExecute(r ApiGetAgentByNumberRequest) (*AgentStatus, *http.Response, error)
+	GetAgentByNumberExecute(r AgentAPIGetAgentByNumberRequest) (*AgentStatus, *http.Response, error)
 
 	/*
 		GetUserAgent Get agent status of the user holding the authentication token.
@@ -72,13 +72,13 @@ type AgentAPI interface {
 		**Required ACL:** `agentd.users.me.agents.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetUserAgentRequest
+		@return AgentAPIGetUserAgentRequest
 	*/
-	GetUserAgent(ctx context.Context) ApiGetUserAgentRequest
+	GetUserAgent(ctx context.Context) AgentAPIGetUserAgentRequest
 
 	// GetUserAgentExecute executes the request
 	//  @return AgentStatus
-	GetUserAgentExecute(r ApiGetUserAgentRequest) (*AgentStatus, *http.Response, error)
+	GetUserAgentExecute(r AgentAPIGetUserAgentRequest) (*AgentStatus, *http.Response, error)
 
 	/*
 		LoginAgentById Log an agent.
@@ -87,12 +87,12 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent's ID
-		@return ApiLoginAgentByIdRequest
+		@return AgentAPILoginAgentByIdRequest
 	*/
-	LoginAgentById(ctx context.Context, agentId int32) ApiLoginAgentByIdRequest
+	LoginAgentById(ctx context.Context, agentId int32) AgentAPILoginAgentByIdRequest
 
 	// LoginAgentByIdExecute executes the request
-	LoginAgentByIdExecute(r ApiLoginAgentByIdRequest) (*http.Response, error)
+	LoginAgentByIdExecute(r AgentAPILoginAgentByIdRequest) (*http.Response, error)
 
 	/*
 		LoginAgentByNumber Log an agent.
@@ -101,12 +101,12 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentNumber Agent's number
-		@return ApiLoginAgentByNumberRequest
+		@return AgentAPILoginAgentByNumberRequest
 	*/
-	LoginAgentByNumber(ctx context.Context, agentNumber string) ApiLoginAgentByNumberRequest
+	LoginAgentByNumber(ctx context.Context, agentNumber string) AgentAPILoginAgentByNumberRequest
 
 	// LoginAgentByNumberExecute executes the request
-	LoginAgentByNumberExecute(r ApiLoginAgentByNumberRequest) (*http.Response, error)
+	LoginAgentByNumberExecute(r AgentAPILoginAgentByNumberRequest) (*http.Response, error)
 
 	/*
 		LoginUserAgent Log the agent of the user holding the authentication token
@@ -114,12 +114,12 @@ type AgentAPI interface {
 		**Required ACL:** `agentd.users.me.agents.login.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiLoginUserAgentRequest
+		@return AgentAPILoginUserAgentRequest
 	*/
-	LoginUserAgent(ctx context.Context) ApiLoginUserAgentRequest
+	LoginUserAgent(ctx context.Context) AgentAPILoginUserAgentRequest
 
 	// LoginUserAgentExecute executes the request
-	LoginUserAgentExecute(r ApiLoginUserAgentRequest) (*http.Response, error)
+	LoginUserAgentExecute(r AgentAPILoginUserAgentRequest) (*http.Response, error)
 
 	/*
 		LogoffAgentById Logoff an agent.
@@ -128,12 +128,12 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent's ID
-		@return ApiLogoffAgentByIdRequest
+		@return AgentAPILogoffAgentByIdRequest
 	*/
-	LogoffAgentById(ctx context.Context, agentId int32) ApiLogoffAgentByIdRequest
+	LogoffAgentById(ctx context.Context, agentId int32) AgentAPILogoffAgentByIdRequest
 
 	// LogoffAgentByIdExecute executes the request
-	LogoffAgentByIdExecute(r ApiLogoffAgentByIdRequest) (*http.Response, error)
+	LogoffAgentByIdExecute(r AgentAPILogoffAgentByIdRequest) (*http.Response, error)
 
 	/*
 		LogoffAgentByNumber Logoff an agent.
@@ -142,12 +142,12 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentNumber Agent's number
-		@return ApiLogoffAgentByNumberRequest
+		@return AgentAPILogoffAgentByNumberRequest
 	*/
-	LogoffAgentByNumber(ctx context.Context, agentNumber string) ApiLogoffAgentByNumberRequest
+	LogoffAgentByNumber(ctx context.Context, agentNumber string) AgentAPILogoffAgentByNumberRequest
 
 	// LogoffAgentByNumberExecute executes the request
-	LogoffAgentByNumberExecute(r ApiLogoffAgentByNumberRequest) (*http.Response, error)
+	LogoffAgentByNumberExecute(r AgentAPILogoffAgentByNumberRequest) (*http.Response, error)
 
 	/*
 		LogoffUserAgent Logoff the agent of the user holding the authentication token
@@ -155,12 +155,12 @@ type AgentAPI interface {
 		**Required ACL:** `agentd.users.me.agents.logoff.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiLogoffUserAgentRequest
+		@return AgentAPILogoffUserAgentRequest
 	*/
-	LogoffUserAgent(ctx context.Context) ApiLogoffUserAgentRequest
+	LogoffUserAgent(ctx context.Context) AgentAPILogoffUserAgentRequest
 
 	// LogoffUserAgentExecute executes the request
-	LogoffUserAgentExecute(r ApiLogoffUserAgentRequest) (*http.Response, error)
+	LogoffUserAgentExecute(r AgentAPILogoffUserAgentRequest) (*http.Response, error)
 
 	/*
 		PauseAgentByNumber Pause an agent.
@@ -169,12 +169,12 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentNumber Agent's number
-		@return ApiPauseAgentByNumberRequest
+		@return AgentAPIPauseAgentByNumberRequest
 	*/
-	PauseAgentByNumber(ctx context.Context, agentNumber string) ApiPauseAgentByNumberRequest
+	PauseAgentByNumber(ctx context.Context, agentNumber string) AgentAPIPauseAgentByNumberRequest
 
 	// PauseAgentByNumberExecute executes the request
-	PauseAgentByNumberExecute(r ApiPauseAgentByNumberRequest) (*http.Response, error)
+	PauseAgentByNumberExecute(r AgentAPIPauseAgentByNumberRequest) (*http.Response, error)
 
 	/*
 		PauseUserAgent Pause the agent of the user holding the authentication token
@@ -182,12 +182,12 @@ type AgentAPI interface {
 		**Required ACL:** `agentd.users.me.agents.pause.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPauseUserAgentRequest
+		@return AgentAPIPauseUserAgentRequest
 	*/
-	PauseUserAgent(ctx context.Context) ApiPauseUserAgentRequest
+	PauseUserAgent(ctx context.Context) AgentAPIPauseUserAgentRequest
 
 	// PauseUserAgentExecute executes the request
-	PauseUserAgentExecute(r ApiPauseUserAgentRequest) (*http.Response, error)
+	PauseUserAgentExecute(r AgentAPIPauseUserAgentRequest) (*http.Response, error)
 
 	/*
 		RemoveAgentById Remove agent from a queue.
@@ -196,12 +196,12 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent's ID
-		@return ApiRemoveAgentByIdRequest
+		@return AgentAPIRemoveAgentByIdRequest
 	*/
-	RemoveAgentById(ctx context.Context, agentId int32) ApiRemoveAgentByIdRequest
+	RemoveAgentById(ctx context.Context, agentId int32) AgentAPIRemoveAgentByIdRequest
 
 	// RemoveAgentByIdExecute executes the request
-	RemoveAgentByIdExecute(r ApiRemoveAgentByIdRequest) (*http.Response, error)
+	RemoveAgentByIdExecute(r AgentAPIRemoveAgentByIdRequest) (*http.Response, error)
 
 	/*
 		UnpauseAgentByNumber Unpause an agent.
@@ -210,12 +210,12 @@ type AgentAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentNumber Agent's number
-		@return ApiUnpauseAgentByNumberRequest
+		@return AgentAPIUnpauseAgentByNumberRequest
 	*/
-	UnpauseAgentByNumber(ctx context.Context, agentNumber string) ApiUnpauseAgentByNumberRequest
+	UnpauseAgentByNumber(ctx context.Context, agentNumber string) AgentAPIUnpauseAgentByNumberRequest
 
 	// UnpauseAgentByNumberExecute executes the request
-	UnpauseAgentByNumberExecute(r ApiUnpauseAgentByNumberRequest) (*http.Response, error)
+	UnpauseAgentByNumberExecute(r AgentAPIUnpauseAgentByNumberRequest) (*http.Response, error)
 
 	/*
 		UnpauseUserAgent Unpause the agent of the user holding the authentication token
@@ -223,18 +223,18 @@ type AgentAPI interface {
 		**Required ACL:** `agentd.users.me.agents.unpause.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUnpauseUserAgentRequest
+		@return AgentAPIUnpauseUserAgentRequest
 	*/
-	UnpauseUserAgent(ctx context.Context) ApiUnpauseUserAgentRequest
+	UnpauseUserAgent(ctx context.Context) AgentAPIUnpauseUserAgentRequest
 
 	// UnpauseUserAgentExecute executes the request
-	UnpauseUserAgentExecute(r ApiUnpauseUserAgentRequest) (*http.Response, error)
+	UnpauseUserAgentExecute(r AgentAPIUnpauseUserAgentRequest) (*http.Response, error)
 }
 
 // AgentAPIService AgentAPI service
 type AgentAPIService service
 
-type ApiAddAgentByIdRequest struct {
+type AgentAPIAddAgentByIdRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	body         *Queue
@@ -243,18 +243,18 @@ type ApiAddAgentByIdRequest struct {
 }
 
 // The queue to add the agent to
-func (r ApiAddAgentByIdRequest) Body(body Queue) ApiAddAgentByIdRequest {
+func (r AgentAPIAddAgentByIdRequest) Body(body Queue) AgentAPIAddAgentByIdRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAddAgentByIdRequest) AccentTenant(accentTenant string) ApiAddAgentByIdRequest {
+func (r AgentAPIAddAgentByIdRequest) AccentTenant(accentTenant string) AgentAPIAddAgentByIdRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAddAgentByIdRequest) Execute() (*http.Response, error) {
+func (r AgentAPIAddAgentByIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddAgentByIdExecute(r)
 }
 
@@ -265,10 +265,10 @@ AddAgentById Add agent to a queue.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent's ID
-	@return ApiAddAgentByIdRequest
+	@return AgentAPIAddAgentByIdRequest
 */
-func (a *AgentAPIService) AddAgentById(ctx context.Context, agentId int32) ApiAddAgentByIdRequest {
-	return ApiAddAgentByIdRequest{
+func (a *AgentAPIService) AddAgentById(ctx context.Context, agentId int32) AgentAPIAddAgentByIdRequest {
+	return AgentAPIAddAgentByIdRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -276,7 +276,7 @@ func (a *AgentAPIService) AddAgentById(ctx context.Context, agentId int32) ApiAd
 }
 
 // Execute executes the request
-func (a *AgentAPIService) AddAgentByIdExecute(r ApiAddAgentByIdRequest) (*http.Response, error) {
+func (a *AgentAPIService) AddAgentByIdExecute(r AgentAPIAddAgentByIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -394,7 +394,7 @@ func (a *AgentAPIService) AddAgentByIdExecute(r ApiAddAgentByIdRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetAgentByIdRequest struct {
+type AgentAPIGetAgentByIdRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	agentId      int32
@@ -402,12 +402,12 @@ type ApiGetAgentByIdRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetAgentByIdRequest) AccentTenant(accentTenant string) ApiGetAgentByIdRequest {
+func (r AgentAPIGetAgentByIdRequest) AccentTenant(accentTenant string) AgentAPIGetAgentByIdRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetAgentByIdRequest) Execute() (*AgentStatus, *http.Response, error) {
+func (r AgentAPIGetAgentByIdRequest) Execute() (*AgentStatus, *http.Response, error) {
 	return r.ApiService.GetAgentByIdExecute(r)
 }
 
@@ -418,10 +418,10 @@ GetAgentById Get agent status.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent's ID
-	@return ApiGetAgentByIdRequest
+	@return AgentAPIGetAgentByIdRequest
 */
-func (a *AgentAPIService) GetAgentById(ctx context.Context, agentId int32) ApiGetAgentByIdRequest {
-	return ApiGetAgentByIdRequest{
+func (a *AgentAPIService) GetAgentById(ctx context.Context, agentId int32) AgentAPIGetAgentByIdRequest {
+	return AgentAPIGetAgentByIdRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -431,7 +431,7 @@ func (a *AgentAPIService) GetAgentById(ctx context.Context, agentId int32) ApiGe
 // Execute executes the request
 //
 //	@return AgentStatus
-func (a *AgentAPIService) GetAgentByIdExecute(r ApiGetAgentByIdRequest) (*AgentStatus, *http.Response, error) {
+func (a *AgentAPIService) GetAgentByIdExecute(r AgentAPIGetAgentByIdRequest) (*AgentStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -532,7 +532,7 @@ func (a *AgentAPIService) GetAgentByIdExecute(r ApiGetAgentByIdRequest) (*AgentS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAgentByNumberRequest struct {
+type AgentAPIGetAgentByNumberRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	agentNumber  string
@@ -540,12 +540,12 @@ type ApiGetAgentByNumberRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetAgentByNumberRequest) AccentTenant(accentTenant string) ApiGetAgentByNumberRequest {
+func (r AgentAPIGetAgentByNumberRequest) AccentTenant(accentTenant string) AgentAPIGetAgentByNumberRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetAgentByNumberRequest) Execute() (*AgentStatus, *http.Response, error) {
+func (r AgentAPIGetAgentByNumberRequest) Execute() (*AgentStatus, *http.Response, error) {
 	return r.ApiService.GetAgentByNumberExecute(r)
 }
 
@@ -556,10 +556,10 @@ GetAgentByNumber Get agent status.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentNumber Agent's number
-	@return ApiGetAgentByNumberRequest
+	@return AgentAPIGetAgentByNumberRequest
 */
-func (a *AgentAPIService) GetAgentByNumber(ctx context.Context, agentNumber string) ApiGetAgentByNumberRequest {
-	return ApiGetAgentByNumberRequest{
+func (a *AgentAPIService) GetAgentByNumber(ctx context.Context, agentNumber string) AgentAPIGetAgentByNumberRequest {
+	return AgentAPIGetAgentByNumberRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		agentNumber: agentNumber,
@@ -569,7 +569,7 @@ func (a *AgentAPIService) GetAgentByNumber(ctx context.Context, agentNumber stri
 // Execute executes the request
 //
 //	@return AgentStatus
-func (a *AgentAPIService) GetAgentByNumberExecute(r ApiGetAgentByNumberRequest) (*AgentStatus, *http.Response, error) {
+func (a *AgentAPIService) GetAgentByNumberExecute(r AgentAPIGetAgentByNumberRequest) (*AgentStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -670,19 +670,19 @@ func (a *AgentAPIService) GetAgentByNumberExecute(r ApiGetAgentByNumberRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserAgentRequest struct {
+type AgentAPIGetUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserAgentRequest) AccentTenant(accentTenant string) ApiGetUserAgentRequest {
+func (r AgentAPIGetUserAgentRequest) AccentTenant(accentTenant string) AgentAPIGetUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserAgentRequest) Execute() (*AgentStatus, *http.Response, error) {
+func (r AgentAPIGetUserAgentRequest) Execute() (*AgentStatus, *http.Response, error) {
 	return r.ApiService.GetUserAgentExecute(r)
 }
 
@@ -692,10 +692,10 @@ GetUserAgent Get agent status of the user holding the authentication token.
 **Required ACL:** `agentd.users.me.agents.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUserAgentRequest
+	@return AgentAPIGetUserAgentRequest
 */
-func (a *AgentAPIService) GetUserAgent(ctx context.Context) ApiGetUserAgentRequest {
-	return ApiGetUserAgentRequest{
+func (a *AgentAPIService) GetUserAgent(ctx context.Context) AgentAPIGetUserAgentRequest {
+	return AgentAPIGetUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -704,7 +704,7 @@ func (a *AgentAPIService) GetUserAgent(ctx context.Context) ApiGetUserAgentReque
 // Execute executes the request
 //
 //	@return AgentStatus
-func (a *AgentAPIService) GetUserAgentExecute(r ApiGetUserAgentRequest) (*AgentStatus, *http.Response, error) {
+func (a *AgentAPIService) GetUserAgentExecute(r AgentAPIGetUserAgentRequest) (*AgentStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -804,7 +804,7 @@ func (a *AgentAPIService) GetUserAgentExecute(r ApiGetUserAgentRequest) (*AgentS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiLoginAgentByIdRequest struct {
+type AgentAPILoginAgentByIdRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	body         *LoginInfo
@@ -813,18 +813,18 @@ type ApiLoginAgentByIdRequest struct {
 }
 
 // The extension and context on which to log the agent
-func (r ApiLoginAgentByIdRequest) Body(body LoginInfo) ApiLoginAgentByIdRequest {
+func (r AgentAPILoginAgentByIdRequest) Body(body LoginInfo) AgentAPILoginAgentByIdRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLoginAgentByIdRequest) AccentTenant(accentTenant string) ApiLoginAgentByIdRequest {
+func (r AgentAPILoginAgentByIdRequest) AccentTenant(accentTenant string) AgentAPILoginAgentByIdRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLoginAgentByIdRequest) Execute() (*http.Response, error) {
+func (r AgentAPILoginAgentByIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LoginAgentByIdExecute(r)
 }
 
@@ -835,10 +835,10 @@ LoginAgentById Log an agent.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent's ID
-	@return ApiLoginAgentByIdRequest
+	@return AgentAPILoginAgentByIdRequest
 */
-func (a *AgentAPIService) LoginAgentById(ctx context.Context, agentId int32) ApiLoginAgentByIdRequest {
-	return ApiLoginAgentByIdRequest{
+func (a *AgentAPIService) LoginAgentById(ctx context.Context, agentId int32) AgentAPILoginAgentByIdRequest {
+	return AgentAPILoginAgentByIdRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -846,7 +846,7 @@ func (a *AgentAPIService) LoginAgentById(ctx context.Context, agentId int32) Api
 }
 
 // Execute executes the request
-func (a *AgentAPIService) LoginAgentByIdExecute(r ApiLoginAgentByIdRequest) (*http.Response, error) {
+func (a *AgentAPIService) LoginAgentByIdExecute(r AgentAPILoginAgentByIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -964,7 +964,7 @@ func (a *AgentAPIService) LoginAgentByIdExecute(r ApiLoginAgentByIdRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiLoginAgentByNumberRequest struct {
+type AgentAPILoginAgentByNumberRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	body         *LoginInfo
@@ -973,18 +973,18 @@ type ApiLoginAgentByNumberRequest struct {
 }
 
 // The extension and context on which to log the agent
-func (r ApiLoginAgentByNumberRequest) Body(body LoginInfo) ApiLoginAgentByNumberRequest {
+func (r AgentAPILoginAgentByNumberRequest) Body(body LoginInfo) AgentAPILoginAgentByNumberRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLoginAgentByNumberRequest) AccentTenant(accentTenant string) ApiLoginAgentByNumberRequest {
+func (r AgentAPILoginAgentByNumberRequest) AccentTenant(accentTenant string) AgentAPILoginAgentByNumberRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLoginAgentByNumberRequest) Execute() (*http.Response, error) {
+func (r AgentAPILoginAgentByNumberRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LoginAgentByNumberExecute(r)
 }
 
@@ -995,10 +995,10 @@ LoginAgentByNumber Log an agent.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentNumber Agent's number
-	@return ApiLoginAgentByNumberRequest
+	@return AgentAPILoginAgentByNumberRequest
 */
-func (a *AgentAPIService) LoginAgentByNumber(ctx context.Context, agentNumber string) ApiLoginAgentByNumberRequest {
-	return ApiLoginAgentByNumberRequest{
+func (a *AgentAPIService) LoginAgentByNumber(ctx context.Context, agentNumber string) AgentAPILoginAgentByNumberRequest {
+	return AgentAPILoginAgentByNumberRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		agentNumber: agentNumber,
@@ -1006,7 +1006,7 @@ func (a *AgentAPIService) LoginAgentByNumber(ctx context.Context, agentNumber st
 }
 
 // Execute executes the request
-func (a *AgentAPIService) LoginAgentByNumberExecute(r ApiLoginAgentByNumberRequest) (*http.Response, error) {
+func (a *AgentAPIService) LoginAgentByNumberExecute(r AgentAPILoginAgentByNumberRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1124,7 +1124,7 @@ func (a *AgentAPIService) LoginAgentByNumberExecute(r ApiLoginAgentByNumberReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiLoginUserAgentRequest struct {
+type AgentAPILoginUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	body         *UserAgentLoginInfo
@@ -1132,18 +1132,18 @@ type ApiLoginUserAgentRequest struct {
 }
 
 // The line on which to log the agent
-func (r ApiLoginUserAgentRequest) Body(body UserAgentLoginInfo) ApiLoginUserAgentRequest {
+func (r AgentAPILoginUserAgentRequest) Body(body UserAgentLoginInfo) AgentAPILoginUserAgentRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLoginUserAgentRequest) AccentTenant(accentTenant string) ApiLoginUserAgentRequest {
+func (r AgentAPILoginUserAgentRequest) AccentTenant(accentTenant string) AgentAPILoginUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLoginUserAgentRequest) Execute() (*http.Response, error) {
+func (r AgentAPILoginUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LoginUserAgentExecute(r)
 }
 
@@ -1153,17 +1153,17 @@ LoginUserAgent Log the agent of the user holding the authentication token
 **Required ACL:** `agentd.users.me.agents.login.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiLoginUserAgentRequest
+	@return AgentAPILoginUserAgentRequest
 */
-func (a *AgentAPIService) LoginUserAgent(ctx context.Context) ApiLoginUserAgentRequest {
-	return ApiLoginUserAgentRequest{
+func (a *AgentAPIService) LoginUserAgent(ctx context.Context) AgentAPILoginUserAgentRequest {
+	return AgentAPILoginUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AgentAPIService) LoginUserAgentExecute(r ApiLoginUserAgentRequest) (*http.Response, error) {
+func (a *AgentAPIService) LoginUserAgentExecute(r AgentAPILoginUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1269,7 +1269,7 @@ func (a *AgentAPIService) LoginUserAgentExecute(r ApiLoginUserAgentRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiLogoffAgentByIdRequest struct {
+type AgentAPILogoffAgentByIdRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	agentId      int32
@@ -1277,12 +1277,12 @@ type ApiLogoffAgentByIdRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLogoffAgentByIdRequest) AccentTenant(accentTenant string) ApiLogoffAgentByIdRequest {
+func (r AgentAPILogoffAgentByIdRequest) AccentTenant(accentTenant string) AgentAPILogoffAgentByIdRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLogoffAgentByIdRequest) Execute() (*http.Response, error) {
+func (r AgentAPILogoffAgentByIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LogoffAgentByIdExecute(r)
 }
 
@@ -1293,10 +1293,10 @@ LogoffAgentById Logoff an agent.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent's ID
-	@return ApiLogoffAgentByIdRequest
+	@return AgentAPILogoffAgentByIdRequest
 */
-func (a *AgentAPIService) LogoffAgentById(ctx context.Context, agentId int32) ApiLogoffAgentByIdRequest {
-	return ApiLogoffAgentByIdRequest{
+func (a *AgentAPIService) LogoffAgentById(ctx context.Context, agentId int32) AgentAPILogoffAgentByIdRequest {
+	return AgentAPILogoffAgentByIdRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -1304,7 +1304,7 @@ func (a *AgentAPIService) LogoffAgentById(ctx context.Context, agentId int32) Ap
 }
 
 // Execute executes the request
-func (a *AgentAPIService) LogoffAgentByIdExecute(r ApiLogoffAgentByIdRequest) (*http.Response, error) {
+func (a *AgentAPIService) LogoffAgentByIdExecute(r AgentAPILogoffAgentByIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1395,7 +1395,7 @@ func (a *AgentAPIService) LogoffAgentByIdExecute(r ApiLogoffAgentByIdRequest) (*
 	return localVarHTTPResponse, nil
 }
 
-type ApiLogoffAgentByNumberRequest struct {
+type AgentAPILogoffAgentByNumberRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	agentNumber  string
@@ -1403,12 +1403,12 @@ type ApiLogoffAgentByNumberRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLogoffAgentByNumberRequest) AccentTenant(accentTenant string) ApiLogoffAgentByNumberRequest {
+func (r AgentAPILogoffAgentByNumberRequest) AccentTenant(accentTenant string) AgentAPILogoffAgentByNumberRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLogoffAgentByNumberRequest) Execute() (*http.Response, error) {
+func (r AgentAPILogoffAgentByNumberRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LogoffAgentByNumberExecute(r)
 }
 
@@ -1419,10 +1419,10 @@ LogoffAgentByNumber Logoff an agent.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentNumber Agent's number
-	@return ApiLogoffAgentByNumberRequest
+	@return AgentAPILogoffAgentByNumberRequest
 */
-func (a *AgentAPIService) LogoffAgentByNumber(ctx context.Context, agentNumber string) ApiLogoffAgentByNumberRequest {
-	return ApiLogoffAgentByNumberRequest{
+func (a *AgentAPIService) LogoffAgentByNumber(ctx context.Context, agentNumber string) AgentAPILogoffAgentByNumberRequest {
+	return AgentAPILogoffAgentByNumberRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		agentNumber: agentNumber,
@@ -1430,7 +1430,7 @@ func (a *AgentAPIService) LogoffAgentByNumber(ctx context.Context, agentNumber s
 }
 
 // Execute executes the request
-func (a *AgentAPIService) LogoffAgentByNumberExecute(r ApiLogoffAgentByNumberRequest) (*http.Response, error) {
+func (a *AgentAPIService) LogoffAgentByNumberExecute(r AgentAPILogoffAgentByNumberRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1521,19 +1521,19 @@ func (a *AgentAPIService) LogoffAgentByNumberExecute(r ApiLogoffAgentByNumberReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiLogoffUserAgentRequest struct {
+type AgentAPILogoffUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLogoffUserAgentRequest) AccentTenant(accentTenant string) ApiLogoffUserAgentRequest {
+func (r AgentAPILogoffUserAgentRequest) AccentTenant(accentTenant string) AgentAPILogoffUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLogoffUserAgentRequest) Execute() (*http.Response, error) {
+func (r AgentAPILogoffUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LogoffUserAgentExecute(r)
 }
 
@@ -1543,17 +1543,17 @@ LogoffUserAgent Logoff the agent of the user holding the authentication token
 **Required ACL:** `agentd.users.me.agents.logoff.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiLogoffUserAgentRequest
+	@return AgentAPILogoffUserAgentRequest
 */
-func (a *AgentAPIService) LogoffUserAgent(ctx context.Context) ApiLogoffUserAgentRequest {
-	return ApiLogoffUserAgentRequest{
+func (a *AgentAPIService) LogoffUserAgent(ctx context.Context) AgentAPILogoffUserAgentRequest {
+	return AgentAPILogoffUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AgentAPIService) LogoffUserAgentExecute(r ApiLogoffUserAgentRequest) (*http.Response, error) {
+func (a *AgentAPIService) LogoffUserAgentExecute(r AgentAPILogoffUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1654,7 +1654,7 @@ func (a *AgentAPIService) LogoffUserAgentExecute(r ApiLogoffUserAgentRequest) (*
 	return localVarHTTPResponse, nil
 }
 
-type ApiPauseAgentByNumberRequest struct {
+type AgentAPIPauseAgentByNumberRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	agentNumber  string
@@ -1663,18 +1663,18 @@ type ApiPauseAgentByNumberRequest struct {
 }
 
 // The reason for pausing the agent
-func (r ApiPauseAgentByNumberRequest) Body(body AgentPauseReason) ApiPauseAgentByNumberRequest {
+func (r AgentAPIPauseAgentByNumberRequest) Body(body AgentPauseReason) AgentAPIPauseAgentByNumberRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiPauseAgentByNumberRequest) AccentTenant(accentTenant string) ApiPauseAgentByNumberRequest {
+func (r AgentAPIPauseAgentByNumberRequest) AccentTenant(accentTenant string) AgentAPIPauseAgentByNumberRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPauseAgentByNumberRequest) Execute() (*http.Response, error) {
+func (r AgentAPIPauseAgentByNumberRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PauseAgentByNumberExecute(r)
 }
 
@@ -1685,10 +1685,10 @@ PauseAgentByNumber Pause an agent.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentNumber Agent's number
-	@return ApiPauseAgentByNumberRequest
+	@return AgentAPIPauseAgentByNumberRequest
 */
-func (a *AgentAPIService) PauseAgentByNumber(ctx context.Context, agentNumber string) ApiPauseAgentByNumberRequest {
-	return ApiPauseAgentByNumberRequest{
+func (a *AgentAPIService) PauseAgentByNumber(ctx context.Context, agentNumber string) AgentAPIPauseAgentByNumberRequest {
+	return AgentAPIPauseAgentByNumberRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		agentNumber: agentNumber,
@@ -1696,7 +1696,7 @@ func (a *AgentAPIService) PauseAgentByNumber(ctx context.Context, agentNumber st
 }
 
 // Execute executes the request
-func (a *AgentAPIService) PauseAgentByNumberExecute(r ApiPauseAgentByNumberRequest) (*http.Response, error) {
+func (a *AgentAPIService) PauseAgentByNumberExecute(r AgentAPIPauseAgentByNumberRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1800,7 +1800,7 @@ func (a *AgentAPIService) PauseAgentByNumberExecute(r ApiPauseAgentByNumberReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiPauseUserAgentRequest struct {
+type AgentAPIPauseUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	body         *AgentPauseReason
@@ -1808,18 +1808,18 @@ type ApiPauseUserAgentRequest struct {
 }
 
 // The reason for pausing the agent
-func (r ApiPauseUserAgentRequest) Body(body AgentPauseReason) ApiPauseUserAgentRequest {
+func (r AgentAPIPauseUserAgentRequest) Body(body AgentPauseReason) AgentAPIPauseUserAgentRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiPauseUserAgentRequest) AccentTenant(accentTenant string) ApiPauseUserAgentRequest {
+func (r AgentAPIPauseUserAgentRequest) AccentTenant(accentTenant string) AgentAPIPauseUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPauseUserAgentRequest) Execute() (*http.Response, error) {
+func (r AgentAPIPauseUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PauseUserAgentExecute(r)
 }
 
@@ -1829,17 +1829,17 @@ PauseUserAgent Pause the agent of the user holding the authentication token
 **Required ACL:** `agentd.users.me.agents.pause.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPauseUserAgentRequest
+	@return AgentAPIPauseUserAgentRequest
 */
-func (a *AgentAPIService) PauseUserAgent(ctx context.Context) ApiPauseUserAgentRequest {
-	return ApiPauseUserAgentRequest{
+func (a *AgentAPIService) PauseUserAgent(ctx context.Context) AgentAPIPauseUserAgentRequest {
+	return AgentAPIPauseUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AgentAPIService) PauseUserAgentExecute(r ApiPauseUserAgentRequest) (*http.Response, error) {
+func (a *AgentAPIService) PauseUserAgentExecute(r AgentAPIPauseUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1942,7 +1942,7 @@ func (a *AgentAPIService) PauseUserAgentExecute(r ApiPauseUserAgentRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiRemoveAgentByIdRequest struct {
+type AgentAPIRemoveAgentByIdRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	body         *Queue
@@ -1951,18 +1951,18 @@ type ApiRemoveAgentByIdRequest struct {
 }
 
 // The queue to remove the agent from
-func (r ApiRemoveAgentByIdRequest) Body(body Queue) ApiRemoveAgentByIdRequest {
+func (r AgentAPIRemoveAgentByIdRequest) Body(body Queue) AgentAPIRemoveAgentByIdRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiRemoveAgentByIdRequest) AccentTenant(accentTenant string) ApiRemoveAgentByIdRequest {
+func (r AgentAPIRemoveAgentByIdRequest) AccentTenant(accentTenant string) AgentAPIRemoveAgentByIdRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiRemoveAgentByIdRequest) Execute() (*http.Response, error) {
+func (r AgentAPIRemoveAgentByIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.RemoveAgentByIdExecute(r)
 }
 
@@ -1973,10 +1973,10 @@ RemoveAgentById Remove agent from a queue.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent's ID
-	@return ApiRemoveAgentByIdRequest
+	@return AgentAPIRemoveAgentByIdRequest
 */
-func (a *AgentAPIService) RemoveAgentById(ctx context.Context, agentId int32) ApiRemoveAgentByIdRequest {
-	return ApiRemoveAgentByIdRequest{
+func (a *AgentAPIService) RemoveAgentById(ctx context.Context, agentId int32) AgentAPIRemoveAgentByIdRequest {
+	return AgentAPIRemoveAgentByIdRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -1984,7 +1984,7 @@ func (a *AgentAPIService) RemoveAgentById(ctx context.Context, agentId int32) Ap
 }
 
 // Execute executes the request
-func (a *AgentAPIService) RemoveAgentByIdExecute(r ApiRemoveAgentByIdRequest) (*http.Response, error) {
+func (a *AgentAPIService) RemoveAgentByIdExecute(r AgentAPIRemoveAgentByIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -2091,7 +2091,7 @@ func (a *AgentAPIService) RemoveAgentByIdExecute(r ApiRemoveAgentByIdRequest) (*
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnpauseAgentByNumberRequest struct {
+type AgentAPIUnpauseAgentByNumberRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	agentNumber  string
@@ -2099,12 +2099,12 @@ type ApiUnpauseAgentByNumberRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUnpauseAgentByNumberRequest) AccentTenant(accentTenant string) ApiUnpauseAgentByNumberRequest {
+func (r AgentAPIUnpauseAgentByNumberRequest) AccentTenant(accentTenant string) AgentAPIUnpauseAgentByNumberRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUnpauseAgentByNumberRequest) Execute() (*http.Response, error) {
+func (r AgentAPIUnpauseAgentByNumberRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnpauseAgentByNumberExecute(r)
 }
 
@@ -2115,10 +2115,10 @@ UnpauseAgentByNumber Unpause an agent.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentNumber Agent's number
-	@return ApiUnpauseAgentByNumberRequest
+	@return AgentAPIUnpauseAgentByNumberRequest
 */
-func (a *AgentAPIService) UnpauseAgentByNumber(ctx context.Context, agentNumber string) ApiUnpauseAgentByNumberRequest {
-	return ApiUnpauseAgentByNumberRequest{
+func (a *AgentAPIService) UnpauseAgentByNumber(ctx context.Context, agentNumber string) AgentAPIUnpauseAgentByNumberRequest {
+	return AgentAPIUnpauseAgentByNumberRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		agentNumber: agentNumber,
@@ -2126,7 +2126,7 @@ func (a *AgentAPIService) UnpauseAgentByNumber(ctx context.Context, agentNumber 
 }
 
 // Execute executes the request
-func (a *AgentAPIService) UnpauseAgentByNumberExecute(r ApiUnpauseAgentByNumberRequest) (*http.Response, error) {
+func (a *AgentAPIService) UnpauseAgentByNumberExecute(r AgentAPIUnpauseAgentByNumberRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -2228,19 +2228,19 @@ func (a *AgentAPIService) UnpauseAgentByNumberExecute(r ApiUnpauseAgentByNumberR
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnpauseUserAgentRequest struct {
+type AgentAPIUnpauseUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUnpauseUserAgentRequest) AccentTenant(accentTenant string) ApiUnpauseUserAgentRequest {
+func (r AgentAPIUnpauseUserAgentRequest) AccentTenant(accentTenant string) AgentAPIUnpauseUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUnpauseUserAgentRequest) Execute() (*http.Response, error) {
+func (r AgentAPIUnpauseUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnpauseUserAgentExecute(r)
 }
 
@@ -2250,17 +2250,17 @@ UnpauseUserAgent Unpause the agent of the user holding the authentication token
 **Required ACL:** `agentd.users.me.agents.unpause.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUnpauseUserAgentRequest
+	@return AgentAPIUnpauseUserAgentRequest
 */
-func (a *AgentAPIService) UnpauseUserAgent(ctx context.Context) ApiUnpauseUserAgentRequest {
-	return ApiUnpauseUserAgentRequest{
+func (a *AgentAPIService) UnpauseUserAgent(ctx context.Context) AgentAPIUnpauseUserAgentRequest {
+	return AgentAPIUnpauseUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AgentAPIService) UnpauseUserAgentExecute(r ApiUnpauseUserAgentRequest) (*http.Response, error) {
+func (a *AgentAPIService) UnpauseUserAgentExecute(r AgentAPIUnpauseUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}

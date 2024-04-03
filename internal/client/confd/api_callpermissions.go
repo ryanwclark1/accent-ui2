@@ -30,12 +30,12 @@ type CallpermissionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param callpermissionId Call Permission's ID
-		@return ApiAssociateGroupCallpermissionRequest
+		@return CallpermissionsAPIAssociateGroupCallpermissionRequest
 	*/
-	AssociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) ApiAssociateGroupCallpermissionRequest
+	AssociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) CallpermissionsAPIAssociateGroupCallpermissionRequest
 
 	// AssociateGroupCallpermissionExecute executes the request
-	AssociateGroupCallpermissionExecute(r ApiAssociateGroupCallpermissionRequest) (*http.Response, error)
+	AssociateGroupCallpermissionExecute(r CallpermissionsAPIAssociateGroupCallpermissionRequest) (*http.Response, error)
 
 	/*
 		AssociateOutcallCallpermission Associate outcall and call permission
@@ -45,12 +45,12 @@ type CallpermissionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param callpermissionId Call Permission's ID
-		@return ApiAssociateOutcallCallpermissionRequest
+		@return CallpermissionsAPIAssociateOutcallCallpermissionRequest
 	*/
-	AssociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) ApiAssociateOutcallCallpermissionRequest
+	AssociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) CallpermissionsAPIAssociateOutcallCallpermissionRequest
 
 	// AssociateOutcallCallpermissionExecute executes the request
-	AssociateOutcallCallpermissionExecute(r ApiAssociateOutcallCallpermissionRequest) (*http.Response, error)
+	AssociateOutcallCallpermissionExecute(r CallpermissionsAPIAssociateOutcallCallpermissionRequest) (*http.Response, error)
 
 	/*
 		AssociateUserCallpermission Associate user and call permission
@@ -60,12 +60,12 @@ type CallpermissionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param callpermissionId Call Permission's ID
-		@return ApiAssociateUserCallpermissionRequest
+		@return CallpermissionsAPIAssociateUserCallpermissionRequest
 	*/
-	AssociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) ApiAssociateUserCallpermissionRequest
+	AssociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) CallpermissionsAPIAssociateUserCallpermissionRequest
 
 	// AssociateUserCallpermissionExecute executes the request
-	AssociateUserCallpermissionExecute(r ApiAssociateUserCallpermissionRequest) (*http.Response, error)
+	AssociateUserCallpermissionExecute(r CallpermissionsAPIAssociateUserCallpermissionRequest) (*http.Response, error)
 
 	/*
 		CreateCallpermission Create call permission
@@ -73,13 +73,13 @@ type CallpermissionsAPI interface {
 		**Required ACL:** `confd.callpermissions.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateCallpermissionRequest
+		@return CallpermissionsAPICreateCallpermissionRequest
 	*/
-	CreateCallpermission(ctx context.Context) ApiCreateCallpermissionRequest
+	CreateCallpermission(ctx context.Context) CallpermissionsAPICreateCallpermissionRequest
 
 	// CreateCallpermissionExecute executes the request
 	//  @return CallPermission
-	CreateCallpermissionExecute(r ApiCreateCallpermissionRequest) (*CallPermission, *http.Response, error)
+	CreateCallpermissionExecute(r CallpermissionsAPICreateCallpermissionRequest) (*CallPermission, *http.Response, error)
 
 	/*
 		DeleteCallpermission Delete call permission
@@ -88,12 +88,12 @@ type CallpermissionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpermissionId Call Permission's ID
-		@return ApiDeleteCallpermissionRequest
+		@return CallpermissionsAPIDeleteCallpermissionRequest
 	*/
-	DeleteCallpermission(ctx context.Context, callpermissionId int32) ApiDeleteCallpermissionRequest
+	DeleteCallpermission(ctx context.Context, callpermissionId int32) CallpermissionsAPIDeleteCallpermissionRequest
 
 	// DeleteCallpermissionExecute executes the request
-	DeleteCallpermissionExecute(r ApiDeleteCallpermissionRequest) (*http.Response, error)
+	DeleteCallpermissionExecute(r CallpermissionsAPIDeleteCallpermissionRequest) (*http.Response, error)
 
 	/*
 		DissociateGroupCallpermission Dissociate group and call permission
@@ -103,12 +103,12 @@ type CallpermissionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param callpermissionId Call Permission's ID
-		@return ApiDissociateGroupCallpermissionRequest
+		@return CallpermissionsAPIDissociateGroupCallpermissionRequest
 	*/
-	DissociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) ApiDissociateGroupCallpermissionRequest
+	DissociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) CallpermissionsAPIDissociateGroupCallpermissionRequest
 
 	// DissociateGroupCallpermissionExecute executes the request
-	DissociateGroupCallpermissionExecute(r ApiDissociateGroupCallpermissionRequest) (*http.Response, error)
+	DissociateGroupCallpermissionExecute(r CallpermissionsAPIDissociateGroupCallpermissionRequest) (*http.Response, error)
 
 	/*
 		DissociateOutcallCallpermission Dissociate outcall and call permission
@@ -118,12 +118,12 @@ type CallpermissionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param callpermissionId Call Permission's ID
-		@return ApiDissociateOutcallCallpermissionRequest
+		@return CallpermissionsAPIDissociateOutcallCallpermissionRequest
 	*/
-	DissociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) ApiDissociateOutcallCallpermissionRequest
+	DissociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) CallpermissionsAPIDissociateOutcallCallpermissionRequest
 
 	// DissociateOutcallCallpermissionExecute executes the request
-	DissociateOutcallCallpermissionExecute(r ApiDissociateOutcallCallpermissionRequest) (*http.Response, error)
+	DissociateOutcallCallpermissionExecute(r CallpermissionsAPIDissociateOutcallCallpermissionRequest) (*http.Response, error)
 
 	/*
 		DissociateUserCallpermission Dissociate user and call permission
@@ -133,12 +133,12 @@ type CallpermissionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param callpermissionId Call Permission's ID
-		@return ApiDissociateUserCallpermissionRequest
+		@return CallpermissionsAPIDissociateUserCallpermissionRequest
 	*/
-	DissociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) ApiDissociateUserCallpermissionRequest
+	DissociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) CallpermissionsAPIDissociateUserCallpermissionRequest
 
 	// DissociateUserCallpermissionExecute executes the request
-	DissociateUserCallpermissionExecute(r ApiDissociateUserCallpermissionRequest) (*http.Response, error)
+	DissociateUserCallpermissionExecute(r CallpermissionsAPIDissociateUserCallpermissionRequest) (*http.Response, error)
 
 	/*
 		GetCallpermission Get call permission
@@ -147,13 +147,13 @@ type CallpermissionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpermissionId Call Permission's ID
-		@return ApiGetCallpermissionRequest
+		@return CallpermissionsAPIGetCallpermissionRequest
 	*/
-	GetCallpermission(ctx context.Context, callpermissionId int32) ApiGetCallpermissionRequest
+	GetCallpermission(ctx context.Context, callpermissionId int32) CallpermissionsAPIGetCallpermissionRequest
 
 	// GetCallpermissionExecute executes the request
 	//  @return CallPermission
-	GetCallpermissionExecute(r ApiGetCallpermissionRequest) (*CallPermission, *http.Response, error)
+	GetCallpermissionExecute(r CallpermissionsAPIGetCallpermissionRequest) (*CallPermission, *http.Response, error)
 
 	/*
 		ListCallpermissions List call permissions
@@ -161,13 +161,13 @@ type CallpermissionsAPI interface {
 		**Required ACL:** `confd.callpermissions.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListCallpermissionsRequest
+		@return CallpermissionsAPIListCallpermissionsRequest
 	*/
-	ListCallpermissions(ctx context.Context) ApiListCallpermissionsRequest
+	ListCallpermissions(ctx context.Context) CallpermissionsAPIListCallpermissionsRequest
 
 	// ListCallpermissionsExecute executes the request
 	//  @return CallPermissionItems
-	ListCallpermissionsExecute(r ApiListCallpermissionsRequest) (*CallPermissionItems, *http.Response, error)
+	ListCallpermissionsExecute(r CallpermissionsAPIListCallpermissionsRequest) (*CallPermissionItems, *http.Response, error)
 
 	/*
 		UpdateCallpermission Update call permission
@@ -176,18 +176,18 @@ type CallpermissionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpermissionId Call Permission's ID
-		@return ApiUpdateCallpermissionRequest
+		@return CallpermissionsAPIUpdateCallpermissionRequest
 	*/
-	UpdateCallpermission(ctx context.Context, callpermissionId int32) ApiUpdateCallpermissionRequest
+	UpdateCallpermission(ctx context.Context, callpermissionId int32) CallpermissionsAPIUpdateCallpermissionRequest
 
 	// UpdateCallpermissionExecute executes the request
-	UpdateCallpermissionExecute(r ApiUpdateCallpermissionRequest) (*http.Response, error)
+	UpdateCallpermissionExecute(r CallpermissionsAPIUpdateCallpermissionRequest) (*http.Response, error)
 }
 
 // CallpermissionsAPIService CallpermissionsAPI service
 type CallpermissionsAPIService service
 
-type ApiAssociateGroupCallpermissionRequest struct {
+type CallpermissionsAPIAssociateGroupCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	groupUuid        string
@@ -196,12 +196,12 @@ type ApiAssociateGroupCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateGroupCallpermissionRequest) AccentTenant(accentTenant string) ApiAssociateGroupCallpermissionRequest {
+func (r CallpermissionsAPIAssociateGroupCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIAssociateGroupCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateGroupCallpermissionRequest) Execute() (*http.Response, error) {
+func (r CallpermissionsAPIAssociateGroupCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateGroupCallpermissionExecute(r)
 }
 
@@ -213,10 +213,10 @@ AssociateGroupCallpermission Associate group and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param callpermissionId Call Permission's ID
-	@return ApiAssociateGroupCallpermissionRequest
+	@return CallpermissionsAPIAssociateGroupCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) AssociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) ApiAssociateGroupCallpermissionRequest {
-	return ApiAssociateGroupCallpermissionRequest{
+func (a *CallpermissionsAPIService) AssociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) CallpermissionsAPIAssociateGroupCallpermissionRequest {
+	return CallpermissionsAPIAssociateGroupCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		groupUuid:        groupUuid,
@@ -225,7 +225,7 @@ func (a *CallpermissionsAPIService) AssociateGroupCallpermission(ctx context.Con
 }
 
 // Execute executes the request
-func (a *CallpermissionsAPIService) AssociateGroupCallpermissionExecute(r ApiAssociateGroupCallpermissionRequest) (*http.Response, error) {
+func (a *CallpermissionsAPIService) AssociateGroupCallpermissionExecute(r CallpermissionsAPIAssociateGroupCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -328,7 +328,7 @@ func (a *CallpermissionsAPIService) AssociateGroupCallpermissionExecute(r ApiAss
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateOutcallCallpermissionRequest struct {
+type CallpermissionsAPIAssociateOutcallCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	outcallId        int32
@@ -337,12 +337,12 @@ type ApiAssociateOutcallCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateOutcallCallpermissionRequest) AccentTenant(accentTenant string) ApiAssociateOutcallCallpermissionRequest {
+func (r CallpermissionsAPIAssociateOutcallCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIAssociateOutcallCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateOutcallCallpermissionRequest) Execute() (*http.Response, error) {
+func (r CallpermissionsAPIAssociateOutcallCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateOutcallCallpermissionExecute(r)
 }
 
@@ -354,10 +354,10 @@ AssociateOutcallCallpermission Associate outcall and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param callpermissionId Call Permission's ID
-	@return ApiAssociateOutcallCallpermissionRequest
+	@return CallpermissionsAPIAssociateOutcallCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) AssociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) ApiAssociateOutcallCallpermissionRequest {
-	return ApiAssociateOutcallCallpermissionRequest{
+func (a *CallpermissionsAPIService) AssociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) CallpermissionsAPIAssociateOutcallCallpermissionRequest {
+	return CallpermissionsAPIAssociateOutcallCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		outcallId:        outcallId,
@@ -366,7 +366,7 @@ func (a *CallpermissionsAPIService) AssociateOutcallCallpermission(ctx context.C
 }
 
 // Execute executes the request
-func (a *CallpermissionsAPIService) AssociateOutcallCallpermissionExecute(r ApiAssociateOutcallCallpermissionRequest) (*http.Response, error) {
+func (a *CallpermissionsAPIService) AssociateOutcallCallpermissionExecute(r CallpermissionsAPIAssociateOutcallCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -469,7 +469,7 @@ func (a *CallpermissionsAPIService) AssociateOutcallCallpermissionExecute(r ApiA
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserCallpermissionRequest struct {
+type CallpermissionsAPIAssociateUserCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	userId           string
@@ -478,12 +478,12 @@ type ApiAssociateUserCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateUserCallpermissionRequest) AccentTenant(accentTenant string) ApiAssociateUserCallpermissionRequest {
+func (r CallpermissionsAPIAssociateUserCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIAssociateUserCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateUserCallpermissionRequest) Execute() (*http.Response, error) {
+func (r CallpermissionsAPIAssociateUserCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserCallpermissionExecute(r)
 }
 
@@ -495,10 +495,10 @@ AssociateUserCallpermission Associate user and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param callpermissionId Call Permission's ID
-	@return ApiAssociateUserCallpermissionRequest
+	@return CallpermissionsAPIAssociateUserCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) AssociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) ApiAssociateUserCallpermissionRequest {
-	return ApiAssociateUserCallpermissionRequest{
+func (a *CallpermissionsAPIService) AssociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) CallpermissionsAPIAssociateUserCallpermissionRequest {
+	return CallpermissionsAPIAssociateUserCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		userId:           userId,
@@ -507,7 +507,7 @@ func (a *CallpermissionsAPIService) AssociateUserCallpermission(ctx context.Cont
 }
 
 // Execute executes the request
-func (a *CallpermissionsAPIService) AssociateUserCallpermissionExecute(r ApiAssociateUserCallpermissionRequest) (*http.Response, error) {
+func (a *CallpermissionsAPIService) AssociateUserCallpermissionExecute(r CallpermissionsAPIAssociateUserCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -610,7 +610,7 @@ func (a *CallpermissionsAPIService) AssociateUserCallpermissionExecute(r ApiAsso
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateCallpermissionRequest struct {
+type CallpermissionsAPICreateCallpermissionRequest struct {
 	ctx          context.Context
 	ApiService   CallpermissionsAPI
 	body         *CallPermission
@@ -618,18 +618,18 @@ type ApiCreateCallpermissionRequest struct {
 }
 
 // Call Permission to create
-func (r ApiCreateCallpermissionRequest) Body(body CallPermission) ApiCreateCallpermissionRequest {
+func (r CallpermissionsAPICreateCallpermissionRequest) Body(body CallPermission) CallpermissionsAPICreateCallpermissionRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateCallpermissionRequest) AccentTenant(accentTenant string) ApiCreateCallpermissionRequest {
+func (r CallpermissionsAPICreateCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPICreateCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateCallpermissionRequest) Execute() (*CallPermission, *http.Response, error) {
+func (r CallpermissionsAPICreateCallpermissionRequest) Execute() (*CallPermission, *http.Response, error) {
 	return r.ApiService.CreateCallpermissionExecute(r)
 }
 
@@ -639,10 +639,10 @@ CreateCallpermission Create call permission
 **Required ACL:** `confd.callpermissions.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateCallpermissionRequest
+	@return CallpermissionsAPICreateCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) CreateCallpermission(ctx context.Context) ApiCreateCallpermissionRequest {
-	return ApiCreateCallpermissionRequest{
+func (a *CallpermissionsAPIService) CreateCallpermission(ctx context.Context) CallpermissionsAPICreateCallpermissionRequest {
+	return CallpermissionsAPICreateCallpermissionRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -651,7 +651,7 @@ func (a *CallpermissionsAPIService) CreateCallpermission(ctx context.Context) Ap
 // Execute executes the request
 //
 //	@return CallPermission
-func (a *CallpermissionsAPIService) CreateCallpermissionExecute(r ApiCreateCallpermissionRequest) (*CallPermission, *http.Response, error) {
+func (a *CallpermissionsAPIService) CreateCallpermissionExecute(r CallpermissionsAPICreateCallpermissionRequest) (*CallPermission, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -756,7 +756,7 @@ func (a *CallpermissionsAPIService) CreateCallpermissionExecute(r ApiCreateCallp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteCallpermissionRequest struct {
+type CallpermissionsAPIDeleteCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	callpermissionId int32
@@ -764,12 +764,12 @@ type ApiDeleteCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteCallpermissionRequest) AccentTenant(accentTenant string) ApiDeleteCallpermissionRequest {
+func (r CallpermissionsAPIDeleteCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIDeleteCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteCallpermissionRequest) Execute() (*http.Response, error) {
+func (r CallpermissionsAPIDeleteCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteCallpermissionExecute(r)
 }
 
@@ -780,10 +780,10 @@ DeleteCallpermission Delete call permission
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpermissionId Call Permission's ID
-	@return ApiDeleteCallpermissionRequest
+	@return CallpermissionsAPIDeleteCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) DeleteCallpermission(ctx context.Context, callpermissionId int32) ApiDeleteCallpermissionRequest {
-	return ApiDeleteCallpermissionRequest{
+func (a *CallpermissionsAPIService) DeleteCallpermission(ctx context.Context, callpermissionId int32) CallpermissionsAPIDeleteCallpermissionRequest {
+	return CallpermissionsAPIDeleteCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		callpermissionId: callpermissionId,
@@ -791,7 +791,7 @@ func (a *CallpermissionsAPIService) DeleteCallpermission(ctx context.Context, ca
 }
 
 // Execute executes the request
-func (a *CallpermissionsAPIService) DeleteCallpermissionExecute(r ApiDeleteCallpermissionRequest) (*http.Response, error) {
+func (a *CallpermissionsAPIService) DeleteCallpermissionExecute(r CallpermissionsAPIDeleteCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -893,7 +893,7 @@ func (a *CallpermissionsAPIService) DeleteCallpermissionExecute(r ApiDeleteCallp
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateGroupCallpermissionRequest struct {
+type CallpermissionsAPIDissociateGroupCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	groupUuid        string
@@ -902,12 +902,12 @@ type ApiDissociateGroupCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateGroupCallpermissionRequest) AccentTenant(accentTenant string) ApiDissociateGroupCallpermissionRequest {
+func (r CallpermissionsAPIDissociateGroupCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIDissociateGroupCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateGroupCallpermissionRequest) Execute() (*http.Response, error) {
+func (r CallpermissionsAPIDissociateGroupCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateGroupCallpermissionExecute(r)
 }
 
@@ -919,10 +919,10 @@ DissociateGroupCallpermission Dissociate group and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param callpermissionId Call Permission's ID
-	@return ApiDissociateGroupCallpermissionRequest
+	@return CallpermissionsAPIDissociateGroupCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) DissociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) ApiDissociateGroupCallpermissionRequest {
-	return ApiDissociateGroupCallpermissionRequest{
+func (a *CallpermissionsAPIService) DissociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) CallpermissionsAPIDissociateGroupCallpermissionRequest {
+	return CallpermissionsAPIDissociateGroupCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		groupUuid:        groupUuid,
@@ -931,7 +931,7 @@ func (a *CallpermissionsAPIService) DissociateGroupCallpermission(ctx context.Co
 }
 
 // Execute executes the request
-func (a *CallpermissionsAPIService) DissociateGroupCallpermissionExecute(r ApiDissociateGroupCallpermissionRequest) (*http.Response, error) {
+func (a *CallpermissionsAPIService) DissociateGroupCallpermissionExecute(r CallpermissionsAPIDissociateGroupCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1034,7 +1034,7 @@ func (a *CallpermissionsAPIService) DissociateGroupCallpermissionExecute(r ApiDi
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateOutcallCallpermissionRequest struct {
+type CallpermissionsAPIDissociateOutcallCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	outcallId        int32
@@ -1043,12 +1043,12 @@ type ApiDissociateOutcallCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateOutcallCallpermissionRequest) AccentTenant(accentTenant string) ApiDissociateOutcallCallpermissionRequest {
+func (r CallpermissionsAPIDissociateOutcallCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIDissociateOutcallCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateOutcallCallpermissionRequest) Execute() (*http.Response, error) {
+func (r CallpermissionsAPIDissociateOutcallCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateOutcallCallpermissionExecute(r)
 }
 
@@ -1060,10 +1060,10 @@ DissociateOutcallCallpermission Dissociate outcall and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param callpermissionId Call Permission's ID
-	@return ApiDissociateOutcallCallpermissionRequest
+	@return CallpermissionsAPIDissociateOutcallCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) DissociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) ApiDissociateOutcallCallpermissionRequest {
-	return ApiDissociateOutcallCallpermissionRequest{
+func (a *CallpermissionsAPIService) DissociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) CallpermissionsAPIDissociateOutcallCallpermissionRequest {
+	return CallpermissionsAPIDissociateOutcallCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		outcallId:        outcallId,
@@ -1072,7 +1072,7 @@ func (a *CallpermissionsAPIService) DissociateOutcallCallpermission(ctx context.
 }
 
 // Execute executes the request
-func (a *CallpermissionsAPIService) DissociateOutcallCallpermissionExecute(r ApiDissociateOutcallCallpermissionRequest) (*http.Response, error) {
+func (a *CallpermissionsAPIService) DissociateOutcallCallpermissionExecute(r CallpermissionsAPIDissociateOutcallCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1175,7 +1175,7 @@ func (a *CallpermissionsAPIService) DissociateOutcallCallpermissionExecute(r Api
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserCallpermissionRequest struct {
+type CallpermissionsAPIDissociateUserCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	userId           string
@@ -1184,12 +1184,12 @@ type ApiDissociateUserCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserCallpermissionRequest) AccentTenant(accentTenant string) ApiDissociateUserCallpermissionRequest {
+func (r CallpermissionsAPIDissociateUserCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIDissociateUserCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserCallpermissionRequest) Execute() (*http.Response, error) {
+func (r CallpermissionsAPIDissociateUserCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserCallpermissionExecute(r)
 }
 
@@ -1201,10 +1201,10 @@ DissociateUserCallpermission Dissociate user and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param callpermissionId Call Permission's ID
-	@return ApiDissociateUserCallpermissionRequest
+	@return CallpermissionsAPIDissociateUserCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) DissociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) ApiDissociateUserCallpermissionRequest {
-	return ApiDissociateUserCallpermissionRequest{
+func (a *CallpermissionsAPIService) DissociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) CallpermissionsAPIDissociateUserCallpermissionRequest {
+	return CallpermissionsAPIDissociateUserCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		userId:           userId,
@@ -1213,7 +1213,7 @@ func (a *CallpermissionsAPIService) DissociateUserCallpermission(ctx context.Con
 }
 
 // Execute executes the request
-func (a *CallpermissionsAPIService) DissociateUserCallpermissionExecute(r ApiDissociateUserCallpermissionRequest) (*http.Response, error) {
+func (a *CallpermissionsAPIService) DissociateUserCallpermissionExecute(r CallpermissionsAPIDissociateUserCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1316,7 +1316,7 @@ func (a *CallpermissionsAPIService) DissociateUserCallpermissionExecute(r ApiDis
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetCallpermissionRequest struct {
+type CallpermissionsAPIGetCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	callpermissionId int32
@@ -1324,12 +1324,12 @@ type ApiGetCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetCallpermissionRequest) AccentTenant(accentTenant string) ApiGetCallpermissionRequest {
+func (r CallpermissionsAPIGetCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIGetCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetCallpermissionRequest) Execute() (*CallPermission, *http.Response, error) {
+func (r CallpermissionsAPIGetCallpermissionRequest) Execute() (*CallPermission, *http.Response, error) {
 	return r.ApiService.GetCallpermissionExecute(r)
 }
 
@@ -1340,10 +1340,10 @@ GetCallpermission Get call permission
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpermissionId Call Permission's ID
-	@return ApiGetCallpermissionRequest
+	@return CallpermissionsAPIGetCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) GetCallpermission(ctx context.Context, callpermissionId int32) ApiGetCallpermissionRequest {
-	return ApiGetCallpermissionRequest{
+func (a *CallpermissionsAPIService) GetCallpermission(ctx context.Context, callpermissionId int32) CallpermissionsAPIGetCallpermissionRequest {
+	return CallpermissionsAPIGetCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		callpermissionId: callpermissionId,
@@ -1353,7 +1353,7 @@ func (a *CallpermissionsAPIService) GetCallpermission(ctx context.Context, callp
 // Execute executes the request
 //
 //	@return CallPermission
-func (a *CallpermissionsAPIService) GetCallpermissionExecute(r ApiGetCallpermissionRequest) (*CallPermission, *http.Response, error) {
+func (a *CallpermissionsAPIService) GetCallpermissionExecute(r CallpermissionsAPIGetCallpermissionRequest) (*CallPermission, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1454,7 +1454,7 @@ func (a *CallpermissionsAPIService) GetCallpermissionExecute(r ApiGetCallpermiss
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListCallpermissionsRequest struct {
+type CallpermissionsAPIListCallpermissionsRequest struct {
 	ctx          context.Context
 	ApiService   CallpermissionsAPI
 	accentTenant *string
@@ -1467,48 +1467,48 @@ type ApiListCallpermissionsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListCallpermissionsRequest) AccentTenant(accentTenant string) ApiListCallpermissionsRequest {
+func (r CallpermissionsAPIListCallpermissionsRequest) AccentTenant(accentTenant string) CallpermissionsAPIListCallpermissionsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListCallpermissionsRequest) Recurse(recurse bool) ApiListCallpermissionsRequest {
+func (r CallpermissionsAPIListCallpermissionsRequest) Recurse(recurse bool) CallpermissionsAPIListCallpermissionsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListCallpermissionsRequest) Order(order string) ApiListCallpermissionsRequest {
+func (r CallpermissionsAPIListCallpermissionsRequest) Order(order string) CallpermissionsAPIListCallpermissionsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListCallpermissionsRequest) Direction(direction string) ApiListCallpermissionsRequest {
+func (r CallpermissionsAPIListCallpermissionsRequest) Direction(direction string) CallpermissionsAPIListCallpermissionsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListCallpermissionsRequest) Limit(limit int32) ApiListCallpermissionsRequest {
+func (r CallpermissionsAPIListCallpermissionsRequest) Limit(limit int32) CallpermissionsAPIListCallpermissionsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListCallpermissionsRequest) Offset(offset int32) ApiListCallpermissionsRequest {
+func (r CallpermissionsAPIListCallpermissionsRequest) Offset(offset int32) CallpermissionsAPIListCallpermissionsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListCallpermissionsRequest) Search(search string) ApiListCallpermissionsRequest {
+func (r CallpermissionsAPIListCallpermissionsRequest) Search(search string) CallpermissionsAPIListCallpermissionsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListCallpermissionsRequest) Execute() (*CallPermissionItems, *http.Response, error) {
+func (r CallpermissionsAPIListCallpermissionsRequest) Execute() (*CallPermissionItems, *http.Response, error) {
 	return r.ApiService.ListCallpermissionsExecute(r)
 }
 
@@ -1518,10 +1518,10 @@ ListCallpermissions List call permissions
 **Required ACL:** `confd.callpermissions.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListCallpermissionsRequest
+	@return CallpermissionsAPIListCallpermissionsRequest
 */
-func (a *CallpermissionsAPIService) ListCallpermissions(ctx context.Context) ApiListCallpermissionsRequest {
-	return ApiListCallpermissionsRequest{
+func (a *CallpermissionsAPIService) ListCallpermissions(ctx context.Context) CallpermissionsAPIListCallpermissionsRequest {
+	return CallpermissionsAPIListCallpermissionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1530,7 +1530,7 @@ func (a *CallpermissionsAPIService) ListCallpermissions(ctx context.Context) Api
 // Execute executes the request
 //
 //	@return CallPermissionItems
-func (a *CallpermissionsAPIService) ListCallpermissionsExecute(r ApiListCallpermissionsRequest) (*CallPermissionItems, *http.Response, error) {
+func (a *CallpermissionsAPIService) ListCallpermissionsExecute(r CallpermissionsAPIListCallpermissionsRequest) (*CallPermissionItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1641,7 +1641,7 @@ func (a *CallpermissionsAPIService) ListCallpermissionsExecute(r ApiListCallperm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallpermissionRequest struct {
+type CallpermissionsAPIUpdateCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       CallpermissionsAPI
 	body             *CallPermission
@@ -1649,18 +1649,18 @@ type ApiUpdateCallpermissionRequest struct {
 	accentTenant     *string
 }
 
-func (r ApiUpdateCallpermissionRequest) Body(body CallPermission) ApiUpdateCallpermissionRequest {
+func (r CallpermissionsAPIUpdateCallpermissionRequest) Body(body CallPermission) CallpermissionsAPIUpdateCallpermissionRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallpermissionRequest) AccentTenant(accentTenant string) ApiUpdateCallpermissionRequest {
+func (r CallpermissionsAPIUpdateCallpermissionRequest) AccentTenant(accentTenant string) CallpermissionsAPIUpdateCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallpermissionRequest) Execute() (*http.Response, error) {
+func (r CallpermissionsAPIUpdateCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallpermissionExecute(r)
 }
 
@@ -1671,10 +1671,10 @@ UpdateCallpermission Update call permission
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpermissionId Call Permission's ID
-	@return ApiUpdateCallpermissionRequest
+	@return CallpermissionsAPIUpdateCallpermissionRequest
 */
-func (a *CallpermissionsAPIService) UpdateCallpermission(ctx context.Context, callpermissionId int32) ApiUpdateCallpermissionRequest {
-	return ApiUpdateCallpermissionRequest{
+func (a *CallpermissionsAPIService) UpdateCallpermission(ctx context.Context, callpermissionId int32) CallpermissionsAPIUpdateCallpermissionRequest {
+	return CallpermissionsAPIUpdateCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		callpermissionId: callpermissionId,
@@ -1682,7 +1682,7 @@ func (a *CallpermissionsAPIService) UpdateCallpermission(ctx context.Context, ca
 }
 
 // Execute executes the request
-func (a *CallpermissionsAPIService) UpdateCallpermissionExecute(r ApiUpdateCallpermissionRequest) (*http.Response, error) {
+func (a *CallpermissionsAPIService) UpdateCallpermissionExecute(r CallpermissionsAPIUpdateCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

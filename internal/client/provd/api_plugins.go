@@ -29,12 +29,12 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param operationId Operation In Progress ID
-		@return ApiDeletePgMgrInstallRequest
+		@return PluginsAPIDeletePgMgrInstallRequest
 	*/
-	DeletePgMgrInstall(ctx context.Context, operationId string) ApiDeletePgMgrInstallRequest
+	DeletePgMgrInstall(ctx context.Context, operationId string) PluginsAPIDeletePgMgrInstallRequest
 
 	// DeletePgMgrInstallExecute executes the request
-	DeletePgMgrInstallExecute(r ApiDeletePgMgrInstallRequest) (*http.Response, error)
+	DeletePgMgrInstallExecute(r PluginsAPIDeletePgMgrInstallRequest) (*http.Response, error)
 
 	/*
 		DeletePgMgrInstallMonitor Delete the Operation In Progress
@@ -44,12 +44,12 @@ type PluginsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
 		@param operationId Operation In Progress ID
-		@return ApiDeletePgMgrInstallMonitorRequest
+		@return PluginsAPIDeletePgMgrInstallMonitorRequest
 	*/
-	DeletePgMgrInstallMonitor(ctx context.Context, pluginId string, operationId string) ApiDeletePgMgrInstallMonitorRequest
+	DeletePgMgrInstallMonitor(ctx context.Context, pluginId string, operationId string) PluginsAPIDeletePgMgrInstallMonitorRequest
 
 	// DeletePgMgrInstallMonitorExecute executes the request
-	DeletePgMgrInstallMonitorExecute(r ApiDeletePgMgrInstallMonitorRequest) (*http.Response, error)
+	DeletePgMgrInstallMonitorExecute(r PluginsAPIDeletePgMgrInstallMonitorRequest) (*http.Response, error)
 
 	/*
 		DeletePgMgrMonitor Delete the Operation In Progress
@@ -58,12 +58,12 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param operationId Operation In Progress ID
-		@return ApiDeletePgMgrMonitorRequest
+		@return PluginsAPIDeletePgMgrMonitorRequest
 	*/
-	DeletePgMgrMonitor(ctx context.Context, operationId string) ApiDeletePgMgrMonitorRequest
+	DeletePgMgrMonitor(ctx context.Context, operationId string) PluginsAPIDeletePgMgrMonitorRequest
 
 	// DeletePgMgrMonitorExecute executes the request
-	DeletePgMgrMonitorExecute(r ApiDeletePgMgrMonitorRequest) (*http.Response, error)
+	DeletePgMgrMonitorExecute(r PluginsAPIDeletePgMgrMonitorRequest) (*http.Response, error)
 
 	/*
 		DeletePgMgrPluginUpgradeMonitor Delete the Operation In Progress
@@ -73,12 +73,12 @@ type PluginsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
 		@param operationId Operation In Progress ID
-		@return ApiDeletePgMgrPluginUpgradeMonitorRequest
+		@return PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest
 	*/
-	DeletePgMgrPluginUpgradeMonitor(ctx context.Context, pluginId string, operationId string) ApiDeletePgMgrPluginUpgradeMonitorRequest
+	DeletePgMgrPluginUpgradeMonitor(ctx context.Context, pluginId string, operationId string) PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest
 
 	// DeletePgMgrPluginUpgradeMonitorExecute executes the request
-	DeletePgMgrPluginUpgradeMonitorExecute(r ApiDeletePgMgrPluginUpgradeMonitorRequest) (*http.Response, error)
+	DeletePgMgrPluginUpgradeMonitorExecute(r PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest) (*http.Response, error)
 
 	/*
 		DeletePgMgrUpgradeMonitor Delete the Operation In Progress
@@ -87,12 +87,12 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param operationId Operation In Progress ID
-		@return ApiDeletePgMgrUpgradeMonitorRequest
+		@return PluginsAPIDeletePgMgrUpgradeMonitorRequest
 	*/
-	DeletePgMgrUpgradeMonitor(ctx context.Context, operationId string) ApiDeletePgMgrUpgradeMonitorRequest
+	DeletePgMgrUpgradeMonitor(ctx context.Context, operationId string) PluginsAPIDeletePgMgrUpgradeMonitorRequest
 
 	// DeletePgMgrUpgradeMonitorExecute executes the request
-	DeletePgMgrUpgradeMonitorExecute(r ApiDeletePgMgrUpgradeMonitorRequest) (*http.Response, error)
+	DeletePgMgrUpgradeMonitorExecute(r PluginsAPIDeletePgMgrUpgradeMonitorRequest) (*http.Response, error)
 
 	/*
 		GetPgMgr Get the Plugin Manager resource
@@ -100,13 +100,13 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.read` The plugin manager resource represents the entry point to the accent-provd plugin REST API
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetPgMgrRequest
+		@return PluginsAPIGetPgMgrRequest
 	*/
-	GetPgMgr(ctx context.Context) ApiGetPgMgrRequest
+	GetPgMgr(ctx context.Context) PluginsAPIGetPgMgrRequest
 
 	// GetPgMgrExecute executes the request
 	//  @return LinksObject
-	GetPgMgrExecute(r ApiGetPgMgrRequest) (*LinksObject, *http.Response, error)
+	GetPgMgrExecute(r PluginsAPIGetPgMgrRequest) (*LinksObject, *http.Response, error)
 
 	/*
 		GetPgMgrInstall Get the installation service resources
@@ -114,13 +114,13 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.install.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetPgMgrInstallRequest
+		@return PluginsAPIGetPgMgrInstallRequest
 	*/
-	GetPgMgrInstall(ctx context.Context) ApiGetPgMgrInstallRequest
+	GetPgMgrInstall(ctx context.Context) PluginsAPIGetPgMgrInstallRequest
 
 	// GetPgMgrInstallExecute executes the request
 	//  @return LinksObject
-	GetPgMgrInstallExecute(r ApiGetPgMgrInstallRequest) (*LinksObject, *http.Response, error)
+	GetPgMgrInstallExecute(r PluginsAPIGetPgMgrInstallRequest) (*LinksObject, *http.Response, error)
 
 	/*
 		GetPgMgrInstallStatus Get the status of a plugin installation Operation In Progress
@@ -129,13 +129,13 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param operationId Operation In Progress ID
-		@return ApiGetPgMgrInstallStatusRequest
+		@return PluginsAPIGetPgMgrInstallStatusRequest
 	*/
-	GetPgMgrInstallStatus(ctx context.Context, operationId string) ApiGetPgMgrInstallStatusRequest
+	GetPgMgrInstallStatus(ctx context.Context, operationId string) PluginsAPIGetPgMgrInstallStatusRequest
 
 	// GetPgMgrInstallStatusExecute executes the request
 	//  @return OperationInProgressObject
-	GetPgMgrInstallStatusExecute(r ApiGetPgMgrInstallStatusRequest) (*OperationInProgressObject, *http.Response, error)
+	GetPgMgrInstallStatusExecute(r PluginsAPIGetPgMgrInstallStatusRequest) (*OperationInProgressObject, *http.Response, error)
 
 	/*
 		GetPgMgrInstallable Get the installable plugins list
@@ -143,13 +143,13 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.install.installable.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetPgMgrInstallableRequest
+		@return PluginsAPIGetPgMgrInstallableRequest
 	*/
-	GetPgMgrInstallable(ctx context.Context) ApiGetPgMgrInstallableRequest
+	GetPgMgrInstallable(ctx context.Context) PluginsAPIGetPgMgrInstallableRequest
 
 	// GetPgMgrInstallableExecute executes the request
 	//  @return PackageList
-	GetPgMgrInstallableExecute(r ApiGetPgMgrInstallableRequest) (*PackageList, *http.Response, error)
+	GetPgMgrInstallableExecute(r PluginsAPIGetPgMgrInstallableRequest) (*PackageList, *http.Response, error)
 
 	/*
 		GetPgMgrInstallableList Get the installable packages list
@@ -158,13 +158,13 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
-		@return ApiGetPgMgrInstallableListRequest
+		@return PluginsAPIGetPgMgrInstallableListRequest
 	*/
-	GetPgMgrInstallableList(ctx context.Context, pluginId string) ApiGetPgMgrInstallableListRequest
+	GetPgMgrInstallableList(ctx context.Context, pluginId string) PluginsAPIGetPgMgrInstallableListRequest
 
 	// GetPgMgrInstallableListExecute executes the request
 	//  @return PackageList
-	GetPgMgrInstallableListExecute(r ApiGetPgMgrInstallableListRequest) (*PackageList, *http.Response, error)
+	GetPgMgrInstallableListExecute(r PluginsAPIGetPgMgrInstallableListRequest) (*PackageList, *http.Response, error)
 
 	/*
 		GetPgMgrInstalled Get the installed plugins list
@@ -172,13 +172,13 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.install.installed.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetPgMgrInstalledRequest
+		@return PluginsAPIGetPgMgrInstalledRequest
 	*/
-	GetPgMgrInstalled(ctx context.Context) ApiGetPgMgrInstalledRequest
+	GetPgMgrInstalled(ctx context.Context) PluginsAPIGetPgMgrInstalledRequest
 
 	// GetPgMgrInstalledExecute executes the request
 	//  @return PackageList
-	GetPgMgrInstalledExecute(r ApiGetPgMgrInstalledRequest) (*PackageList, *http.Response, error)
+	GetPgMgrInstalledExecute(r PluginsAPIGetPgMgrInstalledRequest) (*PackageList, *http.Response, error)
 
 	/*
 		GetPgMgrInstalledList Get the installed packages list
@@ -187,13 +187,13 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
-		@return ApiGetPgMgrInstalledListRequest
+		@return PluginsAPIGetPgMgrInstalledListRequest
 	*/
-	GetPgMgrInstalledList(ctx context.Context, pluginId string) ApiGetPgMgrInstalledListRequest
+	GetPgMgrInstalledList(ctx context.Context, pluginId string) PluginsAPIGetPgMgrInstalledListRequest
 
 	// GetPgMgrInstalledListExecute executes the request
 	//  @return PackageList
-	GetPgMgrInstalledListExecute(r ApiGetPgMgrInstalledListRequest) (*PackageList, *http.Response, error)
+	GetPgMgrInstalledListExecute(r PluginsAPIGetPgMgrInstalledListRequest) (*PackageList, *http.Response, error)
 
 	/*
 		GetPgMgrPlugin Get the resources of a specific plugin
@@ -202,13 +202,13 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
-		@return ApiGetPgMgrPluginRequest
+		@return PluginsAPIGetPgMgrPluginRequest
 	*/
-	GetPgMgrPlugin(ctx context.Context, pluginId string) ApiGetPgMgrPluginRequest
+	GetPgMgrPlugin(ctx context.Context, pluginId string) PluginsAPIGetPgMgrPluginRequest
 
 	// GetPgMgrPluginExecute executes the request
 	//  @return LinksObject
-	GetPgMgrPluginExecute(r ApiGetPgMgrPluginRequest) (*LinksObject, *http.Response, error)
+	GetPgMgrPluginExecute(r PluginsAPIGetPgMgrPluginRequest) (*LinksObject, *http.Response, error)
 
 	/*
 		GetPgMgrPluginInfo Get the information of a plugin
@@ -217,13 +217,13 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
-		@return ApiGetPgMgrPluginInfoRequest
+		@return PluginsAPIGetPgMgrPluginInfoRequest
 	*/
-	GetPgMgrPluginInfo(ctx context.Context, pluginId string) ApiGetPgMgrPluginInfoRequest
+	GetPgMgrPluginInfo(ctx context.Context, pluginId string) PluginsAPIGetPgMgrPluginInfoRequest
 
 	// GetPgMgrPluginInfoExecute executes the request
 	//  @return PluginInfo
-	GetPgMgrPluginInfoExecute(r ApiGetPgMgrPluginInfoRequest) (*PluginInfo, *http.Response, error)
+	GetPgMgrPluginInfoExecute(r PluginsAPIGetPgMgrPluginInfoRequest) (*PluginInfo, *http.Response, error)
 
 	/*
 		GetPgMgrPluginInstall Get the package installation service resources
@@ -232,13 +232,13 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
-		@return ApiGetPgMgrPluginInstallRequest
+		@return PluginsAPIGetPgMgrPluginInstallRequest
 	*/
-	GetPgMgrPluginInstall(ctx context.Context, pluginId string) ApiGetPgMgrPluginInstallRequest
+	GetPgMgrPluginInstall(ctx context.Context, pluginId string) PluginsAPIGetPgMgrPluginInstallRequest
 
 	// GetPgMgrPluginInstallExecute executes the request
 	//  @return LinksObject
-	GetPgMgrPluginInstallExecute(r ApiGetPgMgrPluginInstallRequest) (*LinksObject, *http.Response, error)
+	GetPgMgrPluginInstallExecute(r PluginsAPIGetPgMgrPluginInstallRequest) (*LinksObject, *http.Response, error)
 
 	/*
 		GetPgMgrPluginInstallStatus Get the status of a package installation Operation In Progress
@@ -248,13 +248,13 @@ type PluginsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
 		@param operationId Operation In Progress ID
-		@return ApiGetPgMgrPluginInstallStatusRequest
+		@return PluginsAPIGetPgMgrPluginInstallStatusRequest
 	*/
-	GetPgMgrPluginInstallStatus(ctx context.Context, pluginId string, operationId string) ApiGetPgMgrPluginInstallStatusRequest
+	GetPgMgrPluginInstallStatus(ctx context.Context, pluginId string, operationId string) PluginsAPIGetPgMgrPluginInstallStatusRequest
 
 	// GetPgMgrPluginInstallStatusExecute executes the request
 	//  @return OperationInProgressObject
-	GetPgMgrPluginInstallStatusExecute(r ApiGetPgMgrPluginInstallStatusRequest) (*OperationInProgressObject, *http.Response, error)
+	GetPgMgrPluginInstallStatusExecute(r PluginsAPIGetPgMgrPluginInstallStatusRequest) (*OperationInProgressObject, *http.Response, error)
 
 	/*
 		GetPgMgrPluginUpgradeStatus Get the status of a package upgrade Operation In Progress
@@ -264,13 +264,13 @@ type PluginsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
 		@param operationId Operation In Progress ID
-		@return ApiGetPgMgrPluginUpgradeStatusRequest
+		@return PluginsAPIGetPgMgrPluginUpgradeStatusRequest
 	*/
-	GetPgMgrPluginUpgradeStatus(ctx context.Context, pluginId string, operationId string) ApiGetPgMgrPluginUpgradeStatusRequest
+	GetPgMgrPluginUpgradeStatus(ctx context.Context, pluginId string, operationId string) PluginsAPIGetPgMgrPluginUpgradeStatusRequest
 
 	// GetPgMgrPluginUpgradeStatusExecute executes the request
 	//  @return OperationInProgressObject
-	GetPgMgrPluginUpgradeStatusExecute(r ApiGetPgMgrPluginUpgradeStatusRequest) (*OperationInProgressObject, *http.Response, error)
+	GetPgMgrPluginUpgradeStatusExecute(r PluginsAPIGetPgMgrPluginUpgradeStatusRequest) (*OperationInProgressObject, *http.Response, error)
 
 	/*
 		GetPgMgrPlugins List the installed plugins
@@ -278,13 +278,13 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.plugins.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetPgMgrPluginsRequest
+		@return PluginsAPIGetPgMgrPluginsRequest
 	*/
-	GetPgMgrPlugins(ctx context.Context) ApiGetPgMgrPluginsRequest
+	GetPgMgrPlugins(ctx context.Context) PluginsAPIGetPgMgrPluginsRequest
 
 	// GetPgMgrPluginsExecute executes the request
 	//  @return PluginsObject
-	GetPgMgrPluginsExecute(r ApiGetPgMgrPluginsRequest) (*PluginsObject, *http.Response, error)
+	GetPgMgrPluginsExecute(r PluginsAPIGetPgMgrPluginsRequest) (*PluginsObject, *http.Response, error)
 
 	/*
 		GetPgMgrUpdateStatus Get the status of a plugin database update Operation In Progress
@@ -293,13 +293,13 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param operationId Operation In Progress ID
-		@return ApiGetPgMgrUpdateStatusRequest
+		@return PluginsAPIGetPgMgrUpdateStatusRequest
 	*/
-	GetPgMgrUpdateStatus(ctx context.Context, operationId string) ApiGetPgMgrUpdateStatusRequest
+	GetPgMgrUpdateStatus(ctx context.Context, operationId string) PluginsAPIGetPgMgrUpdateStatusRequest
 
 	// GetPgMgrUpdateStatusExecute executes the request
 	//  @return OperationInProgressObject
-	GetPgMgrUpdateStatusExecute(r ApiGetPgMgrUpdateStatusRequest) (*OperationInProgressObject, *http.Response, error)
+	GetPgMgrUpdateStatusExecute(r PluginsAPIGetPgMgrUpdateStatusRequest) (*OperationInProgressObject, *http.Response, error)
 
 	/*
 		GetPgMgrUpgradeStatus Get the status of a plugin upgrade Operation In Progress
@@ -308,13 +308,13 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param operationId Operation In Progress ID
-		@return ApiGetPgMgrUpgradeStatusRequest
+		@return PluginsAPIGetPgMgrUpgradeStatusRequest
 	*/
-	GetPgMgrUpgradeStatus(ctx context.Context, operationId string) ApiGetPgMgrUpgradeStatusRequest
+	GetPgMgrUpgradeStatus(ctx context.Context, operationId string) PluginsAPIGetPgMgrUpgradeStatusRequest
 
 	// GetPgMgrUpgradeStatusExecute executes the request
 	//  @return OperationInProgressObject
-	GetPgMgrUpgradeStatusExecute(r ApiGetPgMgrUpgradeStatusRequest) (*OperationInProgressObject, *http.Response, error)
+	GetPgMgrUpgradeStatusExecute(r PluginsAPIGetPgMgrUpgradeStatusRequest) (*OperationInProgressObject, *http.Response, error)
 
 	/*
 		PostPgMgrInstallPlugin Install a plugin
@@ -322,12 +322,12 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.install.install.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostPgMgrInstallPluginRequest
+		@return PluginsAPIPostPgMgrInstallPluginRequest
 	*/
-	PostPgMgrInstallPlugin(ctx context.Context) ApiPostPgMgrInstallPluginRequest
+	PostPgMgrInstallPlugin(ctx context.Context) PluginsAPIPostPgMgrInstallPluginRequest
 
 	// PostPgMgrInstallPluginExecute executes the request
-	PostPgMgrInstallPluginExecute(r ApiPostPgMgrInstallPluginRequest) (*http.Response, error)
+	PostPgMgrInstallPluginExecute(r PluginsAPIPostPgMgrInstallPluginRequest) (*http.Response, error)
 
 	/*
 		PostPgMgrPluginInstallPlugin Install a package
@@ -336,12 +336,12 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
-		@return ApiPostPgMgrPluginInstallPluginRequest
+		@return PluginsAPIPostPgMgrPluginInstallPluginRequest
 	*/
-	PostPgMgrPluginInstallPlugin(ctx context.Context, pluginId string) ApiPostPgMgrPluginInstallPluginRequest
+	PostPgMgrPluginInstallPlugin(ctx context.Context, pluginId string) PluginsAPIPostPgMgrPluginInstallPluginRequest
 
 	// PostPgMgrPluginInstallPluginExecute executes the request
-	PostPgMgrPluginInstallPluginExecute(r ApiPostPgMgrPluginInstallPluginRequest) (*http.Response, error)
+	PostPgMgrPluginInstallPluginExecute(r PluginsAPIPostPgMgrPluginInstallPluginRequest) (*http.Response, error)
 
 	/*
 		PostPgMgrPluginUninstallPlugin Uninstall a package
@@ -350,12 +350,12 @@ type PluginsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pluginId Plugin ID
-		@return ApiPostPgMgrPluginUninstallPluginRequest
+		@return PluginsAPIPostPgMgrPluginUninstallPluginRequest
 	*/
-	PostPgMgrPluginUninstallPlugin(ctx context.Context, pluginId string) ApiPostPgMgrPluginUninstallPluginRequest
+	PostPgMgrPluginUninstallPlugin(ctx context.Context, pluginId string) PluginsAPIPostPgMgrPluginUninstallPluginRequest
 
 	// PostPgMgrPluginUninstallPluginExecute executes the request
-	PostPgMgrPluginUninstallPluginExecute(r ApiPostPgMgrPluginUninstallPluginRequest) (*http.Response, error)
+	PostPgMgrPluginUninstallPluginExecute(r PluginsAPIPostPgMgrPluginUninstallPluginRequest) (*http.Response, error)
 
 	/*
 		PostPgMgrReload Reload a plugin
@@ -363,12 +363,12 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.reload.create` This is mostly useful during plugin development, after changing the code of the plugin, instead of restarting the accent-provd application
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostPgMgrReloadRequest
+		@return PluginsAPIPostPgMgrReloadRequest
 	*/
-	PostPgMgrReload(ctx context.Context) ApiPostPgMgrReloadRequest
+	PostPgMgrReload(ctx context.Context) PluginsAPIPostPgMgrReloadRequest
 
 	// PostPgMgrReloadExecute executes the request
-	PostPgMgrReloadExecute(r ApiPostPgMgrReloadRequest) (*http.Response, error)
+	PostPgMgrReloadExecute(r PluginsAPIPostPgMgrReloadRequest) (*http.Response, error)
 
 	/*
 		PostPgMgrUninstallPlugin Uninstall a plugin
@@ -376,12 +376,12 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.install.uninstall.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostPgMgrUninstallPluginRequest
+		@return PluginsAPIPostPgMgrUninstallPluginRequest
 	*/
-	PostPgMgrUninstallPlugin(ctx context.Context) ApiPostPgMgrUninstallPluginRequest
+	PostPgMgrUninstallPlugin(ctx context.Context) PluginsAPIPostPgMgrUninstallPluginRequest
 
 	// PostPgMgrUninstallPluginExecute executes the request
-	PostPgMgrUninstallPluginExecute(r ApiPostPgMgrUninstallPluginRequest) (*http.Response, error)
+	PostPgMgrUninstallPluginExecute(r PluginsAPIPostPgMgrUninstallPluginRequest) (*http.Response, error)
 
 	/*
 		PostPgMgrUpdateList Update the List of installable plugins
@@ -389,12 +389,12 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.install.update.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostPgMgrUpdateListRequest
+		@return PluginsAPIPostPgMgrUpdateListRequest
 	*/
-	PostPgMgrUpdateList(ctx context.Context) ApiPostPgMgrUpdateListRequest
+	PostPgMgrUpdateList(ctx context.Context) PluginsAPIPostPgMgrUpdateListRequest
 
 	// PostPgMgrUpdateListExecute executes the request
-	PostPgMgrUpdateListExecute(r ApiPostPgMgrUpdateListRequest) (*http.Response, error)
+	PostPgMgrUpdateListExecute(r PluginsAPIPostPgMgrUpdateListRequest) (*http.Response, error)
 
 	/*
 		PostPgMgrUpgradePlugin Upgrade a plugin
@@ -402,24 +402,24 @@ type PluginsAPI interface {
 		**Required ACL:** `provd.pg_mgr.install.upgrade.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostPgMgrUpgradePluginRequest
+		@return PluginsAPIPostPgMgrUpgradePluginRequest
 	*/
-	PostPgMgrUpgradePlugin(ctx context.Context) ApiPostPgMgrUpgradePluginRequest
+	PostPgMgrUpgradePlugin(ctx context.Context) PluginsAPIPostPgMgrUpgradePluginRequest
 
 	// PostPgMgrUpgradePluginExecute executes the request
-	PostPgMgrUpgradePluginExecute(r ApiPostPgMgrUpgradePluginRequest) (*http.Response, error)
+	PostPgMgrUpgradePluginExecute(r PluginsAPIPostPgMgrUpgradePluginRequest) (*http.Response, error)
 }
 
 // PluginsAPIService PluginsAPI service
 type PluginsAPIService service
 
-type ApiDeletePgMgrInstallRequest struct {
+type PluginsAPIDeletePgMgrInstallRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	operationId string
 }
 
-func (r ApiDeletePgMgrInstallRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIDeletePgMgrInstallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePgMgrInstallExecute(r)
 }
 
@@ -430,10 +430,10 @@ DeletePgMgrInstall Delete the Operation In Progress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId Operation In Progress ID
-	@return ApiDeletePgMgrInstallRequest
+	@return PluginsAPIDeletePgMgrInstallRequest
 */
-func (a *PluginsAPIService) DeletePgMgrInstall(ctx context.Context, operationId string) ApiDeletePgMgrInstallRequest {
-	return ApiDeletePgMgrInstallRequest{
+func (a *PluginsAPIService) DeletePgMgrInstall(ctx context.Context, operationId string) PluginsAPIDeletePgMgrInstallRequest {
+	return PluginsAPIDeletePgMgrInstallRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		operationId: operationId,
@@ -441,7 +441,7 @@ func (a *PluginsAPIService) DeletePgMgrInstall(ctx context.Context, operationId 
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) DeletePgMgrInstallExecute(r ApiDeletePgMgrInstallRequest) (*http.Response, error) {
+func (a *PluginsAPIService) DeletePgMgrInstallExecute(r PluginsAPIDeletePgMgrInstallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -529,14 +529,14 @@ func (a *PluginsAPIService) DeletePgMgrInstallExecute(r ApiDeletePgMgrInstallReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeletePgMgrInstallMonitorRequest struct {
+type PluginsAPIDeletePgMgrInstallMonitorRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	pluginId    string
 	operationId string
 }
 
-func (r ApiDeletePgMgrInstallMonitorRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIDeletePgMgrInstallMonitorRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePgMgrInstallMonitorExecute(r)
 }
 
@@ -548,10 +548,10 @@ DeletePgMgrInstallMonitor Delete the Operation In Progress
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
 	@param operationId Operation In Progress ID
-	@return ApiDeletePgMgrInstallMonitorRequest
+	@return PluginsAPIDeletePgMgrInstallMonitorRequest
 */
-func (a *PluginsAPIService) DeletePgMgrInstallMonitor(ctx context.Context, pluginId string, operationId string) ApiDeletePgMgrInstallMonitorRequest {
-	return ApiDeletePgMgrInstallMonitorRequest{
+func (a *PluginsAPIService) DeletePgMgrInstallMonitor(ctx context.Context, pluginId string, operationId string) PluginsAPIDeletePgMgrInstallMonitorRequest {
+	return PluginsAPIDeletePgMgrInstallMonitorRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		pluginId:    pluginId,
@@ -560,7 +560,7 @@ func (a *PluginsAPIService) DeletePgMgrInstallMonitor(ctx context.Context, plugi
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) DeletePgMgrInstallMonitorExecute(r ApiDeletePgMgrInstallMonitorRequest) (*http.Response, error) {
+func (a *PluginsAPIService) DeletePgMgrInstallMonitorExecute(r PluginsAPIDeletePgMgrInstallMonitorRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -649,13 +649,13 @@ func (a *PluginsAPIService) DeletePgMgrInstallMonitorExecute(r ApiDeletePgMgrIns
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeletePgMgrMonitorRequest struct {
+type PluginsAPIDeletePgMgrMonitorRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	operationId string
 }
 
-func (r ApiDeletePgMgrMonitorRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIDeletePgMgrMonitorRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePgMgrMonitorExecute(r)
 }
 
@@ -666,10 +666,10 @@ DeletePgMgrMonitor Delete the Operation In Progress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId Operation In Progress ID
-	@return ApiDeletePgMgrMonitorRequest
+	@return PluginsAPIDeletePgMgrMonitorRequest
 */
-func (a *PluginsAPIService) DeletePgMgrMonitor(ctx context.Context, operationId string) ApiDeletePgMgrMonitorRequest {
-	return ApiDeletePgMgrMonitorRequest{
+func (a *PluginsAPIService) DeletePgMgrMonitor(ctx context.Context, operationId string) PluginsAPIDeletePgMgrMonitorRequest {
+	return PluginsAPIDeletePgMgrMonitorRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		operationId: operationId,
@@ -677,7 +677,7 @@ func (a *PluginsAPIService) DeletePgMgrMonitor(ctx context.Context, operationId 
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) DeletePgMgrMonitorExecute(r ApiDeletePgMgrMonitorRequest) (*http.Response, error) {
+func (a *PluginsAPIService) DeletePgMgrMonitorExecute(r PluginsAPIDeletePgMgrMonitorRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -765,14 +765,14 @@ func (a *PluginsAPIService) DeletePgMgrMonitorExecute(r ApiDeletePgMgrMonitorReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeletePgMgrPluginUpgradeMonitorRequest struct {
+type PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	pluginId    string
 	operationId string
 }
 
-func (r ApiDeletePgMgrPluginUpgradeMonitorRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePgMgrPluginUpgradeMonitorExecute(r)
 }
 
@@ -784,10 +784,10 @@ DeletePgMgrPluginUpgradeMonitor Delete the Operation In Progress
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
 	@param operationId Operation In Progress ID
-	@return ApiDeletePgMgrPluginUpgradeMonitorRequest
+	@return PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest
 */
-func (a *PluginsAPIService) DeletePgMgrPluginUpgradeMonitor(ctx context.Context, pluginId string, operationId string) ApiDeletePgMgrPluginUpgradeMonitorRequest {
-	return ApiDeletePgMgrPluginUpgradeMonitorRequest{
+func (a *PluginsAPIService) DeletePgMgrPluginUpgradeMonitor(ctx context.Context, pluginId string, operationId string) PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest {
+	return PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		pluginId:    pluginId,
@@ -796,7 +796,7 @@ func (a *PluginsAPIService) DeletePgMgrPluginUpgradeMonitor(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) DeletePgMgrPluginUpgradeMonitorExecute(r ApiDeletePgMgrPluginUpgradeMonitorRequest) (*http.Response, error) {
+func (a *PluginsAPIService) DeletePgMgrPluginUpgradeMonitorExecute(r PluginsAPIDeletePgMgrPluginUpgradeMonitorRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -885,13 +885,13 @@ func (a *PluginsAPIService) DeletePgMgrPluginUpgradeMonitorExecute(r ApiDeletePg
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeletePgMgrUpgradeMonitorRequest struct {
+type PluginsAPIDeletePgMgrUpgradeMonitorRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	operationId string
 }
 
-func (r ApiDeletePgMgrUpgradeMonitorRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIDeletePgMgrUpgradeMonitorRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePgMgrUpgradeMonitorExecute(r)
 }
 
@@ -902,10 +902,10 @@ DeletePgMgrUpgradeMonitor Delete the Operation In Progress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId Operation In Progress ID
-	@return ApiDeletePgMgrUpgradeMonitorRequest
+	@return PluginsAPIDeletePgMgrUpgradeMonitorRequest
 */
-func (a *PluginsAPIService) DeletePgMgrUpgradeMonitor(ctx context.Context, operationId string) ApiDeletePgMgrUpgradeMonitorRequest {
-	return ApiDeletePgMgrUpgradeMonitorRequest{
+func (a *PluginsAPIService) DeletePgMgrUpgradeMonitor(ctx context.Context, operationId string) PluginsAPIDeletePgMgrUpgradeMonitorRequest {
+	return PluginsAPIDeletePgMgrUpgradeMonitorRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		operationId: operationId,
@@ -913,7 +913,7 @@ func (a *PluginsAPIService) DeletePgMgrUpgradeMonitor(ctx context.Context, opera
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) DeletePgMgrUpgradeMonitorExecute(r ApiDeletePgMgrUpgradeMonitorRequest) (*http.Response, error) {
+func (a *PluginsAPIService) DeletePgMgrUpgradeMonitorExecute(r PluginsAPIDeletePgMgrUpgradeMonitorRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1001,12 +1001,12 @@ func (a *PluginsAPIService) DeletePgMgrUpgradeMonitorExecute(r ApiDeletePgMgrUpg
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrRequest struct {
+type PluginsAPIGetPgMgrRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 }
 
-func (r ApiGetPgMgrRequest) Execute() (*LinksObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrRequest) Execute() (*LinksObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrExecute(r)
 }
 
@@ -1016,10 +1016,10 @@ GetPgMgr Get the Plugin Manager resource
 **Required ACL:** `provd.pg_mgr.read` The plugin manager resource represents the entry point to the accent-provd plugin REST API
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPgMgrRequest
+	@return PluginsAPIGetPgMgrRequest
 */
-func (a *PluginsAPIService) GetPgMgr(ctx context.Context) ApiGetPgMgrRequest {
-	return ApiGetPgMgrRequest{
+func (a *PluginsAPIService) GetPgMgr(ctx context.Context) PluginsAPIGetPgMgrRequest {
+	return PluginsAPIGetPgMgrRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1028,7 +1028,7 @@ func (a *PluginsAPIService) GetPgMgr(ctx context.Context) ApiGetPgMgrRequest {
 // Execute executes the request
 //
 //	@return LinksObject
-func (a *PluginsAPIService) GetPgMgrExecute(r ApiGetPgMgrRequest) (*LinksObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrExecute(r PluginsAPIGetPgMgrRequest) (*LinksObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1115,12 +1115,12 @@ func (a *PluginsAPIService) GetPgMgrExecute(r ApiGetPgMgrRequest) (*LinksObject,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrInstallRequest struct {
+type PluginsAPIGetPgMgrInstallRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 }
 
-func (r ApiGetPgMgrInstallRequest) Execute() (*LinksObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrInstallRequest) Execute() (*LinksObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrInstallExecute(r)
 }
 
@@ -1130,10 +1130,10 @@ GetPgMgrInstall Get the installation service resources
 **Required ACL:** `provd.pg_mgr.install.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPgMgrInstallRequest
+	@return PluginsAPIGetPgMgrInstallRequest
 */
-func (a *PluginsAPIService) GetPgMgrInstall(ctx context.Context) ApiGetPgMgrInstallRequest {
-	return ApiGetPgMgrInstallRequest{
+func (a *PluginsAPIService) GetPgMgrInstall(ctx context.Context) PluginsAPIGetPgMgrInstallRequest {
+	return PluginsAPIGetPgMgrInstallRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1142,7 +1142,7 @@ func (a *PluginsAPIService) GetPgMgrInstall(ctx context.Context) ApiGetPgMgrInst
 // Execute executes the request
 //
 //	@return LinksObject
-func (a *PluginsAPIService) GetPgMgrInstallExecute(r ApiGetPgMgrInstallRequest) (*LinksObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrInstallExecute(r PluginsAPIGetPgMgrInstallRequest) (*LinksObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1229,13 +1229,13 @@ func (a *PluginsAPIService) GetPgMgrInstallExecute(r ApiGetPgMgrInstallRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrInstallStatusRequest struct {
+type PluginsAPIGetPgMgrInstallStatusRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	operationId string
 }
 
-func (r ApiGetPgMgrInstallStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrInstallStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrInstallStatusExecute(r)
 }
 
@@ -1246,10 +1246,10 @@ GetPgMgrInstallStatus Get the status of a plugin installation Operation In Progr
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId Operation In Progress ID
-	@return ApiGetPgMgrInstallStatusRequest
+	@return PluginsAPIGetPgMgrInstallStatusRequest
 */
-func (a *PluginsAPIService) GetPgMgrInstallStatus(ctx context.Context, operationId string) ApiGetPgMgrInstallStatusRequest {
-	return ApiGetPgMgrInstallStatusRequest{
+func (a *PluginsAPIService) GetPgMgrInstallStatus(ctx context.Context, operationId string) PluginsAPIGetPgMgrInstallStatusRequest {
+	return PluginsAPIGetPgMgrInstallStatusRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		operationId: operationId,
@@ -1259,7 +1259,7 @@ func (a *PluginsAPIService) GetPgMgrInstallStatus(ctx context.Context, operation
 // Execute executes the request
 //
 //	@return OperationInProgressObject
-func (a *PluginsAPIService) GetPgMgrInstallStatusExecute(r ApiGetPgMgrInstallStatusRequest) (*OperationInProgressObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrInstallStatusExecute(r PluginsAPIGetPgMgrInstallStatusRequest) (*OperationInProgressObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1357,12 +1357,12 @@ func (a *PluginsAPIService) GetPgMgrInstallStatusExecute(r ApiGetPgMgrInstallSta
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrInstallableRequest struct {
+type PluginsAPIGetPgMgrInstallableRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 }
 
-func (r ApiGetPgMgrInstallableRequest) Execute() (*PackageList, *http.Response, error) {
+func (r PluginsAPIGetPgMgrInstallableRequest) Execute() (*PackageList, *http.Response, error) {
 	return r.ApiService.GetPgMgrInstallableExecute(r)
 }
 
@@ -1372,10 +1372,10 @@ GetPgMgrInstallable Get the installable plugins list
 **Required ACL:** `provd.pg_mgr.install.installable.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPgMgrInstallableRequest
+	@return PluginsAPIGetPgMgrInstallableRequest
 */
-func (a *PluginsAPIService) GetPgMgrInstallable(ctx context.Context) ApiGetPgMgrInstallableRequest {
-	return ApiGetPgMgrInstallableRequest{
+func (a *PluginsAPIService) GetPgMgrInstallable(ctx context.Context) PluginsAPIGetPgMgrInstallableRequest {
+	return PluginsAPIGetPgMgrInstallableRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1384,7 +1384,7 @@ func (a *PluginsAPIService) GetPgMgrInstallable(ctx context.Context) ApiGetPgMgr
 // Execute executes the request
 //
 //	@return PackageList
-func (a *PluginsAPIService) GetPgMgrInstallableExecute(r ApiGetPgMgrInstallableRequest) (*PackageList, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrInstallableExecute(r PluginsAPIGetPgMgrInstallableRequest) (*PackageList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1471,13 +1471,13 @@ func (a *PluginsAPIService) GetPgMgrInstallableExecute(r ApiGetPgMgrInstallableR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrInstallableListRequest struct {
+type PluginsAPIGetPgMgrInstallableListRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	pluginId   string
 }
 
-func (r ApiGetPgMgrInstallableListRequest) Execute() (*PackageList, *http.Response, error) {
+func (r PluginsAPIGetPgMgrInstallableListRequest) Execute() (*PackageList, *http.Response, error) {
 	return r.ApiService.GetPgMgrInstallableListExecute(r)
 }
 
@@ -1488,10 +1488,10 @@ GetPgMgrInstallableList Get the installable packages list
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
-	@return ApiGetPgMgrInstallableListRequest
+	@return PluginsAPIGetPgMgrInstallableListRequest
 */
-func (a *PluginsAPIService) GetPgMgrInstallableList(ctx context.Context, pluginId string) ApiGetPgMgrInstallableListRequest {
-	return ApiGetPgMgrInstallableListRequest{
+func (a *PluginsAPIService) GetPgMgrInstallableList(ctx context.Context, pluginId string) PluginsAPIGetPgMgrInstallableListRequest {
+	return PluginsAPIGetPgMgrInstallableListRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pluginId:   pluginId,
@@ -1501,7 +1501,7 @@ func (a *PluginsAPIService) GetPgMgrInstallableList(ctx context.Context, pluginI
 // Execute executes the request
 //
 //	@return PackageList
-func (a *PluginsAPIService) GetPgMgrInstallableListExecute(r ApiGetPgMgrInstallableListRequest) (*PackageList, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrInstallableListExecute(r PluginsAPIGetPgMgrInstallableListRequest) (*PackageList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1599,12 +1599,12 @@ func (a *PluginsAPIService) GetPgMgrInstallableListExecute(r ApiGetPgMgrInstalla
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrInstalledRequest struct {
+type PluginsAPIGetPgMgrInstalledRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 }
 
-func (r ApiGetPgMgrInstalledRequest) Execute() (*PackageList, *http.Response, error) {
+func (r PluginsAPIGetPgMgrInstalledRequest) Execute() (*PackageList, *http.Response, error) {
 	return r.ApiService.GetPgMgrInstalledExecute(r)
 }
 
@@ -1614,10 +1614,10 @@ GetPgMgrInstalled Get the installed plugins list
 **Required ACL:** `provd.pg_mgr.install.installed.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPgMgrInstalledRequest
+	@return PluginsAPIGetPgMgrInstalledRequest
 */
-func (a *PluginsAPIService) GetPgMgrInstalled(ctx context.Context) ApiGetPgMgrInstalledRequest {
-	return ApiGetPgMgrInstalledRequest{
+func (a *PluginsAPIService) GetPgMgrInstalled(ctx context.Context) PluginsAPIGetPgMgrInstalledRequest {
+	return PluginsAPIGetPgMgrInstalledRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1626,7 +1626,7 @@ func (a *PluginsAPIService) GetPgMgrInstalled(ctx context.Context) ApiGetPgMgrIn
 // Execute executes the request
 //
 //	@return PackageList
-func (a *PluginsAPIService) GetPgMgrInstalledExecute(r ApiGetPgMgrInstalledRequest) (*PackageList, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrInstalledExecute(r PluginsAPIGetPgMgrInstalledRequest) (*PackageList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1713,13 +1713,13 @@ func (a *PluginsAPIService) GetPgMgrInstalledExecute(r ApiGetPgMgrInstalledReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrInstalledListRequest struct {
+type PluginsAPIGetPgMgrInstalledListRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	pluginId   string
 }
 
-func (r ApiGetPgMgrInstalledListRequest) Execute() (*PackageList, *http.Response, error) {
+func (r PluginsAPIGetPgMgrInstalledListRequest) Execute() (*PackageList, *http.Response, error) {
 	return r.ApiService.GetPgMgrInstalledListExecute(r)
 }
 
@@ -1730,10 +1730,10 @@ GetPgMgrInstalledList Get the installed packages list
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
-	@return ApiGetPgMgrInstalledListRequest
+	@return PluginsAPIGetPgMgrInstalledListRequest
 */
-func (a *PluginsAPIService) GetPgMgrInstalledList(ctx context.Context, pluginId string) ApiGetPgMgrInstalledListRequest {
-	return ApiGetPgMgrInstalledListRequest{
+func (a *PluginsAPIService) GetPgMgrInstalledList(ctx context.Context, pluginId string) PluginsAPIGetPgMgrInstalledListRequest {
+	return PluginsAPIGetPgMgrInstalledListRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pluginId:   pluginId,
@@ -1743,7 +1743,7 @@ func (a *PluginsAPIService) GetPgMgrInstalledList(ctx context.Context, pluginId 
 // Execute executes the request
 //
 //	@return PackageList
-func (a *PluginsAPIService) GetPgMgrInstalledListExecute(r ApiGetPgMgrInstalledListRequest) (*PackageList, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrInstalledListExecute(r PluginsAPIGetPgMgrInstalledListRequest) (*PackageList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1841,13 +1841,13 @@ func (a *PluginsAPIService) GetPgMgrInstalledListExecute(r ApiGetPgMgrInstalledL
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrPluginRequest struct {
+type PluginsAPIGetPgMgrPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	pluginId   string
 }
 
-func (r ApiGetPgMgrPluginRequest) Execute() (*LinksObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrPluginRequest) Execute() (*LinksObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrPluginExecute(r)
 }
 
@@ -1858,10 +1858,10 @@ GetPgMgrPlugin Get the resources of a specific plugin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
-	@return ApiGetPgMgrPluginRequest
+	@return PluginsAPIGetPgMgrPluginRequest
 */
-func (a *PluginsAPIService) GetPgMgrPlugin(ctx context.Context, pluginId string) ApiGetPgMgrPluginRequest {
-	return ApiGetPgMgrPluginRequest{
+func (a *PluginsAPIService) GetPgMgrPlugin(ctx context.Context, pluginId string) PluginsAPIGetPgMgrPluginRequest {
+	return PluginsAPIGetPgMgrPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pluginId:   pluginId,
@@ -1871,7 +1871,7 @@ func (a *PluginsAPIService) GetPgMgrPlugin(ctx context.Context, pluginId string)
 // Execute executes the request
 //
 //	@return LinksObject
-func (a *PluginsAPIService) GetPgMgrPluginExecute(r ApiGetPgMgrPluginRequest) (*LinksObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrPluginExecute(r PluginsAPIGetPgMgrPluginRequest) (*LinksObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1969,13 +1969,13 @@ func (a *PluginsAPIService) GetPgMgrPluginExecute(r ApiGetPgMgrPluginRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrPluginInfoRequest struct {
+type PluginsAPIGetPgMgrPluginInfoRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	pluginId   string
 }
 
-func (r ApiGetPgMgrPluginInfoRequest) Execute() (*PluginInfo, *http.Response, error) {
+func (r PluginsAPIGetPgMgrPluginInfoRequest) Execute() (*PluginInfo, *http.Response, error) {
 	return r.ApiService.GetPgMgrPluginInfoExecute(r)
 }
 
@@ -1986,10 +1986,10 @@ GetPgMgrPluginInfo Get the information of a plugin
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
-	@return ApiGetPgMgrPluginInfoRequest
+	@return PluginsAPIGetPgMgrPluginInfoRequest
 */
-func (a *PluginsAPIService) GetPgMgrPluginInfo(ctx context.Context, pluginId string) ApiGetPgMgrPluginInfoRequest {
-	return ApiGetPgMgrPluginInfoRequest{
+func (a *PluginsAPIService) GetPgMgrPluginInfo(ctx context.Context, pluginId string) PluginsAPIGetPgMgrPluginInfoRequest {
+	return PluginsAPIGetPgMgrPluginInfoRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pluginId:   pluginId,
@@ -1999,7 +1999,7 @@ func (a *PluginsAPIService) GetPgMgrPluginInfo(ctx context.Context, pluginId str
 // Execute executes the request
 //
 //	@return PluginInfo
-func (a *PluginsAPIService) GetPgMgrPluginInfoExecute(r ApiGetPgMgrPluginInfoRequest) (*PluginInfo, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrPluginInfoExecute(r PluginsAPIGetPgMgrPluginInfoRequest) (*PluginInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2097,13 +2097,13 @@ func (a *PluginsAPIService) GetPgMgrPluginInfoExecute(r ApiGetPgMgrPluginInfoReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrPluginInstallRequest struct {
+type PluginsAPIGetPgMgrPluginInstallRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	pluginId   string
 }
 
-func (r ApiGetPgMgrPluginInstallRequest) Execute() (*LinksObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrPluginInstallRequest) Execute() (*LinksObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrPluginInstallExecute(r)
 }
 
@@ -2114,10 +2114,10 @@ GetPgMgrPluginInstall Get the package installation service resources
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
-	@return ApiGetPgMgrPluginInstallRequest
+	@return PluginsAPIGetPgMgrPluginInstallRequest
 */
-func (a *PluginsAPIService) GetPgMgrPluginInstall(ctx context.Context, pluginId string) ApiGetPgMgrPluginInstallRequest {
-	return ApiGetPgMgrPluginInstallRequest{
+func (a *PluginsAPIService) GetPgMgrPluginInstall(ctx context.Context, pluginId string) PluginsAPIGetPgMgrPluginInstallRequest {
+	return PluginsAPIGetPgMgrPluginInstallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pluginId:   pluginId,
@@ -2127,7 +2127,7 @@ func (a *PluginsAPIService) GetPgMgrPluginInstall(ctx context.Context, pluginId 
 // Execute executes the request
 //
 //	@return LinksObject
-func (a *PluginsAPIService) GetPgMgrPluginInstallExecute(r ApiGetPgMgrPluginInstallRequest) (*LinksObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrPluginInstallExecute(r PluginsAPIGetPgMgrPluginInstallRequest) (*LinksObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2225,14 +2225,14 @@ func (a *PluginsAPIService) GetPgMgrPluginInstallExecute(r ApiGetPgMgrPluginInst
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrPluginInstallStatusRequest struct {
+type PluginsAPIGetPgMgrPluginInstallStatusRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	pluginId    string
 	operationId string
 }
 
-func (r ApiGetPgMgrPluginInstallStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrPluginInstallStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrPluginInstallStatusExecute(r)
 }
 
@@ -2244,10 +2244,10 @@ GetPgMgrPluginInstallStatus Get the status of a package installation Operation I
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
 	@param operationId Operation In Progress ID
-	@return ApiGetPgMgrPluginInstallStatusRequest
+	@return PluginsAPIGetPgMgrPluginInstallStatusRequest
 */
-func (a *PluginsAPIService) GetPgMgrPluginInstallStatus(ctx context.Context, pluginId string, operationId string) ApiGetPgMgrPluginInstallStatusRequest {
-	return ApiGetPgMgrPluginInstallStatusRequest{
+func (a *PluginsAPIService) GetPgMgrPluginInstallStatus(ctx context.Context, pluginId string, operationId string) PluginsAPIGetPgMgrPluginInstallStatusRequest {
+	return PluginsAPIGetPgMgrPluginInstallStatusRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		pluginId:    pluginId,
@@ -2258,7 +2258,7 @@ func (a *PluginsAPIService) GetPgMgrPluginInstallStatus(ctx context.Context, plu
 // Execute executes the request
 //
 //	@return OperationInProgressObject
-func (a *PluginsAPIService) GetPgMgrPluginInstallStatusExecute(r ApiGetPgMgrPluginInstallStatusRequest) (*OperationInProgressObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrPluginInstallStatusExecute(r PluginsAPIGetPgMgrPluginInstallStatusRequest) (*OperationInProgressObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2357,14 +2357,14 @@ func (a *PluginsAPIService) GetPgMgrPluginInstallStatusExecute(r ApiGetPgMgrPlug
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrPluginUpgradeStatusRequest struct {
+type PluginsAPIGetPgMgrPluginUpgradeStatusRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	pluginId    string
 	operationId string
 }
 
-func (r ApiGetPgMgrPluginUpgradeStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrPluginUpgradeStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrPluginUpgradeStatusExecute(r)
 }
 
@@ -2376,10 +2376,10 @@ GetPgMgrPluginUpgradeStatus Get the status of a package upgrade Operation In Pro
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
 	@param operationId Operation In Progress ID
-	@return ApiGetPgMgrPluginUpgradeStatusRequest
+	@return PluginsAPIGetPgMgrPluginUpgradeStatusRequest
 */
-func (a *PluginsAPIService) GetPgMgrPluginUpgradeStatus(ctx context.Context, pluginId string, operationId string) ApiGetPgMgrPluginUpgradeStatusRequest {
-	return ApiGetPgMgrPluginUpgradeStatusRequest{
+func (a *PluginsAPIService) GetPgMgrPluginUpgradeStatus(ctx context.Context, pluginId string, operationId string) PluginsAPIGetPgMgrPluginUpgradeStatusRequest {
+	return PluginsAPIGetPgMgrPluginUpgradeStatusRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		pluginId:    pluginId,
@@ -2390,7 +2390,7 @@ func (a *PluginsAPIService) GetPgMgrPluginUpgradeStatus(ctx context.Context, plu
 // Execute executes the request
 //
 //	@return OperationInProgressObject
-func (a *PluginsAPIService) GetPgMgrPluginUpgradeStatusExecute(r ApiGetPgMgrPluginUpgradeStatusRequest) (*OperationInProgressObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrPluginUpgradeStatusExecute(r PluginsAPIGetPgMgrPluginUpgradeStatusRequest) (*OperationInProgressObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2489,12 +2489,12 @@ func (a *PluginsAPIService) GetPgMgrPluginUpgradeStatusExecute(r ApiGetPgMgrPlug
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrPluginsRequest struct {
+type PluginsAPIGetPgMgrPluginsRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 }
 
-func (r ApiGetPgMgrPluginsRequest) Execute() (*PluginsObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrPluginsRequest) Execute() (*PluginsObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrPluginsExecute(r)
 }
 
@@ -2504,10 +2504,10 @@ GetPgMgrPlugins List the installed plugins
 **Required ACL:** `provd.pg_mgr.plugins.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetPgMgrPluginsRequest
+	@return PluginsAPIGetPgMgrPluginsRequest
 */
-func (a *PluginsAPIService) GetPgMgrPlugins(ctx context.Context) ApiGetPgMgrPluginsRequest {
-	return ApiGetPgMgrPluginsRequest{
+func (a *PluginsAPIService) GetPgMgrPlugins(ctx context.Context) PluginsAPIGetPgMgrPluginsRequest {
+	return PluginsAPIGetPgMgrPluginsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2516,7 +2516,7 @@ func (a *PluginsAPIService) GetPgMgrPlugins(ctx context.Context) ApiGetPgMgrPlug
 // Execute executes the request
 //
 //	@return PluginsObject
-func (a *PluginsAPIService) GetPgMgrPluginsExecute(r ApiGetPgMgrPluginsRequest) (*PluginsObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrPluginsExecute(r PluginsAPIGetPgMgrPluginsRequest) (*PluginsObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2603,13 +2603,13 @@ func (a *PluginsAPIService) GetPgMgrPluginsExecute(r ApiGetPgMgrPluginsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrUpdateStatusRequest struct {
+type PluginsAPIGetPgMgrUpdateStatusRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	operationId string
 }
 
-func (r ApiGetPgMgrUpdateStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrUpdateStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrUpdateStatusExecute(r)
 }
 
@@ -2620,10 +2620,10 @@ GetPgMgrUpdateStatus Get the status of a plugin database update Operation In Pro
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId Operation In Progress ID
-	@return ApiGetPgMgrUpdateStatusRequest
+	@return PluginsAPIGetPgMgrUpdateStatusRequest
 */
-func (a *PluginsAPIService) GetPgMgrUpdateStatus(ctx context.Context, operationId string) ApiGetPgMgrUpdateStatusRequest {
-	return ApiGetPgMgrUpdateStatusRequest{
+func (a *PluginsAPIService) GetPgMgrUpdateStatus(ctx context.Context, operationId string) PluginsAPIGetPgMgrUpdateStatusRequest {
+	return PluginsAPIGetPgMgrUpdateStatusRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		operationId: operationId,
@@ -2633,7 +2633,7 @@ func (a *PluginsAPIService) GetPgMgrUpdateStatus(ctx context.Context, operationI
 // Execute executes the request
 //
 //	@return OperationInProgressObject
-func (a *PluginsAPIService) GetPgMgrUpdateStatusExecute(r ApiGetPgMgrUpdateStatusRequest) (*OperationInProgressObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrUpdateStatusExecute(r PluginsAPIGetPgMgrUpdateStatusRequest) (*OperationInProgressObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2731,13 +2731,13 @@ func (a *PluginsAPIService) GetPgMgrUpdateStatusExecute(r ApiGetPgMgrUpdateStatu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPgMgrUpgradeStatusRequest struct {
+type PluginsAPIGetPgMgrUpgradeStatusRequest struct {
 	ctx         context.Context
 	ApiService  PluginsAPI
 	operationId string
 }
 
-func (r ApiGetPgMgrUpgradeStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
+func (r PluginsAPIGetPgMgrUpgradeStatusRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
 	return r.ApiService.GetPgMgrUpgradeStatusExecute(r)
 }
 
@@ -2748,10 +2748,10 @@ GetPgMgrUpgradeStatus Get the status of a plugin upgrade Operation In Progress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId Operation In Progress ID
-	@return ApiGetPgMgrUpgradeStatusRequest
+	@return PluginsAPIGetPgMgrUpgradeStatusRequest
 */
-func (a *PluginsAPIService) GetPgMgrUpgradeStatus(ctx context.Context, operationId string) ApiGetPgMgrUpgradeStatusRequest {
-	return ApiGetPgMgrUpgradeStatusRequest{
+func (a *PluginsAPIService) GetPgMgrUpgradeStatus(ctx context.Context, operationId string) PluginsAPIGetPgMgrUpgradeStatusRequest {
+	return PluginsAPIGetPgMgrUpgradeStatusRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		operationId: operationId,
@@ -2761,7 +2761,7 @@ func (a *PluginsAPIService) GetPgMgrUpgradeStatus(ctx context.Context, operation
 // Execute executes the request
 //
 //	@return OperationInProgressObject
-func (a *PluginsAPIService) GetPgMgrUpgradeStatusExecute(r ApiGetPgMgrUpgradeStatusRequest) (*OperationInProgressObject, *http.Response, error) {
+func (a *PluginsAPIService) GetPgMgrUpgradeStatusExecute(r PluginsAPIGetPgMgrUpgradeStatusRequest) (*OperationInProgressObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2859,19 +2859,19 @@ func (a *PluginsAPIService) GetPgMgrUpgradeStatusExecute(r ApiGetPgMgrUpgradeSta
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostPgMgrInstallPluginRequest struct {
+type PluginsAPIPostPgMgrInstallPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	body       *IdObject
 }
 
 // Package ID body definition
-func (r ApiPostPgMgrInstallPluginRequest) Body(body IdObject) ApiPostPgMgrInstallPluginRequest {
+func (r PluginsAPIPostPgMgrInstallPluginRequest) Body(body IdObject) PluginsAPIPostPgMgrInstallPluginRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostPgMgrInstallPluginRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIPostPgMgrInstallPluginRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostPgMgrInstallPluginExecute(r)
 }
 
@@ -2881,17 +2881,17 @@ PostPgMgrInstallPlugin Install a plugin
 **Required ACL:** `provd.pg_mgr.install.install.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostPgMgrInstallPluginRequest
+	@return PluginsAPIPostPgMgrInstallPluginRequest
 */
-func (a *PluginsAPIService) PostPgMgrInstallPlugin(ctx context.Context) ApiPostPgMgrInstallPluginRequest {
-	return ApiPostPgMgrInstallPluginRequest{
+func (a *PluginsAPIService) PostPgMgrInstallPlugin(ctx context.Context) PluginsAPIPostPgMgrInstallPluginRequest {
+	return PluginsAPIPostPgMgrInstallPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) PostPgMgrInstallPluginExecute(r ApiPostPgMgrInstallPluginRequest) (*http.Response, error) {
+func (a *PluginsAPIService) PostPgMgrInstallPluginExecute(r PluginsAPIPostPgMgrInstallPluginRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -2991,7 +2991,7 @@ func (a *PluginsAPIService) PostPgMgrInstallPluginExecute(r ApiPostPgMgrInstallP
 	return localVarHTTPResponse, nil
 }
 
-type ApiPostPgMgrPluginInstallPluginRequest struct {
+type PluginsAPIPostPgMgrPluginInstallPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	pluginId   string
@@ -2999,12 +2999,12 @@ type ApiPostPgMgrPluginInstallPluginRequest struct {
 }
 
 // Package ID body definition
-func (r ApiPostPgMgrPluginInstallPluginRequest) Body(body IdObject) ApiPostPgMgrPluginInstallPluginRequest {
+func (r PluginsAPIPostPgMgrPluginInstallPluginRequest) Body(body IdObject) PluginsAPIPostPgMgrPluginInstallPluginRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostPgMgrPluginInstallPluginRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIPostPgMgrPluginInstallPluginRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostPgMgrPluginInstallPluginExecute(r)
 }
 
@@ -3015,10 +3015,10 @@ PostPgMgrPluginInstallPlugin Install a package
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
-	@return ApiPostPgMgrPluginInstallPluginRequest
+	@return PluginsAPIPostPgMgrPluginInstallPluginRequest
 */
-func (a *PluginsAPIService) PostPgMgrPluginInstallPlugin(ctx context.Context, pluginId string) ApiPostPgMgrPluginInstallPluginRequest {
-	return ApiPostPgMgrPluginInstallPluginRequest{
+func (a *PluginsAPIService) PostPgMgrPluginInstallPlugin(ctx context.Context, pluginId string) PluginsAPIPostPgMgrPluginInstallPluginRequest {
+	return PluginsAPIPostPgMgrPluginInstallPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pluginId:   pluginId,
@@ -3026,7 +3026,7 @@ func (a *PluginsAPIService) PostPgMgrPluginInstallPlugin(ctx context.Context, pl
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) PostPgMgrPluginInstallPluginExecute(r ApiPostPgMgrPluginInstallPluginRequest) (*http.Response, error) {
+func (a *PluginsAPIService) PostPgMgrPluginInstallPluginExecute(r PluginsAPIPostPgMgrPluginInstallPluginRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -3138,7 +3138,7 @@ func (a *PluginsAPIService) PostPgMgrPluginInstallPluginExecute(r ApiPostPgMgrPl
 	return localVarHTTPResponse, nil
 }
 
-type ApiPostPgMgrPluginUninstallPluginRequest struct {
+type PluginsAPIPostPgMgrPluginUninstallPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	pluginId   string
@@ -3146,12 +3146,12 @@ type ApiPostPgMgrPluginUninstallPluginRequest struct {
 }
 
 // Package ID body definition
-func (r ApiPostPgMgrPluginUninstallPluginRequest) Body(body IdObject) ApiPostPgMgrPluginUninstallPluginRequest {
+func (r PluginsAPIPostPgMgrPluginUninstallPluginRequest) Body(body IdObject) PluginsAPIPostPgMgrPluginUninstallPluginRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostPgMgrPluginUninstallPluginRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIPostPgMgrPluginUninstallPluginRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostPgMgrPluginUninstallPluginExecute(r)
 }
 
@@ -3162,10 +3162,10 @@ PostPgMgrPluginUninstallPlugin Uninstall a package
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pluginId Plugin ID
-	@return ApiPostPgMgrPluginUninstallPluginRequest
+	@return PluginsAPIPostPgMgrPluginUninstallPluginRequest
 */
-func (a *PluginsAPIService) PostPgMgrPluginUninstallPlugin(ctx context.Context, pluginId string) ApiPostPgMgrPluginUninstallPluginRequest {
-	return ApiPostPgMgrPluginUninstallPluginRequest{
+func (a *PluginsAPIService) PostPgMgrPluginUninstallPlugin(ctx context.Context, pluginId string) PluginsAPIPostPgMgrPluginUninstallPluginRequest {
+	return PluginsAPIPostPgMgrPluginUninstallPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pluginId:   pluginId,
@@ -3173,7 +3173,7 @@ func (a *PluginsAPIService) PostPgMgrPluginUninstallPlugin(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) PostPgMgrPluginUninstallPluginExecute(r ApiPostPgMgrPluginUninstallPluginRequest) (*http.Response, error) {
+func (a *PluginsAPIService) PostPgMgrPluginUninstallPluginExecute(r PluginsAPIPostPgMgrPluginUninstallPluginRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -3285,19 +3285,19 @@ func (a *PluginsAPIService) PostPgMgrPluginUninstallPluginExecute(r ApiPostPgMgr
 	return localVarHTTPResponse, nil
 }
 
-type ApiPostPgMgrReloadRequest struct {
+type PluginsAPIPostPgMgrReloadRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	body       *IdObject
 }
 
 // Plugin ID body definition
-func (r ApiPostPgMgrReloadRequest) Body(body IdObject) ApiPostPgMgrReloadRequest {
+func (r PluginsAPIPostPgMgrReloadRequest) Body(body IdObject) PluginsAPIPostPgMgrReloadRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostPgMgrReloadRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIPostPgMgrReloadRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostPgMgrReloadExecute(r)
 }
 
@@ -3307,17 +3307,17 @@ PostPgMgrReload Reload a plugin
 **Required ACL:** `provd.pg_mgr.reload.create` This is mostly useful during plugin development, after changing the code of the plugin, instead of restarting the accent-provd application
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostPgMgrReloadRequest
+	@return PluginsAPIPostPgMgrReloadRequest
 */
-func (a *PluginsAPIService) PostPgMgrReload(ctx context.Context) ApiPostPgMgrReloadRequest {
-	return ApiPostPgMgrReloadRequest{
+func (a *PluginsAPIService) PostPgMgrReload(ctx context.Context) PluginsAPIPostPgMgrReloadRequest {
+	return PluginsAPIPostPgMgrReloadRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) PostPgMgrReloadExecute(r ApiPostPgMgrReloadRequest) (*http.Response, error) {
+func (a *PluginsAPIService) PostPgMgrReloadExecute(r PluginsAPIPostPgMgrReloadRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -3396,19 +3396,19 @@ func (a *PluginsAPIService) PostPgMgrReloadExecute(r ApiPostPgMgrReloadRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiPostPgMgrUninstallPluginRequest struct {
+type PluginsAPIPostPgMgrUninstallPluginRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	body       *IdObject
 }
 
 // Package ID body definition
-func (r ApiPostPgMgrUninstallPluginRequest) Body(body IdObject) ApiPostPgMgrUninstallPluginRequest {
+func (r PluginsAPIPostPgMgrUninstallPluginRequest) Body(body IdObject) PluginsAPIPostPgMgrUninstallPluginRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostPgMgrUninstallPluginRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIPostPgMgrUninstallPluginRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostPgMgrUninstallPluginExecute(r)
 }
 
@@ -3418,17 +3418,17 @@ PostPgMgrUninstallPlugin Uninstall a plugin
 **Required ACL:** `provd.pg_mgr.install.uninstall.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostPgMgrUninstallPluginRequest
+	@return PluginsAPIPostPgMgrUninstallPluginRequest
 */
-func (a *PluginsAPIService) PostPgMgrUninstallPlugin(ctx context.Context) ApiPostPgMgrUninstallPluginRequest {
-	return ApiPostPgMgrUninstallPluginRequest{
+func (a *PluginsAPIService) PostPgMgrUninstallPlugin(ctx context.Context) PluginsAPIPostPgMgrUninstallPluginRequest {
+	return PluginsAPIPostPgMgrUninstallPluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) PostPgMgrUninstallPluginExecute(r ApiPostPgMgrUninstallPluginRequest) (*http.Response, error) {
+func (a *PluginsAPIService) PostPgMgrUninstallPluginExecute(r PluginsAPIPostPgMgrUninstallPluginRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -3528,19 +3528,19 @@ func (a *PluginsAPIService) PostPgMgrUninstallPluginExecute(r ApiPostPgMgrUninst
 	return localVarHTTPResponse, nil
 }
 
-type ApiPostPgMgrUpdateListRequest struct {
+type PluginsAPIPostPgMgrUpdateListRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	body       *map[string]interface{}
 }
 
 // Empty object body
-func (r ApiPostPgMgrUpdateListRequest) Body(body map[string]interface{}) ApiPostPgMgrUpdateListRequest {
+func (r PluginsAPIPostPgMgrUpdateListRequest) Body(body map[string]interface{}) PluginsAPIPostPgMgrUpdateListRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostPgMgrUpdateListRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIPostPgMgrUpdateListRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostPgMgrUpdateListExecute(r)
 }
 
@@ -3550,17 +3550,17 @@ PostPgMgrUpdateList Update the List of installable plugins
 **Required ACL:** `provd.pg_mgr.install.update.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostPgMgrUpdateListRequest
+	@return PluginsAPIPostPgMgrUpdateListRequest
 */
-func (a *PluginsAPIService) PostPgMgrUpdateList(ctx context.Context) ApiPostPgMgrUpdateListRequest {
-	return ApiPostPgMgrUpdateListRequest{
+func (a *PluginsAPIService) PostPgMgrUpdateList(ctx context.Context) PluginsAPIPostPgMgrUpdateListRequest {
+	return PluginsAPIPostPgMgrUpdateListRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) PostPgMgrUpdateListExecute(r ApiPostPgMgrUpdateListRequest) (*http.Response, error) {
+func (a *PluginsAPIService) PostPgMgrUpdateListExecute(r PluginsAPIPostPgMgrUpdateListRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -3649,19 +3649,19 @@ func (a *PluginsAPIService) PostPgMgrUpdateListExecute(r ApiPostPgMgrUpdateListR
 	return localVarHTTPResponse, nil
 }
 
-type ApiPostPgMgrUpgradePluginRequest struct {
+type PluginsAPIPostPgMgrUpgradePluginRequest struct {
 	ctx        context.Context
 	ApiService PluginsAPI
 	body       *IdObject
 }
 
 // Package ID body definition
-func (r ApiPostPgMgrUpgradePluginRequest) Body(body IdObject) ApiPostPgMgrUpgradePluginRequest {
+func (r PluginsAPIPostPgMgrUpgradePluginRequest) Body(body IdObject) PluginsAPIPostPgMgrUpgradePluginRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostPgMgrUpgradePluginRequest) Execute() (*http.Response, error) {
+func (r PluginsAPIPostPgMgrUpgradePluginRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostPgMgrUpgradePluginExecute(r)
 }
 
@@ -3671,17 +3671,17 @@ PostPgMgrUpgradePlugin Upgrade a plugin
 **Required ACL:** `provd.pg_mgr.install.upgrade.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostPgMgrUpgradePluginRequest
+	@return PluginsAPIPostPgMgrUpgradePluginRequest
 */
-func (a *PluginsAPIService) PostPgMgrUpgradePlugin(ctx context.Context) ApiPostPgMgrUpgradePluginRequest {
-	return ApiPostPgMgrUpgradePluginRequest{
+func (a *PluginsAPIService) PostPgMgrUpgradePlugin(ctx context.Context) PluginsAPIPostPgMgrUpgradePluginRequest {
+	return PluginsAPIPostPgMgrUpgradePluginRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *PluginsAPIService) PostPgMgrUpgradePluginExecute(r ApiPostPgMgrUpgradePluginRequest) (*http.Response, error) {
+func (a *PluginsAPIService) PostPgMgrUpgradePluginExecute(r PluginsAPIPostPgMgrUpgradePluginRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}

@@ -27,24 +27,24 @@ type StatusAPI interface {
 		**Required ACL:** `amid.status.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiStatusSummaryRequest
+		@return StatusAPIStatusSummaryRequest
 	*/
-	StatusSummary(ctx context.Context) ApiStatusSummaryRequest
+	StatusSummary(ctx context.Context) StatusAPIStatusSummaryRequest
 
 	// StatusSummaryExecute executes the request
 	//  @return StatusSummary
-	StatusSummaryExecute(r ApiStatusSummaryRequest) (*StatusSummary, *http.Response, error)
+	StatusSummaryExecute(r StatusAPIStatusSummaryRequest) (*StatusSummary, *http.Response, error)
 }
 
 // StatusAPIService StatusAPI service
 type StatusAPIService service
 
-type ApiStatusSummaryRequest struct {
+type StatusAPIStatusSummaryRequest struct {
 	ctx        context.Context
 	ApiService StatusAPI
 }
 
-func (r ApiStatusSummaryRequest) Execute() (*StatusSummary, *http.Response, error) {
+func (r StatusAPIStatusSummaryRequest) Execute() (*StatusSummary, *http.Response, error) {
 	return r.ApiService.StatusSummaryExecute(r)
 }
 
@@ -54,10 +54,10 @@ StatusSummary Print infos about internal status of accent-amid
 **Required ACL:** `amid.status.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiStatusSummaryRequest
+	@return StatusAPIStatusSummaryRequest
 */
-func (a *StatusAPIService) StatusSummary(ctx context.Context) ApiStatusSummaryRequest {
-	return ApiStatusSummaryRequest{
+func (a *StatusAPIService) StatusSummary(ctx context.Context) StatusAPIStatusSummaryRequest {
+	return StatusAPIStatusSummaryRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -66,7 +66,7 @@ func (a *StatusAPIService) StatusSummary(ctx context.Context) ApiStatusSummaryRe
 // Execute executes the request
 //
 //	@return StatusSummary
-func (a *StatusAPIService) StatusSummaryExecute(r ApiStatusSummaryRequest) (*StatusSummary, *http.Response, error) {
+func (a *StatusAPIService) StatusSummaryExecute(r StatusAPIStatusSummaryRequest) (*StatusSummary, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

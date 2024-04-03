@@ -28,13 +28,13 @@ type RegistrarsAPI interface {
 		**Required ACL:** `confd.registrars.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateRegistrarRequest
+		@return RegistrarsAPICreateRegistrarRequest
 	*/
-	CreateRegistrar(ctx context.Context) ApiCreateRegistrarRequest
+	CreateRegistrar(ctx context.Context) RegistrarsAPICreateRegistrarRequest
 
 	// CreateRegistrarExecute executes the request
 	//  @return Registrar
-	CreateRegistrarExecute(r ApiCreateRegistrarRequest) (*Registrar, *http.Response, error)
+	CreateRegistrarExecute(r RegistrarsAPICreateRegistrarRequest) (*Registrar, *http.Response, error)
 
 	/*
 		DeleteRegistrar Delete registrar
@@ -43,12 +43,12 @@ type RegistrarsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registrarId Registrar ID
-		@return ApiDeleteRegistrarRequest
+		@return RegistrarsAPIDeleteRegistrarRequest
 	*/
-	DeleteRegistrar(ctx context.Context, registrarId string) ApiDeleteRegistrarRequest
+	DeleteRegistrar(ctx context.Context, registrarId string) RegistrarsAPIDeleteRegistrarRequest
 
 	// DeleteRegistrarExecute executes the request
-	DeleteRegistrarExecute(r ApiDeleteRegistrarRequest) (*http.Response, error)
+	DeleteRegistrarExecute(r RegistrarsAPIDeleteRegistrarRequest) (*http.Response, error)
 
 	/*
 		GetRegistrar Get registrar
@@ -57,13 +57,13 @@ type RegistrarsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registrarId Registrar ID
-		@return ApiGetRegistrarRequest
+		@return RegistrarsAPIGetRegistrarRequest
 	*/
-	GetRegistrar(ctx context.Context, registrarId string) ApiGetRegistrarRequest
+	GetRegistrar(ctx context.Context, registrarId string) RegistrarsAPIGetRegistrarRequest
 
 	// GetRegistrarExecute executes the request
 	//  @return Registrar
-	GetRegistrarExecute(r ApiGetRegistrarRequest) (*Registrar, *http.Response, error)
+	GetRegistrarExecute(r RegistrarsAPIGetRegistrarRequest) (*Registrar, *http.Response, error)
 
 	/*
 		GetRegistrars Get registrars
@@ -71,13 +71,13 @@ type RegistrarsAPI interface {
 		**Required ACL:** `confd.registrars.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetRegistrarsRequest
+		@return RegistrarsAPIGetRegistrarsRequest
 	*/
-	GetRegistrars(ctx context.Context) ApiGetRegistrarsRequest
+	GetRegistrars(ctx context.Context) RegistrarsAPIGetRegistrarsRequest
 
 	// GetRegistrarsExecute executes the request
 	//  @return RegistrarItems
-	GetRegistrarsExecute(r ApiGetRegistrarsRequest) (*RegistrarItems, *http.Response, error)
+	GetRegistrarsExecute(r RegistrarsAPIGetRegistrarsRequest) (*RegistrarItems, *http.Response, error)
 
 	/*
 		UpdateRegistrar Update registrar
@@ -86,30 +86,30 @@ type RegistrarsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param registrarId Registrar ID
-		@return ApiUpdateRegistrarRequest
+		@return RegistrarsAPIUpdateRegistrarRequest
 	*/
-	UpdateRegistrar(ctx context.Context, registrarId string) ApiUpdateRegistrarRequest
+	UpdateRegistrar(ctx context.Context, registrarId string) RegistrarsAPIUpdateRegistrarRequest
 
 	// UpdateRegistrarExecute executes the request
-	UpdateRegistrarExecute(r ApiUpdateRegistrarRequest) (*http.Response, error)
+	UpdateRegistrarExecute(r RegistrarsAPIUpdateRegistrarRequest) (*http.Response, error)
 }
 
 // RegistrarsAPIService RegistrarsAPI service
 type RegistrarsAPIService service
 
-type ApiCreateRegistrarRequest struct {
+type RegistrarsAPICreateRegistrarRequest struct {
 	ctx        context.Context
 	ApiService RegistrarsAPI
 	body       *Registrar
 }
 
 // Registrar to create
-func (r ApiCreateRegistrarRequest) Body(body Registrar) ApiCreateRegistrarRequest {
+func (r RegistrarsAPICreateRegistrarRequest) Body(body Registrar) RegistrarsAPICreateRegistrarRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateRegistrarRequest) Execute() (*Registrar, *http.Response, error) {
+func (r RegistrarsAPICreateRegistrarRequest) Execute() (*Registrar, *http.Response, error) {
 	return r.ApiService.CreateRegistrarExecute(r)
 }
 
@@ -119,10 +119,10 @@ CreateRegistrar Create registrar
 **Required ACL:** `confd.registrars.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateRegistrarRequest
+	@return RegistrarsAPICreateRegistrarRequest
 */
-func (a *RegistrarsAPIService) CreateRegistrar(ctx context.Context) ApiCreateRegistrarRequest {
-	return ApiCreateRegistrarRequest{
+func (a *RegistrarsAPIService) CreateRegistrar(ctx context.Context) RegistrarsAPICreateRegistrarRequest {
+	return RegistrarsAPICreateRegistrarRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -131,7 +131,7 @@ func (a *RegistrarsAPIService) CreateRegistrar(ctx context.Context) ApiCreateReg
 // Execute executes the request
 //
 //	@return Registrar
-func (a *RegistrarsAPIService) CreateRegistrarExecute(r ApiCreateRegistrarRequest) (*Registrar, *http.Response, error) {
+func (a *RegistrarsAPIService) CreateRegistrarExecute(r RegistrarsAPICreateRegistrarRequest) (*Registrar, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -233,13 +233,13 @@ func (a *RegistrarsAPIService) CreateRegistrarExecute(r ApiCreateRegistrarReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteRegistrarRequest struct {
+type RegistrarsAPIDeleteRegistrarRequest struct {
 	ctx         context.Context
 	ApiService  RegistrarsAPI
 	registrarId string
 }
 
-func (r ApiDeleteRegistrarRequest) Execute() (*http.Response, error) {
+func (r RegistrarsAPIDeleteRegistrarRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteRegistrarExecute(r)
 }
 
@@ -250,10 +250,10 @@ DeleteRegistrar Delete registrar
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registrarId Registrar ID
-	@return ApiDeleteRegistrarRequest
+	@return RegistrarsAPIDeleteRegistrarRequest
 */
-func (a *RegistrarsAPIService) DeleteRegistrar(ctx context.Context, registrarId string) ApiDeleteRegistrarRequest {
-	return ApiDeleteRegistrarRequest{
+func (a *RegistrarsAPIService) DeleteRegistrar(ctx context.Context, registrarId string) RegistrarsAPIDeleteRegistrarRequest {
+	return RegistrarsAPIDeleteRegistrarRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		registrarId: registrarId,
@@ -261,7 +261,7 @@ func (a *RegistrarsAPIService) DeleteRegistrar(ctx context.Context, registrarId 
 }
 
 // Execute executes the request
-func (a *RegistrarsAPIService) DeleteRegistrarExecute(r ApiDeleteRegistrarRequest) (*http.Response, error) {
+func (a *RegistrarsAPIService) DeleteRegistrarExecute(r RegistrarsAPIDeleteRegistrarRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -360,13 +360,13 @@ func (a *RegistrarsAPIService) DeleteRegistrarExecute(r ApiDeleteRegistrarReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetRegistrarRequest struct {
+type RegistrarsAPIGetRegistrarRequest struct {
 	ctx         context.Context
 	ApiService  RegistrarsAPI
 	registrarId string
 }
 
-func (r ApiGetRegistrarRequest) Execute() (*Registrar, *http.Response, error) {
+func (r RegistrarsAPIGetRegistrarRequest) Execute() (*Registrar, *http.Response, error) {
 	return r.ApiService.GetRegistrarExecute(r)
 }
 
@@ -377,10 +377,10 @@ GetRegistrar Get registrar
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registrarId Registrar ID
-	@return ApiGetRegistrarRequest
+	@return RegistrarsAPIGetRegistrarRequest
 */
-func (a *RegistrarsAPIService) GetRegistrar(ctx context.Context, registrarId string) ApiGetRegistrarRequest {
-	return ApiGetRegistrarRequest{
+func (a *RegistrarsAPIService) GetRegistrar(ctx context.Context, registrarId string) RegistrarsAPIGetRegistrarRequest {
+	return RegistrarsAPIGetRegistrarRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		registrarId: registrarId,
@@ -390,7 +390,7 @@ func (a *RegistrarsAPIService) GetRegistrar(ctx context.Context, registrarId str
 // Execute executes the request
 //
 //	@return Registrar
-func (a *RegistrarsAPIService) GetRegistrarExecute(r ApiGetRegistrarRequest) (*Registrar, *http.Response, error) {
+func (a *RegistrarsAPIService) GetRegistrarExecute(r RegistrarsAPIGetRegistrarRequest) (*Registrar, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -488,7 +488,7 @@ func (a *RegistrarsAPIService) GetRegistrarExecute(r ApiGetRegistrarRequest) (*R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetRegistrarsRequest struct {
+type RegistrarsAPIGetRegistrarsRequest struct {
 	ctx        context.Context
 	ApiService RegistrarsAPI
 	order      *string
@@ -499,36 +499,36 @@ type ApiGetRegistrarsRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetRegistrarsRequest) Order(order string) ApiGetRegistrarsRequest {
+func (r RegistrarsAPIGetRegistrarsRequest) Order(order string) RegistrarsAPIGetRegistrarsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetRegistrarsRequest) Direction(direction string) ApiGetRegistrarsRequest {
+func (r RegistrarsAPIGetRegistrarsRequest) Direction(direction string) RegistrarsAPIGetRegistrarsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiGetRegistrarsRequest) Limit(limit int32) ApiGetRegistrarsRequest {
+func (r RegistrarsAPIGetRegistrarsRequest) Limit(limit int32) RegistrarsAPIGetRegistrarsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiGetRegistrarsRequest) Offset(offset int32) ApiGetRegistrarsRequest {
+func (r RegistrarsAPIGetRegistrarsRequest) Offset(offset int32) RegistrarsAPIGetRegistrarsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetRegistrarsRequest) Search(search string) ApiGetRegistrarsRequest {
+func (r RegistrarsAPIGetRegistrarsRequest) Search(search string) RegistrarsAPIGetRegistrarsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetRegistrarsRequest) Execute() (*RegistrarItems, *http.Response, error) {
+func (r RegistrarsAPIGetRegistrarsRequest) Execute() (*RegistrarItems, *http.Response, error) {
 	return r.ApiService.GetRegistrarsExecute(r)
 }
 
@@ -538,10 +538,10 @@ GetRegistrars Get registrars
 **Required ACL:** `confd.registrars.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetRegistrarsRequest
+	@return RegistrarsAPIGetRegistrarsRequest
 */
-func (a *RegistrarsAPIService) GetRegistrars(ctx context.Context) ApiGetRegistrarsRequest {
-	return ApiGetRegistrarsRequest{
+func (a *RegistrarsAPIService) GetRegistrars(ctx context.Context) RegistrarsAPIGetRegistrarsRequest {
+	return RegistrarsAPIGetRegistrarsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -550,7 +550,7 @@ func (a *RegistrarsAPIService) GetRegistrars(ctx context.Context) ApiGetRegistra
 // Execute executes the request
 //
 //	@return RegistrarItems
-func (a *RegistrarsAPIService) GetRegistrarsExecute(r ApiGetRegistrarsRequest) (*RegistrarItems, *http.Response, error) {
+func (a *RegistrarsAPIService) GetRegistrarsExecute(r RegistrarsAPIGetRegistrarsRequest) (*RegistrarItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -652,7 +652,7 @@ func (a *RegistrarsAPIService) GetRegistrarsExecute(r ApiGetRegistrarsRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateRegistrarRequest struct {
+type RegistrarsAPIUpdateRegistrarRequest struct {
 	ctx         context.Context
 	ApiService  RegistrarsAPI
 	body        *Registrar
@@ -660,12 +660,12 @@ type ApiUpdateRegistrarRequest struct {
 }
 
 // Registrar body
-func (r ApiUpdateRegistrarRequest) Body(body Registrar) ApiUpdateRegistrarRequest {
+func (r RegistrarsAPIUpdateRegistrarRequest) Body(body Registrar) RegistrarsAPIUpdateRegistrarRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateRegistrarRequest) Execute() (*http.Response, error) {
+func (r RegistrarsAPIUpdateRegistrarRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateRegistrarExecute(r)
 }
 
@@ -676,10 +676,10 @@ UpdateRegistrar Update registrar
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param registrarId Registrar ID
-	@return ApiUpdateRegistrarRequest
+	@return RegistrarsAPIUpdateRegistrarRequest
 */
-func (a *RegistrarsAPIService) UpdateRegistrar(ctx context.Context, registrarId string) ApiUpdateRegistrarRequest {
-	return ApiUpdateRegistrarRequest{
+func (a *RegistrarsAPIService) UpdateRegistrar(ctx context.Context, registrarId string) RegistrarsAPIUpdateRegistrarRequest {
+	return RegistrarsAPIUpdateRegistrarRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		registrarId: registrarId,
@@ -687,7 +687,7 @@ func (a *RegistrarsAPIService) UpdateRegistrar(ctx context.Context, registrarId 
 }
 
 // Execute executes the request
-func (a *RegistrarsAPIService) UpdateRegistrarExecute(r ApiUpdateRegistrarRequest) (*http.Response, error) {
+func (a *RegistrarsAPIService) UpdateRegistrarExecute(r RegistrarsAPIUpdateRegistrarRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

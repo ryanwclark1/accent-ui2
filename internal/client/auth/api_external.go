@@ -29,12 +29,12 @@ type ExternalAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param authType External auth type name
-		@return ApiDeleteExternalAuthConfigRequest
+		@return ExternalAPIDeleteExternalAuthConfigRequest
 	*/
-	DeleteExternalAuthConfig(ctx context.Context, authType string) ApiDeleteExternalAuthConfigRequest
+	DeleteExternalAuthConfig(ctx context.Context, authType string) ExternalAPIDeleteExternalAuthConfigRequest
 
 	// DeleteExternalAuthConfigExecute executes the request
-	DeleteExternalAuthConfigExecute(r ApiDeleteExternalAuthConfigRequest) (*http.Response, error)
+	DeleteExternalAuthConfigExecute(r ExternalAPIDeleteExternalAuthConfigRequest) (*http.Response, error)
 
 	/*
 		GetExternalAuthConfig Retrieve the client id and client secret
@@ -43,13 +43,13 @@ type ExternalAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param authType External auth type name
-		@return ApiGetExternalAuthConfigRequest
+		@return ExternalAPIGetExternalAuthConfigRequest
 	*/
-	GetExternalAuthConfig(ctx context.Context, authType string) ApiGetExternalAuthConfigRequest
+	GetExternalAuthConfig(ctx context.Context, authType string) ExternalAPIGetExternalAuthConfigRequest
 
 	// GetExternalAuthConfigExecute executes the request
 	//  @return ExternalConfig
-	GetExternalAuthConfigExecute(r ApiGetExternalAuthConfigRequest) (*ExternalConfig, *http.Response, error)
+	GetExternalAuthConfigExecute(r ExternalAPIGetExternalAuthConfigRequest) (*ExternalConfig, *http.Response, error)
 
 	/*
 		GetExternalAuthUsers Retrieves the list of connected users to this external source
@@ -58,13 +58,13 @@ type ExternalAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param authType External auth type name
-		@return ApiGetExternalAuthUsersRequest
+		@return ExternalAPIGetExternalAuthUsersRequest
 	*/
-	GetExternalAuthUsers(ctx context.Context, authType string) ApiGetExternalAuthUsersRequest
+	GetExternalAuthUsers(ctx context.Context, authType string) ExternalAPIGetExternalAuthUsersRequest
 
 	// GetExternalAuthUsersExecute executes the request
 	//  @return ExternalAuthUserList
-	GetExternalAuthUsersExecute(r ApiGetExternalAuthUsersRequest) (*ExternalAuthUserList, *http.Response, error)
+	GetExternalAuthUsersExecute(r ExternalAPIGetExternalAuthUsersRequest) (*ExternalAuthUserList, *http.Response, error)
 
 	/*
 		GetUserExternalAuth Retrieves the list of the users external auth data
@@ -73,13 +73,13 @@ type ExternalAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserExternalAuthRequest
+		@return ExternalAPIGetUserExternalAuthRequest
 	*/
-	GetUserExternalAuth(ctx context.Context, userUuid string) ApiGetUserExternalAuthRequest
+	GetUserExternalAuth(ctx context.Context, userUuid string) ExternalAPIGetUserExternalAuthRequest
 
 	// GetUserExternalAuthExecute executes the request
 	//  @return ExternalAuthList
-	GetUserExternalAuthExecute(r ApiGetUserExternalAuthRequest) (*ExternalAuthList, *http.Response, error)
+	GetUserExternalAuthExecute(r ExternalAPIGetUserExternalAuthRequest) (*ExternalAuthList, *http.Response, error)
 
 	/*
 		PostExternalAuthConfig Add configuration for the given auth_type
@@ -88,12 +88,12 @@ type ExternalAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param authType External auth type name
-		@return ApiPostExternalAuthConfigRequest
+		@return ExternalAPIPostExternalAuthConfigRequest
 	*/
-	PostExternalAuthConfig(ctx context.Context, authType string) ApiPostExternalAuthConfigRequest
+	PostExternalAuthConfig(ctx context.Context, authType string) ExternalAPIPostExternalAuthConfigRequest
 
 	// PostExternalAuthConfigExecute executes the request
-	PostExternalAuthConfigExecute(r ApiPostExternalAuthConfigRequest) (*http.Response, error)
+	PostExternalAuthConfigExecute(r ExternalAPIPostExternalAuthConfigRequest) (*http.Response, error)
 
 	/*
 		UpdateExternalAuthConfig Update configuration for the given auth_type
@@ -102,18 +102,18 @@ type ExternalAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param authType External auth type name
-		@return ApiUpdateExternalAuthConfigRequest
+		@return ExternalAPIUpdateExternalAuthConfigRequest
 	*/
-	UpdateExternalAuthConfig(ctx context.Context, authType string) ApiUpdateExternalAuthConfigRequest
+	UpdateExternalAuthConfig(ctx context.Context, authType string) ExternalAPIUpdateExternalAuthConfigRequest
 
 	// UpdateExternalAuthConfigExecute executes the request
-	UpdateExternalAuthConfigExecute(r ApiUpdateExternalAuthConfigRequest) (*http.Response, error)
+	UpdateExternalAuthConfigExecute(r ExternalAPIUpdateExternalAuthConfigRequest) (*http.Response, error)
 }
 
 // ExternalAPIService ExternalAPI service
 type ExternalAPIService service
 
-type ApiDeleteExternalAuthConfigRequest struct {
+type ExternalAPIDeleteExternalAuthConfigRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAPI
 	authType     string
@@ -121,12 +121,12 @@ type ApiDeleteExternalAuthConfigRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteExternalAuthConfigRequest) AccentTenant(accentTenant string) ApiDeleteExternalAuthConfigRequest {
+func (r ExternalAPIDeleteExternalAuthConfigRequest) AccentTenant(accentTenant string) ExternalAPIDeleteExternalAuthConfigRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteExternalAuthConfigRequest) Execute() (*http.Response, error) {
+func (r ExternalAPIDeleteExternalAuthConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteExternalAuthConfigExecute(r)
 }
 
@@ -137,10 +137,10 @@ DeleteExternalAuthConfig Delete the client id and client secret
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param authType External auth type name
-	@return ApiDeleteExternalAuthConfigRequest
+	@return ExternalAPIDeleteExternalAuthConfigRequest
 */
-func (a *ExternalAPIService) DeleteExternalAuthConfig(ctx context.Context, authType string) ApiDeleteExternalAuthConfigRequest {
-	return ApiDeleteExternalAuthConfigRequest{
+func (a *ExternalAPIService) DeleteExternalAuthConfig(ctx context.Context, authType string) ExternalAPIDeleteExternalAuthConfigRequest {
+	return ExternalAPIDeleteExternalAuthConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 		authType:   authType,
@@ -148,7 +148,7 @@ func (a *ExternalAPIService) DeleteExternalAuthConfig(ctx context.Context, authT
 }
 
 // Execute executes the request
-func (a *ExternalAPIService) DeleteExternalAuthConfigExecute(r ApiDeleteExternalAuthConfigRequest) (*http.Response, error) {
+func (a *ExternalAPIService) DeleteExternalAuthConfigExecute(r ExternalAPIDeleteExternalAuthConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -236,7 +236,7 @@ func (a *ExternalAPIService) DeleteExternalAuthConfigExecute(r ApiDeleteExternal
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetExternalAuthConfigRequest struct {
+type ExternalAPIGetExternalAuthConfigRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAPI
 	authType     string
@@ -244,12 +244,12 @@ type ApiGetExternalAuthConfigRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetExternalAuthConfigRequest) AccentTenant(accentTenant string) ApiGetExternalAuthConfigRequest {
+func (r ExternalAPIGetExternalAuthConfigRequest) AccentTenant(accentTenant string) ExternalAPIGetExternalAuthConfigRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetExternalAuthConfigRequest) Execute() (*ExternalConfig, *http.Response, error) {
+func (r ExternalAPIGetExternalAuthConfigRequest) Execute() (*ExternalConfig, *http.Response, error) {
 	return r.ApiService.GetExternalAuthConfigExecute(r)
 }
 
@@ -260,10 +260,10 @@ GetExternalAuthConfig Retrieve the client id and client secret
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param authType External auth type name
-	@return ApiGetExternalAuthConfigRequest
+	@return ExternalAPIGetExternalAuthConfigRequest
 */
-func (a *ExternalAPIService) GetExternalAuthConfig(ctx context.Context, authType string) ApiGetExternalAuthConfigRequest {
-	return ApiGetExternalAuthConfigRequest{
+func (a *ExternalAPIService) GetExternalAuthConfig(ctx context.Context, authType string) ExternalAPIGetExternalAuthConfigRequest {
+	return ExternalAPIGetExternalAuthConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 		authType:   authType,
@@ -273,7 +273,7 @@ func (a *ExternalAPIService) GetExternalAuthConfig(ctx context.Context, authType
 // Execute executes the request
 //
 //	@return ExternalConfig
-func (a *ExternalAPIService) GetExternalAuthConfigExecute(r ApiGetExternalAuthConfigRequest) (*ExternalConfig, *http.Response, error) {
+func (a *ExternalAPIService) GetExternalAuthConfigExecute(r ExternalAPIGetExternalAuthConfigRequest) (*ExternalConfig, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -371,7 +371,7 @@ func (a *ExternalAPIService) GetExternalAuthConfigExecute(r ApiGetExternalAuthCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetExternalAuthUsersRequest struct {
+type ExternalAPIGetExternalAuthUsersRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAPI
 	authType     string
@@ -382,30 +382,30 @@ type ApiGetExternalAuthUsersRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetExternalAuthUsersRequest) AccentTenant(accentTenant string) ApiGetExternalAuthUsersRequest {
+func (r ExternalAPIGetExternalAuthUsersRequest) AccentTenant(accentTenant string) ExternalAPIGetExternalAuthUsersRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiGetExternalAuthUsersRequest) Recurse(recurse bool) ApiGetExternalAuthUsersRequest {
+func (r ExternalAPIGetExternalAuthUsersRequest) Recurse(recurse bool) ExternalAPIGetExternalAuthUsersRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetExternalAuthUsersRequest) Limit(limit int32) ApiGetExternalAuthUsersRequest {
+func (r ExternalAPIGetExternalAuthUsersRequest) Limit(limit int32) ExternalAPIGetExternalAuthUsersRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetExternalAuthUsersRequest) Offset(offset int32) ApiGetExternalAuthUsersRequest {
+func (r ExternalAPIGetExternalAuthUsersRequest) Offset(offset int32) ExternalAPIGetExternalAuthUsersRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetExternalAuthUsersRequest) Execute() (*ExternalAuthUserList, *http.Response, error) {
+func (r ExternalAPIGetExternalAuthUsersRequest) Execute() (*ExternalAuthUserList, *http.Response, error) {
 	return r.ApiService.GetExternalAuthUsersExecute(r)
 }
 
@@ -416,10 +416,10 @@ GetExternalAuthUsers Retrieves the list of connected users to this external sour
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param authType External auth type name
-	@return ApiGetExternalAuthUsersRequest
+	@return ExternalAPIGetExternalAuthUsersRequest
 */
-func (a *ExternalAPIService) GetExternalAuthUsers(ctx context.Context, authType string) ApiGetExternalAuthUsersRequest {
-	return ApiGetExternalAuthUsersRequest{
+func (a *ExternalAPIService) GetExternalAuthUsers(ctx context.Context, authType string) ExternalAPIGetExternalAuthUsersRequest {
+	return ExternalAPIGetExternalAuthUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		authType:   authType,
@@ -429,7 +429,7 @@ func (a *ExternalAPIService) GetExternalAuthUsers(ctx context.Context, authType 
 // Execute executes the request
 //
 //	@return ExternalAuthUserList
-func (a *ExternalAPIService) GetExternalAuthUsersExecute(r ApiGetExternalAuthUsersRequest) (*ExternalAuthUserList, *http.Response, error) {
+func (a *ExternalAPIService) GetExternalAuthUsersExecute(r ExternalAPIGetExternalAuthUsersRequest) (*ExternalAuthUserList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -542,7 +542,7 @@ func (a *ExternalAPIService) GetExternalAuthUsersExecute(r ApiGetExternalAuthUse
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserExternalAuthRequest struct {
+type ExternalAPIGetUserExternalAuthRequest struct {
 	ctx        context.Context
 	ApiService ExternalAPI
 	userUuid   string
@@ -554,36 +554,36 @@ type ApiGetUserExternalAuthRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetUserExternalAuthRequest) Order(order string) ApiGetUserExternalAuthRequest {
+func (r ExternalAPIGetUserExternalAuthRequest) Order(order string) ExternalAPIGetUserExternalAuthRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserExternalAuthRequest) Direction(direction string) ApiGetUserExternalAuthRequest {
+func (r ExternalAPIGetUserExternalAuthRequest) Direction(direction string) ExternalAPIGetUserExternalAuthRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserExternalAuthRequest) Limit(limit int32) ApiGetUserExternalAuthRequest {
+func (r ExternalAPIGetUserExternalAuthRequest) Limit(limit int32) ExternalAPIGetUserExternalAuthRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserExternalAuthRequest) Offset(offset int32) ApiGetUserExternalAuthRequest {
+func (r ExternalAPIGetUserExternalAuthRequest) Offset(offset int32) ExternalAPIGetUserExternalAuthRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetUserExternalAuthRequest) Search(search string) ApiGetUserExternalAuthRequest {
+func (r ExternalAPIGetUserExternalAuthRequest) Search(search string) ExternalAPIGetUserExternalAuthRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetUserExternalAuthRequest) Execute() (*ExternalAuthList, *http.Response, error) {
+func (r ExternalAPIGetUserExternalAuthRequest) Execute() (*ExternalAuthList, *http.Response, error) {
 	return r.ApiService.GetUserExternalAuthExecute(r)
 }
 
@@ -594,10 +594,10 @@ GetUserExternalAuth Retrieves the list of the users external auth data
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserExternalAuthRequest
+	@return ExternalAPIGetUserExternalAuthRequest
 */
-func (a *ExternalAPIService) GetUserExternalAuth(ctx context.Context, userUuid string) ApiGetUserExternalAuthRequest {
-	return ApiGetUserExternalAuthRequest{
+func (a *ExternalAPIService) GetUserExternalAuth(ctx context.Context, userUuid string) ExternalAPIGetUserExternalAuthRequest {
+	return ExternalAPIGetUserExternalAuthRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -607,7 +607,7 @@ func (a *ExternalAPIService) GetUserExternalAuth(ctx context.Context, userUuid s
 // Execute executes the request
 //
 //	@return ExternalAuthList
-func (a *ExternalAPIService) GetUserExternalAuthExecute(r ApiGetUserExternalAuthRequest) (*ExternalAuthList, *http.Response, error) {
+func (a *ExternalAPIService) GetUserExternalAuthExecute(r ExternalAPIGetUserExternalAuthRequest) (*ExternalAuthList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -713,7 +713,7 @@ func (a *ExternalAPIService) GetUserExternalAuthExecute(r ApiGetUserExternalAuth
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostExternalAuthConfigRequest struct {
+type ExternalAPIPostExternalAuthConfigRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAPI
 	config       *ExternalConfig
@@ -722,18 +722,18 @@ type ApiPostExternalAuthConfigRequest struct {
 }
 
 // JSON object holding configuration for the given authentication type
-func (r ApiPostExternalAuthConfigRequest) Config(config ExternalConfig) ApiPostExternalAuthConfigRequest {
+func (r ExternalAPIPostExternalAuthConfigRequest) Config(config ExternalConfig) ExternalAPIPostExternalAuthConfigRequest {
 	r.config = &config
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiPostExternalAuthConfigRequest) AccentTenant(accentTenant string) ApiPostExternalAuthConfigRequest {
+func (r ExternalAPIPostExternalAuthConfigRequest) AccentTenant(accentTenant string) ExternalAPIPostExternalAuthConfigRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPostExternalAuthConfigRequest) Execute() (*http.Response, error) {
+func (r ExternalAPIPostExternalAuthConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostExternalAuthConfigExecute(r)
 }
 
@@ -744,10 +744,10 @@ PostExternalAuthConfig Add configuration for the given auth_type
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param authType External auth type name
-	@return ApiPostExternalAuthConfigRequest
+	@return ExternalAPIPostExternalAuthConfigRequest
 */
-func (a *ExternalAPIService) PostExternalAuthConfig(ctx context.Context, authType string) ApiPostExternalAuthConfigRequest {
-	return ApiPostExternalAuthConfigRequest{
+func (a *ExternalAPIService) PostExternalAuthConfig(ctx context.Context, authType string) ExternalAPIPostExternalAuthConfigRequest {
+	return ExternalAPIPostExternalAuthConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 		authType:   authType,
@@ -755,7 +755,7 @@ func (a *ExternalAPIService) PostExternalAuthConfig(ctx context.Context, authTyp
 }
 
 // Execute executes the request
-func (a *ExternalAPIService) PostExternalAuthConfigExecute(r ApiPostExternalAuthConfigRequest) (*http.Response, error) {
+func (a *ExternalAPIService) PostExternalAuthConfigExecute(r ExternalAPIPostExternalAuthConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -859,7 +859,7 @@ func (a *ExternalAPIService) PostExternalAuthConfigExecute(r ApiPostExternalAuth
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateExternalAuthConfigRequest struct {
+type ExternalAPIUpdateExternalAuthConfigRequest struct {
 	ctx          context.Context
 	ApiService   ExternalAPI
 	config       *ExternalConfig
@@ -868,18 +868,18 @@ type ApiUpdateExternalAuthConfigRequest struct {
 }
 
 // JSON object holding configuration for the given authentication type
-func (r ApiUpdateExternalAuthConfigRequest) Config(config ExternalConfig) ApiUpdateExternalAuthConfigRequest {
+func (r ExternalAPIUpdateExternalAuthConfigRequest) Config(config ExternalConfig) ExternalAPIUpdateExternalAuthConfigRequest {
 	r.config = &config
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateExternalAuthConfigRequest) AccentTenant(accentTenant string) ApiUpdateExternalAuthConfigRequest {
+func (r ExternalAPIUpdateExternalAuthConfigRequest) AccentTenant(accentTenant string) ExternalAPIUpdateExternalAuthConfigRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateExternalAuthConfigRequest) Execute() (*http.Response, error) {
+func (r ExternalAPIUpdateExternalAuthConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateExternalAuthConfigExecute(r)
 }
 
@@ -890,10 +890,10 @@ UpdateExternalAuthConfig Update configuration for the given auth_type
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param authType External auth type name
-	@return ApiUpdateExternalAuthConfigRequest
+	@return ExternalAPIUpdateExternalAuthConfigRequest
 */
-func (a *ExternalAPIService) UpdateExternalAuthConfig(ctx context.Context, authType string) ApiUpdateExternalAuthConfigRequest {
-	return ApiUpdateExternalAuthConfigRequest{
+func (a *ExternalAPIService) UpdateExternalAuthConfig(ctx context.Context, authType string) ExternalAPIUpdateExternalAuthConfigRequest {
+	return ExternalAPIUpdateExternalAuthConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 		authType:   authType,
@@ -901,7 +901,7 @@ func (a *ExternalAPIService) UpdateExternalAuthConfig(ctx context.Context, authT
 }
 
 // Execute executes the request
-func (a *ExternalAPIService) UpdateExternalAuthConfigExecute(r ApiUpdateExternalAuthConfigRequest) (*http.Response, error) {
+func (a *ExternalAPIService) UpdateExternalAuthConfigExecute(r ExternalAPIUpdateExternalAuthConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

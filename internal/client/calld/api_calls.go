@@ -29,12 +29,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiAnswerCallRequest
+		@return CallsAPIAnswerCallRequest
 	*/
-	AnswerCall(ctx context.Context, callId string) ApiAnswerCallRequest
+	AnswerCall(ctx context.Context, callId string) CallsAPIAnswerCallRequest
 
 	// AnswerCallExecute executes the request
-	AnswerCallExecute(r ApiAnswerCallRequest) (*http.Response, error)
+	AnswerCallExecute(r CallsAPIAnswerCallRequest) (*http.Response, error)
 
 	/*
 		AnswerUserCall Answer a call from user
@@ -43,12 +43,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiAnswerUserCallRequest
+		@return CallsAPIAnswerUserCallRequest
 	*/
-	AnswerUserCall(ctx context.Context, callId string) ApiAnswerUserCallRequest
+	AnswerUserCall(ctx context.Context, callId string) CallsAPIAnswerUserCallRequest
 
 	// AnswerUserCallExecute executes the request
-	AnswerUserCallExecute(r ApiAnswerUserCallRequest) (*http.Response, error)
+	AnswerUserCallExecute(r CallsAPIAnswerUserCallRequest) (*http.Response, error)
 
 	/*
 		ConnectCallToUser Connect a call to a user
@@ -58,13 +58,13 @@ type CallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
 		@param userUuid UUID of the user
-		@return ApiConnectCallToUserRequest
+		@return CallsAPIConnectCallToUserRequest
 	*/
-	ConnectCallToUser(ctx context.Context, callId string, userUuid string) ApiConnectCallToUserRequest
+	ConnectCallToUser(ctx context.Context, callId string, userUuid string) CallsAPIConnectCallToUserRequest
 
 	// ConnectCallToUserExecute executes the request
 	//  @return Call
-	ConnectCallToUserExecute(r ApiConnectCallToUserRequest) (*Call, *http.Response, error)
+	ConnectCallToUserExecute(r CallsAPIConnectCallToUserRequest) (*Call, *http.Response, error)
 
 	/*
 		CreateCall Make a new call
@@ -72,13 +72,13 @@ type CallsAPI interface {
 		**Required ACL:** `calld.calls.create` Create a new call from a phone to an extension.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateCallRequest
+		@return CallsAPICreateCallRequest
 	*/
-	CreateCall(ctx context.Context) ApiCreateCallRequest
+	CreateCall(ctx context.Context) CallsAPICreateCallRequest
 
 	// CreateCallExecute executes the request
 	//  @return Call
-	CreateCallExecute(r ApiCreateCallRequest) (*Call, *http.Response, error)
+	CreateCallExecute(r CallsAPICreateCallRequest) (*Call, *http.Response, error)
 
 	/*
 		CreateUserCall Make a new call from a user
@@ -86,13 +86,13 @@ type CallsAPI interface {
 		**Required ACL:** `calld.users.me.calls.create` The user originator of the call is determined from the authentication token.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateUserCallRequest
+		@return CallsAPICreateUserCallRequest
 	*/
-	CreateUserCall(ctx context.Context) ApiCreateUserCallRequest
+	CreateUserCall(ctx context.Context) CallsAPICreateUserCallRequest
 
 	// CreateUserCallExecute executes the request
 	//  @return Call
-	CreateUserCallExecute(r ApiCreateUserCallRequest) (*Call, *http.Response, error)
+	CreateUserCallExecute(r CallsAPICreateUserCallRequest) (*Call, *http.Response, error)
 
 	/*
 		DeleteCall Hangup a call
@@ -101,12 +101,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiDeleteCallRequest
+		@return CallsAPIDeleteCallRequest
 	*/
-	DeleteCall(ctx context.Context, callId string) ApiDeleteCallRequest
+	DeleteCall(ctx context.Context, callId string) CallsAPIDeleteCallRequest
 
 	// DeleteCallExecute executes the request
-	DeleteCallExecute(r ApiDeleteCallRequest) (*http.Response, error)
+	DeleteCallExecute(r CallsAPIDeleteCallRequest) (*http.Response, error)
 
 	/*
 		GetCall Show a call
@@ -115,13 +115,13 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiGetCallRequest
+		@return CallsAPIGetCallRequest
 	*/
-	GetCall(ctx context.Context, callId string) ApiGetCallRequest
+	GetCall(ctx context.Context, callId string) CallsAPIGetCallRequest
 
 	// GetCallExecute executes the request
 	//  @return Call
-	GetCallExecute(r ApiGetCallRequest) (*Call, *http.Response, error)
+	GetCallExecute(r CallsAPIGetCallRequest) (*Call, *http.Response, error)
 
 	/*
 		HangupUserCall Hangup a call from a user
@@ -130,12 +130,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiHangupUserCallRequest
+		@return CallsAPIHangupUserCallRequest
 	*/
-	HangupUserCall(ctx context.Context, callId string) ApiHangupUserCallRequest
+	HangupUserCall(ctx context.Context, callId string) CallsAPIHangupUserCallRequest
 
 	// HangupUserCallExecute executes the request
-	HangupUserCallExecute(r ApiHangupUserCallRequest) (*http.Response, error)
+	HangupUserCallExecute(r CallsAPIHangupUserCallRequest) (*http.Response, error)
 
 	/*
 		HoldCall Hold a call
@@ -144,12 +144,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiHoldCallRequest
+		@return CallsAPIHoldCallRequest
 	*/
-	HoldCall(ctx context.Context, callId string) ApiHoldCallRequest
+	HoldCall(ctx context.Context, callId string) CallsAPIHoldCallRequest
 
 	// HoldCallExecute executes the request
-	HoldCallExecute(r ApiHoldCallRequest) (*http.Response, error)
+	HoldCallExecute(r CallsAPIHoldCallRequest) (*http.Response, error)
 
 	/*
 		HoldUserCall Hold a call from user
@@ -158,12 +158,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiHoldUserCallRequest
+		@return CallsAPIHoldUserCallRequest
 	*/
-	HoldUserCall(ctx context.Context, callId string) ApiHoldUserCallRequest
+	HoldUserCall(ctx context.Context, callId string) CallsAPIHoldUserCallRequest
 
 	// HoldUserCallExecute executes the request
-	HoldUserCallExecute(r ApiHoldUserCallRequest) (*http.Response, error)
+	HoldUserCallExecute(r CallsAPIHoldUserCallRequest) (*http.Response, error)
 
 	/*
 		ListCalls List calls
@@ -171,13 +171,13 @@ type CallsAPI interface {
 		**Required ACL:** `calld.calls.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListCallsRequest
+		@return CallsAPIListCallsRequest
 	*/
-	ListCalls(ctx context.Context) ApiListCallsRequest
+	ListCalls(ctx context.Context) CallsAPIListCallsRequest
 
 	// ListCallsExecute executes the request
 	//  @return ListCalls200Response
-	ListCallsExecute(r ApiListCallsRequest) (*ListCalls200Response, *http.Response, error)
+	ListCallsExecute(r CallsAPIListCallsRequest) (*ListCalls200Response, *http.Response, error)
 
 	/*
 		ListUserCalls List calls of a user
@@ -185,13 +185,13 @@ type CallsAPI interface {
 		**Required ACL:** `calld.users.me.calls.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserCallsRequest
+		@return CallsAPIListUserCallsRequest
 	*/
-	ListUserCalls(ctx context.Context) ApiListUserCallsRequest
+	ListUserCalls(ctx context.Context) CallsAPIListUserCallsRequest
 
 	// ListUserCallsExecute executes the request
 	//  @return ListCalls200Response
-	ListUserCallsExecute(r ApiListUserCallsRequest) (*ListCalls200Response, *http.Response, error)
+	ListUserCallsExecute(r CallsAPIListUserCallsRequest) (*ListCalls200Response, *http.Response, error)
 
 	/*
 		MuteCall Mute a call
@@ -200,12 +200,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiMuteCallRequest
+		@return CallsAPIMuteCallRequest
 	*/
-	MuteCall(ctx context.Context, callId string) ApiMuteCallRequest
+	MuteCall(ctx context.Context, callId string) CallsAPIMuteCallRequest
 
 	// MuteCallExecute executes the request
-	MuteCallExecute(r ApiMuteCallRequest) (*http.Response, error)
+	MuteCallExecute(r CallsAPIMuteCallRequest) (*http.Response, error)
 
 	/*
 		MuteUserCall Mute a call from user
@@ -214,12 +214,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiMuteUserCallRequest
+		@return CallsAPIMuteUserCallRequest
 	*/
-	MuteUserCall(ctx context.Context, callId string) ApiMuteUserCallRequest
+	MuteUserCall(ctx context.Context, callId string) CallsAPIMuteUserCallRequest
 
 	// MuteUserCallExecute executes the request
-	MuteUserCallExecute(r ApiMuteUserCallRequest) (*http.Response, error)
+	MuteUserCallExecute(r CallsAPIMuteUserCallRequest) (*http.Response, error)
 
 	/*
 		SendCallDTMF Simulate a user pressing DTMF keys
@@ -228,12 +228,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiSendCallDTMFRequest
+		@return CallsAPISendCallDTMFRequest
 	*/
-	SendCallDTMF(ctx context.Context, callId string) ApiSendCallDTMFRequest
+	SendCallDTMF(ctx context.Context, callId string) CallsAPISendCallDTMFRequest
 
 	// SendCallDTMFExecute executes the request
-	SendCallDTMFExecute(r ApiSendCallDTMFRequest) (*http.Response, error)
+	SendCallDTMFExecute(r CallsAPISendCallDTMFRequest) (*http.Response, error)
 
 	/*
 		SendUserDTMF Simulate a user pressing DTMF keys
@@ -242,12 +242,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiSendUserDTMFRequest
+		@return CallsAPISendUserDTMFRequest
 	*/
-	SendUserDTMF(ctx context.Context, callId string) ApiSendUserDTMFRequest
+	SendUserDTMF(ctx context.Context, callId string) CallsAPISendUserDTMFRequest
 
 	// SendUserDTMFExecute executes the request
-	SendUserDTMFExecute(r ApiSendUserDTMFRequest) (*http.Response, error)
+	SendUserDTMFExecute(r CallsAPISendUserDTMFRequest) (*http.Response, error)
 
 	/*
 		StartCurrentUserRecording Start recording a call
@@ -256,12 +256,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiStartCurrentUserRecordingRequest
+		@return CallsAPIStartCurrentUserRecordingRequest
 	*/
-	StartCurrentUserRecording(ctx context.Context, callId string) ApiStartCurrentUserRecordingRequest
+	StartCurrentUserRecording(ctx context.Context, callId string) CallsAPIStartCurrentUserRecordingRequest
 
 	// StartCurrentUserRecordingExecute executes the request
-	StartCurrentUserRecordingExecute(r ApiStartCurrentUserRecordingRequest) (*http.Response, error)
+	StartCurrentUserRecordingExecute(r CallsAPIStartCurrentUserRecordingRequest) (*http.Response, error)
 
 	/*
 		StartRecording Start recording a call
@@ -270,12 +270,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiStartRecordingRequest
+		@return CallsAPIStartRecordingRequest
 	*/
-	StartRecording(ctx context.Context, callId string) ApiStartRecordingRequest
+	StartRecording(ctx context.Context, callId string) CallsAPIStartRecordingRequest
 
 	// StartRecordingExecute executes the request
-	StartRecordingExecute(r ApiStartRecordingRequest) (*http.Response, error)
+	StartRecordingExecute(r CallsAPIStartRecordingRequest) (*http.Response, error)
 
 	/*
 		StopCurrentUserRecording Stop recording a call
@@ -284,12 +284,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiStopCurrentUserRecordingRequest
+		@return CallsAPIStopCurrentUserRecordingRequest
 	*/
-	StopCurrentUserRecording(ctx context.Context, callId string) ApiStopCurrentUserRecordingRequest
+	StopCurrentUserRecording(ctx context.Context, callId string) CallsAPIStopCurrentUserRecordingRequest
 
 	// StopCurrentUserRecordingExecute executes the request
-	StopCurrentUserRecordingExecute(r ApiStopCurrentUserRecordingRequest) (*http.Response, error)
+	StopCurrentUserRecordingExecute(r CallsAPIStopCurrentUserRecordingRequest) (*http.Response, error)
 
 	/*
 		StopRecording Stop recording a call
@@ -298,12 +298,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiStopRecordingRequest
+		@return CallsAPIStopRecordingRequest
 	*/
-	StopRecording(ctx context.Context, callId string) ApiStopRecordingRequest
+	StopRecording(ctx context.Context, callId string) CallsAPIStopRecordingRequest
 
 	// StopRecordingExecute executes the request
-	StopRecordingExecute(r ApiStopRecordingRequest) (*http.Response, error)
+	StopRecordingExecute(r CallsAPIStopRecordingRequest) (*http.Response, error)
 
 	/*
 		UnholdCall Unhold a call
@@ -312,12 +312,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiUnholdCallRequest
+		@return CallsAPIUnholdCallRequest
 	*/
-	UnholdCall(ctx context.Context, callId string) ApiUnholdCallRequest
+	UnholdCall(ctx context.Context, callId string) CallsAPIUnholdCallRequest
 
 	// UnholdCallExecute executes the request
-	UnholdCallExecute(r ApiUnholdCallRequest) (*http.Response, error)
+	UnholdCallExecute(r CallsAPIUnholdCallRequest) (*http.Response, error)
 
 	/*
 		UnholdUserCall Unhold a call from user
@@ -326,12 +326,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiUnholdUserCallRequest
+		@return CallsAPIUnholdUserCallRequest
 	*/
-	UnholdUserCall(ctx context.Context, callId string) ApiUnholdUserCallRequest
+	UnholdUserCall(ctx context.Context, callId string) CallsAPIUnholdUserCallRequest
 
 	// UnholdUserCallExecute executes the request
-	UnholdUserCallExecute(r ApiUnholdUserCallRequest) (*http.Response, error)
+	UnholdUserCallExecute(r CallsAPIUnholdUserCallRequest) (*http.Response, error)
 
 	/*
 		UnmuteCall Unmute a call
@@ -340,12 +340,12 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiUnmuteCallRequest
+		@return CallsAPIUnmuteCallRequest
 	*/
-	UnmuteCall(ctx context.Context, callId string) ApiUnmuteCallRequest
+	UnmuteCall(ctx context.Context, callId string) CallsAPIUnmuteCallRequest
 
 	// UnmuteCallExecute executes the request
-	UnmuteCallExecute(r ApiUnmuteCallRequest) (*http.Response, error)
+	UnmuteCallExecute(r CallsAPIUnmuteCallRequest) (*http.Response, error)
 
 	/*
 		UnmuteUserCall Unmute a call from user
@@ -354,24 +354,24 @@ type CallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callId ID of the call
-		@return ApiUnmuteUserCallRequest
+		@return CallsAPIUnmuteUserCallRequest
 	*/
-	UnmuteUserCall(ctx context.Context, callId string) ApiUnmuteUserCallRequest
+	UnmuteUserCall(ctx context.Context, callId string) CallsAPIUnmuteUserCallRequest
 
 	// UnmuteUserCallExecute executes the request
-	UnmuteUserCallExecute(r ApiUnmuteUserCallRequest) (*http.Response, error)
+	UnmuteUserCallExecute(r CallsAPIUnmuteUserCallRequest) (*http.Response, error)
 }
 
 // CallsAPIService CallsAPI service
 type CallsAPIService service
 
-type ApiAnswerCallRequest struct {
+type CallsAPIAnswerCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiAnswerCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIAnswerCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AnswerCallExecute(r)
 }
 
@@ -382,10 +382,10 @@ AnswerCall Answer a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiAnswerCallRequest
+	@return CallsAPIAnswerCallRequest
 */
-func (a *CallsAPIService) AnswerCall(ctx context.Context, callId string) ApiAnswerCallRequest {
-	return ApiAnswerCallRequest{
+func (a *CallsAPIService) AnswerCall(ctx context.Context, callId string) CallsAPIAnswerCallRequest {
+	return CallsAPIAnswerCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -393,7 +393,7 @@ func (a *CallsAPIService) AnswerCall(ctx context.Context, callId string) ApiAnsw
 }
 
 // Execute executes the request
-func (a *CallsAPIService) AnswerCallExecute(r ApiAnswerCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) AnswerCallExecute(r CallsAPIAnswerCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -492,13 +492,13 @@ func (a *CallsAPIService) AnswerCallExecute(r ApiAnswerCallRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiAnswerUserCallRequest struct {
+type CallsAPIAnswerUserCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiAnswerUserCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIAnswerUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AnswerUserCallExecute(r)
 }
 
@@ -509,10 +509,10 @@ AnswerUserCall Answer a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiAnswerUserCallRequest
+	@return CallsAPIAnswerUserCallRequest
 */
-func (a *CallsAPIService) AnswerUserCall(ctx context.Context, callId string) ApiAnswerUserCallRequest {
-	return ApiAnswerUserCallRequest{
+func (a *CallsAPIService) AnswerUserCall(ctx context.Context, callId string) CallsAPIAnswerUserCallRequest {
+	return CallsAPIAnswerUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -520,7 +520,7 @@ func (a *CallsAPIService) AnswerUserCall(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *CallsAPIService) AnswerUserCallExecute(r ApiAnswerUserCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) AnswerUserCallExecute(r CallsAPIAnswerUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -619,7 +619,7 @@ func (a *CallsAPIService) AnswerUserCallExecute(r ApiAnswerUserCallRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiConnectCallToUserRequest struct {
+type CallsAPIConnectCallToUserRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
@@ -628,12 +628,12 @@ type ApiConnectCallToUserRequest struct {
 }
 
 // options affecting the call to the targeted user
-func (r ApiConnectCallToUserRequest) Body(body ConnectCallToUserRequest) ApiConnectCallToUserRequest {
+func (r CallsAPIConnectCallToUserRequest) Body(body ConnectCallToUserRequest) CallsAPIConnectCallToUserRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiConnectCallToUserRequest) Execute() (*Call, *http.Response, error) {
+func (r CallsAPIConnectCallToUserRequest) Execute() (*Call, *http.Response, error) {
 	return r.ApiService.ConnectCallToUserExecute(r)
 }
 
@@ -645,10 +645,10 @@ ConnectCallToUser Connect a call to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
 	@param userUuid UUID of the user
-	@return ApiConnectCallToUserRequest
+	@return CallsAPIConnectCallToUserRequest
 */
-func (a *CallsAPIService) ConnectCallToUser(ctx context.Context, callId string, userUuid string) ApiConnectCallToUserRequest {
-	return ApiConnectCallToUserRequest{
+func (a *CallsAPIService) ConnectCallToUser(ctx context.Context, callId string, userUuid string) CallsAPIConnectCallToUserRequest {
+	return CallsAPIConnectCallToUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -659,7 +659,7 @@ func (a *CallsAPIService) ConnectCallToUser(ctx context.Context, callId string, 
 // Execute executes the request
 //
 //	@return Call
-func (a *CallsAPIService) ConnectCallToUserExecute(r ApiConnectCallToUserRequest) (*Call, *http.Response, error) {
+func (a *CallsAPIService) ConnectCallToUserExecute(r CallsAPIConnectCallToUserRequest) (*Call, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -760,19 +760,19 @@ func (a *CallsAPIService) ConnectCallToUserExecute(r ApiConnectCallToUserRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateCallRequest struct {
+type CallsAPICreateCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	body       *CallRequest
 }
 
 // Call parameters
-func (r ApiCreateCallRequest) Body(body CallRequest) ApiCreateCallRequest {
+func (r CallsAPICreateCallRequest) Body(body CallRequest) CallsAPICreateCallRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateCallRequest) Execute() (*Call, *http.Response, error) {
+func (r CallsAPICreateCallRequest) Execute() (*Call, *http.Response, error) {
 	return r.ApiService.CreateCallExecute(r)
 }
 
@@ -782,10 +782,10 @@ CreateCall Make a new call
 **Required ACL:** `calld.calls.create` Create a new call from a phone to an extension.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateCallRequest
+	@return CallsAPICreateCallRequest
 */
-func (a *CallsAPIService) CreateCall(ctx context.Context) ApiCreateCallRequest {
-	return ApiCreateCallRequest{
+func (a *CallsAPIService) CreateCall(ctx context.Context) CallsAPICreateCallRequest {
+	return CallsAPICreateCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -794,7 +794,7 @@ func (a *CallsAPIService) CreateCall(ctx context.Context) ApiCreateCallRequest {
 // Execute executes the request
 //
 //	@return Call
-func (a *CallsAPIService) CreateCallExecute(r ApiCreateCallRequest) (*Call, *http.Response, error) {
+func (a *CallsAPIService) CreateCallExecute(r CallsAPICreateCallRequest) (*Call, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -907,19 +907,19 @@ func (a *CallsAPIService) CreateCallExecute(r ApiCreateCallRequest) (*Call, *htt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateUserCallRequest struct {
+type CallsAPICreateUserCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	body       *UserCallRequest
 }
 
 // Parameters of the call
-func (r ApiCreateUserCallRequest) Body(body UserCallRequest) ApiCreateUserCallRequest {
+func (r CallsAPICreateUserCallRequest) Body(body UserCallRequest) CallsAPICreateUserCallRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateUserCallRequest) Execute() (*Call, *http.Response, error) {
+func (r CallsAPICreateUserCallRequest) Execute() (*Call, *http.Response, error) {
 	return r.ApiService.CreateUserCallExecute(r)
 }
 
@@ -929,10 +929,10 @@ CreateUserCall Make a new call from a user
 **Required ACL:** `calld.users.me.calls.create` The user originator of the call is determined from the authentication token.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateUserCallRequest
+	@return CallsAPICreateUserCallRequest
 */
-func (a *CallsAPIService) CreateUserCall(ctx context.Context) ApiCreateUserCallRequest {
-	return ApiCreateUserCallRequest{
+func (a *CallsAPIService) CreateUserCall(ctx context.Context) CallsAPICreateUserCallRequest {
+	return CallsAPICreateUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -941,7 +941,7 @@ func (a *CallsAPIService) CreateUserCall(ctx context.Context) ApiCreateUserCallR
 // Execute executes the request
 //
 //	@return Call
-func (a *CallsAPIService) CreateUserCallExecute(r ApiCreateUserCallRequest) (*Call, *http.Response, error) {
+func (a *CallsAPIService) CreateUserCallExecute(r CallsAPICreateUserCallRequest) (*Call, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1054,13 +1054,13 @@ func (a *CallsAPIService) CreateUserCallExecute(r ApiCreateUserCallRequest) (*Ca
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteCallRequest struct {
+type CallsAPIDeleteCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiDeleteCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIDeleteCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteCallExecute(r)
 }
 
@@ -1071,10 +1071,10 @@ DeleteCall Hangup a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiDeleteCallRequest
+	@return CallsAPIDeleteCallRequest
 */
-func (a *CallsAPIService) DeleteCall(ctx context.Context, callId string) ApiDeleteCallRequest {
-	return ApiDeleteCallRequest{
+func (a *CallsAPIService) DeleteCall(ctx context.Context, callId string) CallsAPIDeleteCallRequest {
+	return CallsAPIDeleteCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -1082,7 +1082,7 @@ func (a *CallsAPIService) DeleteCall(ctx context.Context, callId string) ApiDele
 }
 
 // Execute executes the request
-func (a *CallsAPIService) DeleteCallExecute(r ApiDeleteCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) DeleteCallExecute(r CallsAPIDeleteCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1181,13 +1181,13 @@ func (a *CallsAPIService) DeleteCallExecute(r ApiDeleteCallRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetCallRequest struct {
+type CallsAPIGetCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiGetCallRequest) Execute() (*Call, *http.Response, error) {
+func (r CallsAPIGetCallRequest) Execute() (*Call, *http.Response, error) {
 	return r.ApiService.GetCallExecute(r)
 }
 
@@ -1198,10 +1198,10 @@ GetCall Show a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiGetCallRequest
+	@return CallsAPIGetCallRequest
 */
-func (a *CallsAPIService) GetCall(ctx context.Context, callId string) ApiGetCallRequest {
-	return ApiGetCallRequest{
+func (a *CallsAPIService) GetCall(ctx context.Context, callId string) CallsAPIGetCallRequest {
+	return CallsAPIGetCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -1211,7 +1211,7 @@ func (a *CallsAPIService) GetCall(ctx context.Context, callId string) ApiGetCall
 // Execute executes the request
 //
 //	@return Call
-func (a *CallsAPIService) GetCallExecute(r ApiGetCallRequest) (*Call, *http.Response, error) {
+func (a *CallsAPIService) GetCallExecute(r CallsAPIGetCallRequest) (*Call, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1320,13 +1320,13 @@ func (a *CallsAPIService) GetCallExecute(r ApiGetCallRequest) (*Call, *http.Resp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiHangupUserCallRequest struct {
+type CallsAPIHangupUserCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiHangupUserCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIHangupUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.HangupUserCallExecute(r)
 }
 
@@ -1337,10 +1337,10 @@ HangupUserCall Hangup a call from a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiHangupUserCallRequest
+	@return CallsAPIHangupUserCallRequest
 */
-func (a *CallsAPIService) HangupUserCall(ctx context.Context, callId string) ApiHangupUserCallRequest {
-	return ApiHangupUserCallRequest{
+func (a *CallsAPIService) HangupUserCall(ctx context.Context, callId string) CallsAPIHangupUserCallRequest {
+	return CallsAPIHangupUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -1348,7 +1348,7 @@ func (a *CallsAPIService) HangupUserCall(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *CallsAPIService) HangupUserCallExecute(r ApiHangupUserCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) HangupUserCallExecute(r CallsAPIHangupUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1458,13 +1458,13 @@ func (a *CallsAPIService) HangupUserCallExecute(r ApiHangupUserCallRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiHoldCallRequest struct {
+type CallsAPIHoldCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiHoldCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIHoldCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.HoldCallExecute(r)
 }
 
@@ -1475,10 +1475,10 @@ HoldCall Hold a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiHoldCallRequest
+	@return CallsAPIHoldCallRequest
 */
-func (a *CallsAPIService) HoldCall(ctx context.Context, callId string) ApiHoldCallRequest {
-	return ApiHoldCallRequest{
+func (a *CallsAPIService) HoldCall(ctx context.Context, callId string) CallsAPIHoldCallRequest {
+	return CallsAPIHoldCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -1486,7 +1486,7 @@ func (a *CallsAPIService) HoldCall(ctx context.Context, callId string) ApiHoldCa
 }
 
 // Execute executes the request
-func (a *CallsAPIService) HoldCallExecute(r ApiHoldCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) HoldCallExecute(r CallsAPIHoldCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1585,13 +1585,13 @@ func (a *CallsAPIService) HoldCallExecute(r ApiHoldCallRequest) (*http.Response,
 	return localVarHTTPResponse, nil
 }
 
-type ApiHoldUserCallRequest struct {
+type CallsAPIHoldUserCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiHoldUserCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIHoldUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.HoldUserCallExecute(r)
 }
 
@@ -1602,10 +1602,10 @@ HoldUserCall Hold a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiHoldUserCallRequest
+	@return CallsAPIHoldUserCallRequest
 */
-func (a *CallsAPIService) HoldUserCall(ctx context.Context, callId string) ApiHoldUserCallRequest {
-	return ApiHoldUserCallRequest{
+func (a *CallsAPIService) HoldUserCall(ctx context.Context, callId string) CallsAPIHoldUserCallRequest {
+	return CallsAPIHoldUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -1613,7 +1613,7 @@ func (a *CallsAPIService) HoldUserCall(ctx context.Context, callId string) ApiHo
 }
 
 // Execute executes the request
-func (a *CallsAPIService) HoldUserCallExecute(r ApiHoldUserCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) HoldUserCallExecute(r CallsAPIHoldUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1712,7 +1712,7 @@ func (a *CallsAPIService) HoldUserCallExecute(r ApiHoldUserCallRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiListCallsRequest struct {
+type CallsAPIListCallsRequest struct {
 	ctx                 context.Context
 	ApiService          CallsAPI
 	application         *string
@@ -1720,18 +1720,18 @@ type ApiListCallsRequest struct {
 }
 
 // Filter calls by Stasis application, e.g. switchboard.
-func (r ApiListCallsRequest) Application(application string) ApiListCallsRequest {
+func (r CallsAPIListCallsRequest) Application(application string) CallsAPIListCallsRequest {
 	r.application = &application
 	return r
 }
 
 // Filter calls by Stasis application instance, e.g. switchboard-sales,green. Args must be separated by commas (,). &#x60;application_instance&#x60; is ignored if &#x60;application&#x60; is not set.
-func (r ApiListCallsRequest) ApplicationInstance(applicationInstance string) ApiListCallsRequest {
+func (r CallsAPIListCallsRequest) ApplicationInstance(applicationInstance string) CallsAPIListCallsRequest {
 	r.applicationInstance = &applicationInstance
 	return r
 }
 
-func (r ApiListCallsRequest) Execute() (*ListCalls200Response, *http.Response, error) {
+func (r CallsAPIListCallsRequest) Execute() (*ListCalls200Response, *http.Response, error) {
 	return r.ApiService.ListCallsExecute(r)
 }
 
@@ -1741,10 +1741,10 @@ ListCalls List calls
 **Required ACL:** `calld.calls.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListCallsRequest
+	@return CallsAPIListCallsRequest
 */
-func (a *CallsAPIService) ListCalls(ctx context.Context) ApiListCallsRequest {
-	return ApiListCallsRequest{
+func (a *CallsAPIService) ListCalls(ctx context.Context) CallsAPIListCallsRequest {
+	return CallsAPIListCallsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1753,7 +1753,7 @@ func (a *CallsAPIService) ListCalls(ctx context.Context) ApiListCallsRequest {
 // Execute executes the request
 //
 //	@return ListCalls200Response
-func (a *CallsAPIService) ListCallsExecute(r ApiListCallsRequest) (*ListCalls200Response, *http.Response, error) {
+func (a *CallsAPIService) ListCallsExecute(r CallsAPIListCallsRequest) (*ListCalls200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1856,7 +1856,7 @@ func (a *CallsAPIService) ListCallsExecute(r ApiListCallsRequest) (*ListCalls200
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserCallsRequest struct {
+type CallsAPIListUserCallsRequest struct {
 	ctx                 context.Context
 	ApiService          CallsAPI
 	application         *string
@@ -1864,18 +1864,18 @@ type ApiListUserCallsRequest struct {
 }
 
 // Filter calls by Stasis application, e.g. switchboard.
-func (r ApiListUserCallsRequest) Application(application string) ApiListUserCallsRequest {
+func (r CallsAPIListUserCallsRequest) Application(application string) CallsAPIListUserCallsRequest {
 	r.application = &application
 	return r
 }
 
 // Filter calls by Stasis application instance, e.g. switchboard-sales,green. Args must be separated by commas (,).
-func (r ApiListUserCallsRequest) ApplicationInstance(applicationInstance string) ApiListUserCallsRequest {
+func (r CallsAPIListUserCallsRequest) ApplicationInstance(applicationInstance string) CallsAPIListUserCallsRequest {
 	r.applicationInstance = &applicationInstance
 	return r
 }
 
-func (r ApiListUserCallsRequest) Execute() (*ListCalls200Response, *http.Response, error) {
+func (r CallsAPIListUserCallsRequest) Execute() (*ListCalls200Response, *http.Response, error) {
 	return r.ApiService.ListUserCallsExecute(r)
 }
 
@@ -1885,10 +1885,10 @@ ListUserCalls List calls of a user
 **Required ACL:** `calld.users.me.calls.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserCallsRequest
+	@return CallsAPIListUserCallsRequest
 */
-func (a *CallsAPIService) ListUserCalls(ctx context.Context) ApiListUserCallsRequest {
-	return ApiListUserCallsRequest{
+func (a *CallsAPIService) ListUserCalls(ctx context.Context) CallsAPIListUserCallsRequest {
+	return CallsAPIListUserCallsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1897,7 +1897,7 @@ func (a *CallsAPIService) ListUserCalls(ctx context.Context) ApiListUserCallsReq
 // Execute executes the request
 //
 //	@return ListCalls200Response
-func (a *CallsAPIService) ListUserCallsExecute(r ApiListUserCallsRequest) (*ListCalls200Response, *http.Response, error) {
+func (a *CallsAPIService) ListUserCallsExecute(r CallsAPIListUserCallsRequest) (*ListCalls200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2000,13 +2000,13 @@ func (a *CallsAPIService) ListUserCallsExecute(r ApiListUserCallsRequest) (*List
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiMuteCallRequest struct {
+type CallsAPIMuteCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiMuteCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIMuteCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.MuteCallExecute(r)
 }
 
@@ -2017,10 +2017,10 @@ MuteCall Mute a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiMuteCallRequest
+	@return CallsAPIMuteCallRequest
 */
-func (a *CallsAPIService) MuteCall(ctx context.Context, callId string) ApiMuteCallRequest {
-	return ApiMuteCallRequest{
+func (a *CallsAPIService) MuteCall(ctx context.Context, callId string) CallsAPIMuteCallRequest {
+	return CallsAPIMuteCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2028,7 +2028,7 @@ func (a *CallsAPIService) MuteCall(ctx context.Context, callId string) ApiMuteCa
 }
 
 // Execute executes the request
-func (a *CallsAPIService) MuteCallExecute(r ApiMuteCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) MuteCallExecute(r CallsAPIMuteCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2127,13 +2127,13 @@ func (a *CallsAPIService) MuteCallExecute(r ApiMuteCallRequest) (*http.Response,
 	return localVarHTTPResponse, nil
 }
 
-type ApiMuteUserCallRequest struct {
+type CallsAPIMuteUserCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiMuteUserCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIMuteUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.MuteUserCallExecute(r)
 }
 
@@ -2144,10 +2144,10 @@ MuteUserCall Mute a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiMuteUserCallRequest
+	@return CallsAPIMuteUserCallRequest
 */
-func (a *CallsAPIService) MuteUserCall(ctx context.Context, callId string) ApiMuteUserCallRequest {
-	return ApiMuteUserCallRequest{
+func (a *CallsAPIService) MuteUserCall(ctx context.Context, callId string) CallsAPIMuteUserCallRequest {
+	return CallsAPIMuteUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2155,7 +2155,7 @@ func (a *CallsAPIService) MuteUserCall(ctx context.Context, callId string) ApiMu
 }
 
 // Execute executes the request
-func (a *CallsAPIService) MuteUserCallExecute(r ApiMuteUserCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) MuteUserCallExecute(r CallsAPIMuteUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2254,7 +2254,7 @@ func (a *CallsAPIService) MuteUserCallExecute(r ApiMuteUserCallRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiSendCallDTMFRequest struct {
+type CallsAPISendCallDTMFRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
@@ -2262,12 +2262,12 @@ type ApiSendCallDTMFRequest struct {
 }
 
 // Digits to send via DTMF. Must contain only &#x60;0-9*#&#x60;.
-func (r ApiSendCallDTMFRequest) Digits(digits string) ApiSendCallDTMFRequest {
+func (r CallsAPISendCallDTMFRequest) Digits(digits string) CallsAPISendCallDTMFRequest {
 	r.digits = &digits
 	return r
 }
 
-func (r ApiSendCallDTMFRequest) Execute() (*http.Response, error) {
+func (r CallsAPISendCallDTMFRequest) Execute() (*http.Response, error) {
 	return r.ApiService.SendCallDTMFExecute(r)
 }
 
@@ -2278,10 +2278,10 @@ SendCallDTMF Simulate a user pressing DTMF keys
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiSendCallDTMFRequest
+	@return CallsAPISendCallDTMFRequest
 */
-func (a *CallsAPIService) SendCallDTMF(ctx context.Context, callId string) ApiSendCallDTMFRequest {
-	return ApiSendCallDTMFRequest{
+func (a *CallsAPIService) SendCallDTMF(ctx context.Context, callId string) CallsAPISendCallDTMFRequest {
+	return CallsAPISendCallDTMFRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2289,7 +2289,7 @@ func (a *CallsAPIService) SendCallDTMF(ctx context.Context, callId string) ApiSe
 }
 
 // Execute executes the request
-func (a *CallsAPIService) SendCallDTMFExecute(r ApiSendCallDTMFRequest) (*http.Response, error) {
+func (a *CallsAPIService) SendCallDTMFExecute(r CallsAPISendCallDTMFRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2392,7 +2392,7 @@ func (a *CallsAPIService) SendCallDTMFExecute(r ApiSendCallDTMFRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiSendUserDTMFRequest struct {
+type CallsAPISendUserDTMFRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
@@ -2400,12 +2400,12 @@ type ApiSendUserDTMFRequest struct {
 }
 
 // Digits to send via DTMF. Must contain only &#x60;0-9*#&#x60;.
-func (r ApiSendUserDTMFRequest) Digits(digits string) ApiSendUserDTMFRequest {
+func (r CallsAPISendUserDTMFRequest) Digits(digits string) CallsAPISendUserDTMFRequest {
 	r.digits = &digits
 	return r
 }
 
-func (r ApiSendUserDTMFRequest) Execute() (*http.Response, error) {
+func (r CallsAPISendUserDTMFRequest) Execute() (*http.Response, error) {
 	return r.ApiService.SendUserDTMFExecute(r)
 }
 
@@ -2416,10 +2416,10 @@ SendUserDTMF Simulate a user pressing DTMF keys
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiSendUserDTMFRequest
+	@return CallsAPISendUserDTMFRequest
 */
-func (a *CallsAPIService) SendUserDTMF(ctx context.Context, callId string) ApiSendUserDTMFRequest {
-	return ApiSendUserDTMFRequest{
+func (a *CallsAPIService) SendUserDTMF(ctx context.Context, callId string) CallsAPISendUserDTMFRequest {
+	return CallsAPISendUserDTMFRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2427,7 +2427,7 @@ func (a *CallsAPIService) SendUserDTMF(ctx context.Context, callId string) ApiSe
 }
 
 // Execute executes the request
-func (a *CallsAPIService) SendUserDTMFExecute(r ApiSendUserDTMFRequest) (*http.Response, error) {
+func (a *CallsAPIService) SendUserDTMFExecute(r CallsAPISendUserDTMFRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2530,13 +2530,13 @@ func (a *CallsAPIService) SendUserDTMFExecute(r ApiSendUserDTMFRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiStartCurrentUserRecordingRequest struct {
+type CallsAPIStartCurrentUserRecordingRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiStartCurrentUserRecordingRequest) Execute() (*http.Response, error) {
+func (r CallsAPIStartCurrentUserRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StartCurrentUserRecordingExecute(r)
 }
 
@@ -2547,10 +2547,10 @@ StartCurrentUserRecording Start recording a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiStartCurrentUserRecordingRequest
+	@return CallsAPIStartCurrentUserRecordingRequest
 */
-func (a *CallsAPIService) StartCurrentUserRecording(ctx context.Context, callId string) ApiStartCurrentUserRecordingRequest {
-	return ApiStartCurrentUserRecordingRequest{
+func (a *CallsAPIService) StartCurrentUserRecording(ctx context.Context, callId string) CallsAPIStartCurrentUserRecordingRequest {
+	return CallsAPIStartCurrentUserRecordingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2558,7 +2558,7 @@ func (a *CallsAPIService) StartCurrentUserRecording(ctx context.Context, callId 
 }
 
 // Execute executes the request
-func (a *CallsAPIService) StartCurrentUserRecordingExecute(r ApiStartCurrentUserRecordingRequest) (*http.Response, error) {
+func (a *CallsAPIService) StartCurrentUserRecordingExecute(r CallsAPIStartCurrentUserRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2657,13 +2657,13 @@ func (a *CallsAPIService) StartCurrentUserRecordingExecute(r ApiStartCurrentUser
 	return localVarHTTPResponse, nil
 }
 
-type ApiStartRecordingRequest struct {
+type CallsAPIStartRecordingRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiStartRecordingRequest) Execute() (*http.Response, error) {
+func (r CallsAPIStartRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StartRecordingExecute(r)
 }
 
@@ -2674,10 +2674,10 @@ StartRecording Start recording a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiStartRecordingRequest
+	@return CallsAPIStartRecordingRequest
 */
-func (a *CallsAPIService) StartRecording(ctx context.Context, callId string) ApiStartRecordingRequest {
-	return ApiStartRecordingRequest{
+func (a *CallsAPIService) StartRecording(ctx context.Context, callId string) CallsAPIStartRecordingRequest {
+	return CallsAPIStartRecordingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2685,7 +2685,7 @@ func (a *CallsAPIService) StartRecording(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *CallsAPIService) StartRecordingExecute(r ApiStartRecordingRequest) (*http.Response, error) {
+func (a *CallsAPIService) StartRecordingExecute(r CallsAPIStartRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2784,13 +2784,13 @@ func (a *CallsAPIService) StartRecordingExecute(r ApiStartRecordingRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiStopCurrentUserRecordingRequest struct {
+type CallsAPIStopCurrentUserRecordingRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiStopCurrentUserRecordingRequest) Execute() (*http.Response, error) {
+func (r CallsAPIStopCurrentUserRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StopCurrentUserRecordingExecute(r)
 }
 
@@ -2801,10 +2801,10 @@ StopCurrentUserRecording Stop recording a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiStopCurrentUserRecordingRequest
+	@return CallsAPIStopCurrentUserRecordingRequest
 */
-func (a *CallsAPIService) StopCurrentUserRecording(ctx context.Context, callId string) ApiStopCurrentUserRecordingRequest {
-	return ApiStopCurrentUserRecordingRequest{
+func (a *CallsAPIService) StopCurrentUserRecording(ctx context.Context, callId string) CallsAPIStopCurrentUserRecordingRequest {
+	return CallsAPIStopCurrentUserRecordingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2812,7 +2812,7 @@ func (a *CallsAPIService) StopCurrentUserRecording(ctx context.Context, callId s
 }
 
 // Execute executes the request
-func (a *CallsAPIService) StopCurrentUserRecordingExecute(r ApiStopCurrentUserRecordingRequest) (*http.Response, error) {
+func (a *CallsAPIService) StopCurrentUserRecordingExecute(r CallsAPIStopCurrentUserRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2911,13 +2911,13 @@ func (a *CallsAPIService) StopCurrentUserRecordingExecute(r ApiStopCurrentUserRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiStopRecordingRequest struct {
+type CallsAPIStopRecordingRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiStopRecordingRequest) Execute() (*http.Response, error) {
+func (r CallsAPIStopRecordingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.StopRecordingExecute(r)
 }
 
@@ -2928,10 +2928,10 @@ StopRecording Stop recording a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiStopRecordingRequest
+	@return CallsAPIStopRecordingRequest
 */
-func (a *CallsAPIService) StopRecording(ctx context.Context, callId string) ApiStopRecordingRequest {
-	return ApiStopRecordingRequest{
+func (a *CallsAPIService) StopRecording(ctx context.Context, callId string) CallsAPIStopRecordingRequest {
+	return CallsAPIStopRecordingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -2939,7 +2939,7 @@ func (a *CallsAPIService) StopRecording(ctx context.Context, callId string) ApiS
 }
 
 // Execute executes the request
-func (a *CallsAPIService) StopRecordingExecute(r ApiStopRecordingRequest) (*http.Response, error) {
+func (a *CallsAPIService) StopRecordingExecute(r CallsAPIStopRecordingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3038,13 +3038,13 @@ func (a *CallsAPIService) StopRecordingExecute(r ApiStopRecordingRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnholdCallRequest struct {
+type CallsAPIUnholdCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiUnholdCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIUnholdCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnholdCallExecute(r)
 }
 
@@ -3055,10 +3055,10 @@ UnholdCall Unhold a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiUnholdCallRequest
+	@return CallsAPIUnholdCallRequest
 */
-func (a *CallsAPIService) UnholdCall(ctx context.Context, callId string) ApiUnholdCallRequest {
-	return ApiUnholdCallRequest{
+func (a *CallsAPIService) UnholdCall(ctx context.Context, callId string) CallsAPIUnholdCallRequest {
+	return CallsAPIUnholdCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -3066,7 +3066,7 @@ func (a *CallsAPIService) UnholdCall(ctx context.Context, callId string) ApiUnho
 }
 
 // Execute executes the request
-func (a *CallsAPIService) UnholdCallExecute(r ApiUnholdCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) UnholdCallExecute(r CallsAPIUnholdCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3165,13 +3165,13 @@ func (a *CallsAPIService) UnholdCallExecute(r ApiUnholdCallRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnholdUserCallRequest struct {
+type CallsAPIUnholdUserCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiUnholdUserCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIUnholdUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnholdUserCallExecute(r)
 }
 
@@ -3182,10 +3182,10 @@ UnholdUserCall Unhold a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiUnholdUserCallRequest
+	@return CallsAPIUnholdUserCallRequest
 */
-func (a *CallsAPIService) UnholdUserCall(ctx context.Context, callId string) ApiUnholdUserCallRequest {
-	return ApiUnholdUserCallRequest{
+func (a *CallsAPIService) UnholdUserCall(ctx context.Context, callId string) CallsAPIUnholdUserCallRequest {
+	return CallsAPIUnholdUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -3193,7 +3193,7 @@ func (a *CallsAPIService) UnholdUserCall(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *CallsAPIService) UnholdUserCallExecute(r ApiUnholdUserCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) UnholdUserCallExecute(r CallsAPIUnholdUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3292,13 +3292,13 @@ func (a *CallsAPIService) UnholdUserCallExecute(r ApiUnholdUserCallRequest) (*ht
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnmuteCallRequest struct {
+type CallsAPIUnmuteCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiUnmuteCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIUnmuteCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnmuteCallExecute(r)
 }
 
@@ -3309,10 +3309,10 @@ UnmuteCall Unmute a call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiUnmuteCallRequest
+	@return CallsAPIUnmuteCallRequest
 */
-func (a *CallsAPIService) UnmuteCall(ctx context.Context, callId string) ApiUnmuteCallRequest {
-	return ApiUnmuteCallRequest{
+func (a *CallsAPIService) UnmuteCall(ctx context.Context, callId string) CallsAPIUnmuteCallRequest {
+	return CallsAPIUnmuteCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -3320,7 +3320,7 @@ func (a *CallsAPIService) UnmuteCall(ctx context.Context, callId string) ApiUnmu
 }
 
 // Execute executes the request
-func (a *CallsAPIService) UnmuteCallExecute(r ApiUnmuteCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) UnmuteCallExecute(r CallsAPIUnmuteCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3419,13 +3419,13 @@ func (a *CallsAPIService) UnmuteCallExecute(r ApiUnmuteCallRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiUnmuteUserCallRequest struct {
+type CallsAPIUnmuteUserCallRequest struct {
 	ctx        context.Context
 	ApiService CallsAPI
 	callId     string
 }
 
-func (r ApiUnmuteUserCallRequest) Execute() (*http.Response, error) {
+func (r CallsAPIUnmuteUserCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnmuteUserCallExecute(r)
 }
 
@@ -3436,10 +3436,10 @@ UnmuteUserCall Unmute a call from user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callId ID of the call
-	@return ApiUnmuteUserCallRequest
+	@return CallsAPIUnmuteUserCallRequest
 */
-func (a *CallsAPIService) UnmuteUserCall(ctx context.Context, callId string) ApiUnmuteUserCallRequest {
-	return ApiUnmuteUserCallRequest{
+func (a *CallsAPIService) UnmuteUserCall(ctx context.Context, callId string) CallsAPIUnmuteUserCallRequest {
+	return CallsAPIUnmuteUserCallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		callId:     callId,
@@ -3447,7 +3447,7 @@ func (a *CallsAPIService) UnmuteUserCall(ctx context.Context, callId string) Api
 }
 
 // Execute executes the request
-func (a *CallsAPIService) UnmuteUserCallExecute(r ApiUnmuteUserCallRequest) (*http.Response, error) {
+func (a *CallsAPIService) UnmuteUserCallExecute(r CallsAPIUnmuteUserCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

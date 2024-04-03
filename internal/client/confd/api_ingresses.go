@@ -28,13 +28,13 @@ type IngressesAPI interface {
 		**Required ACL:** `confd.ingresses.http.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateHttpIngressRequest
+		@return IngressesAPICreateHttpIngressRequest
 	*/
-	CreateHttpIngress(ctx context.Context) ApiCreateHttpIngressRequest
+	CreateHttpIngress(ctx context.Context) IngressesAPICreateHttpIngressRequest
 
 	// CreateHttpIngressExecute executes the request
 	//  @return HTTPIngress
-	CreateHttpIngressExecute(r ApiCreateHttpIngressRequest) (*HTTPIngress, *http.Response, error)
+	CreateHttpIngressExecute(r IngressesAPICreateHttpIngressRequest) (*HTTPIngress, *http.Response, error)
 
 	/*
 		DeleteHttpIngress Delete HTTP ingress
@@ -43,12 +43,12 @@ type IngressesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param httpIngressUuid
-		@return ApiDeleteHttpIngressRequest
+		@return IngressesAPIDeleteHttpIngressRequest
 	*/
-	DeleteHttpIngress(ctx context.Context, httpIngressUuid string) ApiDeleteHttpIngressRequest
+	DeleteHttpIngress(ctx context.Context, httpIngressUuid string) IngressesAPIDeleteHttpIngressRequest
 
 	// DeleteHttpIngressExecute executes the request
-	DeleteHttpIngressExecute(r ApiDeleteHttpIngressRequest) (*http.Response, error)
+	DeleteHttpIngressExecute(r IngressesAPIDeleteHttpIngressRequest) (*http.Response, error)
 
 	/*
 		GetHttpIngress Get HTTP ingress
@@ -57,13 +57,13 @@ type IngressesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param httpIngressUuid
-		@return ApiGetHttpIngressRequest
+		@return IngressesAPIGetHttpIngressRequest
 	*/
-	GetHttpIngress(ctx context.Context, httpIngressUuid string) ApiGetHttpIngressRequest
+	GetHttpIngress(ctx context.Context, httpIngressUuid string) IngressesAPIGetHttpIngressRequest
 
 	// GetHttpIngressExecute executes the request
 	//  @return HTTPIngress
-	GetHttpIngressExecute(r ApiGetHttpIngressRequest) (*HTTPIngress, *http.Response, error)
+	GetHttpIngressExecute(r IngressesAPIGetHttpIngressRequest) (*HTTPIngress, *http.Response, error)
 
 	/*
 		ListHttpIngresses List HTTP ingresses
@@ -71,13 +71,13 @@ type IngressesAPI interface {
 		**Required ACL:** `confd.ingresses.http.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListHttpIngressesRequest
+		@return IngressesAPIListHttpIngressesRequest
 	*/
-	ListHttpIngresses(ctx context.Context) ApiListHttpIngressesRequest
+	ListHttpIngresses(ctx context.Context) IngressesAPIListHttpIngressesRequest
 
 	// ListHttpIngressesExecute executes the request
 	//  @return HTTPIngressItems
-	ListHttpIngressesExecute(r ApiListHttpIngressesRequest) (*HTTPIngressItems, *http.Response, error)
+	ListHttpIngressesExecute(r IngressesAPIListHttpIngressesRequest) (*HTTPIngressItems, *http.Response, error)
 
 	/*
 		UpdateHttpIngress Update HTTP ingress
@@ -86,18 +86,18 @@ type IngressesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param httpIngressUuid
-		@return ApiUpdateHttpIngressRequest
+		@return IngressesAPIUpdateHttpIngressRequest
 	*/
-	UpdateHttpIngress(ctx context.Context, httpIngressUuid string) ApiUpdateHttpIngressRequest
+	UpdateHttpIngress(ctx context.Context, httpIngressUuid string) IngressesAPIUpdateHttpIngressRequest
 
 	// UpdateHttpIngressExecute executes the request
-	UpdateHttpIngressExecute(r ApiUpdateHttpIngressRequest) (*http.Response, error)
+	UpdateHttpIngressExecute(r IngressesAPIUpdateHttpIngressRequest) (*http.Response, error)
 }
 
 // IngressesAPIService IngressesAPI service
 type IngressesAPIService service
 
-type ApiCreateHttpIngressRequest struct {
+type IngressesAPICreateHttpIngressRequest struct {
 	ctx          context.Context
 	ApiService   IngressesAPI
 	body         *HTTPIngressRequest
@@ -105,18 +105,18 @@ type ApiCreateHttpIngressRequest struct {
 }
 
 // HTTP Ingress to create
-func (r ApiCreateHttpIngressRequest) Body(body HTTPIngressRequest) ApiCreateHttpIngressRequest {
+func (r IngressesAPICreateHttpIngressRequest) Body(body HTTPIngressRequest) IngressesAPICreateHttpIngressRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateHttpIngressRequest) AccentTenant(accentTenant string) ApiCreateHttpIngressRequest {
+func (r IngressesAPICreateHttpIngressRequest) AccentTenant(accentTenant string) IngressesAPICreateHttpIngressRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateHttpIngressRequest) Execute() (*HTTPIngress, *http.Response, error) {
+func (r IngressesAPICreateHttpIngressRequest) Execute() (*HTTPIngress, *http.Response, error) {
 	return r.ApiService.CreateHttpIngressExecute(r)
 }
 
@@ -126,10 +126,10 @@ CreateHttpIngress Create HTTP Ingress
 **Required ACL:** `confd.ingresses.http.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateHttpIngressRequest
+	@return IngressesAPICreateHttpIngressRequest
 */
-func (a *IngressesAPIService) CreateHttpIngress(ctx context.Context) ApiCreateHttpIngressRequest {
-	return ApiCreateHttpIngressRequest{
+func (a *IngressesAPIService) CreateHttpIngress(ctx context.Context) IngressesAPICreateHttpIngressRequest {
+	return IngressesAPICreateHttpIngressRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -138,7 +138,7 @@ func (a *IngressesAPIService) CreateHttpIngress(ctx context.Context) ApiCreateHt
 // Execute executes the request
 //
 //	@return HTTPIngress
-func (a *IngressesAPIService) CreateHttpIngressExecute(r ApiCreateHttpIngressRequest) (*HTTPIngress, *http.Response, error) {
+func (a *IngressesAPIService) CreateHttpIngressExecute(r IngressesAPICreateHttpIngressRequest) (*HTTPIngress, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -243,7 +243,7 @@ func (a *IngressesAPIService) CreateHttpIngressExecute(r ApiCreateHttpIngressReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteHttpIngressRequest struct {
+type IngressesAPIDeleteHttpIngressRequest struct {
 	ctx             context.Context
 	ApiService      IngressesAPI
 	httpIngressUuid string
@@ -251,12 +251,12 @@ type ApiDeleteHttpIngressRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteHttpIngressRequest) AccentTenant(accentTenant string) ApiDeleteHttpIngressRequest {
+func (r IngressesAPIDeleteHttpIngressRequest) AccentTenant(accentTenant string) IngressesAPIDeleteHttpIngressRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteHttpIngressRequest) Execute() (*http.Response, error) {
+func (r IngressesAPIDeleteHttpIngressRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteHttpIngressExecute(r)
 }
 
@@ -267,10 +267,10 @@ DeleteHttpIngress Delete HTTP ingress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param httpIngressUuid
-	@return ApiDeleteHttpIngressRequest
+	@return IngressesAPIDeleteHttpIngressRequest
 */
-func (a *IngressesAPIService) DeleteHttpIngress(ctx context.Context, httpIngressUuid string) ApiDeleteHttpIngressRequest {
-	return ApiDeleteHttpIngressRequest{
+func (a *IngressesAPIService) DeleteHttpIngress(ctx context.Context, httpIngressUuid string) IngressesAPIDeleteHttpIngressRequest {
+	return IngressesAPIDeleteHttpIngressRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		httpIngressUuid: httpIngressUuid,
@@ -278,7 +278,7 @@ func (a *IngressesAPIService) DeleteHttpIngress(ctx context.Context, httpIngress
 }
 
 // Execute executes the request
-func (a *IngressesAPIService) DeleteHttpIngressExecute(r ApiDeleteHttpIngressRequest) (*http.Response, error) {
+func (a *IngressesAPIService) DeleteHttpIngressExecute(r IngressesAPIDeleteHttpIngressRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -380,7 +380,7 @@ func (a *IngressesAPIService) DeleteHttpIngressExecute(r ApiDeleteHttpIngressReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetHttpIngressRequest struct {
+type IngressesAPIGetHttpIngressRequest struct {
 	ctx             context.Context
 	ApiService      IngressesAPI
 	httpIngressUuid string
@@ -388,12 +388,12 @@ type ApiGetHttpIngressRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetHttpIngressRequest) AccentTenant(accentTenant string) ApiGetHttpIngressRequest {
+func (r IngressesAPIGetHttpIngressRequest) AccentTenant(accentTenant string) IngressesAPIGetHttpIngressRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetHttpIngressRequest) Execute() (*HTTPIngress, *http.Response, error) {
+func (r IngressesAPIGetHttpIngressRequest) Execute() (*HTTPIngress, *http.Response, error) {
 	return r.ApiService.GetHttpIngressExecute(r)
 }
 
@@ -404,10 +404,10 @@ GetHttpIngress Get HTTP ingress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param httpIngressUuid
-	@return ApiGetHttpIngressRequest
+	@return IngressesAPIGetHttpIngressRequest
 */
-func (a *IngressesAPIService) GetHttpIngress(ctx context.Context, httpIngressUuid string) ApiGetHttpIngressRequest {
-	return ApiGetHttpIngressRequest{
+func (a *IngressesAPIService) GetHttpIngress(ctx context.Context, httpIngressUuid string) IngressesAPIGetHttpIngressRequest {
+	return IngressesAPIGetHttpIngressRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		httpIngressUuid: httpIngressUuid,
@@ -417,7 +417,7 @@ func (a *IngressesAPIService) GetHttpIngress(ctx context.Context, httpIngressUui
 // Execute executes the request
 //
 //	@return HTTPIngress
-func (a *IngressesAPIService) GetHttpIngressExecute(r ApiGetHttpIngressRequest) (*HTTPIngress, *http.Response, error) {
+func (a *IngressesAPIService) GetHttpIngressExecute(r IngressesAPIGetHttpIngressRequest) (*HTTPIngress, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -518,7 +518,7 @@ func (a *IngressesAPIService) GetHttpIngressExecute(r ApiGetHttpIngressRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListHttpIngressesRequest struct {
+type IngressesAPIListHttpIngressesRequest struct {
 	ctx          context.Context
 	ApiService   IngressesAPI
 	accentTenant *string
@@ -531,48 +531,48 @@ type ApiListHttpIngressesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListHttpIngressesRequest) AccentTenant(accentTenant string) ApiListHttpIngressesRequest {
+func (r IngressesAPIListHttpIngressesRequest) AccentTenant(accentTenant string) IngressesAPIListHttpIngressesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListHttpIngressesRequest) Recurse(recurse bool) ApiListHttpIngressesRequest {
+func (r IngressesAPIListHttpIngressesRequest) Recurse(recurse bool) IngressesAPIListHttpIngressesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListHttpIngressesRequest) Order(order string) ApiListHttpIngressesRequest {
+func (r IngressesAPIListHttpIngressesRequest) Order(order string) IngressesAPIListHttpIngressesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListHttpIngressesRequest) Direction(direction string) ApiListHttpIngressesRequest {
+func (r IngressesAPIListHttpIngressesRequest) Direction(direction string) IngressesAPIListHttpIngressesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListHttpIngressesRequest) Limit(limit int32) ApiListHttpIngressesRequest {
+func (r IngressesAPIListHttpIngressesRequest) Limit(limit int32) IngressesAPIListHttpIngressesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListHttpIngressesRequest) Offset(offset int32) ApiListHttpIngressesRequest {
+func (r IngressesAPIListHttpIngressesRequest) Offset(offset int32) IngressesAPIListHttpIngressesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListHttpIngressesRequest) Search(search string) ApiListHttpIngressesRequest {
+func (r IngressesAPIListHttpIngressesRequest) Search(search string) IngressesAPIListHttpIngressesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListHttpIngressesRequest) Execute() (*HTTPIngressItems, *http.Response, error) {
+func (r IngressesAPIListHttpIngressesRequest) Execute() (*HTTPIngressItems, *http.Response, error) {
 	return r.ApiService.ListHttpIngressesExecute(r)
 }
 
@@ -582,10 +582,10 @@ ListHttpIngresses List HTTP ingresses
 **Required ACL:** `confd.ingresses.http.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListHttpIngressesRequest
+	@return IngressesAPIListHttpIngressesRequest
 */
-func (a *IngressesAPIService) ListHttpIngresses(ctx context.Context) ApiListHttpIngressesRequest {
-	return ApiListHttpIngressesRequest{
+func (a *IngressesAPIService) ListHttpIngresses(ctx context.Context) IngressesAPIListHttpIngressesRequest {
+	return IngressesAPIListHttpIngressesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -594,7 +594,7 @@ func (a *IngressesAPIService) ListHttpIngresses(ctx context.Context) ApiListHttp
 // Execute executes the request
 //
 //	@return HTTPIngressItems
-func (a *IngressesAPIService) ListHttpIngressesExecute(r ApiListHttpIngressesRequest) (*HTTPIngressItems, *http.Response, error) {
+func (a *IngressesAPIService) ListHttpIngressesExecute(r IngressesAPIListHttpIngressesRequest) (*HTTPIngressItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -705,7 +705,7 @@ func (a *IngressesAPIService) ListHttpIngressesExecute(r ApiListHttpIngressesReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateHttpIngressRequest struct {
+type IngressesAPIUpdateHttpIngressRequest struct {
 	ctx             context.Context
 	ApiService      IngressesAPI
 	body            *HTTPIngressRequest
@@ -713,18 +713,18 @@ type ApiUpdateHttpIngressRequest struct {
 	accentTenant    *string
 }
 
-func (r ApiUpdateHttpIngressRequest) Body(body HTTPIngressRequest) ApiUpdateHttpIngressRequest {
+func (r IngressesAPIUpdateHttpIngressRequest) Body(body HTTPIngressRequest) IngressesAPIUpdateHttpIngressRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateHttpIngressRequest) AccentTenant(accentTenant string) ApiUpdateHttpIngressRequest {
+func (r IngressesAPIUpdateHttpIngressRequest) AccentTenant(accentTenant string) IngressesAPIUpdateHttpIngressRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateHttpIngressRequest) Execute() (*http.Response, error) {
+func (r IngressesAPIUpdateHttpIngressRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateHttpIngressExecute(r)
 }
 
@@ -735,10 +735,10 @@ UpdateHttpIngress Update HTTP ingress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param httpIngressUuid
-	@return ApiUpdateHttpIngressRequest
+	@return IngressesAPIUpdateHttpIngressRequest
 */
-func (a *IngressesAPIService) UpdateHttpIngress(ctx context.Context, httpIngressUuid string) ApiUpdateHttpIngressRequest {
-	return ApiUpdateHttpIngressRequest{
+func (a *IngressesAPIService) UpdateHttpIngress(ctx context.Context, httpIngressUuid string) IngressesAPIUpdateHttpIngressRequest {
+	return IngressesAPIUpdateHttpIngressRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		httpIngressUuid: httpIngressUuid,
@@ -746,7 +746,7 @@ func (a *IngressesAPIService) UpdateHttpIngress(ctx context.Context, httpIngress
 }
 
 // Execute executes the request
-func (a *IngressesAPIService) UpdateHttpIngressExecute(r ApiUpdateHttpIngressRequest) (*http.Response, error) {
+func (a *IngressesAPIService) UpdateHttpIngressExecute(r IngressesAPIUpdateHttpIngressRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

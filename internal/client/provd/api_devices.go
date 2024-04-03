@@ -29,12 +29,12 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device ID
-		@return ApiDeleteDevMgrDeviceRequest
+		@return DevicesAPIDeleteDevMgrDeviceRequest
 	*/
-	DeleteDevMgrDevice(ctx context.Context, deviceId string) ApiDeleteDevMgrDeviceRequest
+	DeleteDevMgrDevice(ctx context.Context, deviceId string) DevicesAPIDeleteDevMgrDeviceRequest
 
 	// DeleteDevMgrDeviceExecute executes the request
-	DeleteDevMgrDeviceExecute(r ApiDeleteDevMgrDeviceRequest) (*http.Response, error)
+	DeleteDevMgrDeviceExecute(r DevicesAPIDeleteDevMgrDeviceRequest) (*http.Response, error)
 
 	/*
 		DeleteDevMgrSynchronize Delete the Operation In Progress
@@ -43,12 +43,12 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param operationId Operation In Progress ID
-		@return ApiDeleteDevMgrSynchronizeRequest
+		@return DevicesAPIDeleteDevMgrSynchronizeRequest
 	*/
-	DeleteDevMgrSynchronize(ctx context.Context, operationId string) ApiDeleteDevMgrSynchronizeRequest
+	DeleteDevMgrSynchronize(ctx context.Context, operationId string) DevicesAPIDeleteDevMgrSynchronizeRequest
 
 	// DeleteDevMgrSynchronizeExecute executes the request
-	DeleteDevMgrSynchronizeExecute(r ApiDeleteDevMgrSynchronizeRequest) (*http.Response, error)
+	DeleteDevMgrSynchronizeExecute(r DevicesAPIDeleteDevMgrSynchronizeRequest) (*http.Response, error)
 
 	/*
 		DevMgrDevicesPost Create a device
@@ -56,13 +56,13 @@ type DevicesAPI interface {
 		**Required ACL:** `provd.dev_mgr.devices.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiDevMgrDevicesPostRequest
+		@return DevicesAPIDevMgrDevicesPostRequest
 	*/
-	DevMgrDevicesPost(ctx context.Context) ApiDevMgrDevicesPostRequest
+	DevMgrDevicesPost(ctx context.Context) DevicesAPIDevMgrDevicesPostRequest
 
 	// DevMgrDevicesPostExecute executes the request
 	//  @return IdObject
-	DevMgrDevicesPostExecute(r ApiDevMgrDevicesPostRequest) (*IdObject, *http.Response, error)
+	DevMgrDevicesPostExecute(r DevicesAPIDevMgrDevicesPostRequest) (*IdObject, *http.Response, error)
 
 	/*
 		GetDevMgr Get the Device Manager resource
@@ -70,13 +70,13 @@ type DevicesAPI interface {
 		**Required ACL:** `provd.dev_mgr.read` The device manager resource represents the entry point to the accent-provd device REST API
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetDevMgrRequest
+		@return DevicesAPIGetDevMgrRequest
 	*/
-	GetDevMgr(ctx context.Context) ApiGetDevMgrRequest
+	GetDevMgr(ctx context.Context) DevicesAPIGetDevMgrRequest
 
 	// GetDevMgrExecute executes the request
 	//  @return LinksObject
-	GetDevMgrExecute(r ApiGetDevMgrRequest) (*LinksObject, *http.Response, error)
+	GetDevMgrExecute(r DevicesAPIGetDevMgrRequest) (*LinksObject, *http.Response, error)
 
 	/*
 		GetDevMgrDevice Get a device by ID
@@ -85,13 +85,13 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device ID
-		@return ApiGetDevMgrDeviceRequest
+		@return DevicesAPIGetDevMgrDeviceRequest
 	*/
-	GetDevMgrDevice(ctx context.Context, deviceId string) ApiGetDevMgrDeviceRequest
+	GetDevMgrDevice(ctx context.Context, deviceId string) DevicesAPIGetDevMgrDeviceRequest
 
 	// GetDevMgrDeviceExecute executes the request
 	//  @return DeviceObject
-	GetDevMgrDeviceExecute(r ApiGetDevMgrDeviceRequest) (*DeviceObject, *http.Response, error)
+	GetDevMgrDeviceExecute(r DevicesAPIGetDevMgrDeviceRequest) (*DeviceObject, *http.Response, error)
 
 	/*
 		GetDevMgrDevices List and find devices
@@ -99,13 +99,13 @@ type DevicesAPI interface {
 		**Required ACL:** `provd.dev_mgr.devices.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetDevMgrDevicesRequest
+		@return DevicesAPIGetDevMgrDevicesRequest
 	*/
-	GetDevMgrDevices(ctx context.Context) ApiGetDevMgrDevicesRequest
+	GetDevMgrDevices(ctx context.Context) DevicesAPIGetDevMgrDevicesRequest
 
 	// GetDevMgrDevicesExecute executes the request
 	//  @return DevicesList
-	GetDevMgrDevicesExecute(r ApiGetDevMgrDevicesRequest) (*DevicesList, *http.Response, error)
+	GetDevMgrDevicesExecute(r DevicesAPIGetDevMgrDevicesRequest) (*DevicesList, *http.Response, error)
 
 	/*
 		GetDevMgrSynchronize Get the status of a synchronize Operation In Progress
@@ -114,13 +114,13 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param operationId Operation In Progress ID
-		@return ApiGetDevMgrSynchronizeRequest
+		@return DevicesAPIGetDevMgrSynchronizeRequest
 	*/
-	GetDevMgrSynchronize(ctx context.Context, operationId string) ApiGetDevMgrSynchronizeRequest
+	GetDevMgrSynchronize(ctx context.Context, operationId string) DevicesAPIGetDevMgrSynchronizeRequest
 
 	// GetDevMgrSynchronizeExecute executes the request
 	//  @return OperationInProgressObject
-	GetDevMgrSynchronizeExecute(r ApiGetDevMgrSynchronizeRequest) (*OperationInProgressObject, *http.Response, error)
+	GetDevMgrSynchronizeExecute(r DevicesAPIGetDevMgrSynchronizeRequest) (*OperationInProgressObject, *http.Response, error)
 
 	/*
 		PostDevMgrDhcpinfo Push DHCP request information
@@ -128,12 +128,12 @@ type DevicesAPI interface {
 		**Required ACL:** `provd.dev_mgr.dhcpinfo.create` The provisioning server either creates a new device or changes the information of the device with the same MAC address
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostDevMgrDhcpinfoRequest
+		@return DevicesAPIPostDevMgrDhcpinfoRequest
 	*/
-	PostDevMgrDhcpinfo(ctx context.Context) ApiPostDevMgrDhcpinfoRequest
+	PostDevMgrDhcpinfo(ctx context.Context) DevicesAPIPostDevMgrDhcpinfoRequest
 
 	// PostDevMgrDhcpinfoExecute executes the request
-	PostDevMgrDhcpinfoExecute(r ApiPostDevMgrDhcpinfoRequest) (*http.Response, error)
+	PostDevMgrDhcpinfoExecute(r DevicesAPIPostDevMgrDhcpinfoRequest) (*http.Response, error)
 
 	/*
 		PostDevMgrReconfigure Reconfigure a device
@@ -141,12 +141,12 @@ type DevicesAPI interface {
 		**Required ACL:** `provd.dev_mgr.reconfigure.create` Regenerate the configuration file for the specified device
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostDevMgrReconfigureRequest
+		@return DevicesAPIPostDevMgrReconfigureRequest
 	*/
-	PostDevMgrReconfigure(ctx context.Context) ApiPostDevMgrReconfigureRequest
+	PostDevMgrReconfigure(ctx context.Context) DevicesAPIPostDevMgrReconfigureRequest
 
 	// PostDevMgrReconfigureExecute executes the request
-	PostDevMgrReconfigureExecute(r ApiPostDevMgrReconfigureRequest) (*http.Response, error)
+	PostDevMgrReconfigureExecute(r DevicesAPIPostDevMgrReconfigureRequest) (*http.Response, error)
 
 	/*
 		PostDevMgrSynchronize Synchronize a device
@@ -154,12 +154,12 @@ type DevicesAPI interface {
 		**Required ACL:** `provd.dev_mgr.synchronize.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostDevMgrSynchronizeRequest
+		@return DevicesAPIPostDevMgrSynchronizeRequest
 	*/
-	PostDevMgrSynchronize(ctx context.Context) ApiPostDevMgrSynchronizeRequest
+	PostDevMgrSynchronize(ctx context.Context) DevicesAPIPostDevMgrSynchronizeRequest
 
 	// PostDevMgrSynchronizeExecute executes the request
-	PostDevMgrSynchronizeExecute(r ApiPostDevMgrSynchronizeRequest) (*http.Response, error)
+	PostDevMgrSynchronizeExecute(r DevicesAPIPostDevMgrSynchronizeRequest) (*http.Response, error)
 
 	/*
 		PutDevMgrDevice Update a device
@@ -168,18 +168,18 @@ type DevicesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device ID
-		@return ApiPutDevMgrDeviceRequest
+		@return DevicesAPIPutDevMgrDeviceRequest
 	*/
-	PutDevMgrDevice(ctx context.Context, deviceId string) ApiPutDevMgrDeviceRequest
+	PutDevMgrDevice(ctx context.Context, deviceId string) DevicesAPIPutDevMgrDeviceRequest
 
 	// PutDevMgrDeviceExecute executes the request
-	PutDevMgrDeviceExecute(r ApiPutDevMgrDeviceRequest) (*http.Response, error)
+	PutDevMgrDeviceExecute(r DevicesAPIPutDevMgrDeviceRequest) (*http.Response, error)
 }
 
 // DevicesAPIService DevicesAPI service
 type DevicesAPIService service
 
-type ApiDeleteDevMgrDeviceRequest struct {
+type DevicesAPIDeleteDevMgrDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -187,12 +187,12 @@ type ApiDeleteDevMgrDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiDeleteDevMgrDeviceRequest) AccentTenant(accentTenant string) ApiDeleteDevMgrDeviceRequest {
+func (r DevicesAPIDeleteDevMgrDeviceRequest) AccentTenant(accentTenant string) DevicesAPIDeleteDevMgrDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteDevMgrDeviceRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIDeleteDevMgrDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteDevMgrDeviceExecute(r)
 }
 
@@ -203,10 +203,10 @@ DeleteDevMgrDevice Delete a device
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device ID
-	@return ApiDeleteDevMgrDeviceRequest
+	@return DevicesAPIDeleteDevMgrDeviceRequest
 */
-func (a *DevicesAPIService) DeleteDevMgrDevice(ctx context.Context, deviceId string) ApiDeleteDevMgrDeviceRequest {
-	return ApiDeleteDevMgrDeviceRequest{
+func (a *DevicesAPIService) DeleteDevMgrDevice(ctx context.Context, deviceId string) DevicesAPIDeleteDevMgrDeviceRequest {
+	return DevicesAPIDeleteDevMgrDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -214,7 +214,7 @@ func (a *DevicesAPIService) DeleteDevMgrDevice(ctx context.Context, deviceId str
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) DeleteDevMgrDeviceExecute(r ApiDeleteDevMgrDeviceRequest) (*http.Response, error) {
+func (a *DevicesAPIService) DeleteDevMgrDeviceExecute(r DevicesAPIDeleteDevMgrDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -305,13 +305,13 @@ func (a *DevicesAPIService) DeleteDevMgrDeviceExecute(r ApiDeleteDevMgrDeviceReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteDevMgrSynchronizeRequest struct {
+type DevicesAPIDeleteDevMgrSynchronizeRequest struct {
 	ctx         context.Context
 	ApiService  DevicesAPI
 	operationId string
 }
 
-func (r ApiDeleteDevMgrSynchronizeRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIDeleteDevMgrSynchronizeRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteDevMgrSynchronizeExecute(r)
 }
 
@@ -322,10 +322,10 @@ DeleteDevMgrSynchronize Delete the Operation In Progress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId Operation In Progress ID
-	@return ApiDeleteDevMgrSynchronizeRequest
+	@return DevicesAPIDeleteDevMgrSynchronizeRequest
 */
-func (a *DevicesAPIService) DeleteDevMgrSynchronize(ctx context.Context, operationId string) ApiDeleteDevMgrSynchronizeRequest {
-	return ApiDeleteDevMgrSynchronizeRequest{
+func (a *DevicesAPIService) DeleteDevMgrSynchronize(ctx context.Context, operationId string) DevicesAPIDeleteDevMgrSynchronizeRequest {
+	return DevicesAPIDeleteDevMgrSynchronizeRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		operationId: operationId,
@@ -333,7 +333,7 @@ func (a *DevicesAPIService) DeleteDevMgrSynchronize(ctx context.Context, operati
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) DeleteDevMgrSynchronizeExecute(r ApiDeleteDevMgrSynchronizeRequest) (*http.Response, error) {
+func (a *DevicesAPIService) DeleteDevMgrSynchronizeExecute(r DevicesAPIDeleteDevMgrSynchronizeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -421,7 +421,7 @@ func (a *DevicesAPIService) DeleteDevMgrSynchronizeExecute(r ApiDeleteDevMgrSync
 	return localVarHTTPResponse, nil
 }
 
-type ApiDevMgrDevicesPostRequest struct {
+type DevicesAPIDevMgrDevicesPostRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	device       *DeviceObject
@@ -429,18 +429,18 @@ type ApiDevMgrDevicesPostRequest struct {
 }
 
 // Device to create
-func (r ApiDevMgrDevicesPostRequest) Device(device DeviceObject) ApiDevMgrDevicesPostRequest {
+func (r DevicesAPIDevMgrDevicesPostRequest) Device(device DeviceObject) DevicesAPIDevMgrDevicesPostRequest {
 	r.device = &device
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiDevMgrDevicesPostRequest) AccentTenant(accentTenant string) ApiDevMgrDevicesPostRequest {
+func (r DevicesAPIDevMgrDevicesPostRequest) AccentTenant(accentTenant string) DevicesAPIDevMgrDevicesPostRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDevMgrDevicesPostRequest) Execute() (*IdObject, *http.Response, error) {
+func (r DevicesAPIDevMgrDevicesPostRequest) Execute() (*IdObject, *http.Response, error) {
 	return r.ApiService.DevMgrDevicesPostExecute(r)
 }
 
@@ -450,10 +450,10 @@ DevMgrDevicesPost Create a device
 **Required ACL:** `provd.dev_mgr.devices.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDevMgrDevicesPostRequest
+	@return DevicesAPIDevMgrDevicesPostRequest
 */
-func (a *DevicesAPIService) DevMgrDevicesPost(ctx context.Context) ApiDevMgrDevicesPostRequest {
-	return ApiDevMgrDevicesPostRequest{
+func (a *DevicesAPIService) DevMgrDevicesPost(ctx context.Context) DevicesAPIDevMgrDevicesPostRequest {
+	return DevicesAPIDevMgrDevicesPostRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -462,7 +462,7 @@ func (a *DevicesAPIService) DevMgrDevicesPost(ctx context.Context) ApiDevMgrDevi
 // Execute executes the request
 //
 //	@return IdObject
-func (a *DevicesAPIService) DevMgrDevicesPostExecute(r ApiDevMgrDevicesPostRequest) (*IdObject, *http.Response, error) {
+func (a *DevicesAPIService) DevMgrDevicesPostExecute(r DevicesAPIDevMgrDevicesPostRequest) (*IdObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -575,12 +575,12 @@ func (a *DevicesAPIService) DevMgrDevicesPostExecute(r ApiDevMgrDevicesPostReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDevMgrRequest struct {
+type DevicesAPIGetDevMgrRequest struct {
 	ctx        context.Context
 	ApiService DevicesAPI
 }
 
-func (r ApiGetDevMgrRequest) Execute() (*LinksObject, *http.Response, error) {
+func (r DevicesAPIGetDevMgrRequest) Execute() (*LinksObject, *http.Response, error) {
 	return r.ApiService.GetDevMgrExecute(r)
 }
 
@@ -590,10 +590,10 @@ GetDevMgr Get the Device Manager resource
 **Required ACL:** `provd.dev_mgr.read` The device manager resource represents the entry point to the accent-provd device REST API
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetDevMgrRequest
+	@return DevicesAPIGetDevMgrRequest
 */
-func (a *DevicesAPIService) GetDevMgr(ctx context.Context) ApiGetDevMgrRequest {
-	return ApiGetDevMgrRequest{
+func (a *DevicesAPIService) GetDevMgr(ctx context.Context) DevicesAPIGetDevMgrRequest {
+	return DevicesAPIGetDevMgrRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -602,7 +602,7 @@ func (a *DevicesAPIService) GetDevMgr(ctx context.Context) ApiGetDevMgrRequest {
 // Execute executes the request
 //
 //	@return LinksObject
-func (a *DevicesAPIService) GetDevMgrExecute(r ApiGetDevMgrRequest) (*LinksObject, *http.Response, error) {
+func (a *DevicesAPIService) GetDevMgrExecute(r DevicesAPIGetDevMgrRequest) (*LinksObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -689,7 +689,7 @@ func (a *DevicesAPIService) GetDevMgrExecute(r ApiGetDevMgrRequest) (*LinksObjec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDevMgrDeviceRequest struct {
+type DevicesAPIGetDevMgrDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -697,12 +697,12 @@ type ApiGetDevMgrDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiGetDevMgrDeviceRequest) AccentTenant(accentTenant string) ApiGetDevMgrDeviceRequest {
+func (r DevicesAPIGetDevMgrDeviceRequest) AccentTenant(accentTenant string) DevicesAPIGetDevMgrDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetDevMgrDeviceRequest) Execute() (*DeviceObject, *http.Response, error) {
+func (r DevicesAPIGetDevMgrDeviceRequest) Execute() (*DeviceObject, *http.Response, error) {
 	return r.ApiService.GetDevMgrDeviceExecute(r)
 }
 
@@ -713,10 +713,10 @@ GetDevMgrDevice Get a device by ID
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device ID
-	@return ApiGetDevMgrDeviceRequest
+	@return DevicesAPIGetDevMgrDeviceRequest
 */
-func (a *DevicesAPIService) GetDevMgrDevice(ctx context.Context, deviceId string) ApiGetDevMgrDeviceRequest {
-	return ApiGetDevMgrDeviceRequest{
+func (a *DevicesAPIService) GetDevMgrDevice(ctx context.Context, deviceId string) DevicesAPIGetDevMgrDeviceRequest {
+	return DevicesAPIGetDevMgrDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -726,7 +726,7 @@ func (a *DevicesAPIService) GetDevMgrDevice(ctx context.Context, deviceId string
 // Execute executes the request
 //
 //	@return DeviceObject
-func (a *DevicesAPIService) GetDevMgrDeviceExecute(r ApiGetDevMgrDeviceRequest) (*DeviceObject, *http.Response, error) {
+func (a *DevicesAPIService) GetDevMgrDeviceExecute(r DevicesAPIGetDevMgrDeviceRequest) (*DeviceObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -827,7 +827,7 @@ func (a *DevicesAPIService) GetDevMgrDeviceExecute(r ApiGetDevMgrDeviceRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDevMgrDevicesRequest struct {
+type DevicesAPIGetDevMgrDevicesRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	q            *string
@@ -840,48 +840,48 @@ type ApiGetDevMgrDevicesRequest struct {
 }
 
 // A selector, encoded in JSON, describing which entries should be returned. All entries are returned if not specified.  Example: &#x60;{\&quot;ip\&quot;:\&quot;10.34.1.110\&quot;}&#x60;
-func (r ApiGetDevMgrDevicesRequest) Q(q string) ApiGetDevMgrDevicesRequest {
+func (r DevicesAPIGetDevMgrDevicesRequest) Q(q string) DevicesAPIGetDevMgrDevicesRequest {
 	r.q = &q
 	return r
 }
 
 // A list of fields, separated by comma.  Example: &#x60;mac,ip&#x60;
-func (r ApiGetDevMgrDevicesRequest) Fields(fields string) ApiGetDevMgrDevicesRequest {
+func (r DevicesAPIGetDevMgrDevicesRequest) Fields(fields string) DevicesAPIGetDevMgrDevicesRequest {
 	r.fields = &fields
 	return r
 }
 
 // An integer specifing the number of entries to skip.  Example: 10
-func (r ApiGetDevMgrDevicesRequest) Skip(skip int32) ApiGetDevMgrDevicesRequest {
+func (r DevicesAPIGetDevMgrDevicesRequest) Skip(skip int32) DevicesAPIGetDevMgrDevicesRequest {
 	r.skip = &skip
 	return r
 }
 
 // The key on which to sort the results.  Example: &#x60;id&#x60;
-func (r ApiGetDevMgrDevicesRequest) Sort(sort string) ApiGetDevMgrDevicesRequest {
+func (r DevicesAPIGetDevMgrDevicesRequest) Sort(sort string) DevicesAPIGetDevMgrDevicesRequest {
 	r.sort = &sort
 	return r
 }
 
 // The order of sort
-func (r ApiGetDevMgrDevicesRequest) SortOrd(sortOrd string) ApiGetDevMgrDevicesRequest {
+func (r DevicesAPIGetDevMgrDevicesRequest) SortOrd(sortOrd string) DevicesAPIGetDevMgrDevicesRequest {
 	r.sortOrd = &sortOrd
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiGetDevMgrDevicesRequest) AccentTenant(accentTenant string) ApiGetDevMgrDevicesRequest {
+func (r DevicesAPIGetDevMgrDevicesRequest) AccentTenant(accentTenant string) DevicesAPIGetDevMgrDevicesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiGetDevMgrDevicesRequest) Recurse(recurse bool) ApiGetDevMgrDevicesRequest {
+func (r DevicesAPIGetDevMgrDevicesRequest) Recurse(recurse bool) DevicesAPIGetDevMgrDevicesRequest {
 	r.recurse = &recurse
 	return r
 }
 
-func (r ApiGetDevMgrDevicesRequest) Execute() (*DevicesList, *http.Response, error) {
+func (r DevicesAPIGetDevMgrDevicesRequest) Execute() (*DevicesList, *http.Response, error) {
 	return r.ApiService.GetDevMgrDevicesExecute(r)
 }
 
@@ -891,10 +891,10 @@ GetDevMgrDevices List and find devices
 **Required ACL:** `provd.dev_mgr.devices.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetDevMgrDevicesRequest
+	@return DevicesAPIGetDevMgrDevicesRequest
 */
-func (a *DevicesAPIService) GetDevMgrDevices(ctx context.Context) ApiGetDevMgrDevicesRequest {
-	return ApiGetDevMgrDevicesRequest{
+func (a *DevicesAPIService) GetDevMgrDevices(ctx context.Context) DevicesAPIGetDevMgrDevicesRequest {
+	return DevicesAPIGetDevMgrDevicesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -903,7 +903,7 @@ func (a *DevicesAPIService) GetDevMgrDevices(ctx context.Context) ApiGetDevMgrDe
 // Execute executes the request
 //
 //	@return DevicesList
-func (a *DevicesAPIService) GetDevMgrDevicesExecute(r ApiGetDevMgrDevicesRequest) (*DevicesList, *http.Response, error) {
+func (a *DevicesAPIService) GetDevMgrDevicesExecute(r DevicesAPIGetDevMgrDevicesRequest) (*DevicesList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1014,13 +1014,13 @@ func (a *DevicesAPIService) GetDevMgrDevicesExecute(r ApiGetDevMgrDevicesRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDevMgrSynchronizeRequest struct {
+type DevicesAPIGetDevMgrSynchronizeRequest struct {
 	ctx         context.Context
 	ApiService  DevicesAPI
 	operationId string
 }
 
-func (r ApiGetDevMgrSynchronizeRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
+func (r DevicesAPIGetDevMgrSynchronizeRequest) Execute() (*OperationInProgressObject, *http.Response, error) {
 	return r.ApiService.GetDevMgrSynchronizeExecute(r)
 }
 
@@ -1031,10 +1031,10 @@ GetDevMgrSynchronize Get the status of a synchronize Operation In Progress
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param operationId Operation In Progress ID
-	@return ApiGetDevMgrSynchronizeRequest
+	@return DevicesAPIGetDevMgrSynchronizeRequest
 */
-func (a *DevicesAPIService) GetDevMgrSynchronize(ctx context.Context, operationId string) ApiGetDevMgrSynchronizeRequest {
-	return ApiGetDevMgrSynchronizeRequest{
+func (a *DevicesAPIService) GetDevMgrSynchronize(ctx context.Context, operationId string) DevicesAPIGetDevMgrSynchronizeRequest {
+	return DevicesAPIGetDevMgrSynchronizeRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		operationId: operationId,
@@ -1044,7 +1044,7 @@ func (a *DevicesAPIService) GetDevMgrSynchronize(ctx context.Context, operationI
 // Execute executes the request
 //
 //	@return OperationInProgressObject
-func (a *DevicesAPIService) GetDevMgrSynchronizeExecute(r ApiGetDevMgrSynchronizeRequest) (*OperationInProgressObject, *http.Response, error) {
+func (a *DevicesAPIService) GetDevMgrSynchronizeExecute(r DevicesAPIGetDevMgrSynchronizeRequest) (*OperationInProgressObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1142,7 +1142,7 @@ func (a *DevicesAPIService) GetDevMgrSynchronizeExecute(r ApiGetDevMgrSynchroniz
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostDevMgrDhcpinfoRequest struct {
+type DevicesAPIPostDevMgrDhcpinfoRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	body         *DHCPInfoObject
@@ -1150,18 +1150,18 @@ type ApiPostDevMgrDhcpinfoRequest struct {
 }
 
 // DHCP request information
-func (r ApiPostDevMgrDhcpinfoRequest) Body(body DHCPInfoObject) ApiPostDevMgrDhcpinfoRequest {
+func (r DevicesAPIPostDevMgrDhcpinfoRequest) Body(body DHCPInfoObject) DevicesAPIPostDevMgrDhcpinfoRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiPostDevMgrDhcpinfoRequest) AccentTenant(accentTenant string) ApiPostDevMgrDhcpinfoRequest {
+func (r DevicesAPIPostDevMgrDhcpinfoRequest) AccentTenant(accentTenant string) DevicesAPIPostDevMgrDhcpinfoRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPostDevMgrDhcpinfoRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIPostDevMgrDhcpinfoRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostDevMgrDhcpinfoExecute(r)
 }
 
@@ -1171,17 +1171,17 @@ PostDevMgrDhcpinfo Push DHCP request information
 **Required ACL:** `provd.dev_mgr.dhcpinfo.create` The provisioning server either creates a new device or changes the information of the device with the same MAC address
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostDevMgrDhcpinfoRequest
+	@return DevicesAPIPostDevMgrDhcpinfoRequest
 */
-func (a *DevicesAPIService) PostDevMgrDhcpinfo(ctx context.Context) ApiPostDevMgrDhcpinfoRequest {
-	return ApiPostDevMgrDhcpinfoRequest{
+func (a *DevicesAPIService) PostDevMgrDhcpinfo(ctx context.Context) DevicesAPIPostDevMgrDhcpinfoRequest {
+	return DevicesAPIPostDevMgrDhcpinfoRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) PostDevMgrDhcpinfoExecute(r ApiPostDevMgrDhcpinfoRequest) (*http.Response, error) {
+func (a *DevicesAPIService) PostDevMgrDhcpinfoExecute(r DevicesAPIPostDevMgrDhcpinfoRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1263,7 +1263,7 @@ func (a *DevicesAPIService) PostDevMgrDhcpinfoExecute(r ApiPostDevMgrDhcpinfoReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiPostDevMgrReconfigureRequest struct {
+type DevicesAPIPostDevMgrReconfigureRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	body         *IdObject
@@ -1271,18 +1271,18 @@ type ApiPostDevMgrReconfigureRequest struct {
 }
 
 // Device ID body definition
-func (r ApiPostDevMgrReconfigureRequest) Body(body IdObject) ApiPostDevMgrReconfigureRequest {
+func (r DevicesAPIPostDevMgrReconfigureRequest) Body(body IdObject) DevicesAPIPostDevMgrReconfigureRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiPostDevMgrReconfigureRequest) AccentTenant(accentTenant string) ApiPostDevMgrReconfigureRequest {
+func (r DevicesAPIPostDevMgrReconfigureRequest) AccentTenant(accentTenant string) DevicesAPIPostDevMgrReconfigureRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPostDevMgrReconfigureRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIPostDevMgrReconfigureRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostDevMgrReconfigureExecute(r)
 }
 
@@ -1292,17 +1292,17 @@ PostDevMgrReconfigure Reconfigure a device
 **Required ACL:** `provd.dev_mgr.reconfigure.create` Regenerate the configuration file for the specified device
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostDevMgrReconfigureRequest
+	@return DevicesAPIPostDevMgrReconfigureRequest
 */
-func (a *DevicesAPIService) PostDevMgrReconfigure(ctx context.Context) ApiPostDevMgrReconfigureRequest {
-	return ApiPostDevMgrReconfigureRequest{
+func (a *DevicesAPIService) PostDevMgrReconfigure(ctx context.Context) DevicesAPIPostDevMgrReconfigureRequest {
+	return DevicesAPIPostDevMgrReconfigureRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) PostDevMgrReconfigureExecute(r ApiPostDevMgrReconfigureRequest) (*http.Response, error) {
+func (a *DevicesAPIService) PostDevMgrReconfigureExecute(r DevicesAPIPostDevMgrReconfigureRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1394,7 +1394,7 @@ func (a *DevicesAPIService) PostDevMgrReconfigureExecute(r ApiPostDevMgrReconfig
 	return localVarHTTPResponse, nil
 }
 
-type ApiPostDevMgrSynchronizeRequest struct {
+type DevicesAPIPostDevMgrSynchronizeRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	body         *IdObject
@@ -1402,18 +1402,18 @@ type ApiPostDevMgrSynchronizeRequest struct {
 }
 
 // Device ID body definition
-func (r ApiPostDevMgrSynchronizeRequest) Body(body IdObject) ApiPostDevMgrSynchronizeRequest {
+func (r DevicesAPIPostDevMgrSynchronizeRequest) Body(body IdObject) DevicesAPIPostDevMgrSynchronizeRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiPostDevMgrSynchronizeRequest) AccentTenant(accentTenant string) ApiPostDevMgrSynchronizeRequest {
+func (r DevicesAPIPostDevMgrSynchronizeRequest) AccentTenant(accentTenant string) DevicesAPIPostDevMgrSynchronizeRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPostDevMgrSynchronizeRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIPostDevMgrSynchronizeRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostDevMgrSynchronizeExecute(r)
 }
 
@@ -1423,17 +1423,17 @@ PostDevMgrSynchronize Synchronize a device
 **Required ACL:** `provd.dev_mgr.synchronize.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostDevMgrSynchronizeRequest
+	@return DevicesAPIPostDevMgrSynchronizeRequest
 */
-func (a *DevicesAPIService) PostDevMgrSynchronize(ctx context.Context) ApiPostDevMgrSynchronizeRequest {
-	return ApiPostDevMgrSynchronizeRequest{
+func (a *DevicesAPIService) PostDevMgrSynchronize(ctx context.Context) DevicesAPIPostDevMgrSynchronizeRequest {
+	return DevicesAPIPostDevMgrSynchronizeRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) PostDevMgrSynchronizeExecute(r ApiPostDevMgrSynchronizeRequest) (*http.Response, error) {
+func (a *DevicesAPIService) PostDevMgrSynchronizeExecute(r DevicesAPIPostDevMgrSynchronizeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -1525,7 +1525,7 @@ func (a *DevicesAPIService) PostDevMgrSynchronizeExecute(r ApiPostDevMgrSynchron
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutDevMgrDeviceRequest struct {
+type DevicesAPIPutDevMgrDeviceRequest struct {
 	ctx          context.Context
 	ApiService   DevicesAPI
 	deviceId     string
@@ -1534,18 +1534,18 @@ type ApiPutDevMgrDeviceRequest struct {
 }
 
 // Device information to update
-func (r ApiPutDevMgrDeviceRequest) Device(device DeviceObject) ApiPutDevMgrDeviceRequest {
+func (r DevicesAPIPutDevMgrDeviceRequest) Device(device DeviceObject) DevicesAPIPutDevMgrDeviceRequest {
 	r.device = &device
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource
-func (r ApiPutDevMgrDeviceRequest) AccentTenant(accentTenant string) ApiPutDevMgrDeviceRequest {
+func (r DevicesAPIPutDevMgrDeviceRequest) AccentTenant(accentTenant string) DevicesAPIPutDevMgrDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPutDevMgrDeviceRequest) Execute() (*http.Response, error) {
+func (r DevicesAPIPutDevMgrDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutDevMgrDeviceExecute(r)
 }
 
@@ -1556,10 +1556,10 @@ PutDevMgrDevice Update a device
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device ID
-	@return ApiPutDevMgrDeviceRequest
+	@return DevicesAPIPutDevMgrDeviceRequest
 */
-func (a *DevicesAPIService) PutDevMgrDevice(ctx context.Context, deviceId string) ApiPutDevMgrDeviceRequest {
-	return ApiPutDevMgrDeviceRequest{
+func (a *DevicesAPIService) PutDevMgrDevice(ctx context.Context, deviceId string) DevicesAPIPutDevMgrDeviceRequest {
+	return DevicesAPIPutDevMgrDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -1567,7 +1567,7 @@ func (a *DevicesAPIService) PutDevMgrDevice(ctx context.Context, deviceId string
 }
 
 // Execute executes the request
-func (a *DevicesAPIService) PutDevMgrDeviceExecute(r ApiPutDevMgrDeviceRequest) (*http.Response, error) {
+func (a *DevicesAPIService) PutDevMgrDeviceExecute(r DevicesAPIPutDevMgrDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

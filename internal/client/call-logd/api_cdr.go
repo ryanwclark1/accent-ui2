@@ -30,13 +30,13 @@ type CdrAPI interface {
 	**Required ACL:** `call-logd.cdr.recordings.media.export.create` This endpoint creates a new export and returns its UUID. 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateCDRRecordingsMediaExportRequest
+	@return CdrAPICreateCDRRecordingsMediaExportRequest
 	*/
-	CreateCDRRecordingsMediaExport(ctx context.Context) ApiCreateCDRRecordingsMediaExportRequest
+	CreateCDRRecordingsMediaExport(ctx context.Context) CdrAPICreateCDRRecordingsMediaExportRequest
 
 	// CreateCDRRecordingsMediaExportExecute executes the request
 	//  @return CreateCDRRecordingsMediaExport202Response
-	CreateCDRRecordingsMediaExportExecute(r ApiCreateCDRRecordingsMediaExportRequest) (*CreateCDRRecordingsMediaExport202Response, *http.Response, error)
+	CreateCDRRecordingsMediaExportExecute(r CdrAPICreateCDRRecordingsMediaExportRequest) (*CreateCDRRecordingsMediaExport202Response, *http.Response, error)
 
 	/*
 	DeleteCDRRecordingMedia Delete a recording media
@@ -46,12 +46,12 @@ type CdrAPI interface {
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param cdrId ID of the CDR
 	@param recordingUuid UUID of the recording
-	@return ApiDeleteCDRRecordingMediaRequest
+	@return CdrAPIDeleteCDRRecordingMediaRequest
 	*/
-	DeleteCDRRecordingMedia(ctx context.Context, cdrId int32, recordingUuid int32) ApiDeleteCDRRecordingMediaRequest
+	DeleteCDRRecordingMedia(ctx context.Context, cdrId int32, recordingUuid int32) CdrAPIDeleteCDRRecordingMediaRequest
 
 	// DeleteCDRRecordingMediaExecute executes the request
-	DeleteCDRRecordingMediaExecute(r ApiDeleteCDRRecordingMediaRequest) (*http.Response, error)
+	DeleteCDRRecordingMediaExecute(r CdrAPIDeleteCDRRecordingMediaRequest) (*http.Response, error)
 
 	/*
 	DeleteCDRRecordingsMedia Delete multiple CDRs recording media
@@ -59,12 +59,12 @@ type CdrAPI interface {
 	**Required ACL:** `call-logd.cdr.recordings.media.delete`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiDeleteCDRRecordingsMediaRequest
+	@return CdrAPIDeleteCDRRecordingsMediaRequest
 	*/
-	DeleteCDRRecordingsMedia(ctx context.Context) ApiDeleteCDRRecordingsMediaRequest
+	DeleteCDRRecordingsMedia(ctx context.Context) CdrAPIDeleteCDRRecordingsMediaRequest
 
 	// DeleteCDRRecordingsMediaExecute executes the request
-	DeleteCDRRecordingsMediaExecute(r ApiDeleteCDRRecordingsMediaRequest) (*http.Response, error)
+	DeleteCDRRecordingsMediaExecute(r CdrAPIDeleteCDRRecordingsMediaRequest) (*http.Response, error)
 
 	/*
 	GetCDR Get a CDR by ID
@@ -73,13 +73,13 @@ type CdrAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param cdrId ID of the CDR
-	@return ApiGetCDRRequest
+	@return CdrAPIGetCDRRequest
 	*/
-	GetCDR(ctx context.Context, cdrId int32) ApiGetCDRRequest
+	GetCDR(ctx context.Context, cdrId int32) CdrAPIGetCDRRequest
 
 	// GetCDRExecute executes the request
 	//  @return CDR
-	GetCDRExecute(r ApiGetCDRRequest) (*CDR, *http.Response, error)
+	GetCDRExecute(r CdrAPIGetCDRRequest) (*CDR, *http.Response, error)
 
 	/*
 	GetCDRRecordingMedia Get a recording media
@@ -90,12 +90,12 @@ This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` que
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param cdrId ID of the CDR
 	@param recordingUuid UUID of the recording
-	@return ApiGetCDRRecordingMediaRequest
+	@return CdrAPIGetCDRRecordingMediaRequest
 	*/
-	GetCDRRecordingMedia(ctx context.Context, cdrId int32, recordingUuid int32) ApiGetCDRRecordingMediaRequest
+	GetCDRRecordingMedia(ctx context.Context, cdrId int32, recordingUuid int32) CdrAPIGetCDRRecordingMediaRequest
 
 	// GetCDRRecordingMediaExecute executes the request
-	GetCDRRecordingMediaExecute(r ApiGetCDRRecordingMediaRequest) (*http.Response, error)
+	GetCDRRecordingMediaExecute(r CdrAPIGetCDRRecordingMediaRequest) (*http.Response, error)
 
 	/*
 	GetCDRs List CDR
@@ -104,13 +104,13 @@ This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` que
 This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` query string to bypass headers 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCDRsRequest
+	@return CdrAPIGetCDRsRequest
 	*/
-	GetCDRs(ctx context.Context) ApiGetCDRsRequest
+	GetCDRs(ctx context.Context) CdrAPIGetCDRsRequest
 
 	// GetCDRsExecute executes the request
 	//  @return CDRList
-	GetCDRsExecute(r ApiGetCDRsRequest) (*CDRList, *http.Response, error)
+	GetCDRsExecute(r CdrAPIGetCDRsRequest) (*CDRList, *http.Response, error)
 
 	/*
 	GetCurrentUserCDR List CDR of the authenticated user
@@ -119,13 +119,13 @@ This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` que
 This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` query string to bypass headers 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCurrentUserCDRRequest
+	@return CdrAPIGetCurrentUserCDRRequest
 	*/
-	GetCurrentUserCDR(ctx context.Context) ApiGetCurrentUserCDRRequest
+	GetCurrentUserCDR(ctx context.Context) CdrAPIGetCurrentUserCDRRequest
 
 	// GetCurrentUserCDRExecute executes the request
 	//  @return CDRList
-	GetCurrentUserCDRExecute(r ApiGetCurrentUserCDRRequest) (*CDRList, *http.Response, error)
+	GetCurrentUserCDRExecute(r CdrAPIGetCurrentUserCDRRequest) (*CDRList, *http.Response, error)
 
 	/*
 	GetUserCDR List CDR of the given user
@@ -135,19 +135,19 @@ This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` que
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid UUID of the given user
-	@return ApiGetUserCDRRequest
+	@return CdrAPIGetUserCDRRequest
 	*/
-	GetUserCDR(ctx context.Context, userUuid string) ApiGetUserCDRRequest
+	GetUserCDR(ctx context.Context, userUuid string) CdrAPIGetUserCDRRequest
 
 	// GetUserCDRExecute executes the request
 	//  @return CDRList
-	GetUserCDRExecute(r ApiGetUserCDRRequest) (*CDRList, *http.Response, error)
+	GetUserCDRExecute(r CdrAPIGetUserCDRRequest) (*CDRList, *http.Response, error)
 }
 
 // CdrAPIService CdrAPI service
 type CdrAPIService service
 
-type ApiCreateCDRRecordingsMediaExportRequest struct {
+type CdrAPICreateCDRRecordingsMediaExportRequest struct {
 	ctx context.Context
 	ApiService CdrAPI
 	body *CreateCDRRecordingsMediaExportRequest
@@ -165,78 +165,78 @@ type ApiCreateCDRRecordingsMediaExportRequest struct {
 }
 
 // The CDR IDs list from which to create an export
-func (r ApiCreateCDRRecordingsMediaExportRequest) Body(body CreateCDRRecordingsMediaExportRequest) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) Body(body CreateCDRRecordingsMediaExportRequest) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.body = &body
 	return r
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiCreateCDRRecordingsMediaExportRequest) From(from time.Time) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) From(from time.Time) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiCreateCDRRecordingsMediaExportRequest) Until(until time.Time) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) Until(until time.Time) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.until = &until
 	return r
 }
 
 // Filter list of items
-func (r ApiCreateCDRRecordingsMediaExportRequest) Search(search string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) Search(search string) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.search = &search
 	return r
 }
 
 // Filter list of items
-func (r ApiCreateCDRRecordingsMediaExportRequest) CallDirection(callDirection string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) CallDirection(callDirection string) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.callDirection = &callDirection
 	return r
 }
 
 // Filter by source_extension and destination_extension. A wildcard (underscore) can be used at the start and/or the end of the number.
-func (r ApiCreateCDRRecordingsMediaExportRequest) Number(number string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) Number(number string) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.number = &number
 	return r
 }
 
 // Filter by tags. Each tag MUST be separated by a coma (,). Many tag will perform a logical AND.
-func (r ApiCreateCDRRecordingsMediaExportRequest) Tags(tags []string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) Tags(tags []string) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.tags = &tags
 	return r
 }
 
 // Filter by user_uuid. Many uuid can be specified. Each uuid MUST be separated by a comma (,). Many uuid will perform a logical OR.
-func (r ApiCreateCDRRecordingsMediaExportRequest) UserUuid(userUuid []string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) UserUuid(userUuid []string) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.userUuid = &userUuid
 	return r
 }
 
 // Ignore CDR created before the given CDR ID.
-func (r ApiCreateCDRRecordingsMediaExportRequest) FromId(fromId int32) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) FromId(fromId int32) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.fromId = &fromId
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiCreateCDRRecordingsMediaExportRequest) Recurse(recurse bool) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) Recurse(recurse bool) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateCDRRecordingsMediaExportRequest) AccentTenant(accentTenant string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) AccentTenant(accentTenant string) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // E-mail address
-func (r ApiCreateCDRRecordingsMediaExportRequest) Email(email string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) Email(email string) CdrAPICreateCDRRecordingsMediaExportRequest {
 	r.email = &email
 	return r
 }
 
-func (r ApiCreateCDRRecordingsMediaExportRequest) Execute() (*CreateCDRRecordingsMediaExport202Response, *http.Response, error) {
+func (r CdrAPICreateCDRRecordingsMediaExportRequest) Execute() (*CreateCDRRecordingsMediaExport202Response, *http.Response, error) {
 	return r.ApiService.CreateCDRRecordingsMediaExportExecute(r)
 }
 
@@ -246,10 +246,10 @@ CreateCDRRecordingsMediaExport Create an export for the recording media of multi
 **Required ACL:** `call-logd.cdr.recordings.media.export.create` This endpoint creates a new export and returns its UUID. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateCDRRecordingsMediaExportRequest
+ @return CdrAPICreateCDRRecordingsMediaExportRequest
 */
-func (a *CdrAPIService) CreateCDRRecordingsMediaExport(ctx context.Context) ApiCreateCDRRecordingsMediaExportRequest {
-	return ApiCreateCDRRecordingsMediaExportRequest{
+func (a *CdrAPIService) CreateCDRRecordingsMediaExport(ctx context.Context) CdrAPICreateCDRRecordingsMediaExportRequest {
+	return CdrAPICreateCDRRecordingsMediaExportRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -257,7 +257,7 @@ func (a *CdrAPIService) CreateCDRRecordingsMediaExport(ctx context.Context) ApiC
 
 // Execute executes the request
 //  @return CreateCDRRecordingsMediaExport202Response
-func (a *CdrAPIService) CreateCDRRecordingsMediaExportExecute(r ApiCreateCDRRecordingsMediaExportRequest) (*CreateCDRRecordingsMediaExport202Response, *http.Response, error) {
+func (a *CdrAPIService) CreateCDRRecordingsMediaExportExecute(r CdrAPICreateCDRRecordingsMediaExportRequest) (*CreateCDRRecordingsMediaExport202Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -392,14 +392,14 @@ func (a *CdrAPIService) CreateCDRRecordingsMediaExportExecute(r ApiCreateCDRReco
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteCDRRecordingMediaRequest struct {
+type CdrAPIDeleteCDRRecordingMediaRequest struct {
 	ctx context.Context
 	ApiService CdrAPI
 	cdrId int32
 	recordingUuid int32
 }
 
-func (r ApiDeleteCDRRecordingMediaRequest) Execute() (*http.Response, error) {
+func (r CdrAPIDeleteCDRRecordingMediaRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteCDRRecordingMediaExecute(r)
 }
 
@@ -411,10 +411,10 @@ DeleteCDRRecordingMedia Delete a recording media
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cdrId ID of the CDR
  @param recordingUuid UUID of the recording
- @return ApiDeleteCDRRecordingMediaRequest
+ @return CdrAPIDeleteCDRRecordingMediaRequest
 */
-func (a *CdrAPIService) DeleteCDRRecordingMedia(ctx context.Context, cdrId int32, recordingUuid int32) ApiDeleteCDRRecordingMediaRequest {
-	return ApiDeleteCDRRecordingMediaRequest{
+func (a *CdrAPIService) DeleteCDRRecordingMedia(ctx context.Context, cdrId int32, recordingUuid int32) CdrAPIDeleteCDRRecordingMediaRequest {
+	return CdrAPIDeleteCDRRecordingMediaRequest{
 		ApiService: a,
 		ctx: ctx,
 		cdrId: cdrId,
@@ -423,7 +423,7 @@ func (a *CdrAPIService) DeleteCDRRecordingMedia(ctx context.Context, cdrId int32
 }
 
 // Execute executes the request
-func (a *CdrAPIService) DeleteCDRRecordingMediaExecute(r ApiDeleteCDRRecordingMediaRequest) (*http.Response, error) {
+func (a *CdrAPIService) DeleteCDRRecordingMediaExecute(r CdrAPIDeleteCDRRecordingMediaRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -512,19 +512,19 @@ func (a *CdrAPIService) DeleteCDRRecordingMediaExecute(r ApiDeleteCDRRecordingMe
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteCDRRecordingsMediaRequest struct {
+type CdrAPIDeleteCDRRecordingsMediaRequest struct {
 	ctx context.Context
 	ApiService CdrAPI
 	body *DeleteCDRRecordingsMediaRequest
 }
 
 // The CDR IDs list from which to delete recording media
-func (r ApiDeleteCDRRecordingsMediaRequest) Body(body DeleteCDRRecordingsMediaRequest) ApiDeleteCDRRecordingsMediaRequest {
+func (r CdrAPIDeleteCDRRecordingsMediaRequest) Body(body DeleteCDRRecordingsMediaRequest) CdrAPIDeleteCDRRecordingsMediaRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiDeleteCDRRecordingsMediaRequest) Execute() (*http.Response, error) {
+func (r CdrAPIDeleteCDRRecordingsMediaRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteCDRRecordingsMediaExecute(r)
 }
 
@@ -534,17 +534,17 @@ DeleteCDRRecordingsMedia Delete multiple CDRs recording media
 **Required ACL:** `call-logd.cdr.recordings.media.delete`
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteCDRRecordingsMediaRequest
+ @return CdrAPIDeleteCDRRecordingsMediaRequest
 */
-func (a *CdrAPIService) DeleteCDRRecordingsMedia(ctx context.Context) ApiDeleteCDRRecordingsMediaRequest {
-	return ApiDeleteCDRRecordingsMediaRequest{
+func (a *CdrAPIService) DeleteCDRRecordingsMedia(ctx context.Context) CdrAPIDeleteCDRRecordingsMediaRequest {
+	return CdrAPIDeleteCDRRecordingsMediaRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *CdrAPIService) DeleteCDRRecordingsMediaExecute(r ApiDeleteCDRRecordingsMediaRequest) (*http.Response, error) {
+func (a *CdrAPIService) DeleteCDRRecordingsMediaExecute(r CdrAPIDeleteCDRRecordingsMediaRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -636,13 +636,13 @@ func (a *CdrAPIService) DeleteCDRRecordingsMediaExecute(r ApiDeleteCDRRecordings
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetCDRRequest struct {
+type CdrAPIGetCDRRequest struct {
 	ctx context.Context
 	ApiService CdrAPI
 	cdrId int32
 }
 
-func (r ApiGetCDRRequest) Execute() (*CDR, *http.Response, error) {
+func (r CdrAPIGetCDRRequest) Execute() (*CDR, *http.Response, error) {
 	return r.ApiService.GetCDRExecute(r)
 }
 
@@ -653,10 +653,10 @@ GetCDR Get a CDR by ID
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cdrId ID of the CDR
- @return ApiGetCDRRequest
+ @return CdrAPIGetCDRRequest
 */
-func (a *CdrAPIService) GetCDR(ctx context.Context, cdrId int32) ApiGetCDRRequest {
-	return ApiGetCDRRequest{
+func (a *CdrAPIService) GetCDR(ctx context.Context, cdrId int32) CdrAPIGetCDRRequest {
+	return CdrAPIGetCDRRequest{
 		ApiService: a,
 		ctx: ctx,
 		cdrId: cdrId,
@@ -665,7 +665,7 @@ func (a *CdrAPIService) GetCDR(ctx context.Context, cdrId int32) ApiGetCDRReques
 
 // Execute executes the request
 //  @return CDR
-func (a *CdrAPIService) GetCDRExecute(r ApiGetCDRRequest) (*CDR, *http.Response, error) {
+func (a *CdrAPIService) GetCDRExecute(r CdrAPIGetCDRRequest) (*CDR, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -763,14 +763,14 @@ func (a *CdrAPIService) GetCDRExecute(r ApiGetCDRRequest) (*CDR, *http.Response,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCDRRecordingMediaRequest struct {
+type CdrAPIGetCDRRecordingMediaRequest struct {
 	ctx context.Context
 	ApiService CdrAPI
 	cdrId int32
 	recordingUuid int32
 }
 
-func (r ApiGetCDRRecordingMediaRequest) Execute() (*http.Response, error) {
+func (r CdrAPIGetCDRRecordingMediaRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetCDRRecordingMediaExecute(r)
 }
 
@@ -783,10 +783,10 @@ This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` que
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param cdrId ID of the CDR
  @param recordingUuid UUID of the recording
- @return ApiGetCDRRecordingMediaRequest
+ @return CdrAPIGetCDRRecordingMediaRequest
 */
-func (a *CdrAPIService) GetCDRRecordingMedia(ctx context.Context, cdrId int32, recordingUuid int32) ApiGetCDRRecordingMediaRequest {
-	return ApiGetCDRRecordingMediaRequest{
+func (a *CdrAPIService) GetCDRRecordingMedia(ctx context.Context, cdrId int32, recordingUuid int32) CdrAPIGetCDRRecordingMediaRequest {
+	return CdrAPIGetCDRRecordingMediaRequest{
 		ApiService: a,
 		ctx: ctx,
 		cdrId: cdrId,
@@ -795,7 +795,7 @@ func (a *CdrAPIService) GetCDRRecordingMedia(ctx context.Context, cdrId int32, r
 }
 
 // Execute executes the request
-func (a *CdrAPIService) GetCDRRecordingMediaExecute(r ApiGetCDRRecordingMediaRequest) (*http.Response, error) {
+func (a *CdrAPIService) GetCDRRecordingMediaExecute(r CdrAPIGetCDRRecordingMediaRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -884,7 +884,7 @@ func (a *CdrAPIService) GetCDRRecordingMediaExecute(r ApiGetCDRRecordingMediaReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetCDRsRequest struct {
+type CdrAPIGetCDRsRequest struct {
 	ctx context.Context
 	ApiService CdrAPI
 	accentTenant *string
@@ -907,108 +907,108 @@ type ApiGetCDRsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetCDRsRequest) AccentTenant(accentTenant string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) AccentTenant(accentTenant string) CdrAPIGetCDRsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetCDRsRequest) From(from time.Time) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) From(from time.Time) CdrAPIGetCDRsRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetCDRsRequest) Until(until time.Time) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Until(until time.Time) CdrAPIGetCDRsRequest {
 	r.until = &until
 	return r
 }
 
 // Maximum number of items to return in the list. Default to 1000 if not specified.
-func (r ApiGetCDRsRequest) Limit(limit int32) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Limit(limit int32) CdrAPIGetCDRsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiGetCDRsRequest) Offset(offset int32) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Offset(offset int32) CdrAPIGetCDRsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned. Unsupported values: &#x60;&#x60;end&#x60;&#x60;.
-func (r ApiGetCDRsRequest) Order(order string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Order(order string) CdrAPIGetCDRsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetCDRsRequest) Direction(direction string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Direction(direction string) CdrAPIGetCDRsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Filter list of items
-func (r ApiGetCDRsRequest) Search(search string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Search(search string) CdrAPIGetCDRsRequest {
 	r.search = &search
 	return r
 }
 
 // Filter list of items
-func (r ApiGetCDRsRequest) CallDirection(callDirection string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) CallDirection(callDirection string) CdrAPIGetCDRsRequest {
 	r.callDirection = &callDirection
 	return r
 }
 
 // Filter by source_extension and destination_extension. A wildcard (underscore) can be used at the start and/or the end of the number.
-func (r ApiGetCDRsRequest) Number(number string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Number(number string) CdrAPIGetCDRsRequest {
 	r.number = &number
 	return r
 }
 
 // Filter by tags. Each tag MUST be separated by a coma (,). Many tag will perform a logical AND.
-func (r ApiGetCDRsRequest) Tags(tags []string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Tags(tags []string) CdrAPIGetCDRsRequest {
 	r.tags = &tags
 	return r
 }
 
 // Filter by user_uuid. Many uuid can be specified. Each uuid MUST be separated by a comma (,). Many uuid will perform a logical OR.
-func (r ApiGetCDRsRequest) UserUuid(userUuid []string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) UserUuid(userUuid []string) CdrAPIGetCDRsRequest {
 	r.userUuid = &userUuid
 	return r
 }
 
 // Ignore CDR created before the given CDR ID.
-func (r ApiGetCDRsRequest) FromId(fromId int32) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) FromId(fromId int32) CdrAPIGetCDRsRequest {
 	r.fromId = &fromId
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiGetCDRsRequest) Recurse(recurse bool) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Recurse(recurse bool) CdrAPIGetCDRsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Will only return one result for the selected field
-func (r ApiGetCDRsRequest) Distinct(distinct string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Distinct(distinct string) CdrAPIGetCDRsRequest {
 	r.distinct = &distinct
 	return r
 }
 
 // Filter by recorded status.
-func (r ApiGetCDRsRequest) Recorded(recorded bool) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Recorded(recorded bool) CdrAPIGetCDRsRequest {
 	r.recorded = &recorded
 	return r
 }
 
 // Overrides the Content-Type header. This is used to be able to have a downloadable link. Allowed values are \&quot;csv\&quot; and \&quot;json\&quot;
-func (r ApiGetCDRsRequest) Format(format string) ApiGetCDRsRequest {
+func (r CdrAPIGetCDRsRequest) Format(format string) CdrAPIGetCDRsRequest {
 	r.format = &format
 	return r
 }
 
-func (r ApiGetCDRsRequest) Execute() (*CDRList, *http.Response, error) {
+func (r CdrAPIGetCDRsRequest) Execute() (*CDRList, *http.Response, error) {
 	return r.ApiService.GetCDRsExecute(r)
 }
 
@@ -1019,10 +1019,10 @@ GetCDRs List CDR
 This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` query string to bypass headers 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCDRsRequest
+ @return CdrAPIGetCDRsRequest
 */
-func (a *CdrAPIService) GetCDRs(ctx context.Context) ApiGetCDRsRequest {
-	return ApiGetCDRsRequest{
+func (a *CdrAPIService) GetCDRs(ctx context.Context) CdrAPIGetCDRsRequest {
+	return CdrAPIGetCDRsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1030,7 +1030,7 @@ func (a *CdrAPIService) GetCDRs(ctx context.Context) ApiGetCDRsRequest {
 
 // Execute executes the request
 //  @return CDRList
-func (a *CdrAPIService) GetCDRsExecute(r ApiGetCDRsRequest) (*CDRList, *http.Response, error) {
+func (a *CdrAPIService) GetCDRsExecute(r CdrAPIGetCDRsRequest) (*CDRList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1181,7 +1181,7 @@ func (a *CdrAPIService) GetCDRsExecute(r ApiGetCDRsRequest) (*CDRList, *http.Res
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCurrentUserCDRRequest struct {
+type CdrAPIGetCurrentUserCDRRequest struct {
 	ctx context.Context
 	ApiService CdrAPI
 	from *time.Time
@@ -1201,90 +1201,90 @@ type ApiGetCurrentUserCDRRequest struct {
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetCurrentUserCDRRequest) From(from time.Time) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) From(from time.Time) CdrAPIGetCurrentUserCDRRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetCurrentUserCDRRequest) Until(until time.Time) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Until(until time.Time) CdrAPIGetCurrentUserCDRRequest {
 	r.until = &until
 	return r
 }
 
 // Maximum number of items to return in the list. Default to 1000 if not specified.
-func (r ApiGetCurrentUserCDRRequest) Limit(limit int32) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Limit(limit int32) CdrAPIGetCurrentUserCDRRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiGetCurrentUserCDRRequest) Offset(offset int32) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Offset(offset int32) CdrAPIGetCurrentUserCDRRequest {
 	r.offset = &offset
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned. Unsupported values: &#x60;&#x60;end&#x60;&#x60;.
-func (r ApiGetCurrentUserCDRRequest) Order(order string) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Order(order string) CdrAPIGetCurrentUserCDRRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetCurrentUserCDRRequest) Direction(direction string) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Direction(direction string) CdrAPIGetCurrentUserCDRRequest {
 	r.direction = &direction
 	return r
 }
 
 // Filter list of items
-func (r ApiGetCurrentUserCDRRequest) Search(search string) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Search(search string) CdrAPIGetCurrentUserCDRRequest {
 	r.search = &search
 	return r
 }
 
 // Filter list of items
-func (r ApiGetCurrentUserCDRRequest) CallDirection(callDirection string) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) CallDirection(callDirection string) CdrAPIGetCurrentUserCDRRequest {
 	r.callDirection = &callDirection
 	return r
 }
 
 // Filter by source_extension and destination_extension. A wildcard (underscore) can be used at the start and/or the end of the number.
-func (r ApiGetCurrentUserCDRRequest) Number(number string) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Number(number string) CdrAPIGetCurrentUserCDRRequest {
 	r.number = &number
 	return r
 }
 
 // Ignore CDR created before the given CDR ID.
-func (r ApiGetCurrentUserCDRRequest) FromId(fromId int32) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) FromId(fromId int32) CdrAPIGetCurrentUserCDRRequest {
 	r.fromId = &fromId
 	return r
 }
 
 // Filter by user_uuid. Many uuid can be specified. Each uuid MUST be separated by a comma (,). Many uuid will perform a logical OR.
-func (r ApiGetCurrentUserCDRRequest) UserUuid(userUuid []string) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) UserUuid(userUuid []string) CdrAPIGetCurrentUserCDRRequest {
 	r.userUuid = &userUuid
 	return r
 }
 
 // Will only return one result for the selected field
-func (r ApiGetCurrentUserCDRRequest) Distinct(distinct string) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Distinct(distinct string) CdrAPIGetCurrentUserCDRRequest {
 	r.distinct = &distinct
 	return r
 }
 
 // Filter by recorded status.
-func (r ApiGetCurrentUserCDRRequest) Recorded(recorded bool) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Recorded(recorded bool) CdrAPIGetCurrentUserCDRRequest {
 	r.recorded = &recorded
 	return r
 }
 
 // Overrides the Content-Type header. This is used to be able to have a downloadable link. Allowed values are \&quot;csv\&quot; and \&quot;json\&quot;
-func (r ApiGetCurrentUserCDRRequest) Format(format string) ApiGetCurrentUserCDRRequest {
+func (r CdrAPIGetCurrentUserCDRRequest) Format(format string) CdrAPIGetCurrentUserCDRRequest {
 	r.format = &format
 	return r
 }
 
-func (r ApiGetCurrentUserCDRRequest) Execute() (*CDRList, *http.Response, error) {
+func (r CdrAPIGetCurrentUserCDRRequest) Execute() (*CDRList, *http.Response, error) {
 	return r.ApiService.GetCurrentUserCDRExecute(r)
 }
 
@@ -1295,10 +1295,10 @@ GetCurrentUserCDR List CDR of the authenticated user
 This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` query string to bypass headers 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCurrentUserCDRRequest
+ @return CdrAPIGetCurrentUserCDRRequest
 */
-func (a *CdrAPIService) GetCurrentUserCDR(ctx context.Context) ApiGetCurrentUserCDRRequest {
-	return ApiGetCurrentUserCDRRequest{
+func (a *CdrAPIService) GetCurrentUserCDR(ctx context.Context) CdrAPIGetCurrentUserCDRRequest {
+	return CdrAPIGetCurrentUserCDRRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1306,7 +1306,7 @@ func (a *CdrAPIService) GetCurrentUserCDR(ctx context.Context) ApiGetCurrentUser
 
 // Execute executes the request
 //  @return CDRList
-func (a *CdrAPIService) GetCurrentUserCDRExecute(r ApiGetCurrentUserCDRRequest) (*CDRList, *http.Response, error) {
+func (a *CdrAPIService) GetCurrentUserCDRExecute(r CdrAPIGetCurrentUserCDRRequest) (*CDRList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1445,7 +1445,7 @@ func (a *CdrAPIService) GetCurrentUserCDRExecute(r ApiGetCurrentUserCDRRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserCDRRequest struct {
+type CdrAPIGetUserCDRRequest struct {
 	ctx context.Context
 	ApiService CdrAPI
 	userUuid string
@@ -1465,84 +1465,84 @@ type ApiGetUserCDRRequest struct {
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiGetUserCDRRequest) From(from time.Time) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) From(from time.Time) CdrAPIGetUserCDRRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiGetUserCDRRequest) Until(until time.Time) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Until(until time.Time) CdrAPIGetUserCDRRequest {
 	r.until = &until
 	return r
 }
 
 // Maximum number of items to return in the list. Default to 1000 if not specified.
-func (r ApiGetUserCDRRequest) Limit(limit int32) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Limit(limit int32) CdrAPIGetUserCDRRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiGetUserCDRRequest) Offset(offset int32) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Offset(offset int32) CdrAPIGetUserCDRRequest {
 	r.offset = &offset
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned. Unsupported values: &#x60;&#x60;end&#x60;&#x60;.
-func (r ApiGetUserCDRRequest) Order(order string) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Order(order string) CdrAPIGetUserCDRRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserCDRRequest) Direction(direction string) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Direction(direction string) CdrAPIGetUserCDRRequest {
 	r.direction = &direction
 	return r
 }
 
 // Filter list of items
-func (r ApiGetUserCDRRequest) Search(search string) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Search(search string) CdrAPIGetUserCDRRequest {
 	r.search = &search
 	return r
 }
 
 // Filter list of items
-func (r ApiGetUserCDRRequest) CallDirection(callDirection string) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) CallDirection(callDirection string) CdrAPIGetUserCDRRequest {
 	r.callDirection = &callDirection
 	return r
 }
 
 // Filter by source_extension and destination_extension. A wildcard (underscore) can be used at the start and/or the end of the number.
-func (r ApiGetUserCDRRequest) Number(number string) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Number(number string) CdrAPIGetUserCDRRequest {
 	r.number = &number
 	return r
 }
 
 // Ignore CDR created before the given CDR ID.
-func (r ApiGetUserCDRRequest) FromId(fromId int32) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) FromId(fromId int32) CdrAPIGetUserCDRRequest {
 	r.fromId = &fromId
 	return r
 }
 
 // Will only return one result for the selected field
-func (r ApiGetUserCDRRequest) Distinct(distinct string) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Distinct(distinct string) CdrAPIGetUserCDRRequest {
 	r.distinct = &distinct
 	return r
 }
 
 // Filter by recorded status.
-func (r ApiGetUserCDRRequest) Recorded(recorded bool) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Recorded(recorded bool) CdrAPIGetUserCDRRequest {
 	r.recorded = &recorded
 	return r
 }
 
 // Overrides the Content-Type header. This is used to be able to have a downloadable link. Allowed values are \&quot;csv\&quot; and \&quot;json\&quot;
-func (r ApiGetUserCDRRequest) Format(format string) ApiGetUserCDRRequest {
+func (r CdrAPIGetUserCDRRequest) Format(format string) CdrAPIGetUserCDRRequest {
 	r.format = &format
 	return r
 }
 
-func (r ApiGetUserCDRRequest) Execute() (*CDRList, *http.Response, error) {
+func (r CdrAPIGetUserCDRRequest) Execute() (*CDRList, *http.Response, error) {
 	return r.ApiService.GetUserCDRExecute(r)
 }
 
@@ -1554,10 +1554,10 @@ This endpoint allow to use `?token={token_uuid}` and `?tenant={tenant_uuid}` que
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param userUuid UUID of the given user
- @return ApiGetUserCDRRequest
+ @return CdrAPIGetUserCDRRequest
 */
-func (a *CdrAPIService) GetUserCDR(ctx context.Context, userUuid string) ApiGetUserCDRRequest {
-	return ApiGetUserCDRRequest{
+func (a *CdrAPIService) GetUserCDR(ctx context.Context, userUuid string) CdrAPIGetUserCDRRequest {
+	return CdrAPIGetUserCDRRequest{
 		ApiService: a,
 		ctx: ctx,
 		userUuid: userUuid,
@@ -1566,7 +1566,7 @@ func (a *CdrAPIService) GetUserCDR(ctx context.Context, userUuid string) ApiGetU
 
 // Execute executes the request
 //  @return CDRList
-func (a *CdrAPIService) GetUserCDRExecute(r ApiGetUserCDRRequest) (*CDRList, *http.Response, error) {
+func (a *CdrAPIService) GetUserCDRExecute(r CdrAPIGetUserCDRRequest) (*CDRList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

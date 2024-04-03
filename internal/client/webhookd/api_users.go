@@ -29,13 +29,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param subscriptionUuid The UUID of the subscription
-		@return ApiGetUserSubscriptionRequest
+		@return UsersAPIGetUserSubscriptionRequest
 	*/
-	GetUserSubscription(ctx context.Context, subscriptionUuid string) ApiGetUserSubscriptionRequest
+	GetUserSubscription(ctx context.Context, subscriptionUuid string) UsersAPIGetUserSubscriptionRequest
 
 	// GetUserSubscriptionExecute executes the request
 	//  @return Subscription
-	GetUserSubscriptionExecute(r ApiGetUserSubscriptionRequest) (*Subscription, *http.Response, error)
+	GetUserSubscriptionExecute(r UsersAPIGetUserSubscriptionRequest) (*Subscription, *http.Response, error)
 
 	/*
 		UserCreate Subscribe to a HTTP callback (webhook) as a user
@@ -45,12 +45,12 @@ type UsersAPI interface {
 	For more information: https://accentvoice.io/documentation/api/webhook.html
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUserCreateRequest
+		@return UsersAPIUserCreateRequest
 	*/
-	UserCreate(ctx context.Context) ApiUserCreateRequest
+	UserCreate(ctx context.Context) UsersAPIUserCreateRequest
 
 	// UserCreateExecute executes the request
-	UserCreateExecute(r ApiUserCreateRequest) (*http.Response, error)
+	UserCreateExecute(r UsersAPIUserCreateRequest) (*http.Response, error)
 
 	/*
 		UserDelete Delete a user subscription
@@ -59,12 +59,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param subscriptionUuid The UUID of the subscription
-		@return ApiUserDeleteRequest
+		@return UsersAPIUserDeleteRequest
 	*/
-	UserDelete(ctx context.Context, subscriptionUuid string) ApiUserDeleteRequest
+	UserDelete(ctx context.Context, subscriptionUuid string) UsersAPIUserDeleteRequest
 
 	// UserDeleteExecute executes the request
-	UserDeleteExecute(r ApiUserDeleteRequest) (*http.Response, error)
+	UserDeleteExecute(r UsersAPIUserDeleteRequest) (*http.Response, error)
 
 	/*
 		UserList List subscriptions of a user to HTTP callbacks
@@ -72,25 +72,25 @@ type UsersAPI interface {
 		**Required ACL:** `webhookd.users.me.subscriptions.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUserListRequest
+		@return UsersAPIUserListRequest
 	*/
-	UserList(ctx context.Context) ApiUserListRequest
+	UserList(ctx context.Context) UsersAPIUserListRequest
 
 	// UserListExecute executes the request
 	//  @return SubscriptionList
-	UserListExecute(r ApiUserListRequest) (*SubscriptionList, *http.Response, error)
+	UserListExecute(r UsersAPIUserListRequest) (*SubscriptionList, *http.Response, error)
 }
 
 // UsersAPIService UsersAPI service
 type UsersAPIService service
 
-type ApiGetUserSubscriptionRequest struct {
+type UsersAPIGetUserSubscriptionRequest struct {
 	ctx              context.Context
 	ApiService       UsersAPI
 	subscriptionUuid string
 }
 
-func (r ApiGetUserSubscriptionRequest) Execute() (*Subscription, *http.Response, error) {
+func (r UsersAPIGetUserSubscriptionRequest) Execute() (*Subscription, *http.Response, error) {
 	return r.ApiService.GetUserSubscriptionExecute(r)
 }
 
@@ -101,10 +101,10 @@ GetUserSubscription Get a user subscription
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subscriptionUuid The UUID of the subscription
-	@return ApiGetUserSubscriptionRequest
+	@return UsersAPIGetUserSubscriptionRequest
 */
-func (a *UsersAPIService) GetUserSubscription(ctx context.Context, subscriptionUuid string) ApiGetUserSubscriptionRequest {
-	return ApiGetUserSubscriptionRequest{
+func (a *UsersAPIService) GetUserSubscription(ctx context.Context, subscriptionUuid string) UsersAPIGetUserSubscriptionRequest {
+	return UsersAPIGetUserSubscriptionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		subscriptionUuid: subscriptionUuid,
@@ -114,7 +114,7 @@ func (a *UsersAPIService) GetUserSubscription(ctx context.Context, subscriptionU
 // Execute executes the request
 //
 //	@return Subscription
-func (a *UsersAPIService) GetUserSubscriptionExecute(r ApiGetUserSubscriptionRequest) (*Subscription, *http.Response, error) {
+func (a *UsersAPIService) GetUserSubscriptionExecute(r UsersAPIGetUserSubscriptionRequest) (*Subscription, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -234,18 +234,18 @@ func (a *UsersAPIService) GetUserSubscriptionExecute(r ApiGetUserSubscriptionReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUserCreateRequest struct {
+type UsersAPIUserCreateRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserSubscriptionRequest
 }
 
-func (r ApiUserCreateRequest) Body(body UserSubscriptionRequest) ApiUserCreateRequest {
+func (r UsersAPIUserCreateRequest) Body(body UserSubscriptionRequest) UsersAPIUserCreateRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUserCreateRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUserCreateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UserCreateExecute(r)
 }
 
@@ -257,17 +257,17 @@ UserCreate Subscribe to a HTTP callback (webhook) as a user
 For more information: https://accentvoice.io/documentation/api/webhook.html
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUserCreateRequest
+	@return UsersAPIUserCreateRequest
 */
-func (a *UsersAPIService) UserCreate(ctx context.Context) ApiUserCreateRequest {
-	return ApiUserCreateRequest{
+func (a *UsersAPIService) UserCreate(ctx context.Context) UsersAPIUserCreateRequest {
+	return UsersAPIUserCreateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UserCreateExecute(r ApiUserCreateRequest) (*http.Response, error) {
+func (a *UsersAPIService) UserCreateExecute(r UsersAPIUserCreateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -381,13 +381,13 @@ func (a *UsersAPIService) UserCreateExecute(r ApiUserCreateRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiUserDeleteRequest struct {
+type UsersAPIUserDeleteRequest struct {
 	ctx              context.Context
 	ApiService       UsersAPI
 	subscriptionUuid string
 }
 
-func (r ApiUserDeleteRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUserDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UserDeleteExecute(r)
 }
 
@@ -398,10 +398,10 @@ UserDelete Delete a user subscription
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param subscriptionUuid The UUID of the subscription
-	@return ApiUserDeleteRequest
+	@return UsersAPIUserDeleteRequest
 */
-func (a *UsersAPIService) UserDelete(ctx context.Context, subscriptionUuid string) ApiUserDeleteRequest {
-	return ApiUserDeleteRequest{
+func (a *UsersAPIService) UserDelete(ctx context.Context, subscriptionUuid string) UsersAPIUserDeleteRequest {
+	return UsersAPIUserDeleteRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		subscriptionUuid: subscriptionUuid,
@@ -409,7 +409,7 @@ func (a *UsersAPIService) UserDelete(ctx context.Context, subscriptionUuid strin
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UserDeleteExecute(r ApiUserDeleteRequest) (*http.Response, error) {
+func (a *UsersAPIService) UserDeleteExecute(r UsersAPIUserDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -519,19 +519,19 @@ func (a *UsersAPIService) UserDeleteExecute(r ApiUserDeleteRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiUserListRequest struct {
+type UsersAPIUserListRequest struct {
 	ctx            context.Context
 	ApiService     UsersAPI
 	searchMetadata *string
 }
 
 // A search term formatted like \&quot;key:value\&quot; that will only match subscriptions having a metadata entry \&quot;key&#x3D;value\&quot;. May be given multiple times to filter more precisely on different metadata keys.
-func (r ApiUserListRequest) SearchMetadata(searchMetadata string) ApiUserListRequest {
+func (r UsersAPIUserListRequest) SearchMetadata(searchMetadata string) UsersAPIUserListRequest {
 	r.searchMetadata = &searchMetadata
 	return r
 }
 
-func (r ApiUserListRequest) Execute() (*SubscriptionList, *http.Response, error) {
+func (r UsersAPIUserListRequest) Execute() (*SubscriptionList, *http.Response, error) {
 	return r.ApiService.UserListExecute(r)
 }
 
@@ -541,10 +541,10 @@ UserList List subscriptions of a user to HTTP callbacks
 **Required ACL:** `webhookd.users.me.subscriptions.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUserListRequest
+	@return UsersAPIUserListRequest
 */
-func (a *UsersAPIService) UserList(ctx context.Context) ApiUserListRequest {
-	return ApiUserListRequest{
+func (a *UsersAPIService) UserList(ctx context.Context) UsersAPIUserListRequest {
+	return UsersAPIUserListRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -553,7 +553,7 @@ func (a *UsersAPIService) UserList(ctx context.Context) ApiUserListRequest {
 // Execute executes the request
 //
 //	@return SubscriptionList
-func (a *UsersAPIService) UserListExecute(r ApiUserListRequest) (*SubscriptionList, *http.Response, error) {
+func (a *UsersAPIService) UserListExecute(r UsersAPIUserListRequest) (*SubscriptionList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

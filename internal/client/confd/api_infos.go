@@ -27,24 +27,24 @@ type InfosAPI interface {
 		**Required ACL:** `confd.infos.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetInfosRequest
+		@return InfosAPIGetInfosRequest
 	*/
-	GetInfos(ctx context.Context) ApiGetInfosRequest
+	GetInfos(ctx context.Context) InfosAPIGetInfosRequest
 
 	// GetInfosExecute executes the request
 	//  @return Info
-	GetInfosExecute(r ApiGetInfosRequest) (*Info, *http.Response, error)
+	GetInfosExecute(r InfosAPIGetInfosRequest) (*Info, *http.Response, error)
 }
 
 // InfosAPIService InfosAPI service
 type InfosAPIService service
 
-type ApiGetInfosRequest struct {
+type InfosAPIGetInfosRequest struct {
 	ctx        context.Context
 	ApiService InfosAPI
 }
 
-func (r ApiGetInfosRequest) Execute() (*Info, *http.Response, error) {
+func (r InfosAPIGetInfosRequest) Execute() (*Info, *http.Response, error) {
 	return r.ApiService.GetInfosExecute(r)
 }
 
@@ -54,10 +54,10 @@ GetInfos Get server info
 **Required ACL:** `confd.infos.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetInfosRequest
+	@return InfosAPIGetInfosRequest
 */
-func (a *InfosAPIService) GetInfos(ctx context.Context) ApiGetInfosRequest {
-	return ApiGetInfosRequest{
+func (a *InfosAPIService) GetInfos(ctx context.Context) InfosAPIGetInfosRequest {
+	return InfosAPIGetInfosRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -66,7 +66,7 @@ func (a *InfosAPIService) GetInfos(ctx context.Context) ApiGetInfosRequest {
 // Execute executes the request
 //
 //	@return Info
-func (a *InfosAPIService) GetInfosExecute(r ApiGetInfosRequest) (*Info, *http.Response, error) {
+func (a *InfosAPIService) GetInfosExecute(r InfosAPIGetInfosRequest) (*Info, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

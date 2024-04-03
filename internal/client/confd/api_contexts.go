@@ -29,12 +29,12 @@ type ContextsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param contextId context's ID
-		@return ApiAssociateContextContextsRequest
+		@return ContextsAPIAssociateContextContextsRequest
 	*/
-	AssociateContextContexts(ctx context.Context, contextId int32) ApiAssociateContextContextsRequest
+	AssociateContextContexts(ctx context.Context, contextId int32) ContextsAPIAssociateContextContextsRequest
 
 	// AssociateContextContextsExecute executes the request
-	AssociateContextContextsExecute(r ApiAssociateContextContextsRequest) (*http.Response, error)
+	AssociateContextContextsExecute(r ContextsAPIAssociateContextContextsRequest) (*http.Response, error)
 
 	/*
 		CreateContext Create context
@@ -42,13 +42,13 @@ type ContextsAPI interface {
 		**Required ACL:** `confd.contexts.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateContextRequest
+		@return ContextsAPICreateContextRequest
 	*/
-	CreateContext(ctx context.Context) ApiCreateContextRequest
+	CreateContext(ctx context.Context) ContextsAPICreateContextRequest
 
 	// CreateContextExecute executes the request
 	//  @return Context
-	CreateContextExecute(r ApiCreateContextRequest) (*Context, *http.Response, error)
+	CreateContextExecute(r ContextsAPICreateContextRequest) (*Context, *http.Response, error)
 
 	/*
 		DeleteContext Delete context
@@ -57,12 +57,12 @@ type ContextsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param contextId context's ID
-		@return ApiDeleteContextRequest
+		@return ContextsAPIDeleteContextRequest
 	*/
-	DeleteContext(ctx context.Context, contextId int32) ApiDeleteContextRequest
+	DeleteContext(ctx context.Context, contextId int32) ContextsAPIDeleteContextRequest
 
 	// DeleteContextExecute executes the request
-	DeleteContextExecute(r ApiDeleteContextRequest) (*http.Response, error)
+	DeleteContextExecute(r ContextsAPIDeleteContextRequest) (*http.Response, error)
 
 	/*
 		GetContext Get context
@@ -71,13 +71,13 @@ type ContextsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param contextId context's ID
-		@return ApiGetContextRequest
+		@return ContextsAPIGetContextRequest
 	*/
-	GetContext(ctx context.Context, contextId int32) ApiGetContextRequest
+	GetContext(ctx context.Context, contextId int32) ContextsAPIGetContextRequest
 
 	// GetContextExecute executes the request
 	//  @return Context
-	GetContextExecute(r ApiGetContextRequest) (*Context, *http.Response, error)
+	GetContextExecute(r ContextsAPIGetContextRequest) (*Context, *http.Response, error)
 
 	/*
 		ListContexts List contexts
@@ -85,13 +85,13 @@ type ContextsAPI interface {
 		**Required ACL:** `confd.contexts.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListContextsRequest
+		@return ContextsAPIListContextsRequest
 	*/
-	ListContexts(ctx context.Context) ApiListContextsRequest
+	ListContexts(ctx context.Context) ContextsAPIListContextsRequest
 
 	// ListContextsExecute executes the request
 	//  @return ContextItems
-	ListContextsExecute(r ApiListContextsRequest) (*ContextItems, *http.Response, error)
+	ListContextsExecute(r ContextsAPIListContextsRequest) (*ContextItems, *http.Response, error)
 
 	/*
 		ListContextsRange List contexts range
@@ -110,13 +110,13 @@ type ContextsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param rangeType The extension range destination type
 		@param contextId context's ID
-		@return ApiListContextsRangeRequest
+		@return ContextsAPIListContextsRangeRequest
 	*/
-	ListContextsRange(ctx context.Context, rangeType string, contextId int32) ApiListContextsRangeRequest
+	ListContextsRange(ctx context.Context, rangeType string, contextId int32) ContextsAPIListContextsRangeRequest
 
 	// ListContextsRangeExecute executes the request
 	//  @return ContextRangeItems
-	ListContextsRangeExecute(r ApiListContextsRangeRequest) (*ContextRangeItems, *http.Response, error)
+	ListContextsRangeExecute(r ContextsAPIListContextsRangeRequest) (*ContextRangeItems, *http.Response, error)
 
 	/*
 		UpdateContext Update context
@@ -125,18 +125,18 @@ type ContextsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param contextId context's ID
-		@return ApiUpdateContextRequest
+		@return ContextsAPIUpdateContextRequest
 	*/
-	UpdateContext(ctx context.Context, contextId int32) ApiUpdateContextRequest
+	UpdateContext(ctx context.Context, contextId int32) ContextsAPIUpdateContextRequest
 
 	// UpdateContextExecute executes the request
-	UpdateContextExecute(r ApiUpdateContextRequest) (*http.Response, error)
+	UpdateContextExecute(r ContextsAPIUpdateContextRequest) (*http.Response, error)
 }
 
 // ContextsAPIService ContextsAPI service
 type ContextsAPIService service
 
-type ApiAssociateContextContextsRequest struct {
+type ContextsAPIAssociateContextContextsRequest struct {
 	ctx        context.Context
 	ApiService ContextsAPI
 	body       *ContextsId
@@ -144,12 +144,12 @@ type ApiAssociateContextContextsRequest struct {
 }
 
 // Contexts to associated
-func (r ApiAssociateContextContextsRequest) Body(body ContextsId) ApiAssociateContextContextsRequest {
+func (r ContextsAPIAssociateContextContextsRequest) Body(body ContextsId) ContextsAPIAssociateContextContextsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAssociateContextContextsRequest) Execute() (*http.Response, error) {
+func (r ContextsAPIAssociateContextContextsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateContextContextsExecute(r)
 }
 
@@ -160,10 +160,10 @@ AssociateContextContexts Include contexts inside context
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param contextId context's ID
-	@return ApiAssociateContextContextsRequest
+	@return ContextsAPIAssociateContextContextsRequest
 */
-func (a *ContextsAPIService) AssociateContextContexts(ctx context.Context, contextId int32) ApiAssociateContextContextsRequest {
-	return ApiAssociateContextContextsRequest{
+func (a *ContextsAPIService) AssociateContextContexts(ctx context.Context, contextId int32) ContextsAPIAssociateContextContextsRequest {
+	return ContextsAPIAssociateContextContextsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		contextId:  contextId,
@@ -171,7 +171,7 @@ func (a *ContextsAPIService) AssociateContextContexts(ctx context.Context, conte
 }
 
 // Execute executes the request
-func (a *ContextsAPIService) AssociateContextContextsExecute(r ApiAssociateContextContextsRequest) (*http.Response, error) {
+func (a *ContextsAPIService) AssociateContextContextsExecute(r ContextsAPIAssociateContextContextsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -275,7 +275,7 @@ func (a *ContextsAPIService) AssociateContextContextsExecute(r ApiAssociateConte
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateContextRequest struct {
+type ContextsAPICreateContextRequest struct {
 	ctx          context.Context
 	ApiService   ContextsAPI
 	body         *Context
@@ -283,18 +283,18 @@ type ApiCreateContextRequest struct {
 }
 
 // Context to create
-func (r ApiCreateContextRequest) Body(body Context) ApiCreateContextRequest {
+func (r ContextsAPICreateContextRequest) Body(body Context) ContextsAPICreateContextRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateContextRequest) AccentTenant(accentTenant string) ApiCreateContextRequest {
+func (r ContextsAPICreateContextRequest) AccentTenant(accentTenant string) ContextsAPICreateContextRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateContextRequest) Execute() (*Context, *http.Response, error) {
+func (r ContextsAPICreateContextRequest) Execute() (*Context, *http.Response, error) {
 	return r.ApiService.CreateContextExecute(r)
 }
 
@@ -304,10 +304,10 @@ CreateContext Create context
 **Required ACL:** `confd.contexts.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateContextRequest
+	@return ContextsAPICreateContextRequest
 */
-func (a *ContextsAPIService) CreateContext(ctx context.Context) ApiCreateContextRequest {
-	return ApiCreateContextRequest{
+func (a *ContextsAPIService) CreateContext(ctx context.Context) ContextsAPICreateContextRequest {
+	return ContextsAPICreateContextRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -316,7 +316,7 @@ func (a *ContextsAPIService) CreateContext(ctx context.Context) ApiCreateContext
 // Execute executes the request
 //
 //	@return Context
-func (a *ContextsAPIService) CreateContextExecute(r ApiCreateContextRequest) (*Context, *http.Response, error) {
+func (a *ContextsAPIService) CreateContextExecute(r ContextsAPICreateContextRequest) (*Context, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -421,13 +421,13 @@ func (a *ContextsAPIService) CreateContextExecute(r ApiCreateContextRequest) (*C
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteContextRequest struct {
+type ContextsAPIDeleteContextRequest struct {
 	ctx        context.Context
 	ApiService ContextsAPI
 	contextId  int32
 }
 
-func (r ApiDeleteContextRequest) Execute() (*http.Response, error) {
+func (r ContextsAPIDeleteContextRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteContextExecute(r)
 }
 
@@ -438,10 +438,10 @@ DeleteContext Delete context
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param contextId context's ID
-	@return ApiDeleteContextRequest
+	@return ContextsAPIDeleteContextRequest
 */
-func (a *ContextsAPIService) DeleteContext(ctx context.Context, contextId int32) ApiDeleteContextRequest {
-	return ApiDeleteContextRequest{
+func (a *ContextsAPIService) DeleteContext(ctx context.Context, contextId int32) ContextsAPIDeleteContextRequest {
+	return ContextsAPIDeleteContextRequest{
 		ApiService: a,
 		ctx:        ctx,
 		contextId:  contextId,
@@ -449,7 +449,7 @@ func (a *ContextsAPIService) DeleteContext(ctx context.Context, contextId int32)
 }
 
 // Execute executes the request
-func (a *ContextsAPIService) DeleteContextExecute(r ApiDeleteContextRequest) (*http.Response, error) {
+func (a *ContextsAPIService) DeleteContextExecute(r ContextsAPIDeleteContextRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -548,13 +548,13 @@ func (a *ContextsAPIService) DeleteContextExecute(r ApiDeleteContextRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetContextRequest struct {
+type ContextsAPIGetContextRequest struct {
 	ctx        context.Context
 	ApiService ContextsAPI
 	contextId  int32
 }
 
-func (r ApiGetContextRequest) Execute() (*Context, *http.Response, error) {
+func (r ContextsAPIGetContextRequest) Execute() (*Context, *http.Response, error) {
 	return r.ApiService.GetContextExecute(r)
 }
 
@@ -565,10 +565,10 @@ GetContext Get context
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param contextId context's ID
-	@return ApiGetContextRequest
+	@return ContextsAPIGetContextRequest
 */
-func (a *ContextsAPIService) GetContext(ctx context.Context, contextId int32) ApiGetContextRequest {
-	return ApiGetContextRequest{
+func (a *ContextsAPIService) GetContext(ctx context.Context, contextId int32) ContextsAPIGetContextRequest {
+	return ContextsAPIGetContextRequest{
 		ApiService: a,
 		ctx:        ctx,
 		contextId:  contextId,
@@ -578,7 +578,7 @@ func (a *ContextsAPIService) GetContext(ctx context.Context, contextId int32) Ap
 // Execute executes the request
 //
 //	@return Context
-func (a *ContextsAPIService) GetContextExecute(r ApiGetContextRequest) (*Context, *http.Response, error) {
+func (a *ContextsAPIService) GetContextExecute(r ContextsAPIGetContextRequest) (*Context, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -676,7 +676,7 @@ func (a *ContextsAPIService) GetContextExecute(r ApiGetContextRequest) (*Context
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListContextsRequest struct {
+type ContextsAPIListContextsRequest struct {
 	ctx          context.Context
 	ApiService   ContextsAPI
 	accentTenant *string
@@ -689,48 +689,48 @@ type ApiListContextsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListContextsRequest) AccentTenant(accentTenant string) ApiListContextsRequest {
+func (r ContextsAPIListContextsRequest) AccentTenant(accentTenant string) ContextsAPIListContextsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListContextsRequest) Recurse(recurse bool) ApiListContextsRequest {
+func (r ContextsAPIListContextsRequest) Recurse(recurse bool) ContextsAPIListContextsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListContextsRequest) Order(order string) ApiListContextsRequest {
+func (r ContextsAPIListContextsRequest) Order(order string) ContextsAPIListContextsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListContextsRequest) Direction(direction string) ApiListContextsRequest {
+func (r ContextsAPIListContextsRequest) Direction(direction string) ContextsAPIListContextsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListContextsRequest) Limit(limit int32) ApiListContextsRequest {
+func (r ContextsAPIListContextsRequest) Limit(limit int32) ContextsAPIListContextsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListContextsRequest) Offset(offset int32) ApiListContextsRequest {
+func (r ContextsAPIListContextsRequest) Offset(offset int32) ContextsAPIListContextsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListContextsRequest) Search(search string) ApiListContextsRequest {
+func (r ContextsAPIListContextsRequest) Search(search string) ContextsAPIListContextsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListContextsRequest) Execute() (*ContextItems, *http.Response, error) {
+func (r ContextsAPIListContextsRequest) Execute() (*ContextItems, *http.Response, error) {
 	return r.ApiService.ListContextsExecute(r)
 }
 
@@ -740,10 +740,10 @@ ListContexts List contexts
 **Required ACL:** `confd.contexts.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListContextsRequest
+	@return ContextsAPIListContextsRequest
 */
-func (a *ContextsAPIService) ListContexts(ctx context.Context) ApiListContextsRequest {
-	return ApiListContextsRequest{
+func (a *ContextsAPIService) ListContexts(ctx context.Context) ContextsAPIListContextsRequest {
+	return ContextsAPIListContextsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -752,7 +752,7 @@ func (a *ContextsAPIService) ListContexts(ctx context.Context) ApiListContextsRe
 // Execute executes the request
 //
 //	@return ContextItems
-func (a *ContextsAPIService) ListContextsExecute(r ApiListContextsRequest) (*ContextItems, *http.Response, error) {
+func (a *ContextsAPIService) ListContextsExecute(r ContextsAPIListContextsRequest) (*ContextItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -863,7 +863,7 @@ func (a *ContextsAPIService) ListContextsExecute(r ApiListContextsRequest) (*Con
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListContextsRangeRequest struct {
+type ContextsAPIListContextsRangeRequest struct {
 	ctx          context.Context
 	ApiService   ContextsAPI
 	rangeType    string
@@ -878,48 +878,48 @@ type ApiListContextsRangeRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListContextsRangeRequest) AccentTenant(accentTenant string) ApiListContextsRangeRequest {
+func (r ContextsAPIListContextsRangeRequest) AccentTenant(accentTenant string) ContextsAPIListContextsRangeRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListContextsRangeRequest) Order(order string) ApiListContextsRangeRequest {
+func (r ContextsAPIListContextsRangeRequest) Order(order string) ContextsAPIListContextsRangeRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListContextsRangeRequest) Direction(direction string) ApiListContextsRangeRequest {
+func (r ContextsAPIListContextsRangeRequest) Direction(direction string) ContextsAPIListContextsRangeRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListContextsRangeRequest) Limit(limit int32) ApiListContextsRangeRequest {
+func (r ContextsAPIListContextsRangeRequest) Limit(limit int32) ContextsAPIListContextsRangeRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListContextsRangeRequest) Offset(offset int32) ApiListContextsRangeRequest {
+func (r ContextsAPIListContextsRangeRequest) Offset(offset int32) ContextsAPIListContextsRangeRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListContextsRangeRequest) Search(search string) ApiListContextsRangeRequest {
+func (r ContextsAPIListContextsRangeRequest) Search(search string) ContextsAPIListContextsRangeRequest {
 	r.search = &search
 	return r
 }
 
 // Determines if the ranges are going to be split to display only ranges with available extensions.
-func (r ApiListContextsRangeRequest) Availability(availability string) ApiListContextsRangeRequest {
+func (r ContextsAPIListContextsRangeRequest) Availability(availability string) ContextsAPIListContextsRangeRequest {
 	r.availability = &availability
 	return r
 }
 
-func (r ApiListContextsRangeRequest) Execute() (*ContextRangeItems, *http.Response, error) {
+func (r ContextsAPIListContextsRangeRequest) Execute() (*ContextRangeItems, *http.Response, error) {
 	return r.ApiService.ListContextsRangeExecute(r)
 }
 
@@ -939,10 +939,10 @@ of available extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param rangeType The extension range destination type
 	@param contextId context's ID
-	@return ApiListContextsRangeRequest
+	@return ContextsAPIListContextsRangeRequest
 */
-func (a *ContextsAPIService) ListContextsRange(ctx context.Context, rangeType string, contextId int32) ApiListContextsRangeRequest {
-	return ApiListContextsRangeRequest{
+func (a *ContextsAPIService) ListContextsRange(ctx context.Context, rangeType string, contextId int32) ContextsAPIListContextsRangeRequest {
+	return ContextsAPIListContextsRangeRequest{
 		ApiService: a,
 		ctx:        ctx,
 		rangeType:  rangeType,
@@ -953,7 +953,7 @@ func (a *ContextsAPIService) ListContextsRange(ctx context.Context, rangeType st
 // Execute executes the request
 //
 //	@return ContextRangeItems
-func (a *ContextsAPIService) ListContextsRangeExecute(r ApiListContextsRangeRequest) (*ContextRangeItems, *http.Response, error) {
+func (a *ContextsAPIService) ListContextsRangeExecute(r ContextsAPIListContextsRangeRequest) (*ContextRangeItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1076,19 +1076,19 @@ func (a *ContextsAPIService) ListContextsRangeExecute(r ApiListContextsRangeRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateContextRequest struct {
+type ContextsAPIUpdateContextRequest struct {
 	ctx        context.Context
 	ApiService ContextsAPI
 	body       *Context
 	contextId  int32
 }
 
-func (r ApiUpdateContextRequest) Body(body Context) ApiUpdateContextRequest {
+func (r ContextsAPIUpdateContextRequest) Body(body Context) ContextsAPIUpdateContextRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateContextRequest) Execute() (*http.Response, error) {
+func (r ContextsAPIUpdateContextRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateContextExecute(r)
 }
 
@@ -1099,10 +1099,10 @@ UpdateContext Update context
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param contextId context's ID
-	@return ApiUpdateContextRequest
+	@return ContextsAPIUpdateContextRequest
 */
-func (a *ContextsAPIService) UpdateContext(ctx context.Context, contextId int32) ApiUpdateContextRequest {
-	return ApiUpdateContextRequest{
+func (a *ContextsAPIService) UpdateContext(ctx context.Context, contextId int32) ContextsAPIUpdateContextRequest {
+	return ContextsAPIUpdateContextRequest{
 		ApiService: a,
 		ctx:        ctx,
 		contextId:  contextId,
@@ -1110,7 +1110,7 @@ func (a *ContextsAPIService) UpdateContext(ctx context.Context, contextId int32)
 }
 
 // Execute executes the request
-func (a *ContextsAPIService) UpdateContextExecute(r ApiUpdateContextRequest) (*http.Response, error) {
+func (a *ContextsAPIService) UpdateContextExecute(r ContextsAPIUpdateContextRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

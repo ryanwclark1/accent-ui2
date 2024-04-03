@@ -30,12 +30,12 @@ type SipAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sipUuid
-		@return ApiAssociateLineEndpointSipRequest
+		@return SipAPIAssociateLineEndpointSipRequest
 	*/
-	AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiAssociateLineEndpointSipRequest
+	AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) SipAPIAssociateLineEndpointSipRequest
 
 	// AssociateLineEndpointSipExecute executes the request
-	AssociateLineEndpointSipExecute(r ApiAssociateLineEndpointSipRequest) (*http.Response, error)
+	AssociateLineEndpointSipExecute(r SipAPIAssociateLineEndpointSipRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkEndpointSip Associate trunk and SIP endpoint
@@ -45,12 +45,12 @@ type SipAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param sipUuid
-		@return ApiAssociateTrunkEndpointSipRequest
+		@return SipAPIAssociateTrunkEndpointSipRequest
 	*/
-	AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiAssociateTrunkEndpointSipRequest
+	AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) SipAPIAssociateTrunkEndpointSipRequest
 
 	// AssociateTrunkEndpointSipExecute executes the request
-	AssociateTrunkEndpointSipExecute(r ApiAssociateTrunkEndpointSipRequest) (*http.Response, error)
+	AssociateTrunkEndpointSipExecute(r SipAPIAssociateTrunkEndpointSipRequest) (*http.Response, error)
 
 	/*
 		CreateEndpointSip Create a SIP endpoint
@@ -58,13 +58,13 @@ type SipAPI interface {
 		**Required ACL:** `confd.endpoints.sip.create` Create a new SIP endpoint. This endpoint can inherit from other endpoints, only modify fields that have to be modified.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointSipRequest
+		@return SipAPICreateEndpointSipRequest
 	*/
-	CreateEndpointSip(ctx context.Context) ApiCreateEndpointSipRequest
+	CreateEndpointSip(ctx context.Context) SipAPICreateEndpointSipRequest
 
 	// CreateEndpointSipExecute executes the request
 	//  @return EndpointSIP
-	CreateEndpointSipExecute(r ApiCreateEndpointSipRequest) (*EndpointSIP, *http.Response, error)
+	CreateEndpointSipExecute(r SipAPICreateEndpointSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		CreateEndpointSipTemplate Create a SIP endpoint template
@@ -72,13 +72,13 @@ type SipAPI interface {
 		**Required ACL:** `confd.endpoints.sip.templates.create` Create a new SIP endpoint configuration template. This endpoint can inherit from other templates, only modify fields that have to be modified.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateEndpointSipTemplateRequest
+		@return SipAPICreateEndpointSipTemplateRequest
 	*/
-	CreateEndpointSipTemplate(ctx context.Context) ApiCreateEndpointSipTemplateRequest
+	CreateEndpointSipTemplate(ctx context.Context) SipAPICreateEndpointSipTemplateRequest
 
 	// CreateEndpointSipTemplateExecute executes the request
 	//  @return EndpointSIP
-	CreateEndpointSipTemplateExecute(r ApiCreateEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error)
+	CreateEndpointSipTemplateExecute(r SipAPICreateEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		CreateSipTransport Create SIP transport
@@ -92,13 +92,13 @@ type SipAPI interface {
 
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateSipTransportRequest
+		@return SipAPICreateSipTransportRequest
 	*/
-	CreateSipTransport(ctx context.Context) ApiCreateSipTransportRequest
+	CreateSipTransport(ctx context.Context) SipAPICreateSipTransportRequest
 
 	// CreateSipTransportExecute executes the request
 	//  @return SIPTransport
-	CreateSipTransportExecute(r ApiCreateSipTransportRequest) (*SIPTransport, *http.Response, error)
+	CreateSipTransportExecute(r SipAPICreateSipTransportRequest) (*SIPTransport, *http.Response, error)
 
 	/*
 		DeleteEndpointSip Delete SIP Endpoint
@@ -107,12 +107,12 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sipUuid
-		@return ApiDeleteEndpointSipRequest
+		@return SipAPIDeleteEndpointSipRequest
 	*/
-	DeleteEndpointSip(ctx context.Context, sipUuid string) ApiDeleteEndpointSipRequest
+	DeleteEndpointSip(ctx context.Context, sipUuid string) SipAPIDeleteEndpointSipRequest
 
 	// DeleteEndpointSipExecute executes the request
-	DeleteEndpointSipExecute(r ApiDeleteEndpointSipRequest) (*http.Response, error)
+	DeleteEndpointSipExecute(r SipAPIDeleteEndpointSipRequest) (*http.Response, error)
 
 	/*
 		DeleteEndpointSipTemplate Delete SIP Endpoint Template
@@ -121,12 +121,12 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateUuid
-		@return ApiDeleteEndpointSipTemplateRequest
+		@return SipAPIDeleteEndpointSipTemplateRequest
 	*/
-	DeleteEndpointSipTemplate(ctx context.Context, templateUuid string) ApiDeleteEndpointSipTemplateRequest
+	DeleteEndpointSipTemplate(ctx context.Context, templateUuid string) SipAPIDeleteEndpointSipTemplateRequest
 
 	// DeleteEndpointSipTemplateExecute executes the request
-	DeleteEndpointSipTemplateExecute(r ApiDeleteEndpointSipTemplateRequest) (*http.Response, error)
+	DeleteEndpointSipTemplateExecute(r SipAPIDeleteEndpointSipTemplateRequest) (*http.Response, error)
 
 	/*
 		DeleteSipTransport Delete SIP transport
@@ -139,12 +139,12 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transportUuid The UUID of the transport
-		@return ApiDeleteSipTransportRequest
+		@return SipAPIDeleteSipTransportRequest
 	*/
-	DeleteSipTransport(ctx context.Context, transportUuid string) ApiDeleteSipTransportRequest
+	DeleteSipTransport(ctx context.Context, transportUuid string) SipAPIDeleteSipTransportRequest
 
 	// DeleteSipTransportExecute executes the request
-	DeleteSipTransportExecute(r ApiDeleteSipTransportRequest) (*http.Response, error)
+	DeleteSipTransportExecute(r SipAPIDeleteSipTransportRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointSip Dissociate line and SIP endpoint
@@ -154,12 +154,12 @@ type SipAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sipUuid
-		@return ApiDissociateLineEndpointSipRequest
+		@return SipAPIDissociateLineEndpointSipRequest
 	*/
-	DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiDissociateLineEndpointSipRequest
+	DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) SipAPIDissociateLineEndpointSipRequest
 
 	// DissociateLineEndpointSipExecute executes the request
-	DissociateLineEndpointSipExecute(r ApiDissociateLineEndpointSipRequest) (*http.Response, error)
+	DissociateLineEndpointSipExecute(r SipAPIDissociateLineEndpointSipRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointSip Dissociate trunk and SIP endpoint
@@ -169,12 +169,12 @@ type SipAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param sipUuid
-		@return ApiDissociateTrunkEndpointSipRequest
+		@return SipAPIDissociateTrunkEndpointSipRequest
 	*/
-	DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiDissociateTrunkEndpointSipRequest
+	DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) SipAPIDissociateTrunkEndpointSipRequest
 
 	// DissociateTrunkEndpointSipExecute executes the request
-	DissociateTrunkEndpointSipExecute(r ApiDissociateTrunkEndpointSipRequest) (*http.Response, error)
+	DissociateTrunkEndpointSipExecute(r SipAPIDissociateTrunkEndpointSipRequest) (*http.Response, error)
 
 	/*
 		GetEndpointSip Get SIP Endpoint
@@ -183,13 +183,13 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sipUuid
-		@return ApiGetEndpointSipRequest
+		@return SipAPIGetEndpointSipRequest
 	*/
-	GetEndpointSip(ctx context.Context, sipUuid string) ApiGetEndpointSipRequest
+	GetEndpointSip(ctx context.Context, sipUuid string) SipAPIGetEndpointSipRequest
 
 	// GetEndpointSipExecute executes the request
 	//  @return EndpointSIP
-	GetEndpointSipExecute(r ApiGetEndpointSipRequest) (*EndpointSIP, *http.Response, error)
+	GetEndpointSipExecute(r SipAPIGetEndpointSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		GetEndpointSipTemplate Get SIP Endpoint template
@@ -198,13 +198,13 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateUuid
-		@return ApiGetEndpointSipTemplateRequest
+		@return SipAPIGetEndpointSipTemplateRequest
 	*/
-	GetEndpointSipTemplate(ctx context.Context, templateUuid string) ApiGetEndpointSipTemplateRequest
+	GetEndpointSipTemplate(ctx context.Context, templateUuid string) SipAPIGetEndpointSipTemplateRequest
 
 	// GetEndpointSipTemplateExecute executes the request
 	//  @return EndpointSIP
-	GetEndpointSipTemplateExecute(r ApiGetEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error)
+	GetEndpointSipTemplateExecute(r SipAPIGetEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		GetSipTransport Get SIP transport
@@ -213,13 +213,13 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transportUuid The UUID of the transport
-		@return ApiGetSipTransportRequest
+		@return SipAPIGetSipTransportRequest
 	*/
-	GetSipTransport(ctx context.Context, transportUuid string) ApiGetSipTransportRequest
+	GetSipTransport(ctx context.Context, transportUuid string) SipAPIGetSipTransportRequest
 
 	// GetSipTransportExecute executes the request
 	//  @return SIPTransport
-	GetSipTransportExecute(r ApiGetSipTransportRequest) (*SIPTransport, *http.Response, error)
+	GetSipTransportExecute(r SipAPIGetSipTransportRequest) (*SIPTransport, *http.Response, error)
 
 	/*
 		ListAsteriskPjsipGlobal List of PJSIP options for the `global` section
@@ -227,13 +227,13 @@ type SipAPI interface {
 		**Required ACL:** `confd.asterisk.pjsip.global.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskPjsipGlobalRequest
+		@return SipAPIListAsteriskPjsipGlobalRequest
 	*/
-	ListAsteriskPjsipGlobal(ctx context.Context) ApiListAsteriskPjsipGlobalRequest
+	ListAsteriskPjsipGlobal(ctx context.Context) SipAPIListAsteriskPjsipGlobalRequest
 
 	// ListAsteriskPjsipGlobalExecute executes the request
 	//  @return PJSIPGlobal
-	ListAsteriskPjsipGlobalExecute(r ApiListAsteriskPjsipGlobalRequest) (*PJSIPGlobal, *http.Response, error)
+	ListAsteriskPjsipGlobalExecute(r SipAPIListAsteriskPjsipGlobalRequest) (*PJSIPGlobal, *http.Response, error)
 
 	/*
 		ListAsteriskPjsipSystem List of PJSIP options for the `system` section
@@ -241,13 +241,13 @@ type SipAPI interface {
 		**Required ACL:** `confd.asterisk.pjsip.system.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskPjsipSystemRequest
+		@return SipAPIListAsteriskPjsipSystemRequest
 	*/
-	ListAsteriskPjsipSystem(ctx context.Context) ApiListAsteriskPjsipSystemRequest
+	ListAsteriskPjsipSystem(ctx context.Context) SipAPIListAsteriskPjsipSystemRequest
 
 	// ListAsteriskPjsipSystemExecute executes the request
 	//  @return PJSIPSystem
-	ListAsteriskPjsipSystemExecute(r ApiListAsteriskPjsipSystemRequest) (*PJSIPSystem, *http.Response, error)
+	ListAsteriskPjsipSystemExecute(r SipAPIListAsteriskPjsipSystemRequest) (*PJSIPSystem, *http.Response, error)
 
 	/*
 		ListEndpointsSip List SIP endpoints
@@ -259,13 +259,13 @@ type SipAPI interface {
 
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsSipRequest
+		@return SipAPIListEndpointsSipRequest
 	*/
-	ListEndpointsSip(ctx context.Context) ApiListEndpointsSipRequest
+	ListEndpointsSip(ctx context.Context) SipAPIListEndpointsSipRequest
 
 	// ListEndpointsSipExecute executes the request
 	//  @return EndpointSIPItems
-	ListEndpointsSipExecute(r ApiListEndpointsSipRequest) (*EndpointSIPItems, *http.Response, error)
+	ListEndpointsSipExecute(r SipAPIListEndpointsSipRequest) (*EndpointSIPItems, *http.Response, error)
 
 	/*
 		ListEndpointsSipTemplates List SIP endpoints templates
@@ -273,13 +273,13 @@ type SipAPI interface {
 		**Required ACL:** `confd.endpoints.sip.templates.read` List all SIP configuration templates, each individual configuration includes only fields that it defines. Inherited fields from the templates or default values are not returned here.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListEndpointsSipTemplatesRequest
+		@return SipAPIListEndpointsSipTemplatesRequest
 	*/
-	ListEndpointsSipTemplates(ctx context.Context) ApiListEndpointsSipTemplatesRequest
+	ListEndpointsSipTemplates(ctx context.Context) SipAPIListEndpointsSipTemplatesRequest
 
 	// ListEndpointsSipTemplatesExecute executes the request
 	//  @return EndpointSIPItems
-	ListEndpointsSipTemplatesExecute(r ApiListEndpointsSipTemplatesRequest) (*EndpointSIPItems, *http.Response, error)
+	ListEndpointsSipTemplatesExecute(r SipAPIListEndpointsSipTemplatesRequest) (*EndpointSIPItems, *http.Response, error)
 
 	/*
 		ListSipTransports List all configured SIP transports
@@ -287,13 +287,13 @@ type SipAPI interface {
 		**Required ACL:** `confd.sip.transports.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSipTransportsRequest
+		@return SipAPIListSipTransportsRequest
 	*/
-	ListSipTransports(ctx context.Context) ApiListSipTransportsRequest
+	ListSipTransports(ctx context.Context) SipAPIListSipTransportsRequest
 
 	// ListSipTransportsExecute executes the request
 	//  @return SIPTransportItems
-	ListSipTransportsExecute(r ApiListSipTransportsRequest) (*SIPTransportItems, *http.Response, error)
+	ListSipTransportsExecute(r SipAPIListSipTransportsRequest) (*SIPTransportItems, *http.Response, error)
 
 	/*
 		ShowPjsipDoc List all PJSIP configuration options
@@ -301,13 +301,13 @@ type SipAPI interface {
 		**Required ACL:**: `confd.asterisk.pjsip.doc.read` List all available configuration options for PJSIP, those values are used to validate to content of POST and PUT requests.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiShowPjsipDocRequest
+		@return SipAPIShowPjsipDocRequest
 	*/
-	ShowPjsipDoc(ctx context.Context) ApiShowPjsipDocRequest
+	ShowPjsipDoc(ctx context.Context) SipAPIShowPjsipDocRequest
 
 	// ShowPjsipDocExecute executes the request
 	//  @return PJSIPConfigurationOptions
-	ShowPjsipDocExecute(r ApiShowPjsipDocRequest) (*PJSIPConfigurationOptions, *http.Response, error)
+	ShowPjsipDocExecute(r SipAPIShowPjsipDocRequest) (*PJSIPConfigurationOptions, *http.Response, error)
 
 	/*
 		UpdateAsteriskPjsipGlobal Update PJSIP section options
@@ -315,12 +315,12 @@ type SipAPI interface {
 		**Required ACL:** `confd.asterisk.pjsip.global.update` The PJSIP global configuration is shared among all tenants of an instance. **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskPjsipGlobalRequest
+		@return SipAPIUpdateAsteriskPjsipGlobalRequest
 	*/
-	UpdateAsteriskPjsipGlobal(ctx context.Context) ApiUpdateAsteriskPjsipGlobalRequest
+	UpdateAsteriskPjsipGlobal(ctx context.Context) SipAPIUpdateAsteriskPjsipGlobalRequest
 
 	// UpdateAsteriskPjsipGlobalExecute executes the request
-	UpdateAsteriskPjsipGlobalExecute(r ApiUpdateAsteriskPjsipGlobalRequest) (*http.Response, error)
+	UpdateAsteriskPjsipGlobalExecute(r SipAPIUpdateAsteriskPjsipGlobalRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskPjsipSystem Update PJSIP section options
@@ -328,12 +328,12 @@ type SipAPI interface {
 		**Required ACL:** `confd.asterisk.pjsip.system.update` The PJSIP system configuration is shared among all tenants of an instance. **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskPjsipSystemRequest
+		@return SipAPIUpdateAsteriskPjsipSystemRequest
 	*/
-	UpdateAsteriskPjsipSystem(ctx context.Context) ApiUpdateAsteriskPjsipSystemRequest
+	UpdateAsteriskPjsipSystem(ctx context.Context) SipAPIUpdateAsteriskPjsipSystemRequest
 
 	// UpdateAsteriskPjsipSystemExecute executes the request
-	UpdateAsteriskPjsipSystemExecute(r ApiUpdateAsteriskPjsipSystemRequest) (*http.Response, error)
+	UpdateAsteriskPjsipSystemExecute(r SipAPIUpdateAsteriskPjsipSystemRequest) (*http.Response, error)
 
 	/*
 		UpdateEndpointSip Update SIP Endpoint
@@ -342,12 +342,12 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param sipUuid
-		@return ApiUpdateEndpointSipRequest
+		@return SipAPIUpdateEndpointSipRequest
 	*/
-	UpdateEndpointSip(ctx context.Context, sipUuid string) ApiUpdateEndpointSipRequest
+	UpdateEndpointSip(ctx context.Context, sipUuid string) SipAPIUpdateEndpointSipRequest
 
 	// UpdateEndpointSipExecute executes the request
-	UpdateEndpointSipExecute(r ApiUpdateEndpointSipRequest) (*http.Response, error)
+	UpdateEndpointSipExecute(r SipAPIUpdateEndpointSipRequest) (*http.Response, error)
 
 	/*
 		UpdateEndpointSipTemplate Update SIP Endpoint Template
@@ -356,12 +356,12 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateUuid
-		@return ApiUpdateEndpointSipTemplateRequest
+		@return SipAPIUpdateEndpointSipTemplateRequest
 	*/
-	UpdateEndpointSipTemplate(ctx context.Context, templateUuid string) ApiUpdateEndpointSipTemplateRequest
+	UpdateEndpointSipTemplate(ctx context.Context, templateUuid string) SipAPIUpdateEndpointSipTemplateRequest
 
 	// UpdateEndpointSipTemplateExecute executes the request
-	UpdateEndpointSipTemplateExecute(r ApiUpdateEndpointSipTemplateRequest) (*http.Response, error)
+	UpdateEndpointSipTemplateExecute(r SipAPIUpdateEndpointSipTemplateRequest) (*http.Response, error)
 
 	/*
 		UpdateSipTransport Update SIP transport
@@ -370,25 +370,25 @@ type SipAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param transportUuid The UUID of the transport
-		@return ApiUpdateSipTransportRequest
+		@return SipAPIUpdateSipTransportRequest
 	*/
-	UpdateSipTransport(ctx context.Context, transportUuid string) ApiUpdateSipTransportRequest
+	UpdateSipTransport(ctx context.Context, transportUuid string) SipAPIUpdateSipTransportRequest
 
 	// UpdateSipTransportExecute executes the request
-	UpdateSipTransportExecute(r ApiUpdateSipTransportRequest) (*http.Response, error)
+	UpdateSipTransportExecute(r SipAPIUpdateSipTransportRequest) (*http.Response, error)
 }
 
 // SipAPIService SipAPI service
 type SipAPIService service
 
-type ApiAssociateLineEndpointSipRequest struct {
+type SipAPIAssociateLineEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 	lineId     int32
 	sipUuid    string
 }
 
-func (r ApiAssociateLineEndpointSipRequest) Execute() (*http.Response, error) {
+func (r SipAPIAssociateLineEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointSipExecute(r)
 }
 
@@ -400,10 +400,10 @@ AssociateLineEndpointSip Associate line and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sipUuid
-	@return ApiAssociateLineEndpointSipRequest
+	@return SipAPIAssociateLineEndpointSipRequest
 */
-func (a *SipAPIService) AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiAssociateLineEndpointSipRequest {
-	return ApiAssociateLineEndpointSipRequest{
+func (a *SipAPIService) AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) SipAPIAssociateLineEndpointSipRequest {
+	return SipAPIAssociateLineEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -412,7 +412,7 @@ func (a *SipAPIService) AssociateLineEndpointSip(ctx context.Context, lineId int
 }
 
 // Execute executes the request
-func (a *SipAPIService) AssociateLineEndpointSipExecute(r ApiAssociateLineEndpointSipRequest) (*http.Response, error) {
+func (a *SipAPIService) AssociateLineEndpointSipExecute(r SipAPIAssociateLineEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -512,14 +512,14 @@ func (a *SipAPIService) AssociateLineEndpointSipExecute(r ApiAssociateLineEndpoi
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkEndpointSipRequest struct {
+type SipAPIAssociateTrunkEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 	trunkId    int32
 	sipUuid    string
 }
 
-func (r ApiAssociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
+func (r SipAPIAssociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointSipExecute(r)
 }
 
@@ -531,10 +531,10 @@ AssociateTrunkEndpointSip Associate trunk and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param sipUuid
-	@return ApiAssociateTrunkEndpointSipRequest
+	@return SipAPIAssociateTrunkEndpointSipRequest
 */
-func (a *SipAPIService) AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiAssociateTrunkEndpointSipRequest {
-	return ApiAssociateTrunkEndpointSipRequest{
+func (a *SipAPIService) AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) SipAPIAssociateTrunkEndpointSipRequest {
+	return SipAPIAssociateTrunkEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -543,7 +543,7 @@ func (a *SipAPIService) AssociateTrunkEndpointSip(ctx context.Context, trunkId i
 }
 
 // Execute executes the request
-func (a *SipAPIService) AssociateTrunkEndpointSipExecute(r ApiAssociateTrunkEndpointSipRequest) (*http.Response, error) {
+func (a *SipAPIService) AssociateTrunkEndpointSipExecute(r SipAPIAssociateTrunkEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -643,7 +643,7 @@ func (a *SipAPIService) AssociateTrunkEndpointSipExecute(r ApiAssociateTrunkEndp
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointSipRequest struct {
+type SipAPICreateEndpointSipRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	body         *EndpointSIP
@@ -651,18 +651,18 @@ type ApiCreateEndpointSipRequest struct {
 }
 
 // SIP Endpoint to create
-func (r ApiCreateEndpointSipRequest) Body(body EndpointSIP) ApiCreateEndpointSipRequest {
+func (r SipAPICreateEndpointSipRequest) Body(body EndpointSIP) SipAPICreateEndpointSipRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointSipRequest) AccentTenant(accentTenant string) ApiCreateEndpointSipRequest {
+func (r SipAPICreateEndpointSipRequest) AccentTenant(accentTenant string) SipAPICreateEndpointSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r SipAPICreateEndpointSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.CreateEndpointSipExecute(r)
 }
 
@@ -672,10 +672,10 @@ CreateEndpointSip Create a SIP endpoint
 **Required ACL:** `confd.endpoints.sip.create` Create a new SIP endpoint. This endpoint can inherit from other endpoints, only modify fields that have to be modified.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointSipRequest
+	@return SipAPICreateEndpointSipRequest
 */
-func (a *SipAPIService) CreateEndpointSip(ctx context.Context) ApiCreateEndpointSipRequest {
-	return ApiCreateEndpointSipRequest{
+func (a *SipAPIService) CreateEndpointSip(ctx context.Context) SipAPICreateEndpointSipRequest {
+	return SipAPICreateEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -684,7 +684,7 @@ func (a *SipAPIService) CreateEndpointSip(ctx context.Context) ApiCreateEndpoint
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *SipAPIService) CreateEndpointSipExecute(r ApiCreateEndpointSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *SipAPIService) CreateEndpointSipExecute(r SipAPICreateEndpointSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -786,7 +786,7 @@ func (a *SipAPIService) CreateEndpointSipExecute(r ApiCreateEndpointSipRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateEndpointSipTemplateRequest struct {
+type SipAPICreateEndpointSipTemplateRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	body         *EndpointSIP
@@ -794,18 +794,18 @@ type ApiCreateEndpointSipTemplateRequest struct {
 }
 
 // SIP Endpoint to create
-func (r ApiCreateEndpointSipTemplateRequest) Body(body EndpointSIP) ApiCreateEndpointSipTemplateRequest {
+func (r SipAPICreateEndpointSipTemplateRequest) Body(body EndpointSIP) SipAPICreateEndpointSipTemplateRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateEndpointSipTemplateRequest) AccentTenant(accentTenant string) ApiCreateEndpointSipTemplateRequest {
+func (r SipAPICreateEndpointSipTemplateRequest) AccentTenant(accentTenant string) SipAPICreateEndpointSipTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateEndpointSipTemplateRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r SipAPICreateEndpointSipTemplateRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.CreateEndpointSipTemplateExecute(r)
 }
 
@@ -815,10 +815,10 @@ CreateEndpointSipTemplate Create a SIP endpoint template
 **Required ACL:** `confd.endpoints.sip.templates.create` Create a new SIP endpoint configuration template. This endpoint can inherit from other templates, only modify fields that have to be modified.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEndpointSipTemplateRequest
+	@return SipAPICreateEndpointSipTemplateRequest
 */
-func (a *SipAPIService) CreateEndpointSipTemplate(ctx context.Context) ApiCreateEndpointSipTemplateRequest {
-	return ApiCreateEndpointSipTemplateRequest{
+func (a *SipAPIService) CreateEndpointSipTemplate(ctx context.Context) SipAPICreateEndpointSipTemplateRequest {
+	return SipAPICreateEndpointSipTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -827,7 +827,7 @@ func (a *SipAPIService) CreateEndpointSipTemplate(ctx context.Context) ApiCreate
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *SipAPIService) CreateEndpointSipTemplateExecute(r ApiCreateEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error) {
+func (a *SipAPIService) CreateEndpointSipTemplateExecute(r SipAPICreateEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -929,19 +929,19 @@ func (a *SipAPIService) CreateEndpointSipTemplateExecute(r ApiCreateEndpointSipT
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateSipTransportRequest struct {
+type SipAPICreateSipTransportRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 	body       *SIPTransport
 }
 
 // Transport to create
-func (r ApiCreateSipTransportRequest) Body(body SIPTransport) ApiCreateSipTransportRequest {
+func (r SipAPICreateSipTransportRequest) Body(body SIPTransport) SipAPICreateSipTransportRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateSipTransportRequest) Execute() (*SIPTransport, *http.Response, error) {
+func (r SipAPICreateSipTransportRequest) Execute() (*SIPTransport, *http.Response, error) {
 	return r.ApiService.CreateSipTransportExecute(r)
 }
 
@@ -956,10 +956,10 @@ tenants' administrators.
 There should always be atleast one transport configured on the system.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateSipTransportRequest
+	@return SipAPICreateSipTransportRequest
 */
-func (a *SipAPIService) CreateSipTransport(ctx context.Context) ApiCreateSipTransportRequest {
-	return ApiCreateSipTransportRequest{
+func (a *SipAPIService) CreateSipTransport(ctx context.Context) SipAPICreateSipTransportRequest {
+	return SipAPICreateSipTransportRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -968,7 +968,7 @@ func (a *SipAPIService) CreateSipTransport(ctx context.Context) ApiCreateSipTran
 // Execute executes the request
 //
 //	@return SIPTransport
-func (a *SipAPIService) CreateSipTransportExecute(r ApiCreateSipTransportRequest) (*SIPTransport, *http.Response, error) {
+func (a *SipAPIService) CreateSipTransportExecute(r SipAPICreateSipTransportRequest) (*SIPTransport, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1070,7 +1070,7 @@ func (a *SipAPIService) CreateSipTransportExecute(r ApiCreateSipTransportRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointSipRequest struct {
+type SipAPIDeleteEndpointSipRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	sipUuid      string
@@ -1078,12 +1078,12 @@ type ApiDeleteEndpointSipRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointSipRequest) AccentTenant(accentTenant string) ApiDeleteEndpointSipRequest {
+func (r SipAPIDeleteEndpointSipRequest) AccentTenant(accentTenant string) SipAPIDeleteEndpointSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointSipRequest) Execute() (*http.Response, error) {
+func (r SipAPIDeleteEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointSipExecute(r)
 }
 
@@ -1094,10 +1094,10 @@ DeleteEndpointSip Delete SIP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sipUuid
-	@return ApiDeleteEndpointSipRequest
+	@return SipAPIDeleteEndpointSipRequest
 */
-func (a *SipAPIService) DeleteEndpointSip(ctx context.Context, sipUuid string) ApiDeleteEndpointSipRequest {
-	return ApiDeleteEndpointSipRequest{
+func (a *SipAPIService) DeleteEndpointSip(ctx context.Context, sipUuid string) SipAPIDeleteEndpointSipRequest {
+	return SipAPIDeleteEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sipUuid:    sipUuid,
@@ -1105,7 +1105,7 @@ func (a *SipAPIService) DeleteEndpointSip(ctx context.Context, sipUuid string) A
 }
 
 // Execute executes the request
-func (a *SipAPIService) DeleteEndpointSipExecute(r ApiDeleteEndpointSipRequest) (*http.Response, error) {
+func (a *SipAPIService) DeleteEndpointSipExecute(r SipAPIDeleteEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1207,7 +1207,7 @@ func (a *SipAPIService) DeleteEndpointSipExecute(r ApiDeleteEndpointSipRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteEndpointSipTemplateRequest struct {
+type SipAPIDeleteEndpointSipTemplateRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	templateUuid string
@@ -1215,12 +1215,12 @@ type ApiDeleteEndpointSipTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteEndpointSipTemplateRequest) AccentTenant(accentTenant string) ApiDeleteEndpointSipTemplateRequest {
+func (r SipAPIDeleteEndpointSipTemplateRequest) AccentTenant(accentTenant string) SipAPIDeleteEndpointSipTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteEndpointSipTemplateRequest) Execute() (*http.Response, error) {
+func (r SipAPIDeleteEndpointSipTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteEndpointSipTemplateExecute(r)
 }
 
@@ -1231,10 +1231,10 @@ DeleteEndpointSipTemplate Delete SIP Endpoint Template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateUuid
-	@return ApiDeleteEndpointSipTemplateRequest
+	@return SipAPIDeleteEndpointSipTemplateRequest
 */
-func (a *SipAPIService) DeleteEndpointSipTemplate(ctx context.Context, templateUuid string) ApiDeleteEndpointSipTemplateRequest {
-	return ApiDeleteEndpointSipTemplateRequest{
+func (a *SipAPIService) DeleteEndpointSipTemplate(ctx context.Context, templateUuid string) SipAPIDeleteEndpointSipTemplateRequest {
+	return SipAPIDeleteEndpointSipTemplateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		templateUuid: templateUuid,
@@ -1242,7 +1242,7 @@ func (a *SipAPIService) DeleteEndpointSipTemplate(ctx context.Context, templateU
 }
 
 // Execute executes the request
-func (a *SipAPIService) DeleteEndpointSipTemplateExecute(r ApiDeleteEndpointSipTemplateRequest) (*http.Response, error) {
+func (a *SipAPIService) DeleteEndpointSipTemplateExecute(r SipAPIDeleteEndpointSipTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1344,7 +1344,7 @@ func (a *SipAPIService) DeleteEndpointSipTemplateExecute(r ApiDeleteEndpointSipT
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteSipTransportRequest struct {
+type SipAPIDeleteSipTransportRequest struct {
 	ctx           context.Context
 	ApiService    SipAPI
 	transportUuid string
@@ -1352,12 +1352,12 @@ type ApiDeleteSipTransportRequest struct {
 }
 
 // The UUID of the transport that should be associated to orphaned SIP configurations
-func (r ApiDeleteSipTransportRequest) Fallback(fallback string) ApiDeleteSipTransportRequest {
+func (r SipAPIDeleteSipTransportRequest) Fallback(fallback string) SipAPIDeleteSipTransportRequest {
 	r.fallback = &fallback
 	return r
 }
 
-func (r ApiDeleteSipTransportRequest) Execute() (*http.Response, error) {
+func (r SipAPIDeleteSipTransportRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteSipTransportExecute(r)
 }
 
@@ -1371,10 +1371,10 @@ the `fallback` transport.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transportUuid The UUID of the transport
-	@return ApiDeleteSipTransportRequest
+	@return SipAPIDeleteSipTransportRequest
 */
-func (a *SipAPIService) DeleteSipTransport(ctx context.Context, transportUuid string) ApiDeleteSipTransportRequest {
-	return ApiDeleteSipTransportRequest{
+func (a *SipAPIService) DeleteSipTransport(ctx context.Context, transportUuid string) SipAPIDeleteSipTransportRequest {
+	return SipAPIDeleteSipTransportRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		transportUuid: transportUuid,
@@ -1382,7 +1382,7 @@ func (a *SipAPIService) DeleteSipTransport(ctx context.Context, transportUuid st
 }
 
 // Execute executes the request
-func (a *SipAPIService) DeleteSipTransportExecute(r ApiDeleteSipTransportRequest) (*http.Response, error) {
+func (a *SipAPIService) DeleteSipTransportExecute(r SipAPIDeleteSipTransportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1484,14 +1484,14 @@ func (a *SipAPIService) DeleteSipTransportExecute(r ApiDeleteSipTransportRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointSipRequest struct {
+type SipAPIDissociateLineEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 	lineId     int32
 	sipUuid    string
 }
 
-func (r ApiDissociateLineEndpointSipRequest) Execute() (*http.Response, error) {
+func (r SipAPIDissociateLineEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointSipExecute(r)
 }
 
@@ -1503,10 +1503,10 @@ DissociateLineEndpointSip Dissociate line and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sipUuid
-	@return ApiDissociateLineEndpointSipRequest
+	@return SipAPIDissociateLineEndpointSipRequest
 */
-func (a *SipAPIService) DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiDissociateLineEndpointSipRequest {
-	return ApiDissociateLineEndpointSipRequest{
+func (a *SipAPIService) DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) SipAPIDissociateLineEndpointSipRequest {
+	return SipAPIDissociateLineEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -1515,7 +1515,7 @@ func (a *SipAPIService) DissociateLineEndpointSip(ctx context.Context, lineId in
 }
 
 // Execute executes the request
-func (a *SipAPIService) DissociateLineEndpointSipExecute(r ApiDissociateLineEndpointSipRequest) (*http.Response, error) {
+func (a *SipAPIService) DissociateLineEndpointSipExecute(r SipAPIDissociateLineEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1615,14 +1615,14 @@ func (a *SipAPIService) DissociateLineEndpointSipExecute(r ApiDissociateLineEndp
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointSipRequest struct {
+type SipAPIDissociateTrunkEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 	trunkId    int32
 	sipUuid    string
 }
 
-func (r ApiDissociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
+func (r SipAPIDissociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointSipExecute(r)
 }
 
@@ -1634,10 +1634,10 @@ DissociateTrunkEndpointSip Dissociate trunk and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param sipUuid
-	@return ApiDissociateTrunkEndpointSipRequest
+	@return SipAPIDissociateTrunkEndpointSipRequest
 */
-func (a *SipAPIService) DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiDissociateTrunkEndpointSipRequest {
-	return ApiDissociateTrunkEndpointSipRequest{
+func (a *SipAPIService) DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) SipAPIDissociateTrunkEndpointSipRequest {
+	return SipAPIDissociateTrunkEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1646,7 +1646,7 @@ func (a *SipAPIService) DissociateTrunkEndpointSip(ctx context.Context, trunkId 
 }
 
 // Execute executes the request
-func (a *SipAPIService) DissociateTrunkEndpointSipExecute(r ApiDissociateTrunkEndpointSipRequest) (*http.Response, error) {
+func (a *SipAPIService) DissociateTrunkEndpointSipExecute(r SipAPIDissociateTrunkEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1746,7 +1746,7 @@ func (a *SipAPIService) DissociateTrunkEndpointSipExecute(r ApiDissociateTrunkEn
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointSipRequest struct {
+type SipAPIGetEndpointSipRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	sipUuid      string
@@ -1755,18 +1755,18 @@ type ApiGetEndpointSipRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointSipRequest) AccentTenant(accentTenant string) ApiGetEndpointSipRequest {
+func (r SipAPIGetEndpointSipRequest) AccentTenant(accentTenant string) SipAPIGetEndpointSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Different view of the SIP endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to include only options that are defined on the specified endpoint.  The &#x60;merged&#x60; view includes all options from included templates.
-func (r ApiGetEndpointSipRequest) View(view string) ApiGetEndpointSipRequest {
+func (r SipAPIGetEndpointSipRequest) View(view string) SipAPIGetEndpointSipRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetEndpointSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r SipAPIGetEndpointSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetEndpointSipExecute(r)
 }
 
@@ -1777,10 +1777,10 @@ GetEndpointSip Get SIP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sipUuid
-	@return ApiGetEndpointSipRequest
+	@return SipAPIGetEndpointSipRequest
 */
-func (a *SipAPIService) GetEndpointSip(ctx context.Context, sipUuid string) ApiGetEndpointSipRequest {
-	return ApiGetEndpointSipRequest{
+func (a *SipAPIService) GetEndpointSip(ctx context.Context, sipUuid string) SipAPIGetEndpointSipRequest {
+	return SipAPIGetEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sipUuid:    sipUuid,
@@ -1790,7 +1790,7 @@ func (a *SipAPIService) GetEndpointSip(ctx context.Context, sipUuid string) ApiG
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *SipAPIService) GetEndpointSipExecute(r ApiGetEndpointSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *SipAPIService) GetEndpointSipExecute(r SipAPIGetEndpointSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1894,7 +1894,7 @@ func (a *SipAPIService) GetEndpointSipExecute(r ApiGetEndpointSipRequest) (*Endp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEndpointSipTemplateRequest struct {
+type SipAPIGetEndpointSipTemplateRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	templateUuid string
@@ -1902,12 +1902,12 @@ type ApiGetEndpointSipTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetEndpointSipTemplateRequest) AccentTenant(accentTenant string) ApiGetEndpointSipTemplateRequest {
+func (r SipAPIGetEndpointSipTemplateRequest) AccentTenant(accentTenant string) SipAPIGetEndpointSipTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetEndpointSipTemplateRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r SipAPIGetEndpointSipTemplateRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetEndpointSipTemplateExecute(r)
 }
 
@@ -1918,10 +1918,10 @@ GetEndpointSipTemplate Get SIP Endpoint template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateUuid
-	@return ApiGetEndpointSipTemplateRequest
+	@return SipAPIGetEndpointSipTemplateRequest
 */
-func (a *SipAPIService) GetEndpointSipTemplate(ctx context.Context, templateUuid string) ApiGetEndpointSipTemplateRequest {
-	return ApiGetEndpointSipTemplateRequest{
+func (a *SipAPIService) GetEndpointSipTemplate(ctx context.Context, templateUuid string) SipAPIGetEndpointSipTemplateRequest {
+	return SipAPIGetEndpointSipTemplateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		templateUuid: templateUuid,
@@ -1931,7 +1931,7 @@ func (a *SipAPIService) GetEndpointSipTemplate(ctx context.Context, templateUuid
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *SipAPIService) GetEndpointSipTemplateExecute(r ApiGetEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error) {
+func (a *SipAPIService) GetEndpointSipTemplateExecute(r SipAPIGetEndpointSipTemplateRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2032,13 +2032,13 @@ func (a *SipAPIService) GetEndpointSipTemplateExecute(r ApiGetEndpointSipTemplat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSipTransportRequest struct {
+type SipAPIGetSipTransportRequest struct {
 	ctx           context.Context
 	ApiService    SipAPI
 	transportUuid string
 }
 
-func (r ApiGetSipTransportRequest) Execute() (*SIPTransport, *http.Response, error) {
+func (r SipAPIGetSipTransportRequest) Execute() (*SIPTransport, *http.Response, error) {
 	return r.ApiService.GetSipTransportExecute(r)
 }
 
@@ -2049,10 +2049,10 @@ GetSipTransport Get SIP transport
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transportUuid The UUID of the transport
-	@return ApiGetSipTransportRequest
+	@return SipAPIGetSipTransportRequest
 */
-func (a *SipAPIService) GetSipTransport(ctx context.Context, transportUuid string) ApiGetSipTransportRequest {
-	return ApiGetSipTransportRequest{
+func (a *SipAPIService) GetSipTransport(ctx context.Context, transportUuid string) SipAPIGetSipTransportRequest {
+	return SipAPIGetSipTransportRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		transportUuid: transportUuid,
@@ -2062,7 +2062,7 @@ func (a *SipAPIService) GetSipTransport(ctx context.Context, transportUuid strin
 // Execute executes the request
 //
 //	@return SIPTransport
-func (a *SipAPIService) GetSipTransportExecute(r ApiGetSipTransportRequest) (*SIPTransport, *http.Response, error) {
+func (a *SipAPIService) GetSipTransportExecute(r SipAPIGetSipTransportRequest) (*SIPTransport, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2160,12 +2160,12 @@ func (a *SipAPIService) GetSipTransportExecute(r ApiGetSipTransportRequest) (*SI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskPjsipGlobalRequest struct {
+type SipAPIListAsteriskPjsipGlobalRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 }
 
-func (r ApiListAsteriskPjsipGlobalRequest) Execute() (*PJSIPGlobal, *http.Response, error) {
+func (r SipAPIListAsteriskPjsipGlobalRequest) Execute() (*PJSIPGlobal, *http.Response, error) {
 	return r.ApiService.ListAsteriskPjsipGlobalExecute(r)
 }
 
@@ -2175,10 +2175,10 @@ ListAsteriskPjsipGlobal List of PJSIP options for the `global` section
 **Required ACL:** `confd.asterisk.pjsip.global.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskPjsipGlobalRequest
+	@return SipAPIListAsteriskPjsipGlobalRequest
 */
-func (a *SipAPIService) ListAsteriskPjsipGlobal(ctx context.Context) ApiListAsteriskPjsipGlobalRequest {
-	return ApiListAsteriskPjsipGlobalRequest{
+func (a *SipAPIService) ListAsteriskPjsipGlobal(ctx context.Context) SipAPIListAsteriskPjsipGlobalRequest {
+	return SipAPIListAsteriskPjsipGlobalRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2187,7 +2187,7 @@ func (a *SipAPIService) ListAsteriskPjsipGlobal(ctx context.Context) ApiListAste
 // Execute executes the request
 //
 //	@return PJSIPGlobal
-func (a *SipAPIService) ListAsteriskPjsipGlobalExecute(r ApiListAsteriskPjsipGlobalRequest) (*PJSIPGlobal, *http.Response, error) {
+func (a *SipAPIService) ListAsteriskPjsipGlobalExecute(r SipAPIListAsteriskPjsipGlobalRequest) (*PJSIPGlobal, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2274,12 +2274,12 @@ func (a *SipAPIService) ListAsteriskPjsipGlobalExecute(r ApiListAsteriskPjsipGlo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskPjsipSystemRequest struct {
+type SipAPIListAsteriskPjsipSystemRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 }
 
-func (r ApiListAsteriskPjsipSystemRequest) Execute() (*PJSIPSystem, *http.Response, error) {
+func (r SipAPIListAsteriskPjsipSystemRequest) Execute() (*PJSIPSystem, *http.Response, error) {
 	return r.ApiService.ListAsteriskPjsipSystemExecute(r)
 }
 
@@ -2289,10 +2289,10 @@ ListAsteriskPjsipSystem List of PJSIP options for the `system` section
 **Required ACL:** `confd.asterisk.pjsip.system.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskPjsipSystemRequest
+	@return SipAPIListAsteriskPjsipSystemRequest
 */
-func (a *SipAPIService) ListAsteriskPjsipSystem(ctx context.Context) ApiListAsteriskPjsipSystemRequest {
-	return ApiListAsteriskPjsipSystemRequest{
+func (a *SipAPIService) ListAsteriskPjsipSystem(ctx context.Context) SipAPIListAsteriskPjsipSystemRequest {
+	return SipAPIListAsteriskPjsipSystemRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2301,7 +2301,7 @@ func (a *SipAPIService) ListAsteriskPjsipSystem(ctx context.Context) ApiListAste
 // Execute executes the request
 //
 //	@return PJSIPSystem
-func (a *SipAPIService) ListAsteriskPjsipSystemExecute(r ApiListAsteriskPjsipSystemRequest) (*PJSIPSystem, *http.Response, error) {
+func (a *SipAPIService) ListAsteriskPjsipSystemExecute(r SipAPIListAsteriskPjsipSystemRequest) (*PJSIPSystem, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2388,7 +2388,7 @@ func (a *SipAPIService) ListAsteriskPjsipSystemExecute(r ApiListAsteriskPjsipSys
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsSipRequest struct {
+type SipAPIListEndpointsSipRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	accentTenant *string
@@ -2401,48 +2401,48 @@ type ApiListEndpointsSipRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsSipRequest) AccentTenant(accentTenant string) ApiListEndpointsSipRequest {
+func (r SipAPIListEndpointsSipRequest) AccentTenant(accentTenant string) SipAPIListEndpointsSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsSipRequest) Recurse(recurse bool) ApiListEndpointsSipRequest {
+func (r SipAPIListEndpointsSipRequest) Recurse(recurse bool) SipAPIListEndpointsSipRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsSipRequest) Order(order string) ApiListEndpointsSipRequest {
+func (r SipAPIListEndpointsSipRequest) Order(order string) SipAPIListEndpointsSipRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsSipRequest) Direction(direction string) ApiListEndpointsSipRequest {
+func (r SipAPIListEndpointsSipRequest) Direction(direction string) SipAPIListEndpointsSipRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsSipRequest) Limit(limit int32) ApiListEndpointsSipRequest {
+func (r SipAPIListEndpointsSipRequest) Limit(limit int32) SipAPIListEndpointsSipRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsSipRequest) Offset(offset int32) ApiListEndpointsSipRequest {
+func (r SipAPIListEndpointsSipRequest) Offset(offset int32) SipAPIListEndpointsSipRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsSipRequest) Search(search string) ApiListEndpointsSipRequest {
+func (r SipAPIListEndpointsSipRequest) Search(search string) SipAPIListEndpointsSipRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsSipRequest) Execute() (*EndpointSIPItems, *http.Response, error) {
+func (r SipAPIListEndpointsSipRequest) Execute() (*EndpointSIPItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsSipExecute(r)
 }
 
@@ -2455,10 +2455,10 @@ List all SIP configurations, each individual configuration includes only fields 
 defines. Inherited fields from the templates or default values are not returned here.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsSipRequest
+	@return SipAPIListEndpointsSipRequest
 */
-func (a *SipAPIService) ListEndpointsSip(ctx context.Context) ApiListEndpointsSipRequest {
-	return ApiListEndpointsSipRequest{
+func (a *SipAPIService) ListEndpointsSip(ctx context.Context) SipAPIListEndpointsSipRequest {
+	return SipAPIListEndpointsSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2467,7 +2467,7 @@ func (a *SipAPIService) ListEndpointsSip(ctx context.Context) ApiListEndpointsSi
 // Execute executes the request
 //
 //	@return EndpointSIPItems
-func (a *SipAPIService) ListEndpointsSipExecute(r ApiListEndpointsSipRequest) (*EndpointSIPItems, *http.Response, error) {
+func (a *SipAPIService) ListEndpointsSipExecute(r SipAPIListEndpointsSipRequest) (*EndpointSIPItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2578,7 +2578,7 @@ func (a *SipAPIService) ListEndpointsSipExecute(r ApiListEndpointsSipRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListEndpointsSipTemplatesRequest struct {
+type SipAPIListEndpointsSipTemplatesRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	accentTenant *string
@@ -2591,48 +2591,48 @@ type ApiListEndpointsSipTemplatesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListEndpointsSipTemplatesRequest) AccentTenant(accentTenant string) ApiListEndpointsSipTemplatesRequest {
+func (r SipAPIListEndpointsSipTemplatesRequest) AccentTenant(accentTenant string) SipAPIListEndpointsSipTemplatesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListEndpointsSipTemplatesRequest) Recurse(recurse bool) ApiListEndpointsSipTemplatesRequest {
+func (r SipAPIListEndpointsSipTemplatesRequest) Recurse(recurse bool) SipAPIListEndpointsSipTemplatesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListEndpointsSipTemplatesRequest) Order(order string) ApiListEndpointsSipTemplatesRequest {
+func (r SipAPIListEndpointsSipTemplatesRequest) Order(order string) SipAPIListEndpointsSipTemplatesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListEndpointsSipTemplatesRequest) Direction(direction string) ApiListEndpointsSipTemplatesRequest {
+func (r SipAPIListEndpointsSipTemplatesRequest) Direction(direction string) SipAPIListEndpointsSipTemplatesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListEndpointsSipTemplatesRequest) Limit(limit int32) ApiListEndpointsSipTemplatesRequest {
+func (r SipAPIListEndpointsSipTemplatesRequest) Limit(limit int32) SipAPIListEndpointsSipTemplatesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListEndpointsSipTemplatesRequest) Offset(offset int32) ApiListEndpointsSipTemplatesRequest {
+func (r SipAPIListEndpointsSipTemplatesRequest) Offset(offset int32) SipAPIListEndpointsSipTemplatesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListEndpointsSipTemplatesRequest) Search(search string) ApiListEndpointsSipTemplatesRequest {
+func (r SipAPIListEndpointsSipTemplatesRequest) Search(search string) SipAPIListEndpointsSipTemplatesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListEndpointsSipTemplatesRequest) Execute() (*EndpointSIPItems, *http.Response, error) {
+func (r SipAPIListEndpointsSipTemplatesRequest) Execute() (*EndpointSIPItems, *http.Response, error) {
 	return r.ApiService.ListEndpointsSipTemplatesExecute(r)
 }
 
@@ -2642,10 +2642,10 @@ ListEndpointsSipTemplates List SIP endpoints templates
 **Required ACL:** `confd.endpoints.sip.templates.read` List all SIP configuration templates, each individual configuration includes only fields that it defines. Inherited fields from the templates or default values are not returned here.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListEndpointsSipTemplatesRequest
+	@return SipAPIListEndpointsSipTemplatesRequest
 */
-func (a *SipAPIService) ListEndpointsSipTemplates(ctx context.Context) ApiListEndpointsSipTemplatesRequest {
-	return ApiListEndpointsSipTemplatesRequest{
+func (a *SipAPIService) ListEndpointsSipTemplates(ctx context.Context) SipAPIListEndpointsSipTemplatesRequest {
+	return SipAPIListEndpointsSipTemplatesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2654,7 +2654,7 @@ func (a *SipAPIService) ListEndpointsSipTemplates(ctx context.Context) ApiListEn
 // Execute executes the request
 //
 //	@return EndpointSIPItems
-func (a *SipAPIService) ListEndpointsSipTemplatesExecute(r ApiListEndpointsSipTemplatesRequest) (*EndpointSIPItems, *http.Response, error) {
+func (a *SipAPIService) ListEndpointsSipTemplatesExecute(r SipAPIListEndpointsSipTemplatesRequest) (*EndpointSIPItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2765,7 +2765,7 @@ func (a *SipAPIService) ListEndpointsSipTemplatesExecute(r ApiListEndpointsSipTe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSipTransportsRequest struct {
+type SipAPIListSipTransportsRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 	order      *string
@@ -2776,36 +2776,36 @@ type ApiListSipTransportsRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListSipTransportsRequest) Order(order string) ApiListSipTransportsRequest {
+func (r SipAPIListSipTransportsRequest) Order(order string) SipAPIListSipTransportsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListSipTransportsRequest) Direction(direction string) ApiListSipTransportsRequest {
+func (r SipAPIListSipTransportsRequest) Direction(direction string) SipAPIListSipTransportsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListSipTransportsRequest) Limit(limit int32) ApiListSipTransportsRequest {
+func (r SipAPIListSipTransportsRequest) Limit(limit int32) SipAPIListSipTransportsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListSipTransportsRequest) Offset(offset int32) ApiListSipTransportsRequest {
+func (r SipAPIListSipTransportsRequest) Offset(offset int32) SipAPIListSipTransportsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListSipTransportsRequest) Search(search string) ApiListSipTransportsRequest {
+func (r SipAPIListSipTransportsRequest) Search(search string) SipAPIListSipTransportsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListSipTransportsRequest) Execute() (*SIPTransportItems, *http.Response, error) {
+func (r SipAPIListSipTransportsRequest) Execute() (*SIPTransportItems, *http.Response, error) {
 	return r.ApiService.ListSipTransportsExecute(r)
 }
 
@@ -2815,10 +2815,10 @@ ListSipTransports List all configured SIP transports
 **Required ACL:** `confd.sip.transports.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListSipTransportsRequest
+	@return SipAPIListSipTransportsRequest
 */
-func (a *SipAPIService) ListSipTransports(ctx context.Context) ApiListSipTransportsRequest {
-	return ApiListSipTransportsRequest{
+func (a *SipAPIService) ListSipTransports(ctx context.Context) SipAPIListSipTransportsRequest {
+	return SipAPIListSipTransportsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2827,7 +2827,7 @@ func (a *SipAPIService) ListSipTransports(ctx context.Context) ApiListSipTranspo
 // Execute executes the request
 //
 //	@return SIPTransportItems
-func (a *SipAPIService) ListSipTransportsExecute(r ApiListSipTransportsRequest) (*SIPTransportItems, *http.Response, error) {
+func (a *SipAPIService) ListSipTransportsExecute(r SipAPIListSipTransportsRequest) (*SIPTransportItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2929,12 +2929,12 @@ func (a *SipAPIService) ListSipTransportsExecute(r ApiListSipTransportsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiShowPjsipDocRequest struct {
+type SipAPIShowPjsipDocRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 }
 
-func (r ApiShowPjsipDocRequest) Execute() (*PJSIPConfigurationOptions, *http.Response, error) {
+func (r SipAPIShowPjsipDocRequest) Execute() (*PJSIPConfigurationOptions, *http.Response, error) {
 	return r.ApiService.ShowPjsipDocExecute(r)
 }
 
@@ -2944,10 +2944,10 @@ ShowPjsipDoc List all PJSIP configuration options
 **Required ACL:**: `confd.asterisk.pjsip.doc.read` List all available configuration options for PJSIP, those values are used to validate to content of POST and PUT requests.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiShowPjsipDocRequest
+	@return SipAPIShowPjsipDocRequest
 */
-func (a *SipAPIService) ShowPjsipDoc(ctx context.Context) ApiShowPjsipDocRequest {
-	return ApiShowPjsipDocRequest{
+func (a *SipAPIService) ShowPjsipDoc(ctx context.Context) SipAPIShowPjsipDocRequest {
+	return SipAPIShowPjsipDocRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2956,7 +2956,7 @@ func (a *SipAPIService) ShowPjsipDoc(ctx context.Context) ApiShowPjsipDocRequest
 // Execute executes the request
 //
 //	@return PJSIPConfigurationOptions
-func (a *SipAPIService) ShowPjsipDocExecute(r ApiShowPjsipDocRequest) (*PJSIPConfigurationOptions, *http.Response, error) {
+func (a *SipAPIService) ShowPjsipDocExecute(r SipAPIShowPjsipDocRequest) (*PJSIPConfigurationOptions, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3053,18 +3053,18 @@ func (a *SipAPIService) ShowPjsipDocExecute(r ApiShowPjsipDocRequest) (*PJSIPCon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskPjsipGlobalRequest struct {
+type SipAPIUpdateAsteriskPjsipGlobalRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 	body       *PJSIPGlobal
 }
 
-func (r ApiUpdateAsteriskPjsipGlobalRequest) Body(body PJSIPGlobal) ApiUpdateAsteriskPjsipGlobalRequest {
+func (r SipAPIUpdateAsteriskPjsipGlobalRequest) Body(body PJSIPGlobal) SipAPIUpdateAsteriskPjsipGlobalRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskPjsipGlobalRequest) Execute() (*http.Response, error) {
+func (r SipAPIUpdateAsteriskPjsipGlobalRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskPjsipGlobalExecute(r)
 }
 
@@ -3074,17 +3074,17 @@ UpdateAsteriskPjsipGlobal Update PJSIP section options
 **Required ACL:** `confd.asterisk.pjsip.global.update` The PJSIP global configuration is shared among all tenants of an instance. **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskPjsipGlobalRequest
+	@return SipAPIUpdateAsteriskPjsipGlobalRequest
 */
-func (a *SipAPIService) UpdateAsteriskPjsipGlobal(ctx context.Context) ApiUpdateAsteriskPjsipGlobalRequest {
-	return ApiUpdateAsteriskPjsipGlobalRequest{
+func (a *SipAPIService) UpdateAsteriskPjsipGlobal(ctx context.Context) SipAPIUpdateAsteriskPjsipGlobalRequest {
+	return SipAPIUpdateAsteriskPjsipGlobalRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SipAPIService) UpdateAsteriskPjsipGlobalExecute(r ApiUpdateAsteriskPjsipGlobalRequest) (*http.Response, error) {
+func (a *SipAPIService) UpdateAsteriskPjsipGlobalExecute(r SipAPIUpdateAsteriskPjsipGlobalRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3187,18 +3187,18 @@ func (a *SipAPIService) UpdateAsteriskPjsipGlobalExecute(r ApiUpdateAsteriskPjsi
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskPjsipSystemRequest struct {
+type SipAPIUpdateAsteriskPjsipSystemRequest struct {
 	ctx        context.Context
 	ApiService SipAPI
 	body       *PJSIPSystem
 }
 
-func (r ApiUpdateAsteriskPjsipSystemRequest) Body(body PJSIPSystem) ApiUpdateAsteriskPjsipSystemRequest {
+func (r SipAPIUpdateAsteriskPjsipSystemRequest) Body(body PJSIPSystem) SipAPIUpdateAsteriskPjsipSystemRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskPjsipSystemRequest) Execute() (*http.Response, error) {
+func (r SipAPIUpdateAsteriskPjsipSystemRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskPjsipSystemExecute(r)
 }
 
@@ -3208,17 +3208,17 @@ UpdateAsteriskPjsipSystem Update PJSIP section options
 **Required ACL:** `confd.asterisk.pjsip.system.update` The PJSIP system configuration is shared among all tenants of an instance. **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskPjsipSystemRequest
+	@return SipAPIUpdateAsteriskPjsipSystemRequest
 */
-func (a *SipAPIService) UpdateAsteriskPjsipSystem(ctx context.Context) ApiUpdateAsteriskPjsipSystemRequest {
-	return ApiUpdateAsteriskPjsipSystemRequest{
+func (a *SipAPIService) UpdateAsteriskPjsipSystem(ctx context.Context) SipAPIUpdateAsteriskPjsipSystemRequest {
+	return SipAPIUpdateAsteriskPjsipSystemRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SipAPIService) UpdateAsteriskPjsipSystemExecute(r ApiUpdateAsteriskPjsipSystemRequest) (*http.Response, error) {
+func (a *SipAPIService) UpdateAsteriskPjsipSystemExecute(r SipAPIUpdateAsteriskPjsipSystemRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3321,7 +3321,7 @@ func (a *SipAPIService) UpdateAsteriskPjsipSystemExecute(r ApiUpdateAsteriskPjsi
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointSipRequest struct {
+type SipAPIUpdateEndpointSipRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	body         *EndpointSIP
@@ -3329,18 +3329,18 @@ type ApiUpdateEndpointSipRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointSipRequest) Body(body EndpointSIP) ApiUpdateEndpointSipRequest {
+func (r SipAPIUpdateEndpointSipRequest) Body(body EndpointSIP) SipAPIUpdateEndpointSipRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointSipRequest) AccentTenant(accentTenant string) ApiUpdateEndpointSipRequest {
+func (r SipAPIUpdateEndpointSipRequest) AccentTenant(accentTenant string) SipAPIUpdateEndpointSipRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointSipRequest) Execute() (*http.Response, error) {
+func (r SipAPIUpdateEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointSipExecute(r)
 }
 
@@ -3351,10 +3351,10 @@ UpdateEndpointSip Update SIP Endpoint
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param sipUuid
-	@return ApiUpdateEndpointSipRequest
+	@return SipAPIUpdateEndpointSipRequest
 */
-func (a *SipAPIService) UpdateEndpointSip(ctx context.Context, sipUuid string) ApiUpdateEndpointSipRequest {
-	return ApiUpdateEndpointSipRequest{
+func (a *SipAPIService) UpdateEndpointSip(ctx context.Context, sipUuid string) SipAPIUpdateEndpointSipRequest {
+	return SipAPIUpdateEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		sipUuid:    sipUuid,
@@ -3362,7 +3362,7 @@ func (a *SipAPIService) UpdateEndpointSip(ctx context.Context, sipUuid string) A
 }
 
 // Execute executes the request
-func (a *SipAPIService) UpdateEndpointSipExecute(r ApiUpdateEndpointSipRequest) (*http.Response, error) {
+func (a *SipAPIService) UpdateEndpointSipExecute(r SipAPIUpdateEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3469,7 +3469,7 @@ func (a *SipAPIService) UpdateEndpointSipExecute(r ApiUpdateEndpointSipRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateEndpointSipTemplateRequest struct {
+type SipAPIUpdateEndpointSipTemplateRequest struct {
 	ctx          context.Context
 	ApiService   SipAPI
 	body         *EndpointSIP
@@ -3477,18 +3477,18 @@ type ApiUpdateEndpointSipTemplateRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateEndpointSipTemplateRequest) Body(body EndpointSIP) ApiUpdateEndpointSipTemplateRequest {
+func (r SipAPIUpdateEndpointSipTemplateRequest) Body(body EndpointSIP) SipAPIUpdateEndpointSipTemplateRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateEndpointSipTemplateRequest) AccentTenant(accentTenant string) ApiUpdateEndpointSipTemplateRequest {
+func (r SipAPIUpdateEndpointSipTemplateRequest) AccentTenant(accentTenant string) SipAPIUpdateEndpointSipTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateEndpointSipTemplateRequest) Execute() (*http.Response, error) {
+func (r SipAPIUpdateEndpointSipTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEndpointSipTemplateExecute(r)
 }
 
@@ -3499,10 +3499,10 @@ UpdateEndpointSipTemplate Update SIP Endpoint Template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateUuid
-	@return ApiUpdateEndpointSipTemplateRequest
+	@return SipAPIUpdateEndpointSipTemplateRequest
 */
-func (a *SipAPIService) UpdateEndpointSipTemplate(ctx context.Context, templateUuid string) ApiUpdateEndpointSipTemplateRequest {
-	return ApiUpdateEndpointSipTemplateRequest{
+func (a *SipAPIService) UpdateEndpointSipTemplate(ctx context.Context, templateUuid string) SipAPIUpdateEndpointSipTemplateRequest {
+	return SipAPIUpdateEndpointSipTemplateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		templateUuid: templateUuid,
@@ -3510,7 +3510,7 @@ func (a *SipAPIService) UpdateEndpointSipTemplate(ctx context.Context, templateU
 }
 
 // Execute executes the request
-func (a *SipAPIService) UpdateEndpointSipTemplateExecute(r ApiUpdateEndpointSipTemplateRequest) (*http.Response, error) {
+func (a *SipAPIService) UpdateEndpointSipTemplateExecute(r SipAPIUpdateEndpointSipTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3617,19 +3617,19 @@ func (a *SipAPIService) UpdateEndpointSipTemplateExecute(r ApiUpdateEndpointSipT
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateSipTransportRequest struct {
+type SipAPIUpdateSipTransportRequest struct {
 	ctx           context.Context
 	ApiService    SipAPI
 	body          *SIPTransport
 	transportUuid string
 }
 
-func (r ApiUpdateSipTransportRequest) Body(body SIPTransport) ApiUpdateSipTransportRequest {
+func (r SipAPIUpdateSipTransportRequest) Body(body SIPTransport) SipAPIUpdateSipTransportRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateSipTransportRequest) Execute() (*http.Response, error) {
+func (r SipAPIUpdateSipTransportRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSipTransportExecute(r)
 }
 
@@ -3640,10 +3640,10 @@ UpdateSipTransport Update SIP transport
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param transportUuid The UUID of the transport
-	@return ApiUpdateSipTransportRequest
+	@return SipAPIUpdateSipTransportRequest
 */
-func (a *SipAPIService) UpdateSipTransport(ctx context.Context, transportUuid string) ApiUpdateSipTransportRequest {
-	return ApiUpdateSipTransportRequest{
+func (a *SipAPIService) UpdateSipTransport(ctx context.Context, transportUuid string) SipAPIUpdateSipTransportRequest {
+	return SipAPIUpdateSipTransportRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		transportUuid: transportUuid,
@@ -3651,7 +3651,7 @@ func (a *SipAPIService) UpdateSipTransport(ctx context.Context, transportUuid st
 }
 
 // Execute executes the request
-func (a *SipAPIService) UpdateSipTransportExecute(r ApiUpdateSipTransportRequest) (*http.Response, error) {
+func (a *SipAPIService) UpdateSipTransportExecute(r SipAPIUpdateSipTransportRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

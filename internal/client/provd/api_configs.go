@@ -29,12 +29,12 @@ type ConfigsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param configId Configuration ID
-		@return ApiDeleteCfgMgrConfigsConfigIdRequest
+		@return ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest
 	*/
-	DeleteCfgMgrConfigsConfigId(ctx context.Context, configId string) ApiDeleteCfgMgrConfigsConfigIdRequest
+	DeleteCfgMgrConfigsConfigId(ctx context.Context, configId string) ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest
 
 	// DeleteCfgMgrConfigsConfigIdExecute executes the request
-	DeleteCfgMgrConfigsConfigIdExecute(r ApiDeleteCfgMgrConfigsConfigIdRequest) (*http.Response, error)
+	DeleteCfgMgrConfigsConfigIdExecute(r ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest) (*http.Response, error)
 
 	/*
 		GetCfgMgr Get the Config Manager resource
@@ -42,13 +42,13 @@ type ConfigsAPI interface {
 		**Required ACL:** `provd.cfg_mgr.read` The configuration manager resource represents the entry point to the accent-provd configuration REST API
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetCfgMgrRequest
+		@return ConfigsAPIGetCfgMgrRequest
 	*/
-	GetCfgMgr(ctx context.Context) ApiGetCfgMgrRequest
+	GetCfgMgr(ctx context.Context) ConfigsAPIGetCfgMgrRequest
 
 	// GetCfgMgrExecute executes the request
 	//  @return LinksObject
-	GetCfgMgrExecute(r ApiGetCfgMgrRequest) (*LinksObject, *http.Response, error)
+	GetCfgMgrExecute(r ConfigsAPIGetCfgMgrRequest) (*LinksObject, *http.Response, error)
 
 	/*
 		GetCfgMgrConfig Get a configuration
@@ -57,13 +57,13 @@ type ConfigsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param configId Configuration ID
-		@return ApiGetCfgMgrConfigRequest
+		@return ConfigsAPIGetCfgMgrConfigRequest
 	*/
-	GetCfgMgrConfig(ctx context.Context, configId string) ApiGetCfgMgrConfigRequest
+	GetCfgMgrConfig(ctx context.Context, configId string) ConfigsAPIGetCfgMgrConfigRequest
 
 	// GetCfgMgrConfigExecute executes the request
 	//  @return ConfigObject
-	GetCfgMgrConfigExecute(r ApiGetCfgMgrConfigRequest) (*ConfigObject, *http.Response, error)
+	GetCfgMgrConfigExecute(r ConfigsAPIGetCfgMgrConfigRequest) (*ConfigObject, *http.Response, error)
 
 	/*
 		GetCfgMgrConfigs List and find configurations
@@ -71,13 +71,13 @@ type ConfigsAPI interface {
 		**Required ACL:** `provd.cfg_mgr.configs.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetCfgMgrConfigsRequest
+		@return ConfigsAPIGetCfgMgrConfigsRequest
 	*/
-	GetCfgMgrConfigs(ctx context.Context) ApiGetCfgMgrConfigsRequest
+	GetCfgMgrConfigs(ctx context.Context) ConfigsAPIGetCfgMgrConfigsRequest
 
 	// GetCfgMgrConfigsExecute executes the request
 	//  @return ConfigsObject
-	GetCfgMgrConfigsExecute(r ApiGetCfgMgrConfigsRequest) (*ConfigsObject, *http.Response, error)
+	GetCfgMgrConfigsExecute(r ConfigsAPIGetCfgMgrConfigsRequest) (*ConfigsObject, *http.Response, error)
 
 	/*
 		GetCfgMgrRawConfig Get a raw configuration
@@ -86,13 +86,13 @@ type ConfigsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param configId Configuration ID
-		@return ApiGetCfgMgrRawConfigRequest
+		@return ConfigsAPIGetCfgMgrRawConfigRequest
 	*/
-	GetCfgMgrRawConfig(ctx context.Context, configId string) ApiGetCfgMgrRawConfigRequest
+	GetCfgMgrRawConfig(ctx context.Context, configId string) ConfigsAPIGetCfgMgrRawConfigRequest
 
 	// GetCfgMgrRawConfigExecute executes the request
 	//  @return RawConfigurationObject
-	GetCfgMgrRawConfigExecute(r ApiGetCfgMgrRawConfigRequest) (*RawConfigurationObject, *http.Response, error)
+	GetCfgMgrRawConfigExecute(r ConfigsAPIGetCfgMgrRawConfigRequest) (*RawConfigurationObject, *http.Response, error)
 
 	/*
 		PostCfgMgrAutocreate Create an autocreate configuration
@@ -100,13 +100,13 @@ type ConfigsAPI interface {
 		**Required ACL:** `provd.cfg_mgr.autocreate.create` Create a new config based on the config that has the autocreate role
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostCfgMgrAutocreateRequest
+		@return ConfigsAPIPostCfgMgrAutocreateRequest
 	*/
-	PostCfgMgrAutocreate(ctx context.Context) ApiPostCfgMgrAutocreateRequest
+	PostCfgMgrAutocreate(ctx context.Context) ConfigsAPIPostCfgMgrAutocreateRequest
 
 	// PostCfgMgrAutocreateExecute executes the request
 	//  @return IdObject
-	PostCfgMgrAutocreateExecute(r ApiPostCfgMgrAutocreateRequest) (*IdObject, *http.Response, error)
+	PostCfgMgrAutocreateExecute(r ConfigsAPIPostCfgMgrAutocreateRequest) (*IdObject, *http.Response, error)
 
 	/*
 		PostCfgMgrConfigs Create a configuration
@@ -114,13 +114,13 @@ type ConfigsAPI interface {
 		**Required ACL:** `provd.cfg_mgr.configs.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostCfgMgrConfigsRequest
+		@return ConfigsAPIPostCfgMgrConfigsRequest
 	*/
-	PostCfgMgrConfigs(ctx context.Context) ApiPostCfgMgrConfigsRequest
+	PostCfgMgrConfigs(ctx context.Context) ConfigsAPIPostCfgMgrConfigsRequest
 
 	// PostCfgMgrConfigsExecute executes the request
 	//  @return IdObject
-	PostCfgMgrConfigsExecute(r ApiPostCfgMgrConfigsRequest) (*IdObject, *http.Response, error)
+	PostCfgMgrConfigsExecute(r ConfigsAPIPostCfgMgrConfigsRequest) (*IdObject, *http.Response, error)
 
 	/*
 		PutCfgMgrConfig Update a configuration
@@ -129,24 +129,24 @@ type ConfigsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param configId Configuration ID
-		@return ApiPutCfgMgrConfigRequest
+		@return ConfigsAPIPutCfgMgrConfigRequest
 	*/
-	PutCfgMgrConfig(ctx context.Context, configId string) ApiPutCfgMgrConfigRequest
+	PutCfgMgrConfig(ctx context.Context, configId string) ConfigsAPIPutCfgMgrConfigRequest
 
 	// PutCfgMgrConfigExecute executes the request
-	PutCfgMgrConfigExecute(r ApiPutCfgMgrConfigRequest) (*http.Response, error)
+	PutCfgMgrConfigExecute(r ConfigsAPIPutCfgMgrConfigRequest) (*http.Response, error)
 }
 
 // ConfigsAPIService ConfigsAPI service
 type ConfigsAPIService service
 
-type ApiDeleteCfgMgrConfigsConfigIdRequest struct {
+type ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest struct {
 	ctx        context.Context
 	ApiService ConfigsAPI
 	configId   string
 }
 
-func (r ApiDeleteCfgMgrConfigsConfigIdRequest) Execute() (*http.Response, error) {
+func (r ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteCfgMgrConfigsConfigIdExecute(r)
 }
 
@@ -157,10 +157,10 @@ DeleteCfgMgrConfigsConfigId Delete a configuration
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param configId Configuration ID
-	@return ApiDeleteCfgMgrConfigsConfigIdRequest
+	@return ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest
 */
-func (a *ConfigsAPIService) DeleteCfgMgrConfigsConfigId(ctx context.Context, configId string) ApiDeleteCfgMgrConfigsConfigIdRequest {
-	return ApiDeleteCfgMgrConfigsConfigIdRequest{
+func (a *ConfigsAPIService) DeleteCfgMgrConfigsConfigId(ctx context.Context, configId string) ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest {
+	return ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest{
 		ApiService: a,
 		ctx:        ctx,
 		configId:   configId,
@@ -168,7 +168,7 @@ func (a *ConfigsAPIService) DeleteCfgMgrConfigsConfigId(ctx context.Context, con
 }
 
 // Execute executes the request
-func (a *ConfigsAPIService) DeleteCfgMgrConfigsConfigIdExecute(r ApiDeleteCfgMgrConfigsConfigIdRequest) (*http.Response, error) {
+func (a *ConfigsAPIService) DeleteCfgMgrConfigsConfigIdExecute(r ConfigsAPIDeleteCfgMgrConfigsConfigIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -267,12 +267,12 @@ func (a *ConfigsAPIService) DeleteCfgMgrConfigsConfigIdExecute(r ApiDeleteCfgMgr
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetCfgMgrRequest struct {
+type ConfigsAPIGetCfgMgrRequest struct {
 	ctx        context.Context
 	ApiService ConfigsAPI
 }
 
-func (r ApiGetCfgMgrRequest) Execute() (*LinksObject, *http.Response, error) {
+func (r ConfigsAPIGetCfgMgrRequest) Execute() (*LinksObject, *http.Response, error) {
 	return r.ApiService.GetCfgMgrExecute(r)
 }
 
@@ -282,10 +282,10 @@ GetCfgMgr Get the Config Manager resource
 **Required ACL:** `provd.cfg_mgr.read` The configuration manager resource represents the entry point to the accent-provd configuration REST API
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCfgMgrRequest
+	@return ConfigsAPIGetCfgMgrRequest
 */
-func (a *ConfigsAPIService) GetCfgMgr(ctx context.Context) ApiGetCfgMgrRequest {
-	return ApiGetCfgMgrRequest{
+func (a *ConfigsAPIService) GetCfgMgr(ctx context.Context) ConfigsAPIGetCfgMgrRequest {
+	return ConfigsAPIGetCfgMgrRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -294,7 +294,7 @@ func (a *ConfigsAPIService) GetCfgMgr(ctx context.Context) ApiGetCfgMgrRequest {
 // Execute executes the request
 //
 //	@return LinksObject
-func (a *ConfigsAPIService) GetCfgMgrExecute(r ApiGetCfgMgrRequest) (*LinksObject, *http.Response, error) {
+func (a *ConfigsAPIService) GetCfgMgrExecute(r ConfigsAPIGetCfgMgrRequest) (*LinksObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -381,13 +381,13 @@ func (a *ConfigsAPIService) GetCfgMgrExecute(r ApiGetCfgMgrRequest) (*LinksObjec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCfgMgrConfigRequest struct {
+type ConfigsAPIGetCfgMgrConfigRequest struct {
 	ctx        context.Context
 	ApiService ConfigsAPI
 	configId   string
 }
 
-func (r ApiGetCfgMgrConfigRequest) Execute() (*ConfigObject, *http.Response, error) {
+func (r ConfigsAPIGetCfgMgrConfigRequest) Execute() (*ConfigObject, *http.Response, error) {
 	return r.ApiService.GetCfgMgrConfigExecute(r)
 }
 
@@ -398,10 +398,10 @@ GetCfgMgrConfig Get a configuration
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param configId Configuration ID
-	@return ApiGetCfgMgrConfigRequest
+	@return ConfigsAPIGetCfgMgrConfigRequest
 */
-func (a *ConfigsAPIService) GetCfgMgrConfig(ctx context.Context, configId string) ApiGetCfgMgrConfigRequest {
-	return ApiGetCfgMgrConfigRequest{
+func (a *ConfigsAPIService) GetCfgMgrConfig(ctx context.Context, configId string) ConfigsAPIGetCfgMgrConfigRequest {
+	return ConfigsAPIGetCfgMgrConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 		configId:   configId,
@@ -411,7 +411,7 @@ func (a *ConfigsAPIService) GetCfgMgrConfig(ctx context.Context, configId string
 // Execute executes the request
 //
 //	@return ConfigObject
-func (a *ConfigsAPIService) GetCfgMgrConfigExecute(r ApiGetCfgMgrConfigRequest) (*ConfigObject, *http.Response, error) {
+func (a *ConfigsAPIService) GetCfgMgrConfigExecute(r ConfigsAPIGetCfgMgrConfigRequest) (*ConfigObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -509,7 +509,7 @@ func (a *ConfigsAPIService) GetCfgMgrConfigExecute(r ApiGetCfgMgrConfigRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCfgMgrConfigsRequest struct {
+type ConfigsAPIGetCfgMgrConfigsRequest struct {
 	ctx        context.Context
 	ApiService ConfigsAPI
 	q          *string
@@ -520,36 +520,36 @@ type ApiGetCfgMgrConfigsRequest struct {
 }
 
 // A selector, encoded in JSON, describing which entries should be returned. All entries are returned if not specified.  Example: &#x60;{\&quot;ip\&quot;:\&quot;10.34.1.110\&quot;}&#x60;
-func (r ApiGetCfgMgrConfigsRequest) Q(q string) ApiGetCfgMgrConfigsRequest {
+func (r ConfigsAPIGetCfgMgrConfigsRequest) Q(q string) ConfigsAPIGetCfgMgrConfigsRequest {
 	r.q = &q
 	return r
 }
 
 // A list of fields, separated by comma.  Example: &#x60;mac,ip&#x60;
-func (r ApiGetCfgMgrConfigsRequest) Fields(fields string) ApiGetCfgMgrConfigsRequest {
+func (r ConfigsAPIGetCfgMgrConfigsRequest) Fields(fields string) ConfigsAPIGetCfgMgrConfigsRequest {
 	r.fields = &fields
 	return r
 }
 
 // An integer specifing the number of entries to skip.  Example: 10
-func (r ApiGetCfgMgrConfigsRequest) Skip(skip int32) ApiGetCfgMgrConfigsRequest {
+func (r ConfigsAPIGetCfgMgrConfigsRequest) Skip(skip int32) ConfigsAPIGetCfgMgrConfigsRequest {
 	r.skip = &skip
 	return r
 }
 
 // The key on which to sort the results.  Example: &#x60;id&#x60;
-func (r ApiGetCfgMgrConfigsRequest) Sort(sort string) ApiGetCfgMgrConfigsRequest {
+func (r ConfigsAPIGetCfgMgrConfigsRequest) Sort(sort string) ConfigsAPIGetCfgMgrConfigsRequest {
 	r.sort = &sort
 	return r
 }
 
 // The order of sort
-func (r ApiGetCfgMgrConfigsRequest) SortOrd(sortOrd string) ApiGetCfgMgrConfigsRequest {
+func (r ConfigsAPIGetCfgMgrConfigsRequest) SortOrd(sortOrd string) ConfigsAPIGetCfgMgrConfigsRequest {
 	r.sortOrd = &sortOrd
 	return r
 }
 
-func (r ApiGetCfgMgrConfigsRequest) Execute() (*ConfigsObject, *http.Response, error) {
+func (r ConfigsAPIGetCfgMgrConfigsRequest) Execute() (*ConfigsObject, *http.Response, error) {
 	return r.ApiService.GetCfgMgrConfigsExecute(r)
 }
 
@@ -559,10 +559,10 @@ GetCfgMgrConfigs List and find configurations
 **Required ACL:** `provd.cfg_mgr.configs.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetCfgMgrConfigsRequest
+	@return ConfigsAPIGetCfgMgrConfigsRequest
 */
-func (a *ConfigsAPIService) GetCfgMgrConfigs(ctx context.Context) ApiGetCfgMgrConfigsRequest {
-	return ApiGetCfgMgrConfigsRequest{
+func (a *ConfigsAPIService) GetCfgMgrConfigs(ctx context.Context) ConfigsAPIGetCfgMgrConfigsRequest {
+	return ConfigsAPIGetCfgMgrConfigsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -571,7 +571,7 @@ func (a *ConfigsAPIService) GetCfgMgrConfigs(ctx context.Context) ApiGetCfgMgrCo
 // Execute executes the request
 //
 //	@return ConfigsObject
-func (a *ConfigsAPIService) GetCfgMgrConfigsExecute(r ApiGetCfgMgrConfigsRequest) (*ConfigsObject, *http.Response, error) {
+func (a *ConfigsAPIService) GetCfgMgrConfigsExecute(r ConfigsAPIGetCfgMgrConfigsRequest) (*ConfigsObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -673,13 +673,13 @@ func (a *ConfigsAPIService) GetCfgMgrConfigsExecute(r ApiGetCfgMgrConfigsRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCfgMgrRawConfigRequest struct {
+type ConfigsAPIGetCfgMgrRawConfigRequest struct {
 	ctx        context.Context
 	ApiService ConfigsAPI
 	configId   string
 }
 
-func (r ApiGetCfgMgrRawConfigRequest) Execute() (*RawConfigurationObject, *http.Response, error) {
+func (r ConfigsAPIGetCfgMgrRawConfigRequest) Execute() (*RawConfigurationObject, *http.Response, error) {
 	return r.ApiService.GetCfgMgrRawConfigExecute(r)
 }
 
@@ -690,10 +690,10 @@ GetCfgMgrRawConfig Get a raw configuration
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param configId Configuration ID
-	@return ApiGetCfgMgrRawConfigRequest
+	@return ConfigsAPIGetCfgMgrRawConfigRequest
 */
-func (a *ConfigsAPIService) GetCfgMgrRawConfig(ctx context.Context, configId string) ApiGetCfgMgrRawConfigRequest {
-	return ApiGetCfgMgrRawConfigRequest{
+func (a *ConfigsAPIService) GetCfgMgrRawConfig(ctx context.Context, configId string) ConfigsAPIGetCfgMgrRawConfigRequest {
+	return ConfigsAPIGetCfgMgrRawConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 		configId:   configId,
@@ -703,7 +703,7 @@ func (a *ConfigsAPIService) GetCfgMgrRawConfig(ctx context.Context, configId str
 // Execute executes the request
 //
 //	@return RawConfigurationObject
-func (a *ConfigsAPIService) GetCfgMgrRawConfigExecute(r ApiGetCfgMgrRawConfigRequest) (*RawConfigurationObject, *http.Response, error) {
+func (a *ConfigsAPIService) GetCfgMgrRawConfigExecute(r ConfigsAPIGetCfgMgrRawConfigRequest) (*RawConfigurationObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -801,19 +801,19 @@ func (a *ConfigsAPIService) GetCfgMgrRawConfigExecute(r ApiGetCfgMgrRawConfigReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostCfgMgrAutocreateRequest struct {
+type ConfigsAPIPostCfgMgrAutocreateRequest struct {
 	ctx        context.Context
 	ApiService ConfigsAPI
 	body       *map[string]interface{}
 }
 
 // Empty object body
-func (r ApiPostCfgMgrAutocreateRequest) Body(body map[string]interface{}) ApiPostCfgMgrAutocreateRequest {
+func (r ConfigsAPIPostCfgMgrAutocreateRequest) Body(body map[string]interface{}) ConfigsAPIPostCfgMgrAutocreateRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostCfgMgrAutocreateRequest) Execute() (*IdObject, *http.Response, error) {
+func (r ConfigsAPIPostCfgMgrAutocreateRequest) Execute() (*IdObject, *http.Response, error) {
 	return r.ApiService.PostCfgMgrAutocreateExecute(r)
 }
 
@@ -823,10 +823,10 @@ PostCfgMgrAutocreate Create an autocreate configuration
 **Required ACL:** `provd.cfg_mgr.autocreate.create` Create a new config based on the config that has the autocreate role
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostCfgMgrAutocreateRequest
+	@return ConfigsAPIPostCfgMgrAutocreateRequest
 */
-func (a *ConfigsAPIService) PostCfgMgrAutocreate(ctx context.Context) ApiPostCfgMgrAutocreateRequest {
-	return ApiPostCfgMgrAutocreateRequest{
+func (a *ConfigsAPIService) PostCfgMgrAutocreate(ctx context.Context) ConfigsAPIPostCfgMgrAutocreateRequest {
+	return ConfigsAPIPostCfgMgrAutocreateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -835,7 +835,7 @@ func (a *ConfigsAPIService) PostCfgMgrAutocreate(ctx context.Context) ApiPostCfg
 // Execute executes the request
 //
 //	@return IdObject
-func (a *ConfigsAPIService) PostCfgMgrAutocreateExecute(r ApiPostCfgMgrAutocreateRequest) (*IdObject, *http.Response, error) {
+func (a *ConfigsAPIService) PostCfgMgrAutocreateExecute(r ConfigsAPIPostCfgMgrAutocreateRequest) (*IdObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -924,19 +924,19 @@ func (a *ConfigsAPIService) PostCfgMgrAutocreateExecute(r ApiPostCfgMgrAutocreat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostCfgMgrConfigsRequest struct {
+type ConfigsAPIPostCfgMgrConfigsRequest struct {
 	ctx        context.Context
 	ApiService ConfigsAPI
 	body       *ConfigObject
 }
 
 // Body of a configuration parameter
-func (r ApiPostCfgMgrConfigsRequest) Body(body ConfigObject) ApiPostCfgMgrConfigsRequest {
+func (r ConfigsAPIPostCfgMgrConfigsRequest) Body(body ConfigObject) ConfigsAPIPostCfgMgrConfigsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPostCfgMgrConfigsRequest) Execute() (*IdObject, *http.Response, error) {
+func (r ConfigsAPIPostCfgMgrConfigsRequest) Execute() (*IdObject, *http.Response, error) {
 	return r.ApiService.PostCfgMgrConfigsExecute(r)
 }
 
@@ -946,10 +946,10 @@ PostCfgMgrConfigs Create a configuration
 **Required ACL:** `provd.cfg_mgr.configs.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostCfgMgrConfigsRequest
+	@return ConfigsAPIPostCfgMgrConfigsRequest
 */
-func (a *ConfigsAPIService) PostCfgMgrConfigs(ctx context.Context) ApiPostCfgMgrConfigsRequest {
-	return ApiPostCfgMgrConfigsRequest{
+func (a *ConfigsAPIService) PostCfgMgrConfigs(ctx context.Context) ConfigsAPIPostCfgMgrConfigsRequest {
+	return ConfigsAPIPostCfgMgrConfigsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -958,7 +958,7 @@ func (a *ConfigsAPIService) PostCfgMgrConfigs(ctx context.Context) ApiPostCfgMgr
 // Execute executes the request
 //
 //	@return IdObject
-func (a *ConfigsAPIService) PostCfgMgrConfigsExecute(r ApiPostCfgMgrConfigsRequest) (*IdObject, *http.Response, error) {
+func (a *ConfigsAPIService) PostCfgMgrConfigsExecute(r ConfigsAPIPostCfgMgrConfigsRequest) (*IdObject, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1047,7 +1047,7 @@ func (a *ConfigsAPIService) PostCfgMgrConfigsExecute(r ApiPostCfgMgrConfigsReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPutCfgMgrConfigRequest struct {
+type ConfigsAPIPutCfgMgrConfigRequest struct {
 	ctx        context.Context
 	ApiService ConfigsAPI
 	configId   string
@@ -1055,12 +1055,12 @@ type ApiPutCfgMgrConfigRequest struct {
 }
 
 // Body of a configuration parameter
-func (r ApiPutCfgMgrConfigRequest) Body(body ConfigObject) ApiPutCfgMgrConfigRequest {
+func (r ConfigsAPIPutCfgMgrConfigRequest) Body(body ConfigObject) ConfigsAPIPutCfgMgrConfigRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPutCfgMgrConfigRequest) Execute() (*http.Response, error) {
+func (r ConfigsAPIPutCfgMgrConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutCfgMgrConfigExecute(r)
 }
 
@@ -1071,10 +1071,10 @@ PutCfgMgrConfig Update a configuration
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param configId Configuration ID
-	@return ApiPutCfgMgrConfigRequest
+	@return ConfigsAPIPutCfgMgrConfigRequest
 */
-func (a *ConfigsAPIService) PutCfgMgrConfig(ctx context.Context, configId string) ApiPutCfgMgrConfigRequest {
-	return ApiPutCfgMgrConfigRequest{
+func (a *ConfigsAPIService) PutCfgMgrConfig(ctx context.Context, configId string) ConfigsAPIPutCfgMgrConfigRequest {
+	return ConfigsAPIPutCfgMgrConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 		configId:   configId,
@@ -1082,7 +1082,7 @@ func (a *ConfigsAPIService) PutCfgMgrConfig(ctx context.Context, configId string
 }
 
 // Execute executes the request
-func (a *ConfigsAPIService) PutCfgMgrConfigExecute(r ApiPutCfgMgrConfigRequest) (*http.Response, error) {
+func (a *ConfigsAPIService) PutCfgMgrConfigExecute(r ConfigsAPIPutCfgMgrConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

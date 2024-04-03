@@ -33,12 +33,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param applicationUuid Application's UUID
-		@return ApiAssociateLineApplicationRequest
+		@return LinesAPIAssociateLineApplicationRequest
 	*/
-	AssociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApiAssociateLineApplicationRequest
+	AssociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) LinesAPIAssociateLineApplicationRequest
 
 	// AssociateLineApplicationExecute executes the request
-	AssociateLineApplicationExecute(r ApiAssociateLineApplicationRequest) (*http.Response, error)
+	AssociateLineApplicationExecute(r LinesAPIAssociateLineApplicationRequest) (*http.Response, error)
 
 	/*
 		AssociateLineDevice Associate line and device
@@ -48,12 +48,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param deviceId Device's ID
-		@return ApiAssociateLineDeviceRequest
+		@return LinesAPIAssociateLineDeviceRequest
 	*/
-	AssociateLineDevice(ctx context.Context, lineId int32, deviceId string) ApiAssociateLineDeviceRequest
+	AssociateLineDevice(ctx context.Context, lineId int32, deviceId string) LinesAPIAssociateLineDeviceRequest
 
 	// AssociateLineDeviceExecute executes the request
-	AssociateLineDeviceExecute(r ApiAssociateLineDeviceRequest) (*http.Response, error)
+	AssociateLineDeviceExecute(r LinesAPIAssociateLineDeviceRequest) (*http.Response, error)
 
 	/*
 		AssociateLineEndpointCustom Associate line and Custom endpoint
@@ -63,12 +63,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param customId
-		@return ApiAssociateLineEndpointCustomRequest
+		@return LinesAPIAssociateLineEndpointCustomRequest
 	*/
-	AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiAssociateLineEndpointCustomRequest
+	AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) LinesAPIAssociateLineEndpointCustomRequest
 
 	// AssociateLineEndpointCustomExecute executes the request
-	AssociateLineEndpointCustomExecute(r ApiAssociateLineEndpointCustomRequest) (*http.Response, error)
+	AssociateLineEndpointCustomExecute(r LinesAPIAssociateLineEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		AssociateLineEndpointSccp Associate line and SCCP endpoint
@@ -78,12 +78,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sccpId
-		@return ApiAssociateLineEndpointSccpRequest
+		@return LinesAPIAssociateLineEndpointSccpRequest
 	*/
-	AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiAssociateLineEndpointSccpRequest
+	AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) LinesAPIAssociateLineEndpointSccpRequest
 
 	// AssociateLineEndpointSccpExecute executes the request
-	AssociateLineEndpointSccpExecute(r ApiAssociateLineEndpointSccpRequest) (*http.Response, error)
+	AssociateLineEndpointSccpExecute(r LinesAPIAssociateLineEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		AssociateLineEndpointSip Associate line and SIP endpoint
@@ -93,12 +93,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sipUuid
-		@return ApiAssociateLineEndpointSipRequest
+		@return LinesAPIAssociateLineEndpointSipRequest
 	*/
-	AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiAssociateLineEndpointSipRequest
+	AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) LinesAPIAssociateLineEndpointSipRequest
 
 	// AssociateLineEndpointSipExecute executes the request
-	AssociateLineEndpointSipExecute(r ApiAssociateLineEndpointSipRequest) (*http.Response, error)
+	AssociateLineEndpointSipExecute(r LinesAPIAssociateLineEndpointSipRequest) (*http.Response, error)
 
 	/*
 		AssociateLineExtension Associate line and extension
@@ -110,12 +110,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param extensionId
-		@return ApiAssociateLineExtensionRequest
+		@return LinesAPIAssociateLineExtensionRequest
 	*/
-	AssociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ApiAssociateLineExtensionRequest
+	AssociateLineExtension(ctx context.Context, lineId int32, extensionId int32) LinesAPIAssociateLineExtensionRequest
 
 	// AssociateLineExtensionExecute executes the request
-	AssociateLineExtensionExecute(r ApiAssociateLineExtensionRequest) (*http.Response, error)
+	AssociateLineExtensionExecute(r LinesAPIAssociateLineExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateUserLine Associate user and line
@@ -125,12 +125,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param lineId
-		@return ApiAssociateUserLineRequest
+		@return LinesAPIAssociateUserLineRequest
 	*/
-	AssociateUserLine(ctx context.Context, userId string, lineId int32) ApiAssociateUserLineRequest
+	AssociateUserLine(ctx context.Context, userId string, lineId int32) LinesAPIAssociateUserLineRequest
 
 	// AssociateUserLineExecute executes the request
-	AssociateUserLineExecute(r ApiAssociateUserLineRequest) (*http.Response, error)
+	AssociateUserLineExecute(r LinesAPIAssociateUserLineRequest) (*http.Response, error)
 
 	/*
 		AssociateUserLines Associate user and lines
@@ -139,12 +139,12 @@ type LinesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiAssociateUserLinesRequest
+		@return LinesAPIAssociateUserLinesRequest
 	*/
-	AssociateUserLines(ctx context.Context, userId string) ApiAssociateUserLinesRequest
+	AssociateUserLines(ctx context.Context, userId string) LinesAPIAssociateUserLinesRequest
 
 	// AssociateUserLinesExecute executes the request
-	AssociateUserLinesExecute(r ApiAssociateUserLinesRequest) (*http.Response, error)
+	AssociateUserLinesExecute(r LinesAPIAssociateUserLinesRequest) (*http.Response, error)
 
 	/*
 		CreateLine Create line
@@ -156,13 +156,13 @@ type LinesAPI interface {
 
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateLineRequest
+		@return LinesAPICreateLineRequest
 	*/
-	CreateLine(ctx context.Context) ApiCreateLineRequest
+	CreateLine(ctx context.Context) LinesAPICreateLineRequest
 
 	// CreateLineExecute executes the request
 	//  @return LineView
-	CreateLineExecute(r ApiCreateLineRequest) (*LineView, *http.Response, error)
+	CreateLineExecute(r LinesAPICreateLineRequest) (*LineView, *http.Response, error)
 
 	/*
 		CreateLineExtension Create extension
@@ -172,13 +172,13 @@ type LinesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
-		@return ApiCreateLineExtensionRequest
+		@return LinesAPICreateLineExtensionRequest
 	*/
-	CreateLineExtension(ctx context.Context, lineId int32) ApiCreateLineExtensionRequest
+	CreateLineExtension(ctx context.Context, lineId int32) LinesAPICreateLineExtensionRequest
 
 	// CreateLineExtensionExecute executes the request
 	//  @return Extension
-	CreateLineExtensionExecute(r ApiCreateLineExtensionRequest) (*Extension, *http.Response, error)
+	CreateLineExtensionExecute(r LinesAPICreateLineExtensionRequest) (*Extension, *http.Response, error)
 
 	/*
 		DeleteLine Delete line
@@ -189,12 +189,12 @@ type LinesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
-		@return ApiDeleteLineRequest
+		@return LinesAPIDeleteLineRequest
 	*/
-	DeleteLine(ctx context.Context, lineId int32) ApiDeleteLineRequest
+	DeleteLine(ctx context.Context, lineId int32) LinesAPIDeleteLineRequest
 
 	// DeleteLineExecute executes the request
-	DeleteLineExecute(r ApiDeleteLineRequest) (*http.Response, error)
+	DeleteLineExecute(r LinesAPIDeleteLineRequest) (*http.Response, error)
 
 	/*
 		DissociateLineApplication Dissociate line and application
@@ -204,12 +204,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param applicationUuid Application's UUID
-		@return ApiDissociateLineApplicationRequest
+		@return LinesAPIDissociateLineApplicationRequest
 	*/
-	DissociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApiDissociateLineApplicationRequest
+	DissociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) LinesAPIDissociateLineApplicationRequest
 
 	// DissociateLineApplicationExecute executes the request
-	DissociateLineApplicationExecute(r ApiDissociateLineApplicationRequest) (*http.Response, error)
+	DissociateLineApplicationExecute(r LinesAPIDissociateLineApplicationRequest) (*http.Response, error)
 
 	/*
 		DissociateLineDevice Dissociate line and device
@@ -219,12 +219,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param deviceId Device's ID
-		@return ApiDissociateLineDeviceRequest
+		@return LinesAPIDissociateLineDeviceRequest
 	*/
-	DissociateLineDevice(ctx context.Context, lineId int32, deviceId string) ApiDissociateLineDeviceRequest
+	DissociateLineDevice(ctx context.Context, lineId int32, deviceId string) LinesAPIDissociateLineDeviceRequest
 
 	// DissociateLineDeviceExecute executes the request
-	DissociateLineDeviceExecute(r ApiDissociateLineDeviceRequest) (*http.Response, error)
+	DissociateLineDeviceExecute(r LinesAPIDissociateLineDeviceRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointCustom Dissociate line and Custom endpoint
@@ -234,12 +234,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param customId
-		@return ApiDissociateLineEndpointCustomRequest
+		@return LinesAPIDissociateLineEndpointCustomRequest
 	*/
-	DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiDissociateLineEndpointCustomRequest
+	DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) LinesAPIDissociateLineEndpointCustomRequest
 
 	// DissociateLineEndpointCustomExecute executes the request
-	DissociateLineEndpointCustomExecute(r ApiDissociateLineEndpointCustomRequest) (*http.Response, error)
+	DissociateLineEndpointCustomExecute(r LinesAPIDissociateLineEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointSccp Dissociate line and SCCP endpoint
@@ -249,12 +249,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sccpId
-		@return ApiDissociateLineEndpointSccpRequest
+		@return LinesAPIDissociateLineEndpointSccpRequest
 	*/
-	DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiDissociateLineEndpointSccpRequest
+	DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) LinesAPIDissociateLineEndpointSccpRequest
 
 	// DissociateLineEndpointSccpExecute executes the request
-	DissociateLineEndpointSccpExecute(r ApiDissociateLineEndpointSccpRequest) (*http.Response, error)
+	DissociateLineEndpointSccpExecute(r LinesAPIDissociateLineEndpointSccpRequest) (*http.Response, error)
 
 	/*
 		DissociateLineEndpointSip Dissociate line and SIP endpoint
@@ -264,12 +264,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param sipUuid
-		@return ApiDissociateLineEndpointSipRequest
+		@return LinesAPIDissociateLineEndpointSipRequest
 	*/
-	DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiDissociateLineEndpointSipRequest
+	DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) LinesAPIDissociateLineEndpointSipRequest
 
 	// DissociateLineEndpointSipExecute executes the request
-	DissociateLineEndpointSipExecute(r ApiDissociateLineEndpointSipRequest) (*http.Response, error)
+	DissociateLineEndpointSipExecute(r LinesAPIDissociateLineEndpointSipRequest) (*http.Response, error)
 
 	/*
 		DissociateLineExtension Dissociate line and extension
@@ -281,12 +281,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param extensionId
-		@return ApiDissociateLineExtensionRequest
+		@return LinesAPIDissociateLineExtensionRequest
 	*/
-	DissociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ApiDissociateLineExtensionRequest
+	DissociateLineExtension(ctx context.Context, lineId int32, extensionId int32) LinesAPIDissociateLineExtensionRequest
 
 	// DissociateLineExtensionExecute executes the request
-	DissociateLineExtensionExecute(r ApiDissociateLineExtensionRequest) (*http.Response, error)
+	DissociateLineExtensionExecute(r LinesAPIDissociateLineExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateUserLine Dissociate user and line
@@ -298,12 +298,12 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param lineId
-		@return ApiDissociateUserLineRequest
+		@return LinesAPIDissociateUserLineRequest
 	*/
-	DissociateUserLine(ctx context.Context, userId string, lineId int32) ApiDissociateUserLineRequest
+	DissociateUserLine(ctx context.Context, userId string, lineId int32) LinesAPIDissociateUserLineRequest
 
 	// DissociateUserLineExecute executes the request
-	DissociateUserLineExecute(r ApiDissociateUserLineRequest) (*http.Response, error)
+	DissociateUserLineExecute(r LinesAPIDissociateUserLineRequest) (*http.Response, error)
 
 	/*
 		GetDeviceLineAssociation List lines associated to device
@@ -312,13 +312,13 @@ type LinesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param deviceId Device's ID
-		@return ApiGetDeviceLineAssociationRequest
+		@return LinesAPIGetDeviceLineAssociationRequest
 	*/
-	GetDeviceLineAssociation(ctx context.Context, deviceId string) ApiGetDeviceLineAssociationRequest
+	GetDeviceLineAssociation(ctx context.Context, deviceId string) LinesAPIGetDeviceLineAssociationRequest
 
 	// GetDeviceLineAssociationExecute executes the request
 	//  @return LineDeviceItems
-	GetDeviceLineAssociationExecute(r ApiGetDeviceLineAssociationRequest) (*LineDeviceItems, *http.Response, error)
+	GetDeviceLineAssociationExecute(r LinesAPIGetDeviceLineAssociationRequest) (*LineDeviceItems, *http.Response, error)
 
 	/*
 		GetLine Get line
@@ -327,13 +327,13 @@ type LinesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
-		@return ApiGetLineRequest
+		@return LinesAPIGetLineRequest
 	*/
-	GetLine(ctx context.Context, lineId int32) ApiGetLineRequest
+	GetLine(ctx context.Context, lineId int32) LinesAPIGetLineRequest
 
 	// GetLineExecute executes the request
 	//  @return LineView
-	GetLineExecute(r ApiGetLineRequest) (*LineView, *http.Response, error)
+	GetLineExecute(r LinesAPIGetLineRequest) (*LineView, *http.Response, error)
 
 	/*
 		GetLineDevice Get Device associated to Line
@@ -342,13 +342,13 @@ type LinesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
-		@return ApiGetLineDeviceRequest
+		@return LinesAPIGetLineDeviceRequest
 	*/
-	GetLineDevice(ctx context.Context, lineId int32) ApiGetLineDeviceRequest
+	GetLineDevice(ctx context.Context, lineId int32) LinesAPIGetLineDeviceRequest
 
 	// GetLineDeviceExecute executes the request
 	//  @return LineDevice
-	GetLineDeviceExecute(r ApiGetLineDeviceRequest) (*LineDevice, *http.Response, error)
+	GetLineDeviceExecute(r LinesAPIGetLineDeviceRequest) (*LineDevice, *http.Response, error)
 
 	/*
 		GetUserLineAssociatedEndpointsSip Get SIP endpoint of a line for a user
@@ -358,13 +358,13 @@ type LinesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param lineId
-		@return ApiGetUserLineAssociatedEndpointsSipRequest
+		@return LinesAPIGetUserLineAssociatedEndpointsSipRequest
 	*/
-	GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) ApiGetUserLineAssociatedEndpointsSipRequest
+	GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) LinesAPIGetUserLineAssociatedEndpointsSipRequest
 
 	// GetUserLineAssociatedEndpointsSipExecute executes the request
 	//  @return EndpointSIP
-	GetUserLineAssociatedEndpointsSipExecute(r ApiGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
+	GetUserLineAssociatedEndpointsSipExecute(r LinesAPIGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		GetUserLineMainAssociatedEndpointsSip Get SIP endpoint of main line for a user
@@ -373,13 +373,13 @@ type LinesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
-		@return ApiGetUserLineMainAssociatedEndpointsSipRequest
+		@return LinesAPIGetUserLineMainAssociatedEndpointsSipRequest
 	*/
-	GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) ApiGetUserLineMainAssociatedEndpointsSipRequest
+	GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) LinesAPIGetUserLineMainAssociatedEndpointsSipRequest
 
 	// GetUserLineMainAssociatedEndpointsSipExecute executes the request
 	//  @return EndpointSIP
-	GetUserLineMainAssociatedEndpointsSipExecute(r ApiGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
+	GetUserLineMainAssociatedEndpointsSipExecute(r LinesAPIGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		ListLines List lines
@@ -387,13 +387,13 @@ type LinesAPI interface {
 		**Required ACL:** `confd.lines.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListLinesRequest
+		@return LinesAPIListLinesRequest
 	*/
-	ListLines(ctx context.Context) ApiListLinesRequest
+	ListLines(ctx context.Context) LinesAPIListLinesRequest
 
 	// ListLinesExecute executes the request
 	//  @return LineItems
-	ListLinesExecute(r ApiListLinesRequest) (*LineItems, *http.Response, error)
+	ListLinesExecute(r LinesAPIListLinesRequest) (*LineItems, *http.Response, error)
 
 	/*
 		UpdateLine Update line
@@ -402,18 +402,18 @@ type LinesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
-		@return ApiUpdateLineRequest
+		@return LinesAPIUpdateLineRequest
 	*/
-	UpdateLine(ctx context.Context, lineId int32) ApiUpdateLineRequest
+	UpdateLine(ctx context.Context, lineId int32) LinesAPIUpdateLineRequest
 
 	// UpdateLineExecute executes the request
-	UpdateLineExecute(r ApiUpdateLineRequest) (*http.Response, error)
+	UpdateLineExecute(r LinesAPIUpdateLineRequest) (*http.Response, error)
 }
 
 // LinesAPIService LinesAPI service
 type LinesAPIService service
 
-type ApiAssociateLineApplicationRequest struct {
+type LinesAPIAssociateLineApplicationRequest struct {
 	ctx             context.Context
 	ApiService      LinesAPI
 	lineId          int32
@@ -422,12 +422,12 @@ type ApiAssociateLineApplicationRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateLineApplicationRequest) AccentTenant(accentTenant string) ApiAssociateLineApplicationRequest {
+func (r LinesAPIAssociateLineApplicationRequest) AccentTenant(accentTenant string) LinesAPIAssociateLineApplicationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateLineApplicationRequest) Execute() (*http.Response, error) {
+func (r LinesAPIAssociateLineApplicationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineApplicationExecute(r)
 }
 
@@ -441,10 +441,10 @@ AssociateLineApplication Associate line and application
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param applicationUuid Application's UUID
-	@return ApiAssociateLineApplicationRequest
+	@return LinesAPIAssociateLineApplicationRequest
 */
-func (a *LinesAPIService) AssociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApiAssociateLineApplicationRequest {
-	return ApiAssociateLineApplicationRequest{
+func (a *LinesAPIService) AssociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) LinesAPIAssociateLineApplicationRequest {
+	return LinesAPIAssociateLineApplicationRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		lineId:          lineId,
@@ -453,7 +453,7 @@ func (a *LinesAPIService) AssociateLineApplication(ctx context.Context, lineId i
 }
 
 // Execute executes the request
-func (a *LinesAPIService) AssociateLineApplicationExecute(r ApiAssociateLineApplicationRequest) (*http.Response, error) {
+func (a *LinesAPIService) AssociateLineApplicationExecute(r LinesAPIAssociateLineApplicationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -556,7 +556,7 @@ func (a *LinesAPIService) AssociateLineApplicationExecute(r ApiAssociateLineAppl
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineDeviceRequest struct {
+type LinesAPIAssociateLineDeviceRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	lineId       int32
@@ -565,12 +565,12 @@ type ApiAssociateLineDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateLineDeviceRequest) AccentTenant(accentTenant string) ApiAssociateLineDeviceRequest {
+func (r LinesAPIAssociateLineDeviceRequest) AccentTenant(accentTenant string) LinesAPIAssociateLineDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateLineDeviceRequest) Execute() (*http.Response, error) {
+func (r LinesAPIAssociateLineDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineDeviceExecute(r)
 }
 
@@ -582,10 +582,10 @@ AssociateLineDevice Associate line and device
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param deviceId Device's ID
-	@return ApiAssociateLineDeviceRequest
+	@return LinesAPIAssociateLineDeviceRequest
 */
-func (a *LinesAPIService) AssociateLineDevice(ctx context.Context, lineId int32, deviceId string) ApiAssociateLineDeviceRequest {
-	return ApiAssociateLineDeviceRequest{
+func (a *LinesAPIService) AssociateLineDevice(ctx context.Context, lineId int32, deviceId string) LinesAPIAssociateLineDeviceRequest {
+	return LinesAPIAssociateLineDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -594,7 +594,7 @@ func (a *LinesAPIService) AssociateLineDevice(ctx context.Context, lineId int32,
 }
 
 // Execute executes the request
-func (a *LinesAPIService) AssociateLineDeviceExecute(r ApiAssociateLineDeviceRequest) (*http.Response, error) {
+func (a *LinesAPIService) AssociateLineDeviceExecute(r LinesAPIAssociateLineDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -697,14 +697,14 @@ func (a *LinesAPIService) AssociateLineDeviceExecute(r ApiAssociateLineDeviceReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineEndpointCustomRequest struct {
+type LinesAPIAssociateLineEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	lineId     int32
 	customId   int32
 }
 
-func (r ApiAssociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r LinesAPIAssociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointCustomExecute(r)
 }
 
@@ -716,10 +716,10 @@ AssociateLineEndpointCustom Associate line and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param customId
-	@return ApiAssociateLineEndpointCustomRequest
+	@return LinesAPIAssociateLineEndpointCustomRequest
 */
-func (a *LinesAPIService) AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiAssociateLineEndpointCustomRequest {
-	return ApiAssociateLineEndpointCustomRequest{
+func (a *LinesAPIService) AssociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) LinesAPIAssociateLineEndpointCustomRequest {
+	return LinesAPIAssociateLineEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -728,7 +728,7 @@ func (a *LinesAPIService) AssociateLineEndpointCustom(ctx context.Context, lineI
 }
 
 // Execute executes the request
-func (a *LinesAPIService) AssociateLineEndpointCustomExecute(r ApiAssociateLineEndpointCustomRequest) (*http.Response, error) {
+func (a *LinesAPIService) AssociateLineEndpointCustomExecute(r LinesAPIAssociateLineEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -828,14 +828,14 @@ func (a *LinesAPIService) AssociateLineEndpointCustomExecute(r ApiAssociateLineE
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineEndpointSccpRequest struct {
+type LinesAPIAssociateLineEndpointSccpRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	lineId     int32
 	sccpId     int32
 }
 
-func (r ApiAssociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r LinesAPIAssociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointSccpExecute(r)
 }
 
@@ -847,10 +847,10 @@ AssociateLineEndpointSccp Associate line and SCCP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sccpId
-	@return ApiAssociateLineEndpointSccpRequest
+	@return LinesAPIAssociateLineEndpointSccpRequest
 */
-func (a *LinesAPIService) AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiAssociateLineEndpointSccpRequest {
-	return ApiAssociateLineEndpointSccpRequest{
+func (a *LinesAPIService) AssociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) LinesAPIAssociateLineEndpointSccpRequest {
+	return LinesAPIAssociateLineEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -859,7 +859,7 @@ func (a *LinesAPIService) AssociateLineEndpointSccp(ctx context.Context, lineId 
 }
 
 // Execute executes the request
-func (a *LinesAPIService) AssociateLineEndpointSccpExecute(r ApiAssociateLineEndpointSccpRequest) (*http.Response, error) {
+func (a *LinesAPIService) AssociateLineEndpointSccpExecute(r LinesAPIAssociateLineEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -959,14 +959,14 @@ func (a *LinesAPIService) AssociateLineEndpointSccpExecute(r ApiAssociateLineEnd
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineEndpointSipRequest struct {
+type LinesAPIAssociateLineEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	lineId     int32
 	sipUuid    string
 }
 
-func (r ApiAssociateLineEndpointSipRequest) Execute() (*http.Response, error) {
+func (r LinesAPIAssociateLineEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineEndpointSipExecute(r)
 }
 
@@ -978,10 +978,10 @@ AssociateLineEndpointSip Associate line and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sipUuid
-	@return ApiAssociateLineEndpointSipRequest
+	@return LinesAPIAssociateLineEndpointSipRequest
 */
-func (a *LinesAPIService) AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiAssociateLineEndpointSipRequest {
-	return ApiAssociateLineEndpointSipRequest{
+func (a *LinesAPIService) AssociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) LinesAPIAssociateLineEndpointSipRequest {
+	return LinesAPIAssociateLineEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -990,7 +990,7 @@ func (a *LinesAPIService) AssociateLineEndpointSip(ctx context.Context, lineId i
 }
 
 // Execute executes the request
-func (a *LinesAPIService) AssociateLineEndpointSipExecute(r ApiAssociateLineEndpointSipRequest) (*http.Response, error) {
+func (a *LinesAPIService) AssociateLineEndpointSipExecute(r LinesAPIAssociateLineEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1090,14 +1090,14 @@ func (a *LinesAPIService) AssociateLineEndpointSipExecute(r ApiAssociateLineEndp
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineExtensionRequest struct {
+type LinesAPIAssociateLineExtensionRequest struct {
 	ctx         context.Context
 	ApiService  LinesAPI
 	lineId      int32
 	extensionId int32
 }
 
-func (r ApiAssociateLineExtensionRequest) Execute() (*http.Response, error) {
+func (r LinesAPIAssociateLineExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineExtensionExecute(r)
 }
 
@@ -1111,10 +1111,10 @@ Because of technical limitations, a line can only have a single ‘internal’ e
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param extensionId
-	@return ApiAssociateLineExtensionRequest
+	@return LinesAPIAssociateLineExtensionRequest
 */
-func (a *LinesAPIService) AssociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ApiAssociateLineExtensionRequest {
-	return ApiAssociateLineExtensionRequest{
+func (a *LinesAPIService) AssociateLineExtension(ctx context.Context, lineId int32, extensionId int32) LinesAPIAssociateLineExtensionRequest {
+	return LinesAPIAssociateLineExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		lineId:      lineId,
@@ -1123,7 +1123,7 @@ func (a *LinesAPIService) AssociateLineExtension(ctx context.Context, lineId int
 }
 
 // Execute executes the request
-func (a *LinesAPIService) AssociateLineExtensionExecute(r ApiAssociateLineExtensionRequest) (*http.Response, error) {
+func (a *LinesAPIService) AssociateLineExtensionExecute(r LinesAPIAssociateLineExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1223,14 +1223,14 @@ func (a *LinesAPIService) AssociateLineExtensionExecute(r ApiAssociateLineExtens
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserLineRequest struct {
+type LinesAPIAssociateUserLineRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	userId     string
 	lineId     int32
 }
 
-func (r ApiAssociateUserLineRequest) Execute() (*http.Response, error) {
+func (r LinesAPIAssociateUserLineRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserLineExecute(r)
 }
 
@@ -1242,10 +1242,10 @@ AssociateUserLine Associate user and line
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param lineId
-	@return ApiAssociateUserLineRequest
+	@return LinesAPIAssociateUserLineRequest
 */
-func (a *LinesAPIService) AssociateUserLine(ctx context.Context, userId string, lineId int32) ApiAssociateUserLineRequest {
-	return ApiAssociateUserLineRequest{
+func (a *LinesAPIService) AssociateUserLine(ctx context.Context, userId string, lineId int32) LinesAPIAssociateUserLineRequest {
+	return LinesAPIAssociateUserLineRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1254,7 +1254,7 @@ func (a *LinesAPIService) AssociateUserLine(ctx context.Context, userId string, 
 }
 
 // Execute executes the request
-func (a *LinesAPIService) AssociateUserLineExecute(r ApiAssociateUserLineRequest) (*http.Response, error) {
+func (a *LinesAPIService) AssociateUserLineExecute(r LinesAPIAssociateUserLineRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1354,19 +1354,19 @@ func (a *LinesAPIService) AssociateUserLineExecute(r ApiAssociateUserLineRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserLinesRequest struct {
+type LinesAPIAssociateUserLinesRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	body       *LinesID
 	userId     string
 }
 
-func (r ApiAssociateUserLinesRequest) Body(body LinesID) ApiAssociateUserLinesRequest {
+func (r LinesAPIAssociateUserLinesRequest) Body(body LinesID) LinesAPIAssociateUserLinesRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAssociateUserLinesRequest) Execute() (*http.Response, error) {
+func (r LinesAPIAssociateUserLinesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserLinesExecute(r)
 }
 
@@ -1377,10 +1377,10 @@ AssociateUserLines Associate user and lines
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiAssociateUserLinesRequest
+	@return LinesAPIAssociateUserLinesRequest
 */
-func (a *LinesAPIService) AssociateUserLines(ctx context.Context, userId string) ApiAssociateUserLinesRequest {
-	return ApiAssociateUserLinesRequest{
+func (a *LinesAPIService) AssociateUserLines(ctx context.Context, userId string) LinesAPIAssociateUserLinesRequest {
+	return LinesAPIAssociateUserLinesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1388,7 +1388,7 @@ func (a *LinesAPIService) AssociateUserLines(ctx context.Context, userId string)
 }
 
 // Execute executes the request
-func (a *LinesAPIService) AssociateUserLinesExecute(r ApiAssociateUserLinesRequest) (*http.Response, error) {
+func (a *LinesAPIService) AssociateUserLinesExecute(r LinesAPIAssociateUserLinesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1492,25 +1492,25 @@ func (a *LinesAPIService) AssociateUserLinesExecute(r ApiAssociateUserLinesReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateLineRequest struct {
+type LinesAPICreateLineRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	body         *LineCreate
 	accentTenant *string
 }
 
-func (r ApiCreateLineRequest) Body(body LineCreate) ApiCreateLineRequest {
+func (r LinesAPICreateLineRequest) Body(body LineCreate) LinesAPICreateLineRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateLineRequest) AccentTenant(accentTenant string) ApiCreateLineRequest {
+func (r LinesAPICreateLineRequest) AccentTenant(accentTenant string) LinesAPICreateLineRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateLineRequest) Execute() (*LineView, *http.Response, error) {
+func (r LinesAPICreateLineRequest) Execute() (*LineView, *http.Response, error) {
 	return r.ApiService.CreateLineExecute(r)
 }
 
@@ -1523,10 +1523,10 @@ When creating a line with an extension or a SIP endpoint as part of it's body, t
 will be used as a default for the endpoint and context if ommited.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateLineRequest
+	@return LinesAPICreateLineRequest
 */
-func (a *LinesAPIService) CreateLine(ctx context.Context) ApiCreateLineRequest {
-	return ApiCreateLineRequest{
+func (a *LinesAPIService) CreateLine(ctx context.Context) LinesAPICreateLineRequest {
+	return LinesAPICreateLineRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1535,7 +1535,7 @@ func (a *LinesAPIService) CreateLine(ctx context.Context) ApiCreateLineRequest {
 // Execute executes the request
 //
 //	@return LineView
-func (a *LinesAPIService) CreateLineExecute(r ApiCreateLineRequest) (*LineView, *http.Response, error) {
+func (a *LinesAPIService) CreateLineExecute(r LinesAPICreateLineRequest) (*LineView, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1640,7 +1640,7 @@ func (a *LinesAPIService) CreateLineExecute(r ApiCreateLineRequest) (*LineView, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateLineExtensionRequest struct {
+type LinesAPICreateLineExtensionRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	body         *Extension
@@ -1649,18 +1649,18 @@ type ApiCreateLineExtensionRequest struct {
 }
 
 // Extension to create
-func (r ApiCreateLineExtensionRequest) Body(body Extension) ApiCreateLineExtensionRequest {
+func (r LinesAPICreateLineExtensionRequest) Body(body Extension) LinesAPICreateLineExtensionRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateLineExtensionRequest) AccentTenant(accentTenant string) ApiCreateLineExtensionRequest {
+func (r LinesAPICreateLineExtensionRequest) AccentTenant(accentTenant string) LinesAPICreateLineExtensionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateLineExtensionRequest) Execute() (*Extension, *http.Response, error) {
+func (r LinesAPICreateLineExtensionRequest) Execute() (*Extension, *http.Response, error) {
 	return r.ApiService.CreateLineExtensionExecute(r)
 }
 
@@ -1672,10 +1672,10 @@ The extension number must be included in one of the extension ranges for the giv
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
-	@return ApiCreateLineExtensionRequest
+	@return LinesAPICreateLineExtensionRequest
 */
-func (a *LinesAPIService) CreateLineExtension(ctx context.Context, lineId int32) ApiCreateLineExtensionRequest {
-	return ApiCreateLineExtensionRequest{
+func (a *LinesAPIService) CreateLineExtension(ctx context.Context, lineId int32) LinesAPICreateLineExtensionRequest {
+	return LinesAPICreateLineExtensionRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -1685,7 +1685,7 @@ func (a *LinesAPIService) CreateLineExtension(ctx context.Context, lineId int32)
 // Execute executes the request
 //
 //	@return Extension
-func (a *LinesAPIService) CreateLineExtensionExecute(r ApiCreateLineExtensionRequest) (*Extension, *http.Response, error) {
+func (a *LinesAPIService) CreateLineExtensionExecute(r LinesAPICreateLineExtensionRequest) (*Extension, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1802,7 +1802,7 @@ func (a *LinesAPIService) CreateLineExtensionExecute(r ApiCreateLineExtensionReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteLineRequest struct {
+type LinesAPIDeleteLineRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	lineId       int32
@@ -1810,12 +1810,12 @@ type ApiDeleteLineRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteLineRequest) AccentTenant(accentTenant string) ApiDeleteLineRequest {
+func (r LinesAPIDeleteLineRequest) AccentTenant(accentTenant string) LinesAPIDeleteLineRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteLineRequest) Execute() (*http.Response, error) {
+func (r LinesAPIDeleteLineRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteLineExecute(r)
 }
 
@@ -1828,10 +1828,10 @@ DeleteLine Delete line
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
-	@return ApiDeleteLineRequest
+	@return LinesAPIDeleteLineRequest
 */
-func (a *LinesAPIService) DeleteLine(ctx context.Context, lineId int32) ApiDeleteLineRequest {
-	return ApiDeleteLineRequest{
+func (a *LinesAPIService) DeleteLine(ctx context.Context, lineId int32) LinesAPIDeleteLineRequest {
+	return LinesAPIDeleteLineRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -1839,7 +1839,7 @@ func (a *LinesAPIService) DeleteLine(ctx context.Context, lineId int32) ApiDelet
 }
 
 // Execute executes the request
-func (a *LinesAPIService) DeleteLineExecute(r ApiDeleteLineRequest) (*http.Response, error) {
+func (a *LinesAPIService) DeleteLineExecute(r LinesAPIDeleteLineRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1930,7 +1930,7 @@ func (a *LinesAPIService) DeleteLineExecute(r ApiDeleteLineRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineApplicationRequest struct {
+type LinesAPIDissociateLineApplicationRequest struct {
 	ctx             context.Context
 	ApiService      LinesAPI
 	lineId          int32
@@ -1939,12 +1939,12 @@ type ApiDissociateLineApplicationRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateLineApplicationRequest) AccentTenant(accentTenant string) ApiDissociateLineApplicationRequest {
+func (r LinesAPIDissociateLineApplicationRequest) AccentTenant(accentTenant string) LinesAPIDissociateLineApplicationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateLineApplicationRequest) Execute() (*http.Response, error) {
+func (r LinesAPIDissociateLineApplicationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineApplicationExecute(r)
 }
 
@@ -1956,10 +1956,10 @@ DissociateLineApplication Dissociate line and application
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param applicationUuid Application's UUID
-	@return ApiDissociateLineApplicationRequest
+	@return LinesAPIDissociateLineApplicationRequest
 */
-func (a *LinesAPIService) DissociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) ApiDissociateLineApplicationRequest {
-	return ApiDissociateLineApplicationRequest{
+func (a *LinesAPIService) DissociateLineApplication(ctx context.Context, lineId int32, applicationUuid int32) LinesAPIDissociateLineApplicationRequest {
+	return LinesAPIDissociateLineApplicationRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		lineId:          lineId,
@@ -1968,7 +1968,7 @@ func (a *LinesAPIService) DissociateLineApplication(ctx context.Context, lineId 
 }
 
 // Execute executes the request
-func (a *LinesAPIService) DissociateLineApplicationExecute(r ApiDissociateLineApplicationRequest) (*http.Response, error) {
+func (a *LinesAPIService) DissociateLineApplicationExecute(r LinesAPIDissociateLineApplicationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2071,7 +2071,7 @@ func (a *LinesAPIService) DissociateLineApplicationExecute(r ApiDissociateLineAp
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineDeviceRequest struct {
+type LinesAPIDissociateLineDeviceRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	lineId       int32
@@ -2080,12 +2080,12 @@ type ApiDissociateLineDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateLineDeviceRequest) AccentTenant(accentTenant string) ApiDissociateLineDeviceRequest {
+func (r LinesAPIDissociateLineDeviceRequest) AccentTenant(accentTenant string) LinesAPIDissociateLineDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateLineDeviceRequest) Execute() (*http.Response, error) {
+func (r LinesAPIDissociateLineDeviceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineDeviceExecute(r)
 }
 
@@ -2097,10 +2097,10 @@ DissociateLineDevice Dissociate line and device
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param deviceId Device's ID
-	@return ApiDissociateLineDeviceRequest
+	@return LinesAPIDissociateLineDeviceRequest
 */
-func (a *LinesAPIService) DissociateLineDevice(ctx context.Context, lineId int32, deviceId string) ApiDissociateLineDeviceRequest {
-	return ApiDissociateLineDeviceRequest{
+func (a *LinesAPIService) DissociateLineDevice(ctx context.Context, lineId int32, deviceId string) LinesAPIDissociateLineDeviceRequest {
+	return LinesAPIDissociateLineDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -2109,7 +2109,7 @@ func (a *LinesAPIService) DissociateLineDevice(ctx context.Context, lineId int32
 }
 
 // Execute executes the request
-func (a *LinesAPIService) DissociateLineDeviceExecute(r ApiDissociateLineDeviceRequest) (*http.Response, error) {
+func (a *LinesAPIService) DissociateLineDeviceExecute(r LinesAPIDissociateLineDeviceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2212,14 +2212,14 @@ func (a *LinesAPIService) DissociateLineDeviceExecute(r ApiDissociateLineDeviceR
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointCustomRequest struct {
+type LinesAPIDissociateLineEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	lineId     int32
 	customId   int32
 }
 
-func (r ApiDissociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r LinesAPIDissociateLineEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointCustomExecute(r)
 }
 
@@ -2231,10 +2231,10 @@ DissociateLineEndpointCustom Dissociate line and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param customId
-	@return ApiDissociateLineEndpointCustomRequest
+	@return LinesAPIDissociateLineEndpointCustomRequest
 */
-func (a *LinesAPIService) DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) ApiDissociateLineEndpointCustomRequest {
-	return ApiDissociateLineEndpointCustomRequest{
+func (a *LinesAPIService) DissociateLineEndpointCustom(ctx context.Context, lineId int32, customId int32) LinesAPIDissociateLineEndpointCustomRequest {
+	return LinesAPIDissociateLineEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -2243,7 +2243,7 @@ func (a *LinesAPIService) DissociateLineEndpointCustom(ctx context.Context, line
 }
 
 // Execute executes the request
-func (a *LinesAPIService) DissociateLineEndpointCustomExecute(r ApiDissociateLineEndpointCustomRequest) (*http.Response, error) {
+func (a *LinesAPIService) DissociateLineEndpointCustomExecute(r LinesAPIDissociateLineEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2343,14 +2343,14 @@ func (a *LinesAPIService) DissociateLineEndpointCustomExecute(r ApiDissociateLin
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointSccpRequest struct {
+type LinesAPIDissociateLineEndpointSccpRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	lineId     int32
 	sccpId     int32
 }
 
-func (r ApiDissociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
+func (r LinesAPIDissociateLineEndpointSccpRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointSccpExecute(r)
 }
 
@@ -2362,10 +2362,10 @@ DissociateLineEndpointSccp Dissociate line and SCCP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sccpId
-	@return ApiDissociateLineEndpointSccpRequest
+	@return LinesAPIDissociateLineEndpointSccpRequest
 */
-func (a *LinesAPIService) DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) ApiDissociateLineEndpointSccpRequest {
-	return ApiDissociateLineEndpointSccpRequest{
+func (a *LinesAPIService) DissociateLineEndpointSccp(ctx context.Context, lineId int32, sccpId int32) LinesAPIDissociateLineEndpointSccpRequest {
+	return LinesAPIDissociateLineEndpointSccpRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -2374,7 +2374,7 @@ func (a *LinesAPIService) DissociateLineEndpointSccp(ctx context.Context, lineId
 }
 
 // Execute executes the request
-func (a *LinesAPIService) DissociateLineEndpointSccpExecute(r ApiDissociateLineEndpointSccpRequest) (*http.Response, error) {
+func (a *LinesAPIService) DissociateLineEndpointSccpExecute(r LinesAPIDissociateLineEndpointSccpRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2474,14 +2474,14 @@ func (a *LinesAPIService) DissociateLineEndpointSccpExecute(r ApiDissociateLineE
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineEndpointSipRequest struct {
+type LinesAPIDissociateLineEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	lineId     int32
 	sipUuid    string
 }
 
-func (r ApiDissociateLineEndpointSipRequest) Execute() (*http.Response, error) {
+func (r LinesAPIDissociateLineEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineEndpointSipExecute(r)
 }
 
@@ -2493,10 +2493,10 @@ DissociateLineEndpointSip Dissociate line and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param sipUuid
-	@return ApiDissociateLineEndpointSipRequest
+	@return LinesAPIDissociateLineEndpointSipRequest
 */
-func (a *LinesAPIService) DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) ApiDissociateLineEndpointSipRequest {
-	return ApiDissociateLineEndpointSipRequest{
+func (a *LinesAPIService) DissociateLineEndpointSip(ctx context.Context, lineId int32, sipUuid string) LinesAPIDissociateLineEndpointSipRequest {
+	return LinesAPIDissociateLineEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -2505,7 +2505,7 @@ func (a *LinesAPIService) DissociateLineEndpointSip(ctx context.Context, lineId 
 }
 
 // Execute executes the request
-func (a *LinesAPIService) DissociateLineEndpointSipExecute(r ApiDissociateLineEndpointSipRequest) (*http.Response, error) {
+func (a *LinesAPIService) DissociateLineEndpointSipExecute(r LinesAPIDissociateLineEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2605,14 +2605,14 @@ func (a *LinesAPIService) DissociateLineEndpointSipExecute(r ApiDissociateLineEn
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineExtensionRequest struct {
+type LinesAPIDissociateLineExtensionRequest struct {
 	ctx         context.Context
 	ApiService  LinesAPI
 	lineId      int32
 	extensionId int32
 }
 
-func (r ApiDissociateLineExtensionRequest) Execute() (*http.Response, error) {
+func (r LinesAPIDissociateLineExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineExtensionExecute(r)
 }
 
@@ -2626,10 +2626,10 @@ Any devices that are attached to a line must be removed before dissociating an e
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param extensionId
-	@return ApiDissociateLineExtensionRequest
+	@return LinesAPIDissociateLineExtensionRequest
 */
-func (a *LinesAPIService) DissociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ApiDissociateLineExtensionRequest {
-	return ApiDissociateLineExtensionRequest{
+func (a *LinesAPIService) DissociateLineExtension(ctx context.Context, lineId int32, extensionId int32) LinesAPIDissociateLineExtensionRequest {
+	return LinesAPIDissociateLineExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		lineId:      lineId,
@@ -2638,7 +2638,7 @@ func (a *LinesAPIService) DissociateLineExtension(ctx context.Context, lineId in
 }
 
 // Execute executes the request
-func (a *LinesAPIService) DissociateLineExtensionExecute(r ApiDissociateLineExtensionRequest) (*http.Response, error) {
+func (a *LinesAPIService) DissociateLineExtensionExecute(r LinesAPIDissociateLineExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2738,14 +2738,14 @@ func (a *LinesAPIService) DissociateLineExtensionExecute(r ApiDissociateLineExte
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserLineRequest struct {
+type LinesAPIDissociateUserLineRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	userId     string
 	lineId     int32
 }
 
-func (r ApiDissociateUserLineRequest) Execute() (*http.Response, error) {
+func (r LinesAPIDissociateUserLineRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserLineExecute(r)
 }
 
@@ -2759,10 +2759,10 @@ Any devices that are attached the line must be removed before dissociating a use
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param lineId
-	@return ApiDissociateUserLineRequest
+	@return LinesAPIDissociateUserLineRequest
 */
-func (a *LinesAPIService) DissociateUserLine(ctx context.Context, userId string, lineId int32) ApiDissociateUserLineRequest {
-	return ApiDissociateUserLineRequest{
+func (a *LinesAPIService) DissociateUserLine(ctx context.Context, userId string, lineId int32) LinesAPIDissociateUserLineRequest {
+	return LinesAPIDissociateUserLineRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -2771,7 +2771,7 @@ func (a *LinesAPIService) DissociateUserLine(ctx context.Context, userId string,
 }
 
 // Execute executes the request
-func (a *LinesAPIService) DissociateUserLineExecute(r ApiDissociateUserLineRequest) (*http.Response, error) {
+func (a *LinesAPIService) DissociateUserLineExecute(r LinesAPIDissociateUserLineRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2871,7 +2871,7 @@ func (a *LinesAPIService) DissociateUserLineExecute(r ApiDissociateUserLineReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetDeviceLineAssociationRequest struct {
+type LinesAPIGetDeviceLineAssociationRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	deviceId     string
@@ -2879,12 +2879,12 @@ type ApiGetDeviceLineAssociationRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetDeviceLineAssociationRequest) AccentTenant(accentTenant string) ApiGetDeviceLineAssociationRequest {
+func (r LinesAPIGetDeviceLineAssociationRequest) AccentTenant(accentTenant string) LinesAPIGetDeviceLineAssociationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetDeviceLineAssociationRequest) Execute() (*LineDeviceItems, *http.Response, error) {
+func (r LinesAPIGetDeviceLineAssociationRequest) Execute() (*LineDeviceItems, *http.Response, error) {
 	return r.ApiService.GetDeviceLineAssociationExecute(r)
 }
 
@@ -2895,10 +2895,10 @@ GetDeviceLineAssociation List lines associated to device
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param deviceId Device's ID
-	@return ApiGetDeviceLineAssociationRequest
+	@return LinesAPIGetDeviceLineAssociationRequest
 */
-func (a *LinesAPIService) GetDeviceLineAssociation(ctx context.Context, deviceId string) ApiGetDeviceLineAssociationRequest {
-	return ApiGetDeviceLineAssociationRequest{
+func (a *LinesAPIService) GetDeviceLineAssociation(ctx context.Context, deviceId string) LinesAPIGetDeviceLineAssociationRequest {
+	return LinesAPIGetDeviceLineAssociationRequest{
 		ApiService: a,
 		ctx:        ctx,
 		deviceId:   deviceId,
@@ -2908,7 +2908,7 @@ func (a *LinesAPIService) GetDeviceLineAssociation(ctx context.Context, deviceId
 // Execute executes the request
 //
 //	@return LineDeviceItems
-func (a *LinesAPIService) GetDeviceLineAssociationExecute(r ApiGetDeviceLineAssociationRequest) (*LineDeviceItems, *http.Response, error) {
+func (a *LinesAPIService) GetDeviceLineAssociationExecute(r LinesAPIGetDeviceLineAssociationRequest) (*LineDeviceItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3009,7 +3009,7 @@ func (a *LinesAPIService) GetDeviceLineAssociationExecute(r ApiGetDeviceLineAsso
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLineRequest struct {
+type LinesAPIGetLineRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	lineId       int32
@@ -3017,12 +3017,12 @@ type ApiGetLineRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetLineRequest) AccentTenant(accentTenant string) ApiGetLineRequest {
+func (r LinesAPIGetLineRequest) AccentTenant(accentTenant string) LinesAPIGetLineRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetLineRequest) Execute() (*LineView, *http.Response, error) {
+func (r LinesAPIGetLineRequest) Execute() (*LineView, *http.Response, error) {
 	return r.ApiService.GetLineExecute(r)
 }
 
@@ -3033,10 +3033,10 @@ GetLine Get line
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
-	@return ApiGetLineRequest
+	@return LinesAPIGetLineRequest
 */
-func (a *LinesAPIService) GetLine(ctx context.Context, lineId int32) ApiGetLineRequest {
-	return ApiGetLineRequest{
+func (a *LinesAPIService) GetLine(ctx context.Context, lineId int32) LinesAPIGetLineRequest {
+	return LinesAPIGetLineRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -3046,7 +3046,7 @@ func (a *LinesAPIService) GetLine(ctx context.Context, lineId int32) ApiGetLineR
 // Execute executes the request
 //
 //	@return LineView
-func (a *LinesAPIService) GetLineExecute(r ApiGetLineRequest) (*LineView, *http.Response, error) {
+func (a *LinesAPIService) GetLineExecute(r LinesAPIGetLineRequest) (*LineView, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3147,7 +3147,7 @@ func (a *LinesAPIService) GetLineExecute(r ApiGetLineRequest) (*LineView, *http.
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLineDeviceRequest struct {
+type LinesAPIGetLineDeviceRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	lineId       int32
@@ -3155,12 +3155,12 @@ type ApiGetLineDeviceRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetLineDeviceRequest) AccentTenant(accentTenant string) ApiGetLineDeviceRequest {
+func (r LinesAPIGetLineDeviceRequest) AccentTenant(accentTenant string) LinesAPIGetLineDeviceRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetLineDeviceRequest) Execute() (*LineDevice, *http.Response, error) {
+func (r LinesAPIGetLineDeviceRequest) Execute() (*LineDevice, *http.Response, error) {
 	return r.ApiService.GetLineDeviceExecute(r)
 }
 
@@ -3171,10 +3171,10 @@ GetLineDevice Get Device associated to Line
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
-	@return ApiGetLineDeviceRequest
+	@return LinesAPIGetLineDeviceRequest
 */
-func (a *LinesAPIService) GetLineDevice(ctx context.Context, lineId int32) ApiGetLineDeviceRequest {
-	return ApiGetLineDeviceRequest{
+func (a *LinesAPIService) GetLineDevice(ctx context.Context, lineId int32) LinesAPIGetLineDeviceRequest {
+	return LinesAPIGetLineDeviceRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -3184,7 +3184,7 @@ func (a *LinesAPIService) GetLineDevice(ctx context.Context, lineId int32) ApiGe
 // Execute executes the request
 //
 //	@return LineDevice
-func (a *LinesAPIService) GetLineDeviceExecute(r ApiGetLineDeviceRequest) (*LineDevice, *http.Response, error) {
+func (a *LinesAPIService) GetLineDeviceExecute(r LinesAPIGetLineDeviceRequest) (*LineDevice, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3296,7 +3296,7 @@ func (a *LinesAPIService) GetLineDeviceExecute(r ApiGetLineDeviceRequest) (*Line
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserLineAssociatedEndpointsSipRequest struct {
+type LinesAPIGetUserLineAssociatedEndpointsSipRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	userUuid   string
@@ -3305,12 +3305,12 @@ type ApiGetUserLineAssociatedEndpointsSipRequest struct {
 }
 
 // Different view of the SIP endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to include only options that are defined on the specified endpoint.  The &#x60;merged&#x60; view includes all options from included templates.
-func (r ApiGetUserLineAssociatedEndpointsSipRequest) View(view string) ApiGetUserLineAssociatedEndpointsSipRequest {
+func (r LinesAPIGetUserLineAssociatedEndpointsSipRequest) View(view string) LinesAPIGetUserLineAssociatedEndpointsSipRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetUserLineAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r LinesAPIGetUserLineAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetUserLineAssociatedEndpointsSipExecute(r)
 }
 
@@ -3322,10 +3322,10 @@ GetUserLineAssociatedEndpointsSip Get SIP endpoint of a line for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param lineId
-	@return ApiGetUserLineAssociatedEndpointsSipRequest
+	@return LinesAPIGetUserLineAssociatedEndpointsSipRequest
 */
-func (a *LinesAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) ApiGetUserLineAssociatedEndpointsSipRequest {
-	return ApiGetUserLineAssociatedEndpointsSipRequest{
+func (a *LinesAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) LinesAPIGetUserLineAssociatedEndpointsSipRequest {
+	return LinesAPIGetUserLineAssociatedEndpointsSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -3336,7 +3336,7 @@ func (a *LinesAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Context,
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *LinesAPIService) GetUserLineAssociatedEndpointsSipExecute(r ApiGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *LinesAPIService) GetUserLineAssociatedEndpointsSipExecute(r LinesAPIGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3428,7 +3428,7 @@ func (a *LinesAPIService) GetUserLineAssociatedEndpointsSipExecute(r ApiGetUserL
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserLineMainAssociatedEndpointsSipRequest struct {
+type LinesAPIGetUserLineMainAssociatedEndpointsSipRequest struct {
 	ctx        context.Context
 	ApiService LinesAPI
 	userUuid   string
@@ -3436,12 +3436,12 @@ type ApiGetUserLineMainAssociatedEndpointsSipRequest struct {
 }
 
 // Different view of the SIP endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to include only options that are defined on the specified endpoint.  The &#x60;merged&#x60; view includes all options from included templates.
-func (r ApiGetUserLineMainAssociatedEndpointsSipRequest) View(view string) ApiGetUserLineMainAssociatedEndpointsSipRequest {
+func (r LinesAPIGetUserLineMainAssociatedEndpointsSipRequest) View(view string) LinesAPIGetUserLineMainAssociatedEndpointsSipRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetUserLineMainAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r LinesAPIGetUserLineMainAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetUserLineMainAssociatedEndpointsSipExecute(r)
 }
 
@@ -3452,10 +3452,10 @@ GetUserLineMainAssociatedEndpointsSip Get SIP endpoint of main line for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
-	@return ApiGetUserLineMainAssociatedEndpointsSipRequest
+	@return LinesAPIGetUserLineMainAssociatedEndpointsSipRequest
 */
-func (a *LinesAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) ApiGetUserLineMainAssociatedEndpointsSipRequest {
-	return ApiGetUserLineMainAssociatedEndpointsSipRequest{
+func (a *LinesAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) LinesAPIGetUserLineMainAssociatedEndpointsSipRequest {
+	return LinesAPIGetUserLineMainAssociatedEndpointsSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -3465,7 +3465,7 @@ func (a *LinesAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.Cont
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *LinesAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r ApiGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *LinesAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r LinesAPIGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3556,7 +3556,7 @@ func (a *LinesAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r ApiGetU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListLinesRequest struct {
+type LinesAPIListLinesRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	accentTenant *string
@@ -3569,48 +3569,48 @@ type ApiListLinesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListLinesRequest) AccentTenant(accentTenant string) ApiListLinesRequest {
+func (r LinesAPIListLinesRequest) AccentTenant(accentTenant string) LinesAPIListLinesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListLinesRequest) Recurse(recurse bool) ApiListLinesRequest {
+func (r LinesAPIListLinesRequest) Recurse(recurse bool) LinesAPIListLinesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListLinesRequest) Order(order string) ApiListLinesRequest {
+func (r LinesAPIListLinesRequest) Order(order string) LinesAPIListLinesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListLinesRequest) Direction(direction string) ApiListLinesRequest {
+func (r LinesAPIListLinesRequest) Direction(direction string) LinesAPIListLinesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListLinesRequest) Limit(limit int32) ApiListLinesRequest {
+func (r LinesAPIListLinesRequest) Limit(limit int32) LinesAPIListLinesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListLinesRequest) Offset(offset int32) ApiListLinesRequest {
+func (r LinesAPIListLinesRequest) Offset(offset int32) LinesAPIListLinesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListLinesRequest) Search(search string) ApiListLinesRequest {
+func (r LinesAPIListLinesRequest) Search(search string) LinesAPIListLinesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListLinesRequest) Execute() (*LineItems, *http.Response, error) {
+func (r LinesAPIListLinesRequest) Execute() (*LineItems, *http.Response, error) {
 	return r.ApiService.ListLinesExecute(r)
 }
 
@@ -3620,10 +3620,10 @@ ListLines List lines
 **Required ACL:** `confd.lines.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListLinesRequest
+	@return LinesAPIListLinesRequest
 */
-func (a *LinesAPIService) ListLines(ctx context.Context) ApiListLinesRequest {
-	return ApiListLinesRequest{
+func (a *LinesAPIService) ListLines(ctx context.Context) LinesAPIListLinesRequest {
+	return LinesAPIListLinesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3632,7 +3632,7 @@ func (a *LinesAPIService) ListLines(ctx context.Context) ApiListLinesRequest {
 // Execute executes the request
 //
 //	@return LineItems
-func (a *LinesAPIService) ListLinesExecute(r ApiListLinesRequest) (*LineItems, *http.Response, error) {
+func (a *LinesAPIService) ListLinesExecute(r LinesAPIListLinesRequest) (*LineItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3743,7 +3743,7 @@ func (a *LinesAPIService) ListLinesExecute(r ApiListLinesRequest) (*LineItems, *
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateLineRequest struct {
+type LinesAPIUpdateLineRequest struct {
 	ctx          context.Context
 	ApiService   LinesAPI
 	body         *Line
@@ -3751,18 +3751,18 @@ type ApiUpdateLineRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateLineRequest) Body(body Line) ApiUpdateLineRequest {
+func (r LinesAPIUpdateLineRequest) Body(body Line) LinesAPIUpdateLineRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateLineRequest) AccentTenant(accentTenant string) ApiUpdateLineRequest {
+func (r LinesAPIUpdateLineRequest) AccentTenant(accentTenant string) LinesAPIUpdateLineRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateLineRequest) Execute() (*http.Response, error) {
+func (r LinesAPIUpdateLineRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateLineExecute(r)
 }
 
@@ -3773,10 +3773,10 @@ UpdateLine Update line
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
-	@return ApiUpdateLineRequest
+	@return LinesAPIUpdateLineRequest
 */
-func (a *LinesAPIService) UpdateLine(ctx context.Context, lineId int32) ApiUpdateLineRequest {
-	return ApiUpdateLineRequest{
+func (a *LinesAPIService) UpdateLine(ctx context.Context, lineId int32) LinesAPIUpdateLineRequest {
+	return LinesAPIUpdateLineRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -3784,7 +3784,7 @@ func (a *LinesAPIService) UpdateLine(ctx context.Context, lineId int32) ApiUpdat
 }
 
 // Execute executes the request
-func (a *LinesAPIService) UpdateLineExecute(r ApiUpdateLineRequest) (*http.Response, error) {
+func (a *LinesAPIService) UpdateLineExecute(r LinesAPIUpdateLineRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

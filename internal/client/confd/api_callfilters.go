@@ -28,13 +28,13 @@ type CallfiltersAPI interface {
 		**Required ACL:** `confd.callfilters.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateCallfilterRequest
+		@return CallfiltersAPICreateCallfilterRequest
 	*/
-	CreateCallfilter(ctx context.Context) ApiCreateCallfilterRequest
+	CreateCallfilter(ctx context.Context) CallfiltersAPICreateCallfilterRequest
 
 	// CreateCallfilterExecute executes the request
 	//  @return CallFilter
-	CreateCallfilterExecute(r ApiCreateCallfilterRequest) (*CallFilter, *http.Response, error)
+	CreateCallfilterExecute(r CallfiltersAPICreateCallfilterRequest) (*CallFilter, *http.Response, error)
 
 	/*
 		DeleteCallfilter Delete call filter
@@ -43,12 +43,12 @@ type CallfiltersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiDeleteCallfilterRequest
+		@return CallfiltersAPIDeleteCallfilterRequest
 	*/
-	DeleteCallfilter(ctx context.Context, callfilterId int32) ApiDeleteCallfilterRequest
+	DeleteCallfilter(ctx context.Context, callfilterId int32) CallfiltersAPIDeleteCallfilterRequest
 
 	// DeleteCallfilterExecute executes the request
-	DeleteCallfilterExecute(r ApiDeleteCallfilterRequest) (*http.Response, error)
+	DeleteCallfilterExecute(r CallfiltersAPIDeleteCallfilterRequest) (*http.Response, error)
 
 	/*
 		GetCallFilterFallback List all fallbacks for call filter
@@ -57,13 +57,13 @@ type CallfiltersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiGetCallFilterFallbackRequest
+		@return CallfiltersAPIGetCallFilterFallbackRequest
 	*/
-	GetCallFilterFallback(ctx context.Context, callfilterId int32) ApiGetCallFilterFallbackRequest
+	GetCallFilterFallback(ctx context.Context, callfilterId int32) CallfiltersAPIGetCallFilterFallbackRequest
 
 	// GetCallFilterFallbackExecute executes the request
 	//  @return CallFilterFallbacks
-	GetCallFilterFallbackExecute(r ApiGetCallFilterFallbackRequest) (*CallFilterFallbacks, *http.Response, error)
+	GetCallFilterFallbackExecute(r CallfiltersAPIGetCallFilterFallbackRequest) (*CallFilterFallbacks, *http.Response, error)
 
 	/*
 		GetCallfilter Get call filter
@@ -72,13 +72,13 @@ type CallfiltersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiGetCallfilterRequest
+		@return CallfiltersAPIGetCallfilterRequest
 	*/
-	GetCallfilter(ctx context.Context, callfilterId int32) ApiGetCallfilterRequest
+	GetCallfilter(ctx context.Context, callfilterId int32) CallfiltersAPIGetCallfilterRequest
 
 	// GetCallfilterExecute executes the request
 	//  @return CallFilter
-	GetCallfilterExecute(r ApiGetCallfilterRequest) (*CallFilter, *http.Response, error)
+	GetCallfilterExecute(r CallfiltersAPIGetCallfilterRequest) (*CallFilter, *http.Response, error)
 
 	/*
 		ListCallFilters List call filters
@@ -86,13 +86,13 @@ type CallfiltersAPI interface {
 		**Required ACL:** `confd.callfilters.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListCallFiltersRequest
+		@return CallfiltersAPIListCallFiltersRequest
 	*/
-	ListCallFilters(ctx context.Context) ApiListCallFiltersRequest
+	ListCallFilters(ctx context.Context) CallfiltersAPIListCallFiltersRequest
 
 	// ListCallFiltersExecute executes the request
 	//  @return CallFilterItems
-	ListCallFiltersExecute(r ApiListCallFiltersRequest) (*CallFilterItems, *http.Response, error)
+	ListCallFiltersExecute(r CallfiltersAPIListCallFiltersRequest) (*CallFilterItems, *http.Response, error)
 
 	/*
 		UpdateCallFilterCallerUsers Update call filter and recipients
@@ -101,12 +101,12 @@ type CallfiltersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiUpdateCallFilterCallerUsersRequest
+		@return CallfiltersAPIUpdateCallFilterCallerUsersRequest
 	*/
-	UpdateCallFilterCallerUsers(ctx context.Context, callfilterId int32) ApiUpdateCallFilterCallerUsersRequest
+	UpdateCallFilterCallerUsers(ctx context.Context, callfilterId int32) CallfiltersAPIUpdateCallFilterCallerUsersRequest
 
 	// UpdateCallFilterCallerUsersExecute executes the request
-	UpdateCallFilterCallerUsersExecute(r ApiUpdateCallFilterCallerUsersRequest) (*http.Response, error)
+	UpdateCallFilterCallerUsersExecute(r CallfiltersAPIUpdateCallFilterCallerUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateCallFilterFallback Update call filter's fallbacks
@@ -115,12 +115,12 @@ type CallfiltersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiUpdateCallFilterFallbackRequest
+		@return CallfiltersAPIUpdateCallFilterFallbackRequest
 	*/
-	UpdateCallFilterFallback(ctx context.Context, callfilterId int32) ApiUpdateCallFilterFallbackRequest
+	UpdateCallFilterFallback(ctx context.Context, callfilterId int32) CallfiltersAPIUpdateCallFilterFallbackRequest
 
 	// UpdateCallFilterFallbackExecute executes the request
-	UpdateCallFilterFallbackExecute(r ApiUpdateCallFilterFallbackRequest) (*http.Response, error)
+	UpdateCallFilterFallbackExecute(r CallfiltersAPIUpdateCallFilterFallbackRequest) (*http.Response, error)
 
 	/*
 		UpdateCallFilterMemberUsers Update call filter and surrogates
@@ -129,12 +129,12 @@ type CallfiltersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiUpdateCallFilterMemberUsersRequest
+		@return CallfiltersAPIUpdateCallFilterMemberUsersRequest
 	*/
-	UpdateCallFilterMemberUsers(ctx context.Context, callfilterId int32) ApiUpdateCallFilterMemberUsersRequest
+	UpdateCallFilterMemberUsers(ctx context.Context, callfilterId int32) CallfiltersAPIUpdateCallFilterMemberUsersRequest
 
 	// UpdateCallFilterMemberUsersExecute executes the request
-	UpdateCallFilterMemberUsersExecute(r ApiUpdateCallFilterMemberUsersRequest) (*http.Response, error)
+	UpdateCallFilterMemberUsersExecute(r CallfiltersAPIUpdateCallFilterMemberUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateCallfilter Update call filter
@@ -143,18 +143,18 @@ type CallfiltersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiUpdateCallfilterRequest
+		@return CallfiltersAPIUpdateCallfilterRequest
 	*/
-	UpdateCallfilter(ctx context.Context, callfilterId int32) ApiUpdateCallfilterRequest
+	UpdateCallfilter(ctx context.Context, callfilterId int32) CallfiltersAPIUpdateCallfilterRequest
 
 	// UpdateCallfilterExecute executes the request
-	UpdateCallfilterExecute(r ApiUpdateCallfilterRequest) (*http.Response, error)
+	UpdateCallfilterExecute(r CallfiltersAPIUpdateCallfilterRequest) (*http.Response, error)
 }
 
 // CallfiltersAPIService CallfiltersAPI service
 type CallfiltersAPIService service
 
-type ApiCreateCallfilterRequest struct {
+type CallfiltersAPICreateCallfilterRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	body         *CallFilter
@@ -162,18 +162,18 @@ type ApiCreateCallfilterRequest struct {
 }
 
 // Call Filter to create
-func (r ApiCreateCallfilterRequest) Body(body CallFilter) ApiCreateCallfilterRequest {
+func (r CallfiltersAPICreateCallfilterRequest) Body(body CallFilter) CallfiltersAPICreateCallfilterRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateCallfilterRequest) AccentTenant(accentTenant string) ApiCreateCallfilterRequest {
+func (r CallfiltersAPICreateCallfilterRequest) AccentTenant(accentTenant string) CallfiltersAPICreateCallfilterRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateCallfilterRequest) Execute() (*CallFilter, *http.Response, error) {
+func (r CallfiltersAPICreateCallfilterRequest) Execute() (*CallFilter, *http.Response, error) {
 	return r.ApiService.CreateCallfilterExecute(r)
 }
 
@@ -183,10 +183,10 @@ CreateCallfilter Create call filter
 **Required ACL:** `confd.callfilters.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateCallfilterRequest
+	@return CallfiltersAPICreateCallfilterRequest
 */
-func (a *CallfiltersAPIService) CreateCallfilter(ctx context.Context) ApiCreateCallfilterRequest {
-	return ApiCreateCallfilterRequest{
+func (a *CallfiltersAPIService) CreateCallfilter(ctx context.Context) CallfiltersAPICreateCallfilterRequest {
+	return CallfiltersAPICreateCallfilterRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -195,7 +195,7 @@ func (a *CallfiltersAPIService) CreateCallfilter(ctx context.Context) ApiCreateC
 // Execute executes the request
 //
 //	@return CallFilter
-func (a *CallfiltersAPIService) CreateCallfilterExecute(r ApiCreateCallfilterRequest) (*CallFilter, *http.Response, error) {
+func (a *CallfiltersAPIService) CreateCallfilterExecute(r CallfiltersAPICreateCallfilterRequest) (*CallFilter, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -300,7 +300,7 @@ func (a *CallfiltersAPIService) CreateCallfilterExecute(r ApiCreateCallfilterReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteCallfilterRequest struct {
+type CallfiltersAPIDeleteCallfilterRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	callfilterId int32
@@ -308,12 +308,12 @@ type ApiDeleteCallfilterRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteCallfilterRequest) AccentTenant(accentTenant string) ApiDeleteCallfilterRequest {
+func (r CallfiltersAPIDeleteCallfilterRequest) AccentTenant(accentTenant string) CallfiltersAPIDeleteCallfilterRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteCallfilterRequest) Execute() (*http.Response, error) {
+func (r CallfiltersAPIDeleteCallfilterRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteCallfilterExecute(r)
 }
 
@@ -324,10 +324,10 @@ DeleteCallfilter Delete call filter
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiDeleteCallfilterRequest
+	@return CallfiltersAPIDeleteCallfilterRequest
 */
-func (a *CallfiltersAPIService) DeleteCallfilter(ctx context.Context, callfilterId int32) ApiDeleteCallfilterRequest {
-	return ApiDeleteCallfilterRequest{
+func (a *CallfiltersAPIService) DeleteCallfilter(ctx context.Context, callfilterId int32) CallfiltersAPIDeleteCallfilterRequest {
+	return CallfiltersAPIDeleteCallfilterRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -335,7 +335,7 @@ func (a *CallfiltersAPIService) DeleteCallfilter(ctx context.Context, callfilter
 }
 
 // Execute executes the request
-func (a *CallfiltersAPIService) DeleteCallfilterExecute(r ApiDeleteCallfilterRequest) (*http.Response, error) {
+func (a *CallfiltersAPIService) DeleteCallfilterExecute(r CallfiltersAPIDeleteCallfilterRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -437,13 +437,13 @@ func (a *CallfiltersAPIService) DeleteCallfilterExecute(r ApiDeleteCallfilterReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetCallFilterFallbackRequest struct {
+type CallfiltersAPIGetCallFilterFallbackRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	callfilterId int32
 }
 
-func (r ApiGetCallFilterFallbackRequest) Execute() (*CallFilterFallbacks, *http.Response, error) {
+func (r CallfiltersAPIGetCallFilterFallbackRequest) Execute() (*CallFilterFallbacks, *http.Response, error) {
 	return r.ApiService.GetCallFilterFallbackExecute(r)
 }
 
@@ -454,10 +454,10 @@ GetCallFilterFallback List all fallbacks for call filter
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiGetCallFilterFallbackRequest
+	@return CallfiltersAPIGetCallFilterFallbackRequest
 */
-func (a *CallfiltersAPIService) GetCallFilterFallback(ctx context.Context, callfilterId int32) ApiGetCallFilterFallbackRequest {
-	return ApiGetCallFilterFallbackRequest{
+func (a *CallfiltersAPIService) GetCallFilterFallback(ctx context.Context, callfilterId int32) CallfiltersAPIGetCallFilterFallbackRequest {
+	return CallfiltersAPIGetCallFilterFallbackRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -467,7 +467,7 @@ func (a *CallfiltersAPIService) GetCallFilterFallback(ctx context.Context, callf
 // Execute executes the request
 //
 //	@return CallFilterFallbacks
-func (a *CallfiltersAPIService) GetCallFilterFallbackExecute(r ApiGetCallFilterFallbackRequest) (*CallFilterFallbacks, *http.Response, error) {
+func (a *CallfiltersAPIService) GetCallFilterFallbackExecute(r CallfiltersAPIGetCallFilterFallbackRequest) (*CallFilterFallbacks, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -555,7 +555,7 @@ func (a *CallfiltersAPIService) GetCallFilterFallbackExecute(r ApiGetCallFilterF
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCallfilterRequest struct {
+type CallfiltersAPIGetCallfilterRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	callfilterId int32
@@ -563,12 +563,12 @@ type ApiGetCallfilterRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetCallfilterRequest) AccentTenant(accentTenant string) ApiGetCallfilterRequest {
+func (r CallfiltersAPIGetCallfilterRequest) AccentTenant(accentTenant string) CallfiltersAPIGetCallfilterRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetCallfilterRequest) Execute() (*CallFilter, *http.Response, error) {
+func (r CallfiltersAPIGetCallfilterRequest) Execute() (*CallFilter, *http.Response, error) {
 	return r.ApiService.GetCallfilterExecute(r)
 }
 
@@ -579,10 +579,10 @@ GetCallfilter Get call filter
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiGetCallfilterRequest
+	@return CallfiltersAPIGetCallfilterRequest
 */
-func (a *CallfiltersAPIService) GetCallfilter(ctx context.Context, callfilterId int32) ApiGetCallfilterRequest {
-	return ApiGetCallfilterRequest{
+func (a *CallfiltersAPIService) GetCallfilter(ctx context.Context, callfilterId int32) CallfiltersAPIGetCallfilterRequest {
+	return CallfiltersAPIGetCallfilterRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -592,7 +592,7 @@ func (a *CallfiltersAPIService) GetCallfilter(ctx context.Context, callfilterId 
 // Execute executes the request
 //
 //	@return CallFilter
-func (a *CallfiltersAPIService) GetCallfilterExecute(r ApiGetCallfilterRequest) (*CallFilter, *http.Response, error) {
+func (a *CallfiltersAPIService) GetCallfilterExecute(r CallfiltersAPIGetCallfilterRequest) (*CallFilter, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -693,7 +693,7 @@ func (a *CallfiltersAPIService) GetCallfilterExecute(r ApiGetCallfilterRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListCallFiltersRequest struct {
+type CallfiltersAPIListCallFiltersRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	accentTenant *string
@@ -706,48 +706,48 @@ type ApiListCallFiltersRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListCallFiltersRequest) AccentTenant(accentTenant string) ApiListCallFiltersRequest {
+func (r CallfiltersAPIListCallFiltersRequest) AccentTenant(accentTenant string) CallfiltersAPIListCallFiltersRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListCallFiltersRequest) Recurse(recurse bool) ApiListCallFiltersRequest {
+func (r CallfiltersAPIListCallFiltersRequest) Recurse(recurse bool) CallfiltersAPIListCallFiltersRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListCallFiltersRequest) Order(order string) ApiListCallFiltersRequest {
+func (r CallfiltersAPIListCallFiltersRequest) Order(order string) CallfiltersAPIListCallFiltersRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListCallFiltersRequest) Direction(direction string) ApiListCallFiltersRequest {
+func (r CallfiltersAPIListCallFiltersRequest) Direction(direction string) CallfiltersAPIListCallFiltersRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListCallFiltersRequest) Limit(limit int32) ApiListCallFiltersRequest {
+func (r CallfiltersAPIListCallFiltersRequest) Limit(limit int32) CallfiltersAPIListCallFiltersRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListCallFiltersRequest) Offset(offset int32) ApiListCallFiltersRequest {
+func (r CallfiltersAPIListCallFiltersRequest) Offset(offset int32) CallfiltersAPIListCallFiltersRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListCallFiltersRequest) Search(search string) ApiListCallFiltersRequest {
+func (r CallfiltersAPIListCallFiltersRequest) Search(search string) CallfiltersAPIListCallFiltersRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListCallFiltersRequest) Execute() (*CallFilterItems, *http.Response, error) {
+func (r CallfiltersAPIListCallFiltersRequest) Execute() (*CallFilterItems, *http.Response, error) {
 	return r.ApiService.ListCallFiltersExecute(r)
 }
 
@@ -757,10 +757,10 @@ ListCallFilters List call filters
 **Required ACL:** `confd.callfilters.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListCallFiltersRequest
+	@return CallfiltersAPIListCallFiltersRequest
 */
-func (a *CallfiltersAPIService) ListCallFilters(ctx context.Context) ApiListCallFiltersRequest {
-	return ApiListCallFiltersRequest{
+func (a *CallfiltersAPIService) ListCallFilters(ctx context.Context) CallfiltersAPIListCallFiltersRequest {
+	return CallfiltersAPIListCallFiltersRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -769,7 +769,7 @@ func (a *CallfiltersAPIService) ListCallFilters(ctx context.Context) ApiListCall
 // Execute executes the request
 //
 //	@return CallFilterItems
-func (a *CallfiltersAPIService) ListCallFiltersExecute(r ApiListCallFiltersRequest) (*CallFilterItems, *http.Response, error) {
+func (a *CallfiltersAPIService) ListCallFiltersExecute(r CallfiltersAPIListCallFiltersRequest) (*CallFilterItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -880,7 +880,7 @@ func (a *CallfiltersAPIService) ListCallFiltersExecute(r ApiListCallFiltersReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallFilterCallerUsersRequest struct {
+type CallfiltersAPIUpdateCallFilterCallerUsersRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	body         *CallFilterRecipientUsersUuid
@@ -888,12 +888,12 @@ type ApiUpdateCallFilterCallerUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateCallFilterCallerUsersRequest) Body(body CallFilterRecipientUsersUuid) ApiUpdateCallFilterCallerUsersRequest {
+func (r CallfiltersAPIUpdateCallFilterCallerUsersRequest) Body(body CallFilterRecipientUsersUuid) CallfiltersAPIUpdateCallFilterCallerUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateCallFilterCallerUsersRequest) Execute() (*http.Response, error) {
+func (r CallfiltersAPIUpdateCallFilterCallerUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallFilterCallerUsersExecute(r)
 }
 
@@ -904,10 +904,10 @@ UpdateCallFilterCallerUsers Update call filter and recipients
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiUpdateCallFilterCallerUsersRequest
+	@return CallfiltersAPIUpdateCallFilterCallerUsersRequest
 */
-func (a *CallfiltersAPIService) UpdateCallFilterCallerUsers(ctx context.Context, callfilterId int32) ApiUpdateCallFilterCallerUsersRequest {
-	return ApiUpdateCallFilterCallerUsersRequest{
+func (a *CallfiltersAPIService) UpdateCallFilterCallerUsers(ctx context.Context, callfilterId int32) CallfiltersAPIUpdateCallFilterCallerUsersRequest {
+	return CallfiltersAPIUpdateCallFilterCallerUsersRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -915,7 +915,7 @@ func (a *CallfiltersAPIService) UpdateCallFilterCallerUsers(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *CallfiltersAPIService) UpdateCallFilterCallerUsersExecute(r ApiUpdateCallFilterCallerUsersRequest) (*http.Response, error) {
+func (a *CallfiltersAPIService) UpdateCallFilterCallerUsersExecute(r CallfiltersAPIUpdateCallFilterCallerUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1019,7 +1019,7 @@ func (a *CallfiltersAPIService) UpdateCallFilterCallerUsersExecute(r ApiUpdateCa
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallFilterFallbackRequest struct {
+type CallfiltersAPIUpdateCallFilterFallbackRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	callfilterId int32
@@ -1027,12 +1027,12 @@ type ApiUpdateCallFilterFallbackRequest struct {
 }
 
 // Fallbacks for call filter
-func (r ApiUpdateCallFilterFallbackRequest) Body(body CallFilterFallbacks) ApiUpdateCallFilterFallbackRequest {
+func (r CallfiltersAPIUpdateCallFilterFallbackRequest) Body(body CallFilterFallbacks) CallfiltersAPIUpdateCallFilterFallbackRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateCallFilterFallbackRequest) Execute() (*http.Response, error) {
+func (r CallfiltersAPIUpdateCallFilterFallbackRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallFilterFallbackExecute(r)
 }
 
@@ -1043,10 +1043,10 @@ UpdateCallFilterFallback Update call filter's fallbacks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiUpdateCallFilterFallbackRequest
+	@return CallfiltersAPIUpdateCallFilterFallbackRequest
 */
-func (a *CallfiltersAPIService) UpdateCallFilterFallback(ctx context.Context, callfilterId int32) ApiUpdateCallFilterFallbackRequest {
-	return ApiUpdateCallFilterFallbackRequest{
+func (a *CallfiltersAPIService) UpdateCallFilterFallback(ctx context.Context, callfilterId int32) CallfiltersAPIUpdateCallFilterFallbackRequest {
+	return CallfiltersAPIUpdateCallFilterFallbackRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -1054,7 +1054,7 @@ func (a *CallfiltersAPIService) UpdateCallFilterFallback(ctx context.Context, ca
 }
 
 // Execute executes the request
-func (a *CallfiltersAPIService) UpdateCallFilterFallbackExecute(r ApiUpdateCallFilterFallbackRequest) (*http.Response, error) {
+func (a *CallfiltersAPIService) UpdateCallFilterFallbackExecute(r CallfiltersAPIUpdateCallFilterFallbackRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1155,7 +1155,7 @@ func (a *CallfiltersAPIService) UpdateCallFilterFallbackExecute(r ApiUpdateCallF
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallFilterMemberUsersRequest struct {
+type CallfiltersAPIUpdateCallFilterMemberUsersRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	body         *UsersUuid
@@ -1163,12 +1163,12 @@ type ApiUpdateCallFilterMemberUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateCallFilterMemberUsersRequest) Body(body UsersUuid) ApiUpdateCallFilterMemberUsersRequest {
+func (r CallfiltersAPIUpdateCallFilterMemberUsersRequest) Body(body UsersUuid) CallfiltersAPIUpdateCallFilterMemberUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateCallFilterMemberUsersRequest) Execute() (*http.Response, error) {
+func (r CallfiltersAPIUpdateCallFilterMemberUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallFilterMemberUsersExecute(r)
 }
 
@@ -1179,10 +1179,10 @@ UpdateCallFilterMemberUsers Update call filter and surrogates
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiUpdateCallFilterMemberUsersRequest
+	@return CallfiltersAPIUpdateCallFilterMemberUsersRequest
 */
-func (a *CallfiltersAPIService) UpdateCallFilterMemberUsers(ctx context.Context, callfilterId int32) ApiUpdateCallFilterMemberUsersRequest {
-	return ApiUpdateCallFilterMemberUsersRequest{
+func (a *CallfiltersAPIService) UpdateCallFilterMemberUsers(ctx context.Context, callfilterId int32) CallfiltersAPIUpdateCallFilterMemberUsersRequest {
+	return CallfiltersAPIUpdateCallFilterMemberUsersRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -1190,7 +1190,7 @@ func (a *CallfiltersAPIService) UpdateCallFilterMemberUsers(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *CallfiltersAPIService) UpdateCallFilterMemberUsersExecute(r ApiUpdateCallFilterMemberUsersRequest) (*http.Response, error) {
+func (a *CallfiltersAPIService) UpdateCallFilterMemberUsersExecute(r CallfiltersAPIUpdateCallFilterMemberUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1294,7 +1294,7 @@ func (a *CallfiltersAPIService) UpdateCallFilterMemberUsersExecute(r ApiUpdateCa
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallfilterRequest struct {
+type CallfiltersAPIUpdateCallfilterRequest struct {
 	ctx          context.Context
 	ApiService   CallfiltersAPI
 	body         *CallFilter
@@ -1302,18 +1302,18 @@ type ApiUpdateCallfilterRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateCallfilterRequest) Body(body CallFilter) ApiUpdateCallfilterRequest {
+func (r CallfiltersAPIUpdateCallfilterRequest) Body(body CallFilter) CallfiltersAPIUpdateCallfilterRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallfilterRequest) AccentTenant(accentTenant string) ApiUpdateCallfilterRequest {
+func (r CallfiltersAPIUpdateCallfilterRequest) AccentTenant(accentTenant string) CallfiltersAPIUpdateCallfilterRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallfilterRequest) Execute() (*http.Response, error) {
+func (r CallfiltersAPIUpdateCallfilterRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallfilterExecute(r)
 }
 
@@ -1324,10 +1324,10 @@ UpdateCallfilter Update call filter
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiUpdateCallfilterRequest
+	@return CallfiltersAPIUpdateCallfilterRequest
 */
-func (a *CallfiltersAPIService) UpdateCallfilter(ctx context.Context, callfilterId int32) ApiUpdateCallfilterRequest {
-	return ApiUpdateCallfilterRequest{
+func (a *CallfiltersAPIService) UpdateCallfilter(ctx context.Context, callfilterId int32) CallfiltersAPIUpdateCallfilterRequest {
+	return CallfiltersAPIUpdateCallfilterRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -1335,7 +1335,7 @@ func (a *CallfiltersAPIService) UpdateCallfilter(ctx context.Context, callfilter
 }
 
 // Execute executes the request
-func (a *CallfiltersAPIService) UpdateCallfilterExecute(r ApiUpdateCallfilterRequest) (*http.Response, error) {
+func (a *CallfiltersAPIService) UpdateCallfilterExecute(r CallfiltersAPIUpdateCallfilterRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

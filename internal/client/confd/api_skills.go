@@ -30,12 +30,12 @@ type SkillsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent’s ID
 		@param skillId Skill's ID
-		@return ApiAssociateAgentSkillRequest
+		@return SkillsAPIAssociateAgentSkillRequest
 	*/
-	AssociateAgentSkill(ctx context.Context, agentId int32, skillId int32) ApiAssociateAgentSkillRequest
+	AssociateAgentSkill(ctx context.Context, agentId int32, skillId int32) SkillsAPIAssociateAgentSkillRequest
 
 	// AssociateAgentSkillExecute executes the request
-	AssociateAgentSkillExecute(r ApiAssociateAgentSkillRequest) (*http.Response, error)
+	AssociateAgentSkillExecute(r SkillsAPIAssociateAgentSkillRequest) (*http.Response, error)
 
 	/*
 		CreateSkill Create skill
@@ -43,13 +43,13 @@ type SkillsAPI interface {
 		**Required ACL:** `confd.agents.skills.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateSkillRequest
+		@return SkillsAPICreateSkillRequest
 	*/
-	CreateSkill(ctx context.Context) ApiCreateSkillRequest
+	CreateSkill(ctx context.Context) SkillsAPICreateSkillRequest
 
 	// CreateSkillExecute executes the request
 	//  @return Skill
-	CreateSkillExecute(r ApiCreateSkillRequest) (*Skill, *http.Response, error)
+	CreateSkillExecute(r SkillsAPICreateSkillRequest) (*Skill, *http.Response, error)
 
 	/*
 		CreateSkillRule Create skill rule
@@ -57,13 +57,13 @@ type SkillsAPI interface {
 		**Required ACL:** `confd.queues.skillrules.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateSkillRuleRequest
+		@return SkillsAPICreateSkillRuleRequest
 	*/
-	CreateSkillRule(ctx context.Context) ApiCreateSkillRuleRequest
+	CreateSkillRule(ctx context.Context) SkillsAPICreateSkillRuleRequest
 
 	// CreateSkillRuleExecute executes the request
 	//  @return SkillRule
-	CreateSkillRuleExecute(r ApiCreateSkillRuleRequest) (*SkillRule, *http.Response, error)
+	CreateSkillRuleExecute(r SkillsAPICreateSkillRuleRequest) (*SkillRule, *http.Response, error)
 
 	/*
 		DeleteSkill Delete skill
@@ -72,12 +72,12 @@ type SkillsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillId Skill's ID
-		@return ApiDeleteSkillRequest
+		@return SkillsAPIDeleteSkillRequest
 	*/
-	DeleteSkill(ctx context.Context, skillId int32) ApiDeleteSkillRequest
+	DeleteSkill(ctx context.Context, skillId int32) SkillsAPIDeleteSkillRequest
 
 	// DeleteSkillExecute executes the request
-	DeleteSkillExecute(r ApiDeleteSkillRequest) (*http.Response, error)
+	DeleteSkillExecute(r SkillsAPIDeleteSkillRequest) (*http.Response, error)
 
 	/*
 		DeleteSkillRule Delete skill rule
@@ -86,12 +86,12 @@ type SkillsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillruleId Skill's ID
-		@return ApiDeleteSkillRuleRequest
+		@return SkillsAPIDeleteSkillRuleRequest
 	*/
-	DeleteSkillRule(ctx context.Context, skillruleId int32) ApiDeleteSkillRuleRequest
+	DeleteSkillRule(ctx context.Context, skillruleId int32) SkillsAPIDeleteSkillRuleRequest
 
 	// DeleteSkillRuleExecute executes the request
-	DeleteSkillRuleExecute(r ApiDeleteSkillRuleRequest) (*http.Response, error)
+	DeleteSkillRuleExecute(r SkillsAPIDeleteSkillRuleRequest) (*http.Response, error)
 
 	/*
 		DissociateAgentSkill Dissociate agent and skill
@@ -101,12 +101,12 @@ type SkillsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent’s ID
 		@param skillId Skill's ID
-		@return ApiDissociateAgentSkillRequest
+		@return SkillsAPIDissociateAgentSkillRequest
 	*/
-	DissociateAgentSkill(ctx context.Context, agentId int32, skillId int32) ApiDissociateAgentSkillRequest
+	DissociateAgentSkill(ctx context.Context, agentId int32, skillId int32) SkillsAPIDissociateAgentSkillRequest
 
 	// DissociateAgentSkillExecute executes the request
-	DissociateAgentSkillExecute(r ApiDissociateAgentSkillRequest) (*http.Response, error)
+	DissociateAgentSkillExecute(r SkillsAPIDissociateAgentSkillRequest) (*http.Response, error)
 
 	/*
 		GetSkill Get skill
@@ -115,13 +115,13 @@ type SkillsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillId Skill's ID
-		@return ApiGetSkillRequest
+		@return SkillsAPIGetSkillRequest
 	*/
-	GetSkill(ctx context.Context, skillId int32) ApiGetSkillRequest
+	GetSkill(ctx context.Context, skillId int32) SkillsAPIGetSkillRequest
 
 	// GetSkillExecute executes the request
 	//  @return Skill
-	GetSkillExecute(r ApiGetSkillRequest) (*Skill, *http.Response, error)
+	GetSkillExecute(r SkillsAPIGetSkillRequest) (*Skill, *http.Response, error)
 
 	/*
 		GetSkillRule Get skill rule
@@ -130,13 +130,13 @@ type SkillsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillruleId Skill's ID
-		@return ApiGetSkillRuleRequest
+		@return SkillsAPIGetSkillRuleRequest
 	*/
-	GetSkillRule(ctx context.Context, skillruleId int32) ApiGetSkillRuleRequest
+	GetSkillRule(ctx context.Context, skillruleId int32) SkillsAPIGetSkillRuleRequest
 
 	// GetSkillRuleExecute executes the request
 	//  @return SkillRule
-	GetSkillRuleExecute(r ApiGetSkillRuleRequest) (*SkillRule, *http.Response, error)
+	GetSkillRuleExecute(r SkillsAPIGetSkillRuleRequest) (*SkillRule, *http.Response, error)
 
 	/*
 		ListSkillRules List skill rule
@@ -144,13 +144,13 @@ type SkillsAPI interface {
 		**Required ACL:** `confd.queues.skillrules.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSkillRulesRequest
+		@return SkillsAPIListSkillRulesRequest
 	*/
-	ListSkillRules(ctx context.Context) ApiListSkillRulesRequest
+	ListSkillRules(ctx context.Context) SkillsAPIListSkillRulesRequest
 
 	// ListSkillRulesExecute executes the request
 	//  @return SkillRuleItems
-	ListSkillRulesExecute(r ApiListSkillRulesRequest) (*SkillRuleItems, *http.Response, error)
+	ListSkillRulesExecute(r SkillsAPIListSkillRulesRequest) (*SkillRuleItems, *http.Response, error)
 
 	/*
 		ListSkills List skill
@@ -158,13 +158,13 @@ type SkillsAPI interface {
 		**Required ACL:** `confd.agents.skills.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSkillsRequest
+		@return SkillsAPIListSkillsRequest
 	*/
-	ListSkills(ctx context.Context) ApiListSkillsRequest
+	ListSkills(ctx context.Context) SkillsAPIListSkillsRequest
 
 	// ListSkillsExecute executes the request
 	//  @return SkillItems
-	ListSkillsExecute(r ApiListSkillsRequest) (*SkillItems, *http.Response, error)
+	ListSkillsExecute(r SkillsAPIListSkillsRequest) (*SkillItems, *http.Response, error)
 
 	/*
 		UpdateSkill Update skill
@@ -173,12 +173,12 @@ type SkillsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillId Skill's ID
-		@return ApiUpdateSkillRequest
+		@return SkillsAPIUpdateSkillRequest
 	*/
-	UpdateSkill(ctx context.Context, skillId int32) ApiUpdateSkillRequest
+	UpdateSkill(ctx context.Context, skillId int32) SkillsAPIUpdateSkillRequest
 
 	// UpdateSkillExecute executes the request
-	UpdateSkillExecute(r ApiUpdateSkillRequest) (*http.Response, error)
+	UpdateSkillExecute(r SkillsAPIUpdateSkillRequest) (*http.Response, error)
 
 	/*
 		UpdateSkillRule Update skill rule
@@ -187,18 +187,18 @@ type SkillsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillruleId Skill's ID
-		@return ApiUpdateSkillRuleRequest
+		@return SkillsAPIUpdateSkillRuleRequest
 	*/
-	UpdateSkillRule(ctx context.Context, skillruleId int32) ApiUpdateSkillRuleRequest
+	UpdateSkillRule(ctx context.Context, skillruleId int32) SkillsAPIUpdateSkillRuleRequest
 
 	// UpdateSkillRuleExecute executes the request
-	UpdateSkillRuleExecute(r ApiUpdateSkillRuleRequest) (*http.Response, error)
+	UpdateSkillRuleExecute(r SkillsAPIUpdateSkillRuleRequest) (*http.Response, error)
 }
 
 // SkillsAPIService SkillsAPI service
 type SkillsAPIService service
 
-type ApiAssociateAgentSkillRequest struct {
+type SkillsAPIAssociateAgentSkillRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	agentId      int32
@@ -207,18 +207,18 @@ type ApiAssociateAgentSkillRequest struct {
 	accentTenant *string
 }
 
-func (r ApiAssociateAgentSkillRequest) Body(body AgentSkill) ApiAssociateAgentSkillRequest {
+func (r SkillsAPIAssociateAgentSkillRequest) Body(body AgentSkill) SkillsAPIAssociateAgentSkillRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateAgentSkillRequest) AccentTenant(accentTenant string) ApiAssociateAgentSkillRequest {
+func (r SkillsAPIAssociateAgentSkillRequest) AccentTenant(accentTenant string) SkillsAPIAssociateAgentSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateAgentSkillRequest) Execute() (*http.Response, error) {
+func (r SkillsAPIAssociateAgentSkillRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateAgentSkillExecute(r)
 }
 
@@ -230,10 +230,10 @@ AssociateAgentSkill Associate agent and skill
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent’s ID
 	@param skillId Skill's ID
-	@return ApiAssociateAgentSkillRequest
+	@return SkillsAPIAssociateAgentSkillRequest
 */
-func (a *SkillsAPIService) AssociateAgentSkill(ctx context.Context, agentId int32, skillId int32) ApiAssociateAgentSkillRequest {
-	return ApiAssociateAgentSkillRequest{
+func (a *SkillsAPIService) AssociateAgentSkill(ctx context.Context, agentId int32, skillId int32) SkillsAPIAssociateAgentSkillRequest {
+	return SkillsAPIAssociateAgentSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -242,7 +242,7 @@ func (a *SkillsAPIService) AssociateAgentSkill(ctx context.Context, agentId int3
 }
 
 // Execute executes the request
-func (a *SkillsAPIService) AssociateAgentSkillExecute(r ApiAssociateAgentSkillRequest) (*http.Response, error) {
+func (a *SkillsAPIService) AssociateAgentSkillExecute(r SkillsAPIAssociateAgentSkillRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -347,7 +347,7 @@ func (a *SkillsAPIService) AssociateAgentSkillExecute(r ApiAssociateAgentSkillRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateSkillRequest struct {
+type SkillsAPICreateSkillRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	body         *Skill
@@ -355,18 +355,18 @@ type ApiCreateSkillRequest struct {
 }
 
 // Skill to create
-func (r ApiCreateSkillRequest) Body(body Skill) ApiCreateSkillRequest {
+func (r SkillsAPICreateSkillRequest) Body(body Skill) SkillsAPICreateSkillRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateSkillRequest) AccentTenant(accentTenant string) ApiCreateSkillRequest {
+func (r SkillsAPICreateSkillRequest) AccentTenant(accentTenant string) SkillsAPICreateSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateSkillRequest) Execute() (*Skill, *http.Response, error) {
+func (r SkillsAPICreateSkillRequest) Execute() (*Skill, *http.Response, error) {
 	return r.ApiService.CreateSkillExecute(r)
 }
 
@@ -376,10 +376,10 @@ CreateSkill Create skill
 **Required ACL:** `confd.agents.skills.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateSkillRequest
+	@return SkillsAPICreateSkillRequest
 */
-func (a *SkillsAPIService) CreateSkill(ctx context.Context) ApiCreateSkillRequest {
-	return ApiCreateSkillRequest{
+func (a *SkillsAPIService) CreateSkill(ctx context.Context) SkillsAPICreateSkillRequest {
+	return SkillsAPICreateSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -388,7 +388,7 @@ func (a *SkillsAPIService) CreateSkill(ctx context.Context) ApiCreateSkillReques
 // Execute executes the request
 //
 //	@return Skill
-func (a *SkillsAPIService) CreateSkillExecute(r ApiCreateSkillRequest) (*Skill, *http.Response, error) {
+func (a *SkillsAPIService) CreateSkillExecute(r SkillsAPICreateSkillRequest) (*Skill, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -493,7 +493,7 @@ func (a *SkillsAPIService) CreateSkillExecute(r ApiCreateSkillRequest) (*Skill, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateSkillRuleRequest struct {
+type SkillsAPICreateSkillRuleRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	body         *SkillRule
@@ -501,18 +501,18 @@ type ApiCreateSkillRuleRequest struct {
 }
 
 // Skill rule to create
-func (r ApiCreateSkillRuleRequest) Body(body SkillRule) ApiCreateSkillRuleRequest {
+func (r SkillsAPICreateSkillRuleRequest) Body(body SkillRule) SkillsAPICreateSkillRuleRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateSkillRuleRequest) AccentTenant(accentTenant string) ApiCreateSkillRuleRequest {
+func (r SkillsAPICreateSkillRuleRequest) AccentTenant(accentTenant string) SkillsAPICreateSkillRuleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateSkillRuleRequest) Execute() (*SkillRule, *http.Response, error) {
+func (r SkillsAPICreateSkillRuleRequest) Execute() (*SkillRule, *http.Response, error) {
 	return r.ApiService.CreateSkillRuleExecute(r)
 }
 
@@ -522,10 +522,10 @@ CreateSkillRule Create skill rule
 **Required ACL:** `confd.queues.skillrules.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateSkillRuleRequest
+	@return SkillsAPICreateSkillRuleRequest
 */
-func (a *SkillsAPIService) CreateSkillRule(ctx context.Context) ApiCreateSkillRuleRequest {
-	return ApiCreateSkillRuleRequest{
+func (a *SkillsAPIService) CreateSkillRule(ctx context.Context) SkillsAPICreateSkillRuleRequest {
+	return SkillsAPICreateSkillRuleRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -534,7 +534,7 @@ func (a *SkillsAPIService) CreateSkillRule(ctx context.Context) ApiCreateSkillRu
 // Execute executes the request
 //
 //	@return SkillRule
-func (a *SkillsAPIService) CreateSkillRuleExecute(r ApiCreateSkillRuleRequest) (*SkillRule, *http.Response, error) {
+func (a *SkillsAPIService) CreateSkillRuleExecute(r SkillsAPICreateSkillRuleRequest) (*SkillRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -639,7 +639,7 @@ func (a *SkillsAPIService) CreateSkillRuleExecute(r ApiCreateSkillRuleRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteSkillRequest struct {
+type SkillsAPIDeleteSkillRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	skillId      int32
@@ -647,12 +647,12 @@ type ApiDeleteSkillRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteSkillRequest) AccentTenant(accentTenant string) ApiDeleteSkillRequest {
+func (r SkillsAPIDeleteSkillRequest) AccentTenant(accentTenant string) SkillsAPIDeleteSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteSkillRequest) Execute() (*http.Response, error) {
+func (r SkillsAPIDeleteSkillRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteSkillExecute(r)
 }
 
@@ -663,10 +663,10 @@ DeleteSkill Delete skill
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillId Skill's ID
-	@return ApiDeleteSkillRequest
+	@return SkillsAPIDeleteSkillRequest
 */
-func (a *SkillsAPIService) DeleteSkill(ctx context.Context, skillId int32) ApiDeleteSkillRequest {
-	return ApiDeleteSkillRequest{
+func (a *SkillsAPIService) DeleteSkill(ctx context.Context, skillId int32) SkillsAPIDeleteSkillRequest {
+	return SkillsAPIDeleteSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 		skillId:    skillId,
@@ -674,7 +674,7 @@ func (a *SkillsAPIService) DeleteSkill(ctx context.Context, skillId int32) ApiDe
 }
 
 // Execute executes the request
-func (a *SkillsAPIService) DeleteSkillExecute(r ApiDeleteSkillRequest) (*http.Response, error) {
+func (a *SkillsAPIService) DeleteSkillExecute(r SkillsAPIDeleteSkillRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -776,7 +776,7 @@ func (a *SkillsAPIService) DeleteSkillExecute(r ApiDeleteSkillRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteSkillRuleRequest struct {
+type SkillsAPIDeleteSkillRuleRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	skillruleId  int32
@@ -784,12 +784,12 @@ type ApiDeleteSkillRuleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteSkillRuleRequest) AccentTenant(accentTenant string) ApiDeleteSkillRuleRequest {
+func (r SkillsAPIDeleteSkillRuleRequest) AccentTenant(accentTenant string) SkillsAPIDeleteSkillRuleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteSkillRuleRequest) Execute() (*http.Response, error) {
+func (r SkillsAPIDeleteSkillRuleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteSkillRuleExecute(r)
 }
 
@@ -800,10 +800,10 @@ DeleteSkillRule Delete skill rule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillruleId Skill's ID
-	@return ApiDeleteSkillRuleRequest
+	@return SkillsAPIDeleteSkillRuleRequest
 */
-func (a *SkillsAPIService) DeleteSkillRule(ctx context.Context, skillruleId int32) ApiDeleteSkillRuleRequest {
-	return ApiDeleteSkillRuleRequest{
+func (a *SkillsAPIService) DeleteSkillRule(ctx context.Context, skillruleId int32) SkillsAPIDeleteSkillRuleRequest {
+	return SkillsAPIDeleteSkillRuleRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		skillruleId: skillruleId,
@@ -811,7 +811,7 @@ func (a *SkillsAPIService) DeleteSkillRule(ctx context.Context, skillruleId int3
 }
 
 // Execute executes the request
-func (a *SkillsAPIService) DeleteSkillRuleExecute(r ApiDeleteSkillRuleRequest) (*http.Response, error) {
+func (a *SkillsAPIService) DeleteSkillRuleExecute(r SkillsAPIDeleteSkillRuleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -913,7 +913,7 @@ func (a *SkillsAPIService) DeleteSkillRuleExecute(r ApiDeleteSkillRuleRequest) (
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateAgentSkillRequest struct {
+type SkillsAPIDissociateAgentSkillRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	agentId      int32
@@ -922,12 +922,12 @@ type ApiDissociateAgentSkillRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateAgentSkillRequest) AccentTenant(accentTenant string) ApiDissociateAgentSkillRequest {
+func (r SkillsAPIDissociateAgentSkillRequest) AccentTenant(accentTenant string) SkillsAPIDissociateAgentSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateAgentSkillRequest) Execute() (*http.Response, error) {
+func (r SkillsAPIDissociateAgentSkillRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateAgentSkillExecute(r)
 }
 
@@ -939,10 +939,10 @@ DissociateAgentSkill Dissociate agent and skill
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent’s ID
 	@param skillId Skill's ID
-	@return ApiDissociateAgentSkillRequest
+	@return SkillsAPIDissociateAgentSkillRequest
 */
-func (a *SkillsAPIService) DissociateAgentSkill(ctx context.Context, agentId int32, skillId int32) ApiDissociateAgentSkillRequest {
-	return ApiDissociateAgentSkillRequest{
+func (a *SkillsAPIService) DissociateAgentSkill(ctx context.Context, agentId int32, skillId int32) SkillsAPIDissociateAgentSkillRequest {
+	return SkillsAPIDissociateAgentSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -951,7 +951,7 @@ func (a *SkillsAPIService) DissociateAgentSkill(ctx context.Context, agentId int
 }
 
 // Execute executes the request
-func (a *SkillsAPIService) DissociateAgentSkillExecute(r ApiDissociateAgentSkillRequest) (*http.Response, error) {
+func (a *SkillsAPIService) DissociateAgentSkillExecute(r SkillsAPIDissociateAgentSkillRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1054,7 +1054,7 @@ func (a *SkillsAPIService) DissociateAgentSkillExecute(r ApiDissociateAgentSkill
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetSkillRequest struct {
+type SkillsAPIGetSkillRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	skillId      int32
@@ -1062,12 +1062,12 @@ type ApiGetSkillRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetSkillRequest) AccentTenant(accentTenant string) ApiGetSkillRequest {
+func (r SkillsAPIGetSkillRequest) AccentTenant(accentTenant string) SkillsAPIGetSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetSkillRequest) Execute() (*Skill, *http.Response, error) {
+func (r SkillsAPIGetSkillRequest) Execute() (*Skill, *http.Response, error) {
 	return r.ApiService.GetSkillExecute(r)
 }
 
@@ -1078,10 +1078,10 @@ GetSkill Get skill
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillId Skill's ID
-	@return ApiGetSkillRequest
+	@return SkillsAPIGetSkillRequest
 */
-func (a *SkillsAPIService) GetSkill(ctx context.Context, skillId int32) ApiGetSkillRequest {
-	return ApiGetSkillRequest{
+func (a *SkillsAPIService) GetSkill(ctx context.Context, skillId int32) SkillsAPIGetSkillRequest {
+	return SkillsAPIGetSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 		skillId:    skillId,
@@ -1091,7 +1091,7 @@ func (a *SkillsAPIService) GetSkill(ctx context.Context, skillId int32) ApiGetSk
 // Execute executes the request
 //
 //	@return Skill
-func (a *SkillsAPIService) GetSkillExecute(r ApiGetSkillRequest) (*Skill, *http.Response, error) {
+func (a *SkillsAPIService) GetSkillExecute(r SkillsAPIGetSkillRequest) (*Skill, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1192,7 +1192,7 @@ func (a *SkillsAPIService) GetSkillExecute(r ApiGetSkillRequest) (*Skill, *http.
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSkillRuleRequest struct {
+type SkillsAPIGetSkillRuleRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	skillruleId  int32
@@ -1200,12 +1200,12 @@ type ApiGetSkillRuleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetSkillRuleRequest) AccentTenant(accentTenant string) ApiGetSkillRuleRequest {
+func (r SkillsAPIGetSkillRuleRequest) AccentTenant(accentTenant string) SkillsAPIGetSkillRuleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetSkillRuleRequest) Execute() (*SkillRule, *http.Response, error) {
+func (r SkillsAPIGetSkillRuleRequest) Execute() (*SkillRule, *http.Response, error) {
 	return r.ApiService.GetSkillRuleExecute(r)
 }
 
@@ -1216,10 +1216,10 @@ GetSkillRule Get skill rule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillruleId Skill's ID
-	@return ApiGetSkillRuleRequest
+	@return SkillsAPIGetSkillRuleRequest
 */
-func (a *SkillsAPIService) GetSkillRule(ctx context.Context, skillruleId int32) ApiGetSkillRuleRequest {
-	return ApiGetSkillRuleRequest{
+func (a *SkillsAPIService) GetSkillRule(ctx context.Context, skillruleId int32) SkillsAPIGetSkillRuleRequest {
+	return SkillsAPIGetSkillRuleRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		skillruleId: skillruleId,
@@ -1229,7 +1229,7 @@ func (a *SkillsAPIService) GetSkillRule(ctx context.Context, skillruleId int32) 
 // Execute executes the request
 //
 //	@return SkillRule
-func (a *SkillsAPIService) GetSkillRuleExecute(r ApiGetSkillRuleRequest) (*SkillRule, *http.Response, error) {
+func (a *SkillsAPIService) GetSkillRuleExecute(r SkillsAPIGetSkillRuleRequest) (*SkillRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1330,7 +1330,7 @@ func (a *SkillsAPIService) GetSkillRuleExecute(r ApiGetSkillRuleRequest) (*Skill
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSkillRulesRequest struct {
+type SkillsAPIListSkillRulesRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	accentTenant *string
@@ -1343,48 +1343,48 @@ type ApiListSkillRulesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListSkillRulesRequest) AccentTenant(accentTenant string) ApiListSkillRulesRequest {
+func (r SkillsAPIListSkillRulesRequest) AccentTenant(accentTenant string) SkillsAPIListSkillRulesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListSkillRulesRequest) Recurse(recurse bool) ApiListSkillRulesRequest {
+func (r SkillsAPIListSkillRulesRequest) Recurse(recurse bool) SkillsAPIListSkillRulesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListSkillRulesRequest) Order(order string) ApiListSkillRulesRequest {
+func (r SkillsAPIListSkillRulesRequest) Order(order string) SkillsAPIListSkillRulesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListSkillRulesRequest) Direction(direction string) ApiListSkillRulesRequest {
+func (r SkillsAPIListSkillRulesRequest) Direction(direction string) SkillsAPIListSkillRulesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListSkillRulesRequest) Limit(limit int32) ApiListSkillRulesRequest {
+func (r SkillsAPIListSkillRulesRequest) Limit(limit int32) SkillsAPIListSkillRulesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListSkillRulesRequest) Offset(offset int32) ApiListSkillRulesRequest {
+func (r SkillsAPIListSkillRulesRequest) Offset(offset int32) SkillsAPIListSkillRulesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListSkillRulesRequest) Search(search string) ApiListSkillRulesRequest {
+func (r SkillsAPIListSkillRulesRequest) Search(search string) SkillsAPIListSkillRulesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListSkillRulesRequest) Execute() (*SkillRuleItems, *http.Response, error) {
+func (r SkillsAPIListSkillRulesRequest) Execute() (*SkillRuleItems, *http.Response, error) {
 	return r.ApiService.ListSkillRulesExecute(r)
 }
 
@@ -1394,10 +1394,10 @@ ListSkillRules List skill rule
 **Required ACL:** `confd.queues.skillrules.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListSkillRulesRequest
+	@return SkillsAPIListSkillRulesRequest
 */
-func (a *SkillsAPIService) ListSkillRules(ctx context.Context) ApiListSkillRulesRequest {
-	return ApiListSkillRulesRequest{
+func (a *SkillsAPIService) ListSkillRules(ctx context.Context) SkillsAPIListSkillRulesRequest {
+	return SkillsAPIListSkillRulesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1406,7 +1406,7 @@ func (a *SkillsAPIService) ListSkillRules(ctx context.Context) ApiListSkillRules
 // Execute executes the request
 //
 //	@return SkillRuleItems
-func (a *SkillsAPIService) ListSkillRulesExecute(r ApiListSkillRulesRequest) (*SkillRuleItems, *http.Response, error) {
+func (a *SkillsAPIService) ListSkillRulesExecute(r SkillsAPIListSkillRulesRequest) (*SkillRuleItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1517,7 +1517,7 @@ func (a *SkillsAPIService) ListSkillRulesExecute(r ApiListSkillRulesRequest) (*S
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSkillsRequest struct {
+type SkillsAPIListSkillsRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	accentTenant *string
@@ -1530,48 +1530,48 @@ type ApiListSkillsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListSkillsRequest) AccentTenant(accentTenant string) ApiListSkillsRequest {
+func (r SkillsAPIListSkillsRequest) AccentTenant(accentTenant string) SkillsAPIListSkillsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListSkillsRequest) Recurse(recurse bool) ApiListSkillsRequest {
+func (r SkillsAPIListSkillsRequest) Recurse(recurse bool) SkillsAPIListSkillsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListSkillsRequest) Order(order string) ApiListSkillsRequest {
+func (r SkillsAPIListSkillsRequest) Order(order string) SkillsAPIListSkillsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListSkillsRequest) Direction(direction string) ApiListSkillsRequest {
+func (r SkillsAPIListSkillsRequest) Direction(direction string) SkillsAPIListSkillsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListSkillsRequest) Limit(limit int32) ApiListSkillsRequest {
+func (r SkillsAPIListSkillsRequest) Limit(limit int32) SkillsAPIListSkillsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListSkillsRequest) Offset(offset int32) ApiListSkillsRequest {
+func (r SkillsAPIListSkillsRequest) Offset(offset int32) SkillsAPIListSkillsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListSkillsRequest) Search(search string) ApiListSkillsRequest {
+func (r SkillsAPIListSkillsRequest) Search(search string) SkillsAPIListSkillsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListSkillsRequest) Execute() (*SkillItems, *http.Response, error) {
+func (r SkillsAPIListSkillsRequest) Execute() (*SkillItems, *http.Response, error) {
 	return r.ApiService.ListSkillsExecute(r)
 }
 
@@ -1581,10 +1581,10 @@ ListSkills List skill
 **Required ACL:** `confd.agents.skills.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListSkillsRequest
+	@return SkillsAPIListSkillsRequest
 */
-func (a *SkillsAPIService) ListSkills(ctx context.Context) ApiListSkillsRequest {
-	return ApiListSkillsRequest{
+func (a *SkillsAPIService) ListSkills(ctx context.Context) SkillsAPIListSkillsRequest {
+	return SkillsAPIListSkillsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1593,7 +1593,7 @@ func (a *SkillsAPIService) ListSkills(ctx context.Context) ApiListSkillsRequest 
 // Execute executes the request
 //
 //	@return SkillItems
-func (a *SkillsAPIService) ListSkillsExecute(r ApiListSkillsRequest) (*SkillItems, *http.Response, error) {
+func (a *SkillsAPIService) ListSkillsExecute(r SkillsAPIListSkillsRequest) (*SkillItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1704,7 +1704,7 @@ func (a *SkillsAPIService) ListSkillsExecute(r ApiListSkillsRequest) (*SkillItem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateSkillRequest struct {
+type SkillsAPIUpdateSkillRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	body         *Skill
@@ -1712,18 +1712,18 @@ type ApiUpdateSkillRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateSkillRequest) Body(body Skill) ApiUpdateSkillRequest {
+func (r SkillsAPIUpdateSkillRequest) Body(body Skill) SkillsAPIUpdateSkillRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateSkillRequest) AccentTenant(accentTenant string) ApiUpdateSkillRequest {
+func (r SkillsAPIUpdateSkillRequest) AccentTenant(accentTenant string) SkillsAPIUpdateSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateSkillRequest) Execute() (*http.Response, error) {
+func (r SkillsAPIUpdateSkillRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSkillExecute(r)
 }
 
@@ -1734,10 +1734,10 @@ UpdateSkill Update skill
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillId Skill's ID
-	@return ApiUpdateSkillRequest
+	@return SkillsAPIUpdateSkillRequest
 */
-func (a *SkillsAPIService) UpdateSkill(ctx context.Context, skillId int32) ApiUpdateSkillRequest {
-	return ApiUpdateSkillRequest{
+func (a *SkillsAPIService) UpdateSkill(ctx context.Context, skillId int32) SkillsAPIUpdateSkillRequest {
+	return SkillsAPIUpdateSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 		skillId:    skillId,
@@ -1745,7 +1745,7 @@ func (a *SkillsAPIService) UpdateSkill(ctx context.Context, skillId int32) ApiUp
 }
 
 // Execute executes the request
-func (a *SkillsAPIService) UpdateSkillExecute(r ApiUpdateSkillRequest) (*http.Response, error) {
+func (a *SkillsAPIService) UpdateSkillExecute(r SkillsAPIUpdateSkillRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1852,7 +1852,7 @@ func (a *SkillsAPIService) UpdateSkillExecute(r ApiUpdateSkillRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateSkillRuleRequest struct {
+type SkillsAPIUpdateSkillRuleRequest struct {
 	ctx          context.Context
 	ApiService   SkillsAPI
 	body         *SkillRule
@@ -1860,18 +1860,18 @@ type ApiUpdateSkillRuleRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateSkillRuleRequest) Body(body SkillRule) ApiUpdateSkillRuleRequest {
+func (r SkillsAPIUpdateSkillRuleRequest) Body(body SkillRule) SkillsAPIUpdateSkillRuleRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateSkillRuleRequest) AccentTenant(accentTenant string) ApiUpdateSkillRuleRequest {
+func (r SkillsAPIUpdateSkillRuleRequest) AccentTenant(accentTenant string) SkillsAPIUpdateSkillRuleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateSkillRuleRequest) Execute() (*http.Response, error) {
+func (r SkillsAPIUpdateSkillRuleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSkillRuleExecute(r)
 }
 
@@ -1882,10 +1882,10 @@ UpdateSkillRule Update skill rule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillruleId Skill's ID
-	@return ApiUpdateSkillRuleRequest
+	@return SkillsAPIUpdateSkillRuleRequest
 */
-func (a *SkillsAPIService) UpdateSkillRule(ctx context.Context, skillruleId int32) ApiUpdateSkillRuleRequest {
-	return ApiUpdateSkillRuleRequest{
+func (a *SkillsAPIService) UpdateSkillRule(ctx context.Context, skillruleId int32) SkillsAPIUpdateSkillRuleRequest {
+	return SkillsAPIUpdateSkillRuleRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		skillruleId: skillruleId,
@@ -1893,7 +1893,7 @@ func (a *SkillsAPIService) UpdateSkillRule(ctx context.Context, skillruleId int3
 }
 
 // Execute executes the request
-func (a *SkillsAPIService) UpdateSkillRuleExecute(r ApiUpdateSkillRuleRequest) (*http.Response, error) {
+func (a *SkillsAPIService) UpdateSkillRuleExecute(r SkillsAPIUpdateSkillRuleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

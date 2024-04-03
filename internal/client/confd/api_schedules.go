@@ -30,12 +30,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateGroupScheduleRequest
+		@return SchedulesAPIAssociateGroupScheduleRequest
 	*/
-	AssociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) ApiAssociateGroupScheduleRequest
+	AssociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) SchedulesAPIAssociateGroupScheduleRequest
 
 	// AssociateGroupScheduleExecute executes the request
-	AssociateGroupScheduleExecute(r ApiAssociateGroupScheduleRequest) (*http.Response, error)
+	AssociateGroupScheduleExecute(r SchedulesAPIAssociateGroupScheduleRequest) (*http.Response, error)
 
 	/*
 		AssociateIncallSchedule Associate incall and schedule
@@ -45,12 +45,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateIncallScheduleRequest
+		@return SchedulesAPIAssociateIncallScheduleRequest
 	*/
-	AssociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) ApiAssociateIncallScheduleRequest
+	AssociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) SchedulesAPIAssociateIncallScheduleRequest
 
 	// AssociateIncallScheduleExecute executes the request
-	AssociateIncallScheduleExecute(r ApiAssociateIncallScheduleRequest) (*http.Response, error)
+	AssociateIncallScheduleExecute(r SchedulesAPIAssociateIncallScheduleRequest) (*http.Response, error)
 
 	/*
 		AssociateOutcallSchedule Associate outcall and schedule
@@ -60,12 +60,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateOutcallScheduleRequest
+		@return SchedulesAPIAssociateOutcallScheduleRequest
 	*/
-	AssociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) ApiAssociateOutcallScheduleRequest
+	AssociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) SchedulesAPIAssociateOutcallScheduleRequest
 
 	// AssociateOutcallScheduleExecute executes the request
-	AssociateOutcallScheduleExecute(r ApiAssociateOutcallScheduleRequest) (*http.Response, error)
+	AssociateOutcallScheduleExecute(r SchedulesAPIAssociateOutcallScheduleRequest) (*http.Response, error)
 
 	/*
 		AssociateQueueSchedule Associate queue and schedule
@@ -75,12 +75,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateQueueScheduleRequest
+		@return SchedulesAPIAssociateQueueScheduleRequest
 	*/
-	AssociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) ApiAssociateQueueScheduleRequest
+	AssociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) SchedulesAPIAssociateQueueScheduleRequest
 
 	// AssociateQueueScheduleExecute executes the request
-	AssociateQueueScheduleExecute(r ApiAssociateQueueScheduleRequest) (*http.Response, error)
+	AssociateQueueScheduleExecute(r SchedulesAPIAssociateQueueScheduleRequest) (*http.Response, error)
 
 	/*
 		AssociateUserSchedule Associate user and schedule
@@ -90,12 +90,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateUserScheduleRequest
+		@return SchedulesAPIAssociateUserScheduleRequest
 	*/
-	AssociateUserSchedule(ctx context.Context, userId string, scheduleId int32) ApiAssociateUserScheduleRequest
+	AssociateUserSchedule(ctx context.Context, userId string, scheduleId int32) SchedulesAPIAssociateUserScheduleRequest
 
 	// AssociateUserScheduleExecute executes the request
-	AssociateUserScheduleExecute(r ApiAssociateUserScheduleRequest) (*http.Response, error)
+	AssociateUserScheduleExecute(r SchedulesAPIAssociateUserScheduleRequest) (*http.Response, error)
 
 	/*
 		CreateSchedule Create schedule
@@ -103,13 +103,13 @@ type SchedulesAPI interface {
 		**Required ACL:** `confd.schedules.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateScheduleRequest
+		@return SchedulesAPICreateScheduleRequest
 	*/
-	CreateSchedule(ctx context.Context) ApiCreateScheduleRequest
+	CreateSchedule(ctx context.Context) SchedulesAPICreateScheduleRequest
 
 	// CreateScheduleExecute executes the request
 	//  @return Schedule
-	CreateScheduleExecute(r ApiCreateScheduleRequest) (*Schedule, *http.Response, error)
+	CreateScheduleExecute(r SchedulesAPICreateScheduleRequest) (*Schedule, *http.Response, error)
 
 	/*
 		DeleteSchedule Delete schedule
@@ -118,12 +118,12 @@ type SchedulesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param scheduleId Schedule's ID
-		@return ApiDeleteScheduleRequest
+		@return SchedulesAPIDeleteScheduleRequest
 	*/
-	DeleteSchedule(ctx context.Context, scheduleId int32) ApiDeleteScheduleRequest
+	DeleteSchedule(ctx context.Context, scheduleId int32) SchedulesAPIDeleteScheduleRequest
 
 	// DeleteScheduleExecute executes the request
-	DeleteScheduleExecute(r ApiDeleteScheduleRequest) (*http.Response, error)
+	DeleteScheduleExecute(r SchedulesAPIDeleteScheduleRequest) (*http.Response, error)
 
 	/*
 		DissociateGroupSchedule Dissociate group and schedule
@@ -133,12 +133,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateGroupScheduleRequest
+		@return SchedulesAPIDissociateGroupScheduleRequest
 	*/
-	DissociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) ApiDissociateGroupScheduleRequest
+	DissociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) SchedulesAPIDissociateGroupScheduleRequest
 
 	// DissociateGroupScheduleExecute executes the request
-	DissociateGroupScheduleExecute(r ApiDissociateGroupScheduleRequest) (*http.Response, error)
+	DissociateGroupScheduleExecute(r SchedulesAPIDissociateGroupScheduleRequest) (*http.Response, error)
 
 	/*
 		DissociateIncallSchedule Dissociate incall and schedule
@@ -148,12 +148,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateIncallScheduleRequest
+		@return SchedulesAPIDissociateIncallScheduleRequest
 	*/
-	DissociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) ApiDissociateIncallScheduleRequest
+	DissociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) SchedulesAPIDissociateIncallScheduleRequest
 
 	// DissociateIncallScheduleExecute executes the request
-	DissociateIncallScheduleExecute(r ApiDissociateIncallScheduleRequest) (*http.Response, error)
+	DissociateIncallScheduleExecute(r SchedulesAPIDissociateIncallScheduleRequest) (*http.Response, error)
 
 	/*
 		DissociateOutcallSchedule Dissociate outcall and schedule
@@ -163,12 +163,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateOutcallScheduleRequest
+		@return SchedulesAPIDissociateOutcallScheduleRequest
 	*/
-	DissociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) ApiDissociateOutcallScheduleRequest
+	DissociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) SchedulesAPIDissociateOutcallScheduleRequest
 
 	// DissociateOutcallScheduleExecute executes the request
-	DissociateOutcallScheduleExecute(r ApiDissociateOutcallScheduleRequest) (*http.Response, error)
+	DissociateOutcallScheduleExecute(r SchedulesAPIDissociateOutcallScheduleRequest) (*http.Response, error)
 
 	/*
 		DissociateQueueSchedule Dissociate queue and schedule
@@ -178,12 +178,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateQueueScheduleRequest
+		@return SchedulesAPIDissociateQueueScheduleRequest
 	*/
-	DissociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) ApiDissociateQueueScheduleRequest
+	DissociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) SchedulesAPIDissociateQueueScheduleRequest
 
 	// DissociateQueueScheduleExecute executes the request
-	DissociateQueueScheduleExecute(r ApiDissociateQueueScheduleRequest) (*http.Response, error)
+	DissociateQueueScheduleExecute(r SchedulesAPIDissociateQueueScheduleRequest) (*http.Response, error)
 
 	/*
 		DissociateUserSchedule Dissociate user and schedule
@@ -193,12 +193,12 @@ type SchedulesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateUserScheduleRequest
+		@return SchedulesAPIDissociateUserScheduleRequest
 	*/
-	DissociateUserSchedule(ctx context.Context, userId string, scheduleId int32) ApiDissociateUserScheduleRequest
+	DissociateUserSchedule(ctx context.Context, userId string, scheduleId int32) SchedulesAPIDissociateUserScheduleRequest
 
 	// DissociateUserScheduleExecute executes the request
-	DissociateUserScheduleExecute(r ApiDissociateUserScheduleRequest) (*http.Response, error)
+	DissociateUserScheduleExecute(r SchedulesAPIDissociateUserScheduleRequest) (*http.Response, error)
 
 	/*
 		GetSchedule Get schedule
@@ -207,13 +207,13 @@ type SchedulesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param scheduleId Schedule's ID
-		@return ApiGetScheduleRequest
+		@return SchedulesAPIGetScheduleRequest
 	*/
-	GetSchedule(ctx context.Context, scheduleId int32) ApiGetScheduleRequest
+	GetSchedule(ctx context.Context, scheduleId int32) SchedulesAPIGetScheduleRequest
 
 	// GetScheduleExecute executes the request
 	//  @return Schedule
-	GetScheduleExecute(r ApiGetScheduleRequest) (*Schedule, *http.Response, error)
+	GetScheduleExecute(r SchedulesAPIGetScheduleRequest) (*Schedule, *http.Response, error)
 
 	/*
 		ListSchedules List schedule
@@ -221,13 +221,13 @@ type SchedulesAPI interface {
 		**Required ACL:** `confd.schedules.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSchedulesRequest
+		@return SchedulesAPIListSchedulesRequest
 	*/
-	ListSchedules(ctx context.Context) ApiListSchedulesRequest
+	ListSchedules(ctx context.Context) SchedulesAPIListSchedulesRequest
 
 	// ListSchedulesExecute executes the request
 	//  @return ScheduleItems
-	ListSchedulesExecute(r ApiListSchedulesRequest) (*ScheduleItems, *http.Response, error)
+	ListSchedulesExecute(r SchedulesAPIListSchedulesRequest) (*ScheduleItems, *http.Response, error)
 
 	/*
 		UpdateSchedule Update schedule
@@ -236,18 +236,18 @@ type SchedulesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param scheduleId Schedule's ID
-		@return ApiUpdateScheduleRequest
+		@return SchedulesAPIUpdateScheduleRequest
 	*/
-	UpdateSchedule(ctx context.Context, scheduleId int32) ApiUpdateScheduleRequest
+	UpdateSchedule(ctx context.Context, scheduleId int32) SchedulesAPIUpdateScheduleRequest
 
 	// UpdateScheduleExecute executes the request
-	UpdateScheduleExecute(r ApiUpdateScheduleRequest) (*http.Response, error)
+	UpdateScheduleExecute(r SchedulesAPIUpdateScheduleRequest) (*http.Response, error)
 }
 
 // SchedulesAPIService SchedulesAPI service
 type SchedulesAPIService service
 
-type ApiAssociateGroupScheduleRequest struct {
+type SchedulesAPIAssociateGroupScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	groupUuid    string
@@ -256,12 +256,12 @@ type ApiAssociateGroupScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateGroupScheduleRequest) AccentTenant(accentTenant string) ApiAssociateGroupScheduleRequest {
+func (r SchedulesAPIAssociateGroupScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIAssociateGroupScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateGroupScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIAssociateGroupScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateGroupScheduleExecute(r)
 }
 
@@ -273,10 +273,10 @@ AssociateGroupSchedule Associate group and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateGroupScheduleRequest
+	@return SchedulesAPIAssociateGroupScheduleRequest
 */
-func (a *SchedulesAPIService) AssociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) ApiAssociateGroupScheduleRequest {
-	return ApiAssociateGroupScheduleRequest{
+func (a *SchedulesAPIService) AssociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) SchedulesAPIAssociateGroupScheduleRequest {
+	return SchedulesAPIAssociateGroupScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -285,7 +285,7 @@ func (a *SchedulesAPIService) AssociateGroupSchedule(ctx context.Context, groupU
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) AssociateGroupScheduleExecute(r ApiAssociateGroupScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) AssociateGroupScheduleExecute(r SchedulesAPIAssociateGroupScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -388,7 +388,7 @@ func (a *SchedulesAPIService) AssociateGroupScheduleExecute(r ApiAssociateGroupS
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateIncallScheduleRequest struct {
+type SchedulesAPIAssociateIncallScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	incallId     int32
@@ -397,12 +397,12 @@ type ApiAssociateIncallScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateIncallScheduleRequest) AccentTenant(accentTenant string) ApiAssociateIncallScheduleRequest {
+func (r SchedulesAPIAssociateIncallScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIAssociateIncallScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateIncallScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIAssociateIncallScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateIncallScheduleExecute(r)
 }
 
@@ -414,10 +414,10 @@ AssociateIncallSchedule Associate incall and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateIncallScheduleRequest
+	@return SchedulesAPIAssociateIncallScheduleRequest
 */
-func (a *SchedulesAPIService) AssociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) ApiAssociateIncallScheduleRequest {
-	return ApiAssociateIncallScheduleRequest{
+func (a *SchedulesAPIService) AssociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) SchedulesAPIAssociateIncallScheduleRequest {
+	return SchedulesAPIAssociateIncallScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		incallId:   incallId,
@@ -426,7 +426,7 @@ func (a *SchedulesAPIService) AssociateIncallSchedule(ctx context.Context, incal
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) AssociateIncallScheduleExecute(r ApiAssociateIncallScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) AssociateIncallScheduleExecute(r SchedulesAPIAssociateIncallScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -529,7 +529,7 @@ func (a *SchedulesAPIService) AssociateIncallScheduleExecute(r ApiAssociateIncal
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateOutcallScheduleRequest struct {
+type SchedulesAPIAssociateOutcallScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	outcallId    int32
@@ -538,12 +538,12 @@ type ApiAssociateOutcallScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateOutcallScheduleRequest) AccentTenant(accentTenant string) ApiAssociateOutcallScheduleRequest {
+func (r SchedulesAPIAssociateOutcallScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIAssociateOutcallScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateOutcallScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIAssociateOutcallScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateOutcallScheduleExecute(r)
 }
 
@@ -555,10 +555,10 @@ AssociateOutcallSchedule Associate outcall and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateOutcallScheduleRequest
+	@return SchedulesAPIAssociateOutcallScheduleRequest
 */
-func (a *SchedulesAPIService) AssociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) ApiAssociateOutcallScheduleRequest {
-	return ApiAssociateOutcallScheduleRequest{
+func (a *SchedulesAPIService) AssociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) SchedulesAPIAssociateOutcallScheduleRequest {
+	return SchedulesAPIAssociateOutcallScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -567,7 +567,7 @@ func (a *SchedulesAPIService) AssociateOutcallSchedule(ctx context.Context, outc
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) AssociateOutcallScheduleExecute(r ApiAssociateOutcallScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) AssociateOutcallScheduleExecute(r SchedulesAPIAssociateOutcallScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -670,7 +670,7 @@ func (a *SchedulesAPIService) AssociateOutcallScheduleExecute(r ApiAssociateOutc
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateQueueScheduleRequest struct {
+type SchedulesAPIAssociateQueueScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	queueId      int32
@@ -679,12 +679,12 @@ type ApiAssociateQueueScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateQueueScheduleRequest) AccentTenant(accentTenant string) ApiAssociateQueueScheduleRequest {
+func (r SchedulesAPIAssociateQueueScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIAssociateQueueScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateQueueScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIAssociateQueueScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateQueueScheduleExecute(r)
 }
 
@@ -696,10 +696,10 @@ AssociateQueueSchedule Associate queue and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateQueueScheduleRequest
+	@return SchedulesAPIAssociateQueueScheduleRequest
 */
-func (a *SchedulesAPIService) AssociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) ApiAssociateQueueScheduleRequest {
-	return ApiAssociateQueueScheduleRequest{
+func (a *SchedulesAPIService) AssociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) SchedulesAPIAssociateQueueScheduleRequest {
+	return SchedulesAPIAssociateQueueScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -708,7 +708,7 @@ func (a *SchedulesAPIService) AssociateQueueSchedule(ctx context.Context, queueI
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) AssociateQueueScheduleExecute(r ApiAssociateQueueScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) AssociateQueueScheduleExecute(r SchedulesAPIAssociateQueueScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -811,7 +811,7 @@ func (a *SchedulesAPIService) AssociateQueueScheduleExecute(r ApiAssociateQueueS
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserScheduleRequest struct {
+type SchedulesAPIAssociateUserScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	userId       string
@@ -820,12 +820,12 @@ type ApiAssociateUserScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateUserScheduleRequest) AccentTenant(accentTenant string) ApiAssociateUserScheduleRequest {
+func (r SchedulesAPIAssociateUserScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIAssociateUserScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateUserScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIAssociateUserScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserScheduleExecute(r)
 }
 
@@ -837,10 +837,10 @@ AssociateUserSchedule Associate user and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateUserScheduleRequest
+	@return SchedulesAPIAssociateUserScheduleRequest
 */
-func (a *SchedulesAPIService) AssociateUserSchedule(ctx context.Context, userId string, scheduleId int32) ApiAssociateUserScheduleRequest {
-	return ApiAssociateUserScheduleRequest{
+func (a *SchedulesAPIService) AssociateUserSchedule(ctx context.Context, userId string, scheduleId int32) SchedulesAPIAssociateUserScheduleRequest {
+	return SchedulesAPIAssociateUserScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -849,7 +849,7 @@ func (a *SchedulesAPIService) AssociateUserSchedule(ctx context.Context, userId 
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) AssociateUserScheduleExecute(r ApiAssociateUserScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) AssociateUserScheduleExecute(r SchedulesAPIAssociateUserScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -952,7 +952,7 @@ func (a *SchedulesAPIService) AssociateUserScheduleExecute(r ApiAssociateUserSch
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateScheduleRequest struct {
+type SchedulesAPICreateScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	body         *Schedule
@@ -960,18 +960,18 @@ type ApiCreateScheduleRequest struct {
 }
 
 // Schedule to create
-func (r ApiCreateScheduleRequest) Body(body Schedule) ApiCreateScheduleRequest {
+func (r SchedulesAPICreateScheduleRequest) Body(body Schedule) SchedulesAPICreateScheduleRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateScheduleRequest) AccentTenant(accentTenant string) ApiCreateScheduleRequest {
+func (r SchedulesAPICreateScheduleRequest) AccentTenant(accentTenant string) SchedulesAPICreateScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateScheduleRequest) Execute() (*Schedule, *http.Response, error) {
+func (r SchedulesAPICreateScheduleRequest) Execute() (*Schedule, *http.Response, error) {
 	return r.ApiService.CreateScheduleExecute(r)
 }
 
@@ -981,10 +981,10 @@ CreateSchedule Create schedule
 **Required ACL:** `confd.schedules.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateScheduleRequest
+	@return SchedulesAPICreateScheduleRequest
 */
-func (a *SchedulesAPIService) CreateSchedule(ctx context.Context) ApiCreateScheduleRequest {
-	return ApiCreateScheduleRequest{
+func (a *SchedulesAPIService) CreateSchedule(ctx context.Context) SchedulesAPICreateScheduleRequest {
+	return SchedulesAPICreateScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -993,7 +993,7 @@ func (a *SchedulesAPIService) CreateSchedule(ctx context.Context) ApiCreateSched
 // Execute executes the request
 //
 //	@return Schedule
-func (a *SchedulesAPIService) CreateScheduleExecute(r ApiCreateScheduleRequest) (*Schedule, *http.Response, error) {
+func (a *SchedulesAPIService) CreateScheduleExecute(r SchedulesAPICreateScheduleRequest) (*Schedule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1098,7 +1098,7 @@ func (a *SchedulesAPIService) CreateScheduleExecute(r ApiCreateScheduleRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteScheduleRequest struct {
+type SchedulesAPIDeleteScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	scheduleId   int32
@@ -1106,12 +1106,12 @@ type ApiDeleteScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteScheduleRequest) AccentTenant(accentTenant string) ApiDeleteScheduleRequest {
+func (r SchedulesAPIDeleteScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIDeleteScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIDeleteScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteScheduleExecute(r)
 }
 
@@ -1122,10 +1122,10 @@ DeleteSchedule Delete schedule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param scheduleId Schedule's ID
-	@return ApiDeleteScheduleRequest
+	@return SchedulesAPIDeleteScheduleRequest
 */
-func (a *SchedulesAPIService) DeleteSchedule(ctx context.Context, scheduleId int32) ApiDeleteScheduleRequest {
-	return ApiDeleteScheduleRequest{
+func (a *SchedulesAPIService) DeleteSchedule(ctx context.Context, scheduleId int32) SchedulesAPIDeleteScheduleRequest {
+	return SchedulesAPIDeleteScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		scheduleId: scheduleId,
@@ -1133,7 +1133,7 @@ func (a *SchedulesAPIService) DeleteSchedule(ctx context.Context, scheduleId int
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) DeleteScheduleExecute(r ApiDeleteScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) DeleteScheduleExecute(r SchedulesAPIDeleteScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1235,7 +1235,7 @@ func (a *SchedulesAPIService) DeleteScheduleExecute(r ApiDeleteScheduleRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateGroupScheduleRequest struct {
+type SchedulesAPIDissociateGroupScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	groupUuid    string
@@ -1244,12 +1244,12 @@ type ApiDissociateGroupScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateGroupScheduleRequest) AccentTenant(accentTenant string) ApiDissociateGroupScheduleRequest {
+func (r SchedulesAPIDissociateGroupScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIDissociateGroupScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateGroupScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIDissociateGroupScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateGroupScheduleExecute(r)
 }
 
@@ -1261,10 +1261,10 @@ DissociateGroupSchedule Dissociate group and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateGroupScheduleRequest
+	@return SchedulesAPIDissociateGroupScheduleRequest
 */
-func (a *SchedulesAPIService) DissociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) ApiDissociateGroupScheduleRequest {
-	return ApiDissociateGroupScheduleRequest{
+func (a *SchedulesAPIService) DissociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) SchedulesAPIDissociateGroupScheduleRequest {
+	return SchedulesAPIDissociateGroupScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -1273,7 +1273,7 @@ func (a *SchedulesAPIService) DissociateGroupSchedule(ctx context.Context, group
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) DissociateGroupScheduleExecute(r ApiDissociateGroupScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) DissociateGroupScheduleExecute(r SchedulesAPIDissociateGroupScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1376,7 +1376,7 @@ func (a *SchedulesAPIService) DissociateGroupScheduleExecute(r ApiDissociateGrou
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateIncallScheduleRequest struct {
+type SchedulesAPIDissociateIncallScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	incallId     int32
@@ -1385,12 +1385,12 @@ type ApiDissociateIncallScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateIncallScheduleRequest) AccentTenant(accentTenant string) ApiDissociateIncallScheduleRequest {
+func (r SchedulesAPIDissociateIncallScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIDissociateIncallScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateIncallScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIDissociateIncallScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateIncallScheduleExecute(r)
 }
 
@@ -1402,10 +1402,10 @@ DissociateIncallSchedule Dissociate incall and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateIncallScheduleRequest
+	@return SchedulesAPIDissociateIncallScheduleRequest
 */
-func (a *SchedulesAPIService) DissociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) ApiDissociateIncallScheduleRequest {
-	return ApiDissociateIncallScheduleRequest{
+func (a *SchedulesAPIService) DissociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) SchedulesAPIDissociateIncallScheduleRequest {
+	return SchedulesAPIDissociateIncallScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		incallId:   incallId,
@@ -1414,7 +1414,7 @@ func (a *SchedulesAPIService) DissociateIncallSchedule(ctx context.Context, inca
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) DissociateIncallScheduleExecute(r ApiDissociateIncallScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) DissociateIncallScheduleExecute(r SchedulesAPIDissociateIncallScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1517,7 +1517,7 @@ func (a *SchedulesAPIService) DissociateIncallScheduleExecute(r ApiDissociateInc
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateOutcallScheduleRequest struct {
+type SchedulesAPIDissociateOutcallScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	outcallId    int32
@@ -1526,12 +1526,12 @@ type ApiDissociateOutcallScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateOutcallScheduleRequest) AccentTenant(accentTenant string) ApiDissociateOutcallScheduleRequest {
+func (r SchedulesAPIDissociateOutcallScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIDissociateOutcallScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateOutcallScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIDissociateOutcallScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateOutcallScheduleExecute(r)
 }
 
@@ -1543,10 +1543,10 @@ DissociateOutcallSchedule Dissociate outcall and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateOutcallScheduleRequest
+	@return SchedulesAPIDissociateOutcallScheduleRequest
 */
-func (a *SchedulesAPIService) DissociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) ApiDissociateOutcallScheduleRequest {
-	return ApiDissociateOutcallScheduleRequest{
+func (a *SchedulesAPIService) DissociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) SchedulesAPIDissociateOutcallScheduleRequest {
+	return SchedulesAPIDissociateOutcallScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -1555,7 +1555,7 @@ func (a *SchedulesAPIService) DissociateOutcallSchedule(ctx context.Context, out
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) DissociateOutcallScheduleExecute(r ApiDissociateOutcallScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) DissociateOutcallScheduleExecute(r SchedulesAPIDissociateOutcallScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1658,7 +1658,7 @@ func (a *SchedulesAPIService) DissociateOutcallScheduleExecute(r ApiDissociateOu
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateQueueScheduleRequest struct {
+type SchedulesAPIDissociateQueueScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	queueId      int32
@@ -1667,12 +1667,12 @@ type ApiDissociateQueueScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateQueueScheduleRequest) AccentTenant(accentTenant string) ApiDissociateQueueScheduleRequest {
+func (r SchedulesAPIDissociateQueueScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIDissociateQueueScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateQueueScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIDissociateQueueScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateQueueScheduleExecute(r)
 }
 
@@ -1684,10 +1684,10 @@ DissociateQueueSchedule Dissociate queue and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateQueueScheduleRequest
+	@return SchedulesAPIDissociateQueueScheduleRequest
 */
-func (a *SchedulesAPIService) DissociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) ApiDissociateQueueScheduleRequest {
-	return ApiDissociateQueueScheduleRequest{
+func (a *SchedulesAPIService) DissociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) SchedulesAPIDissociateQueueScheduleRequest {
+	return SchedulesAPIDissociateQueueScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -1696,7 +1696,7 @@ func (a *SchedulesAPIService) DissociateQueueSchedule(ctx context.Context, queue
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) DissociateQueueScheduleExecute(r ApiDissociateQueueScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) DissociateQueueScheduleExecute(r SchedulesAPIDissociateQueueScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1799,7 +1799,7 @@ func (a *SchedulesAPIService) DissociateQueueScheduleExecute(r ApiDissociateQueu
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserScheduleRequest struct {
+type SchedulesAPIDissociateUserScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	userId       string
@@ -1808,12 +1808,12 @@ type ApiDissociateUserScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserScheduleRequest) AccentTenant(accentTenant string) ApiDissociateUserScheduleRequest {
+func (r SchedulesAPIDissociateUserScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIDissociateUserScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIDissociateUserScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserScheduleExecute(r)
 }
 
@@ -1825,10 +1825,10 @@ DissociateUserSchedule Dissociate user and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateUserScheduleRequest
+	@return SchedulesAPIDissociateUserScheduleRequest
 */
-func (a *SchedulesAPIService) DissociateUserSchedule(ctx context.Context, userId string, scheduleId int32) ApiDissociateUserScheduleRequest {
-	return ApiDissociateUserScheduleRequest{
+func (a *SchedulesAPIService) DissociateUserSchedule(ctx context.Context, userId string, scheduleId int32) SchedulesAPIDissociateUserScheduleRequest {
+	return SchedulesAPIDissociateUserScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1837,7 +1837,7 @@ func (a *SchedulesAPIService) DissociateUserSchedule(ctx context.Context, userId
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) DissociateUserScheduleExecute(r ApiDissociateUserScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) DissociateUserScheduleExecute(r SchedulesAPIDissociateUserScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1940,7 +1940,7 @@ func (a *SchedulesAPIService) DissociateUserScheduleExecute(r ApiDissociateUserS
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetScheduleRequest struct {
+type SchedulesAPIGetScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	scheduleId   int32
@@ -1948,12 +1948,12 @@ type ApiGetScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetScheduleRequest) AccentTenant(accentTenant string) ApiGetScheduleRequest {
+func (r SchedulesAPIGetScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIGetScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetScheduleRequest) Execute() (*Schedule, *http.Response, error) {
+func (r SchedulesAPIGetScheduleRequest) Execute() (*Schedule, *http.Response, error) {
 	return r.ApiService.GetScheduleExecute(r)
 }
 
@@ -1964,10 +1964,10 @@ GetSchedule Get schedule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param scheduleId Schedule's ID
-	@return ApiGetScheduleRequest
+	@return SchedulesAPIGetScheduleRequest
 */
-func (a *SchedulesAPIService) GetSchedule(ctx context.Context, scheduleId int32) ApiGetScheduleRequest {
-	return ApiGetScheduleRequest{
+func (a *SchedulesAPIService) GetSchedule(ctx context.Context, scheduleId int32) SchedulesAPIGetScheduleRequest {
+	return SchedulesAPIGetScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		scheduleId: scheduleId,
@@ -1977,7 +1977,7 @@ func (a *SchedulesAPIService) GetSchedule(ctx context.Context, scheduleId int32)
 // Execute executes the request
 //
 //	@return Schedule
-func (a *SchedulesAPIService) GetScheduleExecute(r ApiGetScheduleRequest) (*Schedule, *http.Response, error) {
+func (a *SchedulesAPIService) GetScheduleExecute(r SchedulesAPIGetScheduleRequest) (*Schedule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2078,7 +2078,7 @@ func (a *SchedulesAPIService) GetScheduleExecute(r ApiGetScheduleRequest) (*Sche
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSchedulesRequest struct {
+type SchedulesAPIListSchedulesRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	accentTenant *string
@@ -2091,48 +2091,48 @@ type ApiListSchedulesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListSchedulesRequest) AccentTenant(accentTenant string) ApiListSchedulesRequest {
+func (r SchedulesAPIListSchedulesRequest) AccentTenant(accentTenant string) SchedulesAPIListSchedulesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListSchedulesRequest) Recurse(recurse bool) ApiListSchedulesRequest {
+func (r SchedulesAPIListSchedulesRequest) Recurse(recurse bool) SchedulesAPIListSchedulesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListSchedulesRequest) Order(order string) ApiListSchedulesRequest {
+func (r SchedulesAPIListSchedulesRequest) Order(order string) SchedulesAPIListSchedulesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListSchedulesRequest) Direction(direction string) ApiListSchedulesRequest {
+func (r SchedulesAPIListSchedulesRequest) Direction(direction string) SchedulesAPIListSchedulesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListSchedulesRequest) Limit(limit int32) ApiListSchedulesRequest {
+func (r SchedulesAPIListSchedulesRequest) Limit(limit int32) SchedulesAPIListSchedulesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListSchedulesRequest) Offset(offset int32) ApiListSchedulesRequest {
+func (r SchedulesAPIListSchedulesRequest) Offset(offset int32) SchedulesAPIListSchedulesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListSchedulesRequest) Search(search string) ApiListSchedulesRequest {
+func (r SchedulesAPIListSchedulesRequest) Search(search string) SchedulesAPIListSchedulesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListSchedulesRequest) Execute() (*ScheduleItems, *http.Response, error) {
+func (r SchedulesAPIListSchedulesRequest) Execute() (*ScheduleItems, *http.Response, error) {
 	return r.ApiService.ListSchedulesExecute(r)
 }
 
@@ -2142,10 +2142,10 @@ ListSchedules List schedule
 **Required ACL:** `confd.schedules.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListSchedulesRequest
+	@return SchedulesAPIListSchedulesRequest
 */
-func (a *SchedulesAPIService) ListSchedules(ctx context.Context) ApiListSchedulesRequest {
-	return ApiListSchedulesRequest{
+func (a *SchedulesAPIService) ListSchedules(ctx context.Context) SchedulesAPIListSchedulesRequest {
+	return SchedulesAPIListSchedulesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2154,7 +2154,7 @@ func (a *SchedulesAPIService) ListSchedules(ctx context.Context) ApiListSchedule
 // Execute executes the request
 //
 //	@return ScheduleItems
-func (a *SchedulesAPIService) ListSchedulesExecute(r ApiListSchedulesRequest) (*ScheduleItems, *http.Response, error) {
+func (a *SchedulesAPIService) ListSchedulesExecute(r SchedulesAPIListSchedulesRequest) (*ScheduleItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2265,7 +2265,7 @@ func (a *SchedulesAPIService) ListSchedulesExecute(r ApiListSchedulesRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateScheduleRequest struct {
+type SchedulesAPIUpdateScheduleRequest struct {
 	ctx          context.Context
 	ApiService   SchedulesAPI
 	body         *Schedule
@@ -2273,18 +2273,18 @@ type ApiUpdateScheduleRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateScheduleRequest) Body(body Schedule) ApiUpdateScheduleRequest {
+func (r SchedulesAPIUpdateScheduleRequest) Body(body Schedule) SchedulesAPIUpdateScheduleRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateScheduleRequest) AccentTenant(accentTenant string) ApiUpdateScheduleRequest {
+func (r SchedulesAPIUpdateScheduleRequest) AccentTenant(accentTenant string) SchedulesAPIUpdateScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateScheduleRequest) Execute() (*http.Response, error) {
+func (r SchedulesAPIUpdateScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateScheduleExecute(r)
 }
 
@@ -2295,10 +2295,10 @@ UpdateSchedule Update schedule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param scheduleId Schedule's ID
-	@return ApiUpdateScheduleRequest
+	@return SchedulesAPIUpdateScheduleRequest
 */
-func (a *SchedulesAPIService) UpdateSchedule(ctx context.Context, scheduleId int32) ApiUpdateScheduleRequest {
-	return ApiUpdateScheduleRequest{
+func (a *SchedulesAPIService) UpdateSchedule(ctx context.Context, scheduleId int32) SchedulesAPIUpdateScheduleRequest {
+	return SchedulesAPIUpdateScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		scheduleId: scheduleId,
@@ -2306,7 +2306,7 @@ func (a *SchedulesAPIService) UpdateSchedule(ctx context.Context, scheduleId int
 }
 
 // Execute executes the request
-func (a *SchedulesAPIService) UpdateScheduleExecute(r ApiUpdateScheduleRequest) (*http.Response, error) {
+func (a *SchedulesAPIService) UpdateScheduleExecute(r SchedulesAPIUpdateScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

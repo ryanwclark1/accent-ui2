@@ -25,30 +25,30 @@ type SetupAPI interface {
 		Create Setup the Accent Engine
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateRequest
+		@return SetupAPICreateRequest
 	*/
-	Create(ctx context.Context) ApiCreateRequest
+	Create(ctx context.Context) SetupAPICreateRequest
 
 	// CreateExecute executes the request
-	CreateExecute(r ApiCreateRequest) (*http.Response, error)
+	CreateExecute(r SetupAPICreateRequest) (*http.Response, error)
 }
 
 // SetupAPIService SetupAPI service
 type SetupAPIService service
 
-type ApiCreateRequest struct {
+type SetupAPICreateRequest struct {
 	ctx        context.Context
 	ApiService SetupAPI
 	body       *SetupRequest
 }
 
 // Setup options
-func (r ApiCreateRequest) Body(body SetupRequest) ApiCreateRequest {
+func (r SetupAPICreateRequest) Body(body SetupRequest) SetupAPICreateRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateRequest) Execute() (*http.Response, error) {
+func (r SetupAPICreateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CreateExecute(r)
 }
 
@@ -56,17 +56,17 @@ func (r ApiCreateRequest) Execute() (*http.Response, error) {
 Create Setup the Accent Engine
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateRequest
+	@return SetupAPICreateRequest
 */
-func (a *SetupAPIService) Create(ctx context.Context) ApiCreateRequest {
-	return ApiCreateRequest{
+func (a *SetupAPIService) Create(ctx context.Context) SetupAPICreateRequest {
+	return SetupAPICreateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SetupAPIService) CreateExecute(r ApiCreateRequest) (*http.Response, error) {
+func (a *SetupAPIService) CreateExecute(r SetupAPICreateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}

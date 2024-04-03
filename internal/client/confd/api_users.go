@@ -30,12 +30,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param agentId Agent’s ID
-		@return ApiAssociateUserAgentRequest
+		@return UsersAPIAssociateUserAgentRequest
 	*/
-	AssociateUserAgent(ctx context.Context, userId string, agentId int32) ApiAssociateUserAgentRequest
+	AssociateUserAgent(ctx context.Context, userId string, agentId int32) UsersAPIAssociateUserAgentRequest
 
 	// AssociateUserAgentExecute executes the request
-	AssociateUserAgentExecute(r ApiAssociateUserAgentRequest) (*http.Response, error)
+	AssociateUserAgentExecute(r UsersAPIAssociateUserAgentRequest) (*http.Response, error)
 
 	/*
 		AssociateUserCallpermission Associate user and call permission
@@ -45,12 +45,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param callpermissionId Call Permission's ID
-		@return ApiAssociateUserCallpermissionRequest
+		@return UsersAPIAssociateUserCallpermissionRequest
 	*/
-	AssociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) ApiAssociateUserCallpermissionRequest
+	AssociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) UsersAPIAssociateUserCallpermissionRequest
 
 	// AssociateUserCallpermissionExecute executes the request
-	AssociateUserCallpermissionExecute(r ApiAssociateUserCallpermissionRequest) (*http.Response, error)
+	AssociateUserCallpermissionExecute(r UsersAPIAssociateUserCallpermissionRequest) (*http.Response, error)
 
 	/*
 		AssociateUserFuncKeyTemplate Associate a func key template to a user
@@ -60,12 +60,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param templateId
-		@return ApiAssociateUserFuncKeyTemplateRequest
+		@return UsersAPIAssociateUserFuncKeyTemplateRequest
 	*/
-	AssociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) ApiAssociateUserFuncKeyTemplateRequest
+	AssociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) UsersAPIAssociateUserFuncKeyTemplateRequest
 
 	// AssociateUserFuncKeyTemplateExecute executes the request
-	AssociateUserFuncKeyTemplateExecute(r ApiAssociateUserFuncKeyTemplateRequest) (*http.Response, error)
+	AssociateUserFuncKeyTemplateExecute(r UsersAPIAssociateUserFuncKeyTemplateRequest) (*http.Response, error)
 
 	/*
 		AssociateUserLine Associate user and line
@@ -75,12 +75,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param lineId
-		@return ApiAssociateUserLineRequest
+		@return UsersAPIAssociateUserLineRequest
 	*/
-	AssociateUserLine(ctx context.Context, userId string, lineId int32) ApiAssociateUserLineRequest
+	AssociateUserLine(ctx context.Context, userId string, lineId int32) UsersAPIAssociateUserLineRequest
 
 	// AssociateUserLineExecute executes the request
-	AssociateUserLineExecute(r ApiAssociateUserLineRequest) (*http.Response, error)
+	AssociateUserLineExecute(r UsersAPIAssociateUserLineRequest) (*http.Response, error)
 
 	/*
 		AssociateUserLines Associate user and lines
@@ -89,12 +89,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiAssociateUserLinesRequest
+		@return UsersAPIAssociateUserLinesRequest
 	*/
-	AssociateUserLines(ctx context.Context, userId string) ApiAssociateUserLinesRequest
+	AssociateUserLines(ctx context.Context, userId string) UsersAPIAssociateUserLinesRequest
 
 	// AssociateUserLinesExecute executes the request
-	AssociateUserLinesExecute(r ApiAssociateUserLinesRequest) (*http.Response, error)
+	AssociateUserLinesExecute(r UsersAPIAssociateUserLinesRequest) (*http.Response, error)
 
 	/*
 		AssociateUserSchedule Associate user and schedule
@@ -104,12 +104,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateUserScheduleRequest
+		@return UsersAPIAssociateUserScheduleRequest
 	*/
-	AssociateUserSchedule(ctx context.Context, userId string, scheduleId int32) ApiAssociateUserScheduleRequest
+	AssociateUserSchedule(ctx context.Context, userId string, scheduleId int32) UsersAPIAssociateUserScheduleRequest
 
 	// AssociateUserScheduleExecute executes the request
-	AssociateUserScheduleExecute(r ApiAssociateUserScheduleRequest) (*http.Response, error)
+	AssociateUserScheduleExecute(r UsersAPIAssociateUserScheduleRequest) (*http.Response, error)
 
 	/*
 		AssociateUserVoicemail Associate user and voicemail
@@ -119,12 +119,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param voicemailId
-		@return ApiAssociateUserVoicemailRequest
+		@return UsersAPIAssociateUserVoicemailRequest
 	*/
-	AssociateUserVoicemail(ctx context.Context, userId string, voicemailId int32) ApiAssociateUserVoicemailRequest
+	AssociateUserVoicemail(ctx context.Context, userId string, voicemailId int32) UsersAPIAssociateUserVoicemailRequest
 
 	// AssociateUserVoicemailExecute executes the request
-	AssociateUserVoicemailExecute(r ApiAssociateUserVoicemailRequest) (*http.Response, error)
+	AssociateUserVoicemailExecute(r UsersAPIAssociateUserVoicemailRequest) (*http.Response, error)
 
 	/*
 		CreateUser Create user
@@ -132,13 +132,13 @@ type UsersAPI interface {
 		**Required ACL:** `confd.users.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateUserRequest
+		@return UsersAPICreateUserRequest
 	*/
-	CreateUser(ctx context.Context) ApiCreateUserRequest
+	CreateUser(ctx context.Context) UsersAPICreateUserRequest
 
 	// CreateUserExecute executes the request
 	//  @return UserPostResponse
-	CreateUserExecute(r ApiCreateUserRequest) (*UserPostResponse, *http.Response, error)
+	CreateUserExecute(r UsersAPICreateUserRequest) (*UserPostResponse, *http.Response, error)
 
 	/*
 		CreateUserExternalApp Create user external app
@@ -148,13 +148,13 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param appName External App's name
-		@return ApiCreateUserExternalAppRequest
+		@return UsersAPICreateUserExternalAppRequest
 	*/
-	CreateUserExternalApp(ctx context.Context, userUuid string, appName string) ApiCreateUserExternalAppRequest
+	CreateUserExternalApp(ctx context.Context, userUuid string, appName string) UsersAPICreateUserExternalAppRequest
 
 	// CreateUserExternalAppExecute executes the request
 	//  @return UserExternalApp
-	CreateUserExternalAppExecute(r ApiCreateUserExternalAppRequest) (*UserExternalApp, *http.Response, error)
+	CreateUserExternalAppExecute(r UsersAPICreateUserExternalAppRequest) (*UserExternalApp, *http.Response, error)
 
 	/*
 		CreateUserMeeting Create user meeting
@@ -162,13 +162,13 @@ type UsersAPI interface {
 		**Required ACL:** `confd.users.me.meetings.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateUserMeetingRequest
+		@return UsersAPICreateUserMeetingRequest
 	*/
-	CreateUserMeeting(ctx context.Context) ApiCreateUserMeetingRequest
+	CreateUserMeeting(ctx context.Context) UsersAPICreateUserMeetingRequest
 
 	// CreateUserMeetingExecute executes the request
 	//  @return Meeting
-	CreateUserMeetingExecute(r ApiCreateUserMeetingRequest) (*Meeting, *http.Response, error)
+	CreateUserMeetingExecute(r UsersAPICreateUserMeetingRequest) (*Meeting, *http.Response, error)
 
 	/*
 		CreateUserVoicemail Create user voicemail
@@ -177,13 +177,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiCreateUserVoicemailRequest
+		@return UsersAPICreateUserVoicemailRequest
 	*/
-	CreateUserVoicemail(ctx context.Context, userId string) ApiCreateUserVoicemailRequest
+	CreateUserVoicemail(ctx context.Context, userId string) UsersAPICreateUserVoicemailRequest
 
 	// CreateUserVoicemailExecute executes the request
 	//  @return Voicemail
-	CreateUserVoicemailExecute(r ApiCreateUserVoicemailRequest) (*Voicemail, *http.Response, error)
+	CreateUserVoicemailExecute(r UsersAPICreateUserVoicemailRequest) (*Voicemail, *http.Response, error)
 
 	/*
 		DeleteUser Delete user
@@ -196,12 +196,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiDeleteUserRequest
+		@return UsersAPIDeleteUserRequest
 	*/
-	DeleteUser(ctx context.Context, userId string) ApiDeleteUserRequest
+	DeleteUser(ctx context.Context, userId string) UsersAPIDeleteUserRequest
 
 	// DeleteUserExecute executes the request
-	DeleteUserExecute(r ApiDeleteUserRequest) (*http.Response, error)
+	DeleteUserExecute(r UsersAPIDeleteUserRequest) (*http.Response, error)
 
 	/*
 		DeleteUserExternalApp Delete user external app
@@ -211,12 +211,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param appName External App's name
-		@return ApiDeleteUserExternalAppRequest
+		@return UsersAPIDeleteUserExternalAppRequest
 	*/
-	DeleteUserExternalApp(ctx context.Context, userUuid string, appName string) ApiDeleteUserExternalAppRequest
+	DeleteUserExternalApp(ctx context.Context, userUuid string, appName string) UsersAPIDeleteUserExternalAppRequest
 
 	// DeleteUserExternalAppExecute executes the request
-	DeleteUserExternalAppExecute(r ApiDeleteUserExternalAppRequest) (*http.Response, error)
+	DeleteUserExternalAppExecute(r UsersAPIDeleteUserExternalAppRequest) (*http.Response, error)
 
 	/*
 		DeleteUserFuncKey Remove func key for user
@@ -226,12 +226,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param position position of the funckey
-		@return ApiDeleteUserFuncKeyRequest
+		@return UsersAPIDeleteUserFuncKeyRequest
 	*/
-	DeleteUserFuncKey(ctx context.Context, userId string, position int32) ApiDeleteUserFuncKeyRequest
+	DeleteUserFuncKey(ctx context.Context, userId string, position int32) UsersAPIDeleteUserFuncKeyRequest
 
 	// DeleteUserFuncKeyExecute executes the request
-	DeleteUserFuncKeyExecute(r ApiDeleteUserFuncKeyRequest) (*http.Response, error)
+	DeleteUserFuncKeyExecute(r UsersAPIDeleteUserFuncKeyRequest) (*http.Response, error)
 
 	/*
 		DeleteUserMeeting Delete one of the meetings of the current user
@@ -240,12 +240,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Meeting UUID
-		@return ApiDeleteUserMeetingRequest
+		@return UsersAPIDeleteUserMeetingRequest
 	*/
-	DeleteUserMeeting(ctx context.Context, meetingUuid string) ApiDeleteUserMeetingRequest
+	DeleteUserMeeting(ctx context.Context, meetingUuid string) UsersAPIDeleteUserMeetingRequest
 
 	// DeleteUserMeetingExecute executes the request
-	DeleteUserMeetingExecute(r ApiDeleteUserMeetingRequest) (*http.Response, error)
+	DeleteUserMeetingExecute(r UsersAPIDeleteUserMeetingRequest) (*http.Response, error)
 
 	/*
 		DissociateUserAgent Dissociate user and agent
@@ -254,12 +254,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiDissociateUserAgentRequest
+		@return UsersAPIDissociateUserAgentRequest
 	*/
-	DissociateUserAgent(ctx context.Context, userId string) ApiDissociateUserAgentRequest
+	DissociateUserAgent(ctx context.Context, userId string) UsersAPIDissociateUserAgentRequest
 
 	// DissociateUserAgentExecute executes the request
-	DissociateUserAgentExecute(r ApiDissociateUserAgentRequest) (*http.Response, error)
+	DissociateUserAgentExecute(r UsersAPIDissociateUserAgentRequest) (*http.Response, error)
 
 	/*
 		DissociateUserCallpermission Dissociate user and call permission
@@ -269,12 +269,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param callpermissionId Call Permission's ID
-		@return ApiDissociateUserCallpermissionRequest
+		@return UsersAPIDissociateUserCallpermissionRequest
 	*/
-	DissociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) ApiDissociateUserCallpermissionRequest
+	DissociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) UsersAPIDissociateUserCallpermissionRequest
 
 	// DissociateUserCallpermissionExecute executes the request
-	DissociateUserCallpermissionExecute(r ApiDissociateUserCallpermissionRequest) (*http.Response, error)
+	DissociateUserCallpermissionExecute(r UsersAPIDissociateUserCallpermissionRequest) (*http.Response, error)
 
 	/*
 		DissociateUserFuncKeyTemplate Dissociate a func key template to a user
@@ -284,12 +284,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param templateId
-		@return ApiDissociateUserFuncKeyTemplateRequest
+		@return UsersAPIDissociateUserFuncKeyTemplateRequest
 	*/
-	DissociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) ApiDissociateUserFuncKeyTemplateRequest
+	DissociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) UsersAPIDissociateUserFuncKeyTemplateRequest
 
 	// DissociateUserFuncKeyTemplateExecute executes the request
-	DissociateUserFuncKeyTemplateExecute(r ApiDissociateUserFuncKeyTemplateRequest) (*http.Response, error)
+	DissociateUserFuncKeyTemplateExecute(r UsersAPIDissociateUserFuncKeyTemplateRequest) (*http.Response, error)
 
 	/*
 		DissociateUserLine Dissociate user and line
@@ -301,12 +301,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param lineId
-		@return ApiDissociateUserLineRequest
+		@return UsersAPIDissociateUserLineRequest
 	*/
-	DissociateUserLine(ctx context.Context, userId string, lineId int32) ApiDissociateUserLineRequest
+	DissociateUserLine(ctx context.Context, userId string, lineId int32) UsersAPIDissociateUserLineRequest
 
 	// DissociateUserLineExecute executes the request
-	DissociateUserLineExecute(r ApiDissociateUserLineRequest) (*http.Response, error)
+	DissociateUserLineExecute(r UsersAPIDissociateUserLineRequest) (*http.Response, error)
 
 	/*
 		DissociateUserQueue Dissociate user and queue
@@ -316,12 +316,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param userId the user's ID or UUID
-		@return ApiDissociateUserQueueRequest
+		@return UsersAPIDissociateUserQueueRequest
 	*/
-	DissociateUserQueue(ctx context.Context, queueId int32, userId string) ApiDissociateUserQueueRequest
+	DissociateUserQueue(ctx context.Context, queueId int32, userId string) UsersAPIDissociateUserQueueRequest
 
 	// DissociateUserQueueExecute executes the request
-	DissociateUserQueueExecute(r ApiDissociateUserQueueRequest) (*http.Response, error)
+	DissociateUserQueueExecute(r UsersAPIDissociateUserQueueRequest) (*http.Response, error)
 
 	/*
 		DissociateUserSchedule Dissociate user and schedule
@@ -331,12 +331,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateUserScheduleRequest
+		@return UsersAPIDissociateUserScheduleRequest
 	*/
-	DissociateUserSchedule(ctx context.Context, userId string, scheduleId int32) ApiDissociateUserScheduleRequest
+	DissociateUserSchedule(ctx context.Context, userId string, scheduleId int32) UsersAPIDissociateUserScheduleRequest
 
 	// DissociateUserScheduleExecute executes the request
-	DissociateUserScheduleExecute(r ApiDissociateUserScheduleRequest) (*http.Response, error)
+	DissociateUserScheduleExecute(r UsersAPIDissociateUserScheduleRequest) (*http.Response, error)
 
 	/*
 		DissociateUserVoicemail Dissociate user and voicemail
@@ -345,12 +345,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiDissociateUserVoicemailRequest
+		@return UsersAPIDissociateUserVoicemailRequest
 	*/
-	DissociateUserVoicemail(ctx context.Context, userId string) ApiDissociateUserVoicemailRequest
+	DissociateUserVoicemail(ctx context.Context, userId string) UsersAPIDissociateUserVoicemailRequest
 
 	// DissociateUserVoicemailExecute executes the request
-	DissociateUserVoicemailExecute(r ApiDissociateUserVoicemailRequest) (*http.Response, error)
+	DissociateUserVoicemailExecute(r UsersAPIDissociateUserVoicemailRequest) (*http.Response, error)
 
 	/*
 		ExportUsersCsv Mass export users and associated resources
@@ -360,13 +360,13 @@ type UsersAPI interface {
 	CSV field list available at https://accentvoice.io/uc-doc/administration/users/csv_import
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiExportUsersCsvRequest
+		@return UsersAPIExportUsersCsvRequest
 	*/
-	ExportUsersCsv(ctx context.Context) ApiExportUsersCsvRequest
+	ExportUsersCsv(ctx context.Context) UsersAPIExportUsersCsvRequest
 
 	// ExportUsersCsvExecute executes the request
 	//  @return string
-	ExportUsersCsvExecute(r ApiExportUsersCsvRequest) (string, *http.Response, error)
+	ExportUsersCsvExecute(r UsersAPIExportUsersCsvRequest) (string, *http.Response, error)
 
 	/*
 		GetUser Get user
@@ -375,13 +375,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiGetUserRequest
+		@return UsersAPIGetUserRequest
 	*/
-	GetUser(ctx context.Context, userId string) ApiGetUserRequest
+	GetUser(ctx context.Context, userId string) UsersAPIGetUserRequest
 
 	// GetUserExecute executes the request
 	//  @return User
-	GetUserExecute(r ApiGetUserRequest) (*User, *http.Response, error)
+	GetUserExecute(r UsersAPIGetUserRequest) (*User, *http.Response, error)
 
 	/*
 		GetUserExternalApp Get user external app
@@ -391,13 +391,13 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param appName External App's name
-		@return ApiGetUserExternalAppRequest
+		@return UsersAPIGetUserExternalAppRequest
 	*/
-	GetUserExternalApp(ctx context.Context, userUuid string, appName string) ApiGetUserExternalAppRequest
+	GetUserExternalApp(ctx context.Context, userUuid string, appName string) UsersAPIGetUserExternalAppRequest
 
 	// GetUserExternalAppExecute executes the request
 	//  @return UserExternalApp
-	GetUserExternalAppExecute(r ApiGetUserExternalAppRequest) (*UserExternalApp, *http.Response, error)
+	GetUserExternalAppExecute(r UsersAPIGetUserExternalAppRequest) (*UserExternalApp, *http.Response, error)
 
 	/*
 		GetUserFallback List all fallbacks for user
@@ -406,13 +406,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiGetUserFallbackRequest
+		@return UsersAPIGetUserFallbackRequest
 	*/
-	GetUserFallback(ctx context.Context, userId string) ApiGetUserFallbackRequest
+	GetUserFallback(ctx context.Context, userId string) UsersAPIGetUserFallbackRequest
 
 	// GetUserFallbackExecute executes the request
 	//  @return UserFallbacks
-	GetUserFallbackExecute(r ApiGetUserFallbackRequest) (*UserFallbacks, *http.Response, error)
+	GetUserFallbackExecute(r UsersAPIGetUserFallbackRequest) (*UserFallbacks, *http.Response, error)
 
 	/*
 		GetUserForward Get forward for a user
@@ -422,13 +422,13 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param forwardName the forward name
-		@return ApiGetUserForwardRequest
+		@return UsersAPIGetUserForwardRequest
 	*/
-	GetUserForward(ctx context.Context, userId string, forwardName string) ApiGetUserForwardRequest
+	GetUserForward(ctx context.Context, userId string, forwardName string) UsersAPIGetUserForwardRequest
 
 	// GetUserForwardExecute executes the request
 	//  @return UserForward
-	GetUserForwardExecute(r ApiGetUserForwardRequest) (*UserForward, *http.Response, error)
+	GetUserForwardExecute(r UsersAPIGetUserForwardRequest) (*UserForward, *http.Response, error)
 
 	/*
 		GetUserFuncKey Get a func key for a user
@@ -438,13 +438,13 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param position position of the funckey
-		@return ApiGetUserFuncKeyRequest
+		@return UsersAPIGetUserFuncKeyRequest
 	*/
-	GetUserFuncKey(ctx context.Context, userId string, position int32) ApiGetUserFuncKeyRequest
+	GetUserFuncKey(ctx context.Context, userId string, position int32) UsersAPIGetUserFuncKeyRequest
 
 	// GetUserFuncKeyExecute executes the request
 	//  @return FuncKey
-	GetUserFuncKeyExecute(r ApiGetUserFuncKeyRequest) (*FuncKey, *http.Response, error)
+	GetUserFuncKeyExecute(r UsersAPIGetUserFuncKeyRequest) (*FuncKey, *http.Response, error)
 
 	/*
 		GetUserLineAssociatedEndpointsSip Get SIP endpoint of a line for a user
@@ -454,13 +454,13 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param lineId
-		@return ApiGetUserLineAssociatedEndpointsSipRequest
+		@return UsersAPIGetUserLineAssociatedEndpointsSipRequest
 	*/
-	GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) ApiGetUserLineAssociatedEndpointsSipRequest
+	GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) UsersAPIGetUserLineAssociatedEndpointsSipRequest
 
 	// GetUserLineAssociatedEndpointsSipExecute executes the request
 	//  @return EndpointSIP
-	GetUserLineAssociatedEndpointsSipExecute(r ApiGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
+	GetUserLineAssociatedEndpointsSipExecute(r UsersAPIGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		GetUserLineMainAssociatedEndpointsSip Get SIP endpoint of main line for a user
@@ -469,13 +469,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
-		@return ApiGetUserLineMainAssociatedEndpointsSipRequest
+		@return UsersAPIGetUserLineMainAssociatedEndpointsSipRequest
 	*/
-	GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) ApiGetUserLineMainAssociatedEndpointsSipRequest
+	GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) UsersAPIGetUserLineMainAssociatedEndpointsSipRequest
 
 	// GetUserLineMainAssociatedEndpointsSipExecute executes the request
 	//  @return EndpointSIP
-	GetUserLineMainAssociatedEndpointsSipExecute(r ApiGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
+	GetUserLineMainAssociatedEndpointsSipExecute(r UsersAPIGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error)
 
 	/*
 		GetUserMeeting Get one of the meetings of the current user
@@ -484,13 +484,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Meeting UUID
-		@return ApiGetUserMeetingRequest
+		@return UsersAPIGetUserMeetingRequest
 	*/
-	GetUserMeeting(ctx context.Context, meetingUuid string) ApiGetUserMeetingRequest
+	GetUserMeeting(ctx context.Context, meetingUuid string) UsersAPIGetUserMeetingRequest
 
 	// GetUserMeetingExecute executes the request
 	//  @return Meeting
-	GetUserMeetingExecute(r ApiGetUserMeetingRequest) (*Meeting, *http.Response, error)
+	GetUserMeetingExecute(r UsersAPIGetUserMeetingRequest) (*Meeting, *http.Response, error)
 
 	/*
 		GetUserService Get status of service
@@ -500,13 +500,13 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param serviceName the service name
-		@return ApiGetUserServiceRequest
+		@return UsersAPIGetUserServiceRequest
 	*/
-	GetUserService(ctx context.Context, userId string, serviceName string) ApiGetUserServiceRequest
+	GetUserService(ctx context.Context, userId string, serviceName string) UsersAPIGetUserServiceRequest
 
 	// GetUserServiceExecute executes the request
 	//  @return UserService
-	GetUserServiceExecute(r ApiGetUserServiceRequest) (*UserService, *http.Response, error)
+	GetUserServiceExecute(r UsersAPIGetUserServiceRequest) (*UserService, *http.Response, error)
 
 	/*
 		GetUserServices Get status of all user's services
@@ -515,13 +515,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiGetUserServicesRequest
+		@return UsersAPIGetUserServicesRequest
 	*/
-	GetUserServices(ctx context.Context, userId string) ApiGetUserServicesRequest
+	GetUserServices(ctx context.Context, userId string) UsersAPIGetUserServicesRequest
 
 	// GetUserServicesExecute executes the request
 	//  @return UserServices
-	GetUserServicesExecute(r ApiGetUserServicesRequest) (*UserServices, *http.Response, error)
+	GetUserServicesExecute(r UsersAPIGetUserServicesRequest) (*UserServices, *http.Response, error)
 
 	/*
 		GetUserVoicemail Get user voicemails
@@ -530,13 +530,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiGetUserVoicemailRequest
+		@return UsersAPIGetUserVoicemailRequest
 	*/
-	GetUserVoicemail(ctx context.Context, userId string) ApiGetUserVoicemailRequest
+	GetUserVoicemail(ctx context.Context, userId string) UsersAPIGetUserVoicemailRequest
 
 	// GetUserVoicemailExecute executes the request
 	//  @return VoicemailItems
-	GetUserVoicemailExecute(r ApiGetUserVoicemailRequest) (*VoicemailItems, *http.Response, error)
+	GetUserVoicemailExecute(r UsersAPIGetUserVoicemailRequest) (*VoicemailItems, *http.Response, error)
 
 	/*
 		GetUsersSubscriptions Get user subscription
@@ -544,13 +544,13 @@ type UsersAPI interface {
 		**Required ACL:** `confd.users.subscriptions.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetUsersSubscriptionsRequest
+		@return UsersAPIGetUsersSubscriptionsRequest
 	*/
-	GetUsersSubscriptions(ctx context.Context) ApiGetUsersSubscriptionsRequest
+	GetUsersSubscriptions(ctx context.Context) UsersAPIGetUsersSubscriptionsRequest
 
 	// GetUsersSubscriptionsExecute executes the request
 	//  @return UserSubscriptionItems
-	GetUsersSubscriptionsExecute(r ApiGetUsersSubscriptionsRequest) (*UserSubscriptionItems, *http.Response, error)
+	GetUsersSubscriptionsExecute(r UsersAPIGetUsersSubscriptionsRequest) (*UserSubscriptionItems, *http.Response, error)
 
 	/*
 		HeadUser Check if user exists
@@ -559,12 +559,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiHeadUserRequest
+		@return UsersAPIHeadUserRequest
 	*/
-	HeadUser(ctx context.Context, userId string) ApiHeadUserRequest
+	HeadUser(ctx context.Context, userId string) UsersAPIHeadUserRequest
 
 	// HeadUserExecute executes the request
-	HeadUserExecute(r ApiHeadUserRequest) (*http.Response, error)
+	HeadUserExecute(r UsersAPIHeadUserRequest) (*http.Response, error)
 
 	/*
 		ImportUsersCsv Mass import users and associated resources
@@ -574,13 +574,13 @@ type UsersAPI interface {
 	CSV field list available at https://accentvoice.io/uc-doc/administration/users/csv_import
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiImportUsersCsvRequest
+		@return UsersAPIImportUsersCsvRequest
 	*/
-	ImportUsersCsv(ctx context.Context) ApiImportUsersCsvRequest
+	ImportUsersCsv(ctx context.Context) UsersAPIImportUsersCsvRequest
 
 	// ImportUsersCsvExecute executes the request
 	//  @return UserImport
-	ImportUsersCsvExecute(r ApiImportUsersCsvRequest) (*UserImport, *http.Response, error)
+	ImportUsersCsvExecute(r UsersAPIImportUsersCsvRequest) (*UserImport, *http.Response, error)
 
 	/*
 		ListFuncKeyTemplateUserAssociations List users associated to template
@@ -589,13 +589,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateId
-		@return ApiListFuncKeyTemplateUserAssociationsRequest
+		@return UsersAPIListFuncKeyTemplateUserAssociationsRequest
 	*/
-	ListFuncKeyTemplateUserAssociations(ctx context.Context, templateId int32) ApiListFuncKeyTemplateUserAssociationsRequest
+	ListFuncKeyTemplateUserAssociations(ctx context.Context, templateId int32) UsersAPIListFuncKeyTemplateUserAssociationsRequest
 
 	// ListFuncKeyTemplateUserAssociationsExecute executes the request
 	//  @return UserFuncKeyTemplate
-	ListFuncKeyTemplateUserAssociationsExecute(r ApiListFuncKeyTemplateUserAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error)
+	ListFuncKeyTemplateUserAssociationsExecute(r UsersAPIListFuncKeyTemplateUserAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error)
 
 	/*
 		ListUser List users
@@ -603,13 +603,13 @@ type UsersAPI interface {
 		**Required ACL:** `confd.users.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserRequest
+		@return UsersAPIListUserRequest
 	*/
-	ListUser(ctx context.Context) ApiListUserRequest
+	ListUser(ctx context.Context) UsersAPIListUserRequest
 
 	// ListUserExecute executes the request
 	//  @return UserItems
-	ListUserExecute(r ApiListUserRequest) (*UserItems, *http.Response, error)
+	ListUserExecute(r UsersAPIListUserRequest) (*UserItems, *http.Response, error)
 
 	/*
 		ListUserExternalApps List user external apps
@@ -618,13 +618,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
-		@return ApiListUserExternalAppsRequest
+		@return UsersAPIListUserExternalAppsRequest
 	*/
-	ListUserExternalApps(ctx context.Context, userUuid string) ApiListUserExternalAppsRequest
+	ListUserExternalApps(ctx context.Context, userUuid string) UsersAPIListUserExternalAppsRequest
 
 	// ListUserExternalAppsExecute executes the request
 	//  @return UserExternalAppItems
-	ListUserExternalAppsExecute(r ApiListUserExternalAppsRequest) (*UserExternalAppItems, *http.Response, error)
+	ListUserExternalAppsExecute(r UsersAPIListUserExternalAppsRequest) (*UserExternalAppItems, *http.Response, error)
 
 	/*
 		ListUserForwards List forwards for a user
@@ -633,13 +633,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiListUserForwardsRequest
+		@return UsersAPIListUserForwardsRequest
 	*/
-	ListUserForwards(ctx context.Context, userId string) ApiListUserForwardsRequest
+	ListUserForwards(ctx context.Context, userId string) UsersAPIListUserForwardsRequest
 
 	// ListUserForwardsExecute executes the request
 	//  @return UserForwards
-	ListUserForwardsExecute(r ApiListUserForwardsRequest) (*UserForwards, *http.Response, error)
+	ListUserForwardsExecute(r UsersAPIListUserForwardsRequest) (*UserForwards, *http.Response, error)
 
 	/*
 		ListUserFuncKeyTemplateAssociations List funckey templates associated to user
@@ -648,13 +648,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiListUserFuncKeyTemplateAssociationsRequest
+		@return UsersAPIListUserFuncKeyTemplateAssociationsRequest
 	*/
-	ListUserFuncKeyTemplateAssociations(ctx context.Context, userId string) ApiListUserFuncKeyTemplateAssociationsRequest
+	ListUserFuncKeyTemplateAssociations(ctx context.Context, userId string) UsersAPIListUserFuncKeyTemplateAssociationsRequest
 
 	// ListUserFuncKeyTemplateAssociationsExecute executes the request
 	//  @return UserFuncKeyTemplate
-	ListUserFuncKeyTemplateAssociationsExecute(r ApiListUserFuncKeyTemplateAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error)
+	ListUserFuncKeyTemplateAssociationsExecute(r UsersAPIListUserFuncKeyTemplateAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error)
 
 	/*
 		ListUserFuncKeys List func keys for a user
@@ -663,13 +663,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiListUserFuncKeysRequest
+		@return UsersAPIListUserFuncKeysRequest
 	*/
-	ListUserFuncKeys(ctx context.Context, userId string) ApiListUserFuncKeysRequest
+	ListUserFuncKeys(ctx context.Context, userId string) UsersAPIListUserFuncKeysRequest
 
 	// ListUserFuncKeysExecute executes the request
 	//  @return FuncKeyTemplate
-	ListUserFuncKeysExecute(r ApiListUserFuncKeysRequest) (*FuncKeyTemplate, *http.Response, error)
+	ListUserFuncKeysExecute(r UsersAPIListUserFuncKeysRequest) (*FuncKeyTemplate, *http.Response, error)
 
 	/*
 		ListUserMeetingAuthorizations List all guest authorization requests of a meeting
@@ -678,13 +678,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Meeting UUID
-		@return ApiListUserMeetingAuthorizationsRequest
+		@return UsersAPIListUserMeetingAuthorizationsRequest
 	*/
-	ListUserMeetingAuthorizations(ctx context.Context, meetingUuid string) ApiListUserMeetingAuthorizationsRequest
+	ListUserMeetingAuthorizations(ctx context.Context, meetingUuid string) UsersAPIListUserMeetingAuthorizationsRequest
 
 	// ListUserMeetingAuthorizationsExecute executes the request
 	//  @return MeetingAuthorizationItems
-	ListUserMeetingAuthorizationsExecute(r ApiListUserMeetingAuthorizationsRequest) (*MeetingAuthorizationItems, *http.Response, error)
+	ListUserMeetingAuthorizationsExecute(r UsersAPIListUserMeetingAuthorizationsRequest) (*MeetingAuthorizationItems, *http.Response, error)
 
 	/*
 		ListUserMeetings List user meetings
@@ -692,13 +692,13 @@ type UsersAPI interface {
 		**Required ACL:** `confd.users.me.meetings.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserMeetingsRequest
+		@return UsersAPIListUserMeetingsRequest
 	*/
-	ListUserMeetings(ctx context.Context) ApiListUserMeetingsRequest
+	ListUserMeetings(ctx context.Context) UsersAPIListUserMeetingsRequest
 
 	// ListUserMeetingsExecute executes the request
 	//  @return MeetingItems
-	ListUserMeetingsExecute(r ApiListUserMeetingsRequest) (*MeetingItems, *http.Response, error)
+	ListUserMeetingsExecute(r UsersAPIListUserMeetingsRequest) (*MeetingItems, *http.Response, error)
 
 	/*
 		PutUserMeetingAuthorizationAccept Accept a guest authorization request
@@ -708,13 +708,13 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Meeting UUID
 		@param authorizationUuid Authorization UUID
-		@return ApiPutUserMeetingAuthorizationAcceptRequest
+		@return UsersAPIPutUserMeetingAuthorizationAcceptRequest
 	*/
-	PutUserMeetingAuthorizationAccept(ctx context.Context, meetingUuid string, authorizationUuid string) ApiPutUserMeetingAuthorizationAcceptRequest
+	PutUserMeetingAuthorizationAccept(ctx context.Context, meetingUuid string, authorizationUuid string) UsersAPIPutUserMeetingAuthorizationAcceptRequest
 
 	// PutUserMeetingAuthorizationAcceptExecute executes the request
 	//  @return MeetingAuthorization
-	PutUserMeetingAuthorizationAcceptExecute(r ApiPutUserMeetingAuthorizationAcceptRequest) (*MeetingAuthorization, *http.Response, error)
+	PutUserMeetingAuthorizationAcceptExecute(r UsersAPIPutUserMeetingAuthorizationAcceptRequest) (*MeetingAuthorization, *http.Response, error)
 
 	/*
 		PutUserMeetingAuthorizationReject Reject a guest authorization request
@@ -724,13 +724,13 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Meeting UUID
 		@param authorizationUuid Authorization UUID
-		@return ApiPutUserMeetingAuthorizationRejectRequest
+		@return UsersAPIPutUserMeetingAuthorizationRejectRequest
 	*/
-	PutUserMeetingAuthorizationReject(ctx context.Context, meetingUuid string, authorizationUuid string) ApiPutUserMeetingAuthorizationRejectRequest
+	PutUserMeetingAuthorizationReject(ctx context.Context, meetingUuid string, authorizationUuid string) UsersAPIPutUserMeetingAuthorizationRejectRequest
 
 	// PutUserMeetingAuthorizationRejectExecute executes the request
 	//  @return MeetingAuthorization
-	PutUserMeetingAuthorizationRejectExecute(r ApiPutUserMeetingAuthorizationRejectRequest) (*MeetingAuthorization, *http.Response, error)
+	PutUserMeetingAuthorizationRejectExecute(r UsersAPIPutUserMeetingAuthorizationRejectRequest) (*MeetingAuthorization, *http.Response, error)
 
 	/*
 		UpdateCallFilterCallerUsers Update call filter and recipients
@@ -739,12 +739,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiUpdateCallFilterCallerUsersRequest
+		@return UsersAPIUpdateCallFilterCallerUsersRequest
 	*/
-	UpdateCallFilterCallerUsers(ctx context.Context, callfilterId int32) ApiUpdateCallFilterCallerUsersRequest
+	UpdateCallFilterCallerUsers(ctx context.Context, callfilterId int32) UsersAPIUpdateCallFilterCallerUsersRequest
 
 	// UpdateCallFilterCallerUsersExecute executes the request
-	UpdateCallFilterCallerUsersExecute(r ApiUpdateCallFilterCallerUsersRequest) (*http.Response, error)
+	UpdateCallFilterCallerUsersExecute(r UsersAPIUpdateCallFilterCallerUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateCallFilterMemberUsers Update call filter and surrogates
@@ -753,12 +753,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callfilterId Call Filter's ID
-		@return ApiUpdateCallFilterMemberUsersRequest
+		@return UsersAPIUpdateCallFilterMemberUsersRequest
 	*/
-	UpdateCallFilterMemberUsers(ctx context.Context, callfilterId int32) ApiUpdateCallFilterMemberUsersRequest
+	UpdateCallFilterMemberUsers(ctx context.Context, callfilterId int32) UsersAPIUpdateCallFilterMemberUsersRequest
 
 	// UpdateCallFilterMemberUsersExecute executes the request
-	UpdateCallFilterMemberUsersExecute(r ApiUpdateCallFilterMemberUsersRequest) (*http.Response, error)
+	UpdateCallFilterMemberUsersExecute(r UsersAPIUpdateCallFilterMemberUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateCallPickupInterceptorUsers Update call pickup and interceptors
@@ -767,12 +767,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallPickupInterceptorUsersRequest
+		@return UsersAPIUpdateCallPickupInterceptorUsersRequest
 	*/
-	UpdateCallPickupInterceptorUsers(ctx context.Context, callpickupId int32) ApiUpdateCallPickupInterceptorUsersRequest
+	UpdateCallPickupInterceptorUsers(ctx context.Context, callpickupId int32) UsersAPIUpdateCallPickupInterceptorUsersRequest
 
 	// UpdateCallPickupInterceptorUsersExecute executes the request
-	UpdateCallPickupInterceptorUsersExecute(r ApiUpdateCallPickupInterceptorUsersRequest) (*http.Response, error)
+	UpdateCallPickupInterceptorUsersExecute(r UsersAPIUpdateCallPickupInterceptorUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateCallPickupTargetUsers Update call pickup and targets
@@ -781,12 +781,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallPickupTargetUsersRequest
+		@return UsersAPIUpdateCallPickupTargetUsersRequest
 	*/
-	UpdateCallPickupTargetUsers(ctx context.Context, callpickupId int32) ApiUpdateCallPickupTargetUsersRequest
+	UpdateCallPickupTargetUsers(ctx context.Context, callpickupId int32) UsersAPIUpdateCallPickupTargetUsersRequest
 
 	// UpdateCallPickupTargetUsersExecute executes the request
-	UpdateCallPickupTargetUsersExecute(r ApiUpdateCallPickupTargetUsersRequest) (*http.Response, error)
+	UpdateCallPickupTargetUsersExecute(r UsersAPIUpdateCallPickupTargetUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateGroupMemberUsers Update group and users
@@ -797,12 +797,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
-		@return ApiUpdateGroupMemberUsersRequest
+		@return UsersAPIUpdateGroupMemberUsersRequest
 	*/
-	UpdateGroupMemberUsers(ctx context.Context, groupUuid string) ApiUpdateGroupMemberUsersRequest
+	UpdateGroupMemberUsers(ctx context.Context, groupUuid string) UsersAPIUpdateGroupMemberUsersRequest
 
 	// UpdateGroupMemberUsersExecute executes the request
-	UpdateGroupMemberUsersExecute(r ApiUpdateGroupMemberUsersRequest) (*http.Response, error)
+	UpdateGroupMemberUsersExecute(r UsersAPIUpdateGroupMemberUsersRequest) (*http.Response, error)
 
 	/*
 		UpdatePagingCallerUsers Update paging and callers
@@ -815,12 +815,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pagingId Paging's ID
-		@return ApiUpdatePagingCallerUsersRequest
+		@return UsersAPIUpdatePagingCallerUsersRequest
 	*/
-	UpdatePagingCallerUsers(ctx context.Context, pagingId int32) ApiUpdatePagingCallerUsersRequest
+	UpdatePagingCallerUsers(ctx context.Context, pagingId int32) UsersAPIUpdatePagingCallerUsersRequest
 
 	// UpdatePagingCallerUsersExecute executes the request
-	UpdatePagingCallerUsersExecute(r ApiUpdatePagingCallerUsersRequest) (*http.Response, error)
+	UpdatePagingCallerUsersExecute(r UsersAPIUpdatePagingCallerUsersRequest) (*http.Response, error)
 
 	/*
 		UpdatePagingMemberUsers Update paging and members
@@ -833,12 +833,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pagingId Paging's ID
-		@return ApiUpdatePagingMemberUsersRequest
+		@return UsersAPIUpdatePagingMemberUsersRequest
 	*/
-	UpdatePagingMemberUsers(ctx context.Context, pagingId int32) ApiUpdatePagingMemberUsersRequest
+	UpdatePagingMemberUsers(ctx context.Context, pagingId int32) UsersAPIUpdatePagingMemberUsersRequest
 
 	// UpdatePagingMemberUsersExecute executes the request
-	UpdatePagingMemberUsersExecute(r ApiUpdatePagingMemberUsersRequest) (*http.Response, error)
+	UpdatePagingMemberUsersExecute(r UsersAPIUpdatePagingMemberUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateSwitchboardMemberUsers Update switchboard and members
@@ -851,12 +851,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid
-		@return ApiUpdateSwitchboardMemberUsersRequest
+		@return UsersAPIUpdateSwitchboardMemberUsersRequest
 	*/
-	UpdateSwitchboardMemberUsers(ctx context.Context, switchboardUuid string) ApiUpdateSwitchboardMemberUsersRequest
+	UpdateSwitchboardMemberUsers(ctx context.Context, switchboardUuid string) UsersAPIUpdateSwitchboardMemberUsersRequest
 
 	// UpdateSwitchboardMemberUsersExecute executes the request
-	UpdateSwitchboardMemberUsersExecute(r ApiUpdateSwitchboardMemberUsersRequest) (*http.Response, error)
+	UpdateSwitchboardMemberUsersExecute(r UsersAPIUpdateSwitchboardMemberUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateUser Update user
@@ -867,12 +867,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserRequest
+		@return UsersAPIUpdateUserRequest
 	*/
-	UpdateUser(ctx context.Context, userId string) ApiUpdateUserRequest
+	UpdateUser(ctx context.Context, userId string) UsersAPIUpdateUserRequest
 
 	// UpdateUserExecute executes the request
-	UpdateUserExecute(r ApiUpdateUserRequest) (*http.Response, error)
+	UpdateUserExecute(r UsersAPIUpdateUserRequest) (*http.Response, error)
 
 	/*
 		UpdateUserExternalApp Update user external app
@@ -882,12 +882,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid the user's UUID
 		@param appName External App's name
-		@return ApiUpdateUserExternalAppRequest
+		@return UsersAPIUpdateUserExternalAppRequest
 	*/
-	UpdateUserExternalApp(ctx context.Context, userUuid string, appName string) ApiUpdateUserExternalAppRequest
+	UpdateUserExternalApp(ctx context.Context, userUuid string, appName string) UsersAPIUpdateUserExternalAppRequest
 
 	// UpdateUserExternalAppExecute executes the request
-	UpdateUserExternalAppExecute(r ApiUpdateUserExternalAppRequest) (*http.Response, error)
+	UpdateUserExternalAppExecute(r UsersAPIUpdateUserExternalAppRequest) (*http.Response, error)
 
 	/*
 		UpdateUserFallback Update user's fallbacks
@@ -898,12 +898,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserFallbackRequest
+		@return UsersAPIUpdateUserFallbackRequest
 	*/
-	UpdateUserFallback(ctx context.Context, userId string) ApiUpdateUserFallbackRequest
+	UpdateUserFallback(ctx context.Context, userId string) UsersAPIUpdateUserFallbackRequest
 
 	// UpdateUserFallbackExecute executes the request
-	UpdateUserFallbackExecute(r ApiUpdateUserFallbackRequest) (*http.Response, error)
+	UpdateUserFallbackExecute(r UsersAPIUpdateUserFallbackRequest) (*http.Response, error)
 
 	/*
 		UpdateUserForward Update a forward for a user
@@ -913,12 +913,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param forwardName the forward name
-		@return ApiUpdateUserForwardRequest
+		@return UsersAPIUpdateUserForwardRequest
 	*/
-	UpdateUserForward(ctx context.Context, userId string, forwardName string) ApiUpdateUserForwardRequest
+	UpdateUserForward(ctx context.Context, userId string, forwardName string) UsersAPIUpdateUserForwardRequest
 
 	// UpdateUserForwardExecute executes the request
-	UpdateUserForwardExecute(r ApiUpdateUserForwardRequest) (*http.Response, error)
+	UpdateUserForwardExecute(r UsersAPIUpdateUserForwardRequest) (*http.Response, error)
 
 	/*
 		UpdateUserForwards Update all forwards for a user
@@ -927,12 +927,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserForwardsRequest
+		@return UsersAPIUpdateUserForwardsRequest
 	*/
-	UpdateUserForwards(ctx context.Context, userId string) ApiUpdateUserForwardsRequest
+	UpdateUserForwards(ctx context.Context, userId string) UsersAPIUpdateUserForwardsRequest
 
 	// UpdateUserForwardsExecute executes the request
-	UpdateUserForwardsExecute(r ApiUpdateUserForwardsRequest) (*http.Response, error)
+	UpdateUserForwardsExecute(r UsersAPIUpdateUserForwardsRequest) (*http.Response, error)
 
 	/*
 		UpdateUserFuncKey Add/Replace a func key for a user
@@ -942,12 +942,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param position position of the funckey
-		@return ApiUpdateUserFuncKeyRequest
+		@return UsersAPIUpdateUserFuncKeyRequest
 	*/
-	UpdateUserFuncKey(ctx context.Context, userId string, position int32) ApiUpdateUserFuncKeyRequest
+	UpdateUserFuncKey(ctx context.Context, userId string, position int32) UsersAPIUpdateUserFuncKeyRequest
 
 	// UpdateUserFuncKeyExecute executes the request
-	UpdateUserFuncKeyExecute(r ApiUpdateUserFuncKeyRequest) (*http.Response, error)
+	UpdateUserFuncKeyExecute(r UsersAPIUpdateUserFuncKeyRequest) (*http.Response, error)
 
 	/*
 		UpdateUserFuncKeys Update func keys for a user
@@ -958,12 +958,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserFuncKeysRequest
+		@return UsersAPIUpdateUserFuncKeysRequest
 	*/
-	UpdateUserFuncKeys(ctx context.Context, userId string) ApiUpdateUserFuncKeysRequest
+	UpdateUserFuncKeys(ctx context.Context, userId string) UsersAPIUpdateUserFuncKeysRequest
 
 	// UpdateUserFuncKeysExecute executes the request
-	UpdateUserFuncKeysExecute(r ApiUpdateUserFuncKeysRequest) (*http.Response, error)
+	UpdateUserFuncKeysExecute(r UsersAPIUpdateUserFuncKeysRequest) (*http.Response, error)
 
 	/*
 		UpdateUserGroups Update user and groups
@@ -973,12 +973,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserGroupsRequest
+		@return UsersAPIUpdateUserGroupsRequest
 	*/
-	UpdateUserGroups(ctx context.Context, userId string) ApiUpdateUserGroupsRequest
+	UpdateUserGroups(ctx context.Context, userId string) UsersAPIUpdateUserGroupsRequest
 
 	// UpdateUserGroupsExecute executes the request
-	UpdateUserGroupsExecute(r ApiUpdateUserGroupsRequest) (*http.Response, error)
+	UpdateUserGroupsExecute(r UsersAPIUpdateUserGroupsRequest) (*http.Response, error)
 
 	/*
 		UpdateUserMeeting Update one of the meetings of the current user
@@ -987,12 +987,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param meetingUuid Meeting UUID
-		@return ApiUpdateUserMeetingRequest
+		@return UsersAPIUpdateUserMeetingRequest
 	*/
-	UpdateUserMeeting(ctx context.Context, meetingUuid string) ApiUpdateUserMeetingRequest
+	UpdateUserMeeting(ctx context.Context, meetingUuid string) UsersAPIUpdateUserMeetingRequest
 
 	// UpdateUserMeetingExecute executes the request
-	UpdateUserMeetingExecute(r ApiUpdateUserMeetingRequest) (*http.Response, error)
+	UpdateUserMeetingExecute(r UsersAPIUpdateUserMeetingRequest) (*http.Response, error)
 
 	/*
 		UpdateUserQueueAssociation Update User-Queue association
@@ -1002,12 +1002,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserQueueAssociationRequest
+		@return UsersAPIUpdateUserQueueAssociationRequest
 	*/
-	UpdateUserQueueAssociation(ctx context.Context, queueId int32, userId string) ApiUpdateUserQueueAssociationRequest
+	UpdateUserQueueAssociation(ctx context.Context, queueId int32, userId string) UsersAPIUpdateUserQueueAssociationRequest
 
 	// UpdateUserQueueAssociationExecute executes the request
-	UpdateUserQueueAssociationExecute(r ApiUpdateUserQueueAssociationRequest) (*http.Response, error)
+	UpdateUserQueueAssociationExecute(r UsersAPIUpdateUserQueueAssociationRequest) (*http.Response, error)
 
 	/*
 		UpdateUserService Enable/Disable service for a user
@@ -1017,12 +1017,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param serviceName the service name
-		@return ApiUpdateUserServiceRequest
+		@return UsersAPIUpdateUserServiceRequest
 	*/
-	UpdateUserService(ctx context.Context, userId string, serviceName string) ApiUpdateUserServiceRequest
+	UpdateUserService(ctx context.Context, userId string, serviceName string) UsersAPIUpdateUserServiceRequest
 
 	// UpdateUserServiceExecute executes the request
-	UpdateUserServiceExecute(r ApiUpdateUserServiceRequest) (*http.Response, error)
+	UpdateUserServiceExecute(r UsersAPIUpdateUserServiceRequest) (*http.Response, error)
 
 	/*
 		UpdateUserServices Update all services for a user
@@ -1031,12 +1031,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserServicesRequest
+		@return UsersAPIUpdateUserServicesRequest
 	*/
-	UpdateUserServices(ctx context.Context, userId string) ApiUpdateUserServicesRequest
+	UpdateUserServices(ctx context.Context, userId string) UsersAPIUpdateUserServicesRequest
 
 	// UpdateUserServicesExecute executes the request
-	UpdateUserServicesExecute(r ApiUpdateUserServicesRequest) (*http.Response, error)
+	UpdateUserServicesExecute(r UsersAPIUpdateUserServicesRequest) (*http.Response, error)
 
 	/*
 		UpdateUsersCsv **Disabled!** Mass import users and associated resources
@@ -1048,19 +1048,19 @@ type UsersAPI interface {
 	This resource has been disabled since it creates invalid configurations
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateUsersCsvRequest
+		@return UsersAPIUpdateUsersCsvRequest
 	*/
-	UpdateUsersCsv(ctx context.Context) ApiUpdateUsersCsvRequest
+	UpdateUsersCsv(ctx context.Context) UsersAPIUpdateUsersCsvRequest
 
 	// UpdateUsersCsvExecute executes the request
 	//  @return UserUpdate
-	UpdateUsersCsvExecute(r ApiUpdateUsersCsvRequest) (*UserUpdate, *http.Response, error)
+	UpdateUsersCsvExecute(r UsersAPIUpdateUsersCsvRequest) (*UserUpdate, *http.Response, error)
 }
 
 // UsersAPIService UsersAPI service
 type UsersAPIService service
 
-type ApiAssociateUserAgentRequest struct {
+type UsersAPIAssociateUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -1069,12 +1069,12 @@ type ApiAssociateUserAgentRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateUserAgentRequest) AccentTenant(accentTenant string) ApiAssociateUserAgentRequest {
+func (r UsersAPIAssociateUserAgentRequest) AccentTenant(accentTenant string) UsersAPIAssociateUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateUserAgentRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAssociateUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserAgentExecute(r)
 }
 
@@ -1086,10 +1086,10 @@ AssociateUserAgent Associate user and agent
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param agentId Agent’s ID
-	@return ApiAssociateUserAgentRequest
+	@return UsersAPIAssociateUserAgentRequest
 */
-func (a *UsersAPIService) AssociateUserAgent(ctx context.Context, userId string, agentId int32) ApiAssociateUserAgentRequest {
-	return ApiAssociateUserAgentRequest{
+func (a *UsersAPIService) AssociateUserAgent(ctx context.Context, userId string, agentId int32) UsersAPIAssociateUserAgentRequest {
+	return UsersAPIAssociateUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1098,7 +1098,7 @@ func (a *UsersAPIService) AssociateUserAgent(ctx context.Context, userId string,
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AssociateUserAgentExecute(r ApiAssociateUserAgentRequest) (*http.Response, error) {
+func (a *UsersAPIService) AssociateUserAgentExecute(r UsersAPIAssociateUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1201,7 +1201,7 @@ func (a *UsersAPIService) AssociateUserAgentExecute(r ApiAssociateUserAgentReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserCallpermissionRequest struct {
+type UsersAPIAssociateUserCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       UsersAPI
 	userId           string
@@ -1210,12 +1210,12 @@ type ApiAssociateUserCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateUserCallpermissionRequest) AccentTenant(accentTenant string) ApiAssociateUserCallpermissionRequest {
+func (r UsersAPIAssociateUserCallpermissionRequest) AccentTenant(accentTenant string) UsersAPIAssociateUserCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateUserCallpermissionRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAssociateUserCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserCallpermissionExecute(r)
 }
 
@@ -1227,10 +1227,10 @@ AssociateUserCallpermission Associate user and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param callpermissionId Call Permission's ID
-	@return ApiAssociateUserCallpermissionRequest
+	@return UsersAPIAssociateUserCallpermissionRequest
 */
-func (a *UsersAPIService) AssociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) ApiAssociateUserCallpermissionRequest {
-	return ApiAssociateUserCallpermissionRequest{
+func (a *UsersAPIService) AssociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) UsersAPIAssociateUserCallpermissionRequest {
+	return UsersAPIAssociateUserCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		userId:           userId,
@@ -1239,7 +1239,7 @@ func (a *UsersAPIService) AssociateUserCallpermission(ctx context.Context, userI
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AssociateUserCallpermissionExecute(r ApiAssociateUserCallpermissionRequest) (*http.Response, error) {
+func (a *UsersAPIService) AssociateUserCallpermissionExecute(r UsersAPIAssociateUserCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1342,7 +1342,7 @@ func (a *UsersAPIService) AssociateUserCallpermissionExecute(r ApiAssociateUserC
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserFuncKeyTemplateRequest struct {
+type UsersAPIAssociateUserFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -1351,12 +1351,12 @@ type ApiAssociateUserFuncKeyTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateUserFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiAssociateUserFuncKeyTemplateRequest {
+func (r UsersAPIAssociateUserFuncKeyTemplateRequest) AccentTenant(accentTenant string) UsersAPIAssociateUserFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateUserFuncKeyTemplateRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAssociateUserFuncKeyTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserFuncKeyTemplateExecute(r)
 }
 
@@ -1368,10 +1368,10 @@ AssociateUserFuncKeyTemplate Associate a func key template to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param templateId
-	@return ApiAssociateUserFuncKeyTemplateRequest
+	@return UsersAPIAssociateUserFuncKeyTemplateRequest
 */
-func (a *UsersAPIService) AssociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) ApiAssociateUserFuncKeyTemplateRequest {
-	return ApiAssociateUserFuncKeyTemplateRequest{
+func (a *UsersAPIService) AssociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) UsersAPIAssociateUserFuncKeyTemplateRequest {
+	return UsersAPIAssociateUserFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1380,7 +1380,7 @@ func (a *UsersAPIService) AssociateUserFuncKeyTemplate(ctx context.Context, user
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AssociateUserFuncKeyTemplateExecute(r ApiAssociateUserFuncKeyTemplateRequest) (*http.Response, error) {
+func (a *UsersAPIService) AssociateUserFuncKeyTemplateExecute(r UsersAPIAssociateUserFuncKeyTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1483,14 +1483,14 @@ func (a *UsersAPIService) AssociateUserFuncKeyTemplateExecute(r ApiAssociateUser
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserLineRequest struct {
+type UsersAPIAssociateUserLineRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userId     string
 	lineId     int32
 }
 
-func (r ApiAssociateUserLineRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAssociateUserLineRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserLineExecute(r)
 }
 
@@ -1502,10 +1502,10 @@ AssociateUserLine Associate user and line
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param lineId
-	@return ApiAssociateUserLineRequest
+	@return UsersAPIAssociateUserLineRequest
 */
-func (a *UsersAPIService) AssociateUserLine(ctx context.Context, userId string, lineId int32) ApiAssociateUserLineRequest {
-	return ApiAssociateUserLineRequest{
+func (a *UsersAPIService) AssociateUserLine(ctx context.Context, userId string, lineId int32) UsersAPIAssociateUserLineRequest {
+	return UsersAPIAssociateUserLineRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1514,7 +1514,7 @@ func (a *UsersAPIService) AssociateUserLine(ctx context.Context, userId string, 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AssociateUserLineExecute(r ApiAssociateUserLineRequest) (*http.Response, error) {
+func (a *UsersAPIService) AssociateUserLineExecute(r UsersAPIAssociateUserLineRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1614,19 +1614,19 @@ func (a *UsersAPIService) AssociateUserLineExecute(r ApiAssociateUserLineRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserLinesRequest struct {
+type UsersAPIAssociateUserLinesRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *LinesID
 	userId     string
 }
 
-func (r ApiAssociateUserLinesRequest) Body(body LinesID) ApiAssociateUserLinesRequest {
+func (r UsersAPIAssociateUserLinesRequest) Body(body LinesID) UsersAPIAssociateUserLinesRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAssociateUserLinesRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAssociateUserLinesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserLinesExecute(r)
 }
 
@@ -1637,10 +1637,10 @@ AssociateUserLines Associate user and lines
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiAssociateUserLinesRequest
+	@return UsersAPIAssociateUserLinesRequest
 */
-func (a *UsersAPIService) AssociateUserLines(ctx context.Context, userId string) ApiAssociateUserLinesRequest {
-	return ApiAssociateUserLinesRequest{
+func (a *UsersAPIService) AssociateUserLines(ctx context.Context, userId string) UsersAPIAssociateUserLinesRequest {
+	return UsersAPIAssociateUserLinesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1648,7 +1648,7 @@ func (a *UsersAPIService) AssociateUserLines(ctx context.Context, userId string)
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AssociateUserLinesExecute(r ApiAssociateUserLinesRequest) (*http.Response, error) {
+func (a *UsersAPIService) AssociateUserLinesExecute(r UsersAPIAssociateUserLinesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1752,7 +1752,7 @@ func (a *UsersAPIService) AssociateUserLinesExecute(r ApiAssociateUserLinesReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserScheduleRequest struct {
+type UsersAPIAssociateUserScheduleRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -1761,12 +1761,12 @@ type ApiAssociateUserScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateUserScheduleRequest) AccentTenant(accentTenant string) ApiAssociateUserScheduleRequest {
+func (r UsersAPIAssociateUserScheduleRequest) AccentTenant(accentTenant string) UsersAPIAssociateUserScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateUserScheduleRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAssociateUserScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserScheduleExecute(r)
 }
 
@@ -1778,10 +1778,10 @@ AssociateUserSchedule Associate user and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateUserScheduleRequest
+	@return UsersAPIAssociateUserScheduleRequest
 */
-func (a *UsersAPIService) AssociateUserSchedule(ctx context.Context, userId string, scheduleId int32) ApiAssociateUserScheduleRequest {
-	return ApiAssociateUserScheduleRequest{
+func (a *UsersAPIService) AssociateUserSchedule(ctx context.Context, userId string, scheduleId int32) UsersAPIAssociateUserScheduleRequest {
+	return UsersAPIAssociateUserScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1790,7 +1790,7 @@ func (a *UsersAPIService) AssociateUserSchedule(ctx context.Context, userId stri
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AssociateUserScheduleExecute(r ApiAssociateUserScheduleRequest) (*http.Response, error) {
+func (a *UsersAPIService) AssociateUserScheduleExecute(r UsersAPIAssociateUserScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1893,14 +1893,14 @@ func (a *UsersAPIService) AssociateUserScheduleExecute(r ApiAssociateUserSchedul
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserVoicemailRequest struct {
+type UsersAPIAssociateUserVoicemailRequest struct {
 	ctx         context.Context
 	ApiService  UsersAPI
 	userId      string
 	voicemailId int32
 }
 
-func (r ApiAssociateUserVoicemailRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAssociateUserVoicemailRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserVoicemailExecute(r)
 }
 
@@ -1912,10 +1912,10 @@ AssociateUserVoicemail Associate user and voicemail
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param voicemailId
-	@return ApiAssociateUserVoicemailRequest
+	@return UsersAPIAssociateUserVoicemailRequest
 */
-func (a *UsersAPIService) AssociateUserVoicemail(ctx context.Context, userId string, voicemailId int32) ApiAssociateUserVoicemailRequest {
-	return ApiAssociateUserVoicemailRequest{
+func (a *UsersAPIService) AssociateUserVoicemail(ctx context.Context, userId string, voicemailId int32) UsersAPIAssociateUserVoicemailRequest {
+	return UsersAPIAssociateUserVoicemailRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userId:      userId,
@@ -1924,7 +1924,7 @@ func (a *UsersAPIService) AssociateUserVoicemail(ctx context.Context, userId str
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AssociateUserVoicemailExecute(r ApiAssociateUserVoicemailRequest) (*http.Response, error) {
+func (a *UsersAPIService) AssociateUserVoicemailExecute(r UsersAPIAssociateUserVoicemailRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2024,7 +2024,7 @@ func (a *UsersAPIService) AssociateUserVoicemailExecute(r ApiAssociateUserVoicem
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateUserRequest struct {
+type UsersAPICreateUserRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *UserPost
@@ -2032,18 +2032,18 @@ type ApiCreateUserRequest struct {
 }
 
 // User to create
-func (r ApiCreateUserRequest) Body(body UserPost) ApiCreateUserRequest {
+func (r UsersAPICreateUserRequest) Body(body UserPost) UsersAPICreateUserRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateUserRequest) AccentTenant(accentTenant string) ApiCreateUserRequest {
+func (r UsersAPICreateUserRequest) AccentTenant(accentTenant string) UsersAPICreateUserRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateUserRequest) Execute() (*UserPostResponse, *http.Response, error) {
+func (r UsersAPICreateUserRequest) Execute() (*UserPostResponse, *http.Response, error) {
 	return r.ApiService.CreateUserExecute(r)
 }
 
@@ -2053,10 +2053,10 @@ CreateUser Create user
 **Required ACL:** `confd.users.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateUserRequest
+	@return UsersAPICreateUserRequest
 */
-func (a *UsersAPIService) CreateUser(ctx context.Context) ApiCreateUserRequest {
-	return ApiCreateUserRequest{
+func (a *UsersAPIService) CreateUser(ctx context.Context) UsersAPICreateUserRequest {
+	return UsersAPICreateUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2065,7 +2065,7 @@ func (a *UsersAPIService) CreateUser(ctx context.Context) ApiCreateUserRequest {
 // Execute executes the request
 //
 //	@return UserPostResponse
-func (a *UsersAPIService) CreateUserExecute(r ApiCreateUserRequest) (*UserPostResponse, *http.Response, error) {
+func (a *UsersAPIService) CreateUserExecute(r UsersAPICreateUserRequest) (*UserPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2170,7 +2170,7 @@ func (a *UsersAPIService) CreateUserExecute(r ApiCreateUserRequest) (*UserPostRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateUserExternalAppRequest struct {
+type UsersAPICreateUserExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *UserExternalApp
@@ -2180,18 +2180,18 @@ type ApiCreateUserExternalAppRequest struct {
 }
 
 // External app to create
-func (r ApiCreateUserExternalAppRequest) Body(body UserExternalApp) ApiCreateUserExternalAppRequest {
+func (r UsersAPICreateUserExternalAppRequest) Body(body UserExternalApp) UsersAPICreateUserExternalAppRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateUserExternalAppRequest) AccentTenant(accentTenant string) ApiCreateUserExternalAppRequest {
+func (r UsersAPICreateUserExternalAppRequest) AccentTenant(accentTenant string) UsersAPICreateUserExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateUserExternalAppRequest) Execute() (*UserExternalApp, *http.Response, error) {
+func (r UsersAPICreateUserExternalAppRequest) Execute() (*UserExternalApp, *http.Response, error) {
 	return r.ApiService.CreateUserExternalAppExecute(r)
 }
 
@@ -2203,10 +2203,10 @@ CreateUserExternalApp Create user external app
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param appName External App's name
-	@return ApiCreateUserExternalAppRequest
+	@return UsersAPICreateUserExternalAppRequest
 */
-func (a *UsersAPIService) CreateUserExternalApp(ctx context.Context, userUuid string, appName string) ApiCreateUserExternalAppRequest {
-	return ApiCreateUserExternalAppRequest{
+func (a *UsersAPIService) CreateUserExternalApp(ctx context.Context, userUuid string, appName string) UsersAPICreateUserExternalAppRequest {
+	return UsersAPICreateUserExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -2217,7 +2217,7 @@ func (a *UsersAPIService) CreateUserExternalApp(ctx context.Context, userUuid st
 // Execute executes the request
 //
 //	@return UserExternalApp
-func (a *UsersAPIService) CreateUserExternalAppExecute(r ApiCreateUserExternalAppRequest) (*UserExternalApp, *http.Response, error) {
+func (a *UsersAPIService) CreateUserExternalAppExecute(r UsersAPICreateUserExternalAppRequest) (*UserExternalApp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2324,7 +2324,7 @@ func (a *UsersAPIService) CreateUserExternalAppExecute(r ApiCreateUserExternalAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateUserMeetingRequest struct {
+type UsersAPICreateUserMeetingRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *MeetingUserRequest
@@ -2332,18 +2332,18 @@ type ApiCreateUserMeetingRequest struct {
 }
 
 // Meeting to create
-func (r ApiCreateUserMeetingRequest) Body(body MeetingUserRequest) ApiCreateUserMeetingRequest {
+func (r UsersAPICreateUserMeetingRequest) Body(body MeetingUserRequest) UsersAPICreateUserMeetingRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateUserMeetingRequest) AccentTenant(accentTenant string) ApiCreateUserMeetingRequest {
+func (r UsersAPICreateUserMeetingRequest) AccentTenant(accentTenant string) UsersAPICreateUserMeetingRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateUserMeetingRequest) Execute() (*Meeting, *http.Response, error) {
+func (r UsersAPICreateUserMeetingRequest) Execute() (*Meeting, *http.Response, error) {
 	return r.ApiService.CreateUserMeetingExecute(r)
 }
 
@@ -2353,10 +2353,10 @@ CreateUserMeeting Create user meeting
 **Required ACL:** `confd.users.me.meetings.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateUserMeetingRequest
+	@return UsersAPICreateUserMeetingRequest
 */
-func (a *UsersAPIService) CreateUserMeeting(ctx context.Context) ApiCreateUserMeetingRequest {
-	return ApiCreateUserMeetingRequest{
+func (a *UsersAPIService) CreateUserMeeting(ctx context.Context) UsersAPICreateUserMeetingRequest {
+	return UsersAPICreateUserMeetingRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2365,7 +2365,7 @@ func (a *UsersAPIService) CreateUserMeeting(ctx context.Context) ApiCreateUserMe
 // Execute executes the request
 //
 //	@return Meeting
-func (a *UsersAPIService) CreateUserMeetingExecute(r ApiCreateUserMeetingRequest) (*Meeting, *http.Response, error) {
+func (a *UsersAPIService) CreateUserMeetingExecute(r UsersAPICreateUserMeetingRequest) (*Meeting, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2470,7 +2470,7 @@ func (a *UsersAPIService) CreateUserMeetingExecute(r ApiCreateUserMeetingRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateUserVoicemailRequest struct {
+type UsersAPICreateUserVoicemailRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *Voicemail
@@ -2479,18 +2479,18 @@ type ApiCreateUserVoicemailRequest struct {
 }
 
 // Voicemail to create
-func (r ApiCreateUserVoicemailRequest) Body(body Voicemail) ApiCreateUserVoicemailRequest {
+func (r UsersAPICreateUserVoicemailRequest) Body(body Voicemail) UsersAPICreateUserVoicemailRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateUserVoicemailRequest) AccentTenant(accentTenant string) ApiCreateUserVoicemailRequest {
+func (r UsersAPICreateUserVoicemailRequest) AccentTenant(accentTenant string) UsersAPICreateUserVoicemailRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateUserVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
+func (r UsersAPICreateUserVoicemailRequest) Execute() (*Voicemail, *http.Response, error) {
 	return r.ApiService.CreateUserVoicemailExecute(r)
 }
 
@@ -2501,10 +2501,10 @@ CreateUserVoicemail Create user voicemail
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiCreateUserVoicemailRequest
+	@return UsersAPICreateUserVoicemailRequest
 */
-func (a *UsersAPIService) CreateUserVoicemail(ctx context.Context, userId string) ApiCreateUserVoicemailRequest {
-	return ApiCreateUserVoicemailRequest{
+func (a *UsersAPIService) CreateUserVoicemail(ctx context.Context, userId string) UsersAPICreateUserVoicemailRequest {
+	return UsersAPICreateUserVoicemailRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -2514,7 +2514,7 @@ func (a *UsersAPIService) CreateUserVoicemail(ctx context.Context, userId string
 // Execute executes the request
 //
 //	@return Voicemail
-func (a *UsersAPIService) CreateUserVoicemailExecute(r ApiCreateUserVoicemailRequest) (*Voicemail, *http.Response, error) {
+func (a *UsersAPIService) CreateUserVoicemailExecute(r UsersAPICreateUserVoicemailRequest) (*Voicemail, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2631,7 +2631,7 @@ func (a *UsersAPIService) CreateUserVoicemailExecute(r ApiCreateUserVoicemailReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserRequest struct {
+type UsersAPIDeleteUserRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -2640,18 +2640,18 @@ type ApiDeleteUserRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteUserRequest) AccentTenant(accentTenant string) ApiDeleteUserRequest {
+func (r UsersAPIDeleteUserRequest) AccentTenant(accentTenant string) UsersAPIDeleteUserRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Indicates if the resources related to the user must be deleted too.
-func (r ApiDeleteUserRequest) Recursive(recursive bool) ApiDeleteUserRequest {
+func (r UsersAPIDeleteUserRequest) Recursive(recursive bool) UsersAPIDeleteUserRequest {
 	r.recursive = &recursive
 	return r
 }
 
-func (r ApiDeleteUserRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserExecute(r)
 }
 
@@ -2666,10 +2666,10 @@ A user can not be deleted if he is associated to a line or a voicemail. Any line
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiDeleteUserRequest
+	@return UsersAPIDeleteUserRequest
 */
-func (a *UsersAPIService) DeleteUser(ctx context.Context, userId string) ApiDeleteUserRequest {
-	return ApiDeleteUserRequest{
+func (a *UsersAPIService) DeleteUser(ctx context.Context, userId string) UsersAPIDeleteUserRequest {
+	return UsersAPIDeleteUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -2677,7 +2677,7 @@ func (a *UsersAPIService) DeleteUser(ctx context.Context, userId string) ApiDele
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteUserExecute(r UsersAPIDeleteUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2782,7 +2782,7 @@ func (a *UsersAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserExternalAppRequest struct {
+type UsersAPIDeleteUserExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userUuid     string
@@ -2791,12 +2791,12 @@ type ApiDeleteUserExternalAppRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteUserExternalAppRequest) AccentTenant(accentTenant string) ApiDeleteUserExternalAppRequest {
+func (r UsersAPIDeleteUserExternalAppRequest) AccentTenant(accentTenant string) UsersAPIDeleteUserExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteUserExternalAppRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteUserExternalAppRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserExternalAppExecute(r)
 }
 
@@ -2808,10 +2808,10 @@ DeleteUserExternalApp Delete user external app
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param appName External App's name
-	@return ApiDeleteUserExternalAppRequest
+	@return UsersAPIDeleteUserExternalAppRequest
 */
-func (a *UsersAPIService) DeleteUserExternalApp(ctx context.Context, userUuid string, appName string) ApiDeleteUserExternalAppRequest {
-	return ApiDeleteUserExternalAppRequest{
+func (a *UsersAPIService) DeleteUserExternalApp(ctx context.Context, userUuid string, appName string) UsersAPIDeleteUserExternalAppRequest {
+	return UsersAPIDeleteUserExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -2820,7 +2820,7 @@ func (a *UsersAPIService) DeleteUserExternalApp(ctx context.Context, userUuid st
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteUserExternalAppExecute(r ApiDeleteUserExternalAppRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteUserExternalAppExecute(r UsersAPIDeleteUserExternalAppRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2923,7 +2923,7 @@ func (a *UsersAPIService) DeleteUserExternalAppExecute(r ApiDeleteUserExternalAp
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserFuncKeyRequest struct {
+type UsersAPIDeleteUserFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -2932,12 +2932,12 @@ type ApiDeleteUserFuncKeyRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteUserFuncKeyRequest) AccentTenant(accentTenant string) ApiDeleteUserFuncKeyRequest {
+func (r UsersAPIDeleteUserFuncKeyRequest) AccentTenant(accentTenant string) UsersAPIDeleteUserFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteUserFuncKeyRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteUserFuncKeyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserFuncKeyExecute(r)
 }
 
@@ -2949,10 +2949,10 @@ DeleteUserFuncKey Remove func key for user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param position position of the funckey
-	@return ApiDeleteUserFuncKeyRequest
+	@return UsersAPIDeleteUserFuncKeyRequest
 */
-func (a *UsersAPIService) DeleteUserFuncKey(ctx context.Context, userId string, position int32) ApiDeleteUserFuncKeyRequest {
-	return ApiDeleteUserFuncKeyRequest{
+func (a *UsersAPIService) DeleteUserFuncKey(ctx context.Context, userId string, position int32) UsersAPIDeleteUserFuncKeyRequest {
+	return UsersAPIDeleteUserFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -2961,7 +2961,7 @@ func (a *UsersAPIService) DeleteUserFuncKey(ctx context.Context, userId string, 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteUserFuncKeyExecute(r ApiDeleteUserFuncKeyRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteUserFuncKeyExecute(r UsersAPIDeleteUserFuncKeyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3064,7 +3064,7 @@ func (a *UsersAPIService) DeleteUserFuncKeyExecute(r ApiDeleteUserFuncKeyRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserMeetingRequest struct {
+type UsersAPIDeleteUserMeetingRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	meetingUuid  string
@@ -3072,12 +3072,12 @@ type ApiDeleteUserMeetingRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteUserMeetingRequest) AccentTenant(accentTenant string) ApiDeleteUserMeetingRequest {
+func (r UsersAPIDeleteUserMeetingRequest) AccentTenant(accentTenant string) UsersAPIDeleteUserMeetingRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteUserMeetingRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteUserMeetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserMeetingExecute(r)
 }
 
@@ -3088,10 +3088,10 @@ DeleteUserMeeting Delete one of the meetings of the current user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Meeting UUID
-	@return ApiDeleteUserMeetingRequest
+	@return UsersAPIDeleteUserMeetingRequest
 */
-func (a *UsersAPIService) DeleteUserMeeting(ctx context.Context, meetingUuid string) ApiDeleteUserMeetingRequest {
-	return ApiDeleteUserMeetingRequest{
+func (a *UsersAPIService) DeleteUserMeeting(ctx context.Context, meetingUuid string) UsersAPIDeleteUserMeetingRequest {
+	return UsersAPIDeleteUserMeetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		meetingUuid: meetingUuid,
@@ -3099,7 +3099,7 @@ func (a *UsersAPIService) DeleteUserMeeting(ctx context.Context, meetingUuid str
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteUserMeetingExecute(r ApiDeleteUserMeetingRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteUserMeetingExecute(r UsersAPIDeleteUserMeetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3201,7 +3201,7 @@ func (a *UsersAPIService) DeleteUserMeetingExecute(r ApiDeleteUserMeetingRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserAgentRequest struct {
+type UsersAPIDissociateUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -3209,12 +3209,12 @@ type ApiDissociateUserAgentRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserAgentRequest) AccentTenant(accentTenant string) ApiDissociateUserAgentRequest {
+func (r UsersAPIDissociateUserAgentRequest) AccentTenant(accentTenant string) UsersAPIDissociateUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserAgentRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDissociateUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserAgentExecute(r)
 }
 
@@ -3225,10 +3225,10 @@ DissociateUserAgent Dissociate user and agent
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiDissociateUserAgentRequest
+	@return UsersAPIDissociateUserAgentRequest
 */
-func (a *UsersAPIService) DissociateUserAgent(ctx context.Context, userId string) ApiDissociateUserAgentRequest {
-	return ApiDissociateUserAgentRequest{
+func (a *UsersAPIService) DissociateUserAgent(ctx context.Context, userId string) UsersAPIDissociateUserAgentRequest {
+	return UsersAPIDissociateUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -3236,7 +3236,7 @@ func (a *UsersAPIService) DissociateUserAgent(ctx context.Context, userId string
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DissociateUserAgentExecute(r ApiDissociateUserAgentRequest) (*http.Response, error) {
+func (a *UsersAPIService) DissociateUserAgentExecute(r UsersAPIDissociateUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3338,7 +3338,7 @@ func (a *UsersAPIService) DissociateUserAgentExecute(r ApiDissociateUserAgentReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserCallpermissionRequest struct {
+type UsersAPIDissociateUserCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       UsersAPI
 	userId           string
@@ -3347,12 +3347,12 @@ type ApiDissociateUserCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserCallpermissionRequest) AccentTenant(accentTenant string) ApiDissociateUserCallpermissionRequest {
+func (r UsersAPIDissociateUserCallpermissionRequest) AccentTenant(accentTenant string) UsersAPIDissociateUserCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserCallpermissionRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDissociateUserCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserCallpermissionExecute(r)
 }
 
@@ -3364,10 +3364,10 @@ DissociateUserCallpermission Dissociate user and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param callpermissionId Call Permission's ID
-	@return ApiDissociateUserCallpermissionRequest
+	@return UsersAPIDissociateUserCallpermissionRequest
 */
-func (a *UsersAPIService) DissociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) ApiDissociateUserCallpermissionRequest {
-	return ApiDissociateUserCallpermissionRequest{
+func (a *UsersAPIService) DissociateUserCallpermission(ctx context.Context, userId string, callpermissionId int32) UsersAPIDissociateUserCallpermissionRequest {
+	return UsersAPIDissociateUserCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		userId:           userId,
@@ -3376,7 +3376,7 @@ func (a *UsersAPIService) DissociateUserCallpermission(ctx context.Context, user
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DissociateUserCallpermissionExecute(r ApiDissociateUserCallpermissionRequest) (*http.Response, error) {
+func (a *UsersAPIService) DissociateUserCallpermissionExecute(r UsersAPIDissociateUserCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3479,7 +3479,7 @@ func (a *UsersAPIService) DissociateUserCallpermissionExecute(r ApiDissociateUse
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserFuncKeyTemplateRequest struct {
+type UsersAPIDissociateUserFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -3488,12 +3488,12 @@ type ApiDissociateUserFuncKeyTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiDissociateUserFuncKeyTemplateRequest {
+func (r UsersAPIDissociateUserFuncKeyTemplateRequest) AccentTenant(accentTenant string) UsersAPIDissociateUserFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserFuncKeyTemplateRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDissociateUserFuncKeyTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserFuncKeyTemplateExecute(r)
 }
 
@@ -3505,10 +3505,10 @@ DissociateUserFuncKeyTemplate Dissociate a func key template to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param templateId
-	@return ApiDissociateUserFuncKeyTemplateRequest
+	@return UsersAPIDissociateUserFuncKeyTemplateRequest
 */
-func (a *UsersAPIService) DissociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) ApiDissociateUserFuncKeyTemplateRequest {
-	return ApiDissociateUserFuncKeyTemplateRequest{
+func (a *UsersAPIService) DissociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) UsersAPIDissociateUserFuncKeyTemplateRequest {
+	return UsersAPIDissociateUserFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -3517,7 +3517,7 @@ func (a *UsersAPIService) DissociateUserFuncKeyTemplate(ctx context.Context, use
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DissociateUserFuncKeyTemplateExecute(r ApiDissociateUserFuncKeyTemplateRequest) (*http.Response, error) {
+func (a *UsersAPIService) DissociateUserFuncKeyTemplateExecute(r UsersAPIDissociateUserFuncKeyTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3620,14 +3620,14 @@ func (a *UsersAPIService) DissociateUserFuncKeyTemplateExecute(r ApiDissociateUs
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserLineRequest struct {
+type UsersAPIDissociateUserLineRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userId     string
 	lineId     int32
 }
 
-func (r ApiDissociateUserLineRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDissociateUserLineRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserLineExecute(r)
 }
 
@@ -3641,10 +3641,10 @@ Any devices that are attached the line must be removed before dissociating a use
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param lineId
-	@return ApiDissociateUserLineRequest
+	@return UsersAPIDissociateUserLineRequest
 */
-func (a *UsersAPIService) DissociateUserLine(ctx context.Context, userId string, lineId int32) ApiDissociateUserLineRequest {
-	return ApiDissociateUserLineRequest{
+func (a *UsersAPIService) DissociateUserLine(ctx context.Context, userId string, lineId int32) UsersAPIDissociateUserLineRequest {
+	return UsersAPIDissociateUserLineRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -3653,7 +3653,7 @@ func (a *UsersAPIService) DissociateUserLine(ctx context.Context, userId string,
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DissociateUserLineExecute(r ApiDissociateUserLineRequest) (*http.Response, error) {
+func (a *UsersAPIService) DissociateUserLineExecute(r UsersAPIDissociateUserLineRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3753,7 +3753,7 @@ func (a *UsersAPIService) DissociateUserLineExecute(r ApiDissociateUserLineReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserQueueRequest struct {
+type UsersAPIDissociateUserQueueRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	queueId      int32
@@ -3762,12 +3762,12 @@ type ApiDissociateUserQueueRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserQueueRequest) AccentTenant(accentTenant string) ApiDissociateUserQueueRequest {
+func (r UsersAPIDissociateUserQueueRequest) AccentTenant(accentTenant string) UsersAPIDissociateUserQueueRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserQueueRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDissociateUserQueueRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserQueueExecute(r)
 }
 
@@ -3779,10 +3779,10 @@ DissociateUserQueue Dissociate user and queue
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param userId the user's ID or UUID
-	@return ApiDissociateUserQueueRequest
+	@return UsersAPIDissociateUserQueueRequest
 */
-func (a *UsersAPIService) DissociateUserQueue(ctx context.Context, queueId int32, userId string) ApiDissociateUserQueueRequest {
-	return ApiDissociateUserQueueRequest{
+func (a *UsersAPIService) DissociateUserQueue(ctx context.Context, queueId int32, userId string) UsersAPIDissociateUserQueueRequest {
+	return UsersAPIDissociateUserQueueRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -3791,7 +3791,7 @@ func (a *UsersAPIService) DissociateUserQueue(ctx context.Context, queueId int32
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DissociateUserQueueExecute(r ApiDissociateUserQueueRequest) (*http.Response, error) {
+func (a *UsersAPIService) DissociateUserQueueExecute(r UsersAPIDissociateUserQueueRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3894,7 +3894,7 @@ func (a *UsersAPIService) DissociateUserQueueExecute(r ApiDissociateUserQueueReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserScheduleRequest struct {
+type UsersAPIDissociateUserScheduleRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -3903,12 +3903,12 @@ type ApiDissociateUserScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserScheduleRequest) AccentTenant(accentTenant string) ApiDissociateUserScheduleRequest {
+func (r UsersAPIDissociateUserScheduleRequest) AccentTenant(accentTenant string) UsersAPIDissociateUserScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserScheduleRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDissociateUserScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserScheduleExecute(r)
 }
 
@@ -3920,10 +3920,10 @@ DissociateUserSchedule Dissociate user and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateUserScheduleRequest
+	@return UsersAPIDissociateUserScheduleRequest
 */
-func (a *UsersAPIService) DissociateUserSchedule(ctx context.Context, userId string, scheduleId int32) ApiDissociateUserScheduleRequest {
-	return ApiDissociateUserScheduleRequest{
+func (a *UsersAPIService) DissociateUserSchedule(ctx context.Context, userId string, scheduleId int32) UsersAPIDissociateUserScheduleRequest {
+	return UsersAPIDissociateUserScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -3932,7 +3932,7 @@ func (a *UsersAPIService) DissociateUserSchedule(ctx context.Context, userId str
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DissociateUserScheduleExecute(r ApiDissociateUserScheduleRequest) (*http.Response, error) {
+func (a *UsersAPIService) DissociateUserScheduleExecute(r UsersAPIDissociateUserScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -4035,13 +4035,13 @@ func (a *UsersAPIService) DissociateUserScheduleExecute(r ApiDissociateUserSched
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserVoicemailRequest struct {
+type UsersAPIDissociateUserVoicemailRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userId     string
 }
 
-func (r ApiDissociateUserVoicemailRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDissociateUserVoicemailRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserVoicemailExecute(r)
 }
 
@@ -4052,10 +4052,10 @@ DissociateUserVoicemail Dissociate user and voicemail
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiDissociateUserVoicemailRequest
+	@return UsersAPIDissociateUserVoicemailRequest
 */
-func (a *UsersAPIService) DissociateUserVoicemail(ctx context.Context, userId string) ApiDissociateUserVoicemailRequest {
-	return ApiDissociateUserVoicemailRequest{
+func (a *UsersAPIService) DissociateUserVoicemail(ctx context.Context, userId string) UsersAPIDissociateUserVoicemailRequest {
+	return UsersAPIDissociateUserVoicemailRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -4063,7 +4063,7 @@ func (a *UsersAPIService) DissociateUserVoicemail(ctx context.Context, userId st
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DissociateUserVoicemailExecute(r ApiDissociateUserVoicemailRequest) (*http.Response, error) {
+func (a *UsersAPIService) DissociateUserVoicemailExecute(r UsersAPIDissociateUserVoicemailRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -4162,19 +4162,19 @@ func (a *UsersAPIService) DissociateUserVoicemailExecute(r ApiDissociateUserVoic
 	return localVarHTTPResponse, nil
 }
 
-type ApiExportUsersCsvRequest struct {
+type UsersAPIExportUsersCsvRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiExportUsersCsvRequest) AccentTenant(accentTenant string) ApiExportUsersCsvRequest {
+func (r UsersAPIExportUsersCsvRequest) AccentTenant(accentTenant string) UsersAPIExportUsersCsvRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiExportUsersCsvRequest) Execute() (string, *http.Response, error) {
+func (r UsersAPIExportUsersCsvRequest) Execute() (string, *http.Response, error) {
 	return r.ApiService.ExportUsersCsvExecute(r)
 }
 
@@ -4186,10 +4186,10 @@ ExportUsersCsv Mass export users and associated resources
 CSV field list available at https://accentvoice.io/uc-doc/administration/users/csv_import
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiExportUsersCsvRequest
+	@return UsersAPIExportUsersCsvRequest
 */
-func (a *UsersAPIService) ExportUsersCsv(ctx context.Context) ApiExportUsersCsvRequest {
-	return ApiExportUsersCsvRequest{
+func (a *UsersAPIService) ExportUsersCsv(ctx context.Context) UsersAPIExportUsersCsvRequest {
+	return UsersAPIExportUsersCsvRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -4198,7 +4198,7 @@ func (a *UsersAPIService) ExportUsersCsv(ctx context.Context) ApiExportUsersCsvR
 // Execute executes the request
 //
 //	@return string
-func (a *UsersAPIService) ExportUsersCsvExecute(r ApiExportUsersCsvRequest) (string, *http.Response, error) {
+func (a *UsersAPIService) ExportUsersCsvExecute(r UsersAPIExportUsersCsvRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4288,7 +4288,7 @@ func (a *UsersAPIService) ExportUsersCsvExecute(r ApiExportUsersCsvRequest) (str
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserRequest struct {
+type UsersAPIGetUserRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -4296,12 +4296,12 @@ type ApiGetUserRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserRequest) AccentTenant(accentTenant string) ApiGetUserRequest {
+func (r UsersAPIGetUserRequest) AccentTenant(accentTenant string) UsersAPIGetUserRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserRequest) Execute() (*User, *http.Response, error) {
+func (r UsersAPIGetUserRequest) Execute() (*User, *http.Response, error) {
 	return r.ApiService.GetUserExecute(r)
 }
 
@@ -4312,10 +4312,10 @@ GetUser Get user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiGetUserRequest
+	@return UsersAPIGetUserRequest
 */
-func (a *UsersAPIService) GetUser(ctx context.Context, userId string) ApiGetUserRequest {
-	return ApiGetUserRequest{
+func (a *UsersAPIService) GetUser(ctx context.Context, userId string) UsersAPIGetUserRequest {
+	return UsersAPIGetUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -4325,7 +4325,7 @@ func (a *UsersAPIService) GetUser(ctx context.Context, userId string) ApiGetUser
 // Execute executes the request
 //
 //	@return User
-func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*User, *http.Response, error) {
+func (a *UsersAPIService) GetUserExecute(r UsersAPIGetUserRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4426,7 +4426,7 @@ func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*User, *http.Resp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserExternalAppRequest struct {
+type UsersAPIGetUserExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userUuid     string
@@ -4436,18 +4436,18 @@ type ApiGetUserExternalAppRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserExternalAppRequest) AccentTenant(accentTenant string) ApiGetUserExternalAppRequest {
+func (r UsersAPIGetUserExternalAppRequest) AccentTenant(accentTenant string) UsersAPIGetUserExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Different view of the external app endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to return the user value for this external app  The &#x60;fallback&#x60; view return the user value for this external app, but if not found, will fallback to the tenant configured value  **WARNING**: Using fallback view on list will disabled all pagination and search features
-func (r ApiGetUserExternalAppRequest) View(view string) ApiGetUserExternalAppRequest {
+func (r UsersAPIGetUserExternalAppRequest) View(view string) UsersAPIGetUserExternalAppRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetUserExternalAppRequest) Execute() (*UserExternalApp, *http.Response, error) {
+func (r UsersAPIGetUserExternalAppRequest) Execute() (*UserExternalApp, *http.Response, error) {
 	return r.ApiService.GetUserExternalAppExecute(r)
 }
 
@@ -4459,10 +4459,10 @@ GetUserExternalApp Get user external app
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param appName External App's name
-	@return ApiGetUserExternalAppRequest
+	@return UsersAPIGetUserExternalAppRequest
 */
-func (a *UsersAPIService) GetUserExternalApp(ctx context.Context, userUuid string, appName string) ApiGetUserExternalAppRequest {
-	return ApiGetUserExternalAppRequest{
+func (a *UsersAPIService) GetUserExternalApp(ctx context.Context, userUuid string, appName string) UsersAPIGetUserExternalAppRequest {
+	return UsersAPIGetUserExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -4473,7 +4473,7 @@ func (a *UsersAPIService) GetUserExternalApp(ctx context.Context, userUuid strin
 // Execute executes the request
 //
 //	@return UserExternalApp
-func (a *UsersAPIService) GetUserExternalAppExecute(r ApiGetUserExternalAppRequest) (*UserExternalApp, *http.Response, error) {
+func (a *UsersAPIService) GetUserExternalAppExecute(r UsersAPIGetUserExternalAppRequest) (*UserExternalApp, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4578,13 +4578,13 @@ func (a *UsersAPIService) GetUserExternalAppExecute(r ApiGetUserExternalAppReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserFallbackRequest struct {
+type UsersAPIGetUserFallbackRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userId     string
 }
 
-func (r ApiGetUserFallbackRequest) Execute() (*UserFallbacks, *http.Response, error) {
+func (r UsersAPIGetUserFallbackRequest) Execute() (*UserFallbacks, *http.Response, error) {
 	return r.ApiService.GetUserFallbackExecute(r)
 }
 
@@ -4595,10 +4595,10 @@ GetUserFallback List all fallbacks for user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiGetUserFallbackRequest
+	@return UsersAPIGetUserFallbackRequest
 */
-func (a *UsersAPIService) GetUserFallback(ctx context.Context, userId string) ApiGetUserFallbackRequest {
-	return ApiGetUserFallbackRequest{
+func (a *UsersAPIService) GetUserFallback(ctx context.Context, userId string) UsersAPIGetUserFallbackRequest {
+	return UsersAPIGetUserFallbackRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -4608,7 +4608,7 @@ func (a *UsersAPIService) GetUserFallback(ctx context.Context, userId string) Ap
 // Execute executes the request
 //
 //	@return UserFallbacks
-func (a *UsersAPIService) GetUserFallbackExecute(r ApiGetUserFallbackRequest) (*UserFallbacks, *http.Response, error) {
+func (a *UsersAPIService) GetUserFallbackExecute(r UsersAPIGetUserFallbackRequest) (*UserFallbacks, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4696,14 +4696,14 @@ func (a *UsersAPIService) GetUserFallbackExecute(r ApiGetUserFallbackRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserForwardRequest struct {
+type UsersAPIGetUserForwardRequest struct {
 	ctx         context.Context
 	ApiService  UsersAPI
 	userId      string
 	forwardName string
 }
 
-func (r ApiGetUserForwardRequest) Execute() (*UserForward, *http.Response, error) {
+func (r UsersAPIGetUserForwardRequest) Execute() (*UserForward, *http.Response, error) {
 	return r.ApiService.GetUserForwardExecute(r)
 }
 
@@ -4715,10 +4715,10 @@ GetUserForward Get forward for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param forwardName the forward name
-	@return ApiGetUserForwardRequest
+	@return UsersAPIGetUserForwardRequest
 */
-func (a *UsersAPIService) GetUserForward(ctx context.Context, userId string, forwardName string) ApiGetUserForwardRequest {
-	return ApiGetUserForwardRequest{
+func (a *UsersAPIService) GetUserForward(ctx context.Context, userId string, forwardName string) UsersAPIGetUserForwardRequest {
+	return UsersAPIGetUserForwardRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userId:      userId,
@@ -4729,7 +4729,7 @@ func (a *UsersAPIService) GetUserForward(ctx context.Context, userId string, for
 // Execute executes the request
 //
 //	@return UserForward
-func (a *UsersAPIService) GetUserForwardExecute(r ApiGetUserForwardRequest) (*UserForward, *http.Response, error) {
+func (a *UsersAPIService) GetUserForwardExecute(r UsersAPIGetUserForwardRequest) (*UserForward, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4818,7 +4818,7 @@ func (a *UsersAPIService) GetUserForwardExecute(r ApiGetUserForwardRequest) (*Us
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserFuncKeyRequest struct {
+type UsersAPIGetUserFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -4827,12 +4827,12 @@ type ApiGetUserFuncKeyRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserFuncKeyRequest) AccentTenant(accentTenant string) ApiGetUserFuncKeyRequest {
+func (r UsersAPIGetUserFuncKeyRequest) AccentTenant(accentTenant string) UsersAPIGetUserFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserFuncKeyRequest) Execute() (*FuncKey, *http.Response, error) {
+func (r UsersAPIGetUserFuncKeyRequest) Execute() (*FuncKey, *http.Response, error) {
 	return r.ApiService.GetUserFuncKeyExecute(r)
 }
 
@@ -4844,10 +4844,10 @@ GetUserFuncKey Get a func key for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param position position of the funckey
-	@return ApiGetUserFuncKeyRequest
+	@return UsersAPIGetUserFuncKeyRequest
 */
-func (a *UsersAPIService) GetUserFuncKey(ctx context.Context, userId string, position int32) ApiGetUserFuncKeyRequest {
-	return ApiGetUserFuncKeyRequest{
+func (a *UsersAPIService) GetUserFuncKey(ctx context.Context, userId string, position int32) UsersAPIGetUserFuncKeyRequest {
+	return UsersAPIGetUserFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -4858,7 +4858,7 @@ func (a *UsersAPIService) GetUserFuncKey(ctx context.Context, userId string, pos
 // Execute executes the request
 //
 //	@return FuncKey
-func (a *UsersAPIService) GetUserFuncKeyExecute(r ApiGetUserFuncKeyRequest) (*FuncKey, *http.Response, error) {
+func (a *UsersAPIService) GetUserFuncKeyExecute(r UsersAPIGetUserFuncKeyRequest) (*FuncKey, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -4960,7 +4960,7 @@ func (a *UsersAPIService) GetUserFuncKeyExecute(r ApiGetUserFuncKeyRequest) (*Fu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserLineAssociatedEndpointsSipRequest struct {
+type UsersAPIGetUserLineAssociatedEndpointsSipRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userUuid   string
@@ -4969,12 +4969,12 @@ type ApiGetUserLineAssociatedEndpointsSipRequest struct {
 }
 
 // Different view of the SIP endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to include only options that are defined on the specified endpoint.  The &#x60;merged&#x60; view includes all options from included templates.
-func (r ApiGetUserLineAssociatedEndpointsSipRequest) View(view string) ApiGetUserLineAssociatedEndpointsSipRequest {
+func (r UsersAPIGetUserLineAssociatedEndpointsSipRequest) View(view string) UsersAPIGetUserLineAssociatedEndpointsSipRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetUserLineAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r UsersAPIGetUserLineAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetUserLineAssociatedEndpointsSipExecute(r)
 }
 
@@ -4986,10 +4986,10 @@ GetUserLineAssociatedEndpointsSip Get SIP endpoint of a line for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param lineId
-	@return ApiGetUserLineAssociatedEndpointsSipRequest
+	@return UsersAPIGetUserLineAssociatedEndpointsSipRequest
 */
-func (a *UsersAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) ApiGetUserLineAssociatedEndpointsSipRequest {
-	return ApiGetUserLineAssociatedEndpointsSipRequest{
+func (a *UsersAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Context, userUuid string, lineId int32) UsersAPIGetUserLineAssociatedEndpointsSipRequest {
+	return UsersAPIGetUserLineAssociatedEndpointsSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -5000,7 +5000,7 @@ func (a *UsersAPIService) GetUserLineAssociatedEndpointsSip(ctx context.Context,
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *UsersAPIService) GetUserLineAssociatedEndpointsSipExecute(r ApiGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *UsersAPIService) GetUserLineAssociatedEndpointsSipExecute(r UsersAPIGetUserLineAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5092,7 +5092,7 @@ func (a *UsersAPIService) GetUserLineAssociatedEndpointsSipExecute(r ApiGetUserL
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserLineMainAssociatedEndpointsSipRequest struct {
+type UsersAPIGetUserLineMainAssociatedEndpointsSipRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userUuid   string
@@ -5100,12 +5100,12 @@ type ApiGetUserLineMainAssociatedEndpointsSipRequest struct {
 }
 
 // Different view of the SIP endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to include only options that are defined on the specified endpoint.  The &#x60;merged&#x60; view includes all options from included templates.
-func (r ApiGetUserLineMainAssociatedEndpointsSipRequest) View(view string) ApiGetUserLineMainAssociatedEndpointsSipRequest {
+func (r UsersAPIGetUserLineMainAssociatedEndpointsSipRequest) View(view string) UsersAPIGetUserLineMainAssociatedEndpointsSipRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiGetUserLineMainAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
+func (r UsersAPIGetUserLineMainAssociatedEndpointsSipRequest) Execute() (*EndpointSIP, *http.Response, error) {
 	return r.ApiService.GetUserLineMainAssociatedEndpointsSipExecute(r)
 }
 
@@ -5116,10 +5116,10 @@ GetUserLineMainAssociatedEndpointsSip Get SIP endpoint of main line for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
-	@return ApiGetUserLineMainAssociatedEndpointsSipRequest
+	@return UsersAPIGetUserLineMainAssociatedEndpointsSipRequest
 */
-func (a *UsersAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) ApiGetUserLineMainAssociatedEndpointsSipRequest {
-	return ApiGetUserLineMainAssociatedEndpointsSipRequest{
+func (a *UsersAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.Context, userUuid string) UsersAPIGetUserLineMainAssociatedEndpointsSipRequest {
+	return UsersAPIGetUserLineMainAssociatedEndpointsSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -5129,7 +5129,7 @@ func (a *UsersAPIService) GetUserLineMainAssociatedEndpointsSip(ctx context.Cont
 // Execute executes the request
 //
 //	@return EndpointSIP
-func (a *UsersAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r ApiGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
+func (a *UsersAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r UsersAPIGetUserLineMainAssociatedEndpointsSipRequest) (*EndpointSIP, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5220,7 +5220,7 @@ func (a *UsersAPIService) GetUserLineMainAssociatedEndpointsSipExecute(r ApiGetU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserMeetingRequest struct {
+type UsersAPIGetUserMeetingRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	meetingUuid  string
@@ -5228,12 +5228,12 @@ type ApiGetUserMeetingRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserMeetingRequest) AccentTenant(accentTenant string) ApiGetUserMeetingRequest {
+func (r UsersAPIGetUserMeetingRequest) AccentTenant(accentTenant string) UsersAPIGetUserMeetingRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserMeetingRequest) Execute() (*Meeting, *http.Response, error) {
+func (r UsersAPIGetUserMeetingRequest) Execute() (*Meeting, *http.Response, error) {
 	return r.ApiService.GetUserMeetingExecute(r)
 }
 
@@ -5244,10 +5244,10 @@ GetUserMeeting Get one of the meetings of the current user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Meeting UUID
-	@return ApiGetUserMeetingRequest
+	@return UsersAPIGetUserMeetingRequest
 */
-func (a *UsersAPIService) GetUserMeeting(ctx context.Context, meetingUuid string) ApiGetUserMeetingRequest {
-	return ApiGetUserMeetingRequest{
+func (a *UsersAPIService) GetUserMeeting(ctx context.Context, meetingUuid string) UsersAPIGetUserMeetingRequest {
+	return UsersAPIGetUserMeetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		meetingUuid: meetingUuid,
@@ -5257,7 +5257,7 @@ func (a *UsersAPIService) GetUserMeeting(ctx context.Context, meetingUuid string
 // Execute executes the request
 //
 //	@return Meeting
-func (a *UsersAPIService) GetUserMeetingExecute(r ApiGetUserMeetingRequest) (*Meeting, *http.Response, error) {
+func (a *UsersAPIService) GetUserMeetingExecute(r UsersAPIGetUserMeetingRequest) (*Meeting, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5358,14 +5358,14 @@ func (a *UsersAPIService) GetUserMeetingExecute(r ApiGetUserMeetingRequest) (*Me
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserServiceRequest struct {
+type UsersAPIGetUserServiceRequest struct {
 	ctx         context.Context
 	ApiService  UsersAPI
 	userId      string
 	serviceName string
 }
 
-func (r ApiGetUserServiceRequest) Execute() (*UserService, *http.Response, error) {
+func (r UsersAPIGetUserServiceRequest) Execute() (*UserService, *http.Response, error) {
 	return r.ApiService.GetUserServiceExecute(r)
 }
 
@@ -5377,10 +5377,10 @@ GetUserService Get status of service
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param serviceName the service name
-	@return ApiGetUserServiceRequest
+	@return UsersAPIGetUserServiceRequest
 */
-func (a *UsersAPIService) GetUserService(ctx context.Context, userId string, serviceName string) ApiGetUserServiceRequest {
-	return ApiGetUserServiceRequest{
+func (a *UsersAPIService) GetUserService(ctx context.Context, userId string, serviceName string) UsersAPIGetUserServiceRequest {
+	return UsersAPIGetUserServiceRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userId:      userId,
@@ -5391,7 +5391,7 @@ func (a *UsersAPIService) GetUserService(ctx context.Context, userId string, ser
 // Execute executes the request
 //
 //	@return UserService
-func (a *UsersAPIService) GetUserServiceExecute(r ApiGetUserServiceRequest) (*UserService, *http.Response, error) {
+func (a *UsersAPIService) GetUserServiceExecute(r UsersAPIGetUserServiceRequest) (*UserService, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5490,13 +5490,13 @@ func (a *UsersAPIService) GetUserServiceExecute(r ApiGetUserServiceRequest) (*Us
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserServicesRequest struct {
+type UsersAPIGetUserServicesRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userId     string
 }
 
-func (r ApiGetUserServicesRequest) Execute() (*UserServices, *http.Response, error) {
+func (r UsersAPIGetUserServicesRequest) Execute() (*UserServices, *http.Response, error) {
 	return r.ApiService.GetUserServicesExecute(r)
 }
 
@@ -5507,10 +5507,10 @@ GetUserServices Get status of all user's services
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiGetUserServicesRequest
+	@return UsersAPIGetUserServicesRequest
 */
-func (a *UsersAPIService) GetUserServices(ctx context.Context, userId string) ApiGetUserServicesRequest {
-	return ApiGetUserServicesRequest{
+func (a *UsersAPIService) GetUserServices(ctx context.Context, userId string) UsersAPIGetUserServicesRequest {
+	return UsersAPIGetUserServicesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -5520,7 +5520,7 @@ func (a *UsersAPIService) GetUserServices(ctx context.Context, userId string) Ap
 // Execute executes the request
 //
 //	@return UserServices
-func (a *UsersAPIService) GetUserServicesExecute(r ApiGetUserServicesRequest) (*UserServices, *http.Response, error) {
+func (a *UsersAPIService) GetUserServicesExecute(r UsersAPIGetUserServicesRequest) (*UserServices, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5618,7 +5618,7 @@ func (a *UsersAPIService) GetUserServicesExecute(r ApiGetUserServicesRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserVoicemailRequest struct {
+type UsersAPIGetUserVoicemailRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -5626,12 +5626,12 @@ type ApiGetUserVoicemailRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserVoicemailRequest) AccentTenant(accentTenant string) ApiGetUserVoicemailRequest {
+func (r UsersAPIGetUserVoicemailRequest) AccentTenant(accentTenant string) UsersAPIGetUserVoicemailRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserVoicemailRequest) Execute() (*VoicemailItems, *http.Response, error) {
+func (r UsersAPIGetUserVoicemailRequest) Execute() (*VoicemailItems, *http.Response, error) {
 	return r.ApiService.GetUserVoicemailExecute(r)
 }
 
@@ -5642,10 +5642,10 @@ GetUserVoicemail Get user voicemails
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiGetUserVoicemailRequest
+	@return UsersAPIGetUserVoicemailRequest
 */
-func (a *UsersAPIService) GetUserVoicemail(ctx context.Context, userId string) ApiGetUserVoicemailRequest {
-	return ApiGetUserVoicemailRequest{
+func (a *UsersAPIService) GetUserVoicemail(ctx context.Context, userId string) UsersAPIGetUserVoicemailRequest {
+	return UsersAPIGetUserVoicemailRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -5655,7 +5655,7 @@ func (a *UsersAPIService) GetUserVoicemail(ctx context.Context, userId string) A
 // Execute executes the request
 //
 //	@return VoicemailItems
-func (a *UsersAPIService) GetUserVoicemailExecute(r ApiGetUserVoicemailRequest) (*VoicemailItems, *http.Response, error) {
+func (a *UsersAPIService) GetUserVoicemailExecute(r UsersAPIGetUserVoicemailRequest) (*VoicemailItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5756,19 +5756,19 @@ func (a *UsersAPIService) GetUserVoicemailExecute(r ApiGetUserVoicemailRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUsersSubscriptionsRequest struct {
+type UsersAPIGetUsersSubscriptionsRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUsersSubscriptionsRequest) AccentTenant(accentTenant string) ApiGetUsersSubscriptionsRequest {
+func (r UsersAPIGetUsersSubscriptionsRequest) AccentTenant(accentTenant string) UsersAPIGetUsersSubscriptionsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUsersSubscriptionsRequest) Execute() (*UserSubscriptionItems, *http.Response, error) {
+func (r UsersAPIGetUsersSubscriptionsRequest) Execute() (*UserSubscriptionItems, *http.Response, error) {
 	return r.ApiService.GetUsersSubscriptionsExecute(r)
 }
 
@@ -5778,10 +5778,10 @@ GetUsersSubscriptions Get user subscription
 **Required ACL:** `confd.users.subscriptions.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUsersSubscriptionsRequest
+	@return UsersAPIGetUsersSubscriptionsRequest
 */
-func (a *UsersAPIService) GetUsersSubscriptions(ctx context.Context) ApiGetUsersSubscriptionsRequest {
-	return ApiGetUsersSubscriptionsRequest{
+func (a *UsersAPIService) GetUsersSubscriptions(ctx context.Context) UsersAPIGetUsersSubscriptionsRequest {
+	return UsersAPIGetUsersSubscriptionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -5790,7 +5790,7 @@ func (a *UsersAPIService) GetUsersSubscriptions(ctx context.Context) ApiGetUsers
 // Execute executes the request
 //
 //	@return UserSubscriptionItems
-func (a *UsersAPIService) GetUsersSubscriptionsExecute(r ApiGetUsersSubscriptionsRequest) (*UserSubscriptionItems, *http.Response, error) {
+func (a *UsersAPIService) GetUsersSubscriptionsExecute(r UsersAPIGetUsersSubscriptionsRequest) (*UserSubscriptionItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -5880,7 +5880,7 @@ func (a *UsersAPIService) GetUsersSubscriptionsExecute(r ApiGetUsersSubscription
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiHeadUserRequest struct {
+type UsersAPIHeadUserRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -5888,12 +5888,12 @@ type ApiHeadUserRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiHeadUserRequest) AccentTenant(accentTenant string) ApiHeadUserRequest {
+func (r UsersAPIHeadUserRequest) AccentTenant(accentTenant string) UsersAPIHeadUserRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiHeadUserRequest) Execute() (*http.Response, error) {
+func (r UsersAPIHeadUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.HeadUserExecute(r)
 }
 
@@ -5904,10 +5904,10 @@ HeadUser Check if user exists
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiHeadUserRequest
+	@return UsersAPIHeadUserRequest
 */
-func (a *UsersAPIService) HeadUser(ctx context.Context, userId string) ApiHeadUserRequest {
-	return ApiHeadUserRequest{
+func (a *UsersAPIService) HeadUser(ctx context.Context, userId string) UsersAPIHeadUserRequest {
+	return UsersAPIHeadUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -5915,7 +5915,7 @@ func (a *UsersAPIService) HeadUser(ctx context.Context, userId string) ApiHeadUs
 }
 
 // Execute executes the request
-func (a *UsersAPIService) HeadUserExecute(r ApiHeadUserRequest) (*http.Response, error) {
+func (a *UsersAPIService) HeadUserExecute(r UsersAPIHeadUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodHead
 		localVarPostBody   interface{}
@@ -5996,7 +5996,7 @@ func (a *UsersAPIService) HeadUserExecute(r ApiHeadUserRequest) (*http.Response,
 	return localVarHTTPResponse, nil
 }
 
-type ApiImportUsersCsvRequest struct {
+type UsersAPIImportUsersCsvRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *string
@@ -6004,18 +6004,18 @@ type ApiImportUsersCsvRequest struct {
 }
 
 // CSV field list available at https://accentvoice.io/uc-doc/administration/users/csv_import
-func (r ApiImportUsersCsvRequest) Body(body string) ApiImportUsersCsvRequest {
+func (r UsersAPIImportUsersCsvRequest) Body(body string) UsersAPIImportUsersCsvRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiImportUsersCsvRequest) AccentTenant(accentTenant string) ApiImportUsersCsvRequest {
+func (r UsersAPIImportUsersCsvRequest) AccentTenant(accentTenant string) UsersAPIImportUsersCsvRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiImportUsersCsvRequest) Execute() (*UserImport, *http.Response, error) {
+func (r UsersAPIImportUsersCsvRequest) Execute() (*UserImport, *http.Response, error) {
 	return r.ApiService.ImportUsersCsvExecute(r)
 }
 
@@ -6027,10 +6027,10 @@ ImportUsersCsv Mass import users and associated resources
 CSV field list available at https://accentvoice.io/uc-doc/administration/users/csv_import
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiImportUsersCsvRequest
+	@return UsersAPIImportUsersCsvRequest
 */
-func (a *UsersAPIService) ImportUsersCsv(ctx context.Context) ApiImportUsersCsvRequest {
-	return ApiImportUsersCsvRequest{
+func (a *UsersAPIService) ImportUsersCsv(ctx context.Context) UsersAPIImportUsersCsvRequest {
+	return UsersAPIImportUsersCsvRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -6039,7 +6039,7 @@ func (a *UsersAPIService) ImportUsersCsv(ctx context.Context) ApiImportUsersCsvR
 // Execute executes the request
 //
 //	@return UserImport
-func (a *UsersAPIService) ImportUsersCsvExecute(r ApiImportUsersCsvRequest) (*UserImport, *http.Response, error) {
+func (a *UsersAPIService) ImportUsersCsvExecute(r UsersAPIImportUsersCsvRequest) (*UserImport, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -6144,7 +6144,7 @@ func (a *UsersAPIService) ImportUsersCsvExecute(r ApiImportUsersCsvRequest) (*Us
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListFuncKeyTemplateUserAssociationsRequest struct {
+type UsersAPIListFuncKeyTemplateUserAssociationsRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	templateId   int32
@@ -6152,12 +6152,12 @@ type ApiListFuncKeyTemplateUserAssociationsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListFuncKeyTemplateUserAssociationsRequest) AccentTenant(accentTenant string) ApiListFuncKeyTemplateUserAssociationsRequest {
+func (r UsersAPIListFuncKeyTemplateUserAssociationsRequest) AccentTenant(accentTenant string) UsersAPIListFuncKeyTemplateUserAssociationsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListFuncKeyTemplateUserAssociationsRequest) Execute() (*UserFuncKeyTemplate, *http.Response, error) {
+func (r UsersAPIListFuncKeyTemplateUserAssociationsRequest) Execute() (*UserFuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.ListFuncKeyTemplateUserAssociationsExecute(r)
 }
 
@@ -6168,10 +6168,10 @@ ListFuncKeyTemplateUserAssociations List users associated to template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateId
-	@return ApiListFuncKeyTemplateUserAssociationsRequest
+	@return UsersAPIListFuncKeyTemplateUserAssociationsRequest
 */
-func (a *UsersAPIService) ListFuncKeyTemplateUserAssociations(ctx context.Context, templateId int32) ApiListFuncKeyTemplateUserAssociationsRequest {
-	return ApiListFuncKeyTemplateUserAssociationsRequest{
+func (a *UsersAPIService) ListFuncKeyTemplateUserAssociations(ctx context.Context, templateId int32) UsersAPIListFuncKeyTemplateUserAssociationsRequest {
+	return UsersAPIListFuncKeyTemplateUserAssociationsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		templateId: templateId,
@@ -6181,7 +6181,7 @@ func (a *UsersAPIService) ListFuncKeyTemplateUserAssociations(ctx context.Contex
 // Execute executes the request
 //
 //	@return UserFuncKeyTemplate
-func (a *UsersAPIService) ListFuncKeyTemplateUserAssociationsExecute(r ApiListFuncKeyTemplateUserAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error) {
+func (a *UsersAPIService) ListFuncKeyTemplateUserAssociationsExecute(r UsersAPIListFuncKeyTemplateUserAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -6282,7 +6282,7 @@ func (a *UsersAPIService) ListFuncKeyTemplateUserAssociationsExecute(r ApiListFu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserRequest struct {
+type UsersAPIListUserRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	accentTenant *string
@@ -6296,54 +6296,54 @@ type ApiListUserRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListUserRequest) AccentTenant(accentTenant string) ApiListUserRequest {
+func (r UsersAPIListUserRequest) AccentTenant(accentTenant string) UsersAPIListUserRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListUserRequest) Recurse(recurse bool) ApiListUserRequest {
+func (r UsersAPIListUserRequest) Recurse(recurse bool) UsersAPIListUserRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListUserRequest) Order(order string) ApiListUserRequest {
+func (r UsersAPIListUserRequest) Order(order string) UsersAPIListUserRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListUserRequest) Direction(direction string) ApiListUserRequest {
+func (r UsersAPIListUserRequest) Direction(direction string) UsersAPIListUserRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListUserRequest) Limit(limit int32) ApiListUserRequest {
+func (r UsersAPIListUserRequest) Limit(limit int32) UsersAPIListUserRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListUserRequest) Offset(offset int32) ApiListUserRequest {
+func (r UsersAPIListUserRequest) Offset(offset int32) UsersAPIListUserRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListUserRequest) Search(search string) ApiListUserRequest {
+func (r UsersAPIListUserRequest) Search(search string) UsersAPIListUserRequest {
 	r.search = &search
 	return r
 }
 
 // Different view of the list of users.
-func (r ApiListUserRequest) View(view string) ApiListUserRequest {
+func (r UsersAPIListUserRequest) View(view string) UsersAPIListUserRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiListUserRequest) Execute() (*UserItems, *http.Response, error) {
+func (r UsersAPIListUserRequest) Execute() (*UserItems, *http.Response, error) {
 	return r.ApiService.ListUserExecute(r)
 }
 
@@ -6353,10 +6353,10 @@ ListUser List users
 **Required ACL:** `confd.users.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserRequest
+	@return UsersAPIListUserRequest
 */
-func (a *UsersAPIService) ListUser(ctx context.Context) ApiListUserRequest {
-	return ApiListUserRequest{
+func (a *UsersAPIService) ListUser(ctx context.Context) UsersAPIListUserRequest {
+	return UsersAPIListUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -6365,7 +6365,7 @@ func (a *UsersAPIService) ListUser(ctx context.Context) ApiListUserRequest {
 // Execute executes the request
 //
 //	@return UserItems
-func (a *UsersAPIService) ListUserExecute(r ApiListUserRequest) (*UserItems, *http.Response, error) {
+func (a *UsersAPIService) ListUserExecute(r UsersAPIListUserRequest) (*UserItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -6479,7 +6479,7 @@ func (a *UsersAPIService) ListUserExecute(r ApiListUserRequest) (*UserItems, *ht
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserExternalAppsRequest struct {
+type UsersAPIListUserExternalAppsRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userUuid     string
@@ -6493,48 +6493,48 @@ type ApiListUserExternalAppsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListUserExternalAppsRequest) AccentTenant(accentTenant string) ApiListUserExternalAppsRequest {
+func (r UsersAPIListUserExternalAppsRequest) AccentTenant(accentTenant string) UsersAPIListUserExternalAppsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListUserExternalAppsRequest) Order(order string) ApiListUserExternalAppsRequest {
+func (r UsersAPIListUserExternalAppsRequest) Order(order string) UsersAPIListUserExternalAppsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListUserExternalAppsRequest) Direction(direction string) ApiListUserExternalAppsRequest {
+func (r UsersAPIListUserExternalAppsRequest) Direction(direction string) UsersAPIListUserExternalAppsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListUserExternalAppsRequest) Limit(limit int32) ApiListUserExternalAppsRequest {
+func (r UsersAPIListUserExternalAppsRequest) Limit(limit int32) UsersAPIListUserExternalAppsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListUserExternalAppsRequest) Offset(offset int32) ApiListUserExternalAppsRequest {
+func (r UsersAPIListUserExternalAppsRequest) Offset(offset int32) UsersAPIListUserExternalAppsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListUserExternalAppsRequest) Search(search string) ApiListUserExternalAppsRequest {
+func (r UsersAPIListUserExternalAppsRequest) Search(search string) UsersAPIListUserExternalAppsRequest {
 	r.search = &search
 	return r
 }
 
 // Different view of the external app endpoint  The &#x60;default&#x60; view, when the argument is omitted, is to return the user value for this external app  The &#x60;fallback&#x60; view return the user value for this external app, but if not found, will fallback to the tenant configured value  **WARNING**: Using fallback view on list will disabled all pagination and search features
-func (r ApiListUserExternalAppsRequest) View(view string) ApiListUserExternalAppsRequest {
+func (r UsersAPIListUserExternalAppsRequest) View(view string) UsersAPIListUserExternalAppsRequest {
 	r.view = &view
 	return r
 }
 
-func (r ApiListUserExternalAppsRequest) Execute() (*UserExternalAppItems, *http.Response, error) {
+func (r UsersAPIListUserExternalAppsRequest) Execute() (*UserExternalAppItems, *http.Response, error) {
 	return r.ApiService.ListUserExternalAppsExecute(r)
 }
 
@@ -6545,10 +6545,10 @@ ListUserExternalApps List user external apps
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
-	@return ApiListUserExternalAppsRequest
+	@return UsersAPIListUserExternalAppsRequest
 */
-func (a *UsersAPIService) ListUserExternalApps(ctx context.Context, userUuid string) ApiListUserExternalAppsRequest {
-	return ApiListUserExternalAppsRequest{
+func (a *UsersAPIService) ListUserExternalApps(ctx context.Context, userUuid string) UsersAPIListUserExternalAppsRequest {
+	return UsersAPIListUserExternalAppsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -6558,7 +6558,7 @@ func (a *UsersAPIService) ListUserExternalApps(ctx context.Context, userUuid str
 // Execute executes the request
 //
 //	@return UserExternalAppItems
-func (a *UsersAPIService) ListUserExternalAppsExecute(r ApiListUserExternalAppsRequest) (*UserExternalAppItems, *http.Response, error) {
+func (a *UsersAPIService) ListUserExternalAppsExecute(r UsersAPIListUserExternalAppsRequest) (*UserExternalAppItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -6667,13 +6667,13 @@ func (a *UsersAPIService) ListUserExternalAppsExecute(r ApiListUserExternalAppsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserForwardsRequest struct {
+type UsersAPIListUserForwardsRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userId     string
 }
 
-func (r ApiListUserForwardsRequest) Execute() (*UserForwards, *http.Response, error) {
+func (r UsersAPIListUserForwardsRequest) Execute() (*UserForwards, *http.Response, error) {
 	return r.ApiService.ListUserForwardsExecute(r)
 }
 
@@ -6684,10 +6684,10 @@ ListUserForwards List forwards for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiListUserForwardsRequest
+	@return UsersAPIListUserForwardsRequest
 */
-func (a *UsersAPIService) ListUserForwards(ctx context.Context, userId string) ApiListUserForwardsRequest {
-	return ApiListUserForwardsRequest{
+func (a *UsersAPIService) ListUserForwards(ctx context.Context, userId string) UsersAPIListUserForwardsRequest {
+	return UsersAPIListUserForwardsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -6697,7 +6697,7 @@ func (a *UsersAPIService) ListUserForwards(ctx context.Context, userId string) A
 // Execute executes the request
 //
 //	@return UserForwards
-func (a *UsersAPIService) ListUserForwardsExecute(r ApiListUserForwardsRequest) (*UserForwards, *http.Response, error) {
+func (a *UsersAPIService) ListUserForwardsExecute(r UsersAPIListUserForwardsRequest) (*UserForwards, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -6785,7 +6785,7 @@ func (a *UsersAPIService) ListUserForwardsExecute(r ApiListUserForwardsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserFuncKeyTemplateAssociationsRequest struct {
+type UsersAPIListUserFuncKeyTemplateAssociationsRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -6793,12 +6793,12 @@ type ApiListUserFuncKeyTemplateAssociationsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListUserFuncKeyTemplateAssociationsRequest) AccentTenant(accentTenant string) ApiListUserFuncKeyTemplateAssociationsRequest {
+func (r UsersAPIListUserFuncKeyTemplateAssociationsRequest) AccentTenant(accentTenant string) UsersAPIListUserFuncKeyTemplateAssociationsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListUserFuncKeyTemplateAssociationsRequest) Execute() (*UserFuncKeyTemplate, *http.Response, error) {
+func (r UsersAPIListUserFuncKeyTemplateAssociationsRequest) Execute() (*UserFuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.ListUserFuncKeyTemplateAssociationsExecute(r)
 }
 
@@ -6809,10 +6809,10 @@ ListUserFuncKeyTemplateAssociations List funckey templates associated to user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiListUserFuncKeyTemplateAssociationsRequest
+	@return UsersAPIListUserFuncKeyTemplateAssociationsRequest
 */
-func (a *UsersAPIService) ListUserFuncKeyTemplateAssociations(ctx context.Context, userId string) ApiListUserFuncKeyTemplateAssociationsRequest {
-	return ApiListUserFuncKeyTemplateAssociationsRequest{
+func (a *UsersAPIService) ListUserFuncKeyTemplateAssociations(ctx context.Context, userId string) UsersAPIListUserFuncKeyTemplateAssociationsRequest {
+	return UsersAPIListUserFuncKeyTemplateAssociationsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -6822,7 +6822,7 @@ func (a *UsersAPIService) ListUserFuncKeyTemplateAssociations(ctx context.Contex
 // Execute executes the request
 //
 //	@return UserFuncKeyTemplate
-func (a *UsersAPIService) ListUserFuncKeyTemplateAssociationsExecute(r ApiListUserFuncKeyTemplateAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error) {
+func (a *UsersAPIService) ListUserFuncKeyTemplateAssociationsExecute(r UsersAPIListUserFuncKeyTemplateAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -6923,7 +6923,7 @@ func (a *UsersAPIService) ListUserFuncKeyTemplateAssociationsExecute(r ApiListUs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserFuncKeysRequest struct {
+type UsersAPIListUserFuncKeysRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userId       string
@@ -6931,12 +6931,12 @@ type ApiListUserFuncKeysRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListUserFuncKeysRequest) AccentTenant(accentTenant string) ApiListUserFuncKeysRequest {
+func (r UsersAPIListUserFuncKeysRequest) AccentTenant(accentTenant string) UsersAPIListUserFuncKeysRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListUserFuncKeysRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
+func (r UsersAPIListUserFuncKeysRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.ListUserFuncKeysExecute(r)
 }
 
@@ -6947,10 +6947,10 @@ ListUserFuncKeys List func keys for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiListUserFuncKeysRequest
+	@return UsersAPIListUserFuncKeysRequest
 */
-func (a *UsersAPIService) ListUserFuncKeys(ctx context.Context, userId string) ApiListUserFuncKeysRequest {
-	return ApiListUserFuncKeysRequest{
+func (a *UsersAPIService) ListUserFuncKeys(ctx context.Context, userId string) UsersAPIListUserFuncKeysRequest {
+	return UsersAPIListUserFuncKeysRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -6960,7 +6960,7 @@ func (a *UsersAPIService) ListUserFuncKeys(ctx context.Context, userId string) A
 // Execute executes the request
 //
 //	@return FuncKeyTemplate
-func (a *UsersAPIService) ListUserFuncKeysExecute(r ApiListUserFuncKeysRequest) (*FuncKeyTemplate, *http.Response, error) {
+func (a *UsersAPIService) ListUserFuncKeysExecute(r UsersAPIListUserFuncKeysRequest) (*FuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -7051,13 +7051,13 @@ func (a *UsersAPIService) ListUserFuncKeysExecute(r ApiListUserFuncKeysRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserMeetingAuthorizationsRequest struct {
+type UsersAPIListUserMeetingAuthorizationsRequest struct {
 	ctx         context.Context
 	ApiService  UsersAPI
 	meetingUuid string
 }
 
-func (r ApiListUserMeetingAuthorizationsRequest) Execute() (*MeetingAuthorizationItems, *http.Response, error) {
+func (r UsersAPIListUserMeetingAuthorizationsRequest) Execute() (*MeetingAuthorizationItems, *http.Response, error) {
 	return r.ApiService.ListUserMeetingAuthorizationsExecute(r)
 }
 
@@ -7068,10 +7068,10 @@ ListUserMeetingAuthorizations List all guest authorization requests of a meeting
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Meeting UUID
-	@return ApiListUserMeetingAuthorizationsRequest
+	@return UsersAPIListUserMeetingAuthorizationsRequest
 */
-func (a *UsersAPIService) ListUserMeetingAuthorizations(ctx context.Context, meetingUuid string) ApiListUserMeetingAuthorizationsRequest {
-	return ApiListUserMeetingAuthorizationsRequest{
+func (a *UsersAPIService) ListUserMeetingAuthorizations(ctx context.Context, meetingUuid string) UsersAPIListUserMeetingAuthorizationsRequest {
+	return UsersAPIListUserMeetingAuthorizationsRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		meetingUuid: meetingUuid,
@@ -7081,7 +7081,7 @@ func (a *UsersAPIService) ListUserMeetingAuthorizations(ctx context.Context, mee
 // Execute executes the request
 //
 //	@return MeetingAuthorizationItems
-func (a *UsersAPIService) ListUserMeetingAuthorizationsExecute(r ApiListUserMeetingAuthorizationsRequest) (*MeetingAuthorizationItems, *http.Response, error) {
+func (a *UsersAPIService) ListUserMeetingAuthorizationsExecute(r UsersAPIListUserMeetingAuthorizationsRequest) (*MeetingAuthorizationItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -7179,7 +7179,7 @@ func (a *UsersAPIService) ListUserMeetingAuthorizationsExecute(r ApiListUserMeet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserMeetingsRequest struct {
+type UsersAPIListUserMeetingsRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	accentTenant *string
@@ -7192,48 +7192,48 @@ type ApiListUserMeetingsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListUserMeetingsRequest) AccentTenant(accentTenant string) ApiListUserMeetingsRequest {
+func (r UsersAPIListUserMeetingsRequest) AccentTenant(accentTenant string) UsersAPIListUserMeetingsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListUserMeetingsRequest) Recurse(recurse bool) ApiListUserMeetingsRequest {
+func (r UsersAPIListUserMeetingsRequest) Recurse(recurse bool) UsersAPIListUserMeetingsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListUserMeetingsRequest) Order(order string) ApiListUserMeetingsRequest {
+func (r UsersAPIListUserMeetingsRequest) Order(order string) UsersAPIListUserMeetingsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListUserMeetingsRequest) Direction(direction string) ApiListUserMeetingsRequest {
+func (r UsersAPIListUserMeetingsRequest) Direction(direction string) UsersAPIListUserMeetingsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListUserMeetingsRequest) Limit(limit int32) ApiListUserMeetingsRequest {
+func (r UsersAPIListUserMeetingsRequest) Limit(limit int32) UsersAPIListUserMeetingsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListUserMeetingsRequest) Offset(offset int32) ApiListUserMeetingsRequest {
+func (r UsersAPIListUserMeetingsRequest) Offset(offset int32) UsersAPIListUserMeetingsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListUserMeetingsRequest) Search(search string) ApiListUserMeetingsRequest {
+func (r UsersAPIListUserMeetingsRequest) Search(search string) UsersAPIListUserMeetingsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListUserMeetingsRequest) Execute() (*MeetingItems, *http.Response, error) {
+func (r UsersAPIListUserMeetingsRequest) Execute() (*MeetingItems, *http.Response, error) {
 	return r.ApiService.ListUserMeetingsExecute(r)
 }
 
@@ -7243,10 +7243,10 @@ ListUserMeetings List user meetings
 **Required ACL:** `confd.users.me.meetings.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserMeetingsRequest
+	@return UsersAPIListUserMeetingsRequest
 */
-func (a *UsersAPIService) ListUserMeetings(ctx context.Context) ApiListUserMeetingsRequest {
-	return ApiListUserMeetingsRequest{
+func (a *UsersAPIService) ListUserMeetings(ctx context.Context) UsersAPIListUserMeetingsRequest {
+	return UsersAPIListUserMeetingsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -7255,7 +7255,7 @@ func (a *UsersAPIService) ListUserMeetings(ctx context.Context) ApiListUserMeeti
 // Execute executes the request
 //
 //	@return MeetingItems
-func (a *UsersAPIService) ListUserMeetingsExecute(r ApiListUserMeetingsRequest) (*MeetingItems, *http.Response, error) {
+func (a *UsersAPIService) ListUserMeetingsExecute(r UsersAPIListUserMeetingsRequest) (*MeetingItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -7366,14 +7366,14 @@ func (a *UsersAPIService) ListUserMeetingsExecute(r ApiListUserMeetingsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPutUserMeetingAuthorizationAcceptRequest struct {
+type UsersAPIPutUserMeetingAuthorizationAcceptRequest struct {
 	ctx               context.Context
 	ApiService        UsersAPI
 	meetingUuid       string
 	authorizationUuid string
 }
 
-func (r ApiPutUserMeetingAuthorizationAcceptRequest) Execute() (*MeetingAuthorization, *http.Response, error) {
+func (r UsersAPIPutUserMeetingAuthorizationAcceptRequest) Execute() (*MeetingAuthorization, *http.Response, error) {
 	return r.ApiService.PutUserMeetingAuthorizationAcceptExecute(r)
 }
 
@@ -7385,10 +7385,10 @@ PutUserMeetingAuthorizationAccept Accept a guest authorization request
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Meeting UUID
 	@param authorizationUuid Authorization UUID
-	@return ApiPutUserMeetingAuthorizationAcceptRequest
+	@return UsersAPIPutUserMeetingAuthorizationAcceptRequest
 */
-func (a *UsersAPIService) PutUserMeetingAuthorizationAccept(ctx context.Context, meetingUuid string, authorizationUuid string) ApiPutUserMeetingAuthorizationAcceptRequest {
-	return ApiPutUserMeetingAuthorizationAcceptRequest{
+func (a *UsersAPIService) PutUserMeetingAuthorizationAccept(ctx context.Context, meetingUuid string, authorizationUuid string) UsersAPIPutUserMeetingAuthorizationAcceptRequest {
+	return UsersAPIPutUserMeetingAuthorizationAcceptRequest{
 		ApiService:        a,
 		ctx:               ctx,
 		meetingUuid:       meetingUuid,
@@ -7399,7 +7399,7 @@ func (a *UsersAPIService) PutUserMeetingAuthorizationAccept(ctx context.Context,
 // Execute executes the request
 //
 //	@return MeetingAuthorization
-func (a *UsersAPIService) PutUserMeetingAuthorizationAcceptExecute(r ApiPutUserMeetingAuthorizationAcceptRequest) (*MeetingAuthorization, *http.Response, error) {
+func (a *UsersAPIService) PutUserMeetingAuthorizationAcceptExecute(r UsersAPIPutUserMeetingAuthorizationAcceptRequest) (*MeetingAuthorization, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -7509,14 +7509,14 @@ func (a *UsersAPIService) PutUserMeetingAuthorizationAcceptExecute(r ApiPutUserM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPutUserMeetingAuthorizationRejectRequest struct {
+type UsersAPIPutUserMeetingAuthorizationRejectRequest struct {
 	ctx               context.Context
 	ApiService        UsersAPI
 	meetingUuid       string
 	authorizationUuid string
 }
 
-func (r ApiPutUserMeetingAuthorizationRejectRequest) Execute() (*MeetingAuthorization, *http.Response, error) {
+func (r UsersAPIPutUserMeetingAuthorizationRejectRequest) Execute() (*MeetingAuthorization, *http.Response, error) {
 	return r.ApiService.PutUserMeetingAuthorizationRejectExecute(r)
 }
 
@@ -7528,10 +7528,10 @@ PutUserMeetingAuthorizationReject Reject a guest authorization request
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Meeting UUID
 	@param authorizationUuid Authorization UUID
-	@return ApiPutUserMeetingAuthorizationRejectRequest
+	@return UsersAPIPutUserMeetingAuthorizationRejectRequest
 */
-func (a *UsersAPIService) PutUserMeetingAuthorizationReject(ctx context.Context, meetingUuid string, authorizationUuid string) ApiPutUserMeetingAuthorizationRejectRequest {
-	return ApiPutUserMeetingAuthorizationRejectRequest{
+func (a *UsersAPIService) PutUserMeetingAuthorizationReject(ctx context.Context, meetingUuid string, authorizationUuid string) UsersAPIPutUserMeetingAuthorizationRejectRequest {
+	return UsersAPIPutUserMeetingAuthorizationRejectRequest{
 		ApiService:        a,
 		ctx:               ctx,
 		meetingUuid:       meetingUuid,
@@ -7542,7 +7542,7 @@ func (a *UsersAPIService) PutUserMeetingAuthorizationReject(ctx context.Context,
 // Execute executes the request
 //
 //	@return MeetingAuthorization
-func (a *UsersAPIService) PutUserMeetingAuthorizationRejectExecute(r ApiPutUserMeetingAuthorizationRejectRequest) (*MeetingAuthorization, *http.Response, error) {
+func (a *UsersAPIService) PutUserMeetingAuthorizationRejectExecute(r UsersAPIPutUserMeetingAuthorizationRejectRequest) (*MeetingAuthorization, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -7652,7 +7652,7 @@ func (a *UsersAPIService) PutUserMeetingAuthorizationRejectExecute(r ApiPutUserM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallFilterCallerUsersRequest struct {
+type UsersAPIUpdateCallFilterCallerUsersRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *CallFilterRecipientUsersUuid
@@ -7660,12 +7660,12 @@ type ApiUpdateCallFilterCallerUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateCallFilterCallerUsersRequest) Body(body CallFilterRecipientUsersUuid) ApiUpdateCallFilterCallerUsersRequest {
+func (r UsersAPIUpdateCallFilterCallerUsersRequest) Body(body CallFilterRecipientUsersUuid) UsersAPIUpdateCallFilterCallerUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateCallFilterCallerUsersRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateCallFilterCallerUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallFilterCallerUsersExecute(r)
 }
 
@@ -7676,10 +7676,10 @@ UpdateCallFilterCallerUsers Update call filter and recipients
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiUpdateCallFilterCallerUsersRequest
+	@return UsersAPIUpdateCallFilterCallerUsersRequest
 */
-func (a *UsersAPIService) UpdateCallFilterCallerUsers(ctx context.Context, callfilterId int32) ApiUpdateCallFilterCallerUsersRequest {
-	return ApiUpdateCallFilterCallerUsersRequest{
+func (a *UsersAPIService) UpdateCallFilterCallerUsers(ctx context.Context, callfilterId int32) UsersAPIUpdateCallFilterCallerUsersRequest {
+	return UsersAPIUpdateCallFilterCallerUsersRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -7687,7 +7687,7 @@ func (a *UsersAPIService) UpdateCallFilterCallerUsers(ctx context.Context, callf
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateCallFilterCallerUsersExecute(r ApiUpdateCallFilterCallerUsersRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateCallFilterCallerUsersExecute(r UsersAPIUpdateCallFilterCallerUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -7791,7 +7791,7 @@ func (a *UsersAPIService) UpdateCallFilterCallerUsersExecute(r ApiUpdateCallFilt
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallFilterMemberUsersRequest struct {
+type UsersAPIUpdateCallFilterMemberUsersRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *UsersUuid
@@ -7799,12 +7799,12 @@ type ApiUpdateCallFilterMemberUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateCallFilterMemberUsersRequest) Body(body UsersUuid) ApiUpdateCallFilterMemberUsersRequest {
+func (r UsersAPIUpdateCallFilterMemberUsersRequest) Body(body UsersUuid) UsersAPIUpdateCallFilterMemberUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateCallFilterMemberUsersRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateCallFilterMemberUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallFilterMemberUsersExecute(r)
 }
 
@@ -7815,10 +7815,10 @@ UpdateCallFilterMemberUsers Update call filter and surrogates
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callfilterId Call Filter's ID
-	@return ApiUpdateCallFilterMemberUsersRequest
+	@return UsersAPIUpdateCallFilterMemberUsersRequest
 */
-func (a *UsersAPIService) UpdateCallFilterMemberUsers(ctx context.Context, callfilterId int32) ApiUpdateCallFilterMemberUsersRequest {
-	return ApiUpdateCallFilterMemberUsersRequest{
+func (a *UsersAPIService) UpdateCallFilterMemberUsers(ctx context.Context, callfilterId int32) UsersAPIUpdateCallFilterMemberUsersRequest {
+	return UsersAPIUpdateCallFilterMemberUsersRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callfilterId: callfilterId,
@@ -7826,7 +7826,7 @@ func (a *UsersAPIService) UpdateCallFilterMemberUsers(ctx context.Context, callf
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateCallFilterMemberUsersExecute(r ApiUpdateCallFilterMemberUsersRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateCallFilterMemberUsersExecute(r UsersAPIUpdateCallFilterMemberUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -7930,7 +7930,7 @@ func (a *UsersAPIService) UpdateCallFilterMemberUsersExecute(r ApiUpdateCallFilt
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallPickupInterceptorUsersRequest struct {
+type UsersAPIUpdateCallPickupInterceptorUsersRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *UsersUuid
@@ -7939,18 +7939,18 @@ type ApiUpdateCallPickupInterceptorUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateCallPickupInterceptorUsersRequest) Body(body UsersUuid) ApiUpdateCallPickupInterceptorUsersRequest {
+func (r UsersAPIUpdateCallPickupInterceptorUsersRequest) Body(body UsersUuid) UsersAPIUpdateCallPickupInterceptorUsersRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallPickupInterceptorUsersRequest) AccentTenant(accentTenant string) ApiUpdateCallPickupInterceptorUsersRequest {
+func (r UsersAPIUpdateCallPickupInterceptorUsersRequest) AccentTenant(accentTenant string) UsersAPIUpdateCallPickupInterceptorUsersRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallPickupInterceptorUsersRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateCallPickupInterceptorUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallPickupInterceptorUsersExecute(r)
 }
 
@@ -7961,10 +7961,10 @@ UpdateCallPickupInterceptorUsers Update call pickup and interceptors
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallPickupInterceptorUsersRequest
+	@return UsersAPIUpdateCallPickupInterceptorUsersRequest
 */
-func (a *UsersAPIService) UpdateCallPickupInterceptorUsers(ctx context.Context, callpickupId int32) ApiUpdateCallPickupInterceptorUsersRequest {
-	return ApiUpdateCallPickupInterceptorUsersRequest{
+func (a *UsersAPIService) UpdateCallPickupInterceptorUsers(ctx context.Context, callpickupId int32) UsersAPIUpdateCallPickupInterceptorUsersRequest {
+	return UsersAPIUpdateCallPickupInterceptorUsersRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -7972,7 +7972,7 @@ func (a *UsersAPIService) UpdateCallPickupInterceptorUsers(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateCallPickupInterceptorUsersExecute(r ApiUpdateCallPickupInterceptorUsersRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateCallPickupInterceptorUsersExecute(r UsersAPIUpdateCallPickupInterceptorUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -8079,7 +8079,7 @@ func (a *UsersAPIService) UpdateCallPickupInterceptorUsersExecute(r ApiUpdateCal
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallPickupTargetUsersRequest struct {
+type UsersAPIUpdateCallPickupTargetUsersRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *UsersUuid
@@ -8088,18 +8088,18 @@ type ApiUpdateCallPickupTargetUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateCallPickupTargetUsersRequest) Body(body UsersUuid) ApiUpdateCallPickupTargetUsersRequest {
+func (r UsersAPIUpdateCallPickupTargetUsersRequest) Body(body UsersUuid) UsersAPIUpdateCallPickupTargetUsersRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallPickupTargetUsersRequest) AccentTenant(accentTenant string) ApiUpdateCallPickupTargetUsersRequest {
+func (r UsersAPIUpdateCallPickupTargetUsersRequest) AccentTenant(accentTenant string) UsersAPIUpdateCallPickupTargetUsersRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallPickupTargetUsersRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateCallPickupTargetUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallPickupTargetUsersExecute(r)
 }
 
@@ -8110,10 +8110,10 @@ UpdateCallPickupTargetUsers Update call pickup and targets
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallPickupTargetUsersRequest
+	@return UsersAPIUpdateCallPickupTargetUsersRequest
 */
-func (a *UsersAPIService) UpdateCallPickupTargetUsers(ctx context.Context, callpickupId int32) ApiUpdateCallPickupTargetUsersRequest {
-	return ApiUpdateCallPickupTargetUsersRequest{
+func (a *UsersAPIService) UpdateCallPickupTargetUsers(ctx context.Context, callpickupId int32) UsersAPIUpdateCallPickupTargetUsersRequest {
+	return UsersAPIUpdateCallPickupTargetUsersRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -8121,7 +8121,7 @@ func (a *UsersAPIService) UpdateCallPickupTargetUsers(ctx context.Context, callp
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateCallPickupTargetUsersExecute(r ApiUpdateCallPickupTargetUsersRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateCallPickupTargetUsersExecute(r UsersAPIUpdateCallPickupTargetUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -8228,7 +8228,7 @@ func (a *UsersAPIService) UpdateCallPickupTargetUsersExecute(r ApiUpdateCallPick
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateGroupMemberUsersRequest struct {
+type UsersAPIUpdateGroupMemberUsersRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *GroupMemberUsers
@@ -8236,12 +8236,12 @@ type ApiUpdateGroupMemberUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateGroupMemberUsersRequest) Body(body GroupMemberUsers) ApiUpdateGroupMemberUsersRequest {
+func (r UsersAPIUpdateGroupMemberUsersRequest) Body(body GroupMemberUsers) UsersAPIUpdateGroupMemberUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateGroupMemberUsersRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateGroupMemberUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateGroupMemberUsersExecute(r)
 }
 
@@ -8254,10 +8254,10 @@ UpdateGroupMemberUsers Update group and users
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
-	@return ApiUpdateGroupMemberUsersRequest
+	@return UsersAPIUpdateGroupMemberUsersRequest
 */
-func (a *UsersAPIService) UpdateGroupMemberUsers(ctx context.Context, groupUuid string) ApiUpdateGroupMemberUsersRequest {
-	return ApiUpdateGroupMemberUsersRequest{
+func (a *UsersAPIService) UpdateGroupMemberUsers(ctx context.Context, groupUuid string) UsersAPIUpdateGroupMemberUsersRequest {
+	return UsersAPIUpdateGroupMemberUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -8265,7 +8265,7 @@ func (a *UsersAPIService) UpdateGroupMemberUsers(ctx context.Context, groupUuid 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateGroupMemberUsersExecute(r ApiUpdateGroupMemberUsersRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateGroupMemberUsersExecute(r UsersAPIUpdateGroupMemberUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -8369,7 +8369,7 @@ func (a *UsersAPIService) UpdateGroupMemberUsersExecute(r ApiUpdateGroupMemberUs
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdatePagingCallerUsersRequest struct {
+type UsersAPIUpdatePagingCallerUsersRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UsersUuid
@@ -8377,12 +8377,12 @@ type ApiUpdatePagingCallerUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdatePagingCallerUsersRequest) Body(body UsersUuid) ApiUpdatePagingCallerUsersRequest {
+func (r UsersAPIUpdatePagingCallerUsersRequest) Body(body UsersUuid) UsersAPIUpdatePagingCallerUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdatePagingCallerUsersRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdatePagingCallerUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdatePagingCallerUsersExecute(r)
 }
 
@@ -8396,10 +8396,10 @@ This endpoint remove all callers which are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pagingId Paging's ID
-	@return ApiUpdatePagingCallerUsersRequest
+	@return UsersAPIUpdatePagingCallerUsersRequest
 */
-func (a *UsersAPIService) UpdatePagingCallerUsers(ctx context.Context, pagingId int32) ApiUpdatePagingCallerUsersRequest {
-	return ApiUpdatePagingCallerUsersRequest{
+func (a *UsersAPIService) UpdatePagingCallerUsers(ctx context.Context, pagingId int32) UsersAPIUpdatePagingCallerUsersRequest {
+	return UsersAPIUpdatePagingCallerUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pagingId:   pagingId,
@@ -8407,7 +8407,7 @@ func (a *UsersAPIService) UpdatePagingCallerUsers(ctx context.Context, pagingId 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdatePagingCallerUsersExecute(r ApiUpdatePagingCallerUsersRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdatePagingCallerUsersExecute(r UsersAPIUpdatePagingCallerUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -8511,7 +8511,7 @@ func (a *UsersAPIService) UpdatePagingCallerUsersExecute(r ApiUpdatePagingCaller
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdatePagingMemberUsersRequest struct {
+type UsersAPIUpdatePagingMemberUsersRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UsersUuid
@@ -8519,12 +8519,12 @@ type ApiUpdatePagingMemberUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdatePagingMemberUsersRequest) Body(body UsersUuid) ApiUpdatePagingMemberUsersRequest {
+func (r UsersAPIUpdatePagingMemberUsersRequest) Body(body UsersUuid) UsersAPIUpdatePagingMemberUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdatePagingMemberUsersRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdatePagingMemberUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdatePagingMemberUsersExecute(r)
 }
 
@@ -8538,10 +8538,10 @@ This endpoint remove all members which are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pagingId Paging's ID
-	@return ApiUpdatePagingMemberUsersRequest
+	@return UsersAPIUpdatePagingMemberUsersRequest
 */
-func (a *UsersAPIService) UpdatePagingMemberUsers(ctx context.Context, pagingId int32) ApiUpdatePagingMemberUsersRequest {
-	return ApiUpdatePagingMemberUsersRequest{
+func (a *UsersAPIService) UpdatePagingMemberUsers(ctx context.Context, pagingId int32) UsersAPIUpdatePagingMemberUsersRequest {
+	return UsersAPIUpdatePagingMemberUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pagingId:   pagingId,
@@ -8549,7 +8549,7 @@ func (a *UsersAPIService) UpdatePagingMemberUsers(ctx context.Context, pagingId 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdatePagingMemberUsersExecute(r ApiUpdatePagingMemberUsersRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdatePagingMemberUsersExecute(r UsersAPIUpdatePagingMemberUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -8653,7 +8653,7 @@ func (a *UsersAPIService) UpdatePagingMemberUsersExecute(r ApiUpdatePagingMember
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateSwitchboardMemberUsersRequest struct {
+type UsersAPIUpdateSwitchboardMemberUsersRequest struct {
 	ctx             context.Context
 	ApiService      UsersAPI
 	body            *UsersUuid
@@ -8661,12 +8661,12 @@ type ApiUpdateSwitchboardMemberUsersRequest struct {
 }
 
 // Users to associate with the switchboard
-func (r ApiUpdateSwitchboardMemberUsersRequest) Body(body UsersUuid) ApiUpdateSwitchboardMemberUsersRequest {
+func (r UsersAPIUpdateSwitchboardMemberUsersRequest) Body(body UsersUuid) UsersAPIUpdateSwitchboardMemberUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateSwitchboardMemberUsersRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateSwitchboardMemberUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSwitchboardMemberUsersExecute(r)
 }
 
@@ -8680,10 +8680,10 @@ This endpoint removes all members which are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid
-	@return ApiUpdateSwitchboardMemberUsersRequest
+	@return UsersAPIUpdateSwitchboardMemberUsersRequest
 */
-func (a *UsersAPIService) UpdateSwitchboardMemberUsers(ctx context.Context, switchboardUuid string) ApiUpdateSwitchboardMemberUsersRequest {
-	return ApiUpdateSwitchboardMemberUsersRequest{
+func (a *UsersAPIService) UpdateSwitchboardMemberUsers(ctx context.Context, switchboardUuid string) UsersAPIUpdateSwitchboardMemberUsersRequest {
+	return UsersAPIUpdateSwitchboardMemberUsersRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -8691,7 +8691,7 @@ func (a *UsersAPIService) UpdateSwitchboardMemberUsers(ctx context.Context, swit
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateSwitchboardMemberUsersExecute(r ApiUpdateSwitchboardMemberUsersRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateSwitchboardMemberUsersExecute(r UsersAPIUpdateSwitchboardMemberUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -8795,7 +8795,7 @@ func (a *UsersAPIService) UpdateSwitchboardMemberUsersExecute(r ApiUpdateSwitchb
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserRequest struct {
+type UsersAPIUpdateUserRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *User
@@ -8803,18 +8803,18 @@ type ApiUpdateUserRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserRequest) Body(body User) ApiUpdateUserRequest {
+func (r UsersAPIUpdateUserRequest) Body(body User) UsersAPIUpdateUserRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserRequest) AccentTenant(accentTenant string) ApiUpdateUserRequest {
+func (r UsersAPIUpdateUserRequest) AccentTenant(accentTenant string) UsersAPIUpdateUserRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserExecute(r)
 }
 
@@ -8827,10 +8827,10 @@ If the firstname or the lastname is modified, the name of associated voicemail i
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserRequest
+	@return UsersAPIUpdateUserRequest
 */
-func (a *UsersAPIService) UpdateUser(ctx context.Context, userId string) ApiUpdateUserRequest {
-	return ApiUpdateUserRequest{
+func (a *UsersAPIService) UpdateUser(ctx context.Context, userId string) UsersAPIUpdateUserRequest {
+	return UsersAPIUpdateUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -8838,7 +8838,7 @@ func (a *UsersAPIService) UpdateUser(ctx context.Context, userId string) ApiUpda
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserExecute(r UsersAPIUpdateUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -8945,7 +8945,7 @@ func (a *UsersAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserExternalAppRequest struct {
+type UsersAPIUpdateUserExternalAppRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *UserExternalApp
@@ -8954,18 +8954,18 @@ type ApiUpdateUserExternalAppRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserExternalAppRequest) Body(body UserExternalApp) ApiUpdateUserExternalAppRequest {
+func (r UsersAPIUpdateUserExternalAppRequest) Body(body UserExternalApp) UsersAPIUpdateUserExternalAppRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserExternalAppRequest) AccentTenant(accentTenant string) ApiUpdateUserExternalAppRequest {
+func (r UsersAPIUpdateUserExternalAppRequest) AccentTenant(accentTenant string) UsersAPIUpdateUserExternalAppRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserExternalAppRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserExternalAppRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserExternalAppExecute(r)
 }
 
@@ -8977,10 +8977,10 @@ UpdateUserExternalApp Update user external app
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid the user's UUID
 	@param appName External App's name
-	@return ApiUpdateUserExternalAppRequest
+	@return UsersAPIUpdateUserExternalAppRequest
 */
-func (a *UsersAPIService) UpdateUserExternalApp(ctx context.Context, userUuid string, appName string) ApiUpdateUserExternalAppRequest {
-	return ApiUpdateUserExternalAppRequest{
+func (a *UsersAPIService) UpdateUserExternalApp(ctx context.Context, userUuid string, appName string) UsersAPIUpdateUserExternalAppRequest {
+	return UsersAPIUpdateUserExternalAppRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -8989,7 +8989,7 @@ func (a *UsersAPIService) UpdateUserExternalApp(ctx context.Context, userUuid st
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserExternalAppExecute(r ApiUpdateUserExternalAppRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserExternalAppExecute(r UsersAPIUpdateUserExternalAppRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -9097,7 +9097,7 @@ func (a *UsersAPIService) UpdateUserExternalAppExecute(r ApiUpdateUserExternalAp
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserFallbackRequest struct {
+type UsersAPIUpdateUserFallbackRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userId     string
@@ -9105,12 +9105,12 @@ type ApiUpdateUserFallbackRequest struct {
 }
 
 // Fallbacks for user
-func (r ApiUpdateUserFallbackRequest) Body(body UserFallbacks) ApiUpdateUserFallbackRequest {
+func (r UsersAPIUpdateUserFallbackRequest) Body(body UserFallbacks) UsersAPIUpdateUserFallbackRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserFallbackRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserFallbackRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserFallbackExecute(r)
 }
 
@@ -9123,10 +9123,10 @@ UpdateUserFallback Update user's fallbacks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserFallbackRequest
+	@return UsersAPIUpdateUserFallbackRequest
 */
-func (a *UsersAPIService) UpdateUserFallback(ctx context.Context, userId string) ApiUpdateUserFallbackRequest {
-	return ApiUpdateUserFallbackRequest{
+func (a *UsersAPIService) UpdateUserFallback(ctx context.Context, userId string) UsersAPIUpdateUserFallbackRequest {
+	return UsersAPIUpdateUserFallbackRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -9134,7 +9134,7 @@ func (a *UsersAPIService) UpdateUserFallback(ctx context.Context, userId string)
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserFallbackExecute(r ApiUpdateUserFallbackRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserFallbackExecute(r UsersAPIUpdateUserFallbackRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -9235,7 +9235,7 @@ func (a *UsersAPIService) UpdateUserFallbackExecute(r ApiUpdateUserFallbackReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserForwardRequest struct {
+type UsersAPIUpdateUserForwardRequest struct {
 	ctx         context.Context
 	ApiService  UsersAPI
 	body        *UserForward
@@ -9243,12 +9243,12 @@ type ApiUpdateUserForwardRequest struct {
 	forwardName string
 }
 
-func (r ApiUpdateUserForwardRequest) Body(body UserForward) ApiUpdateUserForwardRequest {
+func (r UsersAPIUpdateUserForwardRequest) Body(body UserForward) UsersAPIUpdateUserForwardRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserForwardRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserForwardRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserForwardExecute(r)
 }
 
@@ -9260,10 +9260,10 @@ UpdateUserForward Update a forward for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param forwardName the forward name
-	@return ApiUpdateUserForwardRequest
+	@return UsersAPIUpdateUserForwardRequest
 */
-func (a *UsersAPIService) UpdateUserForward(ctx context.Context, userId string, forwardName string) ApiUpdateUserForwardRequest {
-	return ApiUpdateUserForwardRequest{
+func (a *UsersAPIService) UpdateUserForward(ctx context.Context, userId string, forwardName string) UsersAPIUpdateUserForwardRequest {
+	return UsersAPIUpdateUserForwardRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userId:      userId,
@@ -9272,7 +9272,7 @@ func (a *UsersAPIService) UpdateUserForward(ctx context.Context, userId string, 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserForwardExecute(r ApiUpdateUserForwardRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserForwardExecute(r UsersAPIUpdateUserForwardRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -9366,19 +9366,19 @@ func (a *UsersAPIService) UpdateUserForwardExecute(r ApiUpdateUserForwardRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserForwardsRequest struct {
+type UsersAPIUpdateUserForwardsRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserForwards
 	userId     string
 }
 
-func (r ApiUpdateUserForwardsRequest) Body(body UserForwards) ApiUpdateUserForwardsRequest {
+func (r UsersAPIUpdateUserForwardsRequest) Body(body UserForwards) UsersAPIUpdateUserForwardsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserForwardsRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserForwardsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserForwardsExecute(r)
 }
 
@@ -9389,10 +9389,10 @@ UpdateUserForwards Update all forwards for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserForwardsRequest
+	@return UsersAPIUpdateUserForwardsRequest
 */
-func (a *UsersAPIService) UpdateUserForwards(ctx context.Context, userId string) ApiUpdateUserForwardsRequest {
-	return ApiUpdateUserForwardsRequest{
+func (a *UsersAPIService) UpdateUserForwards(ctx context.Context, userId string) UsersAPIUpdateUserForwardsRequest {
+	return UsersAPIUpdateUserForwardsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -9400,7 +9400,7 @@ func (a *UsersAPIService) UpdateUserForwards(ctx context.Context, userId string)
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserForwardsExecute(r ApiUpdateUserForwardsRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserForwardsExecute(r UsersAPIUpdateUserForwardsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -9493,7 +9493,7 @@ func (a *UsersAPIService) UpdateUserForwardsExecute(r ApiUpdateUserForwardsReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserFuncKeyRequest struct {
+type UsersAPIUpdateUserFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *FuncKey
@@ -9502,18 +9502,18 @@ type ApiUpdateUserFuncKeyRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserFuncKeyRequest) Body(body FuncKey) ApiUpdateUserFuncKeyRequest {
+func (r UsersAPIUpdateUserFuncKeyRequest) Body(body FuncKey) UsersAPIUpdateUserFuncKeyRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserFuncKeyRequest) AccentTenant(accentTenant string) ApiUpdateUserFuncKeyRequest {
+func (r UsersAPIUpdateUserFuncKeyRequest) AccentTenant(accentTenant string) UsersAPIUpdateUserFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserFuncKeyRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserFuncKeyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserFuncKeyExecute(r)
 }
 
@@ -9525,10 +9525,10 @@ UpdateUserFuncKey Add/Replace a func key for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param position position of the funckey
-	@return ApiUpdateUserFuncKeyRequest
+	@return UsersAPIUpdateUserFuncKeyRequest
 */
-func (a *UsersAPIService) UpdateUserFuncKey(ctx context.Context, userId string, position int32) ApiUpdateUserFuncKeyRequest {
-	return ApiUpdateUserFuncKeyRequest{
+func (a *UsersAPIService) UpdateUserFuncKey(ctx context.Context, userId string, position int32) UsersAPIUpdateUserFuncKeyRequest {
+	return UsersAPIUpdateUserFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -9537,7 +9537,7 @@ func (a *UsersAPIService) UpdateUserFuncKey(ctx context.Context, userId string, 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserFuncKeyExecute(r ApiUpdateUserFuncKeyRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserFuncKeyExecute(r UsersAPIUpdateUserFuncKeyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -9634,7 +9634,7 @@ func (a *UsersAPIService) UpdateUserFuncKeyExecute(r ApiUpdateUserFuncKeyRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserFuncKeysRequest struct {
+type UsersAPIUpdateUserFuncKeysRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *FuncKeyTemplate
@@ -9642,18 +9642,18 @@ type ApiUpdateUserFuncKeysRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserFuncKeysRequest) Body(body FuncKeyTemplate) ApiUpdateUserFuncKeysRequest {
+func (r UsersAPIUpdateUserFuncKeysRequest) Body(body FuncKeyTemplate) UsersAPIUpdateUserFuncKeysRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserFuncKeysRequest) AccentTenant(accentTenant string) ApiUpdateUserFuncKeysRequest {
+func (r UsersAPIUpdateUserFuncKeysRequest) AccentTenant(accentTenant string) UsersAPIUpdateUserFuncKeysRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserFuncKeysRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserFuncKeysRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserFuncKeysExecute(r)
 }
 
@@ -9666,10 +9666,10 @@ UpdateUserFuncKeys Update func keys for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserFuncKeysRequest
+	@return UsersAPIUpdateUserFuncKeysRequest
 */
-func (a *UsersAPIService) UpdateUserFuncKeys(ctx context.Context, userId string) ApiUpdateUserFuncKeysRequest {
-	return ApiUpdateUserFuncKeysRequest{
+func (a *UsersAPIService) UpdateUserFuncKeys(ctx context.Context, userId string) UsersAPIUpdateUserFuncKeysRequest {
+	return UsersAPIUpdateUserFuncKeysRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -9677,7 +9677,7 @@ func (a *UsersAPIService) UpdateUserFuncKeys(ctx context.Context, userId string)
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserFuncKeysExecute(r ApiUpdateUserFuncKeysRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserFuncKeysExecute(r UsersAPIUpdateUserFuncKeysRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -9773,7 +9773,7 @@ func (a *UsersAPIService) UpdateUserFuncKeysExecute(r ApiUpdateUserFuncKeysReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserGroupsRequest struct {
+type UsersAPIUpdateUserGroupsRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserGroupsID
@@ -9781,12 +9781,12 @@ type ApiUpdateUserGroupsRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateUserGroupsRequest) Body(body UserGroupsID) ApiUpdateUserGroupsRequest {
+func (r UsersAPIUpdateUserGroupsRequest) Body(body UserGroupsID) UsersAPIUpdateUserGroupsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserGroupsRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserGroupsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserGroupsExecute(r)
 }
 
@@ -9798,10 +9798,10 @@ UpdateUserGroups Update user and groups
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserGroupsRequest
+	@return UsersAPIUpdateUserGroupsRequest
 */
-func (a *UsersAPIService) UpdateUserGroups(ctx context.Context, userId string) ApiUpdateUserGroupsRequest {
-	return ApiUpdateUserGroupsRequest{
+func (a *UsersAPIService) UpdateUserGroups(ctx context.Context, userId string) UsersAPIUpdateUserGroupsRequest {
+	return UsersAPIUpdateUserGroupsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -9809,7 +9809,7 @@ func (a *UsersAPIService) UpdateUserGroups(ctx context.Context, userId string) A
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserGroupsExecute(r ApiUpdateUserGroupsRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserGroupsExecute(r UsersAPIUpdateUserGroupsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -9913,7 +9913,7 @@ func (a *UsersAPIService) UpdateUserGroupsExecute(r ApiUpdateUserGroupsRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserMeetingRequest struct {
+type UsersAPIUpdateUserMeetingRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *MeetingRequest
@@ -9921,18 +9921,18 @@ type ApiUpdateUserMeetingRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserMeetingRequest) Body(body MeetingRequest) ApiUpdateUserMeetingRequest {
+func (r UsersAPIUpdateUserMeetingRequest) Body(body MeetingRequest) UsersAPIUpdateUserMeetingRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserMeetingRequest) AccentTenant(accentTenant string) ApiUpdateUserMeetingRequest {
+func (r UsersAPIUpdateUserMeetingRequest) AccentTenant(accentTenant string) UsersAPIUpdateUserMeetingRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserMeetingRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserMeetingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserMeetingExecute(r)
 }
 
@@ -9943,10 +9943,10 @@ UpdateUserMeeting Update one of the meetings of the current user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param meetingUuid Meeting UUID
-	@return ApiUpdateUserMeetingRequest
+	@return UsersAPIUpdateUserMeetingRequest
 */
-func (a *UsersAPIService) UpdateUserMeeting(ctx context.Context, meetingUuid string) ApiUpdateUserMeetingRequest {
-	return ApiUpdateUserMeetingRequest{
+func (a *UsersAPIService) UpdateUserMeeting(ctx context.Context, meetingUuid string) UsersAPIUpdateUserMeetingRequest {
+	return UsersAPIUpdateUserMeetingRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		meetingUuid: meetingUuid,
@@ -9954,7 +9954,7 @@ func (a *UsersAPIService) UpdateUserMeeting(ctx context.Context, meetingUuid str
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserMeetingExecute(r ApiUpdateUserMeetingRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserMeetingExecute(r UsersAPIUpdateUserMeetingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -10061,7 +10061,7 @@ func (a *UsersAPIService) UpdateUserMeetingExecute(r ApiUpdateUserMeetingRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserQueueAssociationRequest struct {
+type UsersAPIUpdateUserQueueAssociationRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	queueId      int32
@@ -10070,18 +10070,18 @@ type ApiUpdateUserQueueAssociationRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserQueueAssociationRequest) Body(body QueueMemberUser) ApiUpdateUserQueueAssociationRequest {
+func (r UsersAPIUpdateUserQueueAssociationRequest) Body(body QueueMemberUser) UsersAPIUpdateUserQueueAssociationRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserQueueAssociationRequest) AccentTenant(accentTenant string) ApiUpdateUserQueueAssociationRequest {
+func (r UsersAPIUpdateUserQueueAssociationRequest) AccentTenant(accentTenant string) UsersAPIUpdateUserQueueAssociationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserQueueAssociationRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserQueueAssociationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserQueueAssociationExecute(r)
 }
 
@@ -10093,10 +10093,10 @@ UpdateUserQueueAssociation Update User-Queue association
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserQueueAssociationRequest
+	@return UsersAPIUpdateUserQueueAssociationRequest
 */
-func (a *UsersAPIService) UpdateUserQueueAssociation(ctx context.Context, queueId int32, userId string) ApiUpdateUserQueueAssociationRequest {
-	return ApiUpdateUserQueueAssociationRequest{
+func (a *UsersAPIService) UpdateUserQueueAssociation(ctx context.Context, queueId int32, userId string) UsersAPIUpdateUserQueueAssociationRequest {
+	return UsersAPIUpdateUserQueueAssociationRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -10105,7 +10105,7 @@ func (a *UsersAPIService) UpdateUserQueueAssociation(ctx context.Context, queueI
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserQueueAssociationExecute(r ApiUpdateUserQueueAssociationRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserQueueAssociationExecute(r UsersAPIUpdateUserQueueAssociationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -10210,7 +10210,7 @@ func (a *UsersAPIService) UpdateUserQueueAssociationExecute(r ApiUpdateUserQueue
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserServiceRequest struct {
+type UsersAPIUpdateUserServiceRequest struct {
 	ctx         context.Context
 	ApiService  UsersAPI
 	body        *UserService
@@ -10218,12 +10218,12 @@ type ApiUpdateUserServiceRequest struct {
 	serviceName string
 }
 
-func (r ApiUpdateUserServiceRequest) Body(body UserService) ApiUpdateUserServiceRequest {
+func (r UsersAPIUpdateUserServiceRequest) Body(body UserService) UsersAPIUpdateUserServiceRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserServiceRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserServiceRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserServiceExecute(r)
 }
 
@@ -10235,10 +10235,10 @@ UpdateUserService Enable/Disable service for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param serviceName the service name
-	@return ApiUpdateUserServiceRequest
+	@return UsersAPIUpdateUserServiceRequest
 */
-func (a *UsersAPIService) UpdateUserService(ctx context.Context, userId string, serviceName string) ApiUpdateUserServiceRequest {
-	return ApiUpdateUserServiceRequest{
+func (a *UsersAPIService) UpdateUserService(ctx context.Context, userId string, serviceName string) UsersAPIUpdateUserServiceRequest {
+	return UsersAPIUpdateUserServiceRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userId:      userId,
@@ -10247,7 +10247,7 @@ func (a *UsersAPIService) UpdateUserService(ctx context.Context, userId string, 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserServiceExecute(r ApiUpdateUserServiceRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserServiceExecute(r UsersAPIUpdateUserServiceRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -10341,19 +10341,19 @@ func (a *UsersAPIService) UpdateUserServiceExecute(r ApiUpdateUserServiceRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserServicesRequest struct {
+type UsersAPIUpdateUserServicesRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserServices
 	userId     string
 }
 
-func (r ApiUpdateUserServicesRequest) Body(body UserServices) ApiUpdateUserServicesRequest {
+func (r UsersAPIUpdateUserServicesRequest) Body(body UserServices) UsersAPIUpdateUserServicesRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserServicesRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserServicesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserServicesExecute(r)
 }
 
@@ -10364,10 +10364,10 @@ UpdateUserServices Update all services for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserServicesRequest
+	@return UsersAPIUpdateUserServicesRequest
 */
-func (a *UsersAPIService) UpdateUserServices(ctx context.Context, userId string) ApiUpdateUserServicesRequest {
-	return ApiUpdateUserServicesRequest{
+func (a *UsersAPIService) UpdateUserServices(ctx context.Context, userId string) UsersAPIUpdateUserServicesRequest {
+	return UsersAPIUpdateUserServicesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -10375,7 +10375,7 @@ func (a *UsersAPIService) UpdateUserServices(ctx context.Context, userId string)
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserServicesExecute(r ApiUpdateUserServicesRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserServicesExecute(r UsersAPIUpdateUserServicesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -10468,7 +10468,7 @@ func (a *UsersAPIService) UpdateUserServicesExecute(r ApiUpdateUserServicesReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUsersCsvRequest struct {
+type UsersAPIUpdateUsersCsvRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *string
@@ -10476,18 +10476,18 @@ type ApiUpdateUsersCsvRequest struct {
 }
 
 // CSV field list available at https://accentvoice.io/uc-doc/administration/users/csv_import
-func (r ApiUpdateUsersCsvRequest) Body(body string) ApiUpdateUsersCsvRequest {
+func (r UsersAPIUpdateUsersCsvRequest) Body(body string) UsersAPIUpdateUsersCsvRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUsersCsvRequest) AccentTenant(accentTenant string) ApiUpdateUsersCsvRequest {
+func (r UsersAPIUpdateUsersCsvRequest) AccentTenant(accentTenant string) UsersAPIUpdateUsersCsvRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUsersCsvRequest) Execute() (*UserUpdate, *http.Response, error) {
+func (r UsersAPIUpdateUsersCsvRequest) Execute() (*UserUpdate, *http.Response, error) {
 	return r.ApiService.UpdateUsersCsvExecute(r)
 }
 
@@ -10501,10 +10501,10 @@ CSV field list available at https://accentvoice.io/uc-doc/administration/users/c
 This resource has been disabled since it creates invalid configurations
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateUsersCsvRequest
+	@return UsersAPIUpdateUsersCsvRequest
 */
-func (a *UsersAPIService) UpdateUsersCsv(ctx context.Context) ApiUpdateUsersCsvRequest {
-	return ApiUpdateUsersCsvRequest{
+func (a *UsersAPIService) UpdateUsersCsv(ctx context.Context) UsersAPIUpdateUsersCsvRequest {
+	return UsersAPIUpdateUsersCsvRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -10513,7 +10513,7 @@ func (a *UsersAPIService) UpdateUsersCsv(ctx context.Context) ApiUpdateUsersCsvR
 // Execute executes the request
 //
 //	@return UserUpdate
-func (a *UsersAPIService) UpdateUsersCsvExecute(r ApiUpdateUsersCsvRequest) (*UserUpdate, *http.Response, error) {
+func (a *UsersAPIService) UpdateUsersCsvExecute(r UsersAPIUpdateUsersCsvRequest) (*UserUpdate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}

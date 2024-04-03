@@ -30,12 +30,12 @@ type AgentsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent’s ID
 		@param skillId Skill's ID
-		@return ApiAssociateAgentSkillRequest
+		@return AgentsAPIAssociateAgentSkillRequest
 	*/
-	AssociateAgentSkill(ctx context.Context, agentId int32, skillId int32) ApiAssociateAgentSkillRequest
+	AssociateAgentSkill(ctx context.Context, agentId int32, skillId int32) AgentsAPIAssociateAgentSkillRequest
 
 	// AssociateAgentSkillExecute executes the request
-	AssociateAgentSkillExecute(r ApiAssociateAgentSkillRequest) (*http.Response, error)
+	AssociateAgentSkillExecute(r AgentsAPIAssociateAgentSkillRequest) (*http.Response, error)
 
 	/*
 		AssociateUserAgent Associate user and agent
@@ -45,12 +45,12 @@ type AgentsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param agentId Agent’s ID
-		@return ApiAssociateUserAgentRequest
+		@return AgentsAPIAssociateUserAgentRequest
 	*/
-	AssociateUserAgent(ctx context.Context, userId string, agentId int32) ApiAssociateUserAgentRequest
+	AssociateUserAgent(ctx context.Context, userId string, agentId int32) AgentsAPIAssociateUserAgentRequest
 
 	// AssociateUserAgentExecute executes the request
-	AssociateUserAgentExecute(r ApiAssociateUserAgentRequest) (*http.Response, error)
+	AssociateUserAgentExecute(r AgentsAPIAssociateUserAgentRequest) (*http.Response, error)
 
 	/*
 		CreateAgent Create agent
@@ -58,13 +58,13 @@ type AgentsAPI interface {
 		**Required ACL:** `confd.agents.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateAgentRequest
+		@return AgentsAPICreateAgentRequest
 	*/
-	CreateAgent(ctx context.Context) ApiCreateAgentRequest
+	CreateAgent(ctx context.Context) AgentsAPICreateAgentRequest
 
 	// CreateAgentExecute executes the request
 	//  @return Agent
-	CreateAgentExecute(r ApiCreateAgentRequest) (*Agent, *http.Response, error)
+	CreateAgentExecute(r AgentsAPICreateAgentRequest) (*Agent, *http.Response, error)
 
 	/*
 		CreateSkill Create skill
@@ -72,13 +72,13 @@ type AgentsAPI interface {
 		**Required ACL:** `confd.agents.skills.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateSkillRequest
+		@return AgentsAPICreateSkillRequest
 	*/
-	CreateSkill(ctx context.Context) ApiCreateSkillRequest
+	CreateSkill(ctx context.Context) AgentsAPICreateSkillRequest
 
 	// CreateSkillExecute executes the request
 	//  @return Skill
-	CreateSkillExecute(r ApiCreateSkillRequest) (*Skill, *http.Response, error)
+	CreateSkillExecute(r AgentsAPICreateSkillRequest) (*Skill, *http.Response, error)
 
 	/*
 		DeleteAgent Delete agent
@@ -87,12 +87,12 @@ type AgentsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent’s ID
-		@return ApiDeleteAgentRequest
+		@return AgentsAPIDeleteAgentRequest
 	*/
-	DeleteAgent(ctx context.Context, agentId int32) ApiDeleteAgentRequest
+	DeleteAgent(ctx context.Context, agentId int32) AgentsAPIDeleteAgentRequest
 
 	// DeleteAgentExecute executes the request
-	DeleteAgentExecute(r ApiDeleteAgentRequest) (*http.Response, error)
+	DeleteAgentExecute(r AgentsAPIDeleteAgentRequest) (*http.Response, error)
 
 	/*
 		DissociateAgentQueue Dissociate agent and queue
@@ -102,12 +102,12 @@ type AgentsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param agentId Agent’s ID
-		@return ApiDissociateAgentQueueRequest
+		@return AgentsAPIDissociateAgentQueueRequest
 	*/
-	DissociateAgentQueue(ctx context.Context, queueId int32, agentId int32) ApiDissociateAgentQueueRequest
+	DissociateAgentQueue(ctx context.Context, queueId int32, agentId int32) AgentsAPIDissociateAgentQueueRequest
 
 	// DissociateAgentQueueExecute executes the request
-	DissociateAgentQueueExecute(r ApiDissociateAgentQueueRequest) (*http.Response, error)
+	DissociateAgentQueueExecute(r AgentsAPIDissociateAgentQueueRequest) (*http.Response, error)
 
 	/*
 		DissociateAgentSkill Dissociate agent and skill
@@ -117,12 +117,12 @@ type AgentsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent’s ID
 		@param skillId Skill's ID
-		@return ApiDissociateAgentSkillRequest
+		@return AgentsAPIDissociateAgentSkillRequest
 	*/
-	DissociateAgentSkill(ctx context.Context, agentId int32, skillId int32) ApiDissociateAgentSkillRequest
+	DissociateAgentSkill(ctx context.Context, agentId int32, skillId int32) AgentsAPIDissociateAgentSkillRequest
 
 	// DissociateAgentSkillExecute executes the request
-	DissociateAgentSkillExecute(r ApiDissociateAgentSkillRequest) (*http.Response, error)
+	DissociateAgentSkillExecute(r AgentsAPIDissociateAgentSkillRequest) (*http.Response, error)
 
 	/*
 		DissociateUserAgent Dissociate user and agent
@@ -131,12 +131,12 @@ type AgentsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiDissociateUserAgentRequest
+		@return AgentsAPIDissociateUserAgentRequest
 	*/
-	DissociateUserAgent(ctx context.Context, userId string) ApiDissociateUserAgentRequest
+	DissociateUserAgent(ctx context.Context, userId string) AgentsAPIDissociateUserAgentRequest
 
 	// DissociateUserAgentExecute executes the request
-	DissociateUserAgentExecute(r ApiDissociateUserAgentRequest) (*http.Response, error)
+	DissociateUserAgentExecute(r AgentsAPIDissociateUserAgentRequest) (*http.Response, error)
 
 	/*
 		GetAgent Get agent
@@ -145,13 +145,13 @@ type AgentsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent’s ID
-		@return ApiGetAgentRequest
+		@return AgentsAPIGetAgentRequest
 	*/
-	GetAgent(ctx context.Context, agentId int32) ApiGetAgentRequest
+	GetAgent(ctx context.Context, agentId int32) AgentsAPIGetAgentRequest
 
 	// GetAgentExecute executes the request
 	//  @return Agent
-	GetAgentExecute(r ApiGetAgentRequest) (*Agent, *http.Response, error)
+	GetAgentExecute(r AgentsAPIGetAgentRequest) (*Agent, *http.Response, error)
 
 	/*
 		GetSkill Get skill
@@ -160,13 +160,13 @@ type AgentsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillId Skill's ID
-		@return ApiGetSkillRequest
+		@return AgentsAPIGetSkillRequest
 	*/
-	GetSkill(ctx context.Context, skillId int32) ApiGetSkillRequest
+	GetSkill(ctx context.Context, skillId int32) AgentsAPIGetSkillRequest
 
 	// GetSkillExecute executes the request
 	//  @return Skill
-	GetSkillExecute(r ApiGetSkillRequest) (*Skill, *http.Response, error)
+	GetSkillExecute(r AgentsAPIGetSkillRequest) (*Skill, *http.Response, error)
 
 	/*
 		ListAgents List agents
@@ -174,13 +174,13 @@ type AgentsAPI interface {
 		**Required ACL:** `confd.agents.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAgentsRequest
+		@return AgentsAPIListAgentsRequest
 	*/
-	ListAgents(ctx context.Context) ApiListAgentsRequest
+	ListAgents(ctx context.Context) AgentsAPIListAgentsRequest
 
 	// ListAgentsExecute executes the request
 	//  @return AgentItems
-	ListAgentsExecute(r ApiListAgentsRequest) (*AgentItems, *http.Response, error)
+	ListAgentsExecute(r AgentsAPIListAgentsRequest) (*AgentItems, *http.Response, error)
 
 	/*
 		ListSkills List skill
@@ -188,13 +188,13 @@ type AgentsAPI interface {
 		**Required ACL:** `confd.agents.skills.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSkillsRequest
+		@return AgentsAPIListSkillsRequest
 	*/
-	ListSkills(ctx context.Context) ApiListSkillsRequest
+	ListSkills(ctx context.Context) AgentsAPIListSkillsRequest
 
 	// ListSkillsExecute executes the request
 	//  @return SkillItems
-	ListSkillsExecute(r ApiListSkillsRequest) (*SkillItems, *http.Response, error)
+	ListSkillsExecute(r AgentsAPIListSkillsRequest) (*SkillItems, *http.Response, error)
 
 	/*
 		UpdateAgent Update agent
@@ -203,12 +203,12 @@ type AgentsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param agentId Agent’s ID
-		@return ApiUpdateAgentRequest
+		@return AgentsAPIUpdateAgentRequest
 	*/
-	UpdateAgent(ctx context.Context, agentId int32) ApiUpdateAgentRequest
+	UpdateAgent(ctx context.Context, agentId int32) AgentsAPIUpdateAgentRequest
 
 	// UpdateAgentExecute executes the request
-	UpdateAgentExecute(r ApiUpdateAgentRequest) (*http.Response, error)
+	UpdateAgentExecute(r AgentsAPIUpdateAgentRequest) (*http.Response, error)
 
 	/*
 		UpdateAgentQueueAssociation Update Agent-Queue association
@@ -218,18 +218,18 @@ type AgentsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param agentId Agent’s ID
-		@return ApiUpdateAgentQueueAssociationRequest
+		@return AgentsAPIUpdateAgentQueueAssociationRequest
 	*/
-	UpdateAgentQueueAssociation(ctx context.Context, queueId int32, agentId int32) ApiUpdateAgentQueueAssociationRequest
+	UpdateAgentQueueAssociation(ctx context.Context, queueId int32, agentId int32) AgentsAPIUpdateAgentQueueAssociationRequest
 
 	// UpdateAgentQueueAssociationExecute executes the request
-	UpdateAgentQueueAssociationExecute(r ApiUpdateAgentQueueAssociationRequest) (*http.Response, error)
+	UpdateAgentQueueAssociationExecute(r AgentsAPIUpdateAgentQueueAssociationRequest) (*http.Response, error)
 }
 
 // AgentsAPIService AgentsAPI service
 type AgentsAPIService service
 
-type ApiAssociateAgentSkillRequest struct {
+type AgentsAPIAssociateAgentSkillRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	agentId      int32
@@ -238,18 +238,18 @@ type ApiAssociateAgentSkillRequest struct {
 	accentTenant *string
 }
 
-func (r ApiAssociateAgentSkillRequest) Body(body AgentSkill) ApiAssociateAgentSkillRequest {
+func (r AgentsAPIAssociateAgentSkillRequest) Body(body AgentSkill) AgentsAPIAssociateAgentSkillRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateAgentSkillRequest) AccentTenant(accentTenant string) ApiAssociateAgentSkillRequest {
+func (r AgentsAPIAssociateAgentSkillRequest) AccentTenant(accentTenant string) AgentsAPIAssociateAgentSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateAgentSkillRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIAssociateAgentSkillRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateAgentSkillExecute(r)
 }
 
@@ -261,10 +261,10 @@ AssociateAgentSkill Associate agent and skill
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent’s ID
 	@param skillId Skill's ID
-	@return ApiAssociateAgentSkillRequest
+	@return AgentsAPIAssociateAgentSkillRequest
 */
-func (a *AgentsAPIService) AssociateAgentSkill(ctx context.Context, agentId int32, skillId int32) ApiAssociateAgentSkillRequest {
-	return ApiAssociateAgentSkillRequest{
+func (a *AgentsAPIService) AssociateAgentSkill(ctx context.Context, agentId int32, skillId int32) AgentsAPIAssociateAgentSkillRequest {
+	return AgentsAPIAssociateAgentSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -273,7 +273,7 @@ func (a *AgentsAPIService) AssociateAgentSkill(ctx context.Context, agentId int3
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) AssociateAgentSkillExecute(r ApiAssociateAgentSkillRequest) (*http.Response, error) {
+func (a *AgentsAPIService) AssociateAgentSkillExecute(r AgentsAPIAssociateAgentSkillRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -378,7 +378,7 @@ func (a *AgentsAPIService) AssociateAgentSkillExecute(r ApiAssociateAgentSkillRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateUserAgentRequest struct {
+type AgentsAPIAssociateUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	userId       string
@@ -387,12 +387,12 @@ type ApiAssociateUserAgentRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateUserAgentRequest) AccentTenant(accentTenant string) ApiAssociateUserAgentRequest {
+func (r AgentsAPIAssociateUserAgentRequest) AccentTenant(accentTenant string) AgentsAPIAssociateUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateUserAgentRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIAssociateUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserAgentExecute(r)
 }
 
@@ -404,10 +404,10 @@ AssociateUserAgent Associate user and agent
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param agentId Agent’s ID
-	@return ApiAssociateUserAgentRequest
+	@return AgentsAPIAssociateUserAgentRequest
 */
-func (a *AgentsAPIService) AssociateUserAgent(ctx context.Context, userId string, agentId int32) ApiAssociateUserAgentRequest {
-	return ApiAssociateUserAgentRequest{
+func (a *AgentsAPIService) AssociateUserAgent(ctx context.Context, userId string, agentId int32) AgentsAPIAssociateUserAgentRequest {
+	return AgentsAPIAssociateUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -416,7 +416,7 @@ func (a *AgentsAPIService) AssociateUserAgent(ctx context.Context, userId string
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) AssociateUserAgentExecute(r ApiAssociateUserAgentRequest) (*http.Response, error) {
+func (a *AgentsAPIService) AssociateUserAgentExecute(r AgentsAPIAssociateUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -519,7 +519,7 @@ func (a *AgentsAPIService) AssociateUserAgentExecute(r ApiAssociateUserAgentRequ
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateAgentRequest struct {
+type AgentsAPICreateAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	body         *Agent
@@ -527,18 +527,18 @@ type ApiCreateAgentRequest struct {
 }
 
 // Agent to create
-func (r ApiCreateAgentRequest) Body(body Agent) ApiCreateAgentRequest {
+func (r AgentsAPICreateAgentRequest) Body(body Agent) AgentsAPICreateAgentRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateAgentRequest) AccentTenant(accentTenant string) ApiCreateAgentRequest {
+func (r AgentsAPICreateAgentRequest) AccentTenant(accentTenant string) AgentsAPICreateAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateAgentRequest) Execute() (*Agent, *http.Response, error) {
+func (r AgentsAPICreateAgentRequest) Execute() (*Agent, *http.Response, error) {
 	return r.ApiService.CreateAgentExecute(r)
 }
 
@@ -548,10 +548,10 @@ CreateAgent Create agent
 **Required ACL:** `confd.agents.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateAgentRequest
+	@return AgentsAPICreateAgentRequest
 */
-func (a *AgentsAPIService) CreateAgent(ctx context.Context) ApiCreateAgentRequest {
-	return ApiCreateAgentRequest{
+func (a *AgentsAPIService) CreateAgent(ctx context.Context) AgentsAPICreateAgentRequest {
+	return AgentsAPICreateAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -560,7 +560,7 @@ func (a *AgentsAPIService) CreateAgent(ctx context.Context) ApiCreateAgentReques
 // Execute executes the request
 //
 //	@return Agent
-func (a *AgentsAPIService) CreateAgentExecute(r ApiCreateAgentRequest) (*Agent, *http.Response, error) {
+func (a *AgentsAPIService) CreateAgentExecute(r AgentsAPICreateAgentRequest) (*Agent, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -665,7 +665,7 @@ func (a *AgentsAPIService) CreateAgentExecute(r ApiCreateAgentRequest) (*Agent, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateSkillRequest struct {
+type AgentsAPICreateSkillRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	body         *Skill
@@ -673,18 +673,18 @@ type ApiCreateSkillRequest struct {
 }
 
 // Skill to create
-func (r ApiCreateSkillRequest) Body(body Skill) ApiCreateSkillRequest {
+func (r AgentsAPICreateSkillRequest) Body(body Skill) AgentsAPICreateSkillRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateSkillRequest) AccentTenant(accentTenant string) ApiCreateSkillRequest {
+func (r AgentsAPICreateSkillRequest) AccentTenant(accentTenant string) AgentsAPICreateSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateSkillRequest) Execute() (*Skill, *http.Response, error) {
+func (r AgentsAPICreateSkillRequest) Execute() (*Skill, *http.Response, error) {
 	return r.ApiService.CreateSkillExecute(r)
 }
 
@@ -694,10 +694,10 @@ CreateSkill Create skill
 **Required ACL:** `confd.agents.skills.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateSkillRequest
+	@return AgentsAPICreateSkillRequest
 */
-func (a *AgentsAPIService) CreateSkill(ctx context.Context) ApiCreateSkillRequest {
-	return ApiCreateSkillRequest{
+func (a *AgentsAPIService) CreateSkill(ctx context.Context) AgentsAPICreateSkillRequest {
+	return AgentsAPICreateSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -706,7 +706,7 @@ func (a *AgentsAPIService) CreateSkill(ctx context.Context) ApiCreateSkillReques
 // Execute executes the request
 //
 //	@return Skill
-func (a *AgentsAPIService) CreateSkillExecute(r ApiCreateSkillRequest) (*Skill, *http.Response, error) {
+func (a *AgentsAPIService) CreateSkillExecute(r AgentsAPICreateSkillRequest) (*Skill, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -811,7 +811,7 @@ func (a *AgentsAPIService) CreateSkillExecute(r ApiCreateSkillRequest) (*Skill, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAgentRequest struct {
+type AgentsAPIDeleteAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	agentId      int32
@@ -819,12 +819,12 @@ type ApiDeleteAgentRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteAgentRequest) AccentTenant(accentTenant string) ApiDeleteAgentRequest {
+func (r AgentsAPIDeleteAgentRequest) AccentTenant(accentTenant string) AgentsAPIDeleteAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteAgentRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIDeleteAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteAgentExecute(r)
 }
 
@@ -835,10 +835,10 @@ DeleteAgent Delete agent
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent’s ID
-	@return ApiDeleteAgentRequest
+	@return AgentsAPIDeleteAgentRequest
 */
-func (a *AgentsAPIService) DeleteAgent(ctx context.Context, agentId int32) ApiDeleteAgentRequest {
-	return ApiDeleteAgentRequest{
+func (a *AgentsAPIService) DeleteAgent(ctx context.Context, agentId int32) AgentsAPIDeleteAgentRequest {
+	return AgentsAPIDeleteAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -846,7 +846,7 @@ func (a *AgentsAPIService) DeleteAgent(ctx context.Context, agentId int32) ApiDe
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) DeleteAgentExecute(r ApiDeleteAgentRequest) (*http.Response, error) {
+func (a *AgentsAPIService) DeleteAgentExecute(r AgentsAPIDeleteAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -948,7 +948,7 @@ func (a *AgentsAPIService) DeleteAgentExecute(r ApiDeleteAgentRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateAgentQueueRequest struct {
+type AgentsAPIDissociateAgentQueueRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	queueId      int32
@@ -957,12 +957,12 @@ type ApiDissociateAgentQueueRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateAgentQueueRequest) AccentTenant(accentTenant string) ApiDissociateAgentQueueRequest {
+func (r AgentsAPIDissociateAgentQueueRequest) AccentTenant(accentTenant string) AgentsAPIDissociateAgentQueueRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateAgentQueueRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIDissociateAgentQueueRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateAgentQueueExecute(r)
 }
 
@@ -974,10 +974,10 @@ DissociateAgentQueue Dissociate agent and queue
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param agentId Agent’s ID
-	@return ApiDissociateAgentQueueRequest
+	@return AgentsAPIDissociateAgentQueueRequest
 */
-func (a *AgentsAPIService) DissociateAgentQueue(ctx context.Context, queueId int32, agentId int32) ApiDissociateAgentQueueRequest {
-	return ApiDissociateAgentQueueRequest{
+func (a *AgentsAPIService) DissociateAgentQueue(ctx context.Context, queueId int32, agentId int32) AgentsAPIDissociateAgentQueueRequest {
+	return AgentsAPIDissociateAgentQueueRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -986,7 +986,7 @@ func (a *AgentsAPIService) DissociateAgentQueue(ctx context.Context, queueId int
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) DissociateAgentQueueExecute(r ApiDissociateAgentQueueRequest) (*http.Response, error) {
+func (a *AgentsAPIService) DissociateAgentQueueExecute(r AgentsAPIDissociateAgentQueueRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1089,7 +1089,7 @@ func (a *AgentsAPIService) DissociateAgentQueueExecute(r ApiDissociateAgentQueue
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateAgentSkillRequest struct {
+type AgentsAPIDissociateAgentSkillRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	agentId      int32
@@ -1098,12 +1098,12 @@ type ApiDissociateAgentSkillRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateAgentSkillRequest) AccentTenant(accentTenant string) ApiDissociateAgentSkillRequest {
+func (r AgentsAPIDissociateAgentSkillRequest) AccentTenant(accentTenant string) AgentsAPIDissociateAgentSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateAgentSkillRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIDissociateAgentSkillRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateAgentSkillExecute(r)
 }
 
@@ -1115,10 +1115,10 @@ DissociateAgentSkill Dissociate agent and skill
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent’s ID
 	@param skillId Skill's ID
-	@return ApiDissociateAgentSkillRequest
+	@return AgentsAPIDissociateAgentSkillRequest
 */
-func (a *AgentsAPIService) DissociateAgentSkill(ctx context.Context, agentId int32, skillId int32) ApiDissociateAgentSkillRequest {
-	return ApiDissociateAgentSkillRequest{
+func (a *AgentsAPIService) DissociateAgentSkill(ctx context.Context, agentId int32, skillId int32) AgentsAPIDissociateAgentSkillRequest {
+	return AgentsAPIDissociateAgentSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -1127,7 +1127,7 @@ func (a *AgentsAPIService) DissociateAgentSkill(ctx context.Context, agentId int
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) DissociateAgentSkillExecute(r ApiDissociateAgentSkillRequest) (*http.Response, error) {
+func (a *AgentsAPIService) DissociateAgentSkillExecute(r AgentsAPIDissociateAgentSkillRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1230,7 +1230,7 @@ func (a *AgentsAPIService) DissociateAgentSkillExecute(r ApiDissociateAgentSkill
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserAgentRequest struct {
+type AgentsAPIDissociateUserAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	userId       string
@@ -1238,12 +1238,12 @@ type ApiDissociateUserAgentRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserAgentRequest) AccentTenant(accentTenant string) ApiDissociateUserAgentRequest {
+func (r AgentsAPIDissociateUserAgentRequest) AccentTenant(accentTenant string) AgentsAPIDissociateUserAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserAgentRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIDissociateUserAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserAgentExecute(r)
 }
 
@@ -1254,10 +1254,10 @@ DissociateUserAgent Dissociate user and agent
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiDissociateUserAgentRequest
+	@return AgentsAPIDissociateUserAgentRequest
 */
-func (a *AgentsAPIService) DissociateUserAgent(ctx context.Context, userId string) ApiDissociateUserAgentRequest {
-	return ApiDissociateUserAgentRequest{
+func (a *AgentsAPIService) DissociateUserAgent(ctx context.Context, userId string) AgentsAPIDissociateUserAgentRequest {
+	return AgentsAPIDissociateUserAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1265,7 +1265,7 @@ func (a *AgentsAPIService) DissociateUserAgent(ctx context.Context, userId strin
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) DissociateUserAgentExecute(r ApiDissociateUserAgentRequest) (*http.Response, error) {
+func (a *AgentsAPIService) DissociateUserAgentExecute(r AgentsAPIDissociateUserAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1367,7 +1367,7 @@ func (a *AgentsAPIService) DissociateUserAgentExecute(r ApiDissociateUserAgentRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetAgentRequest struct {
+type AgentsAPIGetAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	agentId      int32
@@ -1375,12 +1375,12 @@ type ApiGetAgentRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetAgentRequest) AccentTenant(accentTenant string) ApiGetAgentRequest {
+func (r AgentsAPIGetAgentRequest) AccentTenant(accentTenant string) AgentsAPIGetAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetAgentRequest) Execute() (*Agent, *http.Response, error) {
+func (r AgentsAPIGetAgentRequest) Execute() (*Agent, *http.Response, error) {
 	return r.ApiService.GetAgentExecute(r)
 }
 
@@ -1391,10 +1391,10 @@ GetAgent Get agent
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent’s ID
-	@return ApiGetAgentRequest
+	@return AgentsAPIGetAgentRequest
 */
-func (a *AgentsAPIService) GetAgent(ctx context.Context, agentId int32) ApiGetAgentRequest {
-	return ApiGetAgentRequest{
+func (a *AgentsAPIService) GetAgent(ctx context.Context, agentId int32) AgentsAPIGetAgentRequest {
+	return AgentsAPIGetAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -1404,7 +1404,7 @@ func (a *AgentsAPIService) GetAgent(ctx context.Context, agentId int32) ApiGetAg
 // Execute executes the request
 //
 //	@return Agent
-func (a *AgentsAPIService) GetAgentExecute(r ApiGetAgentRequest) (*Agent, *http.Response, error) {
+func (a *AgentsAPIService) GetAgentExecute(r AgentsAPIGetAgentRequest) (*Agent, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1505,7 +1505,7 @@ func (a *AgentsAPIService) GetAgentExecute(r ApiGetAgentRequest) (*Agent, *http.
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSkillRequest struct {
+type AgentsAPIGetSkillRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	skillId      int32
@@ -1513,12 +1513,12 @@ type ApiGetSkillRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetSkillRequest) AccentTenant(accentTenant string) ApiGetSkillRequest {
+func (r AgentsAPIGetSkillRequest) AccentTenant(accentTenant string) AgentsAPIGetSkillRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetSkillRequest) Execute() (*Skill, *http.Response, error) {
+func (r AgentsAPIGetSkillRequest) Execute() (*Skill, *http.Response, error) {
 	return r.ApiService.GetSkillExecute(r)
 }
 
@@ -1529,10 +1529,10 @@ GetSkill Get skill
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillId Skill's ID
-	@return ApiGetSkillRequest
+	@return AgentsAPIGetSkillRequest
 */
-func (a *AgentsAPIService) GetSkill(ctx context.Context, skillId int32) ApiGetSkillRequest {
-	return ApiGetSkillRequest{
+func (a *AgentsAPIService) GetSkill(ctx context.Context, skillId int32) AgentsAPIGetSkillRequest {
+	return AgentsAPIGetSkillRequest{
 		ApiService: a,
 		ctx:        ctx,
 		skillId:    skillId,
@@ -1542,7 +1542,7 @@ func (a *AgentsAPIService) GetSkill(ctx context.Context, skillId int32) ApiGetSk
 // Execute executes the request
 //
 //	@return Skill
-func (a *AgentsAPIService) GetSkillExecute(r ApiGetSkillRequest) (*Skill, *http.Response, error) {
+func (a *AgentsAPIService) GetSkillExecute(r AgentsAPIGetSkillRequest) (*Skill, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1643,7 +1643,7 @@ func (a *AgentsAPIService) GetSkillExecute(r ApiGetSkillRequest) (*Skill, *http.
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAgentsRequest struct {
+type AgentsAPIListAgentsRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	accentTenant *string
@@ -1656,48 +1656,48 @@ type ApiListAgentsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListAgentsRequest) AccentTenant(accentTenant string) ApiListAgentsRequest {
+func (r AgentsAPIListAgentsRequest) AccentTenant(accentTenant string) AgentsAPIListAgentsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListAgentsRequest) Recurse(recurse bool) ApiListAgentsRequest {
+func (r AgentsAPIListAgentsRequest) Recurse(recurse bool) AgentsAPIListAgentsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListAgentsRequest) Order(order string) ApiListAgentsRequest {
+func (r AgentsAPIListAgentsRequest) Order(order string) AgentsAPIListAgentsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListAgentsRequest) Direction(direction string) ApiListAgentsRequest {
+func (r AgentsAPIListAgentsRequest) Direction(direction string) AgentsAPIListAgentsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListAgentsRequest) Limit(limit int32) ApiListAgentsRequest {
+func (r AgentsAPIListAgentsRequest) Limit(limit int32) AgentsAPIListAgentsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListAgentsRequest) Offset(offset int32) ApiListAgentsRequest {
+func (r AgentsAPIListAgentsRequest) Offset(offset int32) AgentsAPIListAgentsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListAgentsRequest) Search(search string) ApiListAgentsRequest {
+func (r AgentsAPIListAgentsRequest) Search(search string) AgentsAPIListAgentsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListAgentsRequest) Execute() (*AgentItems, *http.Response, error) {
+func (r AgentsAPIListAgentsRequest) Execute() (*AgentItems, *http.Response, error) {
 	return r.ApiService.ListAgentsExecute(r)
 }
 
@@ -1707,10 +1707,10 @@ ListAgents List agents
 **Required ACL:** `confd.agents.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAgentsRequest
+	@return AgentsAPIListAgentsRequest
 */
-func (a *AgentsAPIService) ListAgents(ctx context.Context) ApiListAgentsRequest {
-	return ApiListAgentsRequest{
+func (a *AgentsAPIService) ListAgents(ctx context.Context) AgentsAPIListAgentsRequest {
+	return AgentsAPIListAgentsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1719,7 +1719,7 @@ func (a *AgentsAPIService) ListAgents(ctx context.Context) ApiListAgentsRequest 
 // Execute executes the request
 //
 //	@return AgentItems
-func (a *AgentsAPIService) ListAgentsExecute(r ApiListAgentsRequest) (*AgentItems, *http.Response, error) {
+func (a *AgentsAPIService) ListAgentsExecute(r AgentsAPIListAgentsRequest) (*AgentItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1830,7 +1830,7 @@ func (a *AgentsAPIService) ListAgentsExecute(r ApiListAgentsRequest) (*AgentItem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSkillsRequest struct {
+type AgentsAPIListSkillsRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	accentTenant *string
@@ -1843,48 +1843,48 @@ type ApiListSkillsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListSkillsRequest) AccentTenant(accentTenant string) ApiListSkillsRequest {
+func (r AgentsAPIListSkillsRequest) AccentTenant(accentTenant string) AgentsAPIListSkillsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListSkillsRequest) Recurse(recurse bool) ApiListSkillsRequest {
+func (r AgentsAPIListSkillsRequest) Recurse(recurse bool) AgentsAPIListSkillsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListSkillsRequest) Order(order string) ApiListSkillsRequest {
+func (r AgentsAPIListSkillsRequest) Order(order string) AgentsAPIListSkillsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListSkillsRequest) Direction(direction string) ApiListSkillsRequest {
+func (r AgentsAPIListSkillsRequest) Direction(direction string) AgentsAPIListSkillsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListSkillsRequest) Limit(limit int32) ApiListSkillsRequest {
+func (r AgentsAPIListSkillsRequest) Limit(limit int32) AgentsAPIListSkillsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListSkillsRequest) Offset(offset int32) ApiListSkillsRequest {
+func (r AgentsAPIListSkillsRequest) Offset(offset int32) AgentsAPIListSkillsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListSkillsRequest) Search(search string) ApiListSkillsRequest {
+func (r AgentsAPIListSkillsRequest) Search(search string) AgentsAPIListSkillsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListSkillsRequest) Execute() (*SkillItems, *http.Response, error) {
+func (r AgentsAPIListSkillsRequest) Execute() (*SkillItems, *http.Response, error) {
 	return r.ApiService.ListSkillsExecute(r)
 }
 
@@ -1894,10 +1894,10 @@ ListSkills List skill
 **Required ACL:** `confd.agents.skills.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListSkillsRequest
+	@return AgentsAPIListSkillsRequest
 */
-func (a *AgentsAPIService) ListSkills(ctx context.Context) ApiListSkillsRequest {
-	return ApiListSkillsRequest{
+func (a *AgentsAPIService) ListSkills(ctx context.Context) AgentsAPIListSkillsRequest {
+	return AgentsAPIListSkillsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1906,7 +1906,7 @@ func (a *AgentsAPIService) ListSkills(ctx context.Context) ApiListSkillsRequest 
 // Execute executes the request
 //
 //	@return SkillItems
-func (a *AgentsAPIService) ListSkillsExecute(r ApiListSkillsRequest) (*SkillItems, *http.Response, error) {
+func (a *AgentsAPIService) ListSkillsExecute(r AgentsAPIListSkillsRequest) (*SkillItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2017,7 +2017,7 @@ func (a *AgentsAPIService) ListSkillsExecute(r ApiListSkillsRequest) (*SkillItem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAgentRequest struct {
+type AgentsAPIUpdateAgentRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	body         *Agent
@@ -2025,18 +2025,18 @@ type ApiUpdateAgentRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateAgentRequest) Body(body Agent) ApiUpdateAgentRequest {
+func (r AgentsAPIUpdateAgentRequest) Body(body Agent) AgentsAPIUpdateAgentRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateAgentRequest) AccentTenant(accentTenant string) ApiUpdateAgentRequest {
+func (r AgentsAPIUpdateAgentRequest) AccentTenant(accentTenant string) AgentsAPIUpdateAgentRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateAgentRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIUpdateAgentRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAgentExecute(r)
 }
 
@@ -2047,10 +2047,10 @@ UpdateAgent Update agent
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param agentId Agent’s ID
-	@return ApiUpdateAgentRequest
+	@return AgentsAPIUpdateAgentRequest
 */
-func (a *AgentsAPIService) UpdateAgent(ctx context.Context, agentId int32) ApiUpdateAgentRequest {
-	return ApiUpdateAgentRequest{
+func (a *AgentsAPIService) UpdateAgent(ctx context.Context, agentId int32) AgentsAPIUpdateAgentRequest {
+	return AgentsAPIUpdateAgentRequest{
 		ApiService: a,
 		ctx:        ctx,
 		agentId:    agentId,
@@ -2058,7 +2058,7 @@ func (a *AgentsAPIService) UpdateAgent(ctx context.Context, agentId int32) ApiUp
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) UpdateAgentExecute(r ApiUpdateAgentRequest) (*http.Response, error) {
+func (a *AgentsAPIService) UpdateAgentExecute(r AgentsAPIUpdateAgentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2165,7 +2165,7 @@ func (a *AgentsAPIService) UpdateAgentExecute(r ApiUpdateAgentRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAgentQueueAssociationRequest struct {
+type AgentsAPIUpdateAgentQueueAssociationRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	queueId      int32
@@ -2174,18 +2174,18 @@ type ApiUpdateAgentQueueAssociationRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateAgentQueueAssociationRequest) Body(body QueueMemberAgent) ApiUpdateAgentQueueAssociationRequest {
+func (r AgentsAPIUpdateAgentQueueAssociationRequest) Body(body QueueMemberAgent) AgentsAPIUpdateAgentQueueAssociationRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateAgentQueueAssociationRequest) AccentTenant(accentTenant string) ApiUpdateAgentQueueAssociationRequest {
+func (r AgentsAPIUpdateAgentQueueAssociationRequest) AccentTenant(accentTenant string) AgentsAPIUpdateAgentQueueAssociationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateAgentQueueAssociationRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIUpdateAgentQueueAssociationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAgentQueueAssociationExecute(r)
 }
 
@@ -2197,10 +2197,10 @@ UpdateAgentQueueAssociation Update Agent-Queue association
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param agentId Agent’s ID
-	@return ApiUpdateAgentQueueAssociationRequest
+	@return AgentsAPIUpdateAgentQueueAssociationRequest
 */
-func (a *AgentsAPIService) UpdateAgentQueueAssociation(ctx context.Context, queueId int32, agentId int32) ApiUpdateAgentQueueAssociationRequest {
-	return ApiUpdateAgentQueueAssociationRequest{
+func (a *AgentsAPIService) UpdateAgentQueueAssociation(ctx context.Context, queueId int32, agentId int32) AgentsAPIUpdateAgentQueueAssociationRequest {
+	return AgentsAPIUpdateAgentQueueAssociationRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -2209,7 +2209,7 @@ func (a *AgentsAPIService) UpdateAgentQueueAssociation(ctx context.Context, queu
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) UpdateAgentQueueAssociationExecute(r ApiUpdateAgentQueueAssociationRequest) (*http.Response, error) {
+func (a *AgentsAPIService) UpdateAgentQueueAssociationExecute(r AgentsAPIUpdateAgentQueueAssociationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

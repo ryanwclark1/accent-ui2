@@ -30,12 +30,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Conference's ID
 		@param extensionId
-		@return ApiAssociateConferenceExtensionRequest
+		@return ExtensionsAPIAssociateConferenceExtensionRequest
 	*/
-	AssociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ApiAssociateConferenceExtensionRequest
+	AssociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ExtensionsAPIAssociateConferenceExtensionRequest
 
 	// AssociateConferenceExtensionExecute executes the request
-	AssociateConferenceExtensionExecute(r ApiAssociateConferenceExtensionRequest) (*http.Response, error)
+	AssociateConferenceExtensionExecute(r ExtensionsAPIAssociateConferenceExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateGroupExtension Associate group and extension
@@ -45,12 +45,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param extensionId
-		@return ApiAssociateGroupExtensionRequest
+		@return ExtensionsAPIAssociateGroupExtensionRequest
 	*/
-	AssociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ApiAssociateGroupExtensionRequest
+	AssociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ExtensionsAPIAssociateGroupExtensionRequest
 
 	// AssociateGroupExtensionExecute executes the request
-	AssociateGroupExtensionExecute(r ApiAssociateGroupExtensionRequest) (*http.Response, error)
+	AssociateGroupExtensionExecute(r ExtensionsAPIAssociateGroupExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateIncallExtension Associate incall and extension
@@ -60,12 +60,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
 		@param extensionId
-		@return ApiAssociateIncallExtensionRequest
+		@return ExtensionsAPIAssociateIncallExtensionRequest
 	*/
-	AssociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ApiAssociateIncallExtensionRequest
+	AssociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ExtensionsAPIAssociateIncallExtensionRequest
 
 	// AssociateIncallExtensionExecute executes the request
-	AssociateIncallExtensionExecute(r ApiAssociateIncallExtensionRequest) (*http.Response, error)
+	AssociateIncallExtensionExecute(r ExtensionsAPIAssociateIncallExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateLineExtension Associate line and extension
@@ -77,12 +77,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param extensionId
-		@return ApiAssociateLineExtensionRequest
+		@return ExtensionsAPIAssociateLineExtensionRequest
 	*/
-	AssociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ApiAssociateLineExtensionRequest
+	AssociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ExtensionsAPIAssociateLineExtensionRequest
 
 	// AssociateLineExtensionExecute executes the request
-	AssociateLineExtensionExecute(r ApiAssociateLineExtensionRequest) (*http.Response, error)
+	AssociateLineExtensionExecute(r ExtensionsAPIAssociateLineExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateOutcallExtension Associate outcall and extension
@@ -92,12 +92,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param extensionId
-		@return ApiAssociateOutcallExtensionRequest
+		@return ExtensionsAPIAssociateOutcallExtensionRequest
 	*/
-	AssociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ApiAssociateOutcallExtensionRequest
+	AssociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ExtensionsAPIAssociateOutcallExtensionRequest
 
 	// AssociateOutcallExtensionExecute executes the request
-	AssociateOutcallExtensionExecute(r ApiAssociateOutcallExtensionRequest) (*http.Response, error)
+	AssociateOutcallExtensionExecute(r ExtensionsAPIAssociateOutcallExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateParkingLotExtension Associate parking_lot and extension
@@ -107,12 +107,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param parkingLotId Parking Lot's ID
 		@param extensionId
-		@return ApiAssociateParkingLotExtensionRequest
+		@return ExtensionsAPIAssociateParkingLotExtensionRequest
 	*/
-	AssociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ApiAssociateParkingLotExtensionRequest
+	AssociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ExtensionsAPIAssociateParkingLotExtensionRequest
 
 	// AssociateParkingLotExtensionExecute executes the request
-	AssociateParkingLotExtensionExecute(r ApiAssociateParkingLotExtensionRequest) (*http.Response, error)
+	AssociateParkingLotExtensionExecute(r ExtensionsAPIAssociateParkingLotExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateQueueExtension Associate queue and extension
@@ -122,12 +122,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param extensionId
-		@return ApiAssociateQueueExtensionRequest
+		@return ExtensionsAPIAssociateQueueExtensionRequest
 	*/
-	AssociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ApiAssociateQueueExtensionRequest
+	AssociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ExtensionsAPIAssociateQueueExtensionRequest
 
 	// AssociateQueueExtensionExecute executes the request
-	AssociateQueueExtensionExecute(r ApiAssociateQueueExtensionRequest) (*http.Response, error)
+	AssociateQueueExtensionExecute(r ExtensionsAPIAssociateQueueExtensionRequest) (*http.Response, error)
 
 	/*
 		CreateExtension Create extension
@@ -137,13 +137,13 @@ type ExtensionsAPI interface {
 	The extension number must be included in one of the extension ranges for the given context.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateExtensionRequest
+		@return ExtensionsAPICreateExtensionRequest
 	*/
-	CreateExtension(ctx context.Context) ApiCreateExtensionRequest
+	CreateExtension(ctx context.Context) ExtensionsAPICreateExtensionRequest
 
 	// CreateExtensionExecute executes the request
 	//  @return Extension
-	CreateExtensionExecute(r ApiCreateExtensionRequest) (*Extension, *http.Response, error)
+	CreateExtensionExecute(r ExtensionsAPICreateExtensionRequest) (*Extension, *http.Response, error)
 
 	/*
 		CreateLineExtension Create extension
@@ -153,13 +153,13 @@ type ExtensionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
-		@return ApiCreateLineExtensionRequest
+		@return ExtensionsAPICreateLineExtensionRequest
 	*/
-	CreateLineExtension(ctx context.Context, lineId int32) ApiCreateLineExtensionRequest
+	CreateLineExtension(ctx context.Context, lineId int32) ExtensionsAPICreateLineExtensionRequest
 
 	// CreateLineExtensionExecute executes the request
 	//  @return Extension
-	CreateLineExtensionExecute(r ApiCreateLineExtensionRequest) (*Extension, *http.Response, error)
+	CreateLineExtensionExecute(r ExtensionsAPICreateLineExtensionRequest) (*Extension, *http.Response, error)
 
 	/*
 		DeleteExtension Delete extension
@@ -170,12 +170,12 @@ type ExtensionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param extensionId
-		@return ApiDeleteExtensionRequest
+		@return ExtensionsAPIDeleteExtensionRequest
 	*/
-	DeleteExtension(ctx context.Context, extensionId int32) ApiDeleteExtensionRequest
+	DeleteExtension(ctx context.Context, extensionId int32) ExtensionsAPIDeleteExtensionRequest
 
 	// DeleteExtensionExecute executes the request
-	DeleteExtensionExecute(r ApiDeleteExtensionRequest) (*http.Response, error)
+	DeleteExtensionExecute(r ExtensionsAPIDeleteExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateConferenceExtension Dissociate conference and extension
@@ -185,12 +185,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param conferenceId Conference's ID
 		@param extensionId
-		@return ApiDissociateConferenceExtensionRequest
+		@return ExtensionsAPIDissociateConferenceExtensionRequest
 	*/
-	DissociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ApiDissociateConferenceExtensionRequest
+	DissociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ExtensionsAPIDissociateConferenceExtensionRequest
 
 	// DissociateConferenceExtensionExecute executes the request
-	DissociateConferenceExtensionExecute(r ApiDissociateConferenceExtensionRequest) (*http.Response, error)
+	DissociateConferenceExtensionExecute(r ExtensionsAPIDissociateConferenceExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateGroupExtension Dissociate group and extension
@@ -200,12 +200,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param extensionId
-		@return ApiDissociateGroupExtensionRequest
+		@return ExtensionsAPIDissociateGroupExtensionRequest
 	*/
-	DissociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ApiDissociateGroupExtensionRequest
+	DissociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ExtensionsAPIDissociateGroupExtensionRequest
 
 	// DissociateGroupExtensionExecute executes the request
-	DissociateGroupExtensionExecute(r ApiDissociateGroupExtensionRequest) (*http.Response, error)
+	DissociateGroupExtensionExecute(r ExtensionsAPIDissociateGroupExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateIncallExtension Dissociate incall and extension
@@ -215,12 +215,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
 		@param extensionId
-		@return ApiDissociateIncallExtensionRequest
+		@return ExtensionsAPIDissociateIncallExtensionRequest
 	*/
-	DissociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ApiDissociateIncallExtensionRequest
+	DissociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ExtensionsAPIDissociateIncallExtensionRequest
 
 	// DissociateIncallExtensionExecute executes the request
-	DissociateIncallExtensionExecute(r ApiDissociateIncallExtensionRequest) (*http.Response, error)
+	DissociateIncallExtensionExecute(r ExtensionsAPIDissociateIncallExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateLineExtension Dissociate line and extension
@@ -232,12 +232,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param lineId
 		@param extensionId
-		@return ApiDissociateLineExtensionRequest
+		@return ExtensionsAPIDissociateLineExtensionRequest
 	*/
-	DissociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ApiDissociateLineExtensionRequest
+	DissociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ExtensionsAPIDissociateLineExtensionRequest
 
 	// DissociateLineExtensionExecute executes the request
-	DissociateLineExtensionExecute(r ApiDissociateLineExtensionRequest) (*http.Response, error)
+	DissociateLineExtensionExecute(r ExtensionsAPIDissociateLineExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateOutcallExtension Dissociate outcall and extension
@@ -247,12 +247,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param extensionId
-		@return ApiDissociateOutcallExtensionRequest
+		@return ExtensionsAPIDissociateOutcallExtensionRequest
 	*/
-	DissociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ApiDissociateOutcallExtensionRequest
+	DissociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ExtensionsAPIDissociateOutcallExtensionRequest
 
 	// DissociateOutcallExtensionExecute executes the request
-	DissociateOutcallExtensionExecute(r ApiDissociateOutcallExtensionRequest) (*http.Response, error)
+	DissociateOutcallExtensionExecute(r ExtensionsAPIDissociateOutcallExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateParkingLotExtension Dissociate parking lot and extension
@@ -262,12 +262,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param parkingLotId Parking Lot's ID
 		@param extensionId
-		@return ApiDissociateParkingLotExtensionRequest
+		@return ExtensionsAPIDissociateParkingLotExtensionRequest
 	*/
-	DissociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ApiDissociateParkingLotExtensionRequest
+	DissociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ExtensionsAPIDissociateParkingLotExtensionRequest
 
 	// DissociateParkingLotExtensionExecute executes the request
-	DissociateParkingLotExtensionExecute(r ApiDissociateParkingLotExtensionRequest) (*http.Response, error)
+	DissociateParkingLotExtensionExecute(r ExtensionsAPIDissociateParkingLotExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateQueueExtension Dissociate queue and extension
@@ -277,12 +277,12 @@ type ExtensionsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param extensionId
-		@return ApiDissociateQueueExtensionRequest
+		@return ExtensionsAPIDissociateQueueExtensionRequest
 	*/
-	DissociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ApiDissociateQueueExtensionRequest
+	DissociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ExtensionsAPIDissociateQueueExtensionRequest
 
 	// DissociateQueueExtensionExecute executes the request
-	DissociateQueueExtensionExecute(r ApiDissociateQueueExtensionRequest) (*http.Response, error)
+	DissociateQueueExtensionExecute(r ExtensionsAPIDissociateQueueExtensionRequest) (*http.Response, error)
 
 	/*
 		GetExtension Get extension
@@ -291,13 +291,13 @@ type ExtensionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param extensionId
-		@return ApiGetExtensionRequest
+		@return ExtensionsAPIGetExtensionRequest
 	*/
-	GetExtension(ctx context.Context, extensionId int32) ApiGetExtensionRequest
+	GetExtension(ctx context.Context, extensionId int32) ExtensionsAPIGetExtensionRequest
 
 	// GetExtensionExecute executes the request
 	//  @return Extension
-	GetExtensionExecute(r ApiGetExtensionRequest) (*Extension, *http.Response, error)
+	GetExtensionExecute(r ExtensionsAPIGetExtensionRequest) (*Extension, *http.Response, error)
 
 	/*
 		GetExtensionFeature Get extension feature
@@ -306,13 +306,13 @@ type ExtensionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param extensionUuid
-		@return ApiGetExtensionFeatureRequest
+		@return ExtensionsAPIGetExtensionFeatureRequest
 	*/
-	GetExtensionFeature(ctx context.Context, extensionUuid string) ApiGetExtensionFeatureRequest
+	GetExtensionFeature(ctx context.Context, extensionUuid string) ExtensionsAPIGetExtensionFeatureRequest
 
 	// GetExtensionFeatureExecute executes the request
 	//  @return ExtensionFeature
-	GetExtensionFeatureExecute(r ApiGetExtensionFeatureRequest) (*ExtensionFeature, *http.Response, error)
+	GetExtensionFeatureExecute(r ExtensionsAPIGetExtensionFeatureRequest) (*ExtensionFeature, *http.Response, error)
 
 	/*
 		ListExtensions List extensions
@@ -320,13 +320,13 @@ type ExtensionsAPI interface {
 		**Required ACL:** `confd.extensions.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListExtensionsRequest
+		@return ExtensionsAPIListExtensionsRequest
 	*/
-	ListExtensions(ctx context.Context) ApiListExtensionsRequest
+	ListExtensions(ctx context.Context) ExtensionsAPIListExtensionsRequest
 
 	// ListExtensionsExecute executes the request
 	//  @return ExtensionItems
-	ListExtensionsExecute(r ApiListExtensionsRequest) (*ExtensionItems, *http.Response, error)
+	ListExtensionsExecute(r ExtensionsAPIListExtensionsRequest) (*ExtensionItems, *http.Response, error)
 
 	/*
 		ListExtensionsFeatures List extensions features
@@ -334,13 +334,13 @@ type ExtensionsAPI interface {
 		**Required ACL:** `confd.extensions.features.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListExtensionsFeaturesRequest
+		@return ExtensionsAPIListExtensionsFeaturesRequest
 	*/
-	ListExtensionsFeatures(ctx context.Context) ApiListExtensionsFeaturesRequest
+	ListExtensionsFeatures(ctx context.Context) ExtensionsAPIListExtensionsFeaturesRequest
 
 	// ListExtensionsFeaturesExecute executes the request
 	//  @return ExtensionFeatureItems
-	ListExtensionsFeaturesExecute(r ApiListExtensionsFeaturesRequest) (*ExtensionFeatureItems, *http.Response, error)
+	ListExtensionsFeaturesExecute(r ExtensionsAPIListExtensionsFeaturesRequest) (*ExtensionFeatureItems, *http.Response, error)
 
 	/*
 		UpdateExtension Update extension
@@ -351,12 +351,12 @@ type ExtensionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param extensionId
-		@return ApiUpdateExtensionRequest
+		@return ExtensionsAPIUpdateExtensionRequest
 	*/
-	UpdateExtension(ctx context.Context, extensionId int32) ApiUpdateExtensionRequest
+	UpdateExtension(ctx context.Context, extensionId int32) ExtensionsAPIUpdateExtensionRequest
 
 	// UpdateExtensionExecute executes the request
-	UpdateExtensionExecute(r ApiUpdateExtensionRequest) (*http.Response, error)
+	UpdateExtensionExecute(r ExtensionsAPIUpdateExtensionRequest) (*http.Response, error)
 
 	/*
 		UpdateExtensionFeature Update extension
@@ -365,25 +365,25 @@ type ExtensionsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param extensionUuid
-		@return ApiUpdateExtensionFeatureRequest
+		@return ExtensionsAPIUpdateExtensionFeatureRequest
 	*/
-	UpdateExtensionFeature(ctx context.Context, extensionUuid string) ApiUpdateExtensionFeatureRequest
+	UpdateExtensionFeature(ctx context.Context, extensionUuid string) ExtensionsAPIUpdateExtensionFeatureRequest
 
 	// UpdateExtensionFeatureExecute executes the request
-	UpdateExtensionFeatureExecute(r ApiUpdateExtensionFeatureRequest) (*http.Response, error)
+	UpdateExtensionFeatureExecute(r ExtensionsAPIUpdateExtensionFeatureRequest) (*http.Response, error)
 }
 
 // ExtensionsAPIService ExtensionsAPI service
 type ExtensionsAPIService service
 
-type ApiAssociateConferenceExtensionRequest struct {
+type ExtensionsAPIAssociateConferenceExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	conferenceId int32
 	extensionId  int32
 }
 
-func (r ApiAssociateConferenceExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIAssociateConferenceExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateConferenceExtensionExecute(r)
 }
 
@@ -395,10 +395,10 @@ AssociateConferenceExtension Associate conference and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Conference's ID
 	@param extensionId
-	@return ApiAssociateConferenceExtensionRequest
+	@return ExtensionsAPIAssociateConferenceExtensionRequest
 */
-func (a *ExtensionsAPIService) AssociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ApiAssociateConferenceExtensionRequest {
-	return ApiAssociateConferenceExtensionRequest{
+func (a *ExtensionsAPIService) AssociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ExtensionsAPIAssociateConferenceExtensionRequest {
+	return ExtensionsAPIAssociateConferenceExtensionRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -407,7 +407,7 @@ func (a *ExtensionsAPIService) AssociateConferenceExtension(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) AssociateConferenceExtensionExecute(r ApiAssociateConferenceExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) AssociateConferenceExtensionExecute(r ExtensionsAPIAssociateConferenceExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -507,14 +507,14 @@ func (a *ExtensionsAPIService) AssociateConferenceExtensionExecute(r ApiAssociat
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateGroupExtensionRequest struct {
+type ExtensionsAPIAssociateGroupExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	groupUuid   string
 	extensionId int32
 }
 
-func (r ApiAssociateGroupExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIAssociateGroupExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateGroupExtensionExecute(r)
 }
 
@@ -526,10 +526,10 @@ AssociateGroupExtension Associate group and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param extensionId
-	@return ApiAssociateGroupExtensionRequest
+	@return ExtensionsAPIAssociateGroupExtensionRequest
 */
-func (a *ExtensionsAPIService) AssociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ApiAssociateGroupExtensionRequest {
-	return ApiAssociateGroupExtensionRequest{
+func (a *ExtensionsAPIService) AssociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ExtensionsAPIAssociateGroupExtensionRequest {
+	return ExtensionsAPIAssociateGroupExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		groupUuid:   groupUuid,
@@ -538,7 +538,7 @@ func (a *ExtensionsAPIService) AssociateGroupExtension(ctx context.Context, grou
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) AssociateGroupExtensionExecute(r ApiAssociateGroupExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) AssociateGroupExtensionExecute(r ExtensionsAPIAssociateGroupExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -638,14 +638,14 @@ func (a *ExtensionsAPIService) AssociateGroupExtensionExecute(r ApiAssociateGrou
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateIncallExtensionRequest struct {
+type ExtensionsAPIAssociateIncallExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	incallId    int32
 	extensionId int32
 }
 
-func (r ApiAssociateIncallExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIAssociateIncallExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateIncallExtensionExecute(r)
 }
 
@@ -657,10 +657,10 @@ AssociateIncallExtension Associate incall and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
 	@param extensionId
-	@return ApiAssociateIncallExtensionRequest
+	@return ExtensionsAPIAssociateIncallExtensionRequest
 */
-func (a *ExtensionsAPIService) AssociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ApiAssociateIncallExtensionRequest {
-	return ApiAssociateIncallExtensionRequest{
+func (a *ExtensionsAPIService) AssociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ExtensionsAPIAssociateIncallExtensionRequest {
+	return ExtensionsAPIAssociateIncallExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		incallId:    incallId,
@@ -669,7 +669,7 @@ func (a *ExtensionsAPIService) AssociateIncallExtension(ctx context.Context, inc
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) AssociateIncallExtensionExecute(r ApiAssociateIncallExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) AssociateIncallExtensionExecute(r ExtensionsAPIAssociateIncallExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -769,14 +769,14 @@ func (a *ExtensionsAPIService) AssociateIncallExtensionExecute(r ApiAssociateInc
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateLineExtensionRequest struct {
+type ExtensionsAPIAssociateLineExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	lineId      int32
 	extensionId int32
 }
 
-func (r ApiAssociateLineExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIAssociateLineExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateLineExtensionExecute(r)
 }
 
@@ -790,10 +790,10 @@ Because of technical limitations, a line can only have a single ‘internal’ e
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param extensionId
-	@return ApiAssociateLineExtensionRequest
+	@return ExtensionsAPIAssociateLineExtensionRequest
 */
-func (a *ExtensionsAPIService) AssociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ApiAssociateLineExtensionRequest {
-	return ApiAssociateLineExtensionRequest{
+func (a *ExtensionsAPIService) AssociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ExtensionsAPIAssociateLineExtensionRequest {
+	return ExtensionsAPIAssociateLineExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		lineId:      lineId,
@@ -802,7 +802,7 @@ func (a *ExtensionsAPIService) AssociateLineExtension(ctx context.Context, lineI
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) AssociateLineExtensionExecute(r ApiAssociateLineExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) AssociateLineExtensionExecute(r ExtensionsAPIAssociateLineExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -902,7 +902,7 @@ func (a *ExtensionsAPIService) AssociateLineExtensionExecute(r ApiAssociateLineE
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateOutcallExtensionRequest struct {
+type ExtensionsAPIAssociateOutcallExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	outcallId   int32
@@ -911,12 +911,12 @@ type ApiAssociateOutcallExtensionRequest struct {
 }
 
 // Outgoing Extension
-func (r ApiAssociateOutcallExtensionRequest) Body(body OutcallExtension) ApiAssociateOutcallExtensionRequest {
+func (r ExtensionsAPIAssociateOutcallExtensionRequest) Body(body OutcallExtension) ExtensionsAPIAssociateOutcallExtensionRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAssociateOutcallExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIAssociateOutcallExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateOutcallExtensionExecute(r)
 }
 
@@ -928,10 +928,10 @@ AssociateOutcallExtension Associate outcall and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param extensionId
-	@return ApiAssociateOutcallExtensionRequest
+	@return ExtensionsAPIAssociateOutcallExtensionRequest
 */
-func (a *ExtensionsAPIService) AssociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ApiAssociateOutcallExtensionRequest {
-	return ApiAssociateOutcallExtensionRequest{
+func (a *ExtensionsAPIService) AssociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ExtensionsAPIAssociateOutcallExtensionRequest {
+	return ExtensionsAPIAssociateOutcallExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		outcallId:   outcallId,
@@ -940,7 +940,7 @@ func (a *ExtensionsAPIService) AssociateOutcallExtension(ctx context.Context, ou
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) AssociateOutcallExtensionExecute(r ApiAssociateOutcallExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) AssociateOutcallExtensionExecute(r ExtensionsAPIAssociateOutcallExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1042,14 +1042,14 @@ func (a *ExtensionsAPIService) AssociateOutcallExtensionExecute(r ApiAssociateOu
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateParkingLotExtensionRequest struct {
+type ExtensionsAPIAssociateParkingLotExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	parkingLotId int32
 	extensionId  int32
 }
 
-func (r ApiAssociateParkingLotExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIAssociateParkingLotExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateParkingLotExtensionExecute(r)
 }
 
@@ -1061,10 +1061,10 @@ AssociateParkingLotExtension Associate parking_lot and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param parkingLotId Parking Lot's ID
 	@param extensionId
-	@return ApiAssociateParkingLotExtensionRequest
+	@return ExtensionsAPIAssociateParkingLotExtensionRequest
 */
-func (a *ExtensionsAPIService) AssociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ApiAssociateParkingLotExtensionRequest {
-	return ApiAssociateParkingLotExtensionRequest{
+func (a *ExtensionsAPIService) AssociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ExtensionsAPIAssociateParkingLotExtensionRequest {
+	return ExtensionsAPIAssociateParkingLotExtensionRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		parkingLotId: parkingLotId,
@@ -1073,7 +1073,7 @@ func (a *ExtensionsAPIService) AssociateParkingLotExtension(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) AssociateParkingLotExtensionExecute(r ApiAssociateParkingLotExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) AssociateParkingLotExtensionExecute(r ExtensionsAPIAssociateParkingLotExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1173,7 +1173,7 @@ func (a *ExtensionsAPIService) AssociateParkingLotExtensionExecute(r ApiAssociat
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateQueueExtensionRequest struct {
+type ExtensionsAPIAssociateQueueExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	queueId      int32
@@ -1182,12 +1182,12 @@ type ApiAssociateQueueExtensionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateQueueExtensionRequest) AccentTenant(accentTenant string) ApiAssociateQueueExtensionRequest {
+func (r ExtensionsAPIAssociateQueueExtensionRequest) AccentTenant(accentTenant string) ExtensionsAPIAssociateQueueExtensionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateQueueExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIAssociateQueueExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateQueueExtensionExecute(r)
 }
 
@@ -1199,10 +1199,10 @@ AssociateQueueExtension Associate queue and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param extensionId
-	@return ApiAssociateQueueExtensionRequest
+	@return ExtensionsAPIAssociateQueueExtensionRequest
 */
-func (a *ExtensionsAPIService) AssociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ApiAssociateQueueExtensionRequest {
-	return ApiAssociateQueueExtensionRequest{
+func (a *ExtensionsAPIService) AssociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ExtensionsAPIAssociateQueueExtensionRequest {
+	return ExtensionsAPIAssociateQueueExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		queueId:     queueId,
@@ -1211,7 +1211,7 @@ func (a *ExtensionsAPIService) AssociateQueueExtension(ctx context.Context, queu
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) AssociateQueueExtensionExecute(r ApiAssociateQueueExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) AssociateQueueExtensionExecute(r ExtensionsAPIAssociateQueueExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1314,7 +1314,7 @@ func (a *ExtensionsAPIService) AssociateQueueExtensionExecute(r ApiAssociateQueu
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateExtensionRequest struct {
+type ExtensionsAPICreateExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	body         *Extension
@@ -1322,18 +1322,18 @@ type ApiCreateExtensionRequest struct {
 }
 
 // Extension to create
-func (r ApiCreateExtensionRequest) Body(body Extension) ApiCreateExtensionRequest {
+func (r ExtensionsAPICreateExtensionRequest) Body(body Extension) ExtensionsAPICreateExtensionRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateExtensionRequest) AccentTenant(accentTenant string) ApiCreateExtensionRequest {
+func (r ExtensionsAPICreateExtensionRequest) AccentTenant(accentTenant string) ExtensionsAPICreateExtensionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateExtensionRequest) Execute() (*Extension, *http.Response, error) {
+func (r ExtensionsAPICreateExtensionRequest) Execute() (*Extension, *http.Response, error) {
 	return r.ApiService.CreateExtensionExecute(r)
 }
 
@@ -1345,10 +1345,10 @@ CreateExtension Create extension
 The extension number must be included in one of the extension ranges for the given context.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateExtensionRequest
+	@return ExtensionsAPICreateExtensionRequest
 */
-func (a *ExtensionsAPIService) CreateExtension(ctx context.Context) ApiCreateExtensionRequest {
-	return ApiCreateExtensionRequest{
+func (a *ExtensionsAPIService) CreateExtension(ctx context.Context) ExtensionsAPICreateExtensionRequest {
+	return ExtensionsAPICreateExtensionRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1357,7 +1357,7 @@ func (a *ExtensionsAPIService) CreateExtension(ctx context.Context) ApiCreateExt
 // Execute executes the request
 //
 //	@return Extension
-func (a *ExtensionsAPIService) CreateExtensionExecute(r ApiCreateExtensionRequest) (*Extension, *http.Response, error) {
+func (a *ExtensionsAPIService) CreateExtensionExecute(r ExtensionsAPICreateExtensionRequest) (*Extension, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1462,7 +1462,7 @@ func (a *ExtensionsAPIService) CreateExtensionExecute(r ApiCreateExtensionReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateLineExtensionRequest struct {
+type ExtensionsAPICreateLineExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	body         *Extension
@@ -1471,18 +1471,18 @@ type ApiCreateLineExtensionRequest struct {
 }
 
 // Extension to create
-func (r ApiCreateLineExtensionRequest) Body(body Extension) ApiCreateLineExtensionRequest {
+func (r ExtensionsAPICreateLineExtensionRequest) Body(body Extension) ExtensionsAPICreateLineExtensionRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateLineExtensionRequest) AccentTenant(accentTenant string) ApiCreateLineExtensionRequest {
+func (r ExtensionsAPICreateLineExtensionRequest) AccentTenant(accentTenant string) ExtensionsAPICreateLineExtensionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateLineExtensionRequest) Execute() (*Extension, *http.Response, error) {
+func (r ExtensionsAPICreateLineExtensionRequest) Execute() (*Extension, *http.Response, error) {
 	return r.ApiService.CreateLineExtensionExecute(r)
 }
 
@@ -1494,10 +1494,10 @@ The extension number must be included in one of the extension ranges for the giv
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
-	@return ApiCreateLineExtensionRequest
+	@return ExtensionsAPICreateLineExtensionRequest
 */
-func (a *ExtensionsAPIService) CreateLineExtension(ctx context.Context, lineId int32) ApiCreateLineExtensionRequest {
-	return ApiCreateLineExtensionRequest{
+func (a *ExtensionsAPIService) CreateLineExtension(ctx context.Context, lineId int32) ExtensionsAPICreateLineExtensionRequest {
+	return ExtensionsAPICreateLineExtensionRequest{
 		ApiService: a,
 		ctx:        ctx,
 		lineId:     lineId,
@@ -1507,7 +1507,7 @@ func (a *ExtensionsAPIService) CreateLineExtension(ctx context.Context, lineId i
 // Execute executes the request
 //
 //	@return Extension
-func (a *ExtensionsAPIService) CreateLineExtensionExecute(r ApiCreateLineExtensionRequest) (*Extension, *http.Response, error) {
+func (a *ExtensionsAPIService) CreateLineExtensionExecute(r ExtensionsAPICreateLineExtensionRequest) (*Extension, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1624,13 +1624,13 @@ func (a *ExtensionsAPIService) CreateLineExtensionExecute(r ApiCreateLineExtensi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteExtensionRequest struct {
+type ExtensionsAPIDeleteExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	extensionId int32
 }
 
-func (r ApiDeleteExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIDeleteExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteExtensionExecute(r)
 }
 
@@ -1643,10 +1643,10 @@ An extension can not be deleted if it is associated to a line. You must delete t
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param extensionId
-	@return ApiDeleteExtensionRequest
+	@return ExtensionsAPIDeleteExtensionRequest
 */
-func (a *ExtensionsAPIService) DeleteExtension(ctx context.Context, extensionId int32) ApiDeleteExtensionRequest {
-	return ApiDeleteExtensionRequest{
+func (a *ExtensionsAPIService) DeleteExtension(ctx context.Context, extensionId int32) ExtensionsAPIDeleteExtensionRequest {
+	return ExtensionsAPIDeleteExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		extensionId: extensionId,
@@ -1654,7 +1654,7 @@ func (a *ExtensionsAPIService) DeleteExtension(ctx context.Context, extensionId 
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) DeleteExtensionExecute(r ApiDeleteExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) DeleteExtensionExecute(r ExtensionsAPIDeleteExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1742,14 +1742,14 @@ func (a *ExtensionsAPIService) DeleteExtensionExecute(r ApiDeleteExtensionReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateConferenceExtensionRequest struct {
+type ExtensionsAPIDissociateConferenceExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	conferenceId int32
 	extensionId  int32
 }
 
-func (r ApiDissociateConferenceExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIDissociateConferenceExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateConferenceExtensionExecute(r)
 }
 
@@ -1761,10 +1761,10 @@ DissociateConferenceExtension Dissociate conference and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param conferenceId Conference's ID
 	@param extensionId
-	@return ApiDissociateConferenceExtensionRequest
+	@return ExtensionsAPIDissociateConferenceExtensionRequest
 */
-func (a *ExtensionsAPIService) DissociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ApiDissociateConferenceExtensionRequest {
-	return ApiDissociateConferenceExtensionRequest{
+func (a *ExtensionsAPIService) DissociateConferenceExtension(ctx context.Context, conferenceId int32, extensionId int32) ExtensionsAPIDissociateConferenceExtensionRequest {
+	return ExtensionsAPIDissociateConferenceExtensionRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		conferenceId: conferenceId,
@@ -1773,7 +1773,7 @@ func (a *ExtensionsAPIService) DissociateConferenceExtension(ctx context.Context
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) DissociateConferenceExtensionExecute(r ApiDissociateConferenceExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) DissociateConferenceExtensionExecute(r ExtensionsAPIDissociateConferenceExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1873,14 +1873,14 @@ func (a *ExtensionsAPIService) DissociateConferenceExtensionExecute(r ApiDissoci
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateGroupExtensionRequest struct {
+type ExtensionsAPIDissociateGroupExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	groupUuid   string
 	extensionId int32
 }
 
-func (r ApiDissociateGroupExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIDissociateGroupExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateGroupExtensionExecute(r)
 }
 
@@ -1892,10 +1892,10 @@ DissociateGroupExtension Dissociate group and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param extensionId
-	@return ApiDissociateGroupExtensionRequest
+	@return ExtensionsAPIDissociateGroupExtensionRequest
 */
-func (a *ExtensionsAPIService) DissociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ApiDissociateGroupExtensionRequest {
-	return ApiDissociateGroupExtensionRequest{
+func (a *ExtensionsAPIService) DissociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ExtensionsAPIDissociateGroupExtensionRequest {
+	return ExtensionsAPIDissociateGroupExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		groupUuid:   groupUuid,
@@ -1904,7 +1904,7 @@ func (a *ExtensionsAPIService) DissociateGroupExtension(ctx context.Context, gro
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) DissociateGroupExtensionExecute(r ApiDissociateGroupExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) DissociateGroupExtensionExecute(r ExtensionsAPIDissociateGroupExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2004,14 +2004,14 @@ func (a *ExtensionsAPIService) DissociateGroupExtensionExecute(r ApiDissociateGr
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateIncallExtensionRequest struct {
+type ExtensionsAPIDissociateIncallExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	incallId    int32
 	extensionId int32
 }
 
-func (r ApiDissociateIncallExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIDissociateIncallExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateIncallExtensionExecute(r)
 }
 
@@ -2023,10 +2023,10 @@ DissociateIncallExtension Dissociate incall and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
 	@param extensionId
-	@return ApiDissociateIncallExtensionRequest
+	@return ExtensionsAPIDissociateIncallExtensionRequest
 */
-func (a *ExtensionsAPIService) DissociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ApiDissociateIncallExtensionRequest {
-	return ApiDissociateIncallExtensionRequest{
+func (a *ExtensionsAPIService) DissociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ExtensionsAPIDissociateIncallExtensionRequest {
+	return ExtensionsAPIDissociateIncallExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		incallId:    incallId,
@@ -2035,7 +2035,7 @@ func (a *ExtensionsAPIService) DissociateIncallExtension(ctx context.Context, in
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) DissociateIncallExtensionExecute(r ApiDissociateIncallExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) DissociateIncallExtensionExecute(r ExtensionsAPIDissociateIncallExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2135,14 +2135,14 @@ func (a *ExtensionsAPIService) DissociateIncallExtensionExecute(r ApiDissociateI
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateLineExtensionRequest struct {
+type ExtensionsAPIDissociateLineExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	lineId      int32
 	extensionId int32
 }
 
-func (r ApiDissociateLineExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIDissociateLineExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateLineExtensionExecute(r)
 }
 
@@ -2156,10 +2156,10 @@ Any devices that are attached to a line must be removed before dissociating an e
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param lineId
 	@param extensionId
-	@return ApiDissociateLineExtensionRequest
+	@return ExtensionsAPIDissociateLineExtensionRequest
 */
-func (a *ExtensionsAPIService) DissociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ApiDissociateLineExtensionRequest {
-	return ApiDissociateLineExtensionRequest{
+func (a *ExtensionsAPIService) DissociateLineExtension(ctx context.Context, lineId int32, extensionId int32) ExtensionsAPIDissociateLineExtensionRequest {
+	return ExtensionsAPIDissociateLineExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		lineId:      lineId,
@@ -2168,7 +2168,7 @@ func (a *ExtensionsAPIService) DissociateLineExtension(ctx context.Context, line
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) DissociateLineExtensionExecute(r ApiDissociateLineExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) DissociateLineExtensionExecute(r ExtensionsAPIDissociateLineExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2268,14 +2268,14 @@ func (a *ExtensionsAPIService) DissociateLineExtensionExecute(r ApiDissociateLin
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateOutcallExtensionRequest struct {
+type ExtensionsAPIDissociateOutcallExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	outcallId   int32
 	extensionId int32
 }
 
-func (r ApiDissociateOutcallExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIDissociateOutcallExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateOutcallExtensionExecute(r)
 }
 
@@ -2287,10 +2287,10 @@ DissociateOutcallExtension Dissociate outcall and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param extensionId
-	@return ApiDissociateOutcallExtensionRequest
+	@return ExtensionsAPIDissociateOutcallExtensionRequest
 */
-func (a *ExtensionsAPIService) DissociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ApiDissociateOutcallExtensionRequest {
-	return ApiDissociateOutcallExtensionRequest{
+func (a *ExtensionsAPIService) DissociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ExtensionsAPIDissociateOutcallExtensionRequest {
+	return ExtensionsAPIDissociateOutcallExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		outcallId:   outcallId,
@@ -2299,7 +2299,7 @@ func (a *ExtensionsAPIService) DissociateOutcallExtension(ctx context.Context, o
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) DissociateOutcallExtensionExecute(r ApiDissociateOutcallExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) DissociateOutcallExtensionExecute(r ExtensionsAPIDissociateOutcallExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2399,14 +2399,14 @@ func (a *ExtensionsAPIService) DissociateOutcallExtensionExecute(r ApiDissociate
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateParkingLotExtensionRequest struct {
+type ExtensionsAPIDissociateParkingLotExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	parkingLotId int32
 	extensionId  int32
 }
 
-func (r ApiDissociateParkingLotExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIDissociateParkingLotExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateParkingLotExtensionExecute(r)
 }
 
@@ -2418,10 +2418,10 @@ DissociateParkingLotExtension Dissociate parking lot and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param parkingLotId Parking Lot's ID
 	@param extensionId
-	@return ApiDissociateParkingLotExtensionRequest
+	@return ExtensionsAPIDissociateParkingLotExtensionRequest
 */
-func (a *ExtensionsAPIService) DissociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ApiDissociateParkingLotExtensionRequest {
-	return ApiDissociateParkingLotExtensionRequest{
+func (a *ExtensionsAPIService) DissociateParkingLotExtension(ctx context.Context, parkingLotId int32, extensionId int32) ExtensionsAPIDissociateParkingLotExtensionRequest {
+	return ExtensionsAPIDissociateParkingLotExtensionRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		parkingLotId: parkingLotId,
@@ -2430,7 +2430,7 @@ func (a *ExtensionsAPIService) DissociateParkingLotExtension(ctx context.Context
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) DissociateParkingLotExtensionExecute(r ApiDissociateParkingLotExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) DissociateParkingLotExtensionExecute(r ExtensionsAPIDissociateParkingLotExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2530,7 +2530,7 @@ func (a *ExtensionsAPIService) DissociateParkingLotExtensionExecute(r ApiDissoci
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateQueueExtensionRequest struct {
+type ExtensionsAPIDissociateQueueExtensionRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	queueId      int32
@@ -2539,12 +2539,12 @@ type ApiDissociateQueueExtensionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateQueueExtensionRequest) AccentTenant(accentTenant string) ApiDissociateQueueExtensionRequest {
+func (r ExtensionsAPIDissociateQueueExtensionRequest) AccentTenant(accentTenant string) ExtensionsAPIDissociateQueueExtensionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateQueueExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIDissociateQueueExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateQueueExtensionExecute(r)
 }
 
@@ -2556,10 +2556,10 @@ DissociateQueueExtension Dissociate queue and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param extensionId
-	@return ApiDissociateQueueExtensionRequest
+	@return ExtensionsAPIDissociateQueueExtensionRequest
 */
-func (a *ExtensionsAPIService) DissociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ApiDissociateQueueExtensionRequest {
-	return ApiDissociateQueueExtensionRequest{
+func (a *ExtensionsAPIService) DissociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ExtensionsAPIDissociateQueueExtensionRequest {
+	return ExtensionsAPIDissociateQueueExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		queueId:     queueId,
@@ -2568,7 +2568,7 @@ func (a *ExtensionsAPIService) DissociateQueueExtension(ctx context.Context, que
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) DissociateQueueExtensionExecute(r ApiDissociateQueueExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) DissociateQueueExtensionExecute(r ExtensionsAPIDissociateQueueExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -2671,13 +2671,13 @@ func (a *ExtensionsAPIService) DissociateQueueExtensionExecute(r ApiDissociateQu
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetExtensionRequest struct {
+type ExtensionsAPIGetExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	extensionId int32
 }
 
-func (r ApiGetExtensionRequest) Execute() (*Extension, *http.Response, error) {
+func (r ExtensionsAPIGetExtensionRequest) Execute() (*Extension, *http.Response, error) {
 	return r.ApiService.GetExtensionExecute(r)
 }
 
@@ -2688,10 +2688,10 @@ GetExtension Get extension
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param extensionId
-	@return ApiGetExtensionRequest
+	@return ExtensionsAPIGetExtensionRequest
 */
-func (a *ExtensionsAPIService) GetExtension(ctx context.Context, extensionId int32) ApiGetExtensionRequest {
-	return ApiGetExtensionRequest{
+func (a *ExtensionsAPIService) GetExtension(ctx context.Context, extensionId int32) ExtensionsAPIGetExtensionRequest {
+	return ExtensionsAPIGetExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		extensionId: extensionId,
@@ -2701,7 +2701,7 @@ func (a *ExtensionsAPIService) GetExtension(ctx context.Context, extensionId int
 // Execute executes the request
 //
 //	@return Extension
-func (a *ExtensionsAPIService) GetExtensionExecute(r ApiGetExtensionRequest) (*Extension, *http.Response, error) {
+func (a *ExtensionsAPIService) GetExtensionExecute(r ExtensionsAPIGetExtensionRequest) (*Extension, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2799,13 +2799,13 @@ func (a *ExtensionsAPIService) GetExtensionExecute(r ApiGetExtensionRequest) (*E
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetExtensionFeatureRequest struct {
+type ExtensionsAPIGetExtensionFeatureRequest struct {
 	ctx           context.Context
 	ApiService    ExtensionsAPI
 	extensionUuid string
 }
 
-func (r ApiGetExtensionFeatureRequest) Execute() (*ExtensionFeature, *http.Response, error) {
+func (r ExtensionsAPIGetExtensionFeatureRequest) Execute() (*ExtensionFeature, *http.Response, error) {
 	return r.ApiService.GetExtensionFeatureExecute(r)
 }
 
@@ -2816,10 +2816,10 @@ GetExtensionFeature Get extension feature
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param extensionUuid
-	@return ApiGetExtensionFeatureRequest
+	@return ExtensionsAPIGetExtensionFeatureRequest
 */
-func (a *ExtensionsAPIService) GetExtensionFeature(ctx context.Context, extensionUuid string) ApiGetExtensionFeatureRequest {
-	return ApiGetExtensionFeatureRequest{
+func (a *ExtensionsAPIService) GetExtensionFeature(ctx context.Context, extensionUuid string) ExtensionsAPIGetExtensionFeatureRequest {
+	return ExtensionsAPIGetExtensionFeatureRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		extensionUuid: extensionUuid,
@@ -2829,7 +2829,7 @@ func (a *ExtensionsAPIService) GetExtensionFeature(ctx context.Context, extensio
 // Execute executes the request
 //
 //	@return ExtensionFeature
-func (a *ExtensionsAPIService) GetExtensionFeatureExecute(r ApiGetExtensionFeatureRequest) (*ExtensionFeature, *http.Response, error) {
+func (a *ExtensionsAPIService) GetExtensionFeatureExecute(r ExtensionsAPIGetExtensionFeatureRequest) (*ExtensionFeature, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2927,7 +2927,7 @@ func (a *ExtensionsAPIService) GetExtensionFeatureExecute(r ApiGetExtensionFeatu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListExtensionsRequest struct {
+type ExtensionsAPIListExtensionsRequest struct {
 	ctx          context.Context
 	ApiService   ExtensionsAPI
 	accentTenant *string
@@ -2943,66 +2943,66 @@ type ApiListExtensionsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListExtensionsRequest) AccentTenant(accentTenant string) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) AccentTenant(accentTenant string) ExtensionsAPIListExtensionsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListExtensionsRequest) Recurse(recurse bool) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Recurse(recurse bool) ExtensionsAPIListExtensionsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListExtensionsRequest) Order(order string) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Order(order string) ExtensionsAPIListExtensionsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListExtensionsRequest) Direction(direction string) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Direction(direction string) ExtensionsAPIListExtensionsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListExtensionsRequest) Limit(limit int32) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Limit(limit int32) ExtensionsAPIListExtensionsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListExtensionsRequest) Offset(offset int32) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Offset(offset int32) ExtensionsAPIListExtensionsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListExtensionsRequest) Search(search string) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Search(search string) ExtensionsAPIListExtensionsRequest {
 	r.search = &search
 	return r
 }
 
 // Filter extensions of a certain type. Internal: Used for calling a line with an internal number (e.g. “1000@default”). Incall: Used for calling a line from the outside (e.g. “from-extern” with a DID)
-func (r ApiListExtensionsRequest) Type_(type_ string) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Type_(type_ string) ExtensionsAPIListExtensionsRequest {
 	r.type_ = &type_
 	return r
 }
 
 // Filter extensions by exten number
-func (r ApiListExtensionsRequest) Exten(exten string) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Exten(exten string) ExtensionsAPIListExtensionsRequest {
 	r.exten = &exten
 	return r
 }
 
 // Filter extensions by context name
-func (r ApiListExtensionsRequest) Context(context string) ApiListExtensionsRequest {
+func (r ExtensionsAPIListExtensionsRequest) Context(context string) ExtensionsAPIListExtensionsRequest {
 	r.context = &context
 	return r
 }
 
-func (r ApiListExtensionsRequest) Execute() (*ExtensionItems, *http.Response, error) {
+func (r ExtensionsAPIListExtensionsRequest) Execute() (*ExtensionItems, *http.Response, error) {
 	return r.ApiService.ListExtensionsExecute(r)
 }
 
@@ -3012,10 +3012,10 @@ ListExtensions List extensions
 **Required ACL:** `confd.extensions.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListExtensionsRequest
+	@return ExtensionsAPIListExtensionsRequest
 */
-func (a *ExtensionsAPIService) ListExtensions(ctx context.Context) ApiListExtensionsRequest {
-	return ApiListExtensionsRequest{
+func (a *ExtensionsAPIService) ListExtensions(ctx context.Context) ExtensionsAPIListExtensionsRequest {
+	return ExtensionsAPIListExtensionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3024,7 +3024,7 @@ func (a *ExtensionsAPIService) ListExtensions(ctx context.Context) ApiListExtens
 // Execute executes the request
 //
 //	@return ExtensionItems
-func (a *ExtensionsAPIService) ListExtensionsExecute(r ApiListExtensionsRequest) (*ExtensionItems, *http.Response, error) {
+func (a *ExtensionsAPIService) ListExtensionsExecute(r ExtensionsAPIListExtensionsRequest) (*ExtensionItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3144,7 +3144,7 @@ func (a *ExtensionsAPIService) ListExtensionsExecute(r ApiListExtensionsRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListExtensionsFeaturesRequest struct {
+type ExtensionsAPIListExtensionsFeaturesRequest struct {
 	ctx        context.Context
 	ApiService ExtensionsAPI
 	order      *string
@@ -3155,36 +3155,36 @@ type ApiListExtensionsFeaturesRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListExtensionsFeaturesRequest) Order(order string) ApiListExtensionsFeaturesRequest {
+func (r ExtensionsAPIListExtensionsFeaturesRequest) Order(order string) ExtensionsAPIListExtensionsFeaturesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListExtensionsFeaturesRequest) Direction(direction string) ApiListExtensionsFeaturesRequest {
+func (r ExtensionsAPIListExtensionsFeaturesRequest) Direction(direction string) ExtensionsAPIListExtensionsFeaturesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListExtensionsFeaturesRequest) Limit(limit int32) ApiListExtensionsFeaturesRequest {
+func (r ExtensionsAPIListExtensionsFeaturesRequest) Limit(limit int32) ExtensionsAPIListExtensionsFeaturesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListExtensionsFeaturesRequest) Offset(offset int32) ApiListExtensionsFeaturesRequest {
+func (r ExtensionsAPIListExtensionsFeaturesRequest) Offset(offset int32) ExtensionsAPIListExtensionsFeaturesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListExtensionsFeaturesRequest) Search(search string) ApiListExtensionsFeaturesRequest {
+func (r ExtensionsAPIListExtensionsFeaturesRequest) Search(search string) ExtensionsAPIListExtensionsFeaturesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListExtensionsFeaturesRequest) Execute() (*ExtensionFeatureItems, *http.Response, error) {
+func (r ExtensionsAPIListExtensionsFeaturesRequest) Execute() (*ExtensionFeatureItems, *http.Response, error) {
 	return r.ApiService.ListExtensionsFeaturesExecute(r)
 }
 
@@ -3194,10 +3194,10 @@ ListExtensionsFeatures List extensions features
 **Required ACL:** `confd.extensions.features.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListExtensionsFeaturesRequest
+	@return ExtensionsAPIListExtensionsFeaturesRequest
 */
-func (a *ExtensionsAPIService) ListExtensionsFeatures(ctx context.Context) ApiListExtensionsFeaturesRequest {
-	return ApiListExtensionsFeaturesRequest{
+func (a *ExtensionsAPIService) ListExtensionsFeatures(ctx context.Context) ExtensionsAPIListExtensionsFeaturesRequest {
+	return ExtensionsAPIListExtensionsFeaturesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -3206,7 +3206,7 @@ func (a *ExtensionsAPIService) ListExtensionsFeatures(ctx context.Context) ApiLi
 // Execute executes the request
 //
 //	@return ExtensionFeatureItems
-func (a *ExtensionsAPIService) ListExtensionsFeaturesExecute(r ApiListExtensionsFeaturesRequest) (*ExtensionFeatureItems, *http.Response, error) {
+func (a *ExtensionsAPIService) ListExtensionsFeaturesExecute(r ExtensionsAPIListExtensionsFeaturesRequest) (*ExtensionFeatureItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -3308,19 +3308,19 @@ func (a *ExtensionsAPIService) ListExtensionsFeaturesExecute(r ApiListExtensions
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateExtensionRequest struct {
+type ExtensionsAPIUpdateExtensionRequest struct {
 	ctx         context.Context
 	ApiService  ExtensionsAPI
 	body        *Extension
 	extensionId int32
 }
 
-func (r ApiUpdateExtensionRequest) Body(body Extension) ApiUpdateExtensionRequest {
+func (r ExtensionsAPIUpdateExtensionRequest) Body(body Extension) ExtensionsAPIUpdateExtensionRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateExtensionRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIUpdateExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateExtensionExecute(r)
 }
 
@@ -3333,10 +3333,10 @@ The new extension number must be included in one of the extension ranges for the
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param extensionId
-	@return ApiUpdateExtensionRequest
+	@return ExtensionsAPIUpdateExtensionRequest
 */
-func (a *ExtensionsAPIService) UpdateExtension(ctx context.Context, extensionId int32) ApiUpdateExtensionRequest {
-	return ApiUpdateExtensionRequest{
+func (a *ExtensionsAPIService) UpdateExtension(ctx context.Context, extensionId int32) ExtensionsAPIUpdateExtensionRequest {
+	return ExtensionsAPIUpdateExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		extensionId: extensionId,
@@ -3344,7 +3344,7 @@ func (a *ExtensionsAPIService) UpdateExtension(ctx context.Context, extensionId 
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) UpdateExtensionExecute(r ApiUpdateExtensionRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) UpdateExtensionExecute(r ExtensionsAPIUpdateExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3448,19 +3448,19 @@ func (a *ExtensionsAPIService) UpdateExtensionExecute(r ApiUpdateExtensionReques
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateExtensionFeatureRequest struct {
+type ExtensionsAPIUpdateExtensionFeatureRequest struct {
 	ctx           context.Context
 	ApiService    ExtensionsAPI
 	body          *ExtensionFeature
 	extensionUuid string
 }
 
-func (r ApiUpdateExtensionFeatureRequest) Body(body ExtensionFeature) ApiUpdateExtensionFeatureRequest {
+func (r ExtensionsAPIUpdateExtensionFeatureRequest) Body(body ExtensionFeature) ExtensionsAPIUpdateExtensionFeatureRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateExtensionFeatureRequest) Execute() (*http.Response, error) {
+func (r ExtensionsAPIUpdateExtensionFeatureRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateExtensionFeatureExecute(r)
 }
 
@@ -3471,10 +3471,10 @@ UpdateExtensionFeature Update extension
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param extensionUuid
-	@return ApiUpdateExtensionFeatureRequest
+	@return ExtensionsAPIUpdateExtensionFeatureRequest
 */
-func (a *ExtensionsAPIService) UpdateExtensionFeature(ctx context.Context, extensionUuid string) ApiUpdateExtensionFeatureRequest {
-	return ApiUpdateExtensionFeatureRequest{
+func (a *ExtensionsAPIService) UpdateExtensionFeature(ctx context.Context, extensionUuid string) ExtensionsAPIUpdateExtensionFeatureRequest {
+	return ExtensionsAPIUpdateExtensionFeatureRequest{
 		ApiService:    a,
 		ctx:           ctx,
 		extensionUuid: extensionUuid,
@@ -3482,7 +3482,7 @@ func (a *ExtensionsAPIService) UpdateExtensionFeature(ctx context.Context, exten
 }
 
 // Execute executes the request
-func (a *ExtensionsAPIService) UpdateExtensionFeatureExecute(r ApiUpdateExtensionFeatureRequest) (*http.Response, error) {
+func (a *ExtensionsAPIService) UpdateExtensionFeatureExecute(r ExtensionsAPIUpdateExtensionFeatureRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

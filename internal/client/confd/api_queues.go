@@ -30,12 +30,12 @@ type QueuesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param extensionId
-		@return ApiAssociateQueueExtensionRequest
+		@return QueuesAPIAssociateQueueExtensionRequest
 	*/
-	AssociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ApiAssociateQueueExtensionRequest
+	AssociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) QueuesAPIAssociateQueueExtensionRequest
 
 	// AssociateQueueExtensionExecute executes the request
-	AssociateQueueExtensionExecute(r ApiAssociateQueueExtensionRequest) (*http.Response, error)
+	AssociateQueueExtensionExecute(r QueuesAPIAssociateQueueExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateQueueSchedule Associate queue and schedule
@@ -45,12 +45,12 @@ type QueuesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateQueueScheduleRequest
+		@return QueuesAPIAssociateQueueScheduleRequest
 	*/
-	AssociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) ApiAssociateQueueScheduleRequest
+	AssociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) QueuesAPIAssociateQueueScheduleRequest
 
 	// AssociateQueueScheduleExecute executes the request
-	AssociateQueueScheduleExecute(r ApiAssociateQueueScheduleRequest) (*http.Response, error)
+	AssociateQueueScheduleExecute(r QueuesAPIAssociateQueueScheduleRequest) (*http.Response, error)
 
 	/*
 		CreateQueue Create queue
@@ -58,13 +58,13 @@ type QueuesAPI interface {
 		**Required ACL:** `confd.queues.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateQueueRequest
+		@return QueuesAPICreateQueueRequest
 	*/
-	CreateQueue(ctx context.Context) ApiCreateQueueRequest
+	CreateQueue(ctx context.Context) QueuesAPICreateQueueRequest
 
 	// CreateQueueExecute executes the request
 	//  @return Queue
-	CreateQueueExecute(r ApiCreateQueueRequest) (*Queue, *http.Response, error)
+	CreateQueueExecute(r QueuesAPICreateQueueRequest) (*Queue, *http.Response, error)
 
 	/*
 		CreateSkillRule Create skill rule
@@ -72,13 +72,13 @@ type QueuesAPI interface {
 		**Required ACL:** `confd.queues.skillrules.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateSkillRuleRequest
+		@return QueuesAPICreateSkillRuleRequest
 	*/
-	CreateSkillRule(ctx context.Context) ApiCreateSkillRuleRequest
+	CreateSkillRule(ctx context.Context) QueuesAPICreateSkillRuleRequest
 
 	// CreateSkillRuleExecute executes the request
 	//  @return SkillRule
-	CreateSkillRuleExecute(r ApiCreateSkillRuleRequest) (*SkillRule, *http.Response, error)
+	CreateSkillRuleExecute(r QueuesAPICreateSkillRuleRequest) (*SkillRule, *http.Response, error)
 
 	/*
 		DeleteQueue Delete queue
@@ -87,12 +87,12 @@ type QueuesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
-		@return ApiDeleteQueueRequest
+		@return QueuesAPIDeleteQueueRequest
 	*/
-	DeleteQueue(ctx context.Context, queueId int32) ApiDeleteQueueRequest
+	DeleteQueue(ctx context.Context, queueId int32) QueuesAPIDeleteQueueRequest
 
 	// DeleteQueueExecute executes the request
-	DeleteQueueExecute(r ApiDeleteQueueRequest) (*http.Response, error)
+	DeleteQueueExecute(r QueuesAPIDeleteQueueRequest) (*http.Response, error)
 
 	/*
 		DeleteSkillRule Delete skill rule
@@ -101,12 +101,12 @@ type QueuesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillruleId Skill's ID
-		@return ApiDeleteSkillRuleRequest
+		@return QueuesAPIDeleteSkillRuleRequest
 	*/
-	DeleteSkillRule(ctx context.Context, skillruleId int32) ApiDeleteSkillRuleRequest
+	DeleteSkillRule(ctx context.Context, skillruleId int32) QueuesAPIDeleteSkillRuleRequest
 
 	// DeleteSkillRuleExecute executes the request
-	DeleteSkillRuleExecute(r ApiDeleteSkillRuleRequest) (*http.Response, error)
+	DeleteSkillRuleExecute(r QueuesAPIDeleteSkillRuleRequest) (*http.Response, error)
 
 	/*
 		DissociateAgentQueue Dissociate agent and queue
@@ -116,12 +116,12 @@ type QueuesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param agentId Agent’s ID
-		@return ApiDissociateAgentQueueRequest
+		@return QueuesAPIDissociateAgentQueueRequest
 	*/
-	DissociateAgentQueue(ctx context.Context, queueId int32, agentId int32) ApiDissociateAgentQueueRequest
+	DissociateAgentQueue(ctx context.Context, queueId int32, agentId int32) QueuesAPIDissociateAgentQueueRequest
 
 	// DissociateAgentQueueExecute executes the request
-	DissociateAgentQueueExecute(r ApiDissociateAgentQueueRequest) (*http.Response, error)
+	DissociateAgentQueueExecute(r QueuesAPIDissociateAgentQueueRequest) (*http.Response, error)
 
 	/*
 		DissociateQueueExtension Dissociate queue and extension
@@ -131,12 +131,12 @@ type QueuesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param extensionId
-		@return ApiDissociateQueueExtensionRequest
+		@return QueuesAPIDissociateQueueExtensionRequest
 	*/
-	DissociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ApiDissociateQueueExtensionRequest
+	DissociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) QueuesAPIDissociateQueueExtensionRequest
 
 	// DissociateQueueExtensionExecute executes the request
-	DissociateQueueExtensionExecute(r ApiDissociateQueueExtensionRequest) (*http.Response, error)
+	DissociateQueueExtensionExecute(r QueuesAPIDissociateQueueExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateQueueSchedule Dissociate queue and schedule
@@ -146,12 +146,12 @@ type QueuesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateQueueScheduleRequest
+		@return QueuesAPIDissociateQueueScheduleRequest
 	*/
-	DissociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) ApiDissociateQueueScheduleRequest
+	DissociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) QueuesAPIDissociateQueueScheduleRequest
 
 	// DissociateQueueScheduleExecute executes the request
-	DissociateQueueScheduleExecute(r ApiDissociateQueueScheduleRequest) (*http.Response, error)
+	DissociateQueueScheduleExecute(r QueuesAPIDissociateQueueScheduleRequest) (*http.Response, error)
 
 	/*
 		DissociateUserQueue Dissociate user and queue
@@ -161,12 +161,12 @@ type QueuesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param userId the user's ID or UUID
-		@return ApiDissociateUserQueueRequest
+		@return QueuesAPIDissociateUserQueueRequest
 	*/
-	DissociateUserQueue(ctx context.Context, queueId int32, userId string) ApiDissociateUserQueueRequest
+	DissociateUserQueue(ctx context.Context, queueId int32, userId string) QueuesAPIDissociateUserQueueRequest
 
 	// DissociateUserQueueExecute executes the request
-	DissociateUserQueueExecute(r ApiDissociateUserQueueRequest) (*http.Response, error)
+	DissociateUserQueueExecute(r QueuesAPIDissociateUserQueueRequest) (*http.Response, error)
 
 	/*
 		GetQueue Get queue
@@ -175,13 +175,13 @@ type QueuesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
-		@return ApiGetQueueRequest
+		@return QueuesAPIGetQueueRequest
 	*/
-	GetQueue(ctx context.Context, queueId int32) ApiGetQueueRequest
+	GetQueue(ctx context.Context, queueId int32) QueuesAPIGetQueueRequest
 
 	// GetQueueExecute executes the request
 	//  @return Queue
-	GetQueueExecute(r ApiGetQueueRequest) (*Queue, *http.Response, error)
+	GetQueueExecute(r QueuesAPIGetQueueRequest) (*Queue, *http.Response, error)
 
 	/*
 		GetQueueFallback List all fallbacks for queue
@@ -190,13 +190,13 @@ type QueuesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
-		@return ApiGetQueueFallbackRequest
+		@return QueuesAPIGetQueueFallbackRequest
 	*/
-	GetQueueFallback(ctx context.Context, queueId int32) ApiGetQueueFallbackRequest
+	GetQueueFallback(ctx context.Context, queueId int32) QueuesAPIGetQueueFallbackRequest
 
 	// GetQueueFallbackExecute executes the request
 	//  @return QueueFallbacks
-	GetQueueFallbackExecute(r ApiGetQueueFallbackRequest) (*QueueFallbacks, *http.Response, error)
+	GetQueueFallbackExecute(r QueuesAPIGetQueueFallbackRequest) (*QueueFallbacks, *http.Response, error)
 
 	/*
 		GetSkillRule Get skill rule
@@ -205,13 +205,13 @@ type QueuesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillruleId Skill's ID
-		@return ApiGetSkillRuleRequest
+		@return QueuesAPIGetSkillRuleRequest
 	*/
-	GetSkillRule(ctx context.Context, skillruleId int32) ApiGetSkillRuleRequest
+	GetSkillRule(ctx context.Context, skillruleId int32) QueuesAPIGetSkillRuleRequest
 
 	// GetSkillRuleExecute executes the request
 	//  @return SkillRule
-	GetSkillRuleExecute(r ApiGetSkillRuleRequest) (*SkillRule, *http.Response, error)
+	GetSkillRuleExecute(r QueuesAPIGetSkillRuleRequest) (*SkillRule, *http.Response, error)
 
 	/*
 		ListQueues List queues
@@ -219,13 +219,13 @@ type QueuesAPI interface {
 		**Required ACL:** `confd.queues.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListQueuesRequest
+		@return QueuesAPIListQueuesRequest
 	*/
-	ListQueues(ctx context.Context) ApiListQueuesRequest
+	ListQueues(ctx context.Context) QueuesAPIListQueuesRequest
 
 	// ListQueuesExecute executes the request
 	//  @return QueueItems
-	ListQueuesExecute(r ApiListQueuesRequest) (*QueueItems, *http.Response, error)
+	ListQueuesExecute(r QueuesAPIListQueuesRequest) (*QueueItems, *http.Response, error)
 
 	/*
 		ListSkillRules List skill rule
@@ -233,13 +233,13 @@ type QueuesAPI interface {
 		**Required ACL:** `confd.queues.skillrules.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListSkillRulesRequest
+		@return QueuesAPIListSkillRulesRequest
 	*/
-	ListSkillRules(ctx context.Context) ApiListSkillRulesRequest
+	ListSkillRules(ctx context.Context) QueuesAPIListSkillRulesRequest
 
 	// ListSkillRulesExecute executes the request
 	//  @return SkillRuleItems
-	ListSkillRulesExecute(r ApiListSkillRulesRequest) (*SkillRuleItems, *http.Response, error)
+	ListSkillRulesExecute(r QueuesAPIListSkillRulesRequest) (*SkillRuleItems, *http.Response, error)
 
 	/*
 		UpdateAgentQueueAssociation Update Agent-Queue association
@@ -249,12 +249,12 @@ type QueuesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param agentId Agent’s ID
-		@return ApiUpdateAgentQueueAssociationRequest
+		@return QueuesAPIUpdateAgentQueueAssociationRequest
 	*/
-	UpdateAgentQueueAssociation(ctx context.Context, queueId int32, agentId int32) ApiUpdateAgentQueueAssociationRequest
+	UpdateAgentQueueAssociation(ctx context.Context, queueId int32, agentId int32) QueuesAPIUpdateAgentQueueAssociationRequest
 
 	// UpdateAgentQueueAssociationExecute executes the request
-	UpdateAgentQueueAssociationExecute(r ApiUpdateAgentQueueAssociationRequest) (*http.Response, error)
+	UpdateAgentQueueAssociationExecute(r QueuesAPIUpdateAgentQueueAssociationRequest) (*http.Response, error)
 
 	/*
 		UpdateQueue Update queue
@@ -263,12 +263,12 @@ type QueuesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
-		@return ApiUpdateQueueRequest
+		@return QueuesAPIUpdateQueueRequest
 	*/
-	UpdateQueue(ctx context.Context, queueId int32) ApiUpdateQueueRequest
+	UpdateQueue(ctx context.Context, queueId int32) QueuesAPIUpdateQueueRequest
 
 	// UpdateQueueExecute executes the request
-	UpdateQueueExecute(r ApiUpdateQueueRequest) (*http.Response, error)
+	UpdateQueueExecute(r QueuesAPIUpdateQueueRequest) (*http.Response, error)
 
 	/*
 		UpdateQueueFallback Update queue's fallbacks
@@ -279,12 +279,12 @@ type QueuesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
-		@return ApiUpdateQueueFallbackRequest
+		@return QueuesAPIUpdateQueueFallbackRequest
 	*/
-	UpdateQueueFallback(ctx context.Context, queueId int32) ApiUpdateQueueFallbackRequest
+	UpdateQueueFallback(ctx context.Context, queueId int32) QueuesAPIUpdateQueueFallbackRequest
 
 	// UpdateQueueFallbackExecute executes the request
-	UpdateQueueFallbackExecute(r ApiUpdateQueueFallbackRequest) (*http.Response, error)
+	UpdateQueueFallbackExecute(r QueuesAPIUpdateQueueFallbackRequest) (*http.Response, error)
 
 	/*
 		UpdateSkillRule Update skill rule
@@ -293,12 +293,12 @@ type QueuesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param skillruleId Skill's ID
-		@return ApiUpdateSkillRuleRequest
+		@return QueuesAPIUpdateSkillRuleRequest
 	*/
-	UpdateSkillRule(ctx context.Context, skillruleId int32) ApiUpdateSkillRuleRequest
+	UpdateSkillRule(ctx context.Context, skillruleId int32) QueuesAPIUpdateSkillRuleRequest
 
 	// UpdateSkillRuleExecute executes the request
-	UpdateSkillRuleExecute(r ApiUpdateSkillRuleRequest) (*http.Response, error)
+	UpdateSkillRuleExecute(r QueuesAPIUpdateSkillRuleRequest) (*http.Response, error)
 
 	/*
 		UpdateUserQueueAssociation Update User-Queue association
@@ -308,18 +308,18 @@ type QueuesAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param queueId queue's ID
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserQueueAssociationRequest
+		@return QueuesAPIUpdateUserQueueAssociationRequest
 	*/
-	UpdateUserQueueAssociation(ctx context.Context, queueId int32, userId string) ApiUpdateUserQueueAssociationRequest
+	UpdateUserQueueAssociation(ctx context.Context, queueId int32, userId string) QueuesAPIUpdateUserQueueAssociationRequest
 
 	// UpdateUserQueueAssociationExecute executes the request
-	UpdateUserQueueAssociationExecute(r ApiUpdateUserQueueAssociationRequest) (*http.Response, error)
+	UpdateUserQueueAssociationExecute(r QueuesAPIUpdateUserQueueAssociationRequest) (*http.Response, error)
 }
 
 // QueuesAPIService QueuesAPI service
 type QueuesAPIService service
 
-type ApiAssociateQueueExtensionRequest struct {
+type QueuesAPIAssociateQueueExtensionRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -328,12 +328,12 @@ type ApiAssociateQueueExtensionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateQueueExtensionRequest) AccentTenant(accentTenant string) ApiAssociateQueueExtensionRequest {
+func (r QueuesAPIAssociateQueueExtensionRequest) AccentTenant(accentTenant string) QueuesAPIAssociateQueueExtensionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateQueueExtensionRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIAssociateQueueExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateQueueExtensionExecute(r)
 }
 
@@ -345,10 +345,10 @@ AssociateQueueExtension Associate queue and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param extensionId
-	@return ApiAssociateQueueExtensionRequest
+	@return QueuesAPIAssociateQueueExtensionRequest
 */
-func (a *QueuesAPIService) AssociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ApiAssociateQueueExtensionRequest {
-	return ApiAssociateQueueExtensionRequest{
+func (a *QueuesAPIService) AssociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) QueuesAPIAssociateQueueExtensionRequest {
+	return QueuesAPIAssociateQueueExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		queueId:     queueId,
@@ -357,7 +357,7 @@ func (a *QueuesAPIService) AssociateQueueExtension(ctx context.Context, queueId 
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) AssociateQueueExtensionExecute(r ApiAssociateQueueExtensionRequest) (*http.Response, error) {
+func (a *QueuesAPIService) AssociateQueueExtensionExecute(r QueuesAPIAssociateQueueExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -460,7 +460,7 @@ func (a *QueuesAPIService) AssociateQueueExtensionExecute(r ApiAssociateQueueExt
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateQueueScheduleRequest struct {
+type QueuesAPIAssociateQueueScheduleRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -469,12 +469,12 @@ type ApiAssociateQueueScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateQueueScheduleRequest) AccentTenant(accentTenant string) ApiAssociateQueueScheduleRequest {
+func (r QueuesAPIAssociateQueueScheduleRequest) AccentTenant(accentTenant string) QueuesAPIAssociateQueueScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateQueueScheduleRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIAssociateQueueScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateQueueScheduleExecute(r)
 }
 
@@ -486,10 +486,10 @@ AssociateQueueSchedule Associate queue and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateQueueScheduleRequest
+	@return QueuesAPIAssociateQueueScheduleRequest
 */
-func (a *QueuesAPIService) AssociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) ApiAssociateQueueScheduleRequest {
-	return ApiAssociateQueueScheduleRequest{
+func (a *QueuesAPIService) AssociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) QueuesAPIAssociateQueueScheduleRequest {
+	return QueuesAPIAssociateQueueScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -498,7 +498,7 @@ func (a *QueuesAPIService) AssociateQueueSchedule(ctx context.Context, queueId i
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) AssociateQueueScheduleExecute(r ApiAssociateQueueScheduleRequest) (*http.Response, error) {
+func (a *QueuesAPIService) AssociateQueueScheduleExecute(r QueuesAPIAssociateQueueScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -601,7 +601,7 @@ func (a *QueuesAPIService) AssociateQueueScheduleExecute(r ApiAssociateQueueSche
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateQueueRequest struct {
+type QueuesAPICreateQueueRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	body         *Queue
@@ -609,18 +609,18 @@ type ApiCreateQueueRequest struct {
 }
 
 // Queue to create
-func (r ApiCreateQueueRequest) Body(body Queue) ApiCreateQueueRequest {
+func (r QueuesAPICreateQueueRequest) Body(body Queue) QueuesAPICreateQueueRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateQueueRequest) AccentTenant(accentTenant string) ApiCreateQueueRequest {
+func (r QueuesAPICreateQueueRequest) AccentTenant(accentTenant string) QueuesAPICreateQueueRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateQueueRequest) Execute() (*Queue, *http.Response, error) {
+func (r QueuesAPICreateQueueRequest) Execute() (*Queue, *http.Response, error) {
 	return r.ApiService.CreateQueueExecute(r)
 }
 
@@ -630,10 +630,10 @@ CreateQueue Create queue
 **Required ACL:** `confd.queues.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateQueueRequest
+	@return QueuesAPICreateQueueRequest
 */
-func (a *QueuesAPIService) CreateQueue(ctx context.Context) ApiCreateQueueRequest {
-	return ApiCreateQueueRequest{
+func (a *QueuesAPIService) CreateQueue(ctx context.Context) QueuesAPICreateQueueRequest {
+	return QueuesAPICreateQueueRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -642,7 +642,7 @@ func (a *QueuesAPIService) CreateQueue(ctx context.Context) ApiCreateQueueReques
 // Execute executes the request
 //
 //	@return Queue
-func (a *QueuesAPIService) CreateQueueExecute(r ApiCreateQueueRequest) (*Queue, *http.Response, error) {
+func (a *QueuesAPIService) CreateQueueExecute(r QueuesAPICreateQueueRequest) (*Queue, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -747,7 +747,7 @@ func (a *QueuesAPIService) CreateQueueExecute(r ApiCreateQueueRequest) (*Queue, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateSkillRuleRequest struct {
+type QueuesAPICreateSkillRuleRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	body         *SkillRule
@@ -755,18 +755,18 @@ type ApiCreateSkillRuleRequest struct {
 }
 
 // Skill rule to create
-func (r ApiCreateSkillRuleRequest) Body(body SkillRule) ApiCreateSkillRuleRequest {
+func (r QueuesAPICreateSkillRuleRequest) Body(body SkillRule) QueuesAPICreateSkillRuleRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateSkillRuleRequest) AccentTenant(accentTenant string) ApiCreateSkillRuleRequest {
+func (r QueuesAPICreateSkillRuleRequest) AccentTenant(accentTenant string) QueuesAPICreateSkillRuleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateSkillRuleRequest) Execute() (*SkillRule, *http.Response, error) {
+func (r QueuesAPICreateSkillRuleRequest) Execute() (*SkillRule, *http.Response, error) {
 	return r.ApiService.CreateSkillRuleExecute(r)
 }
 
@@ -776,10 +776,10 @@ CreateSkillRule Create skill rule
 **Required ACL:** `confd.queues.skillrules.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateSkillRuleRequest
+	@return QueuesAPICreateSkillRuleRequest
 */
-func (a *QueuesAPIService) CreateSkillRule(ctx context.Context) ApiCreateSkillRuleRequest {
-	return ApiCreateSkillRuleRequest{
+func (a *QueuesAPIService) CreateSkillRule(ctx context.Context) QueuesAPICreateSkillRuleRequest {
+	return QueuesAPICreateSkillRuleRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -788,7 +788,7 @@ func (a *QueuesAPIService) CreateSkillRule(ctx context.Context) ApiCreateSkillRu
 // Execute executes the request
 //
 //	@return SkillRule
-func (a *QueuesAPIService) CreateSkillRuleExecute(r ApiCreateSkillRuleRequest) (*SkillRule, *http.Response, error) {
+func (a *QueuesAPIService) CreateSkillRuleExecute(r QueuesAPICreateSkillRuleRequest) (*SkillRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -893,7 +893,7 @@ func (a *QueuesAPIService) CreateSkillRuleExecute(r ApiCreateSkillRuleRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteQueueRequest struct {
+type QueuesAPIDeleteQueueRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -901,12 +901,12 @@ type ApiDeleteQueueRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteQueueRequest) AccentTenant(accentTenant string) ApiDeleteQueueRequest {
+func (r QueuesAPIDeleteQueueRequest) AccentTenant(accentTenant string) QueuesAPIDeleteQueueRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteQueueRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIDeleteQueueRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteQueueExecute(r)
 }
 
@@ -917,10 +917,10 @@ DeleteQueue Delete queue
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
-	@return ApiDeleteQueueRequest
+	@return QueuesAPIDeleteQueueRequest
 */
-func (a *QueuesAPIService) DeleteQueue(ctx context.Context, queueId int32) ApiDeleteQueueRequest {
-	return ApiDeleteQueueRequest{
+func (a *QueuesAPIService) DeleteQueue(ctx context.Context, queueId int32) QueuesAPIDeleteQueueRequest {
+	return QueuesAPIDeleteQueueRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -928,7 +928,7 @@ func (a *QueuesAPIService) DeleteQueue(ctx context.Context, queueId int32) ApiDe
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) DeleteQueueExecute(r ApiDeleteQueueRequest) (*http.Response, error) {
+func (a *QueuesAPIService) DeleteQueueExecute(r QueuesAPIDeleteQueueRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1030,7 +1030,7 @@ func (a *QueuesAPIService) DeleteQueueExecute(r ApiDeleteQueueRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteSkillRuleRequest struct {
+type QueuesAPIDeleteSkillRuleRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	skillruleId  int32
@@ -1038,12 +1038,12 @@ type ApiDeleteSkillRuleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteSkillRuleRequest) AccentTenant(accentTenant string) ApiDeleteSkillRuleRequest {
+func (r QueuesAPIDeleteSkillRuleRequest) AccentTenant(accentTenant string) QueuesAPIDeleteSkillRuleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteSkillRuleRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIDeleteSkillRuleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteSkillRuleExecute(r)
 }
 
@@ -1054,10 +1054,10 @@ DeleteSkillRule Delete skill rule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillruleId Skill's ID
-	@return ApiDeleteSkillRuleRequest
+	@return QueuesAPIDeleteSkillRuleRequest
 */
-func (a *QueuesAPIService) DeleteSkillRule(ctx context.Context, skillruleId int32) ApiDeleteSkillRuleRequest {
-	return ApiDeleteSkillRuleRequest{
+func (a *QueuesAPIService) DeleteSkillRule(ctx context.Context, skillruleId int32) QueuesAPIDeleteSkillRuleRequest {
+	return QueuesAPIDeleteSkillRuleRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		skillruleId: skillruleId,
@@ -1065,7 +1065,7 @@ func (a *QueuesAPIService) DeleteSkillRule(ctx context.Context, skillruleId int3
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) DeleteSkillRuleExecute(r ApiDeleteSkillRuleRequest) (*http.Response, error) {
+func (a *QueuesAPIService) DeleteSkillRuleExecute(r QueuesAPIDeleteSkillRuleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1167,7 +1167,7 @@ func (a *QueuesAPIService) DeleteSkillRuleExecute(r ApiDeleteSkillRuleRequest) (
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateAgentQueueRequest struct {
+type QueuesAPIDissociateAgentQueueRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -1176,12 +1176,12 @@ type ApiDissociateAgentQueueRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateAgentQueueRequest) AccentTenant(accentTenant string) ApiDissociateAgentQueueRequest {
+func (r QueuesAPIDissociateAgentQueueRequest) AccentTenant(accentTenant string) QueuesAPIDissociateAgentQueueRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateAgentQueueRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIDissociateAgentQueueRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateAgentQueueExecute(r)
 }
 
@@ -1193,10 +1193,10 @@ DissociateAgentQueue Dissociate agent and queue
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param agentId Agent’s ID
-	@return ApiDissociateAgentQueueRequest
+	@return QueuesAPIDissociateAgentQueueRequest
 */
-func (a *QueuesAPIService) DissociateAgentQueue(ctx context.Context, queueId int32, agentId int32) ApiDissociateAgentQueueRequest {
-	return ApiDissociateAgentQueueRequest{
+func (a *QueuesAPIService) DissociateAgentQueue(ctx context.Context, queueId int32, agentId int32) QueuesAPIDissociateAgentQueueRequest {
+	return QueuesAPIDissociateAgentQueueRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -1205,7 +1205,7 @@ func (a *QueuesAPIService) DissociateAgentQueue(ctx context.Context, queueId int
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) DissociateAgentQueueExecute(r ApiDissociateAgentQueueRequest) (*http.Response, error) {
+func (a *QueuesAPIService) DissociateAgentQueueExecute(r QueuesAPIDissociateAgentQueueRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1308,7 +1308,7 @@ func (a *QueuesAPIService) DissociateAgentQueueExecute(r ApiDissociateAgentQueue
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateQueueExtensionRequest struct {
+type QueuesAPIDissociateQueueExtensionRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -1317,12 +1317,12 @@ type ApiDissociateQueueExtensionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateQueueExtensionRequest) AccentTenant(accentTenant string) ApiDissociateQueueExtensionRequest {
+func (r QueuesAPIDissociateQueueExtensionRequest) AccentTenant(accentTenant string) QueuesAPIDissociateQueueExtensionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateQueueExtensionRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIDissociateQueueExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateQueueExtensionExecute(r)
 }
 
@@ -1334,10 +1334,10 @@ DissociateQueueExtension Dissociate queue and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param extensionId
-	@return ApiDissociateQueueExtensionRequest
+	@return QueuesAPIDissociateQueueExtensionRequest
 */
-func (a *QueuesAPIService) DissociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) ApiDissociateQueueExtensionRequest {
-	return ApiDissociateQueueExtensionRequest{
+func (a *QueuesAPIService) DissociateQueueExtension(ctx context.Context, queueId int32, extensionId int32) QueuesAPIDissociateQueueExtensionRequest {
+	return QueuesAPIDissociateQueueExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		queueId:     queueId,
@@ -1346,7 +1346,7 @@ func (a *QueuesAPIService) DissociateQueueExtension(ctx context.Context, queueId
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) DissociateQueueExtensionExecute(r ApiDissociateQueueExtensionRequest) (*http.Response, error) {
+func (a *QueuesAPIService) DissociateQueueExtensionExecute(r QueuesAPIDissociateQueueExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1449,7 +1449,7 @@ func (a *QueuesAPIService) DissociateQueueExtensionExecute(r ApiDissociateQueueE
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateQueueScheduleRequest struct {
+type QueuesAPIDissociateQueueScheduleRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -1458,12 +1458,12 @@ type ApiDissociateQueueScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateQueueScheduleRequest) AccentTenant(accentTenant string) ApiDissociateQueueScheduleRequest {
+func (r QueuesAPIDissociateQueueScheduleRequest) AccentTenant(accentTenant string) QueuesAPIDissociateQueueScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateQueueScheduleRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIDissociateQueueScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateQueueScheduleExecute(r)
 }
 
@@ -1475,10 +1475,10 @@ DissociateQueueSchedule Dissociate queue and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateQueueScheduleRequest
+	@return QueuesAPIDissociateQueueScheduleRequest
 */
-func (a *QueuesAPIService) DissociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) ApiDissociateQueueScheduleRequest {
-	return ApiDissociateQueueScheduleRequest{
+func (a *QueuesAPIService) DissociateQueueSchedule(ctx context.Context, queueId int32, scheduleId int32) QueuesAPIDissociateQueueScheduleRequest {
+	return QueuesAPIDissociateQueueScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -1487,7 +1487,7 @@ func (a *QueuesAPIService) DissociateQueueSchedule(ctx context.Context, queueId 
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) DissociateQueueScheduleExecute(r ApiDissociateQueueScheduleRequest) (*http.Response, error) {
+func (a *QueuesAPIService) DissociateQueueScheduleExecute(r QueuesAPIDissociateQueueScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1590,7 +1590,7 @@ func (a *QueuesAPIService) DissociateQueueScheduleExecute(r ApiDissociateQueueSc
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserQueueRequest struct {
+type QueuesAPIDissociateUserQueueRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -1599,12 +1599,12 @@ type ApiDissociateUserQueueRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserQueueRequest) AccentTenant(accentTenant string) ApiDissociateUserQueueRequest {
+func (r QueuesAPIDissociateUserQueueRequest) AccentTenant(accentTenant string) QueuesAPIDissociateUserQueueRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserQueueRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIDissociateUserQueueRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserQueueExecute(r)
 }
 
@@ -1616,10 +1616,10 @@ DissociateUserQueue Dissociate user and queue
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param userId the user's ID or UUID
-	@return ApiDissociateUserQueueRequest
+	@return QueuesAPIDissociateUserQueueRequest
 */
-func (a *QueuesAPIService) DissociateUserQueue(ctx context.Context, queueId int32, userId string) ApiDissociateUserQueueRequest {
-	return ApiDissociateUserQueueRequest{
+func (a *QueuesAPIService) DissociateUserQueue(ctx context.Context, queueId int32, userId string) QueuesAPIDissociateUserQueueRequest {
+	return QueuesAPIDissociateUserQueueRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -1628,7 +1628,7 @@ func (a *QueuesAPIService) DissociateUserQueue(ctx context.Context, queueId int3
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) DissociateUserQueueExecute(r ApiDissociateUserQueueRequest) (*http.Response, error) {
+func (a *QueuesAPIService) DissociateUserQueueExecute(r QueuesAPIDissociateUserQueueRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1731,7 +1731,7 @@ func (a *QueuesAPIService) DissociateUserQueueExecute(r ApiDissociateUserQueueRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetQueueRequest struct {
+type QueuesAPIGetQueueRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -1739,12 +1739,12 @@ type ApiGetQueueRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetQueueRequest) AccentTenant(accentTenant string) ApiGetQueueRequest {
+func (r QueuesAPIGetQueueRequest) AccentTenant(accentTenant string) QueuesAPIGetQueueRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetQueueRequest) Execute() (*Queue, *http.Response, error) {
+func (r QueuesAPIGetQueueRequest) Execute() (*Queue, *http.Response, error) {
 	return r.ApiService.GetQueueExecute(r)
 }
 
@@ -1755,10 +1755,10 @@ GetQueue Get queue
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
-	@return ApiGetQueueRequest
+	@return QueuesAPIGetQueueRequest
 */
-func (a *QueuesAPIService) GetQueue(ctx context.Context, queueId int32) ApiGetQueueRequest {
-	return ApiGetQueueRequest{
+func (a *QueuesAPIService) GetQueue(ctx context.Context, queueId int32) QueuesAPIGetQueueRequest {
+	return QueuesAPIGetQueueRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -1768,7 +1768,7 @@ func (a *QueuesAPIService) GetQueue(ctx context.Context, queueId int32) ApiGetQu
 // Execute executes the request
 //
 //	@return Queue
-func (a *QueuesAPIService) GetQueueExecute(r ApiGetQueueRequest) (*Queue, *http.Response, error) {
+func (a *QueuesAPIService) GetQueueExecute(r QueuesAPIGetQueueRequest) (*Queue, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1869,7 +1869,7 @@ func (a *QueuesAPIService) GetQueueExecute(r ApiGetQueueRequest) (*Queue, *http.
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetQueueFallbackRequest struct {
+type QueuesAPIGetQueueFallbackRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -1877,12 +1877,12 @@ type ApiGetQueueFallbackRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetQueueFallbackRequest) AccentTenant(accentTenant string) ApiGetQueueFallbackRequest {
+func (r QueuesAPIGetQueueFallbackRequest) AccentTenant(accentTenant string) QueuesAPIGetQueueFallbackRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetQueueFallbackRequest) Execute() (*QueueFallbacks, *http.Response, error) {
+func (r QueuesAPIGetQueueFallbackRequest) Execute() (*QueueFallbacks, *http.Response, error) {
 	return r.ApiService.GetQueueFallbackExecute(r)
 }
 
@@ -1893,10 +1893,10 @@ GetQueueFallback List all fallbacks for queue
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
-	@return ApiGetQueueFallbackRequest
+	@return QueuesAPIGetQueueFallbackRequest
 */
-func (a *QueuesAPIService) GetQueueFallback(ctx context.Context, queueId int32) ApiGetQueueFallbackRequest {
-	return ApiGetQueueFallbackRequest{
+func (a *QueuesAPIService) GetQueueFallback(ctx context.Context, queueId int32) QueuesAPIGetQueueFallbackRequest {
+	return QueuesAPIGetQueueFallbackRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -1906,7 +1906,7 @@ func (a *QueuesAPIService) GetQueueFallback(ctx context.Context, queueId int32) 
 // Execute executes the request
 //
 //	@return QueueFallbacks
-func (a *QueuesAPIService) GetQueueFallbackExecute(r ApiGetQueueFallbackRequest) (*QueueFallbacks, *http.Response, error) {
+func (a *QueuesAPIService) GetQueueFallbackExecute(r QueuesAPIGetQueueFallbackRequest) (*QueueFallbacks, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1997,7 +1997,7 @@ func (a *QueuesAPIService) GetQueueFallbackExecute(r ApiGetQueueFallbackRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSkillRuleRequest struct {
+type QueuesAPIGetSkillRuleRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	skillruleId  int32
@@ -2005,12 +2005,12 @@ type ApiGetSkillRuleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetSkillRuleRequest) AccentTenant(accentTenant string) ApiGetSkillRuleRequest {
+func (r QueuesAPIGetSkillRuleRequest) AccentTenant(accentTenant string) QueuesAPIGetSkillRuleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetSkillRuleRequest) Execute() (*SkillRule, *http.Response, error) {
+func (r QueuesAPIGetSkillRuleRequest) Execute() (*SkillRule, *http.Response, error) {
 	return r.ApiService.GetSkillRuleExecute(r)
 }
 
@@ -2021,10 +2021,10 @@ GetSkillRule Get skill rule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillruleId Skill's ID
-	@return ApiGetSkillRuleRequest
+	@return QueuesAPIGetSkillRuleRequest
 */
-func (a *QueuesAPIService) GetSkillRule(ctx context.Context, skillruleId int32) ApiGetSkillRuleRequest {
-	return ApiGetSkillRuleRequest{
+func (a *QueuesAPIService) GetSkillRule(ctx context.Context, skillruleId int32) QueuesAPIGetSkillRuleRequest {
+	return QueuesAPIGetSkillRuleRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		skillruleId: skillruleId,
@@ -2034,7 +2034,7 @@ func (a *QueuesAPIService) GetSkillRule(ctx context.Context, skillruleId int32) 
 // Execute executes the request
 //
 //	@return SkillRule
-func (a *QueuesAPIService) GetSkillRuleExecute(r ApiGetSkillRuleRequest) (*SkillRule, *http.Response, error) {
+func (a *QueuesAPIService) GetSkillRuleExecute(r QueuesAPIGetSkillRuleRequest) (*SkillRule, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2135,7 +2135,7 @@ func (a *QueuesAPIService) GetSkillRuleExecute(r ApiGetSkillRuleRequest) (*Skill
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListQueuesRequest struct {
+type QueuesAPIListQueuesRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	accentTenant *string
@@ -2148,48 +2148,48 @@ type ApiListQueuesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListQueuesRequest) AccentTenant(accentTenant string) ApiListQueuesRequest {
+func (r QueuesAPIListQueuesRequest) AccentTenant(accentTenant string) QueuesAPIListQueuesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListQueuesRequest) Recurse(recurse bool) ApiListQueuesRequest {
+func (r QueuesAPIListQueuesRequest) Recurse(recurse bool) QueuesAPIListQueuesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListQueuesRequest) Order(order string) ApiListQueuesRequest {
+func (r QueuesAPIListQueuesRequest) Order(order string) QueuesAPIListQueuesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListQueuesRequest) Direction(direction string) ApiListQueuesRequest {
+func (r QueuesAPIListQueuesRequest) Direction(direction string) QueuesAPIListQueuesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListQueuesRequest) Limit(limit int32) ApiListQueuesRequest {
+func (r QueuesAPIListQueuesRequest) Limit(limit int32) QueuesAPIListQueuesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListQueuesRequest) Offset(offset int32) ApiListQueuesRequest {
+func (r QueuesAPIListQueuesRequest) Offset(offset int32) QueuesAPIListQueuesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListQueuesRequest) Search(search string) ApiListQueuesRequest {
+func (r QueuesAPIListQueuesRequest) Search(search string) QueuesAPIListQueuesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListQueuesRequest) Execute() (*QueueItems, *http.Response, error) {
+func (r QueuesAPIListQueuesRequest) Execute() (*QueueItems, *http.Response, error) {
 	return r.ApiService.ListQueuesExecute(r)
 }
 
@@ -2199,10 +2199,10 @@ ListQueues List queues
 **Required ACL:** `confd.queues.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListQueuesRequest
+	@return QueuesAPIListQueuesRequest
 */
-func (a *QueuesAPIService) ListQueues(ctx context.Context) ApiListQueuesRequest {
-	return ApiListQueuesRequest{
+func (a *QueuesAPIService) ListQueues(ctx context.Context) QueuesAPIListQueuesRequest {
+	return QueuesAPIListQueuesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2211,7 +2211,7 @@ func (a *QueuesAPIService) ListQueues(ctx context.Context) ApiListQueuesRequest 
 // Execute executes the request
 //
 //	@return QueueItems
-func (a *QueuesAPIService) ListQueuesExecute(r ApiListQueuesRequest) (*QueueItems, *http.Response, error) {
+func (a *QueuesAPIService) ListQueuesExecute(r QueuesAPIListQueuesRequest) (*QueueItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2322,7 +2322,7 @@ func (a *QueuesAPIService) ListQueuesExecute(r ApiListQueuesRequest) (*QueueItem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSkillRulesRequest struct {
+type QueuesAPIListSkillRulesRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	accentTenant *string
@@ -2335,48 +2335,48 @@ type ApiListSkillRulesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListSkillRulesRequest) AccentTenant(accentTenant string) ApiListSkillRulesRequest {
+func (r QueuesAPIListSkillRulesRequest) AccentTenant(accentTenant string) QueuesAPIListSkillRulesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListSkillRulesRequest) Recurse(recurse bool) ApiListSkillRulesRequest {
+func (r QueuesAPIListSkillRulesRequest) Recurse(recurse bool) QueuesAPIListSkillRulesRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListSkillRulesRequest) Order(order string) ApiListSkillRulesRequest {
+func (r QueuesAPIListSkillRulesRequest) Order(order string) QueuesAPIListSkillRulesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListSkillRulesRequest) Direction(direction string) ApiListSkillRulesRequest {
+func (r QueuesAPIListSkillRulesRequest) Direction(direction string) QueuesAPIListSkillRulesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListSkillRulesRequest) Limit(limit int32) ApiListSkillRulesRequest {
+func (r QueuesAPIListSkillRulesRequest) Limit(limit int32) QueuesAPIListSkillRulesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListSkillRulesRequest) Offset(offset int32) ApiListSkillRulesRequest {
+func (r QueuesAPIListSkillRulesRequest) Offset(offset int32) QueuesAPIListSkillRulesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListSkillRulesRequest) Search(search string) ApiListSkillRulesRequest {
+func (r QueuesAPIListSkillRulesRequest) Search(search string) QueuesAPIListSkillRulesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListSkillRulesRequest) Execute() (*SkillRuleItems, *http.Response, error) {
+func (r QueuesAPIListSkillRulesRequest) Execute() (*SkillRuleItems, *http.Response, error) {
 	return r.ApiService.ListSkillRulesExecute(r)
 }
 
@@ -2386,10 +2386,10 @@ ListSkillRules List skill rule
 **Required ACL:** `confd.queues.skillrules.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListSkillRulesRequest
+	@return QueuesAPIListSkillRulesRequest
 */
-func (a *QueuesAPIService) ListSkillRules(ctx context.Context) ApiListSkillRulesRequest {
-	return ApiListSkillRulesRequest{
+func (a *QueuesAPIService) ListSkillRules(ctx context.Context) QueuesAPIListSkillRulesRequest {
+	return QueuesAPIListSkillRulesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2398,7 +2398,7 @@ func (a *QueuesAPIService) ListSkillRules(ctx context.Context) ApiListSkillRules
 // Execute executes the request
 //
 //	@return SkillRuleItems
-func (a *QueuesAPIService) ListSkillRulesExecute(r ApiListSkillRulesRequest) (*SkillRuleItems, *http.Response, error) {
+func (a *QueuesAPIService) ListSkillRulesExecute(r QueuesAPIListSkillRulesRequest) (*SkillRuleItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2509,7 +2509,7 @@ func (a *QueuesAPIService) ListSkillRulesExecute(r ApiListSkillRulesRequest) (*S
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAgentQueueAssociationRequest struct {
+type QueuesAPIUpdateAgentQueueAssociationRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -2518,18 +2518,18 @@ type ApiUpdateAgentQueueAssociationRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateAgentQueueAssociationRequest) Body(body QueueMemberAgent) ApiUpdateAgentQueueAssociationRequest {
+func (r QueuesAPIUpdateAgentQueueAssociationRequest) Body(body QueueMemberAgent) QueuesAPIUpdateAgentQueueAssociationRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateAgentQueueAssociationRequest) AccentTenant(accentTenant string) ApiUpdateAgentQueueAssociationRequest {
+func (r QueuesAPIUpdateAgentQueueAssociationRequest) AccentTenant(accentTenant string) QueuesAPIUpdateAgentQueueAssociationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateAgentQueueAssociationRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIUpdateAgentQueueAssociationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAgentQueueAssociationExecute(r)
 }
 
@@ -2541,10 +2541,10 @@ UpdateAgentQueueAssociation Update Agent-Queue association
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param agentId Agent’s ID
-	@return ApiUpdateAgentQueueAssociationRequest
+	@return QueuesAPIUpdateAgentQueueAssociationRequest
 */
-func (a *QueuesAPIService) UpdateAgentQueueAssociation(ctx context.Context, queueId int32, agentId int32) ApiUpdateAgentQueueAssociationRequest {
-	return ApiUpdateAgentQueueAssociationRequest{
+func (a *QueuesAPIService) UpdateAgentQueueAssociation(ctx context.Context, queueId int32, agentId int32) QueuesAPIUpdateAgentQueueAssociationRequest {
+	return QueuesAPIUpdateAgentQueueAssociationRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -2553,7 +2553,7 @@ func (a *QueuesAPIService) UpdateAgentQueueAssociation(ctx context.Context, queu
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) UpdateAgentQueueAssociationExecute(r ApiUpdateAgentQueueAssociationRequest) (*http.Response, error) {
+func (a *QueuesAPIService) UpdateAgentQueueAssociationExecute(r QueuesAPIUpdateAgentQueueAssociationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2658,7 +2658,7 @@ func (a *QueuesAPIService) UpdateAgentQueueAssociationExecute(r ApiUpdateAgentQu
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateQueueRequest struct {
+type QueuesAPIUpdateQueueRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	body         *Queue
@@ -2666,18 +2666,18 @@ type ApiUpdateQueueRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateQueueRequest) Body(body Queue) ApiUpdateQueueRequest {
+func (r QueuesAPIUpdateQueueRequest) Body(body Queue) QueuesAPIUpdateQueueRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateQueueRequest) AccentTenant(accentTenant string) ApiUpdateQueueRequest {
+func (r QueuesAPIUpdateQueueRequest) AccentTenant(accentTenant string) QueuesAPIUpdateQueueRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateQueueRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIUpdateQueueRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateQueueExecute(r)
 }
 
@@ -2688,10 +2688,10 @@ UpdateQueue Update queue
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
-	@return ApiUpdateQueueRequest
+	@return QueuesAPIUpdateQueueRequest
 */
-func (a *QueuesAPIService) UpdateQueue(ctx context.Context, queueId int32) ApiUpdateQueueRequest {
-	return ApiUpdateQueueRequest{
+func (a *QueuesAPIService) UpdateQueue(ctx context.Context, queueId int32) QueuesAPIUpdateQueueRequest {
+	return QueuesAPIUpdateQueueRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -2699,7 +2699,7 @@ func (a *QueuesAPIService) UpdateQueue(ctx context.Context, queueId int32) ApiUp
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) UpdateQueueExecute(r ApiUpdateQueueRequest) (*http.Response, error) {
+func (a *QueuesAPIService) UpdateQueueExecute(r QueuesAPIUpdateQueueRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2806,7 +2806,7 @@ func (a *QueuesAPIService) UpdateQueueExecute(r ApiUpdateQueueRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateQueueFallbackRequest struct {
+type QueuesAPIUpdateQueueFallbackRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -2815,18 +2815,18 @@ type ApiUpdateQueueFallbackRequest struct {
 }
 
 // Fallbacks for queue
-func (r ApiUpdateQueueFallbackRequest) Body(body QueueFallbacks) ApiUpdateQueueFallbackRequest {
+func (r QueuesAPIUpdateQueueFallbackRequest) Body(body QueueFallbacks) QueuesAPIUpdateQueueFallbackRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateQueueFallbackRequest) AccentTenant(accentTenant string) ApiUpdateQueueFallbackRequest {
+func (r QueuesAPIUpdateQueueFallbackRequest) AccentTenant(accentTenant string) QueuesAPIUpdateQueueFallbackRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateQueueFallbackRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIUpdateQueueFallbackRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateQueueFallbackExecute(r)
 }
 
@@ -2839,10 +2839,10 @@ UpdateQueueFallback Update queue's fallbacks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
-	@return ApiUpdateQueueFallbackRequest
+	@return QueuesAPIUpdateQueueFallbackRequest
 */
-func (a *QueuesAPIService) UpdateQueueFallback(ctx context.Context, queueId int32) ApiUpdateQueueFallbackRequest {
-	return ApiUpdateQueueFallbackRequest{
+func (a *QueuesAPIService) UpdateQueueFallback(ctx context.Context, queueId int32) QueuesAPIUpdateQueueFallbackRequest {
+	return QueuesAPIUpdateQueueFallbackRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -2850,7 +2850,7 @@ func (a *QueuesAPIService) UpdateQueueFallback(ctx context.Context, queueId int3
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) UpdateQueueFallbackExecute(r ApiUpdateQueueFallbackRequest) (*http.Response, error) {
+func (a *QueuesAPIService) UpdateQueueFallbackExecute(r QueuesAPIUpdateQueueFallbackRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2954,7 +2954,7 @@ func (a *QueuesAPIService) UpdateQueueFallbackExecute(r ApiUpdateQueueFallbackRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateSkillRuleRequest struct {
+type QueuesAPIUpdateSkillRuleRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	body         *SkillRule
@@ -2962,18 +2962,18 @@ type ApiUpdateSkillRuleRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateSkillRuleRequest) Body(body SkillRule) ApiUpdateSkillRuleRequest {
+func (r QueuesAPIUpdateSkillRuleRequest) Body(body SkillRule) QueuesAPIUpdateSkillRuleRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateSkillRuleRequest) AccentTenant(accentTenant string) ApiUpdateSkillRuleRequest {
+func (r QueuesAPIUpdateSkillRuleRequest) AccentTenant(accentTenant string) QueuesAPIUpdateSkillRuleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateSkillRuleRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIUpdateSkillRuleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateSkillRuleExecute(r)
 }
 
@@ -2984,10 +2984,10 @@ UpdateSkillRule Update skill rule
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param skillruleId Skill's ID
-	@return ApiUpdateSkillRuleRequest
+	@return QueuesAPIUpdateSkillRuleRequest
 */
-func (a *QueuesAPIService) UpdateSkillRule(ctx context.Context, skillruleId int32) ApiUpdateSkillRuleRequest {
-	return ApiUpdateSkillRuleRequest{
+func (a *QueuesAPIService) UpdateSkillRule(ctx context.Context, skillruleId int32) QueuesAPIUpdateSkillRuleRequest {
+	return QueuesAPIUpdateSkillRuleRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		skillruleId: skillruleId,
@@ -2995,7 +2995,7 @@ func (a *QueuesAPIService) UpdateSkillRule(ctx context.Context, skillruleId int3
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) UpdateSkillRuleExecute(r ApiUpdateSkillRuleRequest) (*http.Response, error) {
+func (a *QueuesAPIService) UpdateSkillRuleExecute(r QueuesAPIUpdateSkillRuleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3102,7 +3102,7 @@ func (a *QueuesAPIService) UpdateSkillRuleExecute(r ApiUpdateSkillRuleRequest) (
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserQueueAssociationRequest struct {
+type QueuesAPIUpdateUserQueueAssociationRequest struct {
 	ctx          context.Context
 	ApiService   QueuesAPI
 	queueId      int32
@@ -3111,18 +3111,18 @@ type ApiUpdateUserQueueAssociationRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserQueueAssociationRequest) Body(body QueueMemberUser) ApiUpdateUserQueueAssociationRequest {
+func (r QueuesAPIUpdateUserQueueAssociationRequest) Body(body QueueMemberUser) QueuesAPIUpdateUserQueueAssociationRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserQueueAssociationRequest) AccentTenant(accentTenant string) ApiUpdateUserQueueAssociationRequest {
+func (r QueuesAPIUpdateUserQueueAssociationRequest) AccentTenant(accentTenant string) QueuesAPIUpdateUserQueueAssociationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserQueueAssociationRequest) Execute() (*http.Response, error) {
+func (r QueuesAPIUpdateUserQueueAssociationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserQueueAssociationExecute(r)
 }
 
@@ -3134,10 +3134,10 @@ UpdateUserQueueAssociation Update User-Queue association
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId queue's ID
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserQueueAssociationRequest
+	@return QueuesAPIUpdateUserQueueAssociationRequest
 */
-func (a *QueuesAPIService) UpdateUserQueueAssociation(ctx context.Context, queueId int32, userId string) ApiUpdateUserQueueAssociationRequest {
-	return ApiUpdateUserQueueAssociationRequest{
+func (a *QueuesAPIService) UpdateUserQueueAssociation(ctx context.Context, queueId int32, userId string) QueuesAPIUpdateUserQueueAssociationRequest {
+	return QueuesAPIUpdateUserQueueAssociationRequest{
 		ApiService: a,
 		ctx:        ctx,
 		queueId:    queueId,
@@ -3146,7 +3146,7 @@ func (a *QueuesAPIService) UpdateUserQueueAssociation(ctx context.Context, queue
 }
 
 // Execute executes the request
-func (a *QueuesAPIService) UpdateUserQueueAssociationExecute(r ApiUpdateUserQueueAssociationRequest) (*http.Response, error) {
+func (a *QueuesAPIService) UpdateUserQueueAssociationExecute(r QueuesAPIUpdateUserQueueAssociationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

@@ -30,18 +30,18 @@ type AdminAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiUpdateAllUserEmailsRequest
+		@return AdminAPIUpdateAllUserEmailsRequest
 	*/
-	UpdateAllUserEmails(ctx context.Context, userUuid string) ApiUpdateAllUserEmailsRequest
+	UpdateAllUserEmails(ctx context.Context, userUuid string) AdminAPIUpdateAllUserEmailsRequest
 
 	// UpdateAllUserEmailsExecute executes the request
-	UpdateAllUserEmailsExecute(r ApiUpdateAllUserEmailsRequest) (*http.Response, error)
+	UpdateAllUserEmailsExecute(r AdminAPIUpdateAllUserEmailsRequest) (*http.Response, error)
 }
 
 // AdminAPIService AdminAPI service
 type AdminAPIService service
 
-type ApiUpdateAllUserEmailsRequest struct {
+type AdminAPIUpdateAllUserEmailsRequest struct {
 	ctx        context.Context
 	ApiService AdminAPI
 	body       *AdminUserEmailList
@@ -49,12 +49,12 @@ type ApiUpdateAllUserEmailsRequest struct {
 }
 
 // EmailAddressList
-func (r ApiUpdateAllUserEmailsRequest) Body(body AdminUserEmailList) ApiUpdateAllUserEmailsRequest {
+func (r AdminAPIUpdateAllUserEmailsRequest) Body(body AdminUserEmailList) AdminAPIUpdateAllUserEmailsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAllUserEmailsRequest) Execute() (*http.Response, error) {
+func (r AdminAPIUpdateAllUserEmailsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAllUserEmailsExecute(r)
 }
 
@@ -66,10 +66,10 @@ If an existing address is missing from the list, it will be removed. An empty li
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiUpdateAllUserEmailsRequest
+	@return AdminAPIUpdateAllUserEmailsRequest
 */
-func (a *AdminAPIService) UpdateAllUserEmails(ctx context.Context, userUuid string) ApiUpdateAllUserEmailsRequest {
-	return ApiUpdateAllUserEmailsRequest{
+func (a *AdminAPIService) UpdateAllUserEmails(ctx context.Context, userUuid string) AdminAPIUpdateAllUserEmailsRequest {
+	return AdminAPIUpdateAllUserEmailsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -77,7 +77,7 @@ func (a *AdminAPIService) UpdateAllUserEmails(ctx context.Context, userUuid stri
 }
 
 // Execute executes the request
-func (a *AdminAPIService) UpdateAllUserEmailsExecute(r ApiUpdateAllUserEmailsRequest) (*http.Response, error) {
+func (a *AdminAPIService) UpdateAllUserEmailsExecute(r AdminAPIUpdateAllUserEmailsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

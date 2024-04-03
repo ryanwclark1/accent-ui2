@@ -27,13 +27,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.confbridge.accent_default_bridge.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskConfbridgeAccentDefaultBridgeRequest
+		@return AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest
 	*/
-	ListAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ApiListAsteriskConfbridgeAccentDefaultBridgeRequest
+	ListAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest
 
 	// ListAsteriskConfbridgeAccentDefaultBridgeExecute executes the request
 	//  @return ConfBridgeConfiguration
-	ListAsteriskConfbridgeAccentDefaultBridgeExecute(r ApiListAsteriskConfbridgeAccentDefaultBridgeRequest) (*ConfBridgeConfiguration, *http.Response, error)
+	ListAsteriskConfbridgeAccentDefaultBridgeExecute(r AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest) (*ConfBridgeConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskConfbridgeAccentDefaultUser List ConfBridge accent_default_user options
@@ -41,13 +41,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.confbridge.accent_default_user.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskConfbridgeAccentDefaultUserRequest
+		@return AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest
 	*/
-	ListAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ApiListAsteriskConfbridgeAccentDefaultUserRequest
+	ListAsteriskConfbridgeAccentDefaultUser(ctx context.Context) AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest
 
 	// ListAsteriskConfbridgeAccentDefaultUserExecute executes the request
 	//  @return ConfBridgeConfiguration
-	ListAsteriskConfbridgeAccentDefaultUserExecute(r ApiListAsteriskConfbridgeAccentDefaultUserRequest) (*ConfBridgeConfiguration, *http.Response, error)
+	ListAsteriskConfbridgeAccentDefaultUserExecute(r AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest) (*ConfBridgeConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskFeaturesApplicationmap List Features applicationmap options
@@ -55,13 +55,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.features.applicationmap.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskFeaturesApplicationmapRequest
+		@return AsteriskAPIListAsteriskFeaturesApplicationmapRequest
 	*/
-	ListAsteriskFeaturesApplicationmap(ctx context.Context) ApiListAsteriskFeaturesApplicationmapRequest
+	ListAsteriskFeaturesApplicationmap(ctx context.Context) AsteriskAPIListAsteriskFeaturesApplicationmapRequest
 
 	// ListAsteriskFeaturesApplicationmapExecute executes the request
 	//  @return FeaturesConfiguration
-	ListAsteriskFeaturesApplicationmapExecute(r ApiListAsteriskFeaturesApplicationmapRequest) (*FeaturesConfiguration, *http.Response, error)
+	ListAsteriskFeaturesApplicationmapExecute(r AsteriskAPIListAsteriskFeaturesApplicationmapRequest) (*FeaturesConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskFeaturesFeaturemap List Features featuremap options
@@ -69,13 +69,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.features.featuremap.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskFeaturesFeaturemapRequest
+		@return AsteriskAPIListAsteriskFeaturesFeaturemapRequest
 	*/
-	ListAsteriskFeaturesFeaturemap(ctx context.Context) ApiListAsteriskFeaturesFeaturemapRequest
+	ListAsteriskFeaturesFeaturemap(ctx context.Context) AsteriskAPIListAsteriskFeaturesFeaturemapRequest
 
 	// ListAsteriskFeaturesFeaturemapExecute executes the request
 	//  @return FeaturesConfiguration
-	ListAsteriskFeaturesFeaturemapExecute(r ApiListAsteriskFeaturesFeaturemapRequest) (*FeaturesConfiguration, *http.Response, error)
+	ListAsteriskFeaturesFeaturemapExecute(r AsteriskAPIListAsteriskFeaturesFeaturemapRequest) (*FeaturesConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskFeaturesGeneral List Features general options
@@ -83,13 +83,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.features.general.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskFeaturesGeneralRequest
+		@return AsteriskAPIListAsteriskFeaturesGeneralRequest
 	*/
-	ListAsteriskFeaturesGeneral(ctx context.Context) ApiListAsteriskFeaturesGeneralRequest
+	ListAsteriskFeaturesGeneral(ctx context.Context) AsteriskAPIListAsteriskFeaturesGeneralRequest
 
 	// ListAsteriskFeaturesGeneralExecute executes the request
 	//  @return FeaturesConfiguration
-	ListAsteriskFeaturesGeneralExecute(r ApiListAsteriskFeaturesGeneralRequest) (*FeaturesConfiguration, *http.Response, error)
+	ListAsteriskFeaturesGeneralExecute(r AsteriskAPIListAsteriskFeaturesGeneralRequest) (*FeaturesConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskHepGeneral List HEP general options
@@ -97,13 +97,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.hep.general.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskHepGeneralRequest
+		@return AsteriskAPIListAsteriskHepGeneralRequest
 	*/
-	ListAsteriskHepGeneral(ctx context.Context) ApiListAsteriskHepGeneralRequest
+	ListAsteriskHepGeneral(ctx context.Context) AsteriskAPIListAsteriskHepGeneralRequest
 
 	// ListAsteriskHepGeneralExecute executes the request
 	//  @return HEPConfiguration
-	ListAsteriskHepGeneralExecute(r ApiListAsteriskHepGeneralRequest) (*HEPConfiguration, *http.Response, error)
+	ListAsteriskHepGeneralExecute(r AsteriskAPIListAsteriskHepGeneralRequest) (*HEPConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskIaxCallnumberlimits List IAX callnumberlimits options
@@ -111,13 +111,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.iax.callnumberlimits.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskIaxCallnumberlimitsRequest
+		@return AsteriskAPIListAsteriskIaxCallnumberlimitsRequest
 	*/
-	ListAsteriskIaxCallnumberlimits(ctx context.Context) ApiListAsteriskIaxCallnumberlimitsRequest
+	ListAsteriskIaxCallnumberlimits(ctx context.Context) AsteriskAPIListAsteriskIaxCallnumberlimitsRequest
 
 	// ListAsteriskIaxCallnumberlimitsExecute executes the request
 	//  @return IAXCallNumberLimitss
-	ListAsteriskIaxCallnumberlimitsExecute(r ApiListAsteriskIaxCallnumberlimitsRequest) (*IAXCallNumberLimitss, *http.Response, error)
+	ListAsteriskIaxCallnumberlimitsExecute(r AsteriskAPIListAsteriskIaxCallnumberlimitsRequest) (*IAXCallNumberLimitss, *http.Response, error)
 
 	/*
 		ListAsteriskIaxGeneral List IAX general options
@@ -125,13 +125,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.iax.general.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskIaxGeneralRequest
+		@return AsteriskAPIListAsteriskIaxGeneralRequest
 	*/
-	ListAsteriskIaxGeneral(ctx context.Context) ApiListAsteriskIaxGeneralRequest
+	ListAsteriskIaxGeneral(ctx context.Context) AsteriskAPIListAsteriskIaxGeneralRequest
 
 	// ListAsteriskIaxGeneralExecute executes the request
 	//  @return IAXGeneral
-	ListAsteriskIaxGeneralExecute(r ApiListAsteriskIaxGeneralRequest) (*IAXGeneral, *http.Response, error)
+	ListAsteriskIaxGeneralExecute(r AsteriskAPIListAsteriskIaxGeneralRequest) (*IAXGeneral, *http.Response, error)
 
 	/*
 		ListAsteriskPjsipGlobal List of PJSIP options for the `global` section
@@ -139,13 +139,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.pjsip.global.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskPjsipGlobalRequest
+		@return AsteriskAPIListAsteriskPjsipGlobalRequest
 	*/
-	ListAsteriskPjsipGlobal(ctx context.Context) ApiListAsteriskPjsipGlobalRequest
+	ListAsteriskPjsipGlobal(ctx context.Context) AsteriskAPIListAsteriskPjsipGlobalRequest
 
 	// ListAsteriskPjsipGlobalExecute executes the request
 	//  @return PJSIPGlobal
-	ListAsteriskPjsipGlobalExecute(r ApiListAsteriskPjsipGlobalRequest) (*PJSIPGlobal, *http.Response, error)
+	ListAsteriskPjsipGlobalExecute(r AsteriskAPIListAsteriskPjsipGlobalRequest) (*PJSIPGlobal, *http.Response, error)
 
 	/*
 		ListAsteriskPjsipSystem List of PJSIP options for the `system` section
@@ -153,13 +153,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.pjsip.system.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskPjsipSystemRequest
+		@return AsteriskAPIListAsteriskPjsipSystemRequest
 	*/
-	ListAsteriskPjsipSystem(ctx context.Context) ApiListAsteriskPjsipSystemRequest
+	ListAsteriskPjsipSystem(ctx context.Context) AsteriskAPIListAsteriskPjsipSystemRequest
 
 	// ListAsteriskPjsipSystemExecute executes the request
 	//  @return PJSIPSystem
-	ListAsteriskPjsipSystemExecute(r ApiListAsteriskPjsipSystemRequest) (*PJSIPSystem, *http.Response, error)
+	ListAsteriskPjsipSystemExecute(r AsteriskAPIListAsteriskPjsipSystemRequest) (*PJSIPSystem, *http.Response, error)
 
 	/*
 		ListAsteriskQueueGeneral List Queue general options
@@ -167,13 +167,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.queue.general.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskQueueGeneralRequest
+		@return AsteriskAPIListAsteriskQueueGeneralRequest
 	*/
-	ListAsteriskQueueGeneral(ctx context.Context) ApiListAsteriskQueueGeneralRequest
+	ListAsteriskQueueGeneral(ctx context.Context) AsteriskAPIListAsteriskQueueGeneralRequest
 
 	// ListAsteriskQueueGeneralExecute executes the request
 	//  @return QueueGeneral
-	ListAsteriskQueueGeneralExecute(r ApiListAsteriskQueueGeneralRequest) (*QueueGeneral, *http.Response, error)
+	ListAsteriskQueueGeneralExecute(r AsteriskAPIListAsteriskQueueGeneralRequest) (*QueueGeneral, *http.Response, error)
 
 	/*
 		ListAsteriskRtpGeneral List RTP general options
@@ -181,13 +181,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.rtp.general.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskRtpGeneralRequest
+		@return AsteriskAPIListAsteriskRtpGeneralRequest
 	*/
-	ListAsteriskRtpGeneral(ctx context.Context) ApiListAsteriskRtpGeneralRequest
+	ListAsteriskRtpGeneral(ctx context.Context) AsteriskAPIListAsteriskRtpGeneralRequest
 
 	// ListAsteriskRtpGeneralExecute executes the request
 	//  @return RTPConfiguration
-	ListAsteriskRtpGeneralExecute(r ApiListAsteriskRtpGeneralRequest) (*RTPConfiguration, *http.Response, error)
+	ListAsteriskRtpGeneralExecute(r AsteriskAPIListAsteriskRtpGeneralRequest) (*RTPConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskRtpIceHostCandidates List RTP ice_host_candidates options
@@ -195,13 +195,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.rtp.ice_host_candidates.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskRtpIceHostCandidatesRequest
+		@return AsteriskAPIListAsteriskRtpIceHostCandidatesRequest
 	*/
-	ListAsteriskRtpIceHostCandidates(ctx context.Context) ApiListAsteriskRtpIceHostCandidatesRequest
+	ListAsteriskRtpIceHostCandidates(ctx context.Context) AsteriskAPIListAsteriskRtpIceHostCandidatesRequest
 
 	// ListAsteriskRtpIceHostCandidatesExecute executes the request
 	//  @return RTPConfiguration
-	ListAsteriskRtpIceHostCandidatesExecute(r ApiListAsteriskRtpIceHostCandidatesRequest) (*RTPConfiguration, *http.Response, error)
+	ListAsteriskRtpIceHostCandidatesExecute(r AsteriskAPIListAsteriskRtpIceHostCandidatesRequest) (*RTPConfiguration, *http.Response, error)
 
 	/*
 		ListAsteriskSccpGeneral List SCCP general options
@@ -209,13 +209,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.sccp.general.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskSccpGeneralRequest
+		@return AsteriskAPIListAsteriskSccpGeneralRequest
 	*/
-	ListAsteriskSccpGeneral(ctx context.Context) ApiListAsteriskSccpGeneralRequest
+	ListAsteriskSccpGeneral(ctx context.Context) AsteriskAPIListAsteriskSccpGeneralRequest
 
 	// ListAsteriskSccpGeneralExecute executes the request
 	//  @return SCCPGeneral
-	ListAsteriskSccpGeneralExecute(r ApiListAsteriskSccpGeneralRequest) (*SCCPGeneral, *http.Response, error)
+	ListAsteriskSccpGeneralExecute(r AsteriskAPIListAsteriskSccpGeneralRequest) (*SCCPGeneral, *http.Response, error)
 
 	/*
 		ListAsteriskVoicemailGeneral List Voicemail general options
@@ -223,13 +223,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.voicemail.general.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskVoicemailGeneralRequest
+		@return AsteriskAPIListAsteriskVoicemailGeneralRequest
 	*/
-	ListAsteriskVoicemailGeneral(ctx context.Context) ApiListAsteriskVoicemailGeneralRequest
+	ListAsteriskVoicemailGeneral(ctx context.Context) AsteriskAPIListAsteriskVoicemailGeneralRequest
 
 	// ListAsteriskVoicemailGeneralExecute executes the request
 	//  @return VoicemailGeneral
-	ListAsteriskVoicemailGeneralExecute(r ApiListAsteriskVoicemailGeneralRequest) (*VoicemailGeneral, *http.Response, error)
+	ListAsteriskVoicemailGeneralExecute(r AsteriskAPIListAsteriskVoicemailGeneralRequest) (*VoicemailGeneral, *http.Response, error)
 
 	/*
 		ListAsteriskVoicemailZonemessages List Voicemail zonemessages options
@@ -237,13 +237,13 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.voicemail.zonemessages.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListAsteriskVoicemailZonemessagesRequest
+		@return AsteriskAPIListAsteriskVoicemailZonemessagesRequest
 	*/
-	ListAsteriskVoicemailZonemessages(ctx context.Context) ApiListAsteriskVoicemailZonemessagesRequest
+	ListAsteriskVoicemailZonemessages(ctx context.Context) AsteriskAPIListAsteriskVoicemailZonemessagesRequest
 
 	// ListAsteriskVoicemailZonemessagesExecute executes the request
 	//  @return VoicemailZoneMessages
-	ListAsteriskVoicemailZonemessagesExecute(r ApiListAsteriskVoicemailZonemessagesRequest) (*VoicemailZoneMessages, *http.Response, error)
+	ListAsteriskVoicemailZonemessagesExecute(r AsteriskAPIListAsteriskVoicemailZonemessagesRequest) (*VoicemailZoneMessages, *http.Response, error)
 
 	/*
 		ShowPjsipDoc List all PJSIP configuration options
@@ -251,13 +251,13 @@ type AsteriskAPI interface {
 		**Required ACL:**: `confd.asterisk.pjsip.doc.read` List all available configuration options for PJSIP, those values are used to validate to content of POST and PUT requests.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiShowPjsipDocRequest
+		@return AsteriskAPIShowPjsipDocRequest
 	*/
-	ShowPjsipDoc(ctx context.Context) ApiShowPjsipDocRequest
+	ShowPjsipDoc(ctx context.Context) AsteriskAPIShowPjsipDocRequest
 
 	// ShowPjsipDocExecute executes the request
 	//  @return PJSIPConfigurationOptions
-	ShowPjsipDocExecute(r ApiShowPjsipDocRequest) (*PJSIPConfigurationOptions, *http.Response, error)
+	ShowPjsipDocExecute(r AsteriskAPIShowPjsipDocRequest) (*PJSIPConfigurationOptions, *http.Response, error)
 
 	/*
 		UpdateAsteriskConfbridgeAccentDefaultBridge Update ConfBridge accent_default_bridge option
@@ -265,12 +265,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.confbridge.accent_default_bridge.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined. All available configuration options are listed in the [sample](https://raw.githubusercontent.com/asterisk/asterisk/master/configs/samples/confbridge.conf.sample) Asterisk configuration file.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
+		@return AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
 	*/
-	UpdateAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
+	UpdateAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
 
 	// UpdateAsteriskConfbridgeAccentDefaultBridgeExecute executes the request
-	UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) (*http.Response, error)
+	UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskConfbridgeAccentDefaultUser Update ConfBridge accent_default_user option
@@ -278,12 +278,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.confbridge.accent_default_user.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined. All available configuration options are listed in the [sample](https://raw.githubusercontent.com/asterisk/asterisk/master/configs/samples/confbridge.conf.sample) Asterisk configuration file.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest
+		@return AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest
 	*/
-	UpdateAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest
+	UpdateAsteriskConfbridgeAccentDefaultUser(ctx context.Context) AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest
 
 	// UpdateAsteriskConfbridgeAccentDefaultUserExecute executes the request
-	UpdateAsteriskConfbridgeAccentDefaultUserExecute(r ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest) (*http.Response, error)
+	UpdateAsteriskConfbridgeAccentDefaultUserExecute(r AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskFeaturesApplicationmap Update Features applicationmap option
@@ -291,12 +291,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.features.applicationmap.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskFeaturesApplicationmapRequest
+		@return AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest
 	*/
-	UpdateAsteriskFeaturesApplicationmap(ctx context.Context) ApiUpdateAsteriskFeaturesApplicationmapRequest
+	UpdateAsteriskFeaturesApplicationmap(ctx context.Context) AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest
 
 	// UpdateAsteriskFeaturesApplicationmapExecute executes the request
-	UpdateAsteriskFeaturesApplicationmapExecute(r ApiUpdateAsteriskFeaturesApplicationmapRequest) (*http.Response, error)
+	UpdateAsteriskFeaturesApplicationmapExecute(r AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskFeaturesFeaturemap Update Features featuremap option
@@ -304,12 +304,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.features.featuremap.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskFeaturesFeaturemapRequest
+		@return AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest
 	*/
-	UpdateAsteriskFeaturesFeaturemap(ctx context.Context) ApiUpdateAsteriskFeaturesFeaturemapRequest
+	UpdateAsteriskFeaturesFeaturemap(ctx context.Context) AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest
 
 	// UpdateAsteriskFeaturesFeaturemapExecute executes the request
-	UpdateAsteriskFeaturesFeaturemapExecute(r ApiUpdateAsteriskFeaturesFeaturemapRequest) (*http.Response, error)
+	UpdateAsteriskFeaturesFeaturemapExecute(r AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskFeaturesGeneral Update Features general option
@@ -317,12 +317,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.features.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskFeaturesGeneralRequest
+		@return AsteriskAPIUpdateAsteriskFeaturesGeneralRequest
 	*/
-	UpdateAsteriskFeaturesGeneral(ctx context.Context) ApiUpdateAsteriskFeaturesGeneralRequest
+	UpdateAsteriskFeaturesGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskFeaturesGeneralRequest
 
 	// UpdateAsteriskFeaturesGeneralExecute executes the request
-	UpdateAsteriskFeaturesGeneralExecute(r ApiUpdateAsteriskFeaturesGeneralRequest) (*http.Response, error)
+	UpdateAsteriskFeaturesGeneralExecute(r AsteriskAPIUpdateAsteriskFeaturesGeneralRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskHepGeneral Update HEP general option
@@ -332,12 +332,12 @@ type AsteriskAPI interface {
 	**WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskHepGeneralRequest
+		@return AsteriskAPIUpdateAsteriskHepGeneralRequest
 	*/
-	UpdateAsteriskHepGeneral(ctx context.Context) ApiUpdateAsteriskHepGeneralRequest
+	UpdateAsteriskHepGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskHepGeneralRequest
 
 	// UpdateAsteriskHepGeneralExecute executes the request
-	UpdateAsteriskHepGeneralExecute(r ApiUpdateAsteriskHepGeneralRequest) (*http.Response, error)
+	UpdateAsteriskHepGeneralExecute(r AsteriskAPIUpdateAsteriskHepGeneralRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskIaxCallnumberlimits Update IAX callnumberlimits option
@@ -345,12 +345,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.iax.callnumberlimits.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskIaxCallnumberlimitsRequest
+		@return AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest
 	*/
-	UpdateAsteriskIaxCallnumberlimits(ctx context.Context) ApiUpdateAsteriskIaxCallnumberlimitsRequest
+	UpdateAsteriskIaxCallnumberlimits(ctx context.Context) AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest
 
 	// UpdateAsteriskIaxCallnumberlimitsExecute executes the request
-	UpdateAsteriskIaxCallnumberlimitsExecute(r ApiUpdateAsteriskIaxCallnumberlimitsRequest) (*http.Response, error)
+	UpdateAsteriskIaxCallnumberlimitsExecute(r AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskIaxGeneral Update IAX general option
@@ -358,12 +358,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.iax.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskIaxGeneralRequest
+		@return AsteriskAPIUpdateAsteriskIaxGeneralRequest
 	*/
-	UpdateAsteriskIaxGeneral(ctx context.Context) ApiUpdateAsteriskIaxGeneralRequest
+	UpdateAsteriskIaxGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskIaxGeneralRequest
 
 	// UpdateAsteriskIaxGeneralExecute executes the request
-	UpdateAsteriskIaxGeneralExecute(r ApiUpdateAsteriskIaxGeneralRequest) (*http.Response, error)
+	UpdateAsteriskIaxGeneralExecute(r AsteriskAPIUpdateAsteriskIaxGeneralRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskPjsipGlobal Update PJSIP section options
@@ -371,12 +371,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.pjsip.global.update` The PJSIP global configuration is shared among all tenants of an instance. **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskPjsipGlobalRequest
+		@return AsteriskAPIUpdateAsteriskPjsipGlobalRequest
 	*/
-	UpdateAsteriskPjsipGlobal(ctx context.Context) ApiUpdateAsteriskPjsipGlobalRequest
+	UpdateAsteriskPjsipGlobal(ctx context.Context) AsteriskAPIUpdateAsteriskPjsipGlobalRequest
 
 	// UpdateAsteriskPjsipGlobalExecute executes the request
-	UpdateAsteriskPjsipGlobalExecute(r ApiUpdateAsteriskPjsipGlobalRequest) (*http.Response, error)
+	UpdateAsteriskPjsipGlobalExecute(r AsteriskAPIUpdateAsteriskPjsipGlobalRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskPjsipSystem Update PJSIP section options
@@ -384,12 +384,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.pjsip.system.update` The PJSIP system configuration is shared among all tenants of an instance. **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskPjsipSystemRequest
+		@return AsteriskAPIUpdateAsteriskPjsipSystemRequest
 	*/
-	UpdateAsteriskPjsipSystem(ctx context.Context) ApiUpdateAsteriskPjsipSystemRequest
+	UpdateAsteriskPjsipSystem(ctx context.Context) AsteriskAPIUpdateAsteriskPjsipSystemRequest
 
 	// UpdateAsteriskPjsipSystemExecute executes the request
-	UpdateAsteriskPjsipSystemExecute(r ApiUpdateAsteriskPjsipSystemRequest) (*http.Response, error)
+	UpdateAsteriskPjsipSystemExecute(r AsteriskAPIUpdateAsteriskPjsipSystemRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskQueueGeneral Update Queue general option
@@ -397,12 +397,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.queue.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskQueueGeneralRequest
+		@return AsteriskAPIUpdateAsteriskQueueGeneralRequest
 	*/
-	UpdateAsteriskQueueGeneral(ctx context.Context) ApiUpdateAsteriskQueueGeneralRequest
+	UpdateAsteriskQueueGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskQueueGeneralRequest
 
 	// UpdateAsteriskQueueGeneralExecute executes the request
-	UpdateAsteriskQueueGeneralExecute(r ApiUpdateAsteriskQueueGeneralRequest) (*http.Response, error)
+	UpdateAsteriskQueueGeneralExecute(r AsteriskAPIUpdateAsteriskQueueGeneralRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskRtpGeneral Update RTP general option
@@ -410,12 +410,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.rtp.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskRtpGeneralRequest
+		@return AsteriskAPIUpdateAsteriskRtpGeneralRequest
 	*/
-	UpdateAsteriskRtpGeneral(ctx context.Context) ApiUpdateAsteriskRtpGeneralRequest
+	UpdateAsteriskRtpGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskRtpGeneralRequest
 
 	// UpdateAsteriskRtpGeneralExecute executes the request
-	UpdateAsteriskRtpGeneralExecute(r ApiUpdateAsteriskRtpGeneralRequest) (*http.Response, error)
+	UpdateAsteriskRtpGeneralExecute(r AsteriskAPIUpdateAsteriskRtpGeneralRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskRtpIceHostCandidates Update RTP ice_host_candidates option
@@ -423,12 +423,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.rtp.ice_host_candidates.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskRtpIceHostCandidatesRequest
+		@return AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest
 	*/
-	UpdateAsteriskRtpIceHostCandidates(ctx context.Context) ApiUpdateAsteriskRtpIceHostCandidatesRequest
+	UpdateAsteriskRtpIceHostCandidates(ctx context.Context) AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest
 
 	// UpdateAsteriskRtpIceHostCandidatesExecute executes the request
-	UpdateAsteriskRtpIceHostCandidatesExecute(r ApiUpdateAsteriskRtpIceHostCandidatesRequest) (*http.Response, error)
+	UpdateAsteriskRtpIceHostCandidatesExecute(r AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskSccpGeneral Update SCCP general option
@@ -436,12 +436,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.sccp.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskSccpGeneralRequest
+		@return AsteriskAPIUpdateAsteriskSccpGeneralRequest
 	*/
-	UpdateAsteriskSccpGeneral(ctx context.Context) ApiUpdateAsteriskSccpGeneralRequest
+	UpdateAsteriskSccpGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskSccpGeneralRequest
 
 	// UpdateAsteriskSccpGeneralExecute executes the request
-	UpdateAsteriskSccpGeneralExecute(r ApiUpdateAsteriskSccpGeneralRequest) (*http.Response, error)
+	UpdateAsteriskSccpGeneralExecute(r AsteriskAPIUpdateAsteriskSccpGeneralRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskVoicemailGeneral Update Voicemail general option
@@ -449,12 +449,12 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.voicemail.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskVoicemailGeneralRequest
+		@return AsteriskAPIUpdateAsteriskVoicemailGeneralRequest
 	*/
-	UpdateAsteriskVoicemailGeneral(ctx context.Context) ApiUpdateAsteriskVoicemailGeneralRequest
+	UpdateAsteriskVoicemailGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskVoicemailGeneralRequest
 
 	// UpdateAsteriskVoicemailGeneralExecute executes the request
-	UpdateAsteriskVoicemailGeneralExecute(r ApiUpdateAsteriskVoicemailGeneralRequest) (*http.Response, error)
+	UpdateAsteriskVoicemailGeneralExecute(r AsteriskAPIUpdateAsteriskVoicemailGeneralRequest) (*http.Response, error)
 
 	/*
 		UpdateAsteriskVoicemailZonemessages Update Voicemail zonemessages option
@@ -462,23 +462,23 @@ type AsteriskAPI interface {
 		**Required ACL:** `confd.asterisk.voicemail.zonemessages.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateAsteriskVoicemailZonemessagesRequest
+		@return AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest
 	*/
-	UpdateAsteriskVoicemailZonemessages(ctx context.Context) ApiUpdateAsteriskVoicemailZonemessagesRequest
+	UpdateAsteriskVoicemailZonemessages(ctx context.Context) AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest
 
 	// UpdateAsteriskVoicemailZonemessagesExecute executes the request
-	UpdateAsteriskVoicemailZonemessagesExecute(r ApiUpdateAsteriskVoicemailZonemessagesRequest) (*http.Response, error)
+	UpdateAsteriskVoicemailZonemessagesExecute(r AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest) (*http.Response, error)
 }
 
 // AsteriskAPIService AsteriskAPI service
 type AsteriskAPIService service
 
-type ApiListAsteriskConfbridgeAccentDefaultBridgeRequest struct {
+type AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskConfbridgeAccentDefaultBridgeRequest) Execute() (*ConfBridgeConfiguration, *http.Response, error) {
+func (r AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest) Execute() (*ConfBridgeConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskConfbridgeAccentDefaultBridgeExecute(r)
 }
 
@@ -488,10 +488,10 @@ ListAsteriskConfbridgeAccentDefaultBridge List ConfBridge accent_default_bridge 
 **Required ACL:** `confd.asterisk.confbridge.accent_default_bridge.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskConfbridgeAccentDefaultBridgeRequest
+	@return AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest
 */
-func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ApiListAsteriskConfbridgeAccentDefaultBridgeRequest {
-	return ApiListAsteriskConfbridgeAccentDefaultBridgeRequest{
+func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest {
+	return AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -500,7 +500,7 @@ func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultBridge(ctx conte
 // Execute executes the request
 //
 //	@return ConfBridgeConfiguration
-func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultBridgeExecute(r ApiListAsteriskConfbridgeAccentDefaultBridgeRequest) (*ConfBridgeConfiguration, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultBridgeExecute(r AsteriskAPIListAsteriskConfbridgeAccentDefaultBridgeRequest) (*ConfBridgeConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -587,12 +587,12 @@ func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultBridgeExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskConfbridgeAccentDefaultUserRequest struct {
+type AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskConfbridgeAccentDefaultUserRequest) Execute() (*ConfBridgeConfiguration, *http.Response, error) {
+func (r AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest) Execute() (*ConfBridgeConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskConfbridgeAccentDefaultUserExecute(r)
 }
 
@@ -602,10 +602,10 @@ ListAsteriskConfbridgeAccentDefaultUser List ConfBridge accent_default_user opti
 **Required ACL:** `confd.asterisk.confbridge.accent_default_user.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskConfbridgeAccentDefaultUserRequest
+	@return AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest
 */
-func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ApiListAsteriskConfbridgeAccentDefaultUserRequest {
-	return ApiListAsteriskConfbridgeAccentDefaultUserRequest{
+func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultUser(ctx context.Context) AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest {
+	return AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -614,7 +614,7 @@ func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultUser(ctx context
 // Execute executes the request
 //
 //	@return ConfBridgeConfiguration
-func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultUserExecute(r ApiListAsteriskConfbridgeAccentDefaultUserRequest) (*ConfBridgeConfiguration, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultUserExecute(r AsteriskAPIListAsteriskConfbridgeAccentDefaultUserRequest) (*ConfBridgeConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -701,12 +701,12 @@ func (a *AsteriskAPIService) ListAsteriskConfbridgeAccentDefaultUserExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskFeaturesApplicationmapRequest struct {
+type AsteriskAPIListAsteriskFeaturesApplicationmapRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskFeaturesApplicationmapRequest) Execute() (*FeaturesConfiguration, *http.Response, error) {
+func (r AsteriskAPIListAsteriskFeaturesApplicationmapRequest) Execute() (*FeaturesConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskFeaturesApplicationmapExecute(r)
 }
 
@@ -716,10 +716,10 @@ ListAsteriskFeaturesApplicationmap List Features applicationmap options
 **Required ACL:** `confd.asterisk.features.applicationmap.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskFeaturesApplicationmapRequest
+	@return AsteriskAPIListAsteriskFeaturesApplicationmapRequest
 */
-func (a *AsteriskAPIService) ListAsteriskFeaturesApplicationmap(ctx context.Context) ApiListAsteriskFeaturesApplicationmapRequest {
-	return ApiListAsteriskFeaturesApplicationmapRequest{
+func (a *AsteriskAPIService) ListAsteriskFeaturesApplicationmap(ctx context.Context) AsteriskAPIListAsteriskFeaturesApplicationmapRequest {
+	return AsteriskAPIListAsteriskFeaturesApplicationmapRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -728,7 +728,7 @@ func (a *AsteriskAPIService) ListAsteriskFeaturesApplicationmap(ctx context.Cont
 // Execute executes the request
 //
 //	@return FeaturesConfiguration
-func (a *AsteriskAPIService) ListAsteriskFeaturesApplicationmapExecute(r ApiListAsteriskFeaturesApplicationmapRequest) (*FeaturesConfiguration, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskFeaturesApplicationmapExecute(r AsteriskAPIListAsteriskFeaturesApplicationmapRequest) (*FeaturesConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -815,12 +815,12 @@ func (a *AsteriskAPIService) ListAsteriskFeaturesApplicationmapExecute(r ApiList
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskFeaturesFeaturemapRequest struct {
+type AsteriskAPIListAsteriskFeaturesFeaturemapRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskFeaturesFeaturemapRequest) Execute() (*FeaturesConfiguration, *http.Response, error) {
+func (r AsteriskAPIListAsteriskFeaturesFeaturemapRequest) Execute() (*FeaturesConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskFeaturesFeaturemapExecute(r)
 }
 
@@ -830,10 +830,10 @@ ListAsteriskFeaturesFeaturemap List Features featuremap options
 **Required ACL:** `confd.asterisk.features.featuremap.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskFeaturesFeaturemapRequest
+	@return AsteriskAPIListAsteriskFeaturesFeaturemapRequest
 */
-func (a *AsteriskAPIService) ListAsteriskFeaturesFeaturemap(ctx context.Context) ApiListAsteriskFeaturesFeaturemapRequest {
-	return ApiListAsteriskFeaturesFeaturemapRequest{
+func (a *AsteriskAPIService) ListAsteriskFeaturesFeaturemap(ctx context.Context) AsteriskAPIListAsteriskFeaturesFeaturemapRequest {
+	return AsteriskAPIListAsteriskFeaturesFeaturemapRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -842,7 +842,7 @@ func (a *AsteriskAPIService) ListAsteriskFeaturesFeaturemap(ctx context.Context)
 // Execute executes the request
 //
 //	@return FeaturesConfiguration
-func (a *AsteriskAPIService) ListAsteriskFeaturesFeaturemapExecute(r ApiListAsteriskFeaturesFeaturemapRequest) (*FeaturesConfiguration, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskFeaturesFeaturemapExecute(r AsteriskAPIListAsteriskFeaturesFeaturemapRequest) (*FeaturesConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -929,12 +929,12 @@ func (a *AsteriskAPIService) ListAsteriskFeaturesFeaturemapExecute(r ApiListAste
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskFeaturesGeneralRequest struct {
+type AsteriskAPIListAsteriskFeaturesGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskFeaturesGeneralRequest) Execute() (*FeaturesConfiguration, *http.Response, error) {
+func (r AsteriskAPIListAsteriskFeaturesGeneralRequest) Execute() (*FeaturesConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskFeaturesGeneralExecute(r)
 }
 
@@ -944,10 +944,10 @@ ListAsteriskFeaturesGeneral List Features general options
 **Required ACL:** `confd.asterisk.features.general.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskFeaturesGeneralRequest
+	@return AsteriskAPIListAsteriskFeaturesGeneralRequest
 */
-func (a *AsteriskAPIService) ListAsteriskFeaturesGeneral(ctx context.Context) ApiListAsteriskFeaturesGeneralRequest {
-	return ApiListAsteriskFeaturesGeneralRequest{
+func (a *AsteriskAPIService) ListAsteriskFeaturesGeneral(ctx context.Context) AsteriskAPIListAsteriskFeaturesGeneralRequest {
+	return AsteriskAPIListAsteriskFeaturesGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -956,7 +956,7 @@ func (a *AsteriskAPIService) ListAsteriskFeaturesGeneral(ctx context.Context) Ap
 // Execute executes the request
 //
 //	@return FeaturesConfiguration
-func (a *AsteriskAPIService) ListAsteriskFeaturesGeneralExecute(r ApiListAsteriskFeaturesGeneralRequest) (*FeaturesConfiguration, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskFeaturesGeneralExecute(r AsteriskAPIListAsteriskFeaturesGeneralRequest) (*FeaturesConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1043,12 +1043,12 @@ func (a *AsteriskAPIService) ListAsteriskFeaturesGeneralExecute(r ApiListAsteris
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskHepGeneralRequest struct {
+type AsteriskAPIListAsteriskHepGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskHepGeneralRequest) Execute() (*HEPConfiguration, *http.Response, error) {
+func (r AsteriskAPIListAsteriskHepGeneralRequest) Execute() (*HEPConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskHepGeneralExecute(r)
 }
 
@@ -1058,10 +1058,10 @@ ListAsteriskHepGeneral List HEP general options
 **Required ACL:** `confd.asterisk.hep.general.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskHepGeneralRequest
+	@return AsteriskAPIListAsteriskHepGeneralRequest
 */
-func (a *AsteriskAPIService) ListAsteriskHepGeneral(ctx context.Context) ApiListAsteriskHepGeneralRequest {
-	return ApiListAsteriskHepGeneralRequest{
+func (a *AsteriskAPIService) ListAsteriskHepGeneral(ctx context.Context) AsteriskAPIListAsteriskHepGeneralRequest {
+	return AsteriskAPIListAsteriskHepGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1070,7 +1070,7 @@ func (a *AsteriskAPIService) ListAsteriskHepGeneral(ctx context.Context) ApiList
 // Execute executes the request
 //
 //	@return HEPConfiguration
-func (a *AsteriskAPIService) ListAsteriskHepGeneralExecute(r ApiListAsteriskHepGeneralRequest) (*HEPConfiguration, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskHepGeneralExecute(r AsteriskAPIListAsteriskHepGeneralRequest) (*HEPConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1157,12 +1157,12 @@ func (a *AsteriskAPIService) ListAsteriskHepGeneralExecute(r ApiListAsteriskHepG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskIaxCallnumberlimitsRequest struct {
+type AsteriskAPIListAsteriskIaxCallnumberlimitsRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskIaxCallnumberlimitsRequest) Execute() (*IAXCallNumberLimitss, *http.Response, error) {
+func (r AsteriskAPIListAsteriskIaxCallnumberlimitsRequest) Execute() (*IAXCallNumberLimitss, *http.Response, error) {
 	return r.ApiService.ListAsteriskIaxCallnumberlimitsExecute(r)
 }
 
@@ -1172,10 +1172,10 @@ ListAsteriskIaxCallnumberlimits List IAX callnumberlimits options
 **Required ACL:** `confd.asterisk.iax.callnumberlimits.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskIaxCallnumberlimitsRequest
+	@return AsteriskAPIListAsteriskIaxCallnumberlimitsRequest
 */
-func (a *AsteriskAPIService) ListAsteriskIaxCallnumberlimits(ctx context.Context) ApiListAsteriskIaxCallnumberlimitsRequest {
-	return ApiListAsteriskIaxCallnumberlimitsRequest{
+func (a *AsteriskAPIService) ListAsteriskIaxCallnumberlimits(ctx context.Context) AsteriskAPIListAsteriskIaxCallnumberlimitsRequest {
+	return AsteriskAPIListAsteriskIaxCallnumberlimitsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1184,7 +1184,7 @@ func (a *AsteriskAPIService) ListAsteriskIaxCallnumberlimits(ctx context.Context
 // Execute executes the request
 //
 //	@return IAXCallNumberLimitss
-func (a *AsteriskAPIService) ListAsteriskIaxCallnumberlimitsExecute(r ApiListAsteriskIaxCallnumberlimitsRequest) (*IAXCallNumberLimitss, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskIaxCallnumberlimitsExecute(r AsteriskAPIListAsteriskIaxCallnumberlimitsRequest) (*IAXCallNumberLimitss, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1271,12 +1271,12 @@ func (a *AsteriskAPIService) ListAsteriskIaxCallnumberlimitsExecute(r ApiListAst
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskIaxGeneralRequest struct {
+type AsteriskAPIListAsteriskIaxGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskIaxGeneralRequest) Execute() (*IAXGeneral, *http.Response, error) {
+func (r AsteriskAPIListAsteriskIaxGeneralRequest) Execute() (*IAXGeneral, *http.Response, error) {
 	return r.ApiService.ListAsteriskIaxGeneralExecute(r)
 }
 
@@ -1286,10 +1286,10 @@ ListAsteriskIaxGeneral List IAX general options
 **Required ACL:** `confd.asterisk.iax.general.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskIaxGeneralRequest
+	@return AsteriskAPIListAsteriskIaxGeneralRequest
 */
-func (a *AsteriskAPIService) ListAsteriskIaxGeneral(ctx context.Context) ApiListAsteriskIaxGeneralRequest {
-	return ApiListAsteriskIaxGeneralRequest{
+func (a *AsteriskAPIService) ListAsteriskIaxGeneral(ctx context.Context) AsteriskAPIListAsteriskIaxGeneralRequest {
+	return AsteriskAPIListAsteriskIaxGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1298,7 +1298,7 @@ func (a *AsteriskAPIService) ListAsteriskIaxGeneral(ctx context.Context) ApiList
 // Execute executes the request
 //
 //	@return IAXGeneral
-func (a *AsteriskAPIService) ListAsteriskIaxGeneralExecute(r ApiListAsteriskIaxGeneralRequest) (*IAXGeneral, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskIaxGeneralExecute(r AsteriskAPIListAsteriskIaxGeneralRequest) (*IAXGeneral, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1385,12 +1385,12 @@ func (a *AsteriskAPIService) ListAsteriskIaxGeneralExecute(r ApiListAsteriskIaxG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskPjsipGlobalRequest struct {
+type AsteriskAPIListAsteriskPjsipGlobalRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskPjsipGlobalRequest) Execute() (*PJSIPGlobal, *http.Response, error) {
+func (r AsteriskAPIListAsteriskPjsipGlobalRequest) Execute() (*PJSIPGlobal, *http.Response, error) {
 	return r.ApiService.ListAsteriskPjsipGlobalExecute(r)
 }
 
@@ -1400,10 +1400,10 @@ ListAsteriskPjsipGlobal List of PJSIP options for the `global` section
 **Required ACL:** `confd.asterisk.pjsip.global.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskPjsipGlobalRequest
+	@return AsteriskAPIListAsteriskPjsipGlobalRequest
 */
-func (a *AsteriskAPIService) ListAsteriskPjsipGlobal(ctx context.Context) ApiListAsteriskPjsipGlobalRequest {
-	return ApiListAsteriskPjsipGlobalRequest{
+func (a *AsteriskAPIService) ListAsteriskPjsipGlobal(ctx context.Context) AsteriskAPIListAsteriskPjsipGlobalRequest {
+	return AsteriskAPIListAsteriskPjsipGlobalRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1412,7 +1412,7 @@ func (a *AsteriskAPIService) ListAsteriskPjsipGlobal(ctx context.Context) ApiLis
 // Execute executes the request
 //
 //	@return PJSIPGlobal
-func (a *AsteriskAPIService) ListAsteriskPjsipGlobalExecute(r ApiListAsteriskPjsipGlobalRequest) (*PJSIPGlobal, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskPjsipGlobalExecute(r AsteriskAPIListAsteriskPjsipGlobalRequest) (*PJSIPGlobal, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1499,12 +1499,12 @@ func (a *AsteriskAPIService) ListAsteriskPjsipGlobalExecute(r ApiListAsteriskPjs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskPjsipSystemRequest struct {
+type AsteriskAPIListAsteriskPjsipSystemRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskPjsipSystemRequest) Execute() (*PJSIPSystem, *http.Response, error) {
+func (r AsteriskAPIListAsteriskPjsipSystemRequest) Execute() (*PJSIPSystem, *http.Response, error) {
 	return r.ApiService.ListAsteriskPjsipSystemExecute(r)
 }
 
@@ -1514,10 +1514,10 @@ ListAsteriskPjsipSystem List of PJSIP options for the `system` section
 **Required ACL:** `confd.asterisk.pjsip.system.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskPjsipSystemRequest
+	@return AsteriskAPIListAsteriskPjsipSystemRequest
 */
-func (a *AsteriskAPIService) ListAsteriskPjsipSystem(ctx context.Context) ApiListAsteriskPjsipSystemRequest {
-	return ApiListAsteriskPjsipSystemRequest{
+func (a *AsteriskAPIService) ListAsteriskPjsipSystem(ctx context.Context) AsteriskAPIListAsteriskPjsipSystemRequest {
+	return AsteriskAPIListAsteriskPjsipSystemRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1526,7 +1526,7 @@ func (a *AsteriskAPIService) ListAsteriskPjsipSystem(ctx context.Context) ApiLis
 // Execute executes the request
 //
 //	@return PJSIPSystem
-func (a *AsteriskAPIService) ListAsteriskPjsipSystemExecute(r ApiListAsteriskPjsipSystemRequest) (*PJSIPSystem, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskPjsipSystemExecute(r AsteriskAPIListAsteriskPjsipSystemRequest) (*PJSIPSystem, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1613,12 +1613,12 @@ func (a *AsteriskAPIService) ListAsteriskPjsipSystemExecute(r ApiListAsteriskPjs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskQueueGeneralRequest struct {
+type AsteriskAPIListAsteriskQueueGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskQueueGeneralRequest) Execute() (*QueueGeneral, *http.Response, error) {
+func (r AsteriskAPIListAsteriskQueueGeneralRequest) Execute() (*QueueGeneral, *http.Response, error) {
 	return r.ApiService.ListAsteriskQueueGeneralExecute(r)
 }
 
@@ -1628,10 +1628,10 @@ ListAsteriskQueueGeneral List Queue general options
 **Required ACL:** `confd.asterisk.queue.general.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskQueueGeneralRequest
+	@return AsteriskAPIListAsteriskQueueGeneralRequest
 */
-func (a *AsteriskAPIService) ListAsteriskQueueGeneral(ctx context.Context) ApiListAsteriskQueueGeneralRequest {
-	return ApiListAsteriskQueueGeneralRequest{
+func (a *AsteriskAPIService) ListAsteriskQueueGeneral(ctx context.Context) AsteriskAPIListAsteriskQueueGeneralRequest {
+	return AsteriskAPIListAsteriskQueueGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1640,7 +1640,7 @@ func (a *AsteriskAPIService) ListAsteriskQueueGeneral(ctx context.Context) ApiLi
 // Execute executes the request
 //
 //	@return QueueGeneral
-func (a *AsteriskAPIService) ListAsteriskQueueGeneralExecute(r ApiListAsteriskQueueGeneralRequest) (*QueueGeneral, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskQueueGeneralExecute(r AsteriskAPIListAsteriskQueueGeneralRequest) (*QueueGeneral, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1727,12 +1727,12 @@ func (a *AsteriskAPIService) ListAsteriskQueueGeneralExecute(r ApiListAsteriskQu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskRtpGeneralRequest struct {
+type AsteriskAPIListAsteriskRtpGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskRtpGeneralRequest) Execute() (*RTPConfiguration, *http.Response, error) {
+func (r AsteriskAPIListAsteriskRtpGeneralRequest) Execute() (*RTPConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskRtpGeneralExecute(r)
 }
 
@@ -1742,10 +1742,10 @@ ListAsteriskRtpGeneral List RTP general options
 **Required ACL:** `confd.asterisk.rtp.general.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskRtpGeneralRequest
+	@return AsteriskAPIListAsteriskRtpGeneralRequest
 */
-func (a *AsteriskAPIService) ListAsteriskRtpGeneral(ctx context.Context) ApiListAsteriskRtpGeneralRequest {
-	return ApiListAsteriskRtpGeneralRequest{
+func (a *AsteriskAPIService) ListAsteriskRtpGeneral(ctx context.Context) AsteriskAPIListAsteriskRtpGeneralRequest {
+	return AsteriskAPIListAsteriskRtpGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1754,7 +1754,7 @@ func (a *AsteriskAPIService) ListAsteriskRtpGeneral(ctx context.Context) ApiList
 // Execute executes the request
 //
 //	@return RTPConfiguration
-func (a *AsteriskAPIService) ListAsteriskRtpGeneralExecute(r ApiListAsteriskRtpGeneralRequest) (*RTPConfiguration, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskRtpGeneralExecute(r AsteriskAPIListAsteriskRtpGeneralRequest) (*RTPConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1841,12 +1841,12 @@ func (a *AsteriskAPIService) ListAsteriskRtpGeneralExecute(r ApiListAsteriskRtpG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskRtpIceHostCandidatesRequest struct {
+type AsteriskAPIListAsteriskRtpIceHostCandidatesRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskRtpIceHostCandidatesRequest) Execute() (*RTPConfiguration, *http.Response, error) {
+func (r AsteriskAPIListAsteriskRtpIceHostCandidatesRequest) Execute() (*RTPConfiguration, *http.Response, error) {
 	return r.ApiService.ListAsteriskRtpIceHostCandidatesExecute(r)
 }
 
@@ -1856,10 +1856,10 @@ ListAsteriskRtpIceHostCandidates List RTP ice_host_candidates options
 **Required ACL:** `confd.asterisk.rtp.ice_host_candidates.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskRtpIceHostCandidatesRequest
+	@return AsteriskAPIListAsteriskRtpIceHostCandidatesRequest
 */
-func (a *AsteriskAPIService) ListAsteriskRtpIceHostCandidates(ctx context.Context) ApiListAsteriskRtpIceHostCandidatesRequest {
-	return ApiListAsteriskRtpIceHostCandidatesRequest{
+func (a *AsteriskAPIService) ListAsteriskRtpIceHostCandidates(ctx context.Context) AsteriskAPIListAsteriskRtpIceHostCandidatesRequest {
+	return AsteriskAPIListAsteriskRtpIceHostCandidatesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1868,7 +1868,7 @@ func (a *AsteriskAPIService) ListAsteriskRtpIceHostCandidates(ctx context.Contex
 // Execute executes the request
 //
 //	@return RTPConfiguration
-func (a *AsteriskAPIService) ListAsteriskRtpIceHostCandidatesExecute(r ApiListAsteriskRtpIceHostCandidatesRequest) (*RTPConfiguration, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskRtpIceHostCandidatesExecute(r AsteriskAPIListAsteriskRtpIceHostCandidatesRequest) (*RTPConfiguration, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1955,12 +1955,12 @@ func (a *AsteriskAPIService) ListAsteriskRtpIceHostCandidatesExecute(r ApiListAs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskSccpGeneralRequest struct {
+type AsteriskAPIListAsteriskSccpGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskSccpGeneralRequest) Execute() (*SCCPGeneral, *http.Response, error) {
+func (r AsteriskAPIListAsteriskSccpGeneralRequest) Execute() (*SCCPGeneral, *http.Response, error) {
 	return r.ApiService.ListAsteriskSccpGeneralExecute(r)
 }
 
@@ -1970,10 +1970,10 @@ ListAsteriskSccpGeneral List SCCP general options
 **Required ACL:** `confd.asterisk.sccp.general.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskSccpGeneralRequest
+	@return AsteriskAPIListAsteriskSccpGeneralRequest
 */
-func (a *AsteriskAPIService) ListAsteriskSccpGeneral(ctx context.Context) ApiListAsteriskSccpGeneralRequest {
-	return ApiListAsteriskSccpGeneralRequest{
+func (a *AsteriskAPIService) ListAsteriskSccpGeneral(ctx context.Context) AsteriskAPIListAsteriskSccpGeneralRequest {
+	return AsteriskAPIListAsteriskSccpGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1982,7 +1982,7 @@ func (a *AsteriskAPIService) ListAsteriskSccpGeneral(ctx context.Context) ApiLis
 // Execute executes the request
 //
 //	@return SCCPGeneral
-func (a *AsteriskAPIService) ListAsteriskSccpGeneralExecute(r ApiListAsteriskSccpGeneralRequest) (*SCCPGeneral, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskSccpGeneralExecute(r AsteriskAPIListAsteriskSccpGeneralRequest) (*SCCPGeneral, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2069,12 +2069,12 @@ func (a *AsteriskAPIService) ListAsteriskSccpGeneralExecute(r ApiListAsteriskScc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskVoicemailGeneralRequest struct {
+type AsteriskAPIListAsteriskVoicemailGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskVoicemailGeneralRequest) Execute() (*VoicemailGeneral, *http.Response, error) {
+func (r AsteriskAPIListAsteriskVoicemailGeneralRequest) Execute() (*VoicemailGeneral, *http.Response, error) {
 	return r.ApiService.ListAsteriskVoicemailGeneralExecute(r)
 }
 
@@ -2084,10 +2084,10 @@ ListAsteriskVoicemailGeneral List Voicemail general options
 **Required ACL:** `confd.asterisk.voicemail.general.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskVoicemailGeneralRequest
+	@return AsteriskAPIListAsteriskVoicemailGeneralRequest
 */
-func (a *AsteriskAPIService) ListAsteriskVoicemailGeneral(ctx context.Context) ApiListAsteriskVoicemailGeneralRequest {
-	return ApiListAsteriskVoicemailGeneralRequest{
+func (a *AsteriskAPIService) ListAsteriskVoicemailGeneral(ctx context.Context) AsteriskAPIListAsteriskVoicemailGeneralRequest {
+	return AsteriskAPIListAsteriskVoicemailGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2096,7 +2096,7 @@ func (a *AsteriskAPIService) ListAsteriskVoicemailGeneral(ctx context.Context) A
 // Execute executes the request
 //
 //	@return VoicemailGeneral
-func (a *AsteriskAPIService) ListAsteriskVoicemailGeneralExecute(r ApiListAsteriskVoicemailGeneralRequest) (*VoicemailGeneral, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskVoicemailGeneralExecute(r AsteriskAPIListAsteriskVoicemailGeneralRequest) (*VoicemailGeneral, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2183,12 +2183,12 @@ func (a *AsteriskAPIService) ListAsteriskVoicemailGeneralExecute(r ApiListAsteri
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAsteriskVoicemailZonemessagesRequest struct {
+type AsteriskAPIListAsteriskVoicemailZonemessagesRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiListAsteriskVoicemailZonemessagesRequest) Execute() (*VoicemailZoneMessages, *http.Response, error) {
+func (r AsteriskAPIListAsteriskVoicemailZonemessagesRequest) Execute() (*VoicemailZoneMessages, *http.Response, error) {
 	return r.ApiService.ListAsteriskVoicemailZonemessagesExecute(r)
 }
 
@@ -2198,10 +2198,10 @@ ListAsteriskVoicemailZonemessages List Voicemail zonemessages options
 **Required ACL:** `confd.asterisk.voicemail.zonemessages.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListAsteriskVoicemailZonemessagesRequest
+	@return AsteriskAPIListAsteriskVoicemailZonemessagesRequest
 */
-func (a *AsteriskAPIService) ListAsteriskVoicemailZonemessages(ctx context.Context) ApiListAsteriskVoicemailZonemessagesRequest {
-	return ApiListAsteriskVoicemailZonemessagesRequest{
+func (a *AsteriskAPIService) ListAsteriskVoicemailZonemessages(ctx context.Context) AsteriskAPIListAsteriskVoicemailZonemessagesRequest {
+	return AsteriskAPIListAsteriskVoicemailZonemessagesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2210,7 +2210,7 @@ func (a *AsteriskAPIService) ListAsteriskVoicemailZonemessages(ctx context.Conte
 // Execute executes the request
 //
 //	@return VoicemailZoneMessages
-func (a *AsteriskAPIService) ListAsteriskVoicemailZonemessagesExecute(r ApiListAsteriskVoicemailZonemessagesRequest) (*VoicemailZoneMessages, *http.Response, error) {
+func (a *AsteriskAPIService) ListAsteriskVoicemailZonemessagesExecute(r AsteriskAPIListAsteriskVoicemailZonemessagesRequest) (*VoicemailZoneMessages, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2297,12 +2297,12 @@ func (a *AsteriskAPIService) ListAsteriskVoicemailZonemessagesExecute(r ApiListA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiShowPjsipDocRequest struct {
+type AsteriskAPIShowPjsipDocRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 }
 
-func (r ApiShowPjsipDocRequest) Execute() (*PJSIPConfigurationOptions, *http.Response, error) {
+func (r AsteriskAPIShowPjsipDocRequest) Execute() (*PJSIPConfigurationOptions, *http.Response, error) {
 	return r.ApiService.ShowPjsipDocExecute(r)
 }
 
@@ -2312,10 +2312,10 @@ ShowPjsipDoc List all PJSIP configuration options
 **Required ACL:**: `confd.asterisk.pjsip.doc.read` List all available configuration options for PJSIP, those values are used to validate to content of POST and PUT requests.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiShowPjsipDocRequest
+	@return AsteriskAPIShowPjsipDocRequest
 */
-func (a *AsteriskAPIService) ShowPjsipDoc(ctx context.Context) ApiShowPjsipDocRequest {
-	return ApiShowPjsipDocRequest{
+func (a *AsteriskAPIService) ShowPjsipDoc(ctx context.Context) AsteriskAPIShowPjsipDocRequest {
+	return AsteriskAPIShowPjsipDocRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2324,7 +2324,7 @@ func (a *AsteriskAPIService) ShowPjsipDoc(ctx context.Context) ApiShowPjsipDocRe
 // Execute executes the request
 //
 //	@return PJSIPConfigurationOptions
-func (a *AsteriskAPIService) ShowPjsipDocExecute(r ApiShowPjsipDocRequest) (*PJSIPConfigurationOptions, *http.Response, error) {
+func (a *AsteriskAPIService) ShowPjsipDocExecute(r AsteriskAPIShowPjsipDocRequest) (*PJSIPConfigurationOptions, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2421,18 +2421,18 @@ func (a *AsteriskAPIService) ShowPjsipDocExecute(r ApiShowPjsipDocRequest) (*PJS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest struct {
+type AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *ConfBridgeConfiguration
 }
 
-func (r ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) Body(body ConfBridgeConfiguration) ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest {
+func (r AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) Body(body ConfBridgeConfiguration) AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r)
 }
 
@@ -2442,17 +2442,17 @@ UpdateAsteriskConfbridgeAccentDefaultBridge Update ConfBridge accent_default_bri
 **Required ACL:** `confd.asterisk.confbridge.accent_default_bridge.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined. All available configuration options are listed in the [sample](https://raw.githubusercontent.com/asterisk/asterisk/master/configs/samples/confbridge.conf.sample) Asterisk configuration file.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
+	@return AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest {
-	return ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest{
+func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultBridge(ctx context.Context) AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest {
+	return AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r ApiUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(r AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultBridgeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2555,18 +2555,18 @@ func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultBridgeExecute(
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest struct {
+type AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *ConfBridgeConfiguration
 }
 
-func (r ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest) Body(body ConfBridgeConfiguration) ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest {
+func (r AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest) Body(body ConfBridgeConfiguration) AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskConfbridgeAccentDefaultUserExecute(r)
 }
 
@@ -2576,17 +2576,17 @@ UpdateAsteriskConfbridgeAccentDefaultUser Update ConfBridge accent_default_user 
 **Required ACL:** `confd.asterisk.confbridge.accent_default_user.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined. All available configuration options are listed in the [sample](https://raw.githubusercontent.com/asterisk/asterisk/master/configs/samples/confbridge.conf.sample) Asterisk configuration file.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest
+	@return AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultUser(ctx context.Context) ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest {
-	return ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest{
+func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultUser(ctx context.Context) AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest {
+	return AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultUserExecute(r ApiUpdateAsteriskConfbridgeAccentDefaultUserRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultUserExecute(r AsteriskAPIUpdateAsteriskConfbridgeAccentDefaultUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2689,18 +2689,18 @@ func (a *AsteriskAPIService) UpdateAsteriskConfbridgeAccentDefaultUserExecute(r 
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskFeaturesApplicationmapRequest struct {
+type AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *FeaturesConfiguration
 }
 
-func (r ApiUpdateAsteriskFeaturesApplicationmapRequest) Body(body FeaturesConfiguration) ApiUpdateAsteriskFeaturesApplicationmapRequest {
+func (r AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest) Body(body FeaturesConfiguration) AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskFeaturesApplicationmapRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskFeaturesApplicationmapExecute(r)
 }
 
@@ -2710,17 +2710,17 @@ UpdateAsteriskFeaturesApplicationmap Update Features applicationmap option
 **Required ACL:** `confd.asterisk.features.applicationmap.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskFeaturesApplicationmapRequest
+	@return AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskFeaturesApplicationmap(ctx context.Context) ApiUpdateAsteriskFeaturesApplicationmapRequest {
-	return ApiUpdateAsteriskFeaturesApplicationmapRequest{
+func (a *AsteriskAPIService) UpdateAsteriskFeaturesApplicationmap(ctx context.Context) AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest {
+	return AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskFeaturesApplicationmapExecute(r ApiUpdateAsteriskFeaturesApplicationmapRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskFeaturesApplicationmapExecute(r AsteriskAPIUpdateAsteriskFeaturesApplicationmapRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2823,18 +2823,18 @@ func (a *AsteriskAPIService) UpdateAsteriskFeaturesApplicationmapExecute(r ApiUp
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskFeaturesFeaturemapRequest struct {
+type AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *FeaturesConfiguration
 }
 
-func (r ApiUpdateAsteriskFeaturesFeaturemapRequest) Body(body FeaturesConfiguration) ApiUpdateAsteriskFeaturesFeaturemapRequest {
+func (r AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest) Body(body FeaturesConfiguration) AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskFeaturesFeaturemapRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskFeaturesFeaturemapExecute(r)
 }
 
@@ -2844,17 +2844,17 @@ UpdateAsteriskFeaturesFeaturemap Update Features featuremap option
 **Required ACL:** `confd.asterisk.features.featuremap.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskFeaturesFeaturemapRequest
+	@return AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskFeaturesFeaturemap(ctx context.Context) ApiUpdateAsteriskFeaturesFeaturemapRequest {
-	return ApiUpdateAsteriskFeaturesFeaturemapRequest{
+func (a *AsteriskAPIService) UpdateAsteriskFeaturesFeaturemap(ctx context.Context) AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest {
+	return AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskFeaturesFeaturemapExecute(r ApiUpdateAsteriskFeaturesFeaturemapRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskFeaturesFeaturemapExecute(r AsteriskAPIUpdateAsteriskFeaturesFeaturemapRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2957,18 +2957,18 @@ func (a *AsteriskAPIService) UpdateAsteriskFeaturesFeaturemapExecute(r ApiUpdate
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskFeaturesGeneralRequest struct {
+type AsteriskAPIUpdateAsteriskFeaturesGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *FeaturesConfiguration
 }
 
-func (r ApiUpdateAsteriskFeaturesGeneralRequest) Body(body FeaturesConfiguration) ApiUpdateAsteriskFeaturesGeneralRequest {
+func (r AsteriskAPIUpdateAsteriskFeaturesGeneralRequest) Body(body FeaturesConfiguration) AsteriskAPIUpdateAsteriskFeaturesGeneralRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskFeaturesGeneralRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskFeaturesGeneralRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskFeaturesGeneralExecute(r)
 }
 
@@ -2978,17 +2978,17 @@ UpdateAsteriskFeaturesGeneral Update Features general option
 **Required ACL:** `confd.asterisk.features.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskFeaturesGeneralRequest
+	@return AsteriskAPIUpdateAsteriskFeaturesGeneralRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskFeaturesGeneral(ctx context.Context) ApiUpdateAsteriskFeaturesGeneralRequest {
-	return ApiUpdateAsteriskFeaturesGeneralRequest{
+func (a *AsteriskAPIService) UpdateAsteriskFeaturesGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskFeaturesGeneralRequest {
+	return AsteriskAPIUpdateAsteriskFeaturesGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskFeaturesGeneralExecute(r ApiUpdateAsteriskFeaturesGeneralRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskFeaturesGeneralExecute(r AsteriskAPIUpdateAsteriskFeaturesGeneralRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3091,18 +3091,18 @@ func (a *AsteriskAPIService) UpdateAsteriskFeaturesGeneralExecute(r ApiUpdateAst
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskHepGeneralRequest struct {
+type AsteriskAPIUpdateAsteriskHepGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *HEPConfiguration
 }
 
-func (r ApiUpdateAsteriskHepGeneralRequest) Body(body HEPConfiguration) ApiUpdateAsteriskHepGeneralRequest {
+func (r AsteriskAPIUpdateAsteriskHepGeneralRequest) Body(body HEPConfiguration) AsteriskAPIUpdateAsteriskHepGeneralRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskHepGeneralRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskHepGeneralRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskHepGeneralExecute(r)
 }
 
@@ -3114,17 +3114,17 @@ UpdateAsteriskHepGeneral Update HEP general option
 **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskHepGeneralRequest
+	@return AsteriskAPIUpdateAsteriskHepGeneralRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskHepGeneral(ctx context.Context) ApiUpdateAsteriskHepGeneralRequest {
-	return ApiUpdateAsteriskHepGeneralRequest{
+func (a *AsteriskAPIService) UpdateAsteriskHepGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskHepGeneralRequest {
+	return AsteriskAPIUpdateAsteriskHepGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskHepGeneralExecute(r ApiUpdateAsteriskHepGeneralRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskHepGeneralExecute(r AsteriskAPIUpdateAsteriskHepGeneralRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3216,18 +3216,18 @@ func (a *AsteriskAPIService) UpdateAsteriskHepGeneralExecute(r ApiUpdateAsterisk
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskIaxCallnumberlimitsRequest struct {
+type AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *IAXCallNumberLimitss
 }
 
-func (r ApiUpdateAsteriskIaxCallnumberlimitsRequest) Body(body IAXCallNumberLimitss) ApiUpdateAsteriskIaxCallnumberlimitsRequest {
+func (r AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest) Body(body IAXCallNumberLimitss) AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskIaxCallnumberlimitsRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskIaxCallnumberlimitsExecute(r)
 }
 
@@ -3237,17 +3237,17 @@ UpdateAsteriskIaxCallnumberlimits Update IAX callnumberlimits option
 **Required ACL:** `confd.asterisk.iax.callnumberlimits.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskIaxCallnumberlimitsRequest
+	@return AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskIaxCallnumberlimits(ctx context.Context) ApiUpdateAsteriskIaxCallnumberlimitsRequest {
-	return ApiUpdateAsteriskIaxCallnumberlimitsRequest{
+func (a *AsteriskAPIService) UpdateAsteriskIaxCallnumberlimits(ctx context.Context) AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest {
+	return AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskIaxCallnumberlimitsExecute(r ApiUpdateAsteriskIaxCallnumberlimitsRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskIaxCallnumberlimitsExecute(r AsteriskAPIUpdateAsteriskIaxCallnumberlimitsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3350,18 +3350,18 @@ func (a *AsteriskAPIService) UpdateAsteriskIaxCallnumberlimitsExecute(r ApiUpdat
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskIaxGeneralRequest struct {
+type AsteriskAPIUpdateAsteriskIaxGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *IAXGeneral
 }
 
-func (r ApiUpdateAsteriskIaxGeneralRequest) Body(body IAXGeneral) ApiUpdateAsteriskIaxGeneralRequest {
+func (r AsteriskAPIUpdateAsteriskIaxGeneralRequest) Body(body IAXGeneral) AsteriskAPIUpdateAsteriskIaxGeneralRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskIaxGeneralRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskIaxGeneralRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskIaxGeneralExecute(r)
 }
 
@@ -3371,17 +3371,17 @@ UpdateAsteriskIaxGeneral Update IAX general option
 **Required ACL:** `confd.asterisk.iax.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskIaxGeneralRequest
+	@return AsteriskAPIUpdateAsteriskIaxGeneralRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskIaxGeneral(ctx context.Context) ApiUpdateAsteriskIaxGeneralRequest {
-	return ApiUpdateAsteriskIaxGeneralRequest{
+func (a *AsteriskAPIService) UpdateAsteriskIaxGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskIaxGeneralRequest {
+	return AsteriskAPIUpdateAsteriskIaxGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskIaxGeneralExecute(r ApiUpdateAsteriskIaxGeneralRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskIaxGeneralExecute(r AsteriskAPIUpdateAsteriskIaxGeneralRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3484,18 +3484,18 @@ func (a *AsteriskAPIService) UpdateAsteriskIaxGeneralExecute(r ApiUpdateAsterisk
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskPjsipGlobalRequest struct {
+type AsteriskAPIUpdateAsteriskPjsipGlobalRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *PJSIPGlobal
 }
 
-func (r ApiUpdateAsteriskPjsipGlobalRequest) Body(body PJSIPGlobal) ApiUpdateAsteriskPjsipGlobalRequest {
+func (r AsteriskAPIUpdateAsteriskPjsipGlobalRequest) Body(body PJSIPGlobal) AsteriskAPIUpdateAsteriskPjsipGlobalRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskPjsipGlobalRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskPjsipGlobalRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskPjsipGlobalExecute(r)
 }
 
@@ -3505,17 +3505,17 @@ UpdateAsteriskPjsipGlobal Update PJSIP section options
 **Required ACL:** `confd.asterisk.pjsip.global.update` The PJSIP global configuration is shared among all tenants of an instance. **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskPjsipGlobalRequest
+	@return AsteriskAPIUpdateAsteriskPjsipGlobalRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskPjsipGlobal(ctx context.Context) ApiUpdateAsteriskPjsipGlobalRequest {
-	return ApiUpdateAsteriskPjsipGlobalRequest{
+func (a *AsteriskAPIService) UpdateAsteriskPjsipGlobal(ctx context.Context) AsteriskAPIUpdateAsteriskPjsipGlobalRequest {
+	return AsteriskAPIUpdateAsteriskPjsipGlobalRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskPjsipGlobalExecute(r ApiUpdateAsteriskPjsipGlobalRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskPjsipGlobalExecute(r AsteriskAPIUpdateAsteriskPjsipGlobalRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3618,18 +3618,18 @@ func (a *AsteriskAPIService) UpdateAsteriskPjsipGlobalExecute(r ApiUpdateAsteris
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskPjsipSystemRequest struct {
+type AsteriskAPIUpdateAsteriskPjsipSystemRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *PJSIPSystem
 }
 
-func (r ApiUpdateAsteriskPjsipSystemRequest) Body(body PJSIPSystem) ApiUpdateAsteriskPjsipSystemRequest {
+func (r AsteriskAPIUpdateAsteriskPjsipSystemRequest) Body(body PJSIPSystem) AsteriskAPIUpdateAsteriskPjsipSystemRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskPjsipSystemRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskPjsipSystemRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskPjsipSystemExecute(r)
 }
 
@@ -3639,17 +3639,17 @@ UpdateAsteriskPjsipSystem Update PJSIP section options
 **Required ACL:** `confd.asterisk.pjsip.system.update` The PJSIP system configuration is shared among all tenants of an instance. **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskPjsipSystemRequest
+	@return AsteriskAPIUpdateAsteriskPjsipSystemRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskPjsipSystem(ctx context.Context) ApiUpdateAsteriskPjsipSystemRequest {
-	return ApiUpdateAsteriskPjsipSystemRequest{
+func (a *AsteriskAPIService) UpdateAsteriskPjsipSystem(ctx context.Context) AsteriskAPIUpdateAsteriskPjsipSystemRequest {
+	return AsteriskAPIUpdateAsteriskPjsipSystemRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskPjsipSystemExecute(r ApiUpdateAsteriskPjsipSystemRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskPjsipSystemExecute(r AsteriskAPIUpdateAsteriskPjsipSystemRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3752,18 +3752,18 @@ func (a *AsteriskAPIService) UpdateAsteriskPjsipSystemExecute(r ApiUpdateAsteris
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskQueueGeneralRequest struct {
+type AsteriskAPIUpdateAsteriskQueueGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *QueueGeneral
 }
 
-func (r ApiUpdateAsteriskQueueGeneralRequest) Body(body QueueGeneral) ApiUpdateAsteriskQueueGeneralRequest {
+func (r AsteriskAPIUpdateAsteriskQueueGeneralRequest) Body(body QueueGeneral) AsteriskAPIUpdateAsteriskQueueGeneralRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskQueueGeneralRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskQueueGeneralRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskQueueGeneralExecute(r)
 }
 
@@ -3773,17 +3773,17 @@ UpdateAsteriskQueueGeneral Update Queue general option
 **Required ACL:** `confd.asterisk.queue.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskQueueGeneralRequest
+	@return AsteriskAPIUpdateAsteriskQueueGeneralRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskQueueGeneral(ctx context.Context) ApiUpdateAsteriskQueueGeneralRequest {
-	return ApiUpdateAsteriskQueueGeneralRequest{
+func (a *AsteriskAPIService) UpdateAsteriskQueueGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskQueueGeneralRequest {
+	return AsteriskAPIUpdateAsteriskQueueGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskQueueGeneralExecute(r ApiUpdateAsteriskQueueGeneralRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskQueueGeneralExecute(r AsteriskAPIUpdateAsteriskQueueGeneralRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3886,18 +3886,18 @@ func (a *AsteriskAPIService) UpdateAsteriskQueueGeneralExecute(r ApiUpdateAsteri
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskRtpGeneralRequest struct {
+type AsteriskAPIUpdateAsteriskRtpGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *RTPConfiguration
 }
 
-func (r ApiUpdateAsteriskRtpGeneralRequest) Body(body RTPConfiguration) ApiUpdateAsteriskRtpGeneralRequest {
+func (r AsteriskAPIUpdateAsteriskRtpGeneralRequest) Body(body RTPConfiguration) AsteriskAPIUpdateAsteriskRtpGeneralRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskRtpGeneralRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskRtpGeneralRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskRtpGeneralExecute(r)
 }
 
@@ -3907,17 +3907,17 @@ UpdateAsteriskRtpGeneral Update RTP general option
 **Required ACL:** `confd.asterisk.rtp.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskRtpGeneralRequest
+	@return AsteriskAPIUpdateAsteriskRtpGeneralRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskRtpGeneral(ctx context.Context) ApiUpdateAsteriskRtpGeneralRequest {
-	return ApiUpdateAsteriskRtpGeneralRequest{
+func (a *AsteriskAPIService) UpdateAsteriskRtpGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskRtpGeneralRequest {
+	return AsteriskAPIUpdateAsteriskRtpGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskRtpGeneralExecute(r ApiUpdateAsteriskRtpGeneralRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskRtpGeneralExecute(r AsteriskAPIUpdateAsteriskRtpGeneralRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4020,18 +4020,18 @@ func (a *AsteriskAPIService) UpdateAsteriskRtpGeneralExecute(r ApiUpdateAsterisk
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskRtpIceHostCandidatesRequest struct {
+type AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *RTPConfiguration
 }
 
-func (r ApiUpdateAsteriskRtpIceHostCandidatesRequest) Body(body RTPConfiguration) ApiUpdateAsteriskRtpIceHostCandidatesRequest {
+func (r AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest) Body(body RTPConfiguration) AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskRtpIceHostCandidatesRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskRtpIceHostCandidatesExecute(r)
 }
 
@@ -4041,17 +4041,17 @@ UpdateAsteriskRtpIceHostCandidates Update RTP ice_host_candidates option
 **Required ACL:** `confd.asterisk.rtp.ice_host_candidates.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskRtpIceHostCandidatesRequest
+	@return AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskRtpIceHostCandidates(ctx context.Context) ApiUpdateAsteriskRtpIceHostCandidatesRequest {
-	return ApiUpdateAsteriskRtpIceHostCandidatesRequest{
+func (a *AsteriskAPIService) UpdateAsteriskRtpIceHostCandidates(ctx context.Context) AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest {
+	return AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskRtpIceHostCandidatesExecute(r ApiUpdateAsteriskRtpIceHostCandidatesRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskRtpIceHostCandidatesExecute(r AsteriskAPIUpdateAsteriskRtpIceHostCandidatesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4154,18 +4154,18 @@ func (a *AsteriskAPIService) UpdateAsteriskRtpIceHostCandidatesExecute(r ApiUpda
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskSccpGeneralRequest struct {
+type AsteriskAPIUpdateAsteriskSccpGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *SCCPGeneral
 }
 
-func (r ApiUpdateAsteriskSccpGeneralRequest) Body(body SCCPGeneral) ApiUpdateAsteriskSccpGeneralRequest {
+func (r AsteriskAPIUpdateAsteriskSccpGeneralRequest) Body(body SCCPGeneral) AsteriskAPIUpdateAsteriskSccpGeneralRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskSccpGeneralRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskSccpGeneralRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskSccpGeneralExecute(r)
 }
 
@@ -4175,17 +4175,17 @@ UpdateAsteriskSccpGeneral Update SCCP general option
 **Required ACL:** `confd.asterisk.sccp.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskSccpGeneralRequest
+	@return AsteriskAPIUpdateAsteriskSccpGeneralRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskSccpGeneral(ctx context.Context) ApiUpdateAsteriskSccpGeneralRequest {
-	return ApiUpdateAsteriskSccpGeneralRequest{
+func (a *AsteriskAPIService) UpdateAsteriskSccpGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskSccpGeneralRequest {
+	return AsteriskAPIUpdateAsteriskSccpGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskSccpGeneralExecute(r ApiUpdateAsteriskSccpGeneralRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskSccpGeneralExecute(r AsteriskAPIUpdateAsteriskSccpGeneralRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4288,18 +4288,18 @@ func (a *AsteriskAPIService) UpdateAsteriskSccpGeneralExecute(r ApiUpdateAsteris
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskVoicemailGeneralRequest struct {
+type AsteriskAPIUpdateAsteriskVoicemailGeneralRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *VoicemailGeneral
 }
 
-func (r ApiUpdateAsteriskVoicemailGeneralRequest) Body(body VoicemailGeneral) ApiUpdateAsteriskVoicemailGeneralRequest {
+func (r AsteriskAPIUpdateAsteriskVoicemailGeneralRequest) Body(body VoicemailGeneral) AsteriskAPIUpdateAsteriskVoicemailGeneralRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskVoicemailGeneralRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskVoicemailGeneralRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskVoicemailGeneralExecute(r)
 }
 
@@ -4309,17 +4309,17 @@ UpdateAsteriskVoicemailGeneral Update Voicemail general option
 **Required ACL:** `confd.asterisk.voicemail.general.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskVoicemailGeneralRequest
+	@return AsteriskAPIUpdateAsteriskVoicemailGeneralRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskVoicemailGeneral(ctx context.Context) ApiUpdateAsteriskVoicemailGeneralRequest {
-	return ApiUpdateAsteriskVoicemailGeneralRequest{
+func (a *AsteriskAPIService) UpdateAsteriskVoicemailGeneral(ctx context.Context) AsteriskAPIUpdateAsteriskVoicemailGeneralRequest {
+	return AsteriskAPIUpdateAsteriskVoicemailGeneralRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskVoicemailGeneralExecute(r ApiUpdateAsteriskVoicemailGeneralRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskVoicemailGeneralExecute(r AsteriskAPIUpdateAsteriskVoicemailGeneralRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -4422,18 +4422,18 @@ func (a *AsteriskAPIService) UpdateAsteriskVoicemailGeneralExecute(r ApiUpdateAs
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAsteriskVoicemailZonemessagesRequest struct {
+type AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest struct {
 	ctx        context.Context
 	ApiService AsteriskAPI
 	body       *VoicemailZoneMessages
 }
 
-func (r ApiUpdateAsteriskVoicemailZonemessagesRequest) Body(body VoicemailZoneMessages) ApiUpdateAsteriskVoicemailZonemessagesRequest {
+func (r AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest) Body(body VoicemailZoneMessages) AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAsteriskVoicemailZonemessagesRequest) Execute() (*http.Response, error) {
+func (r AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAsteriskVoicemailZonemessagesExecute(r)
 }
 
@@ -4443,17 +4443,17 @@ UpdateAsteriskVoicemailZonemessages Update Voicemail zonemessages option
 **Required ACL:** `confd.asterisk.voicemail.zonemessages.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateAsteriskVoicemailZonemessagesRequest
+	@return AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest
 */
-func (a *AsteriskAPIService) UpdateAsteriskVoicemailZonemessages(ctx context.Context) ApiUpdateAsteriskVoicemailZonemessagesRequest {
-	return ApiUpdateAsteriskVoicemailZonemessagesRequest{
+func (a *AsteriskAPIService) UpdateAsteriskVoicemailZonemessages(ctx context.Context) AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest {
+	return AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AsteriskAPIService) UpdateAsteriskVoicemailZonemessagesExecute(r ApiUpdateAsteriskVoicemailZonemessagesRequest) (*http.Response, error) {
+func (a *AsteriskAPIService) UpdateAsteriskVoicemailZonemessagesExecute(r AsteriskAPIUpdateAsteriskVoicemailZonemessagesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

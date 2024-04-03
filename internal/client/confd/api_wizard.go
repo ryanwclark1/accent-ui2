@@ -27,13 +27,13 @@ type WizardAPI interface {
 		**Required ACL:** none This API can only be used before wizard configuration.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetWizardDiscoverRequest
+		@return WizardAPIGetWizardDiscoverRequest
 	*/
-	GetWizardDiscover(ctx context.Context) ApiGetWizardDiscoverRequest
+	GetWizardDiscover(ctx context.Context) WizardAPIGetWizardDiscoverRequest
 
 	// GetWizardDiscoverExecute executes the request
 	//  @return WizardDiscover
-	GetWizardDiscoverExecute(r ApiGetWizardDiscoverRequest) (*WizardDiscover, *http.Response, error)
+	GetWizardDiscoverExecute(r WizardAPIGetWizardDiscoverRequest) (*WizardDiscover, *http.Response, error)
 
 	/*
 		GetWizardStatus Get wizard status
@@ -41,13 +41,13 @@ type WizardAPI interface {
 		**Required ACL:** none
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetWizardStatusRequest
+		@return WizardAPIGetWizardStatusRequest
 	*/
-	GetWizardStatus(ctx context.Context) ApiGetWizardStatusRequest
+	GetWizardStatus(ctx context.Context) WizardAPIGetWizardStatusRequest
 
 	// GetWizardStatusExecute executes the request
 	//  @return WizardConfigured
-	GetWizardStatusExecute(r ApiGetWizardStatusRequest) (*WizardConfigured, *http.Response, error)
+	GetWizardStatusExecute(r WizardAPIGetWizardStatusRequest) (*WizardConfigured, *http.Response, error)
 
 	/*
 		PassWizard Pass the wizard
@@ -57,24 +57,24 @@ type WizardAPI interface {
 	This API can only be used before wizard configuration.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPassWizardRequest
+		@return WizardAPIPassWizardRequest
 	*/
-	PassWizard(ctx context.Context) ApiPassWizardRequest
+	PassWizard(ctx context.Context) WizardAPIPassWizardRequest
 
 	// PassWizardExecute executes the request
 	//  @return Wizard
-	PassWizardExecute(r ApiPassWizardRequest) (*Wizard, *http.Response, error)
+	PassWizardExecute(r WizardAPIPassWizardRequest) (*Wizard, *http.Response, error)
 }
 
 // WizardAPIService WizardAPI service
 type WizardAPIService service
 
-type ApiGetWizardDiscoverRequest struct {
+type WizardAPIGetWizardDiscoverRequest struct {
 	ctx        context.Context
 	ApiService WizardAPI
 }
 
-func (r ApiGetWizardDiscoverRequest) Execute() (*WizardDiscover, *http.Response, error) {
+func (r WizardAPIGetWizardDiscoverRequest) Execute() (*WizardDiscover, *http.Response, error) {
 	return r.ApiService.GetWizardDiscoverExecute(r)
 }
 
@@ -84,10 +84,10 @@ GetWizardDiscover Get wizard discover
 **Required ACL:** none This API can only be used before wizard configuration.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetWizardDiscoverRequest
+	@return WizardAPIGetWizardDiscoverRequest
 */
-func (a *WizardAPIService) GetWizardDiscover(ctx context.Context) ApiGetWizardDiscoverRequest {
-	return ApiGetWizardDiscoverRequest{
+func (a *WizardAPIService) GetWizardDiscover(ctx context.Context) WizardAPIGetWizardDiscoverRequest {
+	return WizardAPIGetWizardDiscoverRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -96,7 +96,7 @@ func (a *WizardAPIService) GetWizardDiscover(ctx context.Context) ApiGetWizardDi
 // Execute executes the request
 //
 //	@return WizardDiscover
-func (a *WizardAPIService) GetWizardDiscoverExecute(r ApiGetWizardDiscoverRequest) (*WizardDiscover, *http.Response, error) {
+func (a *WizardAPIService) GetWizardDiscoverExecute(r WizardAPIGetWizardDiscoverRequest) (*WizardDiscover, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -193,12 +193,12 @@ func (a *WizardAPIService) GetWizardDiscoverExecute(r ApiGetWizardDiscoverReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetWizardStatusRequest struct {
+type WizardAPIGetWizardStatusRequest struct {
 	ctx        context.Context
 	ApiService WizardAPI
 }
 
-func (r ApiGetWizardStatusRequest) Execute() (*WizardConfigured, *http.Response, error) {
+func (r WizardAPIGetWizardStatusRequest) Execute() (*WizardConfigured, *http.Response, error) {
 	return r.ApiService.GetWizardStatusExecute(r)
 }
 
@@ -208,10 +208,10 @@ GetWizardStatus Get wizard status
 **Required ACL:** none
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetWizardStatusRequest
+	@return WizardAPIGetWizardStatusRequest
 */
-func (a *WizardAPIService) GetWizardStatus(ctx context.Context) ApiGetWizardStatusRequest {
-	return ApiGetWizardStatusRequest{
+func (a *WizardAPIService) GetWizardStatus(ctx context.Context) WizardAPIGetWizardStatusRequest {
+	return WizardAPIGetWizardStatusRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -220,7 +220,7 @@ func (a *WizardAPIService) GetWizardStatus(ctx context.Context) ApiGetWizardStat
 // Execute executes the request
 //
 //	@return WizardConfigured
-func (a *WizardAPIService) GetWizardStatusExecute(r ApiGetWizardStatusRequest) (*WizardConfigured, *http.Response, error) {
+func (a *WizardAPIService) GetWizardStatusExecute(r WizardAPIGetWizardStatusRequest) (*WizardConfigured, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -307,19 +307,19 @@ func (a *WizardAPIService) GetWizardStatusExecute(r ApiGetWizardStatusRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPassWizardRequest struct {
+type WizardAPIPassWizardRequest struct {
 	ctx        context.Context
 	ApiService WizardAPI
 	body       *Wizard
 }
 
 // Wizard parameters to configure
-func (r ApiPassWizardRequest) Body(body Wizard) ApiPassWizardRequest {
+func (r WizardAPIPassWizardRequest) Body(body Wizard) WizardAPIPassWizardRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiPassWizardRequest) Execute() (*Wizard, *http.Response, error) {
+func (r WizardAPIPassWizardRequest) Execute() (*Wizard, *http.Response, error) {
 	return r.ApiService.PassWizardExecute(r)
 }
 
@@ -331,10 +331,10 @@ PassWizard Pass the wizard
 This API can only be used before wizard configuration.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPassWizardRequest
+	@return WizardAPIPassWizardRequest
 */
-func (a *WizardAPIService) PassWizard(ctx context.Context) ApiPassWizardRequest {
-	return ApiPassWizardRequest{
+func (a *WizardAPIService) PassWizard(ctx context.Context) WizardAPIPassWizardRequest {
+	return WizardAPIPassWizardRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -343,7 +343,7 @@ func (a *WizardAPIService) PassWizard(ctx context.Context) ApiPassWizardRequest 
 // Execute executes the request
 //
 //	@return Wizard
-func (a *WizardAPIService) PassWizardExecute(r ApiPassWizardRequest) (*Wizard, *http.Response, error) {
+func (a *WizardAPIService) PassWizardExecute(r WizardAPIPassWizardRequest) (*Wizard, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}

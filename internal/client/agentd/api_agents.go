@@ -27,13 +27,13 @@ type AgentsAPI interface {
 		**Required ACL:** `agentd.agents.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetAgentsRequest
+		@return AgentsAPIGetAgentsRequest
 	*/
-	GetAgents(ctx context.Context) ApiGetAgentsRequest
+	GetAgents(ctx context.Context) AgentsAPIGetAgentsRequest
 
 	// GetAgentsExecute executes the request
 	//  @return AgentStatus
-	GetAgentsExecute(r ApiGetAgentsRequest) (*AgentStatus, *http.Response, error)
+	GetAgentsExecute(r AgentsAPIGetAgentsRequest) (*AgentStatus, *http.Response, error)
 
 	/*
 		LogoffAgents Logoff all agents.
@@ -41,12 +41,12 @@ type AgentsAPI interface {
 		**Required ACL:** `agentd.agents.logoff.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiLogoffAgentsRequest
+		@return AgentsAPILogoffAgentsRequest
 	*/
-	LogoffAgents(ctx context.Context) ApiLogoffAgentsRequest
+	LogoffAgents(ctx context.Context) AgentsAPILogoffAgentsRequest
 
 	// LogoffAgentsExecute executes the request
-	LogoffAgentsExecute(r ApiLogoffAgentsRequest) (*http.Response, error)
+	LogoffAgentsExecute(r AgentsAPILogoffAgentsRequest) (*http.Response, error)
 
 	/*
 		RelogAgents Relog all agents.
@@ -56,18 +56,18 @@ type AgentsAPI interface {
 	Relog all agents which are currently logged.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiRelogAgentsRequest
+		@return AgentsAPIRelogAgentsRequest
 	*/
-	RelogAgents(ctx context.Context) ApiRelogAgentsRequest
+	RelogAgents(ctx context.Context) AgentsAPIRelogAgentsRequest
 
 	// RelogAgentsExecute executes the request
-	RelogAgentsExecute(r ApiRelogAgentsRequest) (*http.Response, error)
+	RelogAgentsExecute(r AgentsAPIRelogAgentsRequest) (*http.Response, error)
 }
 
 // AgentsAPIService AgentsAPI service
 type AgentsAPIService service
 
-type ApiGetAgentsRequest struct {
+type AgentsAPIGetAgentsRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	accentTenant *string
@@ -75,18 +75,18 @@ type ApiGetAgentsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetAgentsRequest) AccentTenant(accentTenant string) ApiGetAgentsRequest {
+func (r AgentsAPIGetAgentsRequest) AccentTenant(accentTenant string) AgentsAPIGetAgentsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiGetAgentsRequest) Recurse(recurse bool) ApiGetAgentsRequest {
+func (r AgentsAPIGetAgentsRequest) Recurse(recurse bool) AgentsAPIGetAgentsRequest {
 	r.recurse = &recurse
 	return r
 }
 
-func (r ApiGetAgentsRequest) Execute() (*AgentStatus, *http.Response, error) {
+func (r AgentsAPIGetAgentsRequest) Execute() (*AgentStatus, *http.Response, error) {
 	return r.ApiService.GetAgentsExecute(r)
 }
 
@@ -96,10 +96,10 @@ GetAgents Get the status of all agents.
 **Required ACL:** `agentd.agents.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetAgentsRequest
+	@return AgentsAPIGetAgentsRequest
 */
-func (a *AgentsAPIService) GetAgents(ctx context.Context) ApiGetAgentsRequest {
-	return ApiGetAgentsRequest{
+func (a *AgentsAPIService) GetAgents(ctx context.Context) AgentsAPIGetAgentsRequest {
+	return AgentsAPIGetAgentsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -108,7 +108,7 @@ func (a *AgentsAPIService) GetAgents(ctx context.Context) ApiGetAgentsRequest {
 // Execute executes the request
 //
 //	@return AgentStatus
-func (a *AgentsAPIService) GetAgentsExecute(r ApiGetAgentsRequest) (*AgentStatus, *http.Response, error) {
+func (a *AgentsAPIService) GetAgentsExecute(r AgentsAPIGetAgentsRequest) (*AgentStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -204,19 +204,19 @@ func (a *AgentsAPIService) GetAgentsExecute(r ApiGetAgentsRequest) (*AgentStatus
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiLogoffAgentsRequest struct {
+type AgentsAPILogoffAgentsRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiLogoffAgentsRequest) AccentTenant(accentTenant string) ApiLogoffAgentsRequest {
+func (r AgentsAPILogoffAgentsRequest) AccentTenant(accentTenant string) AgentsAPILogoffAgentsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiLogoffAgentsRequest) Execute() (*http.Response, error) {
+func (r AgentsAPILogoffAgentsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.LogoffAgentsExecute(r)
 }
 
@@ -226,17 +226,17 @@ LogoffAgents Logoff all agents.
 **Required ACL:** `agentd.agents.logoff.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiLogoffAgentsRequest
+	@return AgentsAPILogoffAgentsRequest
 */
-func (a *AgentsAPIService) LogoffAgents(ctx context.Context) ApiLogoffAgentsRequest {
-	return ApiLogoffAgentsRequest{
+func (a *AgentsAPIService) LogoffAgents(ctx context.Context) AgentsAPILogoffAgentsRequest {
+	return AgentsAPILogoffAgentsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) LogoffAgentsExecute(r ApiLogoffAgentsRequest) (*http.Response, error) {
+func (a *AgentsAPIService) LogoffAgentsExecute(r AgentsAPILogoffAgentsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -316,19 +316,19 @@ func (a *AgentsAPIService) LogoffAgentsExecute(r ApiLogoffAgentsRequest) (*http.
 	return localVarHTTPResponse, nil
 }
 
-type ApiRelogAgentsRequest struct {
+type AgentsAPIRelogAgentsRequest struct {
 	ctx          context.Context
 	ApiService   AgentsAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiRelogAgentsRequest) AccentTenant(accentTenant string) ApiRelogAgentsRequest {
+func (r AgentsAPIRelogAgentsRequest) AccentTenant(accentTenant string) AgentsAPIRelogAgentsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiRelogAgentsRequest) Execute() (*http.Response, error) {
+func (r AgentsAPIRelogAgentsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.RelogAgentsExecute(r)
 }
 
@@ -340,17 +340,17 @@ RelogAgents Relog all agents.
 Relog all agents which are currently logged.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiRelogAgentsRequest
+	@return AgentsAPIRelogAgentsRequest
 */
-func (a *AgentsAPIService) RelogAgents(ctx context.Context) ApiRelogAgentsRequest {
-	return ApiRelogAgentsRequest{
+func (a *AgentsAPIService) RelogAgents(ctx context.Context) AgentsAPIRelogAgentsRequest {
+	return AgentsAPIRelogAgentsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *AgentsAPIService) RelogAgentsExecute(r ApiRelogAgentsRequest) (*http.Response, error) {
+func (a *AgentsAPIService) RelogAgentsExecute(r AgentsAPIRelogAgentsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}

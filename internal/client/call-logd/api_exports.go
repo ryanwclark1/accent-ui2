@@ -30,13 +30,13 @@ type ExportsAPI interface {
 	**Required ACL:** `call-logd.cdr.recordings.media.export.create` This endpoint creates a new export and returns its UUID. 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateCDRRecordingsMediaExportRequest
+	@return ExportsAPICreateCDRRecordingsMediaExportRequest
 	*/
-	CreateCDRRecordingsMediaExport(ctx context.Context) ApiCreateCDRRecordingsMediaExportRequest
+	CreateCDRRecordingsMediaExport(ctx context.Context) ExportsAPICreateCDRRecordingsMediaExportRequest
 
 	// CreateCDRRecordingsMediaExportExecute executes the request
 	//  @return CreateCDRRecordingsMediaExport202Response
-	CreateCDRRecordingsMediaExportExecute(r ApiCreateCDRRecordingsMediaExportRequest) (*CreateCDRRecordingsMediaExport202Response, *http.Response, error)
+	CreateCDRRecordingsMediaExportExecute(r ExportsAPICreateCDRRecordingsMediaExportRequest) (*CreateCDRRecordingsMediaExport202Response, *http.Response, error)
 
 	/*
 	GetExport Get an export by the given UUID
@@ -45,13 +45,13 @@ type ExportsAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param exportUuid UUID of the given export
-	@return ApiGetExportRequest
+	@return ExportsAPIGetExportRequest
 	*/
-	GetExport(ctx context.Context, exportUuid string) ApiGetExportRequest
+	GetExport(ctx context.Context, exportUuid string) ExportsAPIGetExportRequest
 
 	// GetExportExecute executes the request
 	//  @return Export
-	GetExportExecute(r ApiGetExportRequest) (*Export, *http.Response, error)
+	GetExportExecute(r ExportsAPIGetExportRequest) (*Export, *http.Response, error)
 
 	/*
 	GetExportDownload Download an export as a ZIP archive by the given UUID
@@ -60,18 +60,18 @@ type ExportsAPI interface {
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param exportUuid UUID of the given export
-	@return ApiGetExportDownloadRequest
+	@return ExportsAPIGetExportDownloadRequest
 	*/
-	GetExportDownload(ctx context.Context, exportUuid string) ApiGetExportDownloadRequest
+	GetExportDownload(ctx context.Context, exportUuid string) ExportsAPIGetExportDownloadRequest
 
 	// GetExportDownloadExecute executes the request
-	GetExportDownloadExecute(r ApiGetExportDownloadRequest) (*http.Response, error)
+	GetExportDownloadExecute(r ExportsAPIGetExportDownloadRequest) (*http.Response, error)
 }
 
 // ExportsAPIService ExportsAPI service
 type ExportsAPIService service
 
-type ApiCreateCDRRecordingsMediaExportRequest struct {
+type ExportsAPICreateCDRRecordingsMediaExportRequest struct {
 	ctx context.Context
 	ApiService ExportsAPI
 	body *CreateCDRRecordingsMediaExportRequest
@@ -89,78 +89,78 @@ type ApiCreateCDRRecordingsMediaExportRequest struct {
 }
 
 // The CDR IDs list from which to create an export
-func (r ApiCreateCDRRecordingsMediaExportRequest) Body(body CreateCDRRecordingsMediaExportRequest) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) Body(body CreateCDRRecordingsMediaExportRequest) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.body = &body
 	return r
 }
 
 // Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
-func (r ApiCreateCDRRecordingsMediaExportRequest) From(from time.Time) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) From(from time.Time) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.from = &from
 	return r
 }
 
 // Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
-func (r ApiCreateCDRRecordingsMediaExportRequest) Until(until time.Time) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) Until(until time.Time) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.until = &until
 	return r
 }
 
 // Filter list of items
-func (r ApiCreateCDRRecordingsMediaExportRequest) Search(search string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) Search(search string) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.search = &search
 	return r
 }
 
 // Filter list of items
-func (r ApiCreateCDRRecordingsMediaExportRequest) CallDirection(callDirection string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) CallDirection(callDirection string) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.callDirection = &callDirection
 	return r
 }
 
 // Filter by source_extension and destination_extension. A wildcard (underscore) can be used at the start and/or the end of the number.
-func (r ApiCreateCDRRecordingsMediaExportRequest) Number(number string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) Number(number string) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.number = &number
 	return r
 }
 
 // Filter by tags. Each tag MUST be separated by a coma (,). Many tag will perform a logical AND.
-func (r ApiCreateCDRRecordingsMediaExportRequest) Tags(tags []string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) Tags(tags []string) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.tags = &tags
 	return r
 }
 
 // Filter by user_uuid. Many uuid can be specified. Each uuid MUST be separated by a comma (,). Many uuid will perform a logical OR.
-func (r ApiCreateCDRRecordingsMediaExportRequest) UserUuid(userUuid []string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) UserUuid(userUuid []string) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.userUuid = &userUuid
 	return r
 }
 
 // Ignore CDR created before the given CDR ID.
-func (r ApiCreateCDRRecordingsMediaExportRequest) FromId(fromId int32) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) FromId(fromId int32) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.fromId = &fromId
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiCreateCDRRecordingsMediaExportRequest) Recurse(recurse bool) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) Recurse(recurse bool) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateCDRRecordingsMediaExportRequest) AccentTenant(accentTenant string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) AccentTenant(accentTenant string) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // E-mail address
-func (r ApiCreateCDRRecordingsMediaExportRequest) Email(email string) ApiCreateCDRRecordingsMediaExportRequest {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) Email(email string) ExportsAPICreateCDRRecordingsMediaExportRequest {
 	r.email = &email
 	return r
 }
 
-func (r ApiCreateCDRRecordingsMediaExportRequest) Execute() (*CreateCDRRecordingsMediaExport202Response, *http.Response, error) {
+func (r ExportsAPICreateCDRRecordingsMediaExportRequest) Execute() (*CreateCDRRecordingsMediaExport202Response, *http.Response, error) {
 	return r.ApiService.CreateCDRRecordingsMediaExportExecute(r)
 }
 
@@ -170,10 +170,10 @@ CreateCDRRecordingsMediaExport Create an export for the recording media of multi
 **Required ACL:** `call-logd.cdr.recordings.media.export.create` This endpoint creates a new export and returns its UUID. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateCDRRecordingsMediaExportRequest
+ @return ExportsAPICreateCDRRecordingsMediaExportRequest
 */
-func (a *ExportsAPIService) CreateCDRRecordingsMediaExport(ctx context.Context) ApiCreateCDRRecordingsMediaExportRequest {
-	return ApiCreateCDRRecordingsMediaExportRequest{
+func (a *ExportsAPIService) CreateCDRRecordingsMediaExport(ctx context.Context) ExportsAPICreateCDRRecordingsMediaExportRequest {
+	return ExportsAPICreateCDRRecordingsMediaExportRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -181,7 +181,7 @@ func (a *ExportsAPIService) CreateCDRRecordingsMediaExport(ctx context.Context) 
 
 // Execute executes the request
 //  @return CreateCDRRecordingsMediaExport202Response
-func (a *ExportsAPIService) CreateCDRRecordingsMediaExportExecute(r ApiCreateCDRRecordingsMediaExportRequest) (*CreateCDRRecordingsMediaExport202Response, *http.Response, error) {
+func (a *ExportsAPIService) CreateCDRRecordingsMediaExportExecute(r ExportsAPICreateCDRRecordingsMediaExportRequest) (*CreateCDRRecordingsMediaExport202Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -316,13 +316,13 @@ func (a *ExportsAPIService) CreateCDRRecordingsMediaExportExecute(r ApiCreateCDR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetExportRequest struct {
+type ExportsAPIGetExportRequest struct {
 	ctx context.Context
 	ApiService ExportsAPI
 	exportUuid string
 }
 
-func (r ApiGetExportRequest) Execute() (*Export, *http.Response, error) {
+func (r ExportsAPIGetExportRequest) Execute() (*Export, *http.Response, error) {
 	return r.ApiService.GetExportExecute(r)
 }
 
@@ -333,10 +333,10 @@ GetExport Get an export by the given UUID
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param exportUuid UUID of the given export
- @return ApiGetExportRequest
+ @return ExportsAPIGetExportRequest
 */
-func (a *ExportsAPIService) GetExport(ctx context.Context, exportUuid string) ApiGetExportRequest {
-	return ApiGetExportRequest{
+func (a *ExportsAPIService) GetExport(ctx context.Context, exportUuid string) ExportsAPIGetExportRequest {
+	return ExportsAPIGetExportRequest{
 		ApiService: a,
 		ctx: ctx,
 		exportUuid: exportUuid,
@@ -345,7 +345,7 @@ func (a *ExportsAPIService) GetExport(ctx context.Context, exportUuid string) Ap
 
 // Execute executes the request
 //  @return Export
-func (a *ExportsAPIService) GetExportExecute(r ApiGetExportRequest) (*Export, *http.Response, error) {
+func (a *ExportsAPIService) GetExportExecute(r ExportsAPIGetExportRequest) (*Export, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -443,13 +443,13 @@ func (a *ExportsAPIService) GetExportExecute(r ApiGetExportRequest) (*Export, *h
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetExportDownloadRequest struct {
+type ExportsAPIGetExportDownloadRequest struct {
 	ctx context.Context
 	ApiService ExportsAPI
 	exportUuid string
 }
 
-func (r ApiGetExportDownloadRequest) Execute() (*http.Response, error) {
+func (r ExportsAPIGetExportDownloadRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetExportDownloadExecute(r)
 }
 
@@ -460,10 +460,10 @@ GetExportDownload Download an export as a ZIP archive by the given UUID
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param exportUuid UUID of the given export
- @return ApiGetExportDownloadRequest
+ @return ExportsAPIGetExportDownloadRequest
 */
-func (a *ExportsAPIService) GetExportDownload(ctx context.Context, exportUuid string) ApiGetExportDownloadRequest {
-	return ApiGetExportDownloadRequest{
+func (a *ExportsAPIService) GetExportDownload(ctx context.Context, exportUuid string) ExportsAPIGetExportDownloadRequest {
+	return ExportsAPIGetExportDownloadRequest{
 		ApiService: a,
 		ctx: ctx,
 		exportUuid: exportUuid,
@@ -471,7 +471,7 @@ func (a *ExportsAPIService) GetExportDownload(ctx context.Context, exportUuid st
 }
 
 // Execute executes the request
-func (a *ExportsAPIService) GetExportDownloadExecute(r ApiGetExportDownloadRequest) (*http.Response, error) {
+func (a *ExportsAPIService) GetExportDownloadExecute(r ExportsAPIGetExportDownloadRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

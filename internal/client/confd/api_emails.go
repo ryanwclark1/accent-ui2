@@ -27,13 +27,13 @@ type EmailsAPI interface {
 		**Required ACL:** `confd.emails.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetEmailsConfigRequest
+		@return EmailsAPIGetEmailsConfigRequest
 	*/
-	GetEmailsConfig(ctx context.Context) ApiGetEmailsConfigRequest
+	GetEmailsConfig(ctx context.Context) EmailsAPIGetEmailsConfigRequest
 
 	// GetEmailsConfigExecute executes the request
 	//  @return EmailConfig
-	GetEmailsConfigExecute(r ApiGetEmailsConfigRequest) (*EmailConfig, *http.Response, error)
+	GetEmailsConfigExecute(r EmailsAPIGetEmailsConfigRequest) (*EmailConfig, *http.Response, error)
 
 	/*
 		UpdateEmailsConfig Update e-mail configuration
@@ -41,23 +41,23 @@ type EmailsAPI interface {
 		**Required ACL:** `confd.emails.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateEmailsConfigRequest
+		@return EmailsAPIUpdateEmailsConfigRequest
 	*/
-	UpdateEmailsConfig(ctx context.Context) ApiUpdateEmailsConfigRequest
+	UpdateEmailsConfig(ctx context.Context) EmailsAPIUpdateEmailsConfigRequest
 
 	// UpdateEmailsConfigExecute executes the request
-	UpdateEmailsConfigExecute(r ApiUpdateEmailsConfigRequest) (*http.Response, error)
+	UpdateEmailsConfigExecute(r EmailsAPIUpdateEmailsConfigRequest) (*http.Response, error)
 }
 
 // EmailsAPIService EmailsAPI service
 type EmailsAPIService service
 
-type ApiGetEmailsConfigRequest struct {
+type EmailsAPIGetEmailsConfigRequest struct {
 	ctx        context.Context
 	ApiService EmailsAPI
 }
 
-func (r ApiGetEmailsConfigRequest) Execute() (*EmailConfig, *http.Response, error) {
+func (r EmailsAPIGetEmailsConfigRequest) Execute() (*EmailConfig, *http.Response, error) {
 	return r.ApiService.GetEmailsConfigExecute(r)
 }
 
@@ -67,10 +67,10 @@ GetEmailsConfig Get e-mail configuration
 **Required ACL:** `confd.emails.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetEmailsConfigRequest
+	@return EmailsAPIGetEmailsConfigRequest
 */
-func (a *EmailsAPIService) GetEmailsConfig(ctx context.Context) ApiGetEmailsConfigRequest {
-	return ApiGetEmailsConfigRequest{
+func (a *EmailsAPIService) GetEmailsConfig(ctx context.Context) EmailsAPIGetEmailsConfigRequest {
+	return EmailsAPIGetEmailsConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -79,7 +79,7 @@ func (a *EmailsAPIService) GetEmailsConfig(ctx context.Context) ApiGetEmailsConf
 // Execute executes the request
 //
 //	@return EmailConfig
-func (a *EmailsAPIService) GetEmailsConfigExecute(r ApiGetEmailsConfigRequest) (*EmailConfig, *http.Response, error) {
+func (a *EmailsAPIService) GetEmailsConfigExecute(r EmailsAPIGetEmailsConfigRequest) (*EmailConfig, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -166,19 +166,19 @@ func (a *EmailsAPIService) GetEmailsConfigExecute(r ApiGetEmailsConfigRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateEmailsConfigRequest struct {
+type EmailsAPIUpdateEmailsConfigRequest struct {
 	ctx        context.Context
 	ApiService EmailsAPI
 	body       *EmailConfig
 }
 
 // E-mail configuration
-func (r ApiUpdateEmailsConfigRequest) Body(body EmailConfig) ApiUpdateEmailsConfigRequest {
+func (r EmailsAPIUpdateEmailsConfigRequest) Body(body EmailConfig) EmailsAPIUpdateEmailsConfigRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateEmailsConfigRequest) Execute() (*http.Response, error) {
+func (r EmailsAPIUpdateEmailsConfigRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateEmailsConfigExecute(r)
 }
 
@@ -188,17 +188,17 @@ UpdateEmailsConfig Update e-mail configuration
 **Required ACL:** `confd.emails.update` **WARNING** This endpoint restore to default value or delete all fields that are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateEmailsConfigRequest
+	@return EmailsAPIUpdateEmailsConfigRequest
 */
-func (a *EmailsAPIService) UpdateEmailsConfig(ctx context.Context) ApiUpdateEmailsConfigRequest {
-	return ApiUpdateEmailsConfigRequest{
+func (a *EmailsAPIService) UpdateEmailsConfig(ctx context.Context) EmailsAPIUpdateEmailsConfigRequest {
+	return EmailsAPIUpdateEmailsConfigRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *EmailsAPIService) UpdateEmailsConfigExecute(r ApiUpdateEmailsConfigRequest) (*http.Response, error) {
+func (a *EmailsAPIService) UpdateEmailsConfigExecute(r EmailsAPIUpdateEmailsConfigRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

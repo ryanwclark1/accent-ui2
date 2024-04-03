@@ -29,12 +29,12 @@ type TrunksAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
-		@return ApiAssociateOutcallTrunksRequest
+		@return TrunksAPIAssociateOutcallTrunksRequest
 	*/
-	AssociateOutcallTrunks(ctx context.Context, outcallId int32) ApiAssociateOutcallTrunksRequest
+	AssociateOutcallTrunks(ctx context.Context, outcallId int32) TrunksAPIAssociateOutcallTrunksRequest
 
 	// AssociateOutcallTrunksExecute executes the request
-	AssociateOutcallTrunksExecute(r ApiAssociateOutcallTrunksRequest) (*http.Response, error)
+	AssociateOutcallTrunksExecute(r TrunksAPIAssociateOutcallTrunksRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkEndpointCustom Associate trunk and Custom endpoint
@@ -44,12 +44,12 @@ type TrunksAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param customId
-		@return ApiAssociateTrunkEndpointCustomRequest
+		@return TrunksAPIAssociateTrunkEndpointCustomRequest
 	*/
-	AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiAssociateTrunkEndpointCustomRequest
+	AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) TrunksAPIAssociateTrunkEndpointCustomRequest
 
 	// AssociateTrunkEndpointCustomExecute executes the request
-	AssociateTrunkEndpointCustomExecute(r ApiAssociateTrunkEndpointCustomRequest) (*http.Response, error)
+	AssociateTrunkEndpointCustomExecute(r TrunksAPIAssociateTrunkEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkEndpointIax Associate trunk and IAX endpoint
@@ -59,12 +59,12 @@ type TrunksAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiAssociateTrunkEndpointIaxRequest
+		@return TrunksAPIAssociateTrunkEndpointIaxRequest
 	*/
-	AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkEndpointIaxRequest
+	AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) TrunksAPIAssociateTrunkEndpointIaxRequest
 
 	// AssociateTrunkEndpointIaxExecute executes the request
-	AssociateTrunkEndpointIaxExecute(r ApiAssociateTrunkEndpointIaxRequest) (*http.Response, error)
+	AssociateTrunkEndpointIaxExecute(r TrunksAPIAssociateTrunkEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkEndpointSip Associate trunk and SIP endpoint
@@ -74,12 +74,12 @@ type TrunksAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param sipUuid
-		@return ApiAssociateTrunkEndpointSipRequest
+		@return TrunksAPIAssociateTrunkEndpointSipRequest
 	*/
-	AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiAssociateTrunkEndpointSipRequest
+	AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) TrunksAPIAssociateTrunkEndpointSipRequest
 
 	// AssociateTrunkEndpointSipExecute executes the request
-	AssociateTrunkEndpointSipExecute(r ApiAssociateTrunkEndpointSipRequest) (*http.Response, error)
+	AssociateTrunkEndpointSipExecute(r TrunksAPIAssociateTrunkEndpointSipRequest) (*http.Response, error)
 
 	/*
 		AssociateTrunkRegisterIax Associate trunk and IAX register
@@ -89,12 +89,12 @@ type TrunksAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiAssociateTrunkRegisterIaxRequest
+		@return TrunksAPIAssociateTrunkRegisterIaxRequest
 	*/
-	AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkRegisterIaxRequest
+	AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) TrunksAPIAssociateTrunkRegisterIaxRequest
 
 	// AssociateTrunkRegisterIaxExecute executes the request
-	AssociateTrunkRegisterIaxExecute(r ApiAssociateTrunkRegisterIaxRequest) (*http.Response, error)
+	AssociateTrunkRegisterIaxExecute(r TrunksAPIAssociateTrunkRegisterIaxRequest) (*http.Response, error)
 
 	/*
 		CreateTrunk Create trunk
@@ -102,13 +102,13 @@ type TrunksAPI interface {
 		**Required ACL:** `confd.trunks.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateTrunkRequest
+		@return TrunksAPICreateTrunkRequest
 	*/
-	CreateTrunk(ctx context.Context) ApiCreateTrunkRequest
+	CreateTrunk(ctx context.Context) TrunksAPICreateTrunkRequest
 
 	// CreateTrunkExecute executes the request
 	//  @return Trunk
-	CreateTrunkExecute(r ApiCreateTrunkRequest) (*Trunk, *http.Response, error)
+	CreateTrunkExecute(r TrunksAPICreateTrunkRequest) (*Trunk, *http.Response, error)
 
 	/*
 		DeleteTrunk Delete trunk
@@ -117,12 +117,12 @@ type TrunksAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
-		@return ApiDeleteTrunkRequest
+		@return TrunksAPIDeleteTrunkRequest
 	*/
-	DeleteTrunk(ctx context.Context, trunkId int32) ApiDeleteTrunkRequest
+	DeleteTrunk(ctx context.Context, trunkId int32) TrunksAPIDeleteTrunkRequest
 
 	// DeleteTrunkExecute executes the request
-	DeleteTrunkExecute(r ApiDeleteTrunkRequest) (*http.Response, error)
+	DeleteTrunkExecute(r TrunksAPIDeleteTrunkRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointCustom Dissociate trunk and Custom endpoint
@@ -132,12 +132,12 @@ type TrunksAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param customId
-		@return ApiDissociateTrunkEndpointCustomRequest
+		@return TrunksAPIDissociateTrunkEndpointCustomRequest
 	*/
-	DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiDissociateTrunkEndpointCustomRequest
+	DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) TrunksAPIDissociateTrunkEndpointCustomRequest
 
 	// DissociateTrunkEndpointCustomExecute executes the request
-	DissociateTrunkEndpointCustomExecute(r ApiDissociateTrunkEndpointCustomRequest) (*http.Response, error)
+	DissociateTrunkEndpointCustomExecute(r TrunksAPIDissociateTrunkEndpointCustomRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointIax Dissociate trunk and IAX endpoint
@@ -147,12 +147,12 @@ type TrunksAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiDissociateTrunkEndpointIaxRequest
+		@return TrunksAPIDissociateTrunkEndpointIaxRequest
 	*/
-	DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkEndpointIaxRequest
+	DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) TrunksAPIDissociateTrunkEndpointIaxRequest
 
 	// DissociateTrunkEndpointIaxExecute executes the request
-	DissociateTrunkEndpointIaxExecute(r ApiDissociateTrunkEndpointIaxRequest) (*http.Response, error)
+	DissociateTrunkEndpointIaxExecute(r TrunksAPIDissociateTrunkEndpointIaxRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkEndpointSip Dissociate trunk and SIP endpoint
@@ -162,12 +162,12 @@ type TrunksAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param sipUuid
-		@return ApiDissociateTrunkEndpointSipRequest
+		@return TrunksAPIDissociateTrunkEndpointSipRequest
 	*/
-	DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiDissociateTrunkEndpointSipRequest
+	DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) TrunksAPIDissociateTrunkEndpointSipRequest
 
 	// DissociateTrunkEndpointSipExecute executes the request
-	DissociateTrunkEndpointSipExecute(r ApiDissociateTrunkEndpointSipRequest) (*http.Response, error)
+	DissociateTrunkEndpointSipExecute(r TrunksAPIDissociateTrunkEndpointSipRequest) (*http.Response, error)
 
 	/*
 		DissociateTrunkRegisterIax Dissociate trunk and IAX register
@@ -177,12 +177,12 @@ type TrunksAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
 		@param iaxId
-		@return ApiDissociateTrunkRegisterIaxRequest
+		@return TrunksAPIDissociateTrunkRegisterIaxRequest
 	*/
-	DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkRegisterIaxRequest
+	DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) TrunksAPIDissociateTrunkRegisterIaxRequest
 
 	// DissociateTrunkRegisterIaxExecute executes the request
-	DissociateTrunkRegisterIaxExecute(r ApiDissociateTrunkRegisterIaxRequest) (*http.Response, error)
+	DissociateTrunkRegisterIaxExecute(r TrunksAPIDissociateTrunkRegisterIaxRequest) (*http.Response, error)
 
 	/*
 		GetTrunk Get trunk
@@ -191,13 +191,13 @@ type TrunksAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
-		@return ApiGetTrunkRequest
+		@return TrunksAPIGetTrunkRequest
 	*/
-	GetTrunk(ctx context.Context, trunkId int32) ApiGetTrunkRequest
+	GetTrunk(ctx context.Context, trunkId int32) TrunksAPIGetTrunkRequest
 
 	// GetTrunkExecute executes the request
 	//  @return Trunk
-	GetTrunkExecute(r ApiGetTrunkRequest) (*Trunk, *http.Response, error)
+	GetTrunkExecute(r TrunksAPIGetTrunkRequest) (*Trunk, *http.Response, error)
 
 	/*
 		ListTrunks List trunks
@@ -205,13 +205,13 @@ type TrunksAPI interface {
 		**Required ACL:** `confd.trunks.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListTrunksRequest
+		@return TrunksAPIListTrunksRequest
 	*/
-	ListTrunks(ctx context.Context) ApiListTrunksRequest
+	ListTrunks(ctx context.Context) TrunksAPIListTrunksRequest
 
 	// ListTrunksExecute executes the request
 	//  @return TrunkItems
-	ListTrunksExecute(r ApiListTrunksRequest) (*TrunkItems, *http.Response, error)
+	ListTrunksExecute(r TrunksAPIListTrunksRequest) (*TrunkItems, *http.Response, error)
 
 	/*
 		UpdateTrunk Update trunk
@@ -220,18 +220,18 @@ type TrunksAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param trunkId Trunk's ID
-		@return ApiUpdateTrunkRequest
+		@return TrunksAPIUpdateTrunkRequest
 	*/
-	UpdateTrunk(ctx context.Context, trunkId int32) ApiUpdateTrunkRequest
+	UpdateTrunk(ctx context.Context, trunkId int32) TrunksAPIUpdateTrunkRequest
 
 	// UpdateTrunkExecute executes the request
-	UpdateTrunkExecute(r ApiUpdateTrunkRequest) (*http.Response, error)
+	UpdateTrunkExecute(r TrunksAPIUpdateTrunkRequest) (*http.Response, error)
 }
 
 // TrunksAPIService TrunksAPI service
 type TrunksAPIService service
 
-type ApiAssociateOutcallTrunksRequest struct {
+type TrunksAPIAssociateOutcallTrunksRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	body       *TrunksId
@@ -239,12 +239,12 @@ type ApiAssociateOutcallTrunksRequest struct {
 }
 
 // Trunks to associated
-func (r ApiAssociateOutcallTrunksRequest) Body(body TrunksId) ApiAssociateOutcallTrunksRequest {
+func (r TrunksAPIAssociateOutcallTrunksRequest) Body(body TrunksId) TrunksAPIAssociateOutcallTrunksRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAssociateOutcallTrunksRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIAssociateOutcallTrunksRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateOutcallTrunksExecute(r)
 }
 
@@ -255,10 +255,10 @@ AssociateOutcallTrunks Associate outcall and trunks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
-	@return ApiAssociateOutcallTrunksRequest
+	@return TrunksAPIAssociateOutcallTrunksRequest
 */
-func (a *TrunksAPIService) AssociateOutcallTrunks(ctx context.Context, outcallId int32) ApiAssociateOutcallTrunksRequest {
-	return ApiAssociateOutcallTrunksRequest{
+func (a *TrunksAPIService) AssociateOutcallTrunks(ctx context.Context, outcallId int32) TrunksAPIAssociateOutcallTrunksRequest {
+	return TrunksAPIAssociateOutcallTrunksRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -266,7 +266,7 @@ func (a *TrunksAPIService) AssociateOutcallTrunks(ctx context.Context, outcallId
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) AssociateOutcallTrunksExecute(r ApiAssociateOutcallTrunksRequest) (*http.Response, error) {
+func (a *TrunksAPIService) AssociateOutcallTrunksExecute(r TrunksAPIAssociateOutcallTrunksRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -370,14 +370,14 @@ func (a *TrunksAPIService) AssociateOutcallTrunksExecute(r ApiAssociateOutcallTr
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkEndpointCustomRequest struct {
+type TrunksAPIAssociateTrunkEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	trunkId    int32
 	customId   int32
 }
 
-func (r ApiAssociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIAssociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointCustomExecute(r)
 }
 
@@ -389,10 +389,10 @@ AssociateTrunkEndpointCustom Associate trunk and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param customId
-	@return ApiAssociateTrunkEndpointCustomRequest
+	@return TrunksAPIAssociateTrunkEndpointCustomRequest
 */
-func (a *TrunksAPIService) AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiAssociateTrunkEndpointCustomRequest {
-	return ApiAssociateTrunkEndpointCustomRequest{
+func (a *TrunksAPIService) AssociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) TrunksAPIAssociateTrunkEndpointCustomRequest {
+	return TrunksAPIAssociateTrunkEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -401,7 +401,7 @@ func (a *TrunksAPIService) AssociateTrunkEndpointCustom(ctx context.Context, tru
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) AssociateTrunkEndpointCustomExecute(r ApiAssociateTrunkEndpointCustomRequest) (*http.Response, error) {
+func (a *TrunksAPIService) AssociateTrunkEndpointCustomExecute(r TrunksAPIAssociateTrunkEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -501,14 +501,14 @@ func (a *TrunksAPIService) AssociateTrunkEndpointCustomExecute(r ApiAssociateTru
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkEndpointIaxRequest struct {
+type TrunksAPIAssociateTrunkEndpointIaxRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiAssociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIAssociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointIaxExecute(r)
 }
 
@@ -520,10 +520,10 @@ AssociateTrunkEndpointIax Associate trunk and IAX endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiAssociateTrunkEndpointIaxRequest
+	@return TrunksAPIAssociateTrunkEndpointIaxRequest
 */
-func (a *TrunksAPIService) AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkEndpointIaxRequest {
-	return ApiAssociateTrunkEndpointIaxRequest{
+func (a *TrunksAPIService) AssociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) TrunksAPIAssociateTrunkEndpointIaxRequest {
+	return TrunksAPIAssociateTrunkEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -532,7 +532,7 @@ func (a *TrunksAPIService) AssociateTrunkEndpointIax(ctx context.Context, trunkI
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) AssociateTrunkEndpointIaxExecute(r ApiAssociateTrunkEndpointIaxRequest) (*http.Response, error) {
+func (a *TrunksAPIService) AssociateTrunkEndpointIaxExecute(r TrunksAPIAssociateTrunkEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -632,14 +632,14 @@ func (a *TrunksAPIService) AssociateTrunkEndpointIaxExecute(r ApiAssociateTrunkE
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkEndpointSipRequest struct {
+type TrunksAPIAssociateTrunkEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	trunkId    int32
 	sipUuid    string
 }
 
-func (r ApiAssociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIAssociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkEndpointSipExecute(r)
 }
 
@@ -651,10 +651,10 @@ AssociateTrunkEndpointSip Associate trunk and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param sipUuid
-	@return ApiAssociateTrunkEndpointSipRequest
+	@return TrunksAPIAssociateTrunkEndpointSipRequest
 */
-func (a *TrunksAPIService) AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiAssociateTrunkEndpointSipRequest {
-	return ApiAssociateTrunkEndpointSipRequest{
+func (a *TrunksAPIService) AssociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) TrunksAPIAssociateTrunkEndpointSipRequest {
+	return TrunksAPIAssociateTrunkEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -663,7 +663,7 @@ func (a *TrunksAPIService) AssociateTrunkEndpointSip(ctx context.Context, trunkI
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) AssociateTrunkEndpointSipExecute(r ApiAssociateTrunkEndpointSipRequest) (*http.Response, error) {
+func (a *TrunksAPIService) AssociateTrunkEndpointSipExecute(r TrunksAPIAssociateTrunkEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -763,14 +763,14 @@ func (a *TrunksAPIService) AssociateTrunkEndpointSipExecute(r ApiAssociateTrunkE
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateTrunkRegisterIaxRequest struct {
+type TrunksAPIAssociateTrunkRegisterIaxRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiAssociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIAssociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateTrunkRegisterIaxExecute(r)
 }
 
@@ -782,10 +782,10 @@ AssociateTrunkRegisterIax Associate trunk and IAX register
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiAssociateTrunkRegisterIaxRequest
+	@return TrunksAPIAssociateTrunkRegisterIaxRequest
 */
-func (a *TrunksAPIService) AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiAssociateTrunkRegisterIaxRequest {
-	return ApiAssociateTrunkRegisterIaxRequest{
+func (a *TrunksAPIService) AssociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) TrunksAPIAssociateTrunkRegisterIaxRequest {
+	return TrunksAPIAssociateTrunkRegisterIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -794,7 +794,7 @@ func (a *TrunksAPIService) AssociateTrunkRegisterIax(ctx context.Context, trunkI
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) AssociateTrunkRegisterIaxExecute(r ApiAssociateTrunkRegisterIaxRequest) (*http.Response, error) {
+func (a *TrunksAPIService) AssociateTrunkRegisterIaxExecute(r TrunksAPIAssociateTrunkRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -894,19 +894,19 @@ func (a *TrunksAPIService) AssociateTrunkRegisterIaxExecute(r ApiAssociateTrunkR
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateTrunkRequest struct {
+type TrunksAPICreateTrunkRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	body       *Trunk
 }
 
 // Trunk to create
-func (r ApiCreateTrunkRequest) Body(body Trunk) ApiCreateTrunkRequest {
+func (r TrunksAPICreateTrunkRequest) Body(body Trunk) TrunksAPICreateTrunkRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateTrunkRequest) Execute() (*Trunk, *http.Response, error) {
+func (r TrunksAPICreateTrunkRequest) Execute() (*Trunk, *http.Response, error) {
 	return r.ApiService.CreateTrunkExecute(r)
 }
 
@@ -916,10 +916,10 @@ CreateTrunk Create trunk
 **Required ACL:** `confd.trunks.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateTrunkRequest
+	@return TrunksAPICreateTrunkRequest
 */
-func (a *TrunksAPIService) CreateTrunk(ctx context.Context) ApiCreateTrunkRequest {
-	return ApiCreateTrunkRequest{
+func (a *TrunksAPIService) CreateTrunk(ctx context.Context) TrunksAPICreateTrunkRequest {
+	return TrunksAPICreateTrunkRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -928,7 +928,7 @@ func (a *TrunksAPIService) CreateTrunk(ctx context.Context) ApiCreateTrunkReques
 // Execute executes the request
 //
 //	@return Trunk
-func (a *TrunksAPIService) CreateTrunkExecute(r ApiCreateTrunkRequest) (*Trunk, *http.Response, error) {
+func (a *TrunksAPIService) CreateTrunkExecute(r TrunksAPICreateTrunkRequest) (*Trunk, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -1027,7 +1027,7 @@ func (a *TrunksAPIService) CreateTrunkExecute(r ApiCreateTrunkRequest) (*Trunk, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteTrunkRequest struct {
+type TrunksAPIDeleteTrunkRequest struct {
 	ctx          context.Context
 	ApiService   TrunksAPI
 	trunkId      int32
@@ -1035,12 +1035,12 @@ type ApiDeleteTrunkRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteTrunkRequest) AccentTenant(accentTenant string) ApiDeleteTrunkRequest {
+func (r TrunksAPIDeleteTrunkRequest) AccentTenant(accentTenant string) TrunksAPIDeleteTrunkRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteTrunkRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIDeleteTrunkRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteTrunkExecute(r)
 }
 
@@ -1051,10 +1051,10 @@ DeleteTrunk Delete trunk
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
-	@return ApiDeleteTrunkRequest
+	@return TrunksAPIDeleteTrunkRequest
 */
-func (a *TrunksAPIService) DeleteTrunk(ctx context.Context, trunkId int32) ApiDeleteTrunkRequest {
-	return ApiDeleteTrunkRequest{
+func (a *TrunksAPIService) DeleteTrunk(ctx context.Context, trunkId int32) TrunksAPIDeleteTrunkRequest {
+	return TrunksAPIDeleteTrunkRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1062,7 +1062,7 @@ func (a *TrunksAPIService) DeleteTrunk(ctx context.Context, trunkId int32) ApiDe
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) DeleteTrunkExecute(r ApiDeleteTrunkRequest) (*http.Response, error) {
+func (a *TrunksAPIService) DeleteTrunkExecute(r TrunksAPIDeleteTrunkRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1164,14 +1164,14 @@ func (a *TrunksAPIService) DeleteTrunkExecute(r ApiDeleteTrunkRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointCustomRequest struct {
+type TrunksAPIDissociateTrunkEndpointCustomRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	trunkId    int32
 	customId   int32
 }
 
-func (r ApiDissociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIDissociateTrunkEndpointCustomRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointCustomExecute(r)
 }
 
@@ -1183,10 +1183,10 @@ DissociateTrunkEndpointCustom Dissociate trunk and Custom endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param customId
-	@return ApiDissociateTrunkEndpointCustomRequest
+	@return TrunksAPIDissociateTrunkEndpointCustomRequest
 */
-func (a *TrunksAPIService) DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) ApiDissociateTrunkEndpointCustomRequest {
-	return ApiDissociateTrunkEndpointCustomRequest{
+func (a *TrunksAPIService) DissociateTrunkEndpointCustom(ctx context.Context, trunkId int32, customId int32) TrunksAPIDissociateTrunkEndpointCustomRequest {
+	return TrunksAPIDissociateTrunkEndpointCustomRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1195,7 +1195,7 @@ func (a *TrunksAPIService) DissociateTrunkEndpointCustom(ctx context.Context, tr
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) DissociateTrunkEndpointCustomExecute(r ApiDissociateTrunkEndpointCustomRequest) (*http.Response, error) {
+func (a *TrunksAPIService) DissociateTrunkEndpointCustomExecute(r TrunksAPIDissociateTrunkEndpointCustomRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1295,14 +1295,14 @@ func (a *TrunksAPIService) DissociateTrunkEndpointCustomExecute(r ApiDissociateT
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointIaxRequest struct {
+type TrunksAPIDissociateTrunkEndpointIaxRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiDissociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIDissociateTrunkEndpointIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointIaxExecute(r)
 }
 
@@ -1314,10 +1314,10 @@ DissociateTrunkEndpointIax Dissociate trunk and IAX endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiDissociateTrunkEndpointIaxRequest
+	@return TrunksAPIDissociateTrunkEndpointIaxRequest
 */
-func (a *TrunksAPIService) DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkEndpointIaxRequest {
-	return ApiDissociateTrunkEndpointIaxRequest{
+func (a *TrunksAPIService) DissociateTrunkEndpointIax(ctx context.Context, trunkId int32, iaxId int32) TrunksAPIDissociateTrunkEndpointIaxRequest {
+	return TrunksAPIDissociateTrunkEndpointIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1326,7 +1326,7 @@ func (a *TrunksAPIService) DissociateTrunkEndpointIax(ctx context.Context, trunk
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) DissociateTrunkEndpointIaxExecute(r ApiDissociateTrunkEndpointIaxRequest) (*http.Response, error) {
+func (a *TrunksAPIService) DissociateTrunkEndpointIaxExecute(r TrunksAPIDissociateTrunkEndpointIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1426,14 +1426,14 @@ func (a *TrunksAPIService) DissociateTrunkEndpointIaxExecute(r ApiDissociateTrun
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkEndpointSipRequest struct {
+type TrunksAPIDissociateTrunkEndpointSipRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	trunkId    int32
 	sipUuid    string
 }
 
-func (r ApiDissociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIDissociateTrunkEndpointSipRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkEndpointSipExecute(r)
 }
 
@@ -1445,10 +1445,10 @@ DissociateTrunkEndpointSip Dissociate trunk and SIP endpoint
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param sipUuid
-	@return ApiDissociateTrunkEndpointSipRequest
+	@return TrunksAPIDissociateTrunkEndpointSipRequest
 */
-func (a *TrunksAPIService) DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) ApiDissociateTrunkEndpointSipRequest {
-	return ApiDissociateTrunkEndpointSipRequest{
+func (a *TrunksAPIService) DissociateTrunkEndpointSip(ctx context.Context, trunkId int32, sipUuid string) TrunksAPIDissociateTrunkEndpointSipRequest {
+	return TrunksAPIDissociateTrunkEndpointSipRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1457,7 +1457,7 @@ func (a *TrunksAPIService) DissociateTrunkEndpointSip(ctx context.Context, trunk
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) DissociateTrunkEndpointSipExecute(r ApiDissociateTrunkEndpointSipRequest) (*http.Response, error) {
+func (a *TrunksAPIService) DissociateTrunkEndpointSipExecute(r TrunksAPIDissociateTrunkEndpointSipRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1557,14 +1557,14 @@ func (a *TrunksAPIService) DissociateTrunkEndpointSipExecute(r ApiDissociateTrun
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateTrunkRegisterIaxRequest struct {
+type TrunksAPIDissociateTrunkRegisterIaxRequest struct {
 	ctx        context.Context
 	ApiService TrunksAPI
 	trunkId    int32
 	iaxId      int32
 }
 
-func (r ApiDissociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIDissociateTrunkRegisterIaxRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateTrunkRegisterIaxExecute(r)
 }
 
@@ -1576,10 +1576,10 @@ DissociateTrunkRegisterIax Dissociate trunk and IAX register
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
 	@param iaxId
-	@return ApiDissociateTrunkRegisterIaxRequest
+	@return TrunksAPIDissociateTrunkRegisterIaxRequest
 */
-func (a *TrunksAPIService) DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) ApiDissociateTrunkRegisterIaxRequest {
-	return ApiDissociateTrunkRegisterIaxRequest{
+func (a *TrunksAPIService) DissociateTrunkRegisterIax(ctx context.Context, trunkId int32, iaxId int32) TrunksAPIDissociateTrunkRegisterIaxRequest {
+	return TrunksAPIDissociateTrunkRegisterIaxRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1588,7 +1588,7 @@ func (a *TrunksAPIService) DissociateTrunkRegisterIax(ctx context.Context, trunk
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) DissociateTrunkRegisterIaxExecute(r ApiDissociateTrunkRegisterIaxRequest) (*http.Response, error) {
+func (a *TrunksAPIService) DissociateTrunkRegisterIaxExecute(r TrunksAPIDissociateTrunkRegisterIaxRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1688,7 +1688,7 @@ func (a *TrunksAPIService) DissociateTrunkRegisterIaxExecute(r ApiDissociateTrun
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetTrunkRequest struct {
+type TrunksAPIGetTrunkRequest struct {
 	ctx          context.Context
 	ApiService   TrunksAPI
 	trunkId      int32
@@ -1696,12 +1696,12 @@ type ApiGetTrunkRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetTrunkRequest) AccentTenant(accentTenant string) ApiGetTrunkRequest {
+func (r TrunksAPIGetTrunkRequest) AccentTenant(accentTenant string) TrunksAPIGetTrunkRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetTrunkRequest) Execute() (*Trunk, *http.Response, error) {
+func (r TrunksAPIGetTrunkRequest) Execute() (*Trunk, *http.Response, error) {
 	return r.ApiService.GetTrunkExecute(r)
 }
 
@@ -1712,10 +1712,10 @@ GetTrunk Get trunk
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
-	@return ApiGetTrunkRequest
+	@return TrunksAPIGetTrunkRequest
 */
-func (a *TrunksAPIService) GetTrunk(ctx context.Context, trunkId int32) ApiGetTrunkRequest {
-	return ApiGetTrunkRequest{
+func (a *TrunksAPIService) GetTrunk(ctx context.Context, trunkId int32) TrunksAPIGetTrunkRequest {
+	return TrunksAPIGetTrunkRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -1725,7 +1725,7 @@ func (a *TrunksAPIService) GetTrunk(ctx context.Context, trunkId int32) ApiGetTr
 // Execute executes the request
 //
 //	@return Trunk
-func (a *TrunksAPIService) GetTrunkExecute(r ApiGetTrunkRequest) (*Trunk, *http.Response, error) {
+func (a *TrunksAPIService) GetTrunkExecute(r TrunksAPIGetTrunkRequest) (*Trunk, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1826,7 +1826,7 @@ func (a *TrunksAPIService) GetTrunkExecute(r ApiGetTrunkRequest) (*Trunk, *http.
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListTrunksRequest struct {
+type TrunksAPIListTrunksRequest struct {
 	ctx          context.Context
 	ApiService   TrunksAPI
 	accentTenant *string
@@ -1839,48 +1839,48 @@ type ApiListTrunksRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListTrunksRequest) AccentTenant(accentTenant string) ApiListTrunksRequest {
+func (r TrunksAPIListTrunksRequest) AccentTenant(accentTenant string) TrunksAPIListTrunksRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListTrunksRequest) Recurse(recurse bool) ApiListTrunksRequest {
+func (r TrunksAPIListTrunksRequest) Recurse(recurse bool) TrunksAPIListTrunksRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListTrunksRequest) Order(order string) ApiListTrunksRequest {
+func (r TrunksAPIListTrunksRequest) Order(order string) TrunksAPIListTrunksRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListTrunksRequest) Direction(direction string) ApiListTrunksRequest {
+func (r TrunksAPIListTrunksRequest) Direction(direction string) TrunksAPIListTrunksRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListTrunksRequest) Limit(limit int32) ApiListTrunksRequest {
+func (r TrunksAPIListTrunksRequest) Limit(limit int32) TrunksAPIListTrunksRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListTrunksRequest) Offset(offset int32) ApiListTrunksRequest {
+func (r TrunksAPIListTrunksRequest) Offset(offset int32) TrunksAPIListTrunksRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListTrunksRequest) Search(search string) ApiListTrunksRequest {
+func (r TrunksAPIListTrunksRequest) Search(search string) TrunksAPIListTrunksRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListTrunksRequest) Execute() (*TrunkItems, *http.Response, error) {
+func (r TrunksAPIListTrunksRequest) Execute() (*TrunkItems, *http.Response, error) {
 	return r.ApiService.ListTrunksExecute(r)
 }
 
@@ -1890,10 +1890,10 @@ ListTrunks List trunks
 **Required ACL:** `confd.trunks.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListTrunksRequest
+	@return TrunksAPIListTrunksRequest
 */
-func (a *TrunksAPIService) ListTrunks(ctx context.Context) ApiListTrunksRequest {
-	return ApiListTrunksRequest{
+func (a *TrunksAPIService) ListTrunks(ctx context.Context) TrunksAPIListTrunksRequest {
+	return TrunksAPIListTrunksRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1902,7 +1902,7 @@ func (a *TrunksAPIService) ListTrunks(ctx context.Context) ApiListTrunksRequest 
 // Execute executes the request
 //
 //	@return TrunkItems
-func (a *TrunksAPIService) ListTrunksExecute(r ApiListTrunksRequest) (*TrunkItems, *http.Response, error) {
+func (a *TrunksAPIService) ListTrunksExecute(r TrunksAPIListTrunksRequest) (*TrunkItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2013,7 +2013,7 @@ func (a *TrunksAPIService) ListTrunksExecute(r ApiListTrunksRequest) (*TrunkItem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateTrunkRequest struct {
+type TrunksAPIUpdateTrunkRequest struct {
 	ctx          context.Context
 	ApiService   TrunksAPI
 	body         *Trunk
@@ -2021,18 +2021,18 @@ type ApiUpdateTrunkRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateTrunkRequest) Body(body Trunk) ApiUpdateTrunkRequest {
+func (r TrunksAPIUpdateTrunkRequest) Body(body Trunk) TrunksAPIUpdateTrunkRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateTrunkRequest) AccentTenant(accentTenant string) ApiUpdateTrunkRequest {
+func (r TrunksAPIUpdateTrunkRequest) AccentTenant(accentTenant string) TrunksAPIUpdateTrunkRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateTrunkRequest) Execute() (*http.Response, error) {
+func (r TrunksAPIUpdateTrunkRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateTrunkExecute(r)
 }
 
@@ -2043,10 +2043,10 @@ UpdateTrunk Update trunk
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param trunkId Trunk's ID
-	@return ApiUpdateTrunkRequest
+	@return TrunksAPIUpdateTrunkRequest
 */
-func (a *TrunksAPIService) UpdateTrunk(ctx context.Context, trunkId int32) ApiUpdateTrunkRequest {
-	return ApiUpdateTrunkRequest{
+func (a *TrunksAPIService) UpdateTrunk(ctx context.Context, trunkId int32) TrunksAPIUpdateTrunkRequest {
+	return TrunksAPIUpdateTrunkRequest{
 		ApiService: a,
 		ctx:        ctx,
 		trunkId:    trunkId,
@@ -2054,7 +2054,7 @@ func (a *TrunksAPIService) UpdateTrunk(ctx context.Context, trunkId int32) ApiUp
 }
 
 // Execute executes the request
-func (a *TrunksAPIService) UpdateTrunkExecute(r ApiUpdateTrunkRequest) (*http.Response, error) {
+func (a *TrunksAPIService) UpdateTrunkExecute(r TrunksAPIUpdateTrunkRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

@@ -30,13 +30,13 @@ type MessagesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param roomUuid The UUID of the room
-		@return ApiCreateRoomMessageRequest
+		@return MessagesAPICreateRoomMessageRequest
 	*/
-	CreateRoomMessage(ctx context.Context, roomUuid string) ApiCreateRoomMessageRequest
+	CreateRoomMessage(ctx context.Context, roomUuid string) MessagesAPICreateRoomMessageRequest
 
 	// CreateRoomMessageExecute executes the request
 	//  @return Message
-	CreateRoomMessageExecute(r ApiCreateRoomMessageRequest) (*Message, *http.Response, error)
+	CreateRoomMessageExecute(r MessagesAPICreateRoomMessageRequest) (*Message, *http.Response, error)
 
 	/*
 		ListRoomMessage List room messages
@@ -45,13 +45,13 @@ type MessagesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param roomUuid The UUID of the room
-		@return ApiListRoomMessageRequest
+		@return MessagesAPIListRoomMessageRequest
 	*/
-	ListRoomMessage(ctx context.Context, roomUuid string) ApiListRoomMessageRequest
+	ListRoomMessage(ctx context.Context, roomUuid string) MessagesAPIListRoomMessageRequest
 
 	// ListRoomMessageExecute executes the request
 	//  @return Messages
-	ListRoomMessageExecute(r ApiListRoomMessageRequest) (*Messages, *http.Response, error)
+	ListRoomMessageExecute(r MessagesAPIListRoomMessageRequest) (*Messages, *http.Response, error)
 
 	/*
 		ListRoomsMessages List rooms messages
@@ -59,19 +59,19 @@ type MessagesAPI interface {
 		**Required ACL:** `chatd.users.me.rooms.messages.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListRoomsMessagesRequest
+		@return MessagesAPIListRoomsMessagesRequest
 	*/
-	ListRoomsMessages(ctx context.Context) ApiListRoomsMessagesRequest
+	ListRoomsMessages(ctx context.Context) MessagesAPIListRoomsMessagesRequest
 
 	// ListRoomsMessagesExecute executes the request
 	//  @return Messages
-	ListRoomsMessagesExecute(r ApiListRoomsMessagesRequest) (*Messages, *http.Response, error)
+	ListRoomsMessagesExecute(r MessagesAPIListRoomsMessagesRequest) (*Messages, *http.Response, error)
 }
 
 // MessagesAPIService MessagesAPI service
 type MessagesAPIService service
 
-type ApiCreateRoomMessageRequest struct {
+type MessagesAPICreateRoomMessageRequest struct {
 	ctx        context.Context
 	ApiService MessagesAPI
 	body       *UserMessagePOST
@@ -79,12 +79,12 @@ type ApiCreateRoomMessageRequest struct {
 }
 
 // message to create
-func (r ApiCreateRoomMessageRequest) Body(body UserMessagePOST) ApiCreateRoomMessageRequest {
+func (r MessagesAPICreateRoomMessageRequest) Body(body UserMessagePOST) MessagesAPICreateRoomMessageRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateRoomMessageRequest) Execute() (*Message, *http.Response, error) {
+func (r MessagesAPICreateRoomMessageRequest) Execute() (*Message, *http.Response, error) {
 	return r.ApiService.CreateRoomMessageExecute(r)
 }
 
@@ -95,10 +95,10 @@ CreateRoomMessage Create room messages
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param roomUuid The UUID of the room
-	@return ApiCreateRoomMessageRequest
+	@return MessagesAPICreateRoomMessageRequest
 */
-func (a *MessagesAPIService) CreateRoomMessage(ctx context.Context, roomUuid string) ApiCreateRoomMessageRequest {
-	return ApiCreateRoomMessageRequest{
+func (a *MessagesAPIService) CreateRoomMessage(ctx context.Context, roomUuid string) MessagesAPICreateRoomMessageRequest {
+	return MessagesAPICreateRoomMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		roomUuid:   roomUuid,
@@ -108,7 +108,7 @@ func (a *MessagesAPIService) CreateRoomMessage(ctx context.Context, roomUuid str
 // Execute executes the request
 //
 //	@return Message
-func (a *MessagesAPIService) CreateRoomMessageExecute(r ApiCreateRoomMessageRequest) (*Message, *http.Response, error) {
+func (a *MessagesAPIService) CreateRoomMessageExecute(r MessagesAPICreateRoomMessageRequest) (*Message, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -222,7 +222,7 @@ func (a *MessagesAPIService) CreateRoomMessageExecute(r ApiCreateRoomMessageRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListRoomMessageRequest struct {
+type MessagesAPIListRoomMessageRequest struct {
 	ctx        context.Context
 	ApiService MessagesAPI
 	roomUuid   string
@@ -235,42 +235,42 @@ type ApiListRoomMessageRequest struct {
 }
 
 // The date and time from which to retrieve messages. Example: 2019-06-12T10:00:00.000+00:00
-func (r ApiListRoomMessageRequest) FromDate(fromDate time.Time) ApiListRoomMessageRequest {
+func (r MessagesAPIListRoomMessageRequest) FromDate(fromDate time.Time) MessagesAPIListRoomMessageRequest {
 	r.fromDate = &fromDate
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListRoomMessageRequest) Direction(direction string) ApiListRoomMessageRequest {
+func (r MessagesAPIListRoomMessageRequest) Direction(direction string) MessagesAPIListRoomMessageRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListRoomMessageRequest) Limit(limit int32) ApiListRoomMessageRequest {
+func (r MessagesAPIListRoomMessageRequest) Limit(limit int32) MessagesAPIListRoomMessageRequest {
 	r.limit = &limit
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListRoomMessageRequest) Order(order string) ApiListRoomMessageRequest {
+func (r MessagesAPIListRoomMessageRequest) Order(order string) MessagesAPIListRoomMessageRequest {
 	r.order = &order
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListRoomMessageRequest) Offset(offset int32) ApiListRoomMessageRequest {
+func (r MessagesAPIListRoomMessageRequest) Offset(offset int32) MessagesAPIListRoomMessageRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned. Required if &#x60;distinct&#x60; is not specified.
-func (r ApiListRoomMessageRequest) Search(search string) ApiListRoomMessageRequest {
+func (r MessagesAPIListRoomMessageRequest) Search(search string) MessagesAPIListRoomMessageRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListRoomMessageRequest) Execute() (*Messages, *http.Response, error) {
+func (r MessagesAPIListRoomMessageRequest) Execute() (*Messages, *http.Response, error) {
 	return r.ApiService.ListRoomMessageExecute(r)
 }
 
@@ -281,10 +281,10 @@ ListRoomMessage List room messages
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param roomUuid The UUID of the room
-	@return ApiListRoomMessageRequest
+	@return MessagesAPIListRoomMessageRequest
 */
-func (a *MessagesAPIService) ListRoomMessage(ctx context.Context, roomUuid string) ApiListRoomMessageRequest {
-	return ApiListRoomMessageRequest{
+func (a *MessagesAPIService) ListRoomMessage(ctx context.Context, roomUuid string) MessagesAPIListRoomMessageRequest {
+	return MessagesAPIListRoomMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		roomUuid:   roomUuid,
@@ -294,7 +294,7 @@ func (a *MessagesAPIService) ListRoomMessage(ctx context.Context, roomUuid strin
 // Execute executes the request
 //
 //	@return Messages
-func (a *MessagesAPIService) ListRoomMessageExecute(r ApiListRoomMessageRequest) (*Messages, *http.Response, error) {
+func (a *MessagesAPIService) ListRoomMessageExecute(r MessagesAPIListRoomMessageRequest) (*Messages, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -421,7 +421,7 @@ func (a *MessagesAPIService) ListRoomMessageExecute(r ApiListRoomMessageRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListRoomsMessagesRequest struct {
+type MessagesAPIListRoomsMessagesRequest struct {
 	ctx        context.Context
 	ApiService MessagesAPI
 	direction  *string
@@ -433,42 +433,42 @@ type ApiListRoomsMessagesRequest struct {
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListRoomsMessagesRequest) Direction(direction string) ApiListRoomsMessagesRequest {
+func (r MessagesAPIListRoomsMessagesRequest) Direction(direction string) MessagesAPIListRoomsMessagesRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListRoomsMessagesRequest) Limit(limit int32) ApiListRoomsMessagesRequest {
+func (r MessagesAPIListRoomsMessagesRequest) Limit(limit int32) MessagesAPIListRoomsMessagesRequest {
 	r.limit = &limit
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListRoomsMessagesRequest) Order(order string) ApiListRoomsMessagesRequest {
+func (r MessagesAPIListRoomsMessagesRequest) Order(order string) MessagesAPIListRoomsMessagesRequest {
 	r.order = &order
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListRoomsMessagesRequest) Offset(offset int32) ApiListRoomsMessagesRequest {
+func (r MessagesAPIListRoomsMessagesRequest) Offset(offset int32) MessagesAPIListRoomsMessagesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListRoomsMessagesRequest) Search(search string) ApiListRoomsMessagesRequest {
+func (r MessagesAPIListRoomsMessagesRequest) Search(search string) MessagesAPIListRoomsMessagesRequest {
 	r.search = &search
 	return r
 }
 
 // Distinct list results by field. Always picks the latest entry. Required if &#x60;search&#x60; is not specified.
-func (r ApiListRoomsMessagesRequest) Distinct(distinct string) ApiListRoomsMessagesRequest {
+func (r MessagesAPIListRoomsMessagesRequest) Distinct(distinct string) MessagesAPIListRoomsMessagesRequest {
 	r.distinct = &distinct
 	return r
 }
 
-func (r ApiListRoomsMessagesRequest) Execute() (*Messages, *http.Response, error) {
+func (r MessagesAPIListRoomsMessagesRequest) Execute() (*Messages, *http.Response, error) {
 	return r.ApiService.ListRoomsMessagesExecute(r)
 }
 
@@ -478,10 +478,10 @@ ListRoomsMessages List rooms messages
 **Required ACL:** `chatd.users.me.rooms.messages.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListRoomsMessagesRequest
+	@return MessagesAPIListRoomsMessagesRequest
 */
-func (a *MessagesAPIService) ListRoomsMessages(ctx context.Context) ApiListRoomsMessagesRequest {
-	return ApiListRoomsMessagesRequest{
+func (a *MessagesAPIService) ListRoomsMessages(ctx context.Context) MessagesAPIListRoomsMessagesRequest {
+	return MessagesAPIListRoomsMessagesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -490,7 +490,7 @@ func (a *MessagesAPIService) ListRoomsMessages(ctx context.Context) ApiListRooms
 // Execute executes the request
 //
 //	@return Messages
-func (a *MessagesAPIService) ListRoomsMessagesExecute(r ApiListRoomsMessagesRequest) (*Messages, *http.Response, error) {
+func (a *MessagesAPIService) ListRoomsMessagesExecute(r MessagesAPIListRoomsMessagesRequest) (*Messages, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

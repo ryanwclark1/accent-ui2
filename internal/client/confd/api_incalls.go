@@ -30,12 +30,12 @@ type IncallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
 		@param extensionId
-		@return ApiAssociateIncallExtensionRequest
+		@return IncallsAPIAssociateIncallExtensionRequest
 	*/
-	AssociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ApiAssociateIncallExtensionRequest
+	AssociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) IncallsAPIAssociateIncallExtensionRequest
 
 	// AssociateIncallExtensionExecute executes the request
-	AssociateIncallExtensionExecute(r ApiAssociateIncallExtensionRequest) (*http.Response, error)
+	AssociateIncallExtensionExecute(r IncallsAPIAssociateIncallExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateIncallSchedule Associate incall and schedule
@@ -45,12 +45,12 @@ type IncallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateIncallScheduleRequest
+		@return IncallsAPIAssociateIncallScheduleRequest
 	*/
-	AssociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) ApiAssociateIncallScheduleRequest
+	AssociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) IncallsAPIAssociateIncallScheduleRequest
 
 	// AssociateIncallScheduleExecute executes the request
-	AssociateIncallScheduleExecute(r ApiAssociateIncallScheduleRequest) (*http.Response, error)
+	AssociateIncallScheduleExecute(r IncallsAPIAssociateIncallScheduleRequest) (*http.Response, error)
 
 	/*
 		CreateIncall Create incoming call
@@ -58,13 +58,13 @@ type IncallsAPI interface {
 		**Required ACL:** `confd.incalls.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateIncallRequest
+		@return IncallsAPICreateIncallRequest
 	*/
-	CreateIncall(ctx context.Context) ApiCreateIncallRequest
+	CreateIncall(ctx context.Context) IncallsAPICreateIncallRequest
 
 	// CreateIncallExecute executes the request
 	//  @return Incall
-	CreateIncallExecute(r ApiCreateIncallRequest) (*Incall, *http.Response, error)
+	CreateIncallExecute(r IncallsAPICreateIncallRequest) (*Incall, *http.Response, error)
 
 	/*
 		DeleteIncall Delete incoming call
@@ -73,12 +73,12 @@ type IncallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
-		@return ApiDeleteIncallRequest
+		@return IncallsAPIDeleteIncallRequest
 	*/
-	DeleteIncall(ctx context.Context, incallId int32) ApiDeleteIncallRequest
+	DeleteIncall(ctx context.Context, incallId int32) IncallsAPIDeleteIncallRequest
 
 	// DeleteIncallExecute executes the request
-	DeleteIncallExecute(r ApiDeleteIncallRequest) (*http.Response, error)
+	DeleteIncallExecute(r IncallsAPIDeleteIncallRequest) (*http.Response, error)
 
 	/*
 		DissociateIncallExtension Dissociate incall and extension
@@ -88,12 +88,12 @@ type IncallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
 		@param extensionId
-		@return ApiDissociateIncallExtensionRequest
+		@return IncallsAPIDissociateIncallExtensionRequest
 	*/
-	DissociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ApiDissociateIncallExtensionRequest
+	DissociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) IncallsAPIDissociateIncallExtensionRequest
 
 	// DissociateIncallExtensionExecute executes the request
-	DissociateIncallExtensionExecute(r ApiDissociateIncallExtensionRequest) (*http.Response, error)
+	DissociateIncallExtensionExecute(r IncallsAPIDissociateIncallExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateIncallSchedule Dissociate incall and schedule
@@ -103,12 +103,12 @@ type IncallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateIncallScheduleRequest
+		@return IncallsAPIDissociateIncallScheduleRequest
 	*/
-	DissociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) ApiDissociateIncallScheduleRequest
+	DissociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) IncallsAPIDissociateIncallScheduleRequest
 
 	// DissociateIncallScheduleExecute executes the request
-	DissociateIncallScheduleExecute(r ApiDissociateIncallScheduleRequest) (*http.Response, error)
+	DissociateIncallScheduleExecute(r IncallsAPIDissociateIncallScheduleRequest) (*http.Response, error)
 
 	/*
 		GetIncall Get incoming call
@@ -117,13 +117,13 @@ type IncallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
-		@return ApiGetIncallRequest
+		@return IncallsAPIGetIncallRequest
 	*/
-	GetIncall(ctx context.Context, incallId int32) ApiGetIncallRequest
+	GetIncall(ctx context.Context, incallId int32) IncallsAPIGetIncallRequest
 
 	// GetIncallExecute executes the request
 	//  @return Incall
-	GetIncallExecute(r ApiGetIncallRequest) (*Incall, *http.Response, error)
+	GetIncallExecute(r IncallsAPIGetIncallRequest) (*Incall, *http.Response, error)
 
 	/*
 		ListIncalls List incoming calls
@@ -131,13 +131,13 @@ type IncallsAPI interface {
 		**Required ACL:** `confd.incalls.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListIncallsRequest
+		@return IncallsAPIListIncallsRequest
 	*/
-	ListIncalls(ctx context.Context) ApiListIncallsRequest
+	ListIncalls(ctx context.Context) IncallsAPIListIncallsRequest
 
 	// ListIncallsExecute executes the request
 	//  @return IncallItems
-	ListIncallsExecute(r ApiListIncallsRequest) (*IncallItems, *http.Response, error)
+	ListIncallsExecute(r IncallsAPIListIncallsRequest) (*IncallItems, *http.Response, error)
 
 	/*
 		UpdateIncall Update incoming call
@@ -146,25 +146,25 @@ type IncallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param incallId Incoming call's ID
-		@return ApiUpdateIncallRequest
+		@return IncallsAPIUpdateIncallRequest
 	*/
-	UpdateIncall(ctx context.Context, incallId int32) ApiUpdateIncallRequest
+	UpdateIncall(ctx context.Context, incallId int32) IncallsAPIUpdateIncallRequest
 
 	// UpdateIncallExecute executes the request
-	UpdateIncallExecute(r ApiUpdateIncallRequest) (*http.Response, error)
+	UpdateIncallExecute(r IncallsAPIUpdateIncallRequest) (*http.Response, error)
 }
 
 // IncallsAPIService IncallsAPI service
 type IncallsAPIService service
 
-type ApiAssociateIncallExtensionRequest struct {
+type IncallsAPIAssociateIncallExtensionRequest struct {
 	ctx         context.Context
 	ApiService  IncallsAPI
 	incallId    int32
 	extensionId int32
 }
 
-func (r ApiAssociateIncallExtensionRequest) Execute() (*http.Response, error) {
+func (r IncallsAPIAssociateIncallExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateIncallExtensionExecute(r)
 }
 
@@ -176,10 +176,10 @@ AssociateIncallExtension Associate incall and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
 	@param extensionId
-	@return ApiAssociateIncallExtensionRequest
+	@return IncallsAPIAssociateIncallExtensionRequest
 */
-func (a *IncallsAPIService) AssociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ApiAssociateIncallExtensionRequest {
-	return ApiAssociateIncallExtensionRequest{
+func (a *IncallsAPIService) AssociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) IncallsAPIAssociateIncallExtensionRequest {
+	return IncallsAPIAssociateIncallExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		incallId:    incallId,
@@ -188,7 +188,7 @@ func (a *IncallsAPIService) AssociateIncallExtension(ctx context.Context, incall
 }
 
 // Execute executes the request
-func (a *IncallsAPIService) AssociateIncallExtensionExecute(r ApiAssociateIncallExtensionRequest) (*http.Response, error) {
+func (a *IncallsAPIService) AssociateIncallExtensionExecute(r IncallsAPIAssociateIncallExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -288,7 +288,7 @@ func (a *IncallsAPIService) AssociateIncallExtensionExecute(r ApiAssociateIncall
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateIncallScheduleRequest struct {
+type IncallsAPIAssociateIncallScheduleRequest struct {
 	ctx          context.Context
 	ApiService   IncallsAPI
 	incallId     int32
@@ -297,12 +297,12 @@ type ApiAssociateIncallScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateIncallScheduleRequest) AccentTenant(accentTenant string) ApiAssociateIncallScheduleRequest {
+func (r IncallsAPIAssociateIncallScheduleRequest) AccentTenant(accentTenant string) IncallsAPIAssociateIncallScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateIncallScheduleRequest) Execute() (*http.Response, error) {
+func (r IncallsAPIAssociateIncallScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateIncallScheduleExecute(r)
 }
 
@@ -314,10 +314,10 @@ AssociateIncallSchedule Associate incall and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateIncallScheduleRequest
+	@return IncallsAPIAssociateIncallScheduleRequest
 */
-func (a *IncallsAPIService) AssociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) ApiAssociateIncallScheduleRequest {
-	return ApiAssociateIncallScheduleRequest{
+func (a *IncallsAPIService) AssociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) IncallsAPIAssociateIncallScheduleRequest {
+	return IncallsAPIAssociateIncallScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		incallId:   incallId,
@@ -326,7 +326,7 @@ func (a *IncallsAPIService) AssociateIncallSchedule(ctx context.Context, incallI
 }
 
 // Execute executes the request
-func (a *IncallsAPIService) AssociateIncallScheduleExecute(r ApiAssociateIncallScheduleRequest) (*http.Response, error) {
+func (a *IncallsAPIService) AssociateIncallScheduleExecute(r IncallsAPIAssociateIncallScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -429,7 +429,7 @@ func (a *IncallsAPIService) AssociateIncallScheduleExecute(r ApiAssociateIncallS
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateIncallRequest struct {
+type IncallsAPICreateIncallRequest struct {
 	ctx          context.Context
 	ApiService   IncallsAPI
 	body         *Incall
@@ -437,18 +437,18 @@ type ApiCreateIncallRequest struct {
 }
 
 // Incoming call to create
-func (r ApiCreateIncallRequest) Body(body Incall) ApiCreateIncallRequest {
+func (r IncallsAPICreateIncallRequest) Body(body Incall) IncallsAPICreateIncallRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateIncallRequest) AccentTenant(accentTenant string) ApiCreateIncallRequest {
+func (r IncallsAPICreateIncallRequest) AccentTenant(accentTenant string) IncallsAPICreateIncallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateIncallRequest) Execute() (*Incall, *http.Response, error) {
+func (r IncallsAPICreateIncallRequest) Execute() (*Incall, *http.Response, error) {
 	return r.ApiService.CreateIncallExecute(r)
 }
 
@@ -458,10 +458,10 @@ CreateIncall Create incoming call
 **Required ACL:** `confd.incalls.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateIncallRequest
+	@return IncallsAPICreateIncallRequest
 */
-func (a *IncallsAPIService) CreateIncall(ctx context.Context) ApiCreateIncallRequest {
-	return ApiCreateIncallRequest{
+func (a *IncallsAPIService) CreateIncall(ctx context.Context) IncallsAPICreateIncallRequest {
+	return IncallsAPICreateIncallRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -470,7 +470,7 @@ func (a *IncallsAPIService) CreateIncall(ctx context.Context) ApiCreateIncallReq
 // Execute executes the request
 //
 //	@return Incall
-func (a *IncallsAPIService) CreateIncallExecute(r ApiCreateIncallRequest) (*Incall, *http.Response, error) {
+func (a *IncallsAPIService) CreateIncallExecute(r IncallsAPICreateIncallRequest) (*Incall, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -575,7 +575,7 @@ func (a *IncallsAPIService) CreateIncallExecute(r ApiCreateIncallRequest) (*Inca
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteIncallRequest struct {
+type IncallsAPIDeleteIncallRequest struct {
 	ctx          context.Context
 	ApiService   IncallsAPI
 	incallId     int32
@@ -583,12 +583,12 @@ type ApiDeleteIncallRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteIncallRequest) AccentTenant(accentTenant string) ApiDeleteIncallRequest {
+func (r IncallsAPIDeleteIncallRequest) AccentTenant(accentTenant string) IncallsAPIDeleteIncallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteIncallRequest) Execute() (*http.Response, error) {
+func (r IncallsAPIDeleteIncallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteIncallExecute(r)
 }
 
@@ -599,10 +599,10 @@ DeleteIncall Delete incoming call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
-	@return ApiDeleteIncallRequest
+	@return IncallsAPIDeleteIncallRequest
 */
-func (a *IncallsAPIService) DeleteIncall(ctx context.Context, incallId int32) ApiDeleteIncallRequest {
-	return ApiDeleteIncallRequest{
+func (a *IncallsAPIService) DeleteIncall(ctx context.Context, incallId int32) IncallsAPIDeleteIncallRequest {
+	return IncallsAPIDeleteIncallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		incallId:   incallId,
@@ -610,7 +610,7 @@ func (a *IncallsAPIService) DeleteIncall(ctx context.Context, incallId int32) Ap
 }
 
 // Execute executes the request
-func (a *IncallsAPIService) DeleteIncallExecute(r ApiDeleteIncallRequest) (*http.Response, error) {
+func (a *IncallsAPIService) DeleteIncallExecute(r IncallsAPIDeleteIncallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -712,14 +712,14 @@ func (a *IncallsAPIService) DeleteIncallExecute(r ApiDeleteIncallRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateIncallExtensionRequest struct {
+type IncallsAPIDissociateIncallExtensionRequest struct {
 	ctx         context.Context
 	ApiService  IncallsAPI
 	incallId    int32
 	extensionId int32
 }
 
-func (r ApiDissociateIncallExtensionRequest) Execute() (*http.Response, error) {
+func (r IncallsAPIDissociateIncallExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateIncallExtensionExecute(r)
 }
 
@@ -731,10 +731,10 @@ DissociateIncallExtension Dissociate incall and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
 	@param extensionId
-	@return ApiDissociateIncallExtensionRequest
+	@return IncallsAPIDissociateIncallExtensionRequest
 */
-func (a *IncallsAPIService) DissociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) ApiDissociateIncallExtensionRequest {
-	return ApiDissociateIncallExtensionRequest{
+func (a *IncallsAPIService) DissociateIncallExtension(ctx context.Context, incallId int32, extensionId int32) IncallsAPIDissociateIncallExtensionRequest {
+	return IncallsAPIDissociateIncallExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		incallId:    incallId,
@@ -743,7 +743,7 @@ func (a *IncallsAPIService) DissociateIncallExtension(ctx context.Context, incal
 }
 
 // Execute executes the request
-func (a *IncallsAPIService) DissociateIncallExtensionExecute(r ApiDissociateIncallExtensionRequest) (*http.Response, error) {
+func (a *IncallsAPIService) DissociateIncallExtensionExecute(r IncallsAPIDissociateIncallExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -843,7 +843,7 @@ func (a *IncallsAPIService) DissociateIncallExtensionExecute(r ApiDissociateInca
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateIncallScheduleRequest struct {
+type IncallsAPIDissociateIncallScheduleRequest struct {
 	ctx          context.Context
 	ApiService   IncallsAPI
 	incallId     int32
@@ -852,12 +852,12 @@ type ApiDissociateIncallScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateIncallScheduleRequest) AccentTenant(accentTenant string) ApiDissociateIncallScheduleRequest {
+func (r IncallsAPIDissociateIncallScheduleRequest) AccentTenant(accentTenant string) IncallsAPIDissociateIncallScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateIncallScheduleRequest) Execute() (*http.Response, error) {
+func (r IncallsAPIDissociateIncallScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateIncallScheduleExecute(r)
 }
 
@@ -869,10 +869,10 @@ DissociateIncallSchedule Dissociate incall and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateIncallScheduleRequest
+	@return IncallsAPIDissociateIncallScheduleRequest
 */
-func (a *IncallsAPIService) DissociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) ApiDissociateIncallScheduleRequest {
-	return ApiDissociateIncallScheduleRequest{
+func (a *IncallsAPIService) DissociateIncallSchedule(ctx context.Context, incallId int32, scheduleId int32) IncallsAPIDissociateIncallScheduleRequest {
+	return IncallsAPIDissociateIncallScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		incallId:   incallId,
@@ -881,7 +881,7 @@ func (a *IncallsAPIService) DissociateIncallSchedule(ctx context.Context, incall
 }
 
 // Execute executes the request
-func (a *IncallsAPIService) DissociateIncallScheduleExecute(r ApiDissociateIncallScheduleRequest) (*http.Response, error) {
+func (a *IncallsAPIService) DissociateIncallScheduleExecute(r IncallsAPIDissociateIncallScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -984,7 +984,7 @@ func (a *IncallsAPIService) DissociateIncallScheduleExecute(r ApiDissociateIncal
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetIncallRequest struct {
+type IncallsAPIGetIncallRequest struct {
 	ctx          context.Context
 	ApiService   IncallsAPI
 	incallId     int32
@@ -992,12 +992,12 @@ type ApiGetIncallRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetIncallRequest) AccentTenant(accentTenant string) ApiGetIncallRequest {
+func (r IncallsAPIGetIncallRequest) AccentTenant(accentTenant string) IncallsAPIGetIncallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetIncallRequest) Execute() (*Incall, *http.Response, error) {
+func (r IncallsAPIGetIncallRequest) Execute() (*Incall, *http.Response, error) {
 	return r.ApiService.GetIncallExecute(r)
 }
 
@@ -1008,10 +1008,10 @@ GetIncall Get incoming call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
-	@return ApiGetIncallRequest
+	@return IncallsAPIGetIncallRequest
 */
-func (a *IncallsAPIService) GetIncall(ctx context.Context, incallId int32) ApiGetIncallRequest {
-	return ApiGetIncallRequest{
+func (a *IncallsAPIService) GetIncall(ctx context.Context, incallId int32) IncallsAPIGetIncallRequest {
+	return IncallsAPIGetIncallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		incallId:   incallId,
@@ -1021,7 +1021,7 @@ func (a *IncallsAPIService) GetIncall(ctx context.Context, incallId int32) ApiGe
 // Execute executes the request
 //
 //	@return Incall
-func (a *IncallsAPIService) GetIncallExecute(r ApiGetIncallRequest) (*Incall, *http.Response, error) {
+func (a *IncallsAPIService) GetIncallExecute(r IncallsAPIGetIncallRequest) (*Incall, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1122,7 +1122,7 @@ func (a *IncallsAPIService) GetIncallExecute(r ApiGetIncallRequest) (*Incall, *h
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListIncallsRequest struct {
+type IncallsAPIListIncallsRequest struct {
 	ctx          context.Context
 	ApiService   IncallsAPI
 	accentTenant *string
@@ -1135,48 +1135,48 @@ type ApiListIncallsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListIncallsRequest) AccentTenant(accentTenant string) ApiListIncallsRequest {
+func (r IncallsAPIListIncallsRequest) AccentTenant(accentTenant string) IncallsAPIListIncallsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListIncallsRequest) Recurse(recurse bool) ApiListIncallsRequest {
+func (r IncallsAPIListIncallsRequest) Recurse(recurse bool) IncallsAPIListIncallsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListIncallsRequest) Order(order string) ApiListIncallsRequest {
+func (r IncallsAPIListIncallsRequest) Order(order string) IncallsAPIListIncallsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListIncallsRequest) Direction(direction string) ApiListIncallsRequest {
+func (r IncallsAPIListIncallsRequest) Direction(direction string) IncallsAPIListIncallsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListIncallsRequest) Limit(limit int32) ApiListIncallsRequest {
+func (r IncallsAPIListIncallsRequest) Limit(limit int32) IncallsAPIListIncallsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListIncallsRequest) Offset(offset int32) ApiListIncallsRequest {
+func (r IncallsAPIListIncallsRequest) Offset(offset int32) IncallsAPIListIncallsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListIncallsRequest) Search(search string) ApiListIncallsRequest {
+func (r IncallsAPIListIncallsRequest) Search(search string) IncallsAPIListIncallsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListIncallsRequest) Execute() (*IncallItems, *http.Response, error) {
+func (r IncallsAPIListIncallsRequest) Execute() (*IncallItems, *http.Response, error) {
 	return r.ApiService.ListIncallsExecute(r)
 }
 
@@ -1186,10 +1186,10 @@ ListIncalls List incoming calls
 **Required ACL:** `confd.incalls.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListIncallsRequest
+	@return IncallsAPIListIncallsRequest
 */
-func (a *IncallsAPIService) ListIncalls(ctx context.Context) ApiListIncallsRequest {
-	return ApiListIncallsRequest{
+func (a *IncallsAPIService) ListIncalls(ctx context.Context) IncallsAPIListIncallsRequest {
+	return IncallsAPIListIncallsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1198,7 +1198,7 @@ func (a *IncallsAPIService) ListIncalls(ctx context.Context) ApiListIncallsReque
 // Execute executes the request
 //
 //	@return IncallItems
-func (a *IncallsAPIService) ListIncallsExecute(r ApiListIncallsRequest) (*IncallItems, *http.Response, error) {
+func (a *IncallsAPIService) ListIncallsExecute(r IncallsAPIListIncallsRequest) (*IncallItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1309,7 +1309,7 @@ func (a *IncallsAPIService) ListIncallsExecute(r ApiListIncallsRequest) (*Incall
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateIncallRequest struct {
+type IncallsAPIUpdateIncallRequest struct {
 	ctx          context.Context
 	ApiService   IncallsAPI
 	body         *Incall
@@ -1317,18 +1317,18 @@ type ApiUpdateIncallRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateIncallRequest) Body(body Incall) ApiUpdateIncallRequest {
+func (r IncallsAPIUpdateIncallRequest) Body(body Incall) IncallsAPIUpdateIncallRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateIncallRequest) AccentTenant(accentTenant string) ApiUpdateIncallRequest {
+func (r IncallsAPIUpdateIncallRequest) AccentTenant(accentTenant string) IncallsAPIUpdateIncallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateIncallRequest) Execute() (*http.Response, error) {
+func (r IncallsAPIUpdateIncallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateIncallExecute(r)
 }
 
@@ -1339,10 +1339,10 @@ UpdateIncall Update incoming call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param incallId Incoming call's ID
-	@return ApiUpdateIncallRequest
+	@return IncallsAPIUpdateIncallRequest
 */
-func (a *IncallsAPIService) UpdateIncall(ctx context.Context, incallId int32) ApiUpdateIncallRequest {
-	return ApiUpdateIncallRequest{
+func (a *IncallsAPIService) UpdateIncall(ctx context.Context, incallId int32) IncallsAPIUpdateIncallRequest {
+	return IncallsAPIUpdateIncallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		incallId:   incallId,
@@ -1350,7 +1350,7 @@ func (a *IncallsAPIService) UpdateIncall(ctx context.Context, incallId int32) Ap
 }
 
 // Execute executes the request
-func (a *IncallsAPIService) UpdateIncallExecute(r ApiUpdateIncallRequest) (*http.Response, error) {
+func (a *IncallsAPIService) UpdateIncallExecute(r IncallsAPIUpdateIncallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

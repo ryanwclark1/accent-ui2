@@ -32,13 +32,13 @@ type SwitchboardsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid Unique identifier of the switchboard
 		@param callId ID of the call
-		@return ApiAnswerHeldCallRequest
+		@return SwitchboardsAPIAnswerHeldCallRequest
 	*/
-	AnswerHeldCall(ctx context.Context, switchboardUuid string, callId string) ApiAnswerHeldCallRequest
+	AnswerHeldCall(ctx context.Context, switchboardUuid string, callId string) SwitchboardsAPIAnswerHeldCallRequest
 
 	// AnswerHeldCallExecute executes the request
 	//  @return CallID
-	AnswerHeldCallExecute(r ApiAnswerHeldCallRequest) (*CallID, *http.Response, error)
+	AnswerHeldCallExecute(r SwitchboardsAPIAnswerHeldCallRequest) (*CallID, *http.Response, error)
 
 	/*
 		AnswerQueuedCall Answer the specified queued call
@@ -50,13 +50,13 @@ type SwitchboardsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid Unique identifier of the switchboard
 		@param callId ID of the call
-		@return ApiAnswerQueuedCallRequest
+		@return SwitchboardsAPIAnswerQueuedCallRequest
 	*/
-	AnswerQueuedCall(ctx context.Context, switchboardUuid string, callId string) ApiAnswerQueuedCallRequest
+	AnswerQueuedCall(ctx context.Context, switchboardUuid string, callId string) SwitchboardsAPIAnswerQueuedCallRequest
 
 	// AnswerQueuedCallExecute executes the request
 	//  @return CallID
-	AnswerQueuedCallExecute(r ApiAnswerQueuedCallRequest) (*CallID, *http.Response, error)
+	AnswerQueuedCallExecute(r SwitchboardsAPIAnswerQueuedCallRequest) (*CallID, *http.Response, error)
 
 	/*
 		HoldSwitchboardCall Put the specified call on hold in the switchboard
@@ -70,12 +70,12 @@ type SwitchboardsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid Unique identifier of the switchboard
 		@param callId ID of the call
-		@return ApiHoldSwitchboardCallRequest
+		@return SwitchboardsAPIHoldSwitchboardCallRequest
 	*/
-	HoldSwitchboardCall(ctx context.Context, switchboardUuid string, callId string) ApiHoldSwitchboardCallRequest
+	HoldSwitchboardCall(ctx context.Context, switchboardUuid string, callId string) SwitchboardsAPIHoldSwitchboardCallRequest
 
 	// HoldSwitchboardCallExecute executes the request
-	HoldSwitchboardCallExecute(r ApiHoldSwitchboardCallRequest) (*http.Response, error)
+	HoldSwitchboardCallExecute(r SwitchboardsAPIHoldSwitchboardCallRequest) (*http.Response, error)
 
 	/*
 		ListSwitchboardHeldCalls List calls held in the switchboard
@@ -86,13 +86,13 @@ type SwitchboardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid Unique identifier of the switchboard
-		@return ApiListSwitchboardHeldCallsRequest
+		@return SwitchboardsAPIListSwitchboardHeldCallsRequest
 	*/
-	ListSwitchboardHeldCalls(ctx context.Context, switchboardUuid string) ApiListSwitchboardHeldCallsRequest
+	ListSwitchboardHeldCalls(ctx context.Context, switchboardUuid string) SwitchboardsAPIListSwitchboardHeldCallsRequest
 
 	// ListSwitchboardHeldCallsExecute executes the request
 	//  @return SwitchboardHeldCalls
-	ListSwitchboardHeldCallsExecute(r ApiListSwitchboardHeldCallsRequest) (*SwitchboardHeldCalls, *http.Response, error)
+	ListSwitchboardHeldCallsExecute(r SwitchboardsAPIListSwitchboardHeldCallsRequest) (*SwitchboardHeldCalls, *http.Response, error)
 
 	/*
 		ListSwitchboardQueuedCalls List calls queued in the switchboard
@@ -103,19 +103,19 @@ type SwitchboardsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param switchboardUuid Unique identifier of the switchboard
-		@return ApiListSwitchboardQueuedCallsRequest
+		@return SwitchboardsAPIListSwitchboardQueuedCallsRequest
 	*/
-	ListSwitchboardQueuedCalls(ctx context.Context, switchboardUuid string) ApiListSwitchboardQueuedCallsRequest
+	ListSwitchboardQueuedCalls(ctx context.Context, switchboardUuid string) SwitchboardsAPIListSwitchboardQueuedCallsRequest
 
 	// ListSwitchboardQueuedCallsExecute executes the request
 	//  @return SwitchboardQueuedCalls
-	ListSwitchboardQueuedCallsExecute(r ApiListSwitchboardQueuedCallsRequest) (*SwitchboardQueuedCalls, *http.Response, error)
+	ListSwitchboardQueuedCallsExecute(r SwitchboardsAPIListSwitchboardQueuedCallsRequest) (*SwitchboardQueuedCalls, *http.Response, error)
 }
 
 // SwitchboardsAPIService SwitchboardsAPI service
 type SwitchboardsAPIService service
 
-type ApiAnswerHeldCallRequest struct {
+type SwitchboardsAPIAnswerHeldCallRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -125,18 +125,18 @@ type ApiAnswerHeldCallRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAnswerHeldCallRequest) AccentTenant(accentTenant string) ApiAnswerHeldCallRequest {
+func (r SwitchboardsAPIAnswerHeldCallRequest) AccentTenant(accentTenant string) SwitchboardsAPIAnswerHeldCallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // ID of the line of the user used to make the call. Default is the main line of the user.
-func (r ApiAnswerHeldCallRequest) LineId(lineId int32) ApiAnswerHeldCallRequest {
+func (r SwitchboardsAPIAnswerHeldCallRequest) LineId(lineId int32) SwitchboardsAPIAnswerHeldCallRequest {
 	r.lineId = &lineId
 	return r
 }
 
-func (r ApiAnswerHeldCallRequest) Execute() (*CallID, *http.Response, error) {
+func (r SwitchboardsAPIAnswerHeldCallRequest) Execute() (*CallID, *http.Response, error) {
 	return r.ApiService.AnswerHeldCallExecute(r)
 }
 
@@ -150,10 +150,10 @@ AnswerHeldCall Answer the specified held call
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid Unique identifier of the switchboard
 	@param callId ID of the call
-	@return ApiAnswerHeldCallRequest
+	@return SwitchboardsAPIAnswerHeldCallRequest
 */
-func (a *SwitchboardsAPIService) AnswerHeldCall(ctx context.Context, switchboardUuid string, callId string) ApiAnswerHeldCallRequest {
-	return ApiAnswerHeldCallRequest{
+func (a *SwitchboardsAPIService) AnswerHeldCall(ctx context.Context, switchboardUuid string, callId string) SwitchboardsAPIAnswerHeldCallRequest {
+	return SwitchboardsAPIAnswerHeldCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -164,7 +164,7 @@ func (a *SwitchboardsAPIService) AnswerHeldCall(ctx context.Context, switchboard
 // Execute executes the request
 //
 //	@return CallID
-func (a *SwitchboardsAPIService) AnswerHeldCallExecute(r ApiAnswerHeldCallRequest) (*CallID, *http.Response, error) {
+func (a *SwitchboardsAPIService) AnswerHeldCallExecute(r SwitchboardsAPIAnswerHeldCallRequest) (*CallID, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -291,7 +291,7 @@ func (a *SwitchboardsAPIService) AnswerHeldCallExecute(r ApiAnswerHeldCallReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAnswerQueuedCallRequest struct {
+type SwitchboardsAPIAnswerQueuedCallRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -301,18 +301,18 @@ type ApiAnswerQueuedCallRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAnswerQueuedCallRequest) AccentTenant(accentTenant string) ApiAnswerQueuedCallRequest {
+func (r SwitchboardsAPIAnswerQueuedCallRequest) AccentTenant(accentTenant string) SwitchboardsAPIAnswerQueuedCallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // ID of the line of the user used to make the call. Default is the main line of the user.
-func (r ApiAnswerQueuedCallRequest) LineId(lineId int32) ApiAnswerQueuedCallRequest {
+func (r SwitchboardsAPIAnswerQueuedCallRequest) LineId(lineId int32) SwitchboardsAPIAnswerQueuedCallRequest {
 	r.lineId = &lineId
 	return r
 }
 
-func (r ApiAnswerQueuedCallRequest) Execute() (*CallID, *http.Response, error) {
+func (r SwitchboardsAPIAnswerQueuedCallRequest) Execute() (*CallID, *http.Response, error) {
 	return r.ApiService.AnswerQueuedCallExecute(r)
 }
 
@@ -326,10 +326,10 @@ AnswerQueuedCall Answer the specified queued call
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid Unique identifier of the switchboard
 	@param callId ID of the call
-	@return ApiAnswerQueuedCallRequest
+	@return SwitchboardsAPIAnswerQueuedCallRequest
 */
-func (a *SwitchboardsAPIService) AnswerQueuedCall(ctx context.Context, switchboardUuid string, callId string) ApiAnswerQueuedCallRequest {
-	return ApiAnswerQueuedCallRequest{
+func (a *SwitchboardsAPIService) AnswerQueuedCall(ctx context.Context, switchboardUuid string, callId string) SwitchboardsAPIAnswerQueuedCallRequest {
+	return SwitchboardsAPIAnswerQueuedCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -340,7 +340,7 @@ func (a *SwitchboardsAPIService) AnswerQueuedCall(ctx context.Context, switchboa
 // Execute executes the request
 //
 //	@return CallID
-func (a *SwitchboardsAPIService) AnswerQueuedCallExecute(r ApiAnswerQueuedCallRequest) (*CallID, *http.Response, error) {
+func (a *SwitchboardsAPIService) AnswerQueuedCallExecute(r SwitchboardsAPIAnswerQueuedCallRequest) (*CallID, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -467,7 +467,7 @@ func (a *SwitchboardsAPIService) AnswerQueuedCallExecute(r ApiAnswerQueuedCallRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiHoldSwitchboardCallRequest struct {
+type SwitchboardsAPIHoldSwitchboardCallRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -476,12 +476,12 @@ type ApiHoldSwitchboardCallRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiHoldSwitchboardCallRequest) AccentTenant(accentTenant string) ApiHoldSwitchboardCallRequest {
+func (r SwitchboardsAPIHoldSwitchboardCallRequest) AccentTenant(accentTenant string) SwitchboardsAPIHoldSwitchboardCallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiHoldSwitchboardCallRequest) Execute() (*http.Response, error) {
+func (r SwitchboardsAPIHoldSwitchboardCallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.HoldSwitchboardCallExecute(r)
 }
 
@@ -497,10 +497,10 @@ HoldSwitchboardCall Put the specified call on hold in the switchboard
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid Unique identifier of the switchboard
 	@param callId ID of the call
-	@return ApiHoldSwitchboardCallRequest
+	@return SwitchboardsAPIHoldSwitchboardCallRequest
 */
-func (a *SwitchboardsAPIService) HoldSwitchboardCall(ctx context.Context, switchboardUuid string, callId string) ApiHoldSwitchboardCallRequest {
-	return ApiHoldSwitchboardCallRequest{
+func (a *SwitchboardsAPIService) HoldSwitchboardCall(ctx context.Context, switchboardUuid string, callId string) SwitchboardsAPIHoldSwitchboardCallRequest {
+	return SwitchboardsAPIHoldSwitchboardCallRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -509,7 +509,7 @@ func (a *SwitchboardsAPIService) HoldSwitchboardCall(ctx context.Context, switch
 }
 
 // Execute executes the request
-func (a *SwitchboardsAPIService) HoldSwitchboardCallExecute(r ApiHoldSwitchboardCallRequest) (*http.Response, error) {
+func (a *SwitchboardsAPIService) HoldSwitchboardCallExecute(r SwitchboardsAPIHoldSwitchboardCallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -623,7 +623,7 @@ func (a *SwitchboardsAPIService) HoldSwitchboardCallExecute(r ApiHoldSwitchboard
 	return localVarHTTPResponse, nil
 }
 
-type ApiListSwitchboardHeldCallsRequest struct {
+type SwitchboardsAPIListSwitchboardHeldCallsRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -631,12 +631,12 @@ type ApiListSwitchboardHeldCallsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListSwitchboardHeldCallsRequest) AccentTenant(accentTenant string) ApiListSwitchboardHeldCallsRequest {
+func (r SwitchboardsAPIListSwitchboardHeldCallsRequest) AccentTenant(accentTenant string) SwitchboardsAPIListSwitchboardHeldCallsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListSwitchboardHeldCallsRequest) Execute() (*SwitchboardHeldCalls, *http.Response, error) {
+func (r SwitchboardsAPIListSwitchboardHeldCallsRequest) Execute() (*SwitchboardHeldCalls, *http.Response, error) {
 	return r.ApiService.ListSwitchboardHeldCallsExecute(r)
 }
 
@@ -649,10 +649,10 @@ ListSwitchboardHeldCalls List calls held in the switchboard
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid Unique identifier of the switchboard
-	@return ApiListSwitchboardHeldCallsRequest
+	@return SwitchboardsAPIListSwitchboardHeldCallsRequest
 */
-func (a *SwitchboardsAPIService) ListSwitchboardHeldCalls(ctx context.Context, switchboardUuid string) ApiListSwitchboardHeldCallsRequest {
-	return ApiListSwitchboardHeldCallsRequest{
+func (a *SwitchboardsAPIService) ListSwitchboardHeldCalls(ctx context.Context, switchboardUuid string) SwitchboardsAPIListSwitchboardHeldCallsRequest {
+	return SwitchboardsAPIListSwitchboardHeldCallsRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -662,7 +662,7 @@ func (a *SwitchboardsAPIService) ListSwitchboardHeldCalls(ctx context.Context, s
 // Execute executes the request
 //
 //	@return SwitchboardHeldCalls
-func (a *SwitchboardsAPIService) ListSwitchboardHeldCallsExecute(r ApiListSwitchboardHeldCallsRequest) (*SwitchboardHeldCalls, *http.Response, error) {
+func (a *SwitchboardsAPIService) ListSwitchboardHeldCallsExecute(r SwitchboardsAPIListSwitchboardHeldCallsRequest) (*SwitchboardHeldCalls, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -774,7 +774,7 @@ func (a *SwitchboardsAPIService) ListSwitchboardHeldCallsExecute(r ApiListSwitch
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSwitchboardQueuedCallsRequest struct {
+type SwitchboardsAPIListSwitchboardQueuedCallsRequest struct {
 	ctx             context.Context
 	ApiService      SwitchboardsAPI
 	switchboardUuid string
@@ -782,12 +782,12 @@ type ApiListSwitchboardQueuedCallsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListSwitchboardQueuedCallsRequest) AccentTenant(accentTenant string) ApiListSwitchboardQueuedCallsRequest {
+func (r SwitchboardsAPIListSwitchboardQueuedCallsRequest) AccentTenant(accentTenant string) SwitchboardsAPIListSwitchboardQueuedCallsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListSwitchboardQueuedCallsRequest) Execute() (*SwitchboardQueuedCalls, *http.Response, error) {
+func (r SwitchboardsAPIListSwitchboardQueuedCallsRequest) Execute() (*SwitchboardQueuedCalls, *http.Response, error) {
 	return r.ApiService.ListSwitchboardQueuedCallsExecute(r)
 }
 
@@ -800,10 +800,10 @@ ListSwitchboardQueuedCalls List calls queued in the switchboard
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param switchboardUuid Unique identifier of the switchboard
-	@return ApiListSwitchboardQueuedCallsRequest
+	@return SwitchboardsAPIListSwitchboardQueuedCallsRequest
 */
-func (a *SwitchboardsAPIService) ListSwitchboardQueuedCalls(ctx context.Context, switchboardUuid string) ApiListSwitchboardQueuedCallsRequest {
-	return ApiListSwitchboardQueuedCallsRequest{
+func (a *SwitchboardsAPIService) ListSwitchboardQueuedCalls(ctx context.Context, switchboardUuid string) SwitchboardsAPIListSwitchboardQueuedCallsRequest {
+	return SwitchboardsAPIListSwitchboardQueuedCallsRequest{
 		ApiService:      a,
 		ctx:             ctx,
 		switchboardUuid: switchboardUuid,
@@ -813,7 +813,7 @@ func (a *SwitchboardsAPIService) ListSwitchboardQueuedCalls(ctx context.Context,
 // Execute executes the request
 //
 //	@return SwitchboardQueuedCalls
-func (a *SwitchboardsAPIService) ListSwitchboardQueuedCallsExecute(r ApiListSwitchboardQueuedCallsRequest) (*SwitchboardQueuedCalls, *http.Response, error) {
+func (a *SwitchboardsAPIService) ListSwitchboardQueuedCallsExecute(r SwitchboardsAPIListSwitchboardQueuedCallsRequest) (*SwitchboardQueuedCalls, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

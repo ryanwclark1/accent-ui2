@@ -29,12 +29,12 @@ type EmailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param emailUuid The UUID of the email
-		@return ApiGetEmailConfirmRequest
+		@return EmailsAPIGetEmailConfirmRequest
 	*/
-	GetEmailConfirm(ctx context.Context, emailUuid string) ApiGetEmailConfirmRequest
+	GetEmailConfirm(ctx context.Context, emailUuid string) EmailsAPIGetEmailConfirmRequest
 
 	// GetEmailConfirmExecute executes the request
-	GetEmailConfirmExecute(r ApiGetEmailConfirmRequest) (*http.Response, error)
+	GetEmailConfirmExecute(r EmailsAPIGetEmailConfirmRequest) (*http.Response, error)
 
 	/*
 		GetNewEmailConfirmation Ask a new confirmation email
@@ -44,12 +44,12 @@ type EmailsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
 		@param emailUuid The UUID of the email
-		@return ApiGetNewEmailConfirmationRequest
+		@return EmailsAPIGetNewEmailConfirmationRequest
 	*/
-	GetNewEmailConfirmation(ctx context.Context, userUuid string, emailUuid string) ApiGetNewEmailConfirmationRequest
+	GetNewEmailConfirmation(ctx context.Context, userUuid string, emailUuid string) EmailsAPIGetNewEmailConfirmationRequest
 
 	// GetNewEmailConfirmationExecute executes the request
-	GetNewEmailConfirmationExecute(r ApiGetNewEmailConfirmationRequest) (*http.Response, error)
+	GetNewEmailConfirmationExecute(r EmailsAPIGetNewEmailConfirmationRequest) (*http.Response, error)
 
 	/*
 		PutEmailConfirm Confirm an email address
@@ -58,12 +58,12 @@ type EmailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param emailUuid The UUID of the email
-		@return ApiPutEmailConfirmRequest
+		@return EmailsAPIPutEmailConfirmRequest
 	*/
-	PutEmailConfirm(ctx context.Context, emailUuid string) ApiPutEmailConfirmRequest
+	PutEmailConfirm(ctx context.Context, emailUuid string) EmailsAPIPutEmailConfirmRequest
 
 	// PutEmailConfirmExecute executes the request
-	PutEmailConfirmExecute(r ApiPutEmailConfirmRequest) (*http.Response, error)
+	PutEmailConfirmExecute(r EmailsAPIPutEmailConfirmRequest) (*http.Response, error)
 
 	/*
 		UpdateAllUserEmails Update email addresses
@@ -73,12 +73,12 @@ type EmailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiUpdateAllUserEmailsRequest
+		@return EmailsAPIUpdateAllUserEmailsRequest
 	*/
-	UpdateAllUserEmails(ctx context.Context, userUuid string) ApiUpdateAllUserEmailsRequest
+	UpdateAllUserEmails(ctx context.Context, userUuid string) EmailsAPIUpdateAllUserEmailsRequest
 
 	// UpdateAllUserEmailsExecute executes the request
-	UpdateAllUserEmailsExecute(r ApiUpdateAllUserEmailsRequest) (*http.Response, error)
+	UpdateAllUserEmailsExecute(r EmailsAPIUpdateAllUserEmailsRequest) (*http.Response, error)
 
 	/*
 		UpdateUserEmails Update email addresses
@@ -88,18 +88,18 @@ type EmailsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiUpdateUserEmailsRequest
+		@return EmailsAPIUpdateUserEmailsRequest
 	*/
-	UpdateUserEmails(ctx context.Context, userUuid string) ApiUpdateUserEmailsRequest
+	UpdateUserEmails(ctx context.Context, userUuid string) EmailsAPIUpdateUserEmailsRequest
 
 	// UpdateUserEmailsExecute executes the request
-	UpdateUserEmailsExecute(r ApiUpdateUserEmailsRequest) (*http.Response, error)
+	UpdateUserEmailsExecute(r EmailsAPIUpdateUserEmailsRequest) (*http.Response, error)
 }
 
 // EmailsAPIService EmailsAPI service
 type EmailsAPIService service
 
-type ApiGetEmailConfirmRequest struct {
+type EmailsAPIGetEmailConfirmRequest struct {
 	ctx        context.Context
 	ApiService EmailsAPI
 	emailUuid  string
@@ -107,12 +107,12 @@ type ApiGetEmailConfirmRequest struct {
 }
 
 // The UUID of the token used to confirm the email address
-func (r ApiGetEmailConfirmRequest) Token(token string) ApiGetEmailConfirmRequest {
+func (r EmailsAPIGetEmailConfirmRequest) Token(token string) EmailsAPIGetEmailConfirmRequest {
 	r.token = &token
 	return r
 }
 
-func (r ApiGetEmailConfirmRequest) Execute() (*http.Response, error) {
+func (r EmailsAPIGetEmailConfirmRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetEmailConfirmExecute(r)
 }
 
@@ -123,10 +123,10 @@ GetEmailConfirm Confirm an email address
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param emailUuid The UUID of the email
-	@return ApiGetEmailConfirmRequest
+	@return EmailsAPIGetEmailConfirmRequest
 */
-func (a *EmailsAPIService) GetEmailConfirm(ctx context.Context, emailUuid string) ApiGetEmailConfirmRequest {
-	return ApiGetEmailConfirmRequest{
+func (a *EmailsAPIService) GetEmailConfirm(ctx context.Context, emailUuid string) EmailsAPIGetEmailConfirmRequest {
+	return EmailsAPIGetEmailConfirmRequest{
 		ApiService: a,
 		ctx:        ctx,
 		emailUuid:  emailUuid,
@@ -134,7 +134,7 @@ func (a *EmailsAPIService) GetEmailConfirm(ctx context.Context, emailUuid string
 }
 
 // Execute executes the request
-func (a *EmailsAPIService) GetEmailConfirmExecute(r ApiGetEmailConfirmRequest) (*http.Response, error) {
+func (a *EmailsAPIService) GetEmailConfirmExecute(r EmailsAPIGetEmailConfirmRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -212,14 +212,14 @@ func (a *EmailsAPIService) GetEmailConfirmExecute(r ApiGetEmailConfirmRequest) (
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetNewEmailConfirmationRequest struct {
+type EmailsAPIGetNewEmailConfirmationRequest struct {
 	ctx        context.Context
 	ApiService EmailsAPI
 	userUuid   string
 	emailUuid  string
 }
 
-func (r ApiGetNewEmailConfirmationRequest) Execute() (*http.Response, error) {
+func (r EmailsAPIGetNewEmailConfirmationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetNewEmailConfirmationExecute(r)
 }
 
@@ -231,10 +231,10 @@ GetNewEmailConfirmation Ask a new confirmation email
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
 	@param emailUuid The UUID of the email
-	@return ApiGetNewEmailConfirmationRequest
+	@return EmailsAPIGetNewEmailConfirmationRequest
 */
-func (a *EmailsAPIService) GetNewEmailConfirmation(ctx context.Context, userUuid string, emailUuid string) ApiGetNewEmailConfirmationRequest {
-	return ApiGetNewEmailConfirmationRequest{
+func (a *EmailsAPIService) GetNewEmailConfirmation(ctx context.Context, userUuid string, emailUuid string) EmailsAPIGetNewEmailConfirmationRequest {
+	return EmailsAPIGetNewEmailConfirmationRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -243,7 +243,7 @@ func (a *EmailsAPIService) GetNewEmailConfirmation(ctx context.Context, userUuid
 }
 
 // Execute executes the request
-func (a *EmailsAPIService) GetNewEmailConfirmationExecute(r ApiGetNewEmailConfirmationRequest) (*http.Response, error) {
+func (a *EmailsAPIService) GetNewEmailConfirmationExecute(r EmailsAPIGetNewEmailConfirmationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -333,13 +333,13 @@ func (a *EmailsAPIService) GetNewEmailConfirmationExecute(r ApiGetNewEmailConfir
 	return localVarHTTPResponse, nil
 }
 
-type ApiPutEmailConfirmRequest struct {
+type EmailsAPIPutEmailConfirmRequest struct {
 	ctx        context.Context
 	ApiService EmailsAPI
 	emailUuid  string
 }
 
-func (r ApiPutEmailConfirmRequest) Execute() (*http.Response, error) {
+func (r EmailsAPIPutEmailConfirmRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PutEmailConfirmExecute(r)
 }
 
@@ -350,10 +350,10 @@ PutEmailConfirm Confirm an email address
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param emailUuid The UUID of the email
-	@return ApiPutEmailConfirmRequest
+	@return EmailsAPIPutEmailConfirmRequest
 */
-func (a *EmailsAPIService) PutEmailConfirm(ctx context.Context, emailUuid string) ApiPutEmailConfirmRequest {
-	return ApiPutEmailConfirmRequest{
+func (a *EmailsAPIService) PutEmailConfirm(ctx context.Context, emailUuid string) EmailsAPIPutEmailConfirmRequest {
+	return EmailsAPIPutEmailConfirmRequest{
 		ApiService: a,
 		ctx:        ctx,
 		emailUuid:  emailUuid,
@@ -361,7 +361,7 @@ func (a *EmailsAPIService) PutEmailConfirm(ctx context.Context, emailUuid string
 }
 
 // Execute executes the request
-func (a *EmailsAPIService) PutEmailConfirmExecute(r ApiPutEmailConfirmRequest) (*http.Response, error) {
+func (a *EmailsAPIService) PutEmailConfirmExecute(r EmailsAPIPutEmailConfirmRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -449,7 +449,7 @@ func (a *EmailsAPIService) PutEmailConfirmExecute(r ApiPutEmailConfirmRequest) (
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAllUserEmailsRequest struct {
+type EmailsAPIUpdateAllUserEmailsRequest struct {
 	ctx        context.Context
 	ApiService EmailsAPI
 	body       *AdminUserEmailList
@@ -457,12 +457,12 @@ type ApiUpdateAllUserEmailsRequest struct {
 }
 
 // EmailAddressList
-func (r ApiUpdateAllUserEmailsRequest) Body(body AdminUserEmailList) ApiUpdateAllUserEmailsRequest {
+func (r EmailsAPIUpdateAllUserEmailsRequest) Body(body AdminUserEmailList) EmailsAPIUpdateAllUserEmailsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAllUserEmailsRequest) Execute() (*http.Response, error) {
+func (r EmailsAPIUpdateAllUserEmailsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAllUserEmailsExecute(r)
 }
 
@@ -474,10 +474,10 @@ If an existing address is missing from the list, it will be removed. An empty li
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiUpdateAllUserEmailsRequest
+	@return EmailsAPIUpdateAllUserEmailsRequest
 */
-func (a *EmailsAPIService) UpdateAllUserEmails(ctx context.Context, userUuid string) ApiUpdateAllUserEmailsRequest {
-	return ApiUpdateAllUserEmailsRequest{
+func (a *EmailsAPIService) UpdateAllUserEmails(ctx context.Context, userUuid string) EmailsAPIUpdateAllUserEmailsRequest {
+	return EmailsAPIUpdateAllUserEmailsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -485,7 +485,7 @@ func (a *EmailsAPIService) UpdateAllUserEmails(ctx context.Context, userUuid str
 }
 
 // Execute executes the request
-func (a *EmailsAPIService) UpdateAllUserEmailsExecute(r ApiUpdateAllUserEmailsRequest) (*http.Response, error) {
+func (a *EmailsAPIService) UpdateAllUserEmailsExecute(r EmailsAPIUpdateAllUserEmailsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -578,7 +578,7 @@ func (a *EmailsAPIService) UpdateAllUserEmailsExecute(r ApiUpdateAllUserEmailsRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserEmailsRequest struct {
+type EmailsAPIUpdateUserEmailsRequest struct {
 	ctx        context.Context
 	ApiService EmailsAPI
 	body       *UserEmailList
@@ -586,12 +586,12 @@ type ApiUpdateUserEmailsRequest struct {
 }
 
 // EmailAddressList
-func (r ApiUpdateUserEmailsRequest) Body(body UserEmailList) ApiUpdateUserEmailsRequest {
+func (r EmailsAPIUpdateUserEmailsRequest) Body(body UserEmailList) EmailsAPIUpdateUserEmailsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserEmailsRequest) Execute() (*http.Response, error) {
+func (r EmailsAPIUpdateUserEmailsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserEmailsExecute(r)
 }
 
@@ -603,10 +603,10 @@ If an existing address is missing from the list, it will be removed. An empty li
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiUpdateUserEmailsRequest
+	@return EmailsAPIUpdateUserEmailsRequest
 */
-func (a *EmailsAPIService) UpdateUserEmails(ctx context.Context, userUuid string) ApiUpdateUserEmailsRequest {
-	return ApiUpdateUserEmailsRequest{
+func (a *EmailsAPIService) UpdateUserEmails(ctx context.Context, userUuid string) EmailsAPIUpdateUserEmailsRequest {
+	return EmailsAPIUpdateUserEmailsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -614,7 +614,7 @@ func (a *EmailsAPIService) UpdateUserEmails(ctx context.Context, userUuid string
 }
 
 // Execute executes the request
-func (a *EmailsAPIService) UpdateUserEmailsExecute(r ApiUpdateUserEmailsRequest) (*http.Response, error) {
+func (a *EmailsAPIService) UpdateUserEmailsExecute(r EmailsAPIUpdateUserEmailsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

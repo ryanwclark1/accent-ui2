@@ -28,13 +28,13 @@ type PagingsAPI interface {
 		**Required ACL:** `confd.pagings.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreatePagingRequest
+		@return PagingsAPICreatePagingRequest
 	*/
-	CreatePaging(ctx context.Context) ApiCreatePagingRequest
+	CreatePaging(ctx context.Context) PagingsAPICreatePagingRequest
 
 	// CreatePagingExecute executes the request
 	//  @return Paging
-	CreatePagingExecute(r ApiCreatePagingRequest) (*Paging, *http.Response, error)
+	CreatePagingExecute(r PagingsAPICreatePagingRequest) (*Paging, *http.Response, error)
 
 	/*
 		DeletePaging Delete paging
@@ -43,12 +43,12 @@ type PagingsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pagingId Paging's ID
-		@return ApiDeletePagingRequest
+		@return PagingsAPIDeletePagingRequest
 	*/
-	DeletePaging(ctx context.Context, pagingId int32) ApiDeletePagingRequest
+	DeletePaging(ctx context.Context, pagingId int32) PagingsAPIDeletePagingRequest
 
 	// DeletePagingExecute executes the request
-	DeletePagingExecute(r ApiDeletePagingRequest) (*http.Response, error)
+	DeletePagingExecute(r PagingsAPIDeletePagingRequest) (*http.Response, error)
 
 	/*
 		GetPaging Get paging
@@ -57,13 +57,13 @@ type PagingsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pagingId Paging's ID
-		@return ApiGetPagingRequest
+		@return PagingsAPIGetPagingRequest
 	*/
-	GetPaging(ctx context.Context, pagingId int32) ApiGetPagingRequest
+	GetPaging(ctx context.Context, pagingId int32) PagingsAPIGetPagingRequest
 
 	// GetPagingExecute executes the request
 	//  @return Paging
-	GetPagingExecute(r ApiGetPagingRequest) (*Paging, *http.Response, error)
+	GetPagingExecute(r PagingsAPIGetPagingRequest) (*Paging, *http.Response, error)
 
 	/*
 		ListPagings List paging
@@ -71,13 +71,13 @@ type PagingsAPI interface {
 		**Required ACL:** `confd.pagings.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListPagingsRequest
+		@return PagingsAPIListPagingsRequest
 	*/
-	ListPagings(ctx context.Context) ApiListPagingsRequest
+	ListPagings(ctx context.Context) PagingsAPIListPagingsRequest
 
 	// ListPagingsExecute executes the request
 	//  @return PagingItems
-	ListPagingsExecute(r ApiListPagingsRequest) (*PagingItems, *http.Response, error)
+	ListPagingsExecute(r PagingsAPIListPagingsRequest) (*PagingItems, *http.Response, error)
 
 	/*
 		UpdatePaging Update paging
@@ -86,12 +86,12 @@ type PagingsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pagingId Paging's ID
-		@return ApiUpdatePagingRequest
+		@return PagingsAPIUpdatePagingRequest
 	*/
-	UpdatePaging(ctx context.Context, pagingId int32) ApiUpdatePagingRequest
+	UpdatePaging(ctx context.Context, pagingId int32) PagingsAPIUpdatePagingRequest
 
 	// UpdatePagingExecute executes the request
-	UpdatePagingExecute(r ApiUpdatePagingRequest) (*http.Response, error)
+	UpdatePagingExecute(r PagingsAPIUpdatePagingRequest) (*http.Response, error)
 
 	/*
 		UpdatePagingCallerUsers Update paging and callers
@@ -104,12 +104,12 @@ type PagingsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pagingId Paging's ID
-		@return ApiUpdatePagingCallerUsersRequest
+		@return PagingsAPIUpdatePagingCallerUsersRequest
 	*/
-	UpdatePagingCallerUsers(ctx context.Context, pagingId int32) ApiUpdatePagingCallerUsersRequest
+	UpdatePagingCallerUsers(ctx context.Context, pagingId int32) PagingsAPIUpdatePagingCallerUsersRequest
 
 	// UpdatePagingCallerUsersExecute executes the request
-	UpdatePagingCallerUsersExecute(r ApiUpdatePagingCallerUsersRequest) (*http.Response, error)
+	UpdatePagingCallerUsersExecute(r PagingsAPIUpdatePagingCallerUsersRequest) (*http.Response, error)
 
 	/*
 		UpdatePagingMemberUsers Update paging and members
@@ -122,18 +122,18 @@ type PagingsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param pagingId Paging's ID
-		@return ApiUpdatePagingMemberUsersRequest
+		@return PagingsAPIUpdatePagingMemberUsersRequest
 	*/
-	UpdatePagingMemberUsers(ctx context.Context, pagingId int32) ApiUpdatePagingMemberUsersRequest
+	UpdatePagingMemberUsers(ctx context.Context, pagingId int32) PagingsAPIUpdatePagingMemberUsersRequest
 
 	// UpdatePagingMemberUsersExecute executes the request
-	UpdatePagingMemberUsersExecute(r ApiUpdatePagingMemberUsersRequest) (*http.Response, error)
+	UpdatePagingMemberUsersExecute(r PagingsAPIUpdatePagingMemberUsersRequest) (*http.Response, error)
 }
 
 // PagingsAPIService PagingsAPI service
 type PagingsAPIService service
 
-type ApiCreatePagingRequest struct {
+type PagingsAPICreatePagingRequest struct {
 	ctx          context.Context
 	ApiService   PagingsAPI
 	body         *Paging
@@ -141,18 +141,18 @@ type ApiCreatePagingRequest struct {
 }
 
 // Paging to create
-func (r ApiCreatePagingRequest) Body(body Paging) ApiCreatePagingRequest {
+func (r PagingsAPICreatePagingRequest) Body(body Paging) PagingsAPICreatePagingRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreatePagingRequest) AccentTenant(accentTenant string) ApiCreatePagingRequest {
+func (r PagingsAPICreatePagingRequest) AccentTenant(accentTenant string) PagingsAPICreatePagingRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreatePagingRequest) Execute() (*Paging, *http.Response, error) {
+func (r PagingsAPICreatePagingRequest) Execute() (*Paging, *http.Response, error) {
 	return r.ApiService.CreatePagingExecute(r)
 }
 
@@ -162,10 +162,10 @@ CreatePaging Create paging
 **Required ACL:** `confd.pagings.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreatePagingRequest
+	@return PagingsAPICreatePagingRequest
 */
-func (a *PagingsAPIService) CreatePaging(ctx context.Context) ApiCreatePagingRequest {
-	return ApiCreatePagingRequest{
+func (a *PagingsAPIService) CreatePaging(ctx context.Context) PagingsAPICreatePagingRequest {
+	return PagingsAPICreatePagingRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -174,7 +174,7 @@ func (a *PagingsAPIService) CreatePaging(ctx context.Context) ApiCreatePagingReq
 // Execute executes the request
 //
 //	@return Paging
-func (a *PagingsAPIService) CreatePagingExecute(r ApiCreatePagingRequest) (*Paging, *http.Response, error) {
+func (a *PagingsAPIService) CreatePagingExecute(r PagingsAPICreatePagingRequest) (*Paging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -279,7 +279,7 @@ func (a *PagingsAPIService) CreatePagingExecute(r ApiCreatePagingRequest) (*Pagi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeletePagingRequest struct {
+type PagingsAPIDeletePagingRequest struct {
 	ctx          context.Context
 	ApiService   PagingsAPI
 	pagingId     int32
@@ -287,12 +287,12 @@ type ApiDeletePagingRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeletePagingRequest) AccentTenant(accentTenant string) ApiDeletePagingRequest {
+func (r PagingsAPIDeletePagingRequest) AccentTenant(accentTenant string) PagingsAPIDeletePagingRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeletePagingRequest) Execute() (*http.Response, error) {
+func (r PagingsAPIDeletePagingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeletePagingExecute(r)
 }
 
@@ -303,10 +303,10 @@ DeletePaging Delete paging
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pagingId Paging's ID
-	@return ApiDeletePagingRequest
+	@return PagingsAPIDeletePagingRequest
 */
-func (a *PagingsAPIService) DeletePaging(ctx context.Context, pagingId int32) ApiDeletePagingRequest {
-	return ApiDeletePagingRequest{
+func (a *PagingsAPIService) DeletePaging(ctx context.Context, pagingId int32) PagingsAPIDeletePagingRequest {
+	return PagingsAPIDeletePagingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pagingId:   pagingId,
@@ -314,7 +314,7 @@ func (a *PagingsAPIService) DeletePaging(ctx context.Context, pagingId int32) Ap
 }
 
 // Execute executes the request
-func (a *PagingsAPIService) DeletePagingExecute(r ApiDeletePagingRequest) (*http.Response, error) {
+func (a *PagingsAPIService) DeletePagingExecute(r PagingsAPIDeletePagingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -416,7 +416,7 @@ func (a *PagingsAPIService) DeletePagingExecute(r ApiDeletePagingRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetPagingRequest struct {
+type PagingsAPIGetPagingRequest struct {
 	ctx          context.Context
 	ApiService   PagingsAPI
 	pagingId     int32
@@ -424,12 +424,12 @@ type ApiGetPagingRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetPagingRequest) AccentTenant(accentTenant string) ApiGetPagingRequest {
+func (r PagingsAPIGetPagingRequest) AccentTenant(accentTenant string) PagingsAPIGetPagingRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetPagingRequest) Execute() (*Paging, *http.Response, error) {
+func (r PagingsAPIGetPagingRequest) Execute() (*Paging, *http.Response, error) {
 	return r.ApiService.GetPagingExecute(r)
 }
 
@@ -440,10 +440,10 @@ GetPaging Get paging
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pagingId Paging's ID
-	@return ApiGetPagingRequest
+	@return PagingsAPIGetPagingRequest
 */
-func (a *PagingsAPIService) GetPaging(ctx context.Context, pagingId int32) ApiGetPagingRequest {
-	return ApiGetPagingRequest{
+func (a *PagingsAPIService) GetPaging(ctx context.Context, pagingId int32) PagingsAPIGetPagingRequest {
+	return PagingsAPIGetPagingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pagingId:   pagingId,
@@ -453,7 +453,7 @@ func (a *PagingsAPIService) GetPaging(ctx context.Context, pagingId int32) ApiGe
 // Execute executes the request
 //
 //	@return Paging
-func (a *PagingsAPIService) GetPagingExecute(r ApiGetPagingRequest) (*Paging, *http.Response, error) {
+func (a *PagingsAPIService) GetPagingExecute(r PagingsAPIGetPagingRequest) (*Paging, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -554,7 +554,7 @@ func (a *PagingsAPIService) GetPagingExecute(r ApiGetPagingRequest) (*Paging, *h
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListPagingsRequest struct {
+type PagingsAPIListPagingsRequest struct {
 	ctx          context.Context
 	ApiService   PagingsAPI
 	accentTenant *string
@@ -567,48 +567,48 @@ type ApiListPagingsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListPagingsRequest) AccentTenant(accentTenant string) ApiListPagingsRequest {
+func (r PagingsAPIListPagingsRequest) AccentTenant(accentTenant string) PagingsAPIListPagingsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListPagingsRequest) Recurse(recurse bool) ApiListPagingsRequest {
+func (r PagingsAPIListPagingsRequest) Recurse(recurse bool) PagingsAPIListPagingsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListPagingsRequest) Order(order string) ApiListPagingsRequest {
+func (r PagingsAPIListPagingsRequest) Order(order string) PagingsAPIListPagingsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListPagingsRequest) Direction(direction string) ApiListPagingsRequest {
+func (r PagingsAPIListPagingsRequest) Direction(direction string) PagingsAPIListPagingsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListPagingsRequest) Limit(limit int32) ApiListPagingsRequest {
+func (r PagingsAPIListPagingsRequest) Limit(limit int32) PagingsAPIListPagingsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListPagingsRequest) Offset(offset int32) ApiListPagingsRequest {
+func (r PagingsAPIListPagingsRequest) Offset(offset int32) PagingsAPIListPagingsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListPagingsRequest) Search(search string) ApiListPagingsRequest {
+func (r PagingsAPIListPagingsRequest) Search(search string) PagingsAPIListPagingsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListPagingsRequest) Execute() (*PagingItems, *http.Response, error) {
+func (r PagingsAPIListPagingsRequest) Execute() (*PagingItems, *http.Response, error) {
 	return r.ApiService.ListPagingsExecute(r)
 }
 
@@ -618,10 +618,10 @@ ListPagings List paging
 **Required ACL:** `confd.pagings.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListPagingsRequest
+	@return PagingsAPIListPagingsRequest
 */
-func (a *PagingsAPIService) ListPagings(ctx context.Context) ApiListPagingsRequest {
-	return ApiListPagingsRequest{
+func (a *PagingsAPIService) ListPagings(ctx context.Context) PagingsAPIListPagingsRequest {
+	return PagingsAPIListPagingsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -630,7 +630,7 @@ func (a *PagingsAPIService) ListPagings(ctx context.Context) ApiListPagingsReque
 // Execute executes the request
 //
 //	@return PagingItems
-func (a *PagingsAPIService) ListPagingsExecute(r ApiListPagingsRequest) (*PagingItems, *http.Response, error) {
+func (a *PagingsAPIService) ListPagingsExecute(r PagingsAPIListPagingsRequest) (*PagingItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -741,7 +741,7 @@ func (a *PagingsAPIService) ListPagingsExecute(r ApiListPagingsRequest) (*Paging
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdatePagingRequest struct {
+type PagingsAPIUpdatePagingRequest struct {
 	ctx          context.Context
 	ApiService   PagingsAPI
 	body         *Paging
@@ -749,18 +749,18 @@ type ApiUpdatePagingRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdatePagingRequest) Body(body Paging) ApiUpdatePagingRequest {
+func (r PagingsAPIUpdatePagingRequest) Body(body Paging) PagingsAPIUpdatePagingRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdatePagingRequest) AccentTenant(accentTenant string) ApiUpdatePagingRequest {
+func (r PagingsAPIUpdatePagingRequest) AccentTenant(accentTenant string) PagingsAPIUpdatePagingRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdatePagingRequest) Execute() (*http.Response, error) {
+func (r PagingsAPIUpdatePagingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdatePagingExecute(r)
 }
 
@@ -771,10 +771,10 @@ UpdatePaging Update paging
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pagingId Paging's ID
-	@return ApiUpdatePagingRequest
+	@return PagingsAPIUpdatePagingRequest
 */
-func (a *PagingsAPIService) UpdatePaging(ctx context.Context, pagingId int32) ApiUpdatePagingRequest {
-	return ApiUpdatePagingRequest{
+func (a *PagingsAPIService) UpdatePaging(ctx context.Context, pagingId int32) PagingsAPIUpdatePagingRequest {
+	return PagingsAPIUpdatePagingRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pagingId:   pagingId,
@@ -782,7 +782,7 @@ func (a *PagingsAPIService) UpdatePaging(ctx context.Context, pagingId int32) Ap
 }
 
 // Execute executes the request
-func (a *PagingsAPIService) UpdatePagingExecute(r ApiUpdatePagingRequest) (*http.Response, error) {
+func (a *PagingsAPIService) UpdatePagingExecute(r PagingsAPIUpdatePagingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -889,7 +889,7 @@ func (a *PagingsAPIService) UpdatePagingExecute(r ApiUpdatePagingRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdatePagingCallerUsersRequest struct {
+type PagingsAPIUpdatePagingCallerUsersRequest struct {
 	ctx        context.Context
 	ApiService PagingsAPI
 	body       *UsersUuid
@@ -897,12 +897,12 @@ type ApiUpdatePagingCallerUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdatePagingCallerUsersRequest) Body(body UsersUuid) ApiUpdatePagingCallerUsersRequest {
+func (r PagingsAPIUpdatePagingCallerUsersRequest) Body(body UsersUuid) PagingsAPIUpdatePagingCallerUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdatePagingCallerUsersRequest) Execute() (*http.Response, error) {
+func (r PagingsAPIUpdatePagingCallerUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdatePagingCallerUsersExecute(r)
 }
 
@@ -916,10 +916,10 @@ This endpoint remove all callers which are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pagingId Paging's ID
-	@return ApiUpdatePagingCallerUsersRequest
+	@return PagingsAPIUpdatePagingCallerUsersRequest
 */
-func (a *PagingsAPIService) UpdatePagingCallerUsers(ctx context.Context, pagingId int32) ApiUpdatePagingCallerUsersRequest {
-	return ApiUpdatePagingCallerUsersRequest{
+func (a *PagingsAPIService) UpdatePagingCallerUsers(ctx context.Context, pagingId int32) PagingsAPIUpdatePagingCallerUsersRequest {
+	return PagingsAPIUpdatePagingCallerUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pagingId:   pagingId,
@@ -927,7 +927,7 @@ func (a *PagingsAPIService) UpdatePagingCallerUsers(ctx context.Context, pagingI
 }
 
 // Execute executes the request
-func (a *PagingsAPIService) UpdatePagingCallerUsersExecute(r ApiUpdatePagingCallerUsersRequest) (*http.Response, error) {
+func (a *PagingsAPIService) UpdatePagingCallerUsersExecute(r PagingsAPIUpdatePagingCallerUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1031,7 +1031,7 @@ func (a *PagingsAPIService) UpdatePagingCallerUsersExecute(r ApiUpdatePagingCall
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdatePagingMemberUsersRequest struct {
+type PagingsAPIUpdatePagingMemberUsersRequest struct {
 	ctx        context.Context
 	ApiService PagingsAPI
 	body       *UsersUuid
@@ -1039,12 +1039,12 @@ type ApiUpdatePagingMemberUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdatePagingMemberUsersRequest) Body(body UsersUuid) ApiUpdatePagingMemberUsersRequest {
+func (r PagingsAPIUpdatePagingMemberUsersRequest) Body(body UsersUuid) PagingsAPIUpdatePagingMemberUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdatePagingMemberUsersRequest) Execute() (*http.Response, error) {
+func (r PagingsAPIUpdatePagingMemberUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdatePagingMemberUsersExecute(r)
 }
 
@@ -1058,10 +1058,10 @@ This endpoint remove all members which are not defined.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param pagingId Paging's ID
-	@return ApiUpdatePagingMemberUsersRequest
+	@return PagingsAPIUpdatePagingMemberUsersRequest
 */
-func (a *PagingsAPIService) UpdatePagingMemberUsers(ctx context.Context, pagingId int32) ApiUpdatePagingMemberUsersRequest {
-	return ApiUpdatePagingMemberUsersRequest{
+func (a *PagingsAPIService) UpdatePagingMemberUsers(ctx context.Context, pagingId int32) PagingsAPIUpdatePagingMemberUsersRequest {
+	return PagingsAPIUpdatePagingMemberUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		pagingId:   pagingId,
@@ -1069,7 +1069,7 @@ func (a *PagingsAPIService) UpdatePagingMemberUsers(ctx context.Context, pagingI
 }
 
 // Execute executes the request
-func (a *PagingsAPIService) UpdatePagingMemberUsersExecute(r ApiUpdatePagingMemberUsersRequest) (*http.Response, error) {
+func (a *PagingsAPIService) UpdatePagingMemberUsersExecute(r PagingsAPIUpdatePagingMemberUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

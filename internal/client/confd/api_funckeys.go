@@ -30,12 +30,12 @@ type FunckeysAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param templateId
-		@return ApiAssociateUserFuncKeyTemplateRequest
+		@return FunckeysAPIAssociateUserFuncKeyTemplateRequest
 	*/
-	AssociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) ApiAssociateUserFuncKeyTemplateRequest
+	AssociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) FunckeysAPIAssociateUserFuncKeyTemplateRequest
 
 	// AssociateUserFuncKeyTemplateExecute executes the request
-	AssociateUserFuncKeyTemplateExecute(r ApiAssociateUserFuncKeyTemplateRequest) (*http.Response, error)
+	AssociateUserFuncKeyTemplateExecute(r FunckeysAPIAssociateUserFuncKeyTemplateRequest) (*http.Response, error)
 
 	/*
 		CreateFuncKeyTemplate Create a template of func keys
@@ -43,13 +43,13 @@ type FunckeysAPI interface {
 		**Required ACL:** `confd.funckeys.templates.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateFuncKeyTemplateRequest
+		@return FunckeysAPICreateFuncKeyTemplateRequest
 	*/
-	CreateFuncKeyTemplate(ctx context.Context) ApiCreateFuncKeyTemplateRequest
+	CreateFuncKeyTemplate(ctx context.Context) FunckeysAPICreateFuncKeyTemplateRequest
 
 	// CreateFuncKeyTemplateExecute executes the request
 	//  @return FuncKeyTemplate
-	CreateFuncKeyTemplateExecute(r ApiCreateFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error)
+	CreateFuncKeyTemplateExecute(r FunckeysAPICreateFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error)
 
 	/*
 		DeleteFuncKey Remove func key from template
@@ -59,12 +59,12 @@ type FunckeysAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateId
 		@param position position of the funckey
-		@return ApiDeleteFuncKeyRequest
+		@return FunckeysAPIDeleteFuncKeyRequest
 	*/
-	DeleteFuncKey(ctx context.Context, templateId int32, position int32) ApiDeleteFuncKeyRequest
+	DeleteFuncKey(ctx context.Context, templateId int32, position int32) FunckeysAPIDeleteFuncKeyRequest
 
 	// DeleteFuncKeyExecute executes the request
-	DeleteFuncKeyExecute(r ApiDeleteFuncKeyRequest) (*http.Response, error)
+	DeleteFuncKeyExecute(r FunckeysAPIDeleteFuncKeyRequest) (*http.Response, error)
 
 	/*
 		DeleteFuncKeyTemplate Delete func key template
@@ -73,12 +73,12 @@ type FunckeysAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateId
-		@return ApiDeleteFuncKeyTemplateRequest
+		@return FunckeysAPIDeleteFuncKeyTemplateRequest
 	*/
-	DeleteFuncKeyTemplate(ctx context.Context, templateId int32) ApiDeleteFuncKeyTemplateRequest
+	DeleteFuncKeyTemplate(ctx context.Context, templateId int32) FunckeysAPIDeleteFuncKeyTemplateRequest
 
 	// DeleteFuncKeyTemplateExecute executes the request
-	DeleteFuncKeyTemplateExecute(r ApiDeleteFuncKeyTemplateRequest) (*http.Response, error)
+	DeleteFuncKeyTemplateExecute(r FunckeysAPIDeleteFuncKeyTemplateRequest) (*http.Response, error)
 
 	/*
 		DeleteUserFuncKey Remove func key for user
@@ -88,12 +88,12 @@ type FunckeysAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param position position of the funckey
-		@return ApiDeleteUserFuncKeyRequest
+		@return FunckeysAPIDeleteUserFuncKeyRequest
 	*/
-	DeleteUserFuncKey(ctx context.Context, userId string, position int32) ApiDeleteUserFuncKeyRequest
+	DeleteUserFuncKey(ctx context.Context, userId string, position int32) FunckeysAPIDeleteUserFuncKeyRequest
 
 	// DeleteUserFuncKeyExecute executes the request
-	DeleteUserFuncKeyExecute(r ApiDeleteUserFuncKeyRequest) (*http.Response, error)
+	DeleteUserFuncKeyExecute(r FunckeysAPIDeleteUserFuncKeyRequest) (*http.Response, error)
 
 	/*
 		DissociateUserFuncKeyTemplate Dissociate a func key template to a user
@@ -103,12 +103,12 @@ type FunckeysAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param templateId
-		@return ApiDissociateUserFuncKeyTemplateRequest
+		@return FunckeysAPIDissociateUserFuncKeyTemplateRequest
 	*/
-	DissociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) ApiDissociateUserFuncKeyTemplateRequest
+	DissociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) FunckeysAPIDissociateUserFuncKeyTemplateRequest
 
 	// DissociateUserFuncKeyTemplateExecute executes the request
-	DissociateUserFuncKeyTemplateExecute(r ApiDissociateUserFuncKeyTemplateRequest) (*http.Response, error)
+	DissociateUserFuncKeyTemplateExecute(r FunckeysAPIDissociateUserFuncKeyTemplateRequest) (*http.Response, error)
 
 	/*
 		GetFuncKey Get a func key inside template
@@ -118,13 +118,13 @@ type FunckeysAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateId
 		@param position position of the funckey
-		@return ApiGetFuncKeyRequest
+		@return FunckeysAPIGetFuncKeyRequest
 	*/
-	GetFuncKey(ctx context.Context, templateId int32, position int32) ApiGetFuncKeyRequest
+	GetFuncKey(ctx context.Context, templateId int32, position int32) FunckeysAPIGetFuncKeyRequest
 
 	// GetFuncKeyExecute executes the request
 	//  @return FuncKey
-	GetFuncKeyExecute(r ApiGetFuncKeyRequest) (*FuncKey, *http.Response, error)
+	GetFuncKeyExecute(r FunckeysAPIGetFuncKeyRequest) (*FuncKey, *http.Response, error)
 
 	/*
 		GetFuncKeyTemplate Get a func key template
@@ -133,13 +133,13 @@ type FunckeysAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateId
-		@return ApiGetFuncKeyTemplateRequest
+		@return FunckeysAPIGetFuncKeyTemplateRequest
 	*/
-	GetFuncKeyTemplate(ctx context.Context, templateId int32) ApiGetFuncKeyTemplateRequest
+	GetFuncKeyTemplate(ctx context.Context, templateId int32) FunckeysAPIGetFuncKeyTemplateRequest
 
 	// GetFuncKeyTemplateExecute executes the request
 	//  @return FuncKeyTemplate
-	GetFuncKeyTemplateExecute(r ApiGetFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error)
+	GetFuncKeyTemplateExecute(r FunckeysAPIGetFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error)
 
 	/*
 		GetUserFuncKey Get a func key for a user
@@ -149,13 +149,13 @@ type FunckeysAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param position position of the funckey
-		@return ApiGetUserFuncKeyRequest
+		@return FunckeysAPIGetUserFuncKeyRequest
 	*/
-	GetUserFuncKey(ctx context.Context, userId string, position int32) ApiGetUserFuncKeyRequest
+	GetUserFuncKey(ctx context.Context, userId string, position int32) FunckeysAPIGetUserFuncKeyRequest
 
 	// GetUserFuncKeyExecute executes the request
 	//  @return FuncKey
-	GetUserFuncKeyExecute(r ApiGetUserFuncKeyRequest) (*FuncKey, *http.Response, error)
+	GetUserFuncKeyExecute(r FunckeysAPIGetUserFuncKeyRequest) (*FuncKey, *http.Response, error)
 
 	/*
 		ListFuncKeyDestinations List of possible func key destinations and their parameters
@@ -163,13 +163,13 @@ type FunckeysAPI interface {
 		**Required ACL:** `confd.funckeys.destinations.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListFuncKeyDestinationsRequest
+		@return FunckeysAPIListFuncKeyDestinationsRequest
 	*/
-	ListFuncKeyDestinations(ctx context.Context) ApiListFuncKeyDestinationsRequest
+	ListFuncKeyDestinations(ctx context.Context) FunckeysAPIListFuncKeyDestinationsRequest
 
 	// ListFuncKeyDestinationsExecute executes the request
 	//  @return []FuncKeyDestination
-	ListFuncKeyDestinationsExecute(r ApiListFuncKeyDestinationsRequest) ([]FuncKeyDestination, *http.Response, error)
+	ListFuncKeyDestinationsExecute(r FunckeysAPIListFuncKeyDestinationsRequest) ([]FuncKeyDestination, *http.Response, error)
 
 	/*
 		ListFuncKeyTemplate List a func key template
@@ -177,13 +177,13 @@ type FunckeysAPI interface {
 		**Required ACL:** `confd.funckeys.templates.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListFuncKeyTemplateRequest
+		@return FunckeysAPIListFuncKeyTemplateRequest
 	*/
-	ListFuncKeyTemplate(ctx context.Context) ApiListFuncKeyTemplateRequest
+	ListFuncKeyTemplate(ctx context.Context) FunckeysAPIListFuncKeyTemplateRequest
 
 	// ListFuncKeyTemplateExecute executes the request
 	//  @return FuncKeyTemplate
-	ListFuncKeyTemplateExecute(r ApiListFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error)
+	ListFuncKeyTemplateExecute(r FunckeysAPIListFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error)
 
 	/*
 		ListFuncKeyTemplateUserAssociations List users associated to template
@@ -192,13 +192,13 @@ type FunckeysAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateId
-		@return ApiListFuncKeyTemplateUserAssociationsRequest
+		@return FunckeysAPIListFuncKeyTemplateUserAssociationsRequest
 	*/
-	ListFuncKeyTemplateUserAssociations(ctx context.Context, templateId int32) ApiListFuncKeyTemplateUserAssociationsRequest
+	ListFuncKeyTemplateUserAssociations(ctx context.Context, templateId int32) FunckeysAPIListFuncKeyTemplateUserAssociationsRequest
 
 	// ListFuncKeyTemplateUserAssociationsExecute executes the request
 	//  @return UserFuncKeyTemplate
-	ListFuncKeyTemplateUserAssociationsExecute(r ApiListFuncKeyTemplateUserAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error)
+	ListFuncKeyTemplateUserAssociationsExecute(r FunckeysAPIListFuncKeyTemplateUserAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error)
 
 	/*
 		ListUserFuncKeyTemplateAssociations List funckey templates associated to user
@@ -207,13 +207,13 @@ type FunckeysAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiListUserFuncKeyTemplateAssociationsRequest
+		@return FunckeysAPIListUserFuncKeyTemplateAssociationsRequest
 	*/
-	ListUserFuncKeyTemplateAssociations(ctx context.Context, userId string) ApiListUserFuncKeyTemplateAssociationsRequest
+	ListUserFuncKeyTemplateAssociations(ctx context.Context, userId string) FunckeysAPIListUserFuncKeyTemplateAssociationsRequest
 
 	// ListUserFuncKeyTemplateAssociationsExecute executes the request
 	//  @return UserFuncKeyTemplate
-	ListUserFuncKeyTemplateAssociationsExecute(r ApiListUserFuncKeyTemplateAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error)
+	ListUserFuncKeyTemplateAssociationsExecute(r FunckeysAPIListUserFuncKeyTemplateAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error)
 
 	/*
 		ListUserFuncKeys List func keys for a user
@@ -222,13 +222,13 @@ type FunckeysAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiListUserFuncKeysRequest
+		@return FunckeysAPIListUserFuncKeysRequest
 	*/
-	ListUserFuncKeys(ctx context.Context, userId string) ApiListUserFuncKeysRequest
+	ListUserFuncKeys(ctx context.Context, userId string) FunckeysAPIListUserFuncKeysRequest
 
 	// ListUserFuncKeysExecute executes the request
 	//  @return FuncKeyTemplate
-	ListUserFuncKeysExecute(r ApiListUserFuncKeysRequest) (*FuncKeyTemplate, *http.Response, error)
+	ListUserFuncKeysExecute(r FunckeysAPIListUserFuncKeysRequest) (*FuncKeyTemplate, *http.Response, error)
 
 	/*
 		UpdateFuncKey Add/Replace a func key in a template
@@ -238,12 +238,12 @@ type FunckeysAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateId
 		@param position position of the funckey
-		@return ApiUpdateFuncKeyRequest
+		@return FunckeysAPIUpdateFuncKeyRequest
 	*/
-	UpdateFuncKey(ctx context.Context, templateId int32, position int32) ApiUpdateFuncKeyRequest
+	UpdateFuncKey(ctx context.Context, templateId int32, position int32) FunckeysAPIUpdateFuncKeyRequest
 
 	// UpdateFuncKeyExecute executes the request
-	UpdateFuncKeyExecute(r ApiUpdateFuncKeyRequest) (*http.Response, error)
+	UpdateFuncKeyExecute(r FunckeysAPIUpdateFuncKeyRequest) (*http.Response, error)
 
 	/*
 		UpdateFuncKeyTemplate Update a func key template
@@ -254,12 +254,12 @@ type FunckeysAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param templateId
-		@return ApiUpdateFuncKeyTemplateRequest
+		@return FunckeysAPIUpdateFuncKeyTemplateRequest
 	*/
-	UpdateFuncKeyTemplate(ctx context.Context, templateId int32) ApiUpdateFuncKeyTemplateRequest
+	UpdateFuncKeyTemplate(ctx context.Context, templateId int32) FunckeysAPIUpdateFuncKeyTemplateRequest
 
 	// UpdateFuncKeyTemplateExecute executes the request
-	UpdateFuncKeyTemplateExecute(r ApiUpdateFuncKeyTemplateRequest) (*http.Response, error)
+	UpdateFuncKeyTemplateExecute(r FunckeysAPIUpdateFuncKeyTemplateRequest) (*http.Response, error)
 
 	/*
 		UpdateUserFuncKey Add/Replace a func key for a user
@@ -269,12 +269,12 @@ type FunckeysAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
 		@param position position of the funckey
-		@return ApiUpdateUserFuncKeyRequest
+		@return FunckeysAPIUpdateUserFuncKeyRequest
 	*/
-	UpdateUserFuncKey(ctx context.Context, userId string, position int32) ApiUpdateUserFuncKeyRequest
+	UpdateUserFuncKey(ctx context.Context, userId string, position int32) FunckeysAPIUpdateUserFuncKeyRequest
 
 	// UpdateUserFuncKeyExecute executes the request
-	UpdateUserFuncKeyExecute(r ApiUpdateUserFuncKeyRequest) (*http.Response, error)
+	UpdateUserFuncKeyExecute(r FunckeysAPIUpdateUserFuncKeyRequest) (*http.Response, error)
 
 	/*
 		UpdateUserFuncKeys Update func keys for a user
@@ -285,18 +285,18 @@ type FunckeysAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserFuncKeysRequest
+		@return FunckeysAPIUpdateUserFuncKeysRequest
 	*/
-	UpdateUserFuncKeys(ctx context.Context, userId string) ApiUpdateUserFuncKeysRequest
+	UpdateUserFuncKeys(ctx context.Context, userId string) FunckeysAPIUpdateUserFuncKeysRequest
 
 	// UpdateUserFuncKeysExecute executes the request
-	UpdateUserFuncKeysExecute(r ApiUpdateUserFuncKeysRequest) (*http.Response, error)
+	UpdateUserFuncKeysExecute(r FunckeysAPIUpdateUserFuncKeysRequest) (*http.Response, error)
 }
 
 // FunckeysAPIService FunckeysAPI service
 type FunckeysAPIService service
 
-type ApiAssociateUserFuncKeyTemplateRequest struct {
+type FunckeysAPIAssociateUserFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	userId       string
@@ -305,12 +305,12 @@ type ApiAssociateUserFuncKeyTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateUserFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiAssociateUserFuncKeyTemplateRequest {
+func (r FunckeysAPIAssociateUserFuncKeyTemplateRequest) AccentTenant(accentTenant string) FunckeysAPIAssociateUserFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateUserFuncKeyTemplateRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIAssociateUserFuncKeyTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateUserFuncKeyTemplateExecute(r)
 }
 
@@ -322,10 +322,10 @@ AssociateUserFuncKeyTemplate Associate a func key template to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param templateId
-	@return ApiAssociateUserFuncKeyTemplateRequest
+	@return FunckeysAPIAssociateUserFuncKeyTemplateRequest
 */
-func (a *FunckeysAPIService) AssociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) ApiAssociateUserFuncKeyTemplateRequest {
-	return ApiAssociateUserFuncKeyTemplateRequest{
+func (a *FunckeysAPIService) AssociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) FunckeysAPIAssociateUserFuncKeyTemplateRequest {
+	return FunckeysAPIAssociateUserFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -334,7 +334,7 @@ func (a *FunckeysAPIService) AssociateUserFuncKeyTemplate(ctx context.Context, u
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) AssociateUserFuncKeyTemplateExecute(r ApiAssociateUserFuncKeyTemplateRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) AssociateUserFuncKeyTemplateExecute(r FunckeysAPIAssociateUserFuncKeyTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -437,7 +437,7 @@ func (a *FunckeysAPIService) AssociateUserFuncKeyTemplateExecute(r ApiAssociateU
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateFuncKeyTemplateRequest struct {
+type FunckeysAPICreateFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	body         *FuncKeyTemplate
@@ -445,18 +445,18 @@ type ApiCreateFuncKeyTemplateRequest struct {
 }
 
 // Template to create
-func (r ApiCreateFuncKeyTemplateRequest) Body(body FuncKeyTemplate) ApiCreateFuncKeyTemplateRequest {
+func (r FunckeysAPICreateFuncKeyTemplateRequest) Body(body FuncKeyTemplate) FunckeysAPICreateFuncKeyTemplateRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiCreateFuncKeyTemplateRequest {
+func (r FunckeysAPICreateFuncKeyTemplateRequest) AccentTenant(accentTenant string) FunckeysAPICreateFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateFuncKeyTemplateRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
+func (r FunckeysAPICreateFuncKeyTemplateRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.CreateFuncKeyTemplateExecute(r)
 }
 
@@ -466,10 +466,10 @@ CreateFuncKeyTemplate Create a template of func keys
 **Required ACL:** `confd.funckeys.templates.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateFuncKeyTemplateRequest
+	@return FunckeysAPICreateFuncKeyTemplateRequest
 */
-func (a *FunckeysAPIService) CreateFuncKeyTemplate(ctx context.Context) ApiCreateFuncKeyTemplateRequest {
-	return ApiCreateFuncKeyTemplateRequest{
+func (a *FunckeysAPIService) CreateFuncKeyTemplate(ctx context.Context) FunckeysAPICreateFuncKeyTemplateRequest {
+	return FunckeysAPICreateFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -478,7 +478,7 @@ func (a *FunckeysAPIService) CreateFuncKeyTemplate(ctx context.Context) ApiCreat
 // Execute executes the request
 //
 //	@return FuncKeyTemplate
-func (a *FunckeysAPIService) CreateFuncKeyTemplateExecute(r ApiCreateFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error) {
+func (a *FunckeysAPIService) CreateFuncKeyTemplateExecute(r FunckeysAPICreateFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -580,7 +580,7 @@ func (a *FunckeysAPIService) CreateFuncKeyTemplateExecute(r ApiCreateFuncKeyTemp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteFuncKeyRequest struct {
+type FunckeysAPIDeleteFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	templateId   int32
@@ -589,12 +589,12 @@ type ApiDeleteFuncKeyRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteFuncKeyRequest) AccentTenant(accentTenant string) ApiDeleteFuncKeyRequest {
+func (r FunckeysAPIDeleteFuncKeyRequest) AccentTenant(accentTenant string) FunckeysAPIDeleteFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteFuncKeyRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIDeleteFuncKeyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteFuncKeyExecute(r)
 }
 
@@ -606,10 +606,10 @@ DeleteFuncKey Remove func key from template
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateId
 	@param position position of the funckey
-	@return ApiDeleteFuncKeyRequest
+	@return FunckeysAPIDeleteFuncKeyRequest
 */
-func (a *FunckeysAPIService) DeleteFuncKey(ctx context.Context, templateId int32, position int32) ApiDeleteFuncKeyRequest {
-	return ApiDeleteFuncKeyRequest{
+func (a *FunckeysAPIService) DeleteFuncKey(ctx context.Context, templateId int32, position int32) FunckeysAPIDeleteFuncKeyRequest {
+	return FunckeysAPIDeleteFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		templateId: templateId,
@@ -618,7 +618,7 @@ func (a *FunckeysAPIService) DeleteFuncKey(ctx context.Context, templateId int32
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) DeleteFuncKeyExecute(r ApiDeleteFuncKeyRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) DeleteFuncKeyExecute(r FunckeysAPIDeleteFuncKeyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -721,7 +721,7 @@ func (a *FunckeysAPIService) DeleteFuncKeyExecute(r ApiDeleteFuncKeyRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteFuncKeyTemplateRequest struct {
+type FunckeysAPIDeleteFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	templateId   int32
@@ -729,12 +729,12 @@ type ApiDeleteFuncKeyTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiDeleteFuncKeyTemplateRequest {
+func (r FunckeysAPIDeleteFuncKeyTemplateRequest) AccentTenant(accentTenant string) FunckeysAPIDeleteFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteFuncKeyTemplateRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIDeleteFuncKeyTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteFuncKeyTemplateExecute(r)
 }
 
@@ -745,10 +745,10 @@ DeleteFuncKeyTemplate Delete func key template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateId
-	@return ApiDeleteFuncKeyTemplateRequest
+	@return FunckeysAPIDeleteFuncKeyTemplateRequest
 */
-func (a *FunckeysAPIService) DeleteFuncKeyTemplate(ctx context.Context, templateId int32) ApiDeleteFuncKeyTemplateRequest {
-	return ApiDeleteFuncKeyTemplateRequest{
+func (a *FunckeysAPIService) DeleteFuncKeyTemplate(ctx context.Context, templateId int32) FunckeysAPIDeleteFuncKeyTemplateRequest {
+	return FunckeysAPIDeleteFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 		templateId: templateId,
@@ -756,7 +756,7 @@ func (a *FunckeysAPIService) DeleteFuncKeyTemplate(ctx context.Context, template
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) DeleteFuncKeyTemplateExecute(r ApiDeleteFuncKeyTemplateRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) DeleteFuncKeyTemplateExecute(r FunckeysAPIDeleteFuncKeyTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -858,7 +858,7 @@ func (a *FunckeysAPIService) DeleteFuncKeyTemplateExecute(r ApiDeleteFuncKeyTemp
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserFuncKeyRequest struct {
+type FunckeysAPIDeleteUserFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	userId       string
@@ -867,12 +867,12 @@ type ApiDeleteUserFuncKeyRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteUserFuncKeyRequest) AccentTenant(accentTenant string) ApiDeleteUserFuncKeyRequest {
+func (r FunckeysAPIDeleteUserFuncKeyRequest) AccentTenant(accentTenant string) FunckeysAPIDeleteUserFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteUserFuncKeyRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIDeleteUserFuncKeyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserFuncKeyExecute(r)
 }
 
@@ -884,10 +884,10 @@ DeleteUserFuncKey Remove func key for user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param position position of the funckey
-	@return ApiDeleteUserFuncKeyRequest
+	@return FunckeysAPIDeleteUserFuncKeyRequest
 */
-func (a *FunckeysAPIService) DeleteUserFuncKey(ctx context.Context, userId string, position int32) ApiDeleteUserFuncKeyRequest {
-	return ApiDeleteUserFuncKeyRequest{
+func (a *FunckeysAPIService) DeleteUserFuncKey(ctx context.Context, userId string, position int32) FunckeysAPIDeleteUserFuncKeyRequest {
+	return FunckeysAPIDeleteUserFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -896,7 +896,7 @@ func (a *FunckeysAPIService) DeleteUserFuncKey(ctx context.Context, userId strin
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) DeleteUserFuncKeyExecute(r ApiDeleteUserFuncKeyRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) DeleteUserFuncKeyExecute(r FunckeysAPIDeleteUserFuncKeyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -999,7 +999,7 @@ func (a *FunckeysAPIService) DeleteUserFuncKeyExecute(r ApiDeleteUserFuncKeyRequ
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateUserFuncKeyTemplateRequest struct {
+type FunckeysAPIDissociateUserFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	userId       string
@@ -1008,12 +1008,12 @@ type ApiDissociateUserFuncKeyTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateUserFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiDissociateUserFuncKeyTemplateRequest {
+func (r FunckeysAPIDissociateUserFuncKeyTemplateRequest) AccentTenant(accentTenant string) FunckeysAPIDissociateUserFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateUserFuncKeyTemplateRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIDissociateUserFuncKeyTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateUserFuncKeyTemplateExecute(r)
 }
 
@@ -1025,10 +1025,10 @@ DissociateUserFuncKeyTemplate Dissociate a func key template to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param templateId
-	@return ApiDissociateUserFuncKeyTemplateRequest
+	@return FunckeysAPIDissociateUserFuncKeyTemplateRequest
 */
-func (a *FunckeysAPIService) DissociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) ApiDissociateUserFuncKeyTemplateRequest {
-	return ApiDissociateUserFuncKeyTemplateRequest{
+func (a *FunckeysAPIService) DissociateUserFuncKeyTemplate(ctx context.Context, userId string, templateId int32) FunckeysAPIDissociateUserFuncKeyTemplateRequest {
+	return FunckeysAPIDissociateUserFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1037,7 +1037,7 @@ func (a *FunckeysAPIService) DissociateUserFuncKeyTemplate(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) DissociateUserFuncKeyTemplateExecute(r ApiDissociateUserFuncKeyTemplateRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) DissociateUserFuncKeyTemplateExecute(r FunckeysAPIDissociateUserFuncKeyTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1140,7 +1140,7 @@ func (a *FunckeysAPIService) DissociateUserFuncKeyTemplateExecute(r ApiDissociat
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetFuncKeyRequest struct {
+type FunckeysAPIGetFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	templateId   int32
@@ -1149,12 +1149,12 @@ type ApiGetFuncKeyRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetFuncKeyRequest) AccentTenant(accentTenant string) ApiGetFuncKeyRequest {
+func (r FunckeysAPIGetFuncKeyRequest) AccentTenant(accentTenant string) FunckeysAPIGetFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetFuncKeyRequest) Execute() (*FuncKey, *http.Response, error) {
+func (r FunckeysAPIGetFuncKeyRequest) Execute() (*FuncKey, *http.Response, error) {
 	return r.ApiService.GetFuncKeyExecute(r)
 }
 
@@ -1166,10 +1166,10 @@ GetFuncKey Get a func key inside template
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateId
 	@param position position of the funckey
-	@return ApiGetFuncKeyRequest
+	@return FunckeysAPIGetFuncKeyRequest
 */
-func (a *FunckeysAPIService) GetFuncKey(ctx context.Context, templateId int32, position int32) ApiGetFuncKeyRequest {
-	return ApiGetFuncKeyRequest{
+func (a *FunckeysAPIService) GetFuncKey(ctx context.Context, templateId int32, position int32) FunckeysAPIGetFuncKeyRequest {
+	return FunckeysAPIGetFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		templateId: templateId,
@@ -1180,7 +1180,7 @@ func (a *FunckeysAPIService) GetFuncKey(ctx context.Context, templateId int32, p
 // Execute executes the request
 //
 //	@return FuncKey
-func (a *FunckeysAPIService) GetFuncKeyExecute(r ApiGetFuncKeyRequest) (*FuncKey, *http.Response, error) {
+func (a *FunckeysAPIService) GetFuncKeyExecute(r FunckeysAPIGetFuncKeyRequest) (*FuncKey, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1282,7 +1282,7 @@ func (a *FunckeysAPIService) GetFuncKeyExecute(r ApiGetFuncKeyRequest) (*FuncKey
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetFuncKeyTemplateRequest struct {
+type FunckeysAPIGetFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	templateId   int32
@@ -1290,12 +1290,12 @@ type ApiGetFuncKeyTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiGetFuncKeyTemplateRequest {
+func (r FunckeysAPIGetFuncKeyTemplateRequest) AccentTenant(accentTenant string) FunckeysAPIGetFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetFuncKeyTemplateRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
+func (r FunckeysAPIGetFuncKeyTemplateRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.GetFuncKeyTemplateExecute(r)
 }
 
@@ -1306,10 +1306,10 @@ GetFuncKeyTemplate Get a func key template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateId
-	@return ApiGetFuncKeyTemplateRequest
+	@return FunckeysAPIGetFuncKeyTemplateRequest
 */
-func (a *FunckeysAPIService) GetFuncKeyTemplate(ctx context.Context, templateId int32) ApiGetFuncKeyTemplateRequest {
-	return ApiGetFuncKeyTemplateRequest{
+func (a *FunckeysAPIService) GetFuncKeyTemplate(ctx context.Context, templateId int32) FunckeysAPIGetFuncKeyTemplateRequest {
+	return FunckeysAPIGetFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 		templateId: templateId,
@@ -1319,7 +1319,7 @@ func (a *FunckeysAPIService) GetFuncKeyTemplate(ctx context.Context, templateId 
 // Execute executes the request
 //
 //	@return FuncKeyTemplate
-func (a *FunckeysAPIService) GetFuncKeyTemplateExecute(r ApiGetFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error) {
+func (a *FunckeysAPIService) GetFuncKeyTemplateExecute(r FunckeysAPIGetFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1420,7 +1420,7 @@ func (a *FunckeysAPIService) GetFuncKeyTemplateExecute(r ApiGetFuncKeyTemplateRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserFuncKeyRequest struct {
+type FunckeysAPIGetUserFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	userId       string
@@ -1429,12 +1429,12 @@ type ApiGetUserFuncKeyRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserFuncKeyRequest) AccentTenant(accentTenant string) ApiGetUserFuncKeyRequest {
+func (r FunckeysAPIGetUserFuncKeyRequest) AccentTenant(accentTenant string) FunckeysAPIGetUserFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetUserFuncKeyRequest) Execute() (*FuncKey, *http.Response, error) {
+func (r FunckeysAPIGetUserFuncKeyRequest) Execute() (*FuncKey, *http.Response, error) {
 	return r.ApiService.GetUserFuncKeyExecute(r)
 }
 
@@ -1446,10 +1446,10 @@ GetUserFuncKey Get a func key for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param position position of the funckey
-	@return ApiGetUserFuncKeyRequest
+	@return FunckeysAPIGetUserFuncKeyRequest
 */
-func (a *FunckeysAPIService) GetUserFuncKey(ctx context.Context, userId string, position int32) ApiGetUserFuncKeyRequest {
-	return ApiGetUserFuncKeyRequest{
+func (a *FunckeysAPIService) GetUserFuncKey(ctx context.Context, userId string, position int32) FunckeysAPIGetUserFuncKeyRequest {
+	return FunckeysAPIGetUserFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1460,7 +1460,7 @@ func (a *FunckeysAPIService) GetUserFuncKey(ctx context.Context, userId string, 
 // Execute executes the request
 //
 //	@return FuncKey
-func (a *FunckeysAPIService) GetUserFuncKeyExecute(r ApiGetUserFuncKeyRequest) (*FuncKey, *http.Response, error) {
+func (a *FunckeysAPIService) GetUserFuncKeyExecute(r FunckeysAPIGetUserFuncKeyRequest) (*FuncKey, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1562,12 +1562,12 @@ func (a *FunckeysAPIService) GetUserFuncKeyExecute(r ApiGetUserFuncKeyRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListFuncKeyDestinationsRequest struct {
+type FunckeysAPIListFuncKeyDestinationsRequest struct {
 	ctx        context.Context
 	ApiService FunckeysAPI
 }
 
-func (r ApiListFuncKeyDestinationsRequest) Execute() ([]FuncKeyDestination, *http.Response, error) {
+func (r FunckeysAPIListFuncKeyDestinationsRequest) Execute() ([]FuncKeyDestination, *http.Response, error) {
 	return r.ApiService.ListFuncKeyDestinationsExecute(r)
 }
 
@@ -1577,10 +1577,10 @@ ListFuncKeyDestinations List of possible func key destinations and their paramet
 **Required ACL:** `confd.funckeys.destinations.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListFuncKeyDestinationsRequest
+	@return FunckeysAPIListFuncKeyDestinationsRequest
 */
-func (a *FunckeysAPIService) ListFuncKeyDestinations(ctx context.Context) ApiListFuncKeyDestinationsRequest {
-	return ApiListFuncKeyDestinationsRequest{
+func (a *FunckeysAPIService) ListFuncKeyDestinations(ctx context.Context) FunckeysAPIListFuncKeyDestinationsRequest {
+	return FunckeysAPIListFuncKeyDestinationsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1589,7 +1589,7 @@ func (a *FunckeysAPIService) ListFuncKeyDestinations(ctx context.Context) ApiLis
 // Execute executes the request
 //
 //	@return []FuncKeyDestination
-func (a *FunckeysAPIService) ListFuncKeyDestinationsExecute(r ApiListFuncKeyDestinationsRequest) ([]FuncKeyDestination, *http.Response, error) {
+func (a *FunckeysAPIService) ListFuncKeyDestinationsExecute(r FunckeysAPIListFuncKeyDestinationsRequest) ([]FuncKeyDestination, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1676,7 +1676,7 @@ func (a *FunckeysAPIService) ListFuncKeyDestinationsExecute(r ApiListFuncKeyDest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListFuncKeyTemplateRequest struct {
+type FunckeysAPIListFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	accentTenant *string
@@ -1684,18 +1684,18 @@ type ApiListFuncKeyTemplateRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiListFuncKeyTemplateRequest {
+func (r FunckeysAPIListFuncKeyTemplateRequest) AccentTenant(accentTenant string) FunckeysAPIListFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListFuncKeyTemplateRequest) Recurse(recurse bool) ApiListFuncKeyTemplateRequest {
+func (r FunckeysAPIListFuncKeyTemplateRequest) Recurse(recurse bool) FunckeysAPIListFuncKeyTemplateRequest {
 	r.recurse = &recurse
 	return r
 }
 
-func (r ApiListFuncKeyTemplateRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
+func (r FunckeysAPIListFuncKeyTemplateRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.ListFuncKeyTemplateExecute(r)
 }
 
@@ -1705,10 +1705,10 @@ ListFuncKeyTemplate List a func key template
 **Required ACL:** `confd.funckeys.templates.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListFuncKeyTemplateRequest
+	@return FunckeysAPIListFuncKeyTemplateRequest
 */
-func (a *FunckeysAPIService) ListFuncKeyTemplate(ctx context.Context) ApiListFuncKeyTemplateRequest {
-	return ApiListFuncKeyTemplateRequest{
+func (a *FunckeysAPIService) ListFuncKeyTemplate(ctx context.Context) FunckeysAPIListFuncKeyTemplateRequest {
+	return FunckeysAPIListFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1717,7 +1717,7 @@ func (a *FunckeysAPIService) ListFuncKeyTemplate(ctx context.Context) ApiListFun
 // Execute executes the request
 //
 //	@return FuncKeyTemplate
-func (a *FunckeysAPIService) ListFuncKeyTemplateExecute(r ApiListFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error) {
+func (a *FunckeysAPIService) ListFuncKeyTemplateExecute(r FunckeysAPIListFuncKeyTemplateRequest) (*FuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1823,7 +1823,7 @@ func (a *FunckeysAPIService) ListFuncKeyTemplateExecute(r ApiListFuncKeyTemplate
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListFuncKeyTemplateUserAssociationsRequest struct {
+type FunckeysAPIListFuncKeyTemplateUserAssociationsRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	templateId   int32
@@ -1831,12 +1831,12 @@ type ApiListFuncKeyTemplateUserAssociationsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListFuncKeyTemplateUserAssociationsRequest) AccentTenant(accentTenant string) ApiListFuncKeyTemplateUserAssociationsRequest {
+func (r FunckeysAPIListFuncKeyTemplateUserAssociationsRequest) AccentTenant(accentTenant string) FunckeysAPIListFuncKeyTemplateUserAssociationsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListFuncKeyTemplateUserAssociationsRequest) Execute() (*UserFuncKeyTemplate, *http.Response, error) {
+func (r FunckeysAPIListFuncKeyTemplateUserAssociationsRequest) Execute() (*UserFuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.ListFuncKeyTemplateUserAssociationsExecute(r)
 }
 
@@ -1847,10 +1847,10 @@ ListFuncKeyTemplateUserAssociations List users associated to template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateId
-	@return ApiListFuncKeyTemplateUserAssociationsRequest
+	@return FunckeysAPIListFuncKeyTemplateUserAssociationsRequest
 */
-func (a *FunckeysAPIService) ListFuncKeyTemplateUserAssociations(ctx context.Context, templateId int32) ApiListFuncKeyTemplateUserAssociationsRequest {
-	return ApiListFuncKeyTemplateUserAssociationsRequest{
+func (a *FunckeysAPIService) ListFuncKeyTemplateUserAssociations(ctx context.Context, templateId int32) FunckeysAPIListFuncKeyTemplateUserAssociationsRequest {
+	return FunckeysAPIListFuncKeyTemplateUserAssociationsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		templateId: templateId,
@@ -1860,7 +1860,7 @@ func (a *FunckeysAPIService) ListFuncKeyTemplateUserAssociations(ctx context.Con
 // Execute executes the request
 //
 //	@return UserFuncKeyTemplate
-func (a *FunckeysAPIService) ListFuncKeyTemplateUserAssociationsExecute(r ApiListFuncKeyTemplateUserAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error) {
+func (a *FunckeysAPIService) ListFuncKeyTemplateUserAssociationsExecute(r FunckeysAPIListFuncKeyTemplateUserAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1961,7 +1961,7 @@ func (a *FunckeysAPIService) ListFuncKeyTemplateUserAssociationsExecute(r ApiLis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserFuncKeyTemplateAssociationsRequest struct {
+type FunckeysAPIListUserFuncKeyTemplateAssociationsRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	userId       string
@@ -1969,12 +1969,12 @@ type ApiListUserFuncKeyTemplateAssociationsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListUserFuncKeyTemplateAssociationsRequest) AccentTenant(accentTenant string) ApiListUserFuncKeyTemplateAssociationsRequest {
+func (r FunckeysAPIListUserFuncKeyTemplateAssociationsRequest) AccentTenant(accentTenant string) FunckeysAPIListUserFuncKeyTemplateAssociationsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListUserFuncKeyTemplateAssociationsRequest) Execute() (*UserFuncKeyTemplate, *http.Response, error) {
+func (r FunckeysAPIListUserFuncKeyTemplateAssociationsRequest) Execute() (*UserFuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.ListUserFuncKeyTemplateAssociationsExecute(r)
 }
 
@@ -1985,10 +1985,10 @@ ListUserFuncKeyTemplateAssociations List funckey templates associated to user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiListUserFuncKeyTemplateAssociationsRequest
+	@return FunckeysAPIListUserFuncKeyTemplateAssociationsRequest
 */
-func (a *FunckeysAPIService) ListUserFuncKeyTemplateAssociations(ctx context.Context, userId string) ApiListUserFuncKeyTemplateAssociationsRequest {
-	return ApiListUserFuncKeyTemplateAssociationsRequest{
+func (a *FunckeysAPIService) ListUserFuncKeyTemplateAssociations(ctx context.Context, userId string) FunckeysAPIListUserFuncKeyTemplateAssociationsRequest {
+	return FunckeysAPIListUserFuncKeyTemplateAssociationsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -1998,7 +1998,7 @@ func (a *FunckeysAPIService) ListUserFuncKeyTemplateAssociations(ctx context.Con
 // Execute executes the request
 //
 //	@return UserFuncKeyTemplate
-func (a *FunckeysAPIService) ListUserFuncKeyTemplateAssociationsExecute(r ApiListUserFuncKeyTemplateAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error) {
+func (a *FunckeysAPIService) ListUserFuncKeyTemplateAssociationsExecute(r FunckeysAPIListUserFuncKeyTemplateAssociationsRequest) (*UserFuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2099,7 +2099,7 @@ func (a *FunckeysAPIService) ListUserFuncKeyTemplateAssociationsExecute(r ApiLis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserFuncKeysRequest struct {
+type FunckeysAPIListUserFuncKeysRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	userId       string
@@ -2107,12 +2107,12 @@ type ApiListUserFuncKeysRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListUserFuncKeysRequest) AccentTenant(accentTenant string) ApiListUserFuncKeysRequest {
+func (r FunckeysAPIListUserFuncKeysRequest) AccentTenant(accentTenant string) FunckeysAPIListUserFuncKeysRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListUserFuncKeysRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
+func (r FunckeysAPIListUserFuncKeysRequest) Execute() (*FuncKeyTemplate, *http.Response, error) {
 	return r.ApiService.ListUserFuncKeysExecute(r)
 }
 
@@ -2123,10 +2123,10 @@ ListUserFuncKeys List func keys for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiListUserFuncKeysRequest
+	@return FunckeysAPIListUserFuncKeysRequest
 */
-func (a *FunckeysAPIService) ListUserFuncKeys(ctx context.Context, userId string) ApiListUserFuncKeysRequest {
-	return ApiListUserFuncKeysRequest{
+func (a *FunckeysAPIService) ListUserFuncKeys(ctx context.Context, userId string) FunckeysAPIListUserFuncKeysRequest {
+	return FunckeysAPIListUserFuncKeysRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -2136,7 +2136,7 @@ func (a *FunckeysAPIService) ListUserFuncKeys(ctx context.Context, userId string
 // Execute executes the request
 //
 //	@return FuncKeyTemplate
-func (a *FunckeysAPIService) ListUserFuncKeysExecute(r ApiListUserFuncKeysRequest) (*FuncKeyTemplate, *http.Response, error) {
+func (a *FunckeysAPIService) ListUserFuncKeysExecute(r FunckeysAPIListUserFuncKeysRequest) (*FuncKeyTemplate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2227,7 +2227,7 @@ func (a *FunckeysAPIService) ListUserFuncKeysExecute(r ApiListUserFuncKeysReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateFuncKeyRequest struct {
+type FunckeysAPIUpdateFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	body         *FuncKey
@@ -2236,18 +2236,18 @@ type ApiUpdateFuncKeyRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateFuncKeyRequest) Body(body FuncKey) ApiUpdateFuncKeyRequest {
+func (r FunckeysAPIUpdateFuncKeyRequest) Body(body FuncKey) FunckeysAPIUpdateFuncKeyRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateFuncKeyRequest) AccentTenant(accentTenant string) ApiUpdateFuncKeyRequest {
+func (r FunckeysAPIUpdateFuncKeyRequest) AccentTenant(accentTenant string) FunckeysAPIUpdateFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateFuncKeyRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIUpdateFuncKeyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateFuncKeyExecute(r)
 }
 
@@ -2259,10 +2259,10 @@ UpdateFuncKey Add/Replace a func key in a template
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateId
 	@param position position of the funckey
-	@return ApiUpdateFuncKeyRequest
+	@return FunckeysAPIUpdateFuncKeyRequest
 */
-func (a *FunckeysAPIService) UpdateFuncKey(ctx context.Context, templateId int32, position int32) ApiUpdateFuncKeyRequest {
-	return ApiUpdateFuncKeyRequest{
+func (a *FunckeysAPIService) UpdateFuncKey(ctx context.Context, templateId int32, position int32) FunckeysAPIUpdateFuncKeyRequest {
+	return FunckeysAPIUpdateFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		templateId: templateId,
@@ -2271,7 +2271,7 @@ func (a *FunckeysAPIService) UpdateFuncKey(ctx context.Context, templateId int32
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) UpdateFuncKeyExecute(r ApiUpdateFuncKeyRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) UpdateFuncKeyExecute(r FunckeysAPIUpdateFuncKeyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2368,7 +2368,7 @@ func (a *FunckeysAPIService) UpdateFuncKeyExecute(r ApiUpdateFuncKeyRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateFuncKeyTemplateRequest struct {
+type FunckeysAPIUpdateFuncKeyTemplateRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	body         *FuncKeyTemplate
@@ -2376,18 +2376,18 @@ type ApiUpdateFuncKeyTemplateRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateFuncKeyTemplateRequest) Body(body FuncKeyTemplate) ApiUpdateFuncKeyTemplateRequest {
+func (r FunckeysAPIUpdateFuncKeyTemplateRequest) Body(body FuncKeyTemplate) FunckeysAPIUpdateFuncKeyTemplateRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateFuncKeyTemplateRequest) AccentTenant(accentTenant string) ApiUpdateFuncKeyTemplateRequest {
+func (r FunckeysAPIUpdateFuncKeyTemplateRequest) AccentTenant(accentTenant string) FunckeysAPIUpdateFuncKeyTemplateRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateFuncKeyTemplateRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIUpdateFuncKeyTemplateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateFuncKeyTemplateExecute(r)
 }
 
@@ -2400,10 +2400,10 @@ UpdateFuncKeyTemplate Update a func key template
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param templateId
-	@return ApiUpdateFuncKeyTemplateRequest
+	@return FunckeysAPIUpdateFuncKeyTemplateRequest
 */
-func (a *FunckeysAPIService) UpdateFuncKeyTemplate(ctx context.Context, templateId int32) ApiUpdateFuncKeyTemplateRequest {
-	return ApiUpdateFuncKeyTemplateRequest{
+func (a *FunckeysAPIService) UpdateFuncKeyTemplate(ctx context.Context, templateId int32) FunckeysAPIUpdateFuncKeyTemplateRequest {
+	return FunckeysAPIUpdateFuncKeyTemplateRequest{
 		ApiService: a,
 		ctx:        ctx,
 		templateId: templateId,
@@ -2411,7 +2411,7 @@ func (a *FunckeysAPIService) UpdateFuncKeyTemplate(ctx context.Context, template
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) UpdateFuncKeyTemplateExecute(r ApiUpdateFuncKeyTemplateRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) UpdateFuncKeyTemplateExecute(r FunckeysAPIUpdateFuncKeyTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2507,7 +2507,7 @@ func (a *FunckeysAPIService) UpdateFuncKeyTemplateExecute(r ApiUpdateFuncKeyTemp
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserFuncKeyRequest struct {
+type FunckeysAPIUpdateUserFuncKeyRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	body         *FuncKey
@@ -2516,18 +2516,18 @@ type ApiUpdateUserFuncKeyRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserFuncKeyRequest) Body(body FuncKey) ApiUpdateUserFuncKeyRequest {
+func (r FunckeysAPIUpdateUserFuncKeyRequest) Body(body FuncKey) FunckeysAPIUpdateUserFuncKeyRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserFuncKeyRequest) AccentTenant(accentTenant string) ApiUpdateUserFuncKeyRequest {
+func (r FunckeysAPIUpdateUserFuncKeyRequest) AccentTenant(accentTenant string) FunckeysAPIUpdateUserFuncKeyRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserFuncKeyRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIUpdateUserFuncKeyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserFuncKeyExecute(r)
 }
 
@@ -2539,10 +2539,10 @@ UpdateUserFuncKey Add/Replace a func key for a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
 	@param position position of the funckey
-	@return ApiUpdateUserFuncKeyRequest
+	@return FunckeysAPIUpdateUserFuncKeyRequest
 */
-func (a *FunckeysAPIService) UpdateUserFuncKey(ctx context.Context, userId string, position int32) ApiUpdateUserFuncKeyRequest {
-	return ApiUpdateUserFuncKeyRequest{
+func (a *FunckeysAPIService) UpdateUserFuncKey(ctx context.Context, userId string, position int32) FunckeysAPIUpdateUserFuncKeyRequest {
+	return FunckeysAPIUpdateUserFuncKeyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -2551,7 +2551,7 @@ func (a *FunckeysAPIService) UpdateUserFuncKey(ctx context.Context, userId strin
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) UpdateUserFuncKeyExecute(r ApiUpdateUserFuncKeyRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) UpdateUserFuncKeyExecute(r FunckeysAPIUpdateUserFuncKeyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2648,7 +2648,7 @@ func (a *FunckeysAPIService) UpdateUserFuncKeyExecute(r ApiUpdateUserFuncKeyRequ
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserFuncKeysRequest struct {
+type FunckeysAPIUpdateUserFuncKeysRequest struct {
 	ctx          context.Context
 	ApiService   FunckeysAPI
 	body         *FuncKeyTemplate
@@ -2656,18 +2656,18 @@ type ApiUpdateUserFuncKeysRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateUserFuncKeysRequest) Body(body FuncKeyTemplate) ApiUpdateUserFuncKeysRequest {
+func (r FunckeysAPIUpdateUserFuncKeysRequest) Body(body FuncKeyTemplate) FunckeysAPIUpdateUserFuncKeysRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateUserFuncKeysRequest) AccentTenant(accentTenant string) ApiUpdateUserFuncKeysRequest {
+func (r FunckeysAPIUpdateUserFuncKeysRequest) AccentTenant(accentTenant string) FunckeysAPIUpdateUserFuncKeysRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateUserFuncKeysRequest) Execute() (*http.Response, error) {
+func (r FunckeysAPIUpdateUserFuncKeysRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserFuncKeysExecute(r)
 }
 
@@ -2680,10 +2680,10 @@ UpdateUserFuncKeys Update func keys for a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserFuncKeysRequest
+	@return FunckeysAPIUpdateUserFuncKeysRequest
 */
-func (a *FunckeysAPIService) UpdateUserFuncKeys(ctx context.Context, userId string) ApiUpdateUserFuncKeysRequest {
-	return ApiUpdateUserFuncKeysRequest{
+func (a *FunckeysAPIService) UpdateUserFuncKeys(ctx context.Context, userId string) FunckeysAPIUpdateUserFuncKeysRequest {
+	return FunckeysAPIUpdateUserFuncKeysRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -2691,7 +2691,7 @@ func (a *FunckeysAPIService) UpdateUserFuncKeys(ctx context.Context, userId stri
 }
 
 // Execute executes the request
-func (a *FunckeysAPIService) UpdateUserFuncKeysExecute(r ApiUpdateUserFuncKeysRequest) (*http.Response, error) {
+func (a *FunckeysAPIService) UpdateUserFuncKeysExecute(r FunckeysAPIUpdateUserFuncKeysRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

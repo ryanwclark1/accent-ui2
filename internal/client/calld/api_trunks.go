@@ -37,31 +37,31 @@ type TrunksAPI interface {
 
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListTrunksRequest
+		@return TrunksAPIListTrunksRequest
 	*/
-	ListTrunks(ctx context.Context) ApiListTrunksRequest
+	ListTrunks(ctx context.Context) TrunksAPIListTrunksRequest
 
 	// ListTrunksExecute executes the request
 	//  @return EndpointTrunks
-	ListTrunksExecute(r ApiListTrunksRequest) (*EndpointTrunks, *http.Response, error)
+	ListTrunksExecute(r TrunksAPIListTrunksRequest) (*EndpointTrunks, *http.Response, error)
 }
 
 // TrunksAPIService TrunksAPI service
 type TrunksAPIService service
 
-type ApiListTrunksRequest struct {
+type TrunksAPIListTrunksRequest struct {
 	ctx          context.Context
 	ApiService   TrunksAPI
 	accentTenant *string
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListTrunksRequest) AccentTenant(accentTenant string) ApiListTrunksRequest {
+func (r TrunksAPIListTrunksRequest) AccentTenant(accentTenant string) TrunksAPIListTrunksRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiListTrunksRequest) Execute() (*EndpointTrunks, *http.Response, error) {
+func (r TrunksAPIListTrunksRequest) Execute() (*EndpointTrunks, *http.Response, error) {
 	return r.ApiService.ListTrunksExecute(r)
 }
 
@@ -80,10 +80,10 @@ Trunks with unsupported technologies will be listed but there status
 will be null
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListTrunksRequest
+	@return TrunksAPIListTrunksRequest
 */
-func (a *TrunksAPIService) ListTrunks(ctx context.Context) ApiListTrunksRequest {
-	return ApiListTrunksRequest{
+func (a *TrunksAPIService) ListTrunks(ctx context.Context) TrunksAPIListTrunksRequest {
+	return TrunksAPIListTrunksRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -92,7 +92,7 @@ func (a *TrunksAPIService) ListTrunks(ctx context.Context) ApiListTrunksRequest 
 // Execute executes the request
 //
 //	@return EndpointTrunks
-func (a *TrunksAPIService) ListTrunksExecute(r ApiListTrunksRequest) (*EndpointTrunks, *http.Response, error) {
+func (a *TrunksAPIService) ListTrunksExecute(r TrunksAPIListTrunksRequest) (*EndpointTrunks, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

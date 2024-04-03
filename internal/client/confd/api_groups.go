@@ -30,12 +30,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param callpermissionId Call Permission's ID
-		@return ApiAssociateGroupCallpermissionRequest
+		@return GroupsAPIAssociateGroupCallpermissionRequest
 	*/
-	AssociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) ApiAssociateGroupCallpermissionRequest
+	AssociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) GroupsAPIAssociateGroupCallpermissionRequest
 
 	// AssociateGroupCallpermissionExecute executes the request
-	AssociateGroupCallpermissionExecute(r ApiAssociateGroupCallpermissionRequest) (*http.Response, error)
+	AssociateGroupCallpermissionExecute(r GroupsAPIAssociateGroupCallpermissionRequest) (*http.Response, error)
 
 	/*
 		AssociateGroupExtension Associate group and extension
@@ -45,12 +45,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param extensionId
-		@return ApiAssociateGroupExtensionRequest
+		@return GroupsAPIAssociateGroupExtensionRequest
 	*/
-	AssociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ApiAssociateGroupExtensionRequest
+	AssociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) GroupsAPIAssociateGroupExtensionRequest
 
 	// AssociateGroupExtensionExecute executes the request
-	AssociateGroupExtensionExecute(r ApiAssociateGroupExtensionRequest) (*http.Response, error)
+	AssociateGroupExtensionExecute(r GroupsAPIAssociateGroupExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateGroupSchedule Associate group and schedule
@@ -60,12 +60,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateGroupScheduleRequest
+		@return GroupsAPIAssociateGroupScheduleRequest
 	*/
-	AssociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) ApiAssociateGroupScheduleRequest
+	AssociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) GroupsAPIAssociateGroupScheduleRequest
 
 	// AssociateGroupScheduleExecute executes the request
-	AssociateGroupScheduleExecute(r ApiAssociateGroupScheduleRequest) (*http.Response, error)
+	AssociateGroupScheduleExecute(r GroupsAPIAssociateGroupScheduleRequest) (*http.Response, error)
 
 	/*
 		CreateGroup Create group
@@ -73,13 +73,13 @@ type GroupsAPI interface {
 		**Required ACL:** `confd.groups.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateGroupRequest
+		@return GroupsAPICreateGroupRequest
 	*/
-	CreateGroup(ctx context.Context) ApiCreateGroupRequest
+	CreateGroup(ctx context.Context) GroupsAPICreateGroupRequest
 
 	// CreateGroupExecute executes the request
 	//  @return Group
-	CreateGroupExecute(r ApiCreateGroupRequest) (*Group, *http.Response, error)
+	CreateGroupExecute(r GroupsAPICreateGroupRequest) (*Group, *http.Response, error)
 
 	/*
 		DeleteGroup Delete group
@@ -88,12 +88,12 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
-		@return ApiDeleteGroupRequest
+		@return GroupsAPIDeleteGroupRequest
 	*/
-	DeleteGroup(ctx context.Context, groupUuid string) ApiDeleteGroupRequest
+	DeleteGroup(ctx context.Context, groupUuid string) GroupsAPIDeleteGroupRequest
 
 	// DeleteGroupExecute executes the request
-	DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Response, error)
+	DeleteGroupExecute(r GroupsAPIDeleteGroupRequest) (*http.Response, error)
 
 	/*
 		DissociateGroupCallpermission Dissociate group and call permission
@@ -103,12 +103,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param callpermissionId Call Permission's ID
-		@return ApiDissociateGroupCallpermissionRequest
+		@return GroupsAPIDissociateGroupCallpermissionRequest
 	*/
-	DissociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) ApiDissociateGroupCallpermissionRequest
+	DissociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) GroupsAPIDissociateGroupCallpermissionRequest
 
 	// DissociateGroupCallpermissionExecute executes the request
-	DissociateGroupCallpermissionExecute(r ApiDissociateGroupCallpermissionRequest) (*http.Response, error)
+	DissociateGroupCallpermissionExecute(r GroupsAPIDissociateGroupCallpermissionRequest) (*http.Response, error)
 
 	/*
 		DissociateGroupExtension Dissociate group and extension
@@ -118,12 +118,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param extensionId
-		@return ApiDissociateGroupExtensionRequest
+		@return GroupsAPIDissociateGroupExtensionRequest
 	*/
-	DissociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ApiDissociateGroupExtensionRequest
+	DissociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) GroupsAPIDissociateGroupExtensionRequest
 
 	// DissociateGroupExtensionExecute executes the request
-	DissociateGroupExtensionExecute(r ApiDissociateGroupExtensionRequest) (*http.Response, error)
+	DissociateGroupExtensionExecute(r GroupsAPIDissociateGroupExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateGroupSchedule Dissociate group and schedule
@@ -133,12 +133,12 @@ type GroupsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateGroupScheduleRequest
+		@return GroupsAPIDissociateGroupScheduleRequest
 	*/
-	DissociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) ApiDissociateGroupScheduleRequest
+	DissociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) GroupsAPIDissociateGroupScheduleRequest
 
 	// DissociateGroupScheduleExecute executes the request
-	DissociateGroupScheduleExecute(r ApiDissociateGroupScheduleRequest) (*http.Response, error)
+	DissociateGroupScheduleExecute(r GroupsAPIDissociateGroupScheduleRequest) (*http.Response, error)
 
 	/*
 		GetGroup Get group
@@ -147,13 +147,13 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
-		@return ApiGetGroupRequest
+		@return GroupsAPIGetGroupRequest
 	*/
-	GetGroup(ctx context.Context, groupUuid string) ApiGetGroupRequest
+	GetGroup(ctx context.Context, groupUuid string) GroupsAPIGetGroupRequest
 
 	// GetGroupExecute executes the request
 	//  @return Group
-	GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.Response, error)
+	GetGroupExecute(r GroupsAPIGetGroupRequest) (*Group, *http.Response, error)
 
 	/*
 		GetGroupFallback List all fallbacks for group
@@ -162,13 +162,13 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
-		@return ApiGetGroupFallbackRequest
+		@return GroupsAPIGetGroupFallbackRequest
 	*/
-	GetGroupFallback(ctx context.Context, groupUuid string) ApiGetGroupFallbackRequest
+	GetGroupFallback(ctx context.Context, groupUuid string) GroupsAPIGetGroupFallbackRequest
 
 	// GetGroupFallbackExecute executes the request
 	//  @return GroupFallbacks
-	GetGroupFallbackExecute(r ApiGetGroupFallbackRequest) (*GroupFallbacks, *http.Response, error)
+	GetGroupFallbackExecute(r GroupsAPIGetGroupFallbackRequest) (*GroupFallbacks, *http.Response, error)
 
 	/*
 		ListGroups List groups
@@ -176,13 +176,13 @@ type GroupsAPI interface {
 		**Required ACL:** `confd.groups.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListGroupsRequest
+		@return GroupsAPIListGroupsRequest
 	*/
-	ListGroups(ctx context.Context) ApiListGroupsRequest
+	ListGroups(ctx context.Context) GroupsAPIListGroupsRequest
 
 	// ListGroupsExecute executes the request
 	//  @return GroupItems
-	ListGroupsExecute(r ApiListGroupsRequest) (*GroupItems, *http.Response, error)
+	ListGroupsExecute(r GroupsAPIListGroupsRequest) (*GroupItems, *http.Response, error)
 
 	/*
 		UpdateCallPickupInterceptorGroups Update call pickup and interceptors
@@ -191,12 +191,12 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallPickupInterceptorGroupsRequest
+		@return GroupsAPIUpdateCallPickupInterceptorGroupsRequest
 	*/
-	UpdateCallPickupInterceptorGroups(ctx context.Context, callpickupId int32) ApiUpdateCallPickupInterceptorGroupsRequest
+	UpdateCallPickupInterceptorGroups(ctx context.Context, callpickupId int32) GroupsAPIUpdateCallPickupInterceptorGroupsRequest
 
 	// UpdateCallPickupInterceptorGroupsExecute executes the request
-	UpdateCallPickupInterceptorGroupsExecute(r ApiUpdateCallPickupInterceptorGroupsRequest) (*http.Response, error)
+	UpdateCallPickupInterceptorGroupsExecute(r GroupsAPIUpdateCallPickupInterceptorGroupsRequest) (*http.Response, error)
 
 	/*
 		UpdateCallPickupTargetGroups Update call pickup and targets
@@ -205,12 +205,12 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param callpickupId Call Pickup's ID
-		@return ApiUpdateCallPickupTargetGroupsRequest
+		@return GroupsAPIUpdateCallPickupTargetGroupsRequest
 	*/
-	UpdateCallPickupTargetGroups(ctx context.Context, callpickupId int32) ApiUpdateCallPickupTargetGroupsRequest
+	UpdateCallPickupTargetGroups(ctx context.Context, callpickupId int32) GroupsAPIUpdateCallPickupTargetGroupsRequest
 
 	// UpdateCallPickupTargetGroupsExecute executes the request
-	UpdateCallPickupTargetGroupsExecute(r ApiUpdateCallPickupTargetGroupsRequest) (*http.Response, error)
+	UpdateCallPickupTargetGroupsExecute(r GroupsAPIUpdateCallPickupTargetGroupsRequest) (*http.Response, error)
 
 	/*
 		UpdateGroup Update group
@@ -219,12 +219,12 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
-		@return ApiUpdateGroupRequest
+		@return GroupsAPIUpdateGroupRequest
 	*/
-	UpdateGroup(ctx context.Context, groupUuid string) ApiUpdateGroupRequest
+	UpdateGroup(ctx context.Context, groupUuid string) GroupsAPIUpdateGroupRequest
 
 	// UpdateGroupExecute executes the request
-	UpdateGroupExecute(r ApiUpdateGroupRequest) (*http.Response, error)
+	UpdateGroupExecute(r GroupsAPIUpdateGroupRequest) (*http.Response, error)
 
 	/*
 		UpdateGroupFallback Update group's fallbacks
@@ -235,12 +235,12 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
-		@return ApiUpdateGroupFallbackRequest
+		@return GroupsAPIUpdateGroupFallbackRequest
 	*/
-	UpdateGroupFallback(ctx context.Context, groupUuid string) ApiUpdateGroupFallbackRequest
+	UpdateGroupFallback(ctx context.Context, groupUuid string) GroupsAPIUpdateGroupFallbackRequest
 
 	// UpdateGroupFallbackExecute executes the request
-	UpdateGroupFallbackExecute(r ApiUpdateGroupFallbackRequest) (*http.Response, error)
+	UpdateGroupFallbackExecute(r GroupsAPIUpdateGroupFallbackRequest) (*http.Response, error)
 
 	/*
 		UpdateGroupMemberExtensions Update group and extensions
@@ -251,12 +251,12 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
-		@return ApiUpdateGroupMemberExtensionsRequest
+		@return GroupsAPIUpdateGroupMemberExtensionsRequest
 	*/
-	UpdateGroupMemberExtensions(ctx context.Context, groupUuid string) ApiUpdateGroupMemberExtensionsRequest
+	UpdateGroupMemberExtensions(ctx context.Context, groupUuid string) GroupsAPIUpdateGroupMemberExtensionsRequest
 
 	// UpdateGroupMemberExtensionsExecute executes the request
-	UpdateGroupMemberExtensionsExecute(r ApiUpdateGroupMemberExtensionsRequest) (*http.Response, error)
+	UpdateGroupMemberExtensionsExecute(r GroupsAPIUpdateGroupMemberExtensionsRequest) (*http.Response, error)
 
 	/*
 		UpdateGroupMemberUsers Update group and users
@@ -267,12 +267,12 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid the group's UUID
-		@return ApiUpdateGroupMemberUsersRequest
+		@return GroupsAPIUpdateGroupMemberUsersRequest
 	*/
-	UpdateGroupMemberUsers(ctx context.Context, groupUuid string) ApiUpdateGroupMemberUsersRequest
+	UpdateGroupMemberUsers(ctx context.Context, groupUuid string) GroupsAPIUpdateGroupMemberUsersRequest
 
 	// UpdateGroupMemberUsersExecute executes the request
-	UpdateGroupMemberUsersExecute(r ApiUpdateGroupMemberUsersRequest) (*http.Response, error)
+	UpdateGroupMemberUsersExecute(r GroupsAPIUpdateGroupMemberUsersRequest) (*http.Response, error)
 
 	/*
 		UpdateUserGroups Update user and groups
@@ -282,18 +282,18 @@ type GroupsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userId the user's ID or UUID
-		@return ApiUpdateUserGroupsRequest
+		@return GroupsAPIUpdateUserGroupsRequest
 	*/
-	UpdateUserGroups(ctx context.Context, userId string) ApiUpdateUserGroupsRequest
+	UpdateUserGroups(ctx context.Context, userId string) GroupsAPIUpdateUserGroupsRequest
 
 	// UpdateUserGroupsExecute executes the request
-	UpdateUserGroupsExecute(r ApiUpdateUserGroupsRequest) (*http.Response, error)
+	UpdateUserGroupsExecute(r GroupsAPIUpdateUserGroupsRequest) (*http.Response, error)
 }
 
 // GroupsAPIService GroupsAPI service
 type GroupsAPIService service
 
-type ApiAssociateGroupCallpermissionRequest struct {
+type GroupsAPIAssociateGroupCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       GroupsAPI
 	groupUuid        string
@@ -302,12 +302,12 @@ type ApiAssociateGroupCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateGroupCallpermissionRequest) AccentTenant(accentTenant string) ApiAssociateGroupCallpermissionRequest {
+func (r GroupsAPIAssociateGroupCallpermissionRequest) AccentTenant(accentTenant string) GroupsAPIAssociateGroupCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateGroupCallpermissionRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIAssociateGroupCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateGroupCallpermissionExecute(r)
 }
 
@@ -319,10 +319,10 @@ AssociateGroupCallpermission Associate group and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param callpermissionId Call Permission's ID
-	@return ApiAssociateGroupCallpermissionRequest
+	@return GroupsAPIAssociateGroupCallpermissionRequest
 */
-func (a *GroupsAPIService) AssociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) ApiAssociateGroupCallpermissionRequest {
-	return ApiAssociateGroupCallpermissionRequest{
+func (a *GroupsAPIService) AssociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) GroupsAPIAssociateGroupCallpermissionRequest {
+	return GroupsAPIAssociateGroupCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		groupUuid:        groupUuid,
@@ -331,7 +331,7 @@ func (a *GroupsAPIService) AssociateGroupCallpermission(ctx context.Context, gro
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) AssociateGroupCallpermissionExecute(r ApiAssociateGroupCallpermissionRequest) (*http.Response, error) {
+func (a *GroupsAPIService) AssociateGroupCallpermissionExecute(r GroupsAPIAssociateGroupCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -434,14 +434,14 @@ func (a *GroupsAPIService) AssociateGroupCallpermissionExecute(r ApiAssociateGro
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateGroupExtensionRequest struct {
+type GroupsAPIAssociateGroupExtensionRequest struct {
 	ctx         context.Context
 	ApiService  GroupsAPI
 	groupUuid   string
 	extensionId int32
 }
 
-func (r ApiAssociateGroupExtensionRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIAssociateGroupExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateGroupExtensionExecute(r)
 }
 
@@ -453,10 +453,10 @@ AssociateGroupExtension Associate group and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param extensionId
-	@return ApiAssociateGroupExtensionRequest
+	@return GroupsAPIAssociateGroupExtensionRequest
 */
-func (a *GroupsAPIService) AssociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ApiAssociateGroupExtensionRequest {
-	return ApiAssociateGroupExtensionRequest{
+func (a *GroupsAPIService) AssociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) GroupsAPIAssociateGroupExtensionRequest {
+	return GroupsAPIAssociateGroupExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		groupUuid:   groupUuid,
@@ -465,7 +465,7 @@ func (a *GroupsAPIService) AssociateGroupExtension(ctx context.Context, groupUui
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) AssociateGroupExtensionExecute(r ApiAssociateGroupExtensionRequest) (*http.Response, error) {
+func (a *GroupsAPIService) AssociateGroupExtensionExecute(r GroupsAPIAssociateGroupExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -565,7 +565,7 @@ func (a *GroupsAPIService) AssociateGroupExtensionExecute(r ApiAssociateGroupExt
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateGroupScheduleRequest struct {
+type GroupsAPIAssociateGroupScheduleRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	groupUuid    string
@@ -574,12 +574,12 @@ type ApiAssociateGroupScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateGroupScheduleRequest) AccentTenant(accentTenant string) ApiAssociateGroupScheduleRequest {
+func (r GroupsAPIAssociateGroupScheduleRequest) AccentTenant(accentTenant string) GroupsAPIAssociateGroupScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateGroupScheduleRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIAssociateGroupScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateGroupScheduleExecute(r)
 }
 
@@ -591,10 +591,10 @@ AssociateGroupSchedule Associate group and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateGroupScheduleRequest
+	@return GroupsAPIAssociateGroupScheduleRequest
 */
-func (a *GroupsAPIService) AssociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) ApiAssociateGroupScheduleRequest {
-	return ApiAssociateGroupScheduleRequest{
+func (a *GroupsAPIService) AssociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) GroupsAPIAssociateGroupScheduleRequest {
+	return GroupsAPIAssociateGroupScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -603,7 +603,7 @@ func (a *GroupsAPIService) AssociateGroupSchedule(ctx context.Context, groupUuid
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) AssociateGroupScheduleExecute(r ApiAssociateGroupScheduleRequest) (*http.Response, error) {
+func (a *GroupsAPIService) AssociateGroupScheduleExecute(r GroupsAPIAssociateGroupScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -706,7 +706,7 @@ func (a *GroupsAPIService) AssociateGroupScheduleExecute(r ApiAssociateGroupSche
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateGroupRequest struct {
+type GroupsAPICreateGroupRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	body         *Group
@@ -714,18 +714,18 @@ type ApiCreateGroupRequest struct {
 }
 
 // Group to create
-func (r ApiCreateGroupRequest) Body(body Group) ApiCreateGroupRequest {
+func (r GroupsAPICreateGroupRequest) Body(body Group) GroupsAPICreateGroupRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateGroupRequest) AccentTenant(accentTenant string) ApiCreateGroupRequest {
+func (r GroupsAPICreateGroupRequest) AccentTenant(accentTenant string) GroupsAPICreateGroupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateGroupRequest) Execute() (*Group, *http.Response, error) {
+func (r GroupsAPICreateGroupRequest) Execute() (*Group, *http.Response, error) {
 	return r.ApiService.CreateGroupExecute(r)
 }
 
@@ -735,10 +735,10 @@ CreateGroup Create group
 **Required ACL:** `confd.groups.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateGroupRequest
+	@return GroupsAPICreateGroupRequest
 */
-func (a *GroupsAPIService) CreateGroup(ctx context.Context) ApiCreateGroupRequest {
-	return ApiCreateGroupRequest{
+func (a *GroupsAPIService) CreateGroup(ctx context.Context) GroupsAPICreateGroupRequest {
+	return GroupsAPICreateGroupRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -747,7 +747,7 @@ func (a *GroupsAPIService) CreateGroup(ctx context.Context) ApiCreateGroupReques
 // Execute executes the request
 //
 //	@return Group
-func (a *GroupsAPIService) CreateGroupExecute(r ApiCreateGroupRequest) (*Group, *http.Response, error) {
+func (a *GroupsAPIService) CreateGroupExecute(r GroupsAPICreateGroupRequest) (*Group, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -852,7 +852,7 @@ func (a *GroupsAPIService) CreateGroupExecute(r ApiCreateGroupRequest) (*Group, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteGroupRequest struct {
+type GroupsAPIDeleteGroupRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	groupUuid    string
@@ -860,12 +860,12 @@ type ApiDeleteGroupRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteGroupRequest) AccentTenant(accentTenant string) ApiDeleteGroupRequest {
+func (r GroupsAPIDeleteGroupRequest) AccentTenant(accentTenant string) GroupsAPIDeleteGroupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteGroupRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIDeleteGroupRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteGroupExecute(r)
 }
 
@@ -876,10 +876,10 @@ DeleteGroup Delete group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
-	@return ApiDeleteGroupRequest
+	@return GroupsAPIDeleteGroupRequest
 */
-func (a *GroupsAPIService) DeleteGroup(ctx context.Context, groupUuid string) ApiDeleteGroupRequest {
-	return ApiDeleteGroupRequest{
+func (a *GroupsAPIService) DeleteGroup(ctx context.Context, groupUuid string) GroupsAPIDeleteGroupRequest {
+	return GroupsAPIDeleteGroupRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -887,7 +887,7 @@ func (a *GroupsAPIService) DeleteGroup(ctx context.Context, groupUuid string) Ap
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Response, error) {
+func (a *GroupsAPIService) DeleteGroupExecute(r GroupsAPIDeleteGroupRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -989,7 +989,7 @@ func (a *GroupsAPIService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateGroupCallpermissionRequest struct {
+type GroupsAPIDissociateGroupCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       GroupsAPI
 	groupUuid        string
@@ -998,12 +998,12 @@ type ApiDissociateGroupCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateGroupCallpermissionRequest) AccentTenant(accentTenant string) ApiDissociateGroupCallpermissionRequest {
+func (r GroupsAPIDissociateGroupCallpermissionRequest) AccentTenant(accentTenant string) GroupsAPIDissociateGroupCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateGroupCallpermissionRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIDissociateGroupCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateGroupCallpermissionExecute(r)
 }
 
@@ -1015,10 +1015,10 @@ DissociateGroupCallpermission Dissociate group and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param callpermissionId Call Permission's ID
-	@return ApiDissociateGroupCallpermissionRequest
+	@return GroupsAPIDissociateGroupCallpermissionRequest
 */
-func (a *GroupsAPIService) DissociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) ApiDissociateGroupCallpermissionRequest {
-	return ApiDissociateGroupCallpermissionRequest{
+func (a *GroupsAPIService) DissociateGroupCallpermission(ctx context.Context, groupUuid string, callpermissionId int32) GroupsAPIDissociateGroupCallpermissionRequest {
+	return GroupsAPIDissociateGroupCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		groupUuid:        groupUuid,
@@ -1027,7 +1027,7 @@ func (a *GroupsAPIService) DissociateGroupCallpermission(ctx context.Context, gr
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) DissociateGroupCallpermissionExecute(r ApiDissociateGroupCallpermissionRequest) (*http.Response, error) {
+func (a *GroupsAPIService) DissociateGroupCallpermissionExecute(r GroupsAPIDissociateGroupCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1130,14 +1130,14 @@ func (a *GroupsAPIService) DissociateGroupCallpermissionExecute(r ApiDissociateG
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateGroupExtensionRequest struct {
+type GroupsAPIDissociateGroupExtensionRequest struct {
 	ctx         context.Context
 	ApiService  GroupsAPI
 	groupUuid   string
 	extensionId int32
 }
 
-func (r ApiDissociateGroupExtensionRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIDissociateGroupExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateGroupExtensionExecute(r)
 }
 
@@ -1149,10 +1149,10 @@ DissociateGroupExtension Dissociate group and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param extensionId
-	@return ApiDissociateGroupExtensionRequest
+	@return GroupsAPIDissociateGroupExtensionRequest
 */
-func (a *GroupsAPIService) DissociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) ApiDissociateGroupExtensionRequest {
-	return ApiDissociateGroupExtensionRequest{
+func (a *GroupsAPIService) DissociateGroupExtension(ctx context.Context, groupUuid string, extensionId int32) GroupsAPIDissociateGroupExtensionRequest {
+	return GroupsAPIDissociateGroupExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		groupUuid:   groupUuid,
@@ -1161,7 +1161,7 @@ func (a *GroupsAPIService) DissociateGroupExtension(ctx context.Context, groupUu
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) DissociateGroupExtensionExecute(r ApiDissociateGroupExtensionRequest) (*http.Response, error) {
+func (a *GroupsAPIService) DissociateGroupExtensionExecute(r GroupsAPIDissociateGroupExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1261,7 +1261,7 @@ func (a *GroupsAPIService) DissociateGroupExtensionExecute(r ApiDissociateGroupE
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateGroupScheduleRequest struct {
+type GroupsAPIDissociateGroupScheduleRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	groupUuid    string
@@ -1270,12 +1270,12 @@ type ApiDissociateGroupScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateGroupScheduleRequest) AccentTenant(accentTenant string) ApiDissociateGroupScheduleRequest {
+func (r GroupsAPIDissociateGroupScheduleRequest) AccentTenant(accentTenant string) GroupsAPIDissociateGroupScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateGroupScheduleRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIDissociateGroupScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateGroupScheduleExecute(r)
 }
 
@@ -1287,10 +1287,10 @@ DissociateGroupSchedule Dissociate group and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateGroupScheduleRequest
+	@return GroupsAPIDissociateGroupScheduleRequest
 */
-func (a *GroupsAPIService) DissociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) ApiDissociateGroupScheduleRequest {
-	return ApiDissociateGroupScheduleRequest{
+func (a *GroupsAPIService) DissociateGroupSchedule(ctx context.Context, groupUuid string, scheduleId int32) GroupsAPIDissociateGroupScheduleRequest {
+	return GroupsAPIDissociateGroupScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -1299,7 +1299,7 @@ func (a *GroupsAPIService) DissociateGroupSchedule(ctx context.Context, groupUui
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) DissociateGroupScheduleExecute(r ApiDissociateGroupScheduleRequest) (*http.Response, error) {
+func (a *GroupsAPIService) DissociateGroupScheduleExecute(r GroupsAPIDissociateGroupScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1402,7 +1402,7 @@ func (a *GroupsAPIService) DissociateGroupScheduleExecute(r ApiDissociateGroupSc
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetGroupRequest struct {
+type GroupsAPIGetGroupRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	groupUuid    string
@@ -1410,12 +1410,12 @@ type ApiGetGroupRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetGroupRequest) AccentTenant(accentTenant string) ApiGetGroupRequest {
+func (r GroupsAPIGetGroupRequest) AccentTenant(accentTenant string) GroupsAPIGetGroupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetGroupRequest) Execute() (*Group, *http.Response, error) {
+func (r GroupsAPIGetGroupRequest) Execute() (*Group, *http.Response, error) {
 	return r.ApiService.GetGroupExecute(r)
 }
 
@@ -1426,10 +1426,10 @@ GetGroup Get group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
-	@return ApiGetGroupRequest
+	@return GroupsAPIGetGroupRequest
 */
-func (a *GroupsAPIService) GetGroup(ctx context.Context, groupUuid string) ApiGetGroupRequest {
-	return ApiGetGroupRequest{
+func (a *GroupsAPIService) GetGroup(ctx context.Context, groupUuid string) GroupsAPIGetGroupRequest {
+	return GroupsAPIGetGroupRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -1439,7 +1439,7 @@ func (a *GroupsAPIService) GetGroup(ctx context.Context, groupUuid string) ApiGe
 // Execute executes the request
 //
 //	@return Group
-func (a *GroupsAPIService) GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.Response, error) {
+func (a *GroupsAPIService) GetGroupExecute(r GroupsAPIGetGroupRequest) (*Group, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1540,13 +1540,13 @@ func (a *GroupsAPIService) GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetGroupFallbackRequest struct {
+type GroupsAPIGetGroupFallbackRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	groupUuid  string
 }
 
-func (r ApiGetGroupFallbackRequest) Execute() (*GroupFallbacks, *http.Response, error) {
+func (r GroupsAPIGetGroupFallbackRequest) Execute() (*GroupFallbacks, *http.Response, error) {
 	return r.ApiService.GetGroupFallbackExecute(r)
 }
 
@@ -1557,10 +1557,10 @@ GetGroupFallback List all fallbacks for group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
-	@return ApiGetGroupFallbackRequest
+	@return GroupsAPIGetGroupFallbackRequest
 */
-func (a *GroupsAPIService) GetGroupFallback(ctx context.Context, groupUuid string) ApiGetGroupFallbackRequest {
-	return ApiGetGroupFallbackRequest{
+func (a *GroupsAPIService) GetGroupFallback(ctx context.Context, groupUuid string) GroupsAPIGetGroupFallbackRequest {
+	return GroupsAPIGetGroupFallbackRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -1570,7 +1570,7 @@ func (a *GroupsAPIService) GetGroupFallback(ctx context.Context, groupUuid strin
 // Execute executes the request
 //
 //	@return GroupFallbacks
-func (a *GroupsAPIService) GetGroupFallbackExecute(r ApiGetGroupFallbackRequest) (*GroupFallbacks, *http.Response, error) {
+func (a *GroupsAPIService) GetGroupFallbackExecute(r GroupsAPIGetGroupFallbackRequest) (*GroupFallbacks, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1658,7 +1658,7 @@ func (a *GroupsAPIService) GetGroupFallbackExecute(r ApiGetGroupFallbackRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListGroupsRequest struct {
+type GroupsAPIListGroupsRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	accentTenant *string
@@ -1671,48 +1671,48 @@ type ApiListGroupsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListGroupsRequest) AccentTenant(accentTenant string) ApiListGroupsRequest {
+func (r GroupsAPIListGroupsRequest) AccentTenant(accentTenant string) GroupsAPIListGroupsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListGroupsRequest) Recurse(recurse bool) ApiListGroupsRequest {
+func (r GroupsAPIListGroupsRequest) Recurse(recurse bool) GroupsAPIListGroupsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListGroupsRequest) Order(order string) ApiListGroupsRequest {
+func (r GroupsAPIListGroupsRequest) Order(order string) GroupsAPIListGroupsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListGroupsRequest) Direction(direction string) ApiListGroupsRequest {
+func (r GroupsAPIListGroupsRequest) Direction(direction string) GroupsAPIListGroupsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListGroupsRequest) Limit(limit int32) ApiListGroupsRequest {
+func (r GroupsAPIListGroupsRequest) Limit(limit int32) GroupsAPIListGroupsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListGroupsRequest) Offset(offset int32) ApiListGroupsRequest {
+func (r GroupsAPIListGroupsRequest) Offset(offset int32) GroupsAPIListGroupsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListGroupsRequest) Search(search string) ApiListGroupsRequest {
+func (r GroupsAPIListGroupsRequest) Search(search string) GroupsAPIListGroupsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListGroupsRequest) Execute() (*GroupItems, *http.Response, error) {
+func (r GroupsAPIListGroupsRequest) Execute() (*GroupItems, *http.Response, error) {
 	return r.ApiService.ListGroupsExecute(r)
 }
 
@@ -1722,10 +1722,10 @@ ListGroups List groups
 **Required ACL:** `confd.groups.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListGroupsRequest
+	@return GroupsAPIListGroupsRequest
 */
-func (a *GroupsAPIService) ListGroups(ctx context.Context) ApiListGroupsRequest {
-	return ApiListGroupsRequest{
+func (a *GroupsAPIService) ListGroups(ctx context.Context) GroupsAPIListGroupsRequest {
+	return GroupsAPIListGroupsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1734,7 +1734,7 @@ func (a *GroupsAPIService) ListGroups(ctx context.Context) ApiListGroupsRequest 
 // Execute executes the request
 //
 //	@return GroupItems
-func (a *GroupsAPIService) ListGroupsExecute(r ApiListGroupsRequest) (*GroupItems, *http.Response, error) {
+func (a *GroupsAPIService) ListGroupsExecute(r GroupsAPIListGroupsRequest) (*GroupItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1845,7 +1845,7 @@ func (a *GroupsAPIService) ListGroupsExecute(r ApiListGroupsRequest) (*GroupItem
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallPickupInterceptorGroupsRequest struct {
+type GroupsAPIUpdateCallPickupInterceptorGroupsRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	body         *GroupsID
@@ -1854,18 +1854,18 @@ type ApiUpdateCallPickupInterceptorGroupsRequest struct {
 }
 
 // Groups to associated
-func (r ApiUpdateCallPickupInterceptorGroupsRequest) Body(body GroupsID) ApiUpdateCallPickupInterceptorGroupsRequest {
+func (r GroupsAPIUpdateCallPickupInterceptorGroupsRequest) Body(body GroupsID) GroupsAPIUpdateCallPickupInterceptorGroupsRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallPickupInterceptorGroupsRequest) AccentTenant(accentTenant string) ApiUpdateCallPickupInterceptorGroupsRequest {
+func (r GroupsAPIUpdateCallPickupInterceptorGroupsRequest) AccentTenant(accentTenant string) GroupsAPIUpdateCallPickupInterceptorGroupsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallPickupInterceptorGroupsRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIUpdateCallPickupInterceptorGroupsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallPickupInterceptorGroupsExecute(r)
 }
 
@@ -1876,10 +1876,10 @@ UpdateCallPickupInterceptorGroups Update call pickup and interceptors
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallPickupInterceptorGroupsRequest
+	@return GroupsAPIUpdateCallPickupInterceptorGroupsRequest
 */
-func (a *GroupsAPIService) UpdateCallPickupInterceptorGroups(ctx context.Context, callpickupId int32) ApiUpdateCallPickupInterceptorGroupsRequest {
-	return ApiUpdateCallPickupInterceptorGroupsRequest{
+func (a *GroupsAPIService) UpdateCallPickupInterceptorGroups(ctx context.Context, callpickupId int32) GroupsAPIUpdateCallPickupInterceptorGroupsRequest {
+	return GroupsAPIUpdateCallPickupInterceptorGroupsRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -1887,7 +1887,7 @@ func (a *GroupsAPIService) UpdateCallPickupInterceptorGroups(ctx context.Context
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) UpdateCallPickupInterceptorGroupsExecute(r ApiUpdateCallPickupInterceptorGroupsRequest) (*http.Response, error) {
+func (a *GroupsAPIService) UpdateCallPickupInterceptorGroupsExecute(r GroupsAPIUpdateCallPickupInterceptorGroupsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1994,7 +1994,7 @@ func (a *GroupsAPIService) UpdateCallPickupInterceptorGroupsExecute(r ApiUpdateC
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateCallPickupTargetGroupsRequest struct {
+type GroupsAPIUpdateCallPickupTargetGroupsRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	body         *GroupsID
@@ -2003,18 +2003,18 @@ type ApiUpdateCallPickupTargetGroupsRequest struct {
 }
 
 // Groups to associated
-func (r ApiUpdateCallPickupTargetGroupsRequest) Body(body GroupsID) ApiUpdateCallPickupTargetGroupsRequest {
+func (r GroupsAPIUpdateCallPickupTargetGroupsRequest) Body(body GroupsID) GroupsAPIUpdateCallPickupTargetGroupsRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateCallPickupTargetGroupsRequest) AccentTenant(accentTenant string) ApiUpdateCallPickupTargetGroupsRequest {
+func (r GroupsAPIUpdateCallPickupTargetGroupsRequest) AccentTenant(accentTenant string) GroupsAPIUpdateCallPickupTargetGroupsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateCallPickupTargetGroupsRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIUpdateCallPickupTargetGroupsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateCallPickupTargetGroupsExecute(r)
 }
 
@@ -2025,10 +2025,10 @@ UpdateCallPickupTargetGroups Update call pickup and targets
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param callpickupId Call Pickup's ID
-	@return ApiUpdateCallPickupTargetGroupsRequest
+	@return GroupsAPIUpdateCallPickupTargetGroupsRequest
 */
-func (a *GroupsAPIService) UpdateCallPickupTargetGroups(ctx context.Context, callpickupId int32) ApiUpdateCallPickupTargetGroupsRequest {
-	return ApiUpdateCallPickupTargetGroupsRequest{
+func (a *GroupsAPIService) UpdateCallPickupTargetGroups(ctx context.Context, callpickupId int32) GroupsAPIUpdateCallPickupTargetGroupsRequest {
+	return GroupsAPIUpdateCallPickupTargetGroupsRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		callpickupId: callpickupId,
@@ -2036,7 +2036,7 @@ func (a *GroupsAPIService) UpdateCallPickupTargetGroups(ctx context.Context, cal
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) UpdateCallPickupTargetGroupsExecute(r ApiUpdateCallPickupTargetGroupsRequest) (*http.Response, error) {
+func (a *GroupsAPIService) UpdateCallPickupTargetGroupsExecute(r GroupsAPIUpdateCallPickupTargetGroupsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2143,7 +2143,7 @@ func (a *GroupsAPIService) UpdateCallPickupTargetGroupsExecute(r ApiUpdateCallPi
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateGroupRequest struct {
+type GroupsAPIUpdateGroupRequest struct {
 	ctx          context.Context
 	ApiService   GroupsAPI
 	body         *Group
@@ -2151,18 +2151,18 @@ type ApiUpdateGroupRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateGroupRequest) Body(body Group) ApiUpdateGroupRequest {
+func (r GroupsAPIUpdateGroupRequest) Body(body Group) GroupsAPIUpdateGroupRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateGroupRequest) AccentTenant(accentTenant string) ApiUpdateGroupRequest {
+func (r GroupsAPIUpdateGroupRequest) AccentTenant(accentTenant string) GroupsAPIUpdateGroupRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateGroupRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIUpdateGroupRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateGroupExecute(r)
 }
 
@@ -2173,10 +2173,10 @@ UpdateGroup Update group
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
-	@return ApiUpdateGroupRequest
+	@return GroupsAPIUpdateGroupRequest
 */
-func (a *GroupsAPIService) UpdateGroup(ctx context.Context, groupUuid string) ApiUpdateGroupRequest {
-	return ApiUpdateGroupRequest{
+func (a *GroupsAPIService) UpdateGroup(ctx context.Context, groupUuid string) GroupsAPIUpdateGroupRequest {
+	return GroupsAPIUpdateGroupRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -2184,7 +2184,7 @@ func (a *GroupsAPIService) UpdateGroup(ctx context.Context, groupUuid string) Ap
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) UpdateGroupExecute(r ApiUpdateGroupRequest) (*http.Response, error) {
+func (a *GroupsAPIService) UpdateGroupExecute(r GroupsAPIUpdateGroupRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2291,7 +2291,7 @@ func (a *GroupsAPIService) UpdateGroupExecute(r ApiUpdateGroupRequest) (*http.Re
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateGroupFallbackRequest struct {
+type GroupsAPIUpdateGroupFallbackRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	groupUuid  string
@@ -2299,12 +2299,12 @@ type ApiUpdateGroupFallbackRequest struct {
 }
 
 // Fallbacks for group
-func (r ApiUpdateGroupFallbackRequest) Body(body GroupFallbacks) ApiUpdateGroupFallbackRequest {
+func (r GroupsAPIUpdateGroupFallbackRequest) Body(body GroupFallbacks) GroupsAPIUpdateGroupFallbackRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateGroupFallbackRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIUpdateGroupFallbackRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateGroupFallbackExecute(r)
 }
 
@@ -2317,10 +2317,10 @@ UpdateGroupFallback Update group's fallbacks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
-	@return ApiUpdateGroupFallbackRequest
+	@return GroupsAPIUpdateGroupFallbackRequest
 */
-func (a *GroupsAPIService) UpdateGroupFallback(ctx context.Context, groupUuid string) ApiUpdateGroupFallbackRequest {
-	return ApiUpdateGroupFallbackRequest{
+func (a *GroupsAPIService) UpdateGroupFallback(ctx context.Context, groupUuid string) GroupsAPIUpdateGroupFallbackRequest {
+	return GroupsAPIUpdateGroupFallbackRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -2328,7 +2328,7 @@ func (a *GroupsAPIService) UpdateGroupFallback(ctx context.Context, groupUuid st
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) UpdateGroupFallbackExecute(r ApiUpdateGroupFallbackRequest) (*http.Response, error) {
+func (a *GroupsAPIService) UpdateGroupFallbackExecute(r GroupsAPIUpdateGroupFallbackRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2429,7 +2429,7 @@ func (a *GroupsAPIService) UpdateGroupFallbackExecute(r ApiUpdateGroupFallbackRe
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateGroupMemberExtensionsRequest struct {
+type GroupsAPIUpdateGroupMemberExtensionsRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	body       *GroupMemberExtensions
@@ -2437,12 +2437,12 @@ type ApiUpdateGroupMemberExtensionsRequest struct {
 }
 
 // Extensions to associated
-func (r ApiUpdateGroupMemberExtensionsRequest) Body(body GroupMemberExtensions) ApiUpdateGroupMemberExtensionsRequest {
+func (r GroupsAPIUpdateGroupMemberExtensionsRequest) Body(body GroupMemberExtensions) GroupsAPIUpdateGroupMemberExtensionsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateGroupMemberExtensionsRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIUpdateGroupMemberExtensionsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateGroupMemberExtensionsExecute(r)
 }
 
@@ -2455,10 +2455,10 @@ UpdateGroupMemberExtensions Update group and extensions
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
-	@return ApiUpdateGroupMemberExtensionsRequest
+	@return GroupsAPIUpdateGroupMemberExtensionsRequest
 */
-func (a *GroupsAPIService) UpdateGroupMemberExtensions(ctx context.Context, groupUuid string) ApiUpdateGroupMemberExtensionsRequest {
-	return ApiUpdateGroupMemberExtensionsRequest{
+func (a *GroupsAPIService) UpdateGroupMemberExtensions(ctx context.Context, groupUuid string) GroupsAPIUpdateGroupMemberExtensionsRequest {
+	return GroupsAPIUpdateGroupMemberExtensionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -2466,7 +2466,7 @@ func (a *GroupsAPIService) UpdateGroupMemberExtensions(ctx context.Context, grou
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) UpdateGroupMemberExtensionsExecute(r ApiUpdateGroupMemberExtensionsRequest) (*http.Response, error) {
+func (a *GroupsAPIService) UpdateGroupMemberExtensionsExecute(r GroupsAPIUpdateGroupMemberExtensionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2570,7 +2570,7 @@ func (a *GroupsAPIService) UpdateGroupMemberExtensionsExecute(r ApiUpdateGroupMe
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateGroupMemberUsersRequest struct {
+type GroupsAPIUpdateGroupMemberUsersRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	body       *GroupMemberUsers
@@ -2578,12 +2578,12 @@ type ApiUpdateGroupMemberUsersRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateGroupMemberUsersRequest) Body(body GroupMemberUsers) ApiUpdateGroupMemberUsersRequest {
+func (r GroupsAPIUpdateGroupMemberUsersRequest) Body(body GroupMemberUsers) GroupsAPIUpdateGroupMemberUsersRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateGroupMemberUsersRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIUpdateGroupMemberUsersRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateGroupMemberUsersExecute(r)
 }
 
@@ -2596,10 +2596,10 @@ UpdateGroupMemberUsers Update group and users
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid the group's UUID
-	@return ApiUpdateGroupMemberUsersRequest
+	@return GroupsAPIUpdateGroupMemberUsersRequest
 */
-func (a *GroupsAPIService) UpdateGroupMemberUsers(ctx context.Context, groupUuid string) ApiUpdateGroupMemberUsersRequest {
-	return ApiUpdateGroupMemberUsersRequest{
+func (a *GroupsAPIService) UpdateGroupMemberUsers(ctx context.Context, groupUuid string) GroupsAPIUpdateGroupMemberUsersRequest {
+	return GroupsAPIUpdateGroupMemberUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -2607,7 +2607,7 @@ func (a *GroupsAPIService) UpdateGroupMemberUsers(ctx context.Context, groupUuid
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) UpdateGroupMemberUsersExecute(r ApiUpdateGroupMemberUsersRequest) (*http.Response, error) {
+func (a *GroupsAPIService) UpdateGroupMemberUsersExecute(r GroupsAPIUpdateGroupMemberUsersRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -2711,7 +2711,7 @@ func (a *GroupsAPIService) UpdateGroupMemberUsersExecute(r ApiUpdateGroupMemberU
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserGroupsRequest struct {
+type GroupsAPIUpdateUserGroupsRequest struct {
 	ctx        context.Context
 	ApiService GroupsAPI
 	body       *UserGroupsID
@@ -2719,12 +2719,12 @@ type ApiUpdateUserGroupsRequest struct {
 }
 
 // Users to associated
-func (r ApiUpdateUserGroupsRequest) Body(body UserGroupsID) ApiUpdateUserGroupsRequest {
+func (r GroupsAPIUpdateUserGroupsRequest) Body(body UserGroupsID) GroupsAPIUpdateUserGroupsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserGroupsRequest) Execute() (*http.Response, error) {
+func (r GroupsAPIUpdateUserGroupsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserGroupsExecute(r)
 }
 
@@ -2736,10 +2736,10 @@ UpdateUserGroups Update user and groups
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userId the user's ID or UUID
-	@return ApiUpdateUserGroupsRequest
+	@return GroupsAPIUpdateUserGroupsRequest
 */
-func (a *GroupsAPIService) UpdateUserGroups(ctx context.Context, userId string) ApiUpdateUserGroupsRequest {
-	return ApiUpdateUserGroupsRequest{
+func (a *GroupsAPIService) UpdateUserGroups(ctx context.Context, userId string) GroupsAPIUpdateUserGroupsRequest {
+	return GroupsAPIUpdateUserGroupsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userId:     userId,
@@ -2747,7 +2747,7 @@ func (a *GroupsAPIService) UpdateUserGroups(ctx context.Context, userId string) 
 }
 
 // Execute executes the request
-func (a *GroupsAPIService) UpdateUserGroupsExecute(r ApiUpdateUserGroupsRequest) (*http.Response, error) {
+func (a *GroupsAPIService) UpdateUserGroupsExecute(r GroupsAPIUpdateUserGroupsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

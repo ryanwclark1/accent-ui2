@@ -31,19 +31,19 @@ type ActionAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param action Name of the manager action. Currently not supported: Queues, Command.
-		@return ApiActionAsteriskManagerRequest
+		@return ActionAPIActionAsteriskManagerRequest
 	*/
-	ActionAsteriskManager(ctx context.Context, action string) ApiActionAsteriskManagerRequest
+	ActionAsteriskManager(ctx context.Context, action string) ActionAPIActionAsteriskManagerRequest
 
 	// ActionAsteriskManagerExecute executes the request
 	//  @return Response
-	ActionAsteriskManagerExecute(r ApiActionAsteriskManagerRequest) (*Response, *http.Response, error)
+	ActionAsteriskManagerExecute(r ActionAPIActionAsteriskManagerRequest) (*Response, *http.Response, error)
 }
 
 // ActionAPIService ActionAPI service
 type ActionAPIService service
 
-type ApiActionAsteriskManagerRequest struct {
+type ActionAPIActionAsteriskManagerRequest struct {
 	ctx             context.Context
 	ApiService      ActionAPI
 	action          string
@@ -51,12 +51,12 @@ type ApiActionAsteriskManagerRequest struct {
 }
 
 // Arguments for the manager action. Action: taken from the URL ActionID: not necessary If you need a same key multiple times, give a list of values. For Action: Originate, you should always use Async: True
-func (r ApiActionAsteriskManagerRequest) ActionArguments(actionArguments map[string]interface{}) ApiActionAsteriskManagerRequest {
+func (r ActionAPIActionAsteriskManagerRequest) ActionArguments(actionArguments map[string]interface{}) ActionAPIActionAsteriskManagerRequest {
 	r.actionArguments = &actionArguments
 	return r
 }
 
-func (r ApiActionAsteriskManagerRequest) Execute() (*Response, *http.Response, error) {
+func (r ActionAPIActionAsteriskManagerRequest) Execute() (*Response, *http.Response, error) {
 	return r.ApiService.ActionAsteriskManagerExecute(r)
 }
 
@@ -69,10 +69,10 @@ See https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+AMI+Actions for more 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param action Name of the manager action. Currently not supported: Queues, Command.
-	@return ApiActionAsteriskManagerRequest
+	@return ActionAPIActionAsteriskManagerRequest
 */
-func (a *ActionAPIService) ActionAsteriskManager(ctx context.Context, action string) ApiActionAsteriskManagerRequest {
-	return ApiActionAsteriskManagerRequest{
+func (a *ActionAPIService) ActionAsteriskManager(ctx context.Context, action string) ActionAPIActionAsteriskManagerRequest {
+	return ActionAPIActionAsteriskManagerRequest{
 		ApiService: a,
 		ctx:        ctx,
 		action:     action,
@@ -82,7 +82,7 @@ func (a *ActionAPIService) ActionAsteriskManager(ctx context.Context, action str
 // Execute executes the request
 //
 //	@return Response
-func (a *ActionAPIService) ActionAsteriskManagerExecute(r ApiActionAsteriskManagerRequest) (*Response, *http.Response, error) {
+func (a *ActionAPIService) ActionAsteriskManagerExecute(r ActionAPIActionAsteriskManagerRequest) (*Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}

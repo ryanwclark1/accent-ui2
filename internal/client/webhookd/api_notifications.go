@@ -27,36 +27,36 @@ type NotificationsAPI interface {
 		**Required ACL:** `webhookd.mobile.notifications.send`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiPostMobileNotificationRequest
+		@return NotificationsAPIPostMobileNotificationRequest
 	*/
-	PostMobileNotification(ctx context.Context) ApiPostMobileNotificationRequest
+	PostMobileNotification(ctx context.Context) NotificationsAPIPostMobileNotificationRequest
 
 	// PostMobileNotificationExecute executes the request
-	PostMobileNotificationExecute(r ApiPostMobileNotificationRequest) (*http.Response, error)
+	PostMobileNotificationExecute(r NotificationsAPIPostMobileNotificationRequest) (*http.Response, error)
 }
 
 // NotificationsAPIService NotificationsAPI service
 type NotificationsAPIService service
 
-type ApiPostMobileNotificationRequest struct {
+type NotificationsAPIPostMobileNotificationRequest struct {
 	ctx          context.Context
 	ApiService   NotificationsAPI
 	body         *Notification
 	accentTenant *string
 }
 
-func (r ApiPostMobileNotificationRequest) Body(body Notification) ApiPostMobileNotificationRequest {
+func (r NotificationsAPIPostMobileNotificationRequest) Body(body Notification) NotificationsAPIPostMobileNotificationRequest {
 	r.body = &body
 	return r
 }
 
 // The User&#39;s tenant UUID, defining the ownership of a given resource.
-func (r ApiPostMobileNotificationRequest) AccentTenant(accentTenant string) ApiPostMobileNotificationRequest {
+func (r NotificationsAPIPostMobileNotificationRequest) AccentTenant(accentTenant string) NotificationsAPIPostMobileNotificationRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiPostMobileNotificationRequest) Execute() (*http.Response, error) {
+func (r NotificationsAPIPostMobileNotificationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PostMobileNotificationExecute(r)
 }
 
@@ -66,17 +66,17 @@ PostMobileNotification Send a push notification to a user
 **Required ACL:** `webhookd.mobile.notifications.send`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostMobileNotificationRequest
+	@return NotificationsAPIPostMobileNotificationRequest
 */
-func (a *NotificationsAPIService) PostMobileNotification(ctx context.Context) ApiPostMobileNotificationRequest {
-	return ApiPostMobileNotificationRequest{
+func (a *NotificationsAPIService) PostMobileNotification(ctx context.Context) NotificationsAPIPostMobileNotificationRequest {
+	return NotificationsAPIPostMobileNotificationRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *NotificationsAPIService) PostMobileNotificationExecute(r ApiPostMobileNotificationRequest) (*http.Response, error) {
+func (a *NotificationsAPIService) PostMobileNotificationExecute(r NotificationsAPIPostMobileNotificationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}

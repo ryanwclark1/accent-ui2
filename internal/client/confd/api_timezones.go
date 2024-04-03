@@ -27,24 +27,24 @@ type TimezonesAPI interface {
 		**Required ACL:** `confd.timezones.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListTimezonesRequest
+		@return TimezonesAPIListTimezonesRequest
 	*/
-	ListTimezones(ctx context.Context) ApiListTimezonesRequest
+	ListTimezones(ctx context.Context) TimezonesAPIListTimezonesRequest
 
 	// ListTimezonesExecute executes the request
 	//  @return TimezoneItems
-	ListTimezonesExecute(r ApiListTimezonesRequest) (*TimezoneItems, *http.Response, error)
+	ListTimezonesExecute(r TimezonesAPIListTimezonesRequest) (*TimezoneItems, *http.Response, error)
 }
 
 // TimezonesAPIService TimezonesAPI service
 type TimezonesAPIService service
 
-type ApiListTimezonesRequest struct {
+type TimezonesAPIListTimezonesRequest struct {
 	ctx        context.Context
 	ApiService TimezonesAPI
 }
 
-func (r ApiListTimezonesRequest) Execute() (*TimezoneItems, *http.Response, error) {
+func (r TimezonesAPIListTimezonesRequest) Execute() (*TimezoneItems, *http.Response, error) {
 	return r.ApiService.ListTimezonesExecute(r)
 }
 
@@ -54,10 +54,10 @@ ListTimezones List all available timezones
 **Required ACL:** `confd.timezones.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListTimezonesRequest
+	@return TimezonesAPIListTimezonesRequest
 */
-func (a *TimezonesAPIService) ListTimezones(ctx context.Context) ApiListTimezonesRequest {
-	return ApiListTimezonesRequest{
+func (a *TimezonesAPIService) ListTimezones(ctx context.Context) TimezonesAPIListTimezonesRequest {
+	return TimezonesAPIListTimezonesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -66,7 +66,7 @@ func (a *TimezonesAPIService) ListTimezones(ctx context.Context) ApiListTimezone
 // Execute executes the request
 //
 //	@return TimezoneItems
-func (a *TimezonesAPIService) ListTimezonesExecute(r ApiListTimezonesRequest) (*TimezoneItems, *http.Response, error) {
+func (a *TimezonesAPIService) ListTimezonesExecute(r TimezonesAPIListTimezonesRequest) (*TimezoneItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

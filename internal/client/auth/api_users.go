@@ -30,12 +30,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
 		@param userUuid The UUID of the user
-		@return ApiAddGroupUserRequest
+		@return UsersAPIAddGroupUserRequest
 	*/
-	AddGroupUser(ctx context.Context, groupUuid string, userUuid string) ApiAddGroupUserRequest
+	AddGroupUser(ctx context.Context, groupUuid string, userUuid string) UsersAPIAddGroupUserRequest
 
 	// AddGroupUserExecute executes the request
-	AddGroupUserExecute(r ApiAddGroupUserRequest) (*http.Response, error)
+	AddGroupUserExecute(r UsersAPIAddGroupUserRequest) (*http.Response, error)
 
 	/*
 		AddUserPolicy Associate a policy to a user
@@ -45,12 +45,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 		@param userUuid The UUID of the user
-		@return ApiAddUserPolicyRequest
+		@return UsersAPIAddUserPolicyRequest
 	*/
-	AddUserPolicy(ctx context.Context, policyUuid string, userUuid string) ApiAddUserPolicyRequest
+	AddUserPolicy(ctx context.Context, policyUuid string, userUuid string) UsersAPIAddUserPolicyRequest
 
 	// AddUserPolicyExecute executes the request
-	AddUserPolicyExecute(r ApiAddUserPolicyRequest) (*http.Response, error)
+	AddUserPolicyExecute(r UsersAPIAddUserPolicyRequest) (*http.Response, error)
 
 	/*
 		ChangeUserPassword Change the user's password
@@ -59,12 +59,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiChangeUserPasswordRequest
+		@return UsersAPIChangeUserPasswordRequest
 	*/
-	ChangeUserPassword(ctx context.Context, userUuid string) ApiChangeUserPasswordRequest
+	ChangeUserPassword(ctx context.Context, userUuid string) UsersAPIChangeUserPasswordRequest
 
 	// ChangeUserPasswordExecute executes the request
-	ChangeUserPasswordExecute(r ApiChangeUserPasswordRequest) (*http.Response, error)
+	ChangeUserPasswordExecute(r UsersAPIChangeUserPasswordRequest) (*http.Response, error)
 
 	/*
 		CreateUser Create a user
@@ -73,13 +73,13 @@ type UsersAPI interface {
 	accent-confd user by using the same UUID
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateUserRequest
+		@return UsersAPICreateUserRequest
 	*/
-	CreateUser(ctx context.Context) ApiCreateUserRequest
+	CreateUser(ctx context.Context) UsersAPICreateUserRequest
 
 	// CreateUserExecute executes the request
 	//  @return UserPostResponse
-	CreateUserExecute(r ApiCreateUserRequest) (*UserPostResponse, *http.Response, error)
+	CreateUserExecute(r UsersAPICreateUserRequest) (*UserPostResponse, *http.Response, error)
 
 	/*
 		DeleteRefreshTokens Delete a user's refresh token
@@ -89,12 +89,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuidOrMe The UUID of the user or `me` to refer to the user doing the query
 		@param clientId The client_id of the refresh token to revoke
-		@return ApiDeleteRefreshTokensRequest
+		@return UsersAPIDeleteRefreshTokensRequest
 	*/
-	DeleteRefreshTokens(ctx context.Context, userUuidOrMe string, clientId string) ApiDeleteRefreshTokensRequest
+	DeleteRefreshTokens(ctx context.Context, userUuidOrMe string, clientId string) UsersAPIDeleteRefreshTokensRequest
 
 	// DeleteRefreshTokensExecute executes the request
-	DeleteRefreshTokensExecute(r ApiDeleteRefreshTokensRequest) (*http.Response, error)
+	DeleteRefreshTokensExecute(r UsersAPIDeleteRefreshTokensRequest) (*http.Response, error)
 
 	/*
 		DeleteUser Delete a user
@@ -103,12 +103,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiDeleteUserRequest
+		@return UsersAPIDeleteUserRequest
 	*/
-	DeleteUser(ctx context.Context, userUuid string) ApiDeleteUserRequest
+	DeleteUser(ctx context.Context, userUuid string) UsersAPIDeleteUserRequest
 
 	// DeleteUserExecute executes the request
-	DeleteUserExecute(r ApiDeleteUserRequest) (*http.Response, error)
+	DeleteUserExecute(r UsersAPIDeleteUserRequest) (*http.Response, error)
 
 	/*
 		DeleteUserPolicy Dissociate a policy from a user
@@ -118,12 +118,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 		@param userUuid The UUID of the user
-		@return ApiDeleteUserPolicyRequest
+		@return UsersAPIDeleteUserPolicyRequest
 	*/
-	DeleteUserPolicy(ctx context.Context, policyUuid string, userUuid string) ApiDeleteUserPolicyRequest
+	DeleteUserPolicy(ctx context.Context, policyUuid string, userUuid string) UsersAPIDeleteUserPolicyRequest
 
 	// DeleteUserPolicyExecute executes the request
-	DeleteUserPolicyExecute(r ApiDeleteUserPolicyRequest) (*http.Response, error)
+	DeleteUserPolicyExecute(r UsersAPIDeleteUserPolicyRequest) (*http.Response, error)
 
 	/*
 		GetNewEmailConfirmation Ask a new confirmation email
@@ -133,12 +133,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
 		@param emailUuid The UUID of the email
-		@return ApiGetNewEmailConfirmationRequest
+		@return UsersAPIGetNewEmailConfirmationRequest
 	*/
-	GetNewEmailConfirmation(ctx context.Context, userUuid string, emailUuid string) ApiGetNewEmailConfirmationRequest
+	GetNewEmailConfirmation(ctx context.Context, userUuid string, emailUuid string) UsersAPIGetNewEmailConfirmationRequest
 
 	// GetNewEmailConfirmationExecute executes the request
-	GetNewEmailConfirmationExecute(r ApiGetNewEmailConfirmationRequest) (*http.Response, error)
+	GetNewEmailConfirmationExecute(r UsersAPIGetNewEmailConfirmationRequest) (*http.Response, error)
 
 	/*
 		GetUser Retrieves the details of a user
@@ -147,13 +147,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserRequest
+		@return UsersAPIGetUserRequest
 	*/
-	GetUser(ctx context.Context, userUuid string) ApiGetUserRequest
+	GetUser(ctx context.Context, userUuid string) UsersAPIGetUserRequest
 
 	// GetUserExecute executes the request
 	//  @return UserResult
-	GetUserExecute(r ApiGetUserRequest) (*UserResult, *http.Response, error)
+	GetUserExecute(r UsersAPIGetUserRequest) (*UserResult, *http.Response, error)
 
 	/*
 		GetUserExternalAuth Retrieves the list of the users external auth data
@@ -162,13 +162,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserExternalAuthRequest
+		@return UsersAPIGetUserExternalAuthRequest
 	*/
-	GetUserExternalAuth(ctx context.Context, userUuid string) ApiGetUserExternalAuthRequest
+	GetUserExternalAuth(ctx context.Context, userUuid string) UsersAPIGetUserExternalAuthRequest
 
 	// GetUserExternalAuthExecute executes the request
 	//  @return ExternalAuthList
-	GetUserExternalAuthExecute(r ApiGetUserExternalAuthRequest) (*ExternalAuthList, *http.Response, error)
+	GetUserExternalAuthExecute(r UsersAPIGetUserExternalAuthRequest) (*ExternalAuthList, *http.Response, error)
 
 	/*
 		GetUserGroups Retrieves the list of groups associated to a user
@@ -177,13 +177,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserGroupsRequest
+		@return UsersAPIGetUserGroupsRequest
 	*/
-	GetUserGroups(ctx context.Context, userUuid string) ApiGetUserGroupsRequest
+	GetUserGroups(ctx context.Context, userUuid string) UsersAPIGetUserGroupsRequest
 
 	// GetUserGroupsExecute executes the request
 	//  @return GetGroupsResult
-	GetUserGroupsExecute(r ApiGetUserGroupsRequest) (*GetGroupsResult, *http.Response, error)
+	GetUserGroupsExecute(r UsersAPIGetUserGroupsRequest) (*GetGroupsResult, *http.Response, error)
 
 	/*
 		GetUserPolicies Retrieves the list of policies associated to a user
@@ -192,13 +192,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserPoliciesRequest
+		@return UsersAPIGetUserPoliciesRequest
 	*/
-	GetUserPolicies(ctx context.Context, userUuid string) ApiGetUserPoliciesRequest
+	GetUserPolicies(ctx context.Context, userUuid string) UsersAPIGetUserPoliciesRequest
 
 	// GetUserPoliciesExecute executes the request
 	//  @return GetPoliciesResult
-	GetUserPoliciesExecute(r ApiGetUserPoliciesRequest) (*GetPoliciesResult, *http.Response, error)
+	GetUserPoliciesExecute(r UsersAPIGetUserPoliciesRequest) (*GetPoliciesResult, *http.Response, error)
 
 	/*
 		GetUserSessions Retrieves the list of sessions associated to a user
@@ -207,13 +207,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiGetUserSessionsRequest
+		@return UsersAPIGetUserSessionsRequest
 	*/
-	GetUserSessions(ctx context.Context, userUuid string) ApiGetUserSessionsRequest
+	GetUserSessions(ctx context.Context, userUuid string) UsersAPIGetUserSessionsRequest
 
 	// GetUserSessionsExecute executes the request
 	//  @return GetSessionsResult
-	GetUserSessionsExecute(r ApiGetUserSessionsRequest) (*GetSessionsResult, *http.Response, error)
+	GetUserSessionsExecute(r UsersAPIGetUserSessionsRequest) (*GetSessionsResult, *http.Response, error)
 
 	/*
 		GetUserTokens Retrieve a user's refresh token list
@@ -224,13 +224,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuidOrMe The UUID of the user or `me` to refer to the user doing the query
-		@return ApiGetUserTokensRequest
+		@return UsersAPIGetUserTokensRequest
 	*/
-	GetUserTokens(ctx context.Context, userUuidOrMe string) ApiGetUserTokensRequest
+	GetUserTokens(ctx context.Context, userUuidOrMe string) UsersAPIGetUserTokensRequest
 
 	// GetUserTokensExecute executes the request
 	//  @return RefreshTokenList
-	GetUserTokensExecute(r ApiGetUserTokensRequest) (*RefreshTokenList, *http.Response, error)
+	GetUserTokensExecute(r UsersAPIGetUserTokensRequest) (*RefreshTokenList, *http.Response, error)
 
 	/*
 		GetUsers Retrieves the list of users
@@ -238,13 +238,13 @@ type UsersAPI interface {
 		**Required ACL**: `auth.users.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetUsersRequest
+		@return UsersAPIGetUsersRequest
 	*/
-	GetUsers(ctx context.Context) ApiGetUsersRequest
+	GetUsers(ctx context.Context) UsersAPIGetUsersRequest
 
 	// GetUsersExecute executes the request
 	//  @return UserList
-	GetUsersExecute(r ApiGetUsersRequest) (*UserList, *http.Response, error)
+	GetUsersExecute(r UsersAPIGetUsersRequest) (*UserList, *http.Response, error)
 
 	/*
 		RegisterUser Create a user
@@ -252,13 +252,13 @@ type UsersAPI interface {
 		Creates a new user that can be used to retrieve a token.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiRegisterUserRequest
+		@return UsersAPIRegisterUserRequest
 	*/
-	RegisterUser(ctx context.Context) ApiRegisterUserRequest
+	RegisterUser(ctx context.Context) UsersAPIRegisterUserRequest
 
 	// RegisterUserExecute executes the request
 	//  @return UserPostResponse
-	RegisterUserExecute(r ApiRegisterUserRequest) (*UserPostResponse, *http.Response, error)
+	RegisterUserExecute(r UsersAPIRegisterUserRequest) (*UserPostResponse, *http.Response, error)
 
 	/*
 		RemoveGroupUser Dissociate a user from a group
@@ -268,12 +268,12 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param groupUuid The UUID of the group
 		@param userUuid The UUID of the user
-		@return ApiRemoveGroupUserRequest
+		@return UsersAPIRemoveGroupUserRequest
 	*/
-	RemoveGroupUser(ctx context.Context, groupUuid string, userUuid string) ApiRemoveGroupUserRequest
+	RemoveGroupUser(ctx context.Context, groupUuid string, userUuid string) UsersAPIRemoveGroupUserRequest
 
 	// RemoveGroupUserExecute executes the request
-	RemoveGroupUserExecute(r ApiRemoveGroupUserRequest) (*http.Response, error)
+	RemoveGroupUserExecute(r UsersAPIRemoveGroupUserRequest) (*http.Response, error)
 
 	/*
 		ResetPassword Reset the user password
@@ -282,12 +282,12 @@ type UsersAPI interface {
 	The login or username or email address should be supplied as query string to find the user
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiResetPasswordRequest
+		@return UsersAPIResetPasswordRequest
 	*/
-	ResetPassword(ctx context.Context) ApiResetPasswordRequest
+	ResetPassword(ctx context.Context) UsersAPIResetPasswordRequest
 
 	// ResetPasswordExecute executes the request
-	ResetPasswordExecute(r ApiResetPasswordRequest) (*http.Response, error)
+	ResetPasswordExecute(r UsersAPIResetPasswordRequest) (*http.Response, error)
 
 	/*
 		ResetPasswordChange Set the user password
@@ -296,12 +296,12 @@ type UsersAPI interface {
 	Set a new password for the user after the user used the GET on the reset URL
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiResetPasswordChangeRequest
+		@return UsersAPIResetPasswordChangeRequest
 	*/
-	ResetPasswordChange(ctx context.Context) ApiResetPasswordChangeRequest
+	ResetPasswordChange(ctx context.Context) UsersAPIResetPasswordChangeRequest
 
 	// ResetPasswordChangeExecute executes the request
-	ResetPasswordChangeExecute(r ApiResetPasswordChangeRequest) (*http.Response, error)
+	ResetPasswordChangeExecute(r UsersAPIResetPasswordChangeRequest) (*http.Response, error)
 
 	/*
 		UpdateAllUserEmails Update email addresses
@@ -311,12 +311,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiUpdateAllUserEmailsRequest
+		@return UsersAPIUpdateAllUserEmailsRequest
 	*/
-	UpdateAllUserEmails(ctx context.Context, userUuid string) ApiUpdateAllUserEmailsRequest
+	UpdateAllUserEmails(ctx context.Context, userUuid string) UsersAPIUpdateAllUserEmailsRequest
 
 	// UpdateAllUserEmailsExecute executes the request
-	UpdateAllUserEmailsExecute(r ApiUpdateAllUserEmailsRequest) (*http.Response, error)
+	UpdateAllUserEmailsExecute(r UsersAPIUpdateAllUserEmailsRequest) (*http.Response, error)
 
 	/*
 		UpdateUser Update an existing user
@@ -325,13 +325,13 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiUpdateUserRequest
+		@return UsersAPIUpdateUserRequest
 	*/
-	UpdateUser(ctx context.Context, userUuid string) ApiUpdateUserRequest
+	UpdateUser(ctx context.Context, userUuid string) UsersAPIUpdateUserRequest
 
 	// UpdateUserExecute executes the request
 	//  @return UserPostResponse
-	UpdateUserExecute(r ApiUpdateUserRequest) (*UserPostResponse, *http.Response, error)
+	UpdateUserExecute(r UsersAPIUpdateUserRequest) (*UserPostResponse, *http.Response, error)
 
 	/*
 		UpdateUserEmails Update email addresses
@@ -341,12 +341,12 @@ type UsersAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
-		@return ApiUpdateUserEmailsRequest
+		@return UsersAPIUpdateUserEmailsRequest
 	*/
-	UpdateUserEmails(ctx context.Context, userUuid string) ApiUpdateUserEmailsRequest
+	UpdateUserEmails(ctx context.Context, userUuid string) UsersAPIUpdateUserEmailsRequest
 
 	// UpdateUserEmailsExecute executes the request
-	UpdateUserEmailsExecute(r ApiUpdateUserEmailsRequest) (*http.Response, error)
+	UpdateUserEmailsExecute(r UsersAPIUpdateUserEmailsRequest) (*http.Response, error)
 
 	/*
 		UserDeleteSession Delete a session
@@ -356,25 +356,25 @@ type UsersAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param userUuid The UUID of the user
 		@param sessionUuid The UUID of the session
-		@return ApiUserDeleteSessionRequest
+		@return UsersAPIUserDeleteSessionRequest
 	*/
-	UserDeleteSession(ctx context.Context, userUuid string, sessionUuid string) ApiUserDeleteSessionRequest
+	UserDeleteSession(ctx context.Context, userUuid string, sessionUuid string) UsersAPIUserDeleteSessionRequest
 
 	// UserDeleteSessionExecute executes the request
-	UserDeleteSessionExecute(r ApiUserDeleteSessionRequest) (*http.Response, error)
+	UserDeleteSessionExecute(r UsersAPIUserDeleteSessionRequest) (*http.Response, error)
 }
 
 // UsersAPIService UsersAPI service
 type UsersAPIService service
 
-type ApiAddGroupUserRequest struct {
+type UsersAPIAddGroupUserRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	groupUuid  string
 	userUuid   string
 }
 
-func (r ApiAddGroupUserRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAddGroupUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddGroupUserExecute(r)
 }
 
@@ -386,10 +386,10 @@ AddGroupUser Associate a group to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
 	@param userUuid The UUID of the user
-	@return ApiAddGroupUserRequest
+	@return UsersAPIAddGroupUserRequest
 */
-func (a *UsersAPIService) AddGroupUser(ctx context.Context, groupUuid string, userUuid string) ApiAddGroupUserRequest {
-	return ApiAddGroupUserRequest{
+func (a *UsersAPIService) AddGroupUser(ctx context.Context, groupUuid string, userUuid string) UsersAPIAddGroupUserRequest {
+	return UsersAPIAddGroupUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -398,7 +398,7 @@ func (a *UsersAPIService) AddGroupUser(ctx context.Context, groupUuid string, us
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AddGroupUserExecute(r ApiAddGroupUserRequest) (*http.Response, error) {
+func (a *UsersAPIService) AddGroupUserExecute(r UsersAPIAddGroupUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -487,14 +487,14 @@ func (a *UsersAPIService) AddGroupUserExecute(r ApiAddGroupUserRequest) (*http.R
 	return localVarHTTPResponse, nil
 }
 
-type ApiAddUserPolicyRequest struct {
+type UsersAPIAddUserPolicyRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	policyUuid string
 	userUuid   string
 }
 
-func (r ApiAddUserPolicyRequest) Execute() (*http.Response, error) {
+func (r UsersAPIAddUserPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AddUserPolicyExecute(r)
 }
 
@@ -506,10 +506,10 @@ AddUserPolicy Associate a policy to a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 	@param userUuid The UUID of the user
-	@return ApiAddUserPolicyRequest
+	@return UsersAPIAddUserPolicyRequest
 */
-func (a *UsersAPIService) AddUserPolicy(ctx context.Context, policyUuid string, userUuid string) ApiAddUserPolicyRequest {
-	return ApiAddUserPolicyRequest{
+func (a *UsersAPIService) AddUserPolicy(ctx context.Context, policyUuid string, userUuid string) UsersAPIAddUserPolicyRequest {
+	return UsersAPIAddUserPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -518,7 +518,7 @@ func (a *UsersAPIService) AddUserPolicy(ctx context.Context, policyUuid string, 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) AddUserPolicyExecute(r ApiAddUserPolicyRequest) (*http.Response, error) {
+func (a *UsersAPIService) AddUserPolicyExecute(r UsersAPIAddUserPolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -607,7 +607,7 @@ func (a *UsersAPIService) AddUserPolicyExecute(r ApiAddUserPolicyRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiChangeUserPasswordRequest struct {
+type UsersAPIChangeUserPasswordRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *PasswordChange
@@ -615,12 +615,12 @@ type ApiChangeUserPasswordRequest struct {
 }
 
 // The user creation parameters
-func (r ApiChangeUserPasswordRequest) Body(body PasswordChange) ApiChangeUserPasswordRequest {
+func (r UsersAPIChangeUserPasswordRequest) Body(body PasswordChange) UsersAPIChangeUserPasswordRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiChangeUserPasswordRequest) Execute() (*http.Response, error) {
+func (r UsersAPIChangeUserPasswordRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ChangeUserPasswordExecute(r)
 }
 
@@ -631,10 +631,10 @@ ChangeUserPassword Change the user's password
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiChangeUserPasswordRequest
+	@return UsersAPIChangeUserPasswordRequest
 */
-func (a *UsersAPIService) ChangeUserPassword(ctx context.Context, userUuid string) ApiChangeUserPasswordRequest {
-	return ApiChangeUserPasswordRequest{
+func (a *UsersAPIService) ChangeUserPassword(ctx context.Context, userUuid string) UsersAPIChangeUserPasswordRequest {
+	return UsersAPIChangeUserPasswordRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -642,7 +642,7 @@ func (a *UsersAPIService) ChangeUserPassword(ctx context.Context, userUuid strin
 }
 
 // Execute executes the request
-func (a *UsersAPIService) ChangeUserPasswordExecute(r ApiChangeUserPasswordRequest) (*http.Response, error) {
+func (a *UsersAPIService) ChangeUserPasswordExecute(r UsersAPIChangeUserPasswordRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -757,7 +757,7 @@ func (a *UsersAPIService) ChangeUserPasswordExecute(r ApiChangeUserPasswordReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateUserRequest struct {
+type UsersAPICreateUserRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	body         *UserCreate
@@ -765,18 +765,18 @@ type ApiCreateUserRequest struct {
 }
 
 // The user creation parameters
-func (r ApiCreateUserRequest) Body(body UserCreate) ApiCreateUserRequest {
+func (r UsersAPICreateUserRequest) Body(body UserCreate) UsersAPICreateUserRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateUserRequest) AccentTenant(accentTenant string) ApiCreateUserRequest {
+func (r UsersAPICreateUserRequest) AccentTenant(accentTenant string) UsersAPICreateUserRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateUserRequest) Execute() (*UserPostResponse, *http.Response, error) {
+func (r UsersAPICreateUserRequest) Execute() (*UserPostResponse, *http.Response, error) {
 	return r.ApiService.CreateUserExecute(r)
 }
 
@@ -787,10 +787,10 @@ CreateUser Create a user
 accent-confd user by using the same UUID
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateUserRequest
+	@return UsersAPICreateUserRequest
 */
-func (a *UsersAPIService) CreateUser(ctx context.Context) ApiCreateUserRequest {
-	return ApiCreateUserRequest{
+func (a *UsersAPIService) CreateUser(ctx context.Context) UsersAPICreateUserRequest {
+	return UsersAPICreateUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -799,7 +799,7 @@ func (a *UsersAPIService) CreateUser(ctx context.Context) ApiCreateUserRequest {
 // Execute executes the request
 //
 //	@return UserPostResponse
-func (a *UsersAPIService) CreateUserExecute(r ApiCreateUserRequest) (*UserPostResponse, *http.Response, error) {
+func (a *UsersAPIService) CreateUserExecute(r UsersAPICreateUserRequest) (*UserPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -887,14 +887,14 @@ func (a *UsersAPIService) CreateUserExecute(r ApiCreateUserRequest) (*UserPostRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteRefreshTokensRequest struct {
+type UsersAPIDeleteRefreshTokensRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userUuidOrMe string
 	clientId     string
 }
 
-func (r ApiDeleteRefreshTokensRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteRefreshTokensRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteRefreshTokensExecute(r)
 }
 
@@ -906,10 +906,10 @@ DeleteRefreshTokens Delete a user's refresh token
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuidOrMe The UUID of the user or `me` to refer to the user doing the query
 	@param clientId The client_id of the refresh token to revoke
-	@return ApiDeleteRefreshTokensRequest
+	@return UsersAPIDeleteRefreshTokensRequest
 */
-func (a *UsersAPIService) DeleteRefreshTokens(ctx context.Context, userUuidOrMe string, clientId string) ApiDeleteRefreshTokensRequest {
-	return ApiDeleteRefreshTokensRequest{
+func (a *UsersAPIService) DeleteRefreshTokens(ctx context.Context, userUuidOrMe string, clientId string) UsersAPIDeleteRefreshTokensRequest {
+	return UsersAPIDeleteRefreshTokensRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		userUuidOrMe: userUuidOrMe,
@@ -918,7 +918,7 @@ func (a *UsersAPIService) DeleteRefreshTokens(ctx context.Context, userUuidOrMe 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteRefreshTokensExecute(r ApiDeleteRefreshTokensRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteRefreshTokensExecute(r UsersAPIDeleteRefreshTokensRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1029,13 +1029,13 @@ func (a *UsersAPIService) DeleteRefreshTokensExecute(r ApiDeleteRefreshTokensReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserRequest struct {
+type UsersAPIDeleteUserRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userUuid   string
 }
 
-func (r ApiDeleteUserRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserExecute(r)
 }
 
@@ -1046,10 +1046,10 @@ DeleteUser Delete a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiDeleteUserRequest
+	@return UsersAPIDeleteUserRequest
 */
-func (a *UsersAPIService) DeleteUser(ctx context.Context, userUuid string) ApiDeleteUserRequest {
-	return ApiDeleteUserRequest{
+func (a *UsersAPIService) DeleteUser(ctx context.Context, userUuid string) UsersAPIDeleteUserRequest {
+	return UsersAPIDeleteUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1057,7 +1057,7 @@ func (a *UsersAPIService) DeleteUser(ctx context.Context, userUuid string) ApiDe
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteUserExecute(r UsersAPIDeleteUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1167,14 +1167,14 @@ func (a *UsersAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteUserPolicyRequest struct {
+type UsersAPIDeleteUserPolicyRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	policyUuid string
 	userUuid   string
 }
 
-func (r ApiDeleteUserPolicyRequest) Execute() (*http.Response, error) {
+func (r UsersAPIDeleteUserPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteUserPolicyExecute(r)
 }
 
@@ -1186,10 +1186,10 @@ DeleteUserPolicy Dissociate a policy from a user
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param policyUuid The UUID or slug of the policy. The slug is unique within a tenant, hence the tenant must be specified.
 	@param userUuid The UUID of the user
-	@return ApiDeleteUserPolicyRequest
+	@return UsersAPIDeleteUserPolicyRequest
 */
-func (a *UsersAPIService) DeleteUserPolicy(ctx context.Context, policyUuid string, userUuid string) ApiDeleteUserPolicyRequest {
-	return ApiDeleteUserPolicyRequest{
+func (a *UsersAPIService) DeleteUserPolicy(ctx context.Context, policyUuid string, userUuid string) UsersAPIDeleteUserPolicyRequest {
+	return UsersAPIDeleteUserPolicyRequest{
 		ApiService: a,
 		ctx:        ctx,
 		policyUuid: policyUuid,
@@ -1198,7 +1198,7 @@ func (a *UsersAPIService) DeleteUserPolicy(ctx context.Context, policyUuid strin
 }
 
 // Execute executes the request
-func (a *UsersAPIService) DeleteUserPolicyExecute(r ApiDeleteUserPolicyRequest) (*http.Response, error) {
+func (a *UsersAPIService) DeleteUserPolicyExecute(r UsersAPIDeleteUserPolicyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1287,14 +1287,14 @@ func (a *UsersAPIService) DeleteUserPolicyExecute(r ApiDeleteUserPolicyRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetNewEmailConfirmationRequest struct {
+type UsersAPIGetNewEmailConfirmationRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userUuid   string
 	emailUuid  string
 }
 
-func (r ApiGetNewEmailConfirmationRequest) Execute() (*http.Response, error) {
+func (r UsersAPIGetNewEmailConfirmationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetNewEmailConfirmationExecute(r)
 }
 
@@ -1306,10 +1306,10 @@ GetNewEmailConfirmation Ask a new confirmation email
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
 	@param emailUuid The UUID of the email
-	@return ApiGetNewEmailConfirmationRequest
+	@return UsersAPIGetNewEmailConfirmationRequest
 */
-func (a *UsersAPIService) GetNewEmailConfirmation(ctx context.Context, userUuid string, emailUuid string) ApiGetNewEmailConfirmationRequest {
-	return ApiGetNewEmailConfirmationRequest{
+func (a *UsersAPIService) GetNewEmailConfirmation(ctx context.Context, userUuid string, emailUuid string) UsersAPIGetNewEmailConfirmationRequest {
+	return UsersAPIGetNewEmailConfirmationRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1318,7 +1318,7 @@ func (a *UsersAPIService) GetNewEmailConfirmation(ctx context.Context, userUuid 
 }
 
 // Execute executes the request
-func (a *UsersAPIService) GetNewEmailConfirmationExecute(r ApiGetNewEmailConfirmationRequest) (*http.Response, error) {
+func (a *UsersAPIService) GetNewEmailConfirmationExecute(r UsersAPIGetNewEmailConfirmationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -1408,13 +1408,13 @@ func (a *UsersAPIService) GetNewEmailConfirmationExecute(r ApiGetNewEmailConfirm
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetUserRequest struct {
+type UsersAPIGetUserRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userUuid   string
 }
 
-func (r ApiGetUserRequest) Execute() (*UserResult, *http.Response, error) {
+func (r UsersAPIGetUserRequest) Execute() (*UserResult, *http.Response, error) {
 	return r.ApiService.GetUserExecute(r)
 }
 
@@ -1425,10 +1425,10 @@ GetUser Retrieves the details of a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserRequest
+	@return UsersAPIGetUserRequest
 */
-func (a *UsersAPIService) GetUser(ctx context.Context, userUuid string) ApiGetUserRequest {
-	return ApiGetUserRequest{
+func (a *UsersAPIService) GetUser(ctx context.Context, userUuid string) UsersAPIGetUserRequest {
+	return UsersAPIGetUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1438,7 +1438,7 @@ func (a *UsersAPIService) GetUser(ctx context.Context, userUuid string) ApiGetUs
 // Execute executes the request
 //
 //	@return UserResult
-func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*UserResult, *http.Response, error) {
+func (a *UsersAPIService) GetUserExecute(r UsersAPIGetUserRequest) (*UserResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1558,7 +1558,7 @@ func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*UserResult, *htt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserExternalAuthRequest struct {
+type UsersAPIGetUserExternalAuthRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userUuid   string
@@ -1570,36 +1570,36 @@ type ApiGetUserExternalAuthRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetUserExternalAuthRequest) Order(order string) ApiGetUserExternalAuthRequest {
+func (r UsersAPIGetUserExternalAuthRequest) Order(order string) UsersAPIGetUserExternalAuthRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserExternalAuthRequest) Direction(direction string) ApiGetUserExternalAuthRequest {
+func (r UsersAPIGetUserExternalAuthRequest) Direction(direction string) UsersAPIGetUserExternalAuthRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserExternalAuthRequest) Limit(limit int32) ApiGetUserExternalAuthRequest {
+func (r UsersAPIGetUserExternalAuthRequest) Limit(limit int32) UsersAPIGetUserExternalAuthRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserExternalAuthRequest) Offset(offset int32) ApiGetUserExternalAuthRequest {
+func (r UsersAPIGetUserExternalAuthRequest) Offset(offset int32) UsersAPIGetUserExternalAuthRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetUserExternalAuthRequest) Search(search string) ApiGetUserExternalAuthRequest {
+func (r UsersAPIGetUserExternalAuthRequest) Search(search string) UsersAPIGetUserExternalAuthRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetUserExternalAuthRequest) Execute() (*ExternalAuthList, *http.Response, error) {
+func (r UsersAPIGetUserExternalAuthRequest) Execute() (*ExternalAuthList, *http.Response, error) {
 	return r.ApiService.GetUserExternalAuthExecute(r)
 }
 
@@ -1610,10 +1610,10 @@ GetUserExternalAuth Retrieves the list of the users external auth data
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserExternalAuthRequest
+	@return UsersAPIGetUserExternalAuthRequest
 */
-func (a *UsersAPIService) GetUserExternalAuth(ctx context.Context, userUuid string) ApiGetUserExternalAuthRequest {
-	return ApiGetUserExternalAuthRequest{
+func (a *UsersAPIService) GetUserExternalAuth(ctx context.Context, userUuid string) UsersAPIGetUserExternalAuthRequest {
+	return UsersAPIGetUserExternalAuthRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1623,7 +1623,7 @@ func (a *UsersAPIService) GetUserExternalAuth(ctx context.Context, userUuid stri
 // Execute executes the request
 //
 //	@return ExternalAuthList
-func (a *UsersAPIService) GetUserExternalAuthExecute(r ApiGetUserExternalAuthRequest) (*ExternalAuthList, *http.Response, error) {
+func (a *UsersAPIService) GetUserExternalAuthExecute(r UsersAPIGetUserExternalAuthRequest) (*ExternalAuthList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1729,7 +1729,7 @@ func (a *UsersAPIService) GetUserExternalAuthExecute(r ApiGetUserExternalAuthReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserGroupsRequest struct {
+type UsersAPIGetUserGroupsRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userUuid   string
@@ -1741,36 +1741,36 @@ type ApiGetUserGroupsRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetUserGroupsRequest) Order(order string) ApiGetUserGroupsRequest {
+func (r UsersAPIGetUserGroupsRequest) Order(order string) UsersAPIGetUserGroupsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserGroupsRequest) Direction(direction string) ApiGetUserGroupsRequest {
+func (r UsersAPIGetUserGroupsRequest) Direction(direction string) UsersAPIGetUserGroupsRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserGroupsRequest) Limit(limit int32) ApiGetUserGroupsRequest {
+func (r UsersAPIGetUserGroupsRequest) Limit(limit int32) UsersAPIGetUserGroupsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserGroupsRequest) Offset(offset int32) ApiGetUserGroupsRequest {
+func (r UsersAPIGetUserGroupsRequest) Offset(offset int32) UsersAPIGetUserGroupsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetUserGroupsRequest) Search(search string) ApiGetUserGroupsRequest {
+func (r UsersAPIGetUserGroupsRequest) Search(search string) UsersAPIGetUserGroupsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetUserGroupsRequest) Execute() (*GetGroupsResult, *http.Response, error) {
+func (r UsersAPIGetUserGroupsRequest) Execute() (*GetGroupsResult, *http.Response, error) {
 	return r.ApiService.GetUserGroupsExecute(r)
 }
 
@@ -1781,10 +1781,10 @@ GetUserGroups Retrieves the list of groups associated to a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserGroupsRequest
+	@return UsersAPIGetUserGroupsRequest
 */
-func (a *UsersAPIService) GetUserGroups(ctx context.Context, userUuid string) ApiGetUserGroupsRequest {
-	return ApiGetUserGroupsRequest{
+func (a *UsersAPIService) GetUserGroups(ctx context.Context, userUuid string) UsersAPIGetUserGroupsRequest {
+	return UsersAPIGetUserGroupsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1794,7 +1794,7 @@ func (a *UsersAPIService) GetUserGroups(ctx context.Context, userUuid string) Ap
 // Execute executes the request
 //
 //	@return GetGroupsResult
-func (a *UsersAPIService) GetUserGroupsExecute(r ApiGetUserGroupsRequest) (*GetGroupsResult, *http.Response, error) {
+func (a *UsersAPIService) GetUserGroupsExecute(r UsersAPIGetUserGroupsRequest) (*GetGroupsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1932,7 +1932,7 @@ func (a *UsersAPIService) GetUserGroupsExecute(r ApiGetUserGroupsRequest) (*GetG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserPoliciesRequest struct {
+type UsersAPIGetUserPoliciesRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	userUuid   string
@@ -1944,36 +1944,36 @@ type ApiGetUserPoliciesRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetUserPoliciesRequest) Order(order string) ApiGetUserPoliciesRequest {
+func (r UsersAPIGetUserPoliciesRequest) Order(order string) UsersAPIGetUserPoliciesRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserPoliciesRequest) Direction(direction string) ApiGetUserPoliciesRequest {
+func (r UsersAPIGetUserPoliciesRequest) Direction(direction string) UsersAPIGetUserPoliciesRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserPoliciesRequest) Limit(limit int32) ApiGetUserPoliciesRequest {
+func (r UsersAPIGetUserPoliciesRequest) Limit(limit int32) UsersAPIGetUserPoliciesRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserPoliciesRequest) Offset(offset int32) ApiGetUserPoliciesRequest {
+func (r UsersAPIGetUserPoliciesRequest) Offset(offset int32) UsersAPIGetUserPoliciesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetUserPoliciesRequest) Search(search string) ApiGetUserPoliciesRequest {
+func (r UsersAPIGetUserPoliciesRequest) Search(search string) UsersAPIGetUserPoliciesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetUserPoliciesRequest) Execute() (*GetPoliciesResult, *http.Response, error) {
+func (r UsersAPIGetUserPoliciesRequest) Execute() (*GetPoliciesResult, *http.Response, error) {
 	return r.ApiService.GetUserPoliciesExecute(r)
 }
 
@@ -1984,10 +1984,10 @@ GetUserPolicies Retrieves the list of policies associated to a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserPoliciesRequest
+	@return UsersAPIGetUserPoliciesRequest
 */
-func (a *UsersAPIService) GetUserPolicies(ctx context.Context, userUuid string) ApiGetUserPoliciesRequest {
-	return ApiGetUserPoliciesRequest{
+func (a *UsersAPIService) GetUserPolicies(ctx context.Context, userUuid string) UsersAPIGetUserPoliciesRequest {
+	return UsersAPIGetUserPoliciesRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -1997,7 +1997,7 @@ func (a *UsersAPIService) GetUserPolicies(ctx context.Context, userUuid string) 
 // Execute executes the request
 //
 //	@return GetPoliciesResult
-func (a *UsersAPIService) GetUserPoliciesExecute(r ApiGetUserPoliciesRequest) (*GetPoliciesResult, *http.Response, error) {
+func (a *UsersAPIService) GetUserPoliciesExecute(r UsersAPIGetUserPoliciesRequest) (*GetPoliciesResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2135,7 +2135,7 @@ func (a *UsersAPIService) GetUserPoliciesExecute(r ApiGetUserPoliciesRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserSessionsRequest struct {
+type UsersAPIGetUserSessionsRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userUuid     string
@@ -2145,24 +2145,24 @@ type ApiGetUserSessionsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserSessionsRequest) AccentTenant(accentTenant string) ApiGetUserSessionsRequest {
+func (r UsersAPIGetUserSessionsRequest) AccentTenant(accentTenant string) UsersAPIGetUserSessionsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserSessionsRequest) Limit(limit int32) ApiGetUserSessionsRequest {
+func (r UsersAPIGetUserSessionsRequest) Limit(limit int32) UsersAPIGetUserSessionsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserSessionsRequest) Offset(offset int32) ApiGetUserSessionsRequest {
+func (r UsersAPIGetUserSessionsRequest) Offset(offset int32) UsersAPIGetUserSessionsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetUserSessionsRequest) Execute() (*GetSessionsResult, *http.Response, error) {
+func (r UsersAPIGetUserSessionsRequest) Execute() (*GetSessionsResult, *http.Response, error) {
 	return r.ApiService.GetUserSessionsExecute(r)
 }
 
@@ -2173,10 +2173,10 @@ GetUserSessions Retrieves the list of sessions associated to a user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiGetUserSessionsRequest
+	@return UsersAPIGetUserSessionsRequest
 */
-func (a *UsersAPIService) GetUserSessions(ctx context.Context, userUuid string) ApiGetUserSessionsRequest {
-	return ApiGetUserSessionsRequest{
+func (a *UsersAPIService) GetUserSessions(ctx context.Context, userUuid string) UsersAPIGetUserSessionsRequest {
+	return UsersAPIGetUserSessionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -2186,7 +2186,7 @@ func (a *UsersAPIService) GetUserSessions(ctx context.Context, userUuid string) 
 // Execute executes the request
 //
 //	@return GetSessionsResult
-func (a *UsersAPIService) GetUserSessionsExecute(r ApiGetUserSessionsRequest) (*GetSessionsResult, *http.Response, error) {
+func (a *UsersAPIService) GetUserSessionsExecute(r UsersAPIGetUserSessionsRequest) (*GetSessionsResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2318,7 +2318,7 @@ func (a *UsersAPIService) GetUserSessionsExecute(r ApiGetUserSessionsRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUserTokensRequest struct {
+type UsersAPIGetUserTokensRequest struct {
 	ctx          context.Context
 	ApiService   UsersAPI
 	userUuidOrMe string
@@ -2331,42 +2331,42 @@ type ApiGetUserTokensRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUserTokensRequest) AccentTenant(accentTenant string) ApiGetUserTokensRequest {
+func (r UsersAPIGetUserTokensRequest) AccentTenant(accentTenant string) UsersAPIGetUserTokensRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetUserTokensRequest) Order(order string) ApiGetUserTokensRequest {
+func (r UsersAPIGetUserTokensRequest) Order(order string) UsersAPIGetUserTokensRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUserTokensRequest) Direction(direction string) ApiGetUserTokensRequest {
+func (r UsersAPIGetUserTokensRequest) Direction(direction string) UsersAPIGetUserTokensRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUserTokensRequest) Limit(limit int32) ApiGetUserTokensRequest {
+func (r UsersAPIGetUserTokensRequest) Limit(limit int32) UsersAPIGetUserTokensRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUserTokensRequest) Offset(offset int32) ApiGetUserTokensRequest {
+func (r UsersAPIGetUserTokensRequest) Offset(offset int32) UsersAPIGetUserTokensRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetUserTokensRequest) Search(search string) ApiGetUserTokensRequest {
+func (r UsersAPIGetUserTokensRequest) Search(search string) UsersAPIGetUserTokensRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetUserTokensRequest) Execute() (*RefreshTokenList, *http.Response, error) {
+func (r UsersAPIGetUserTokensRequest) Execute() (*RefreshTokenList, *http.Response, error) {
 	return r.ApiService.GetUserTokensExecute(r)
 }
 
@@ -2379,10 +2379,10 @@ Doing a query with the `user_uuid` `me` will result in the current user's token 
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuidOrMe The UUID of the user or `me` to refer to the user doing the query
-	@return ApiGetUserTokensRequest
+	@return UsersAPIGetUserTokensRequest
 */
-func (a *UsersAPIService) GetUserTokens(ctx context.Context, userUuidOrMe string) ApiGetUserTokensRequest {
-	return ApiGetUserTokensRequest{
+func (a *UsersAPIService) GetUserTokens(ctx context.Context, userUuidOrMe string) UsersAPIGetUserTokensRequest {
+	return UsersAPIGetUserTokensRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		userUuidOrMe: userUuidOrMe,
@@ -2392,7 +2392,7 @@ func (a *UsersAPIService) GetUserTokens(ctx context.Context, userUuidOrMe string
 // Execute executes the request
 //
 //	@return RefreshTokenList
-func (a *UsersAPIService) GetUserTokensExecute(r ApiGetUserTokensRequest) (*RefreshTokenList, *http.Response, error) {
+func (a *UsersAPIService) GetUserTokensExecute(r UsersAPIGetUserTokensRequest) (*RefreshTokenList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2544,7 +2544,7 @@ func (a *UsersAPIService) GetUserTokensExecute(r ApiGetUserTokensRequest) (*Refr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUsersRequest struct {
+type UsersAPIGetUsersRequest struct {
 	ctx           context.Context
 	ApiService    UsersAPI
 	order         *string
@@ -2561,72 +2561,72 @@ type ApiGetUsersRequest struct {
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiGetUsersRequest) Order(order string) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) Order(order string) UsersAPIGetUsersRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiGetUsersRequest) Direction(direction string) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) Direction(direction string) UsersAPIGetUsersRequest {
 	r.direction = &direction
 	return r
 }
 
 // The limit defines the number of individual objects that are returned
-func (r ApiGetUsersRequest) Limit(limit int32) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) Limit(limit int32) UsersAPIGetUsersRequest {
 	r.limit = &limit
 	return r
 }
 
 // The offset defines the offsets the start by the number specified
-func (r ApiGetUsersRequest) Offset(offset int32) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) Offset(offset int32) UsersAPIGetUsersRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiGetUsersRequest) Search(search string) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) Search(search string) UsersAPIGetUsersRequest {
 	r.search = &search
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetUsersRequest) AccentTenant(accentTenant string) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) AccentTenant(accentTenant string) UsersAPIGetUsersRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiGetUsersRequest) Recurse(recurse bool) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) Recurse(recurse bool) UsersAPIGetUsersRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // The slug of the policy that the user must have. This includes indirect associations (user in group has policy).
-func (r ApiGetUsersRequest) HasPolicySlug(hasPolicySlug string) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) HasPolicySlug(hasPolicySlug string) UsersAPIGetUsersRequest {
 	r.hasPolicySlug = &hasPolicySlug
 	return r
 }
 
 // The UUID of the policy that the user must have. This includes indirect associations (user in group has policy).
-func (r ApiGetUsersRequest) HasPolicyUuid(hasPolicyUuid string) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) HasPolicyUuid(hasPolicyUuid string) UsersAPIGetUsersRequest {
 	r.hasPolicyUuid = &hasPolicyUuid
 	return r
 }
 
 // The slug of the policy that the user must have. This does not include indirect associations (user in group has policy).
-func (r ApiGetUsersRequest) PolicySlug(policySlug string) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) PolicySlug(policySlug string) UsersAPIGetUsersRequest {
 	r.policySlug = &policySlug
 	return r
 }
 
 // The UUID of the policy that the user must have. This does not include indirect associations (user in group has policy).
-func (r ApiGetUsersRequest) PolicyUuid(policyUuid string) ApiGetUsersRequest {
+func (r UsersAPIGetUsersRequest) PolicyUuid(policyUuid string) UsersAPIGetUsersRequest {
 	r.policyUuid = &policyUuid
 	return r
 }
 
-func (r ApiGetUsersRequest) Execute() (*UserList, *http.Response, error) {
+func (r UsersAPIGetUsersRequest) Execute() (*UserList, *http.Response, error) {
 	return r.ApiService.GetUsersExecute(r)
 }
 
@@ -2636,10 +2636,10 @@ GetUsers Retrieves the list of users
 **Required ACL**: `auth.users.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetUsersRequest
+	@return UsersAPIGetUsersRequest
 */
-func (a *UsersAPIService) GetUsers(ctx context.Context) ApiGetUsersRequest {
-	return ApiGetUsersRequest{
+func (a *UsersAPIService) GetUsers(ctx context.Context) UsersAPIGetUsersRequest {
+	return UsersAPIGetUsersRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2648,7 +2648,7 @@ func (a *UsersAPIService) GetUsers(ctx context.Context) ApiGetUsersRequest {
 // Execute executes the request
 //
 //	@return UserList
-func (a *UsersAPIService) GetUsersExecute(r ApiGetUsersRequest) (*UserList, *http.Response, error) {
+func (a *UsersAPIService) GetUsersExecute(r UsersAPIGetUsersRequest) (*UserList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -2774,19 +2774,19 @@ func (a *UsersAPIService) GetUsersExecute(r ApiGetUsersRequest) (*UserList, *htt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRegisterUserRequest struct {
+type UsersAPIRegisterUserRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserRegister
 }
 
 // The user creation parameters
-func (r ApiRegisterUserRequest) Body(body UserRegister) ApiRegisterUserRequest {
+func (r UsersAPIRegisterUserRequest) Body(body UserRegister) UsersAPIRegisterUserRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiRegisterUserRequest) Execute() (*UserPostResponse, *http.Response, error) {
+func (r UsersAPIRegisterUserRequest) Execute() (*UserPostResponse, *http.Response, error) {
 	return r.ApiService.RegisterUserExecute(r)
 }
 
@@ -2796,10 +2796,10 @@ RegisterUser Create a user
 Creates a new user that can be used to retrieve a token.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiRegisterUserRequest
+	@return UsersAPIRegisterUserRequest
 */
-func (a *UsersAPIService) RegisterUser(ctx context.Context) ApiRegisterUserRequest {
-	return ApiRegisterUserRequest{
+func (a *UsersAPIService) RegisterUser(ctx context.Context) UsersAPIRegisterUserRequest {
+	return UsersAPIRegisterUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2808,7 +2808,7 @@ func (a *UsersAPIService) RegisterUser(ctx context.Context) ApiRegisterUserReque
 // Execute executes the request
 //
 //	@return UserPostResponse
-func (a *UsersAPIService) RegisterUserExecute(r ApiRegisterUserRequest) (*UserPostResponse, *http.Response, error) {
+func (a *UsersAPIService) RegisterUserExecute(r UsersAPIRegisterUserRequest) (*UserPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -2896,14 +2896,14 @@ func (a *UsersAPIService) RegisterUserExecute(r ApiRegisterUserRequest) (*UserPo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveGroupUserRequest struct {
+type UsersAPIRemoveGroupUserRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	groupUuid  string
 	userUuid   string
 }
 
-func (r ApiRemoveGroupUserRequest) Execute() (*http.Response, error) {
+func (r UsersAPIRemoveGroupUserRequest) Execute() (*http.Response, error) {
 	return r.ApiService.RemoveGroupUserExecute(r)
 }
 
@@ -2915,10 +2915,10 @@ RemoveGroupUser Dissociate a user from a group
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param groupUuid The UUID of the group
 	@param userUuid The UUID of the user
-	@return ApiRemoveGroupUserRequest
+	@return UsersAPIRemoveGroupUserRequest
 */
-func (a *UsersAPIService) RemoveGroupUser(ctx context.Context, groupUuid string, userUuid string) ApiRemoveGroupUserRequest {
-	return ApiRemoveGroupUserRequest{
+func (a *UsersAPIService) RemoveGroupUser(ctx context.Context, groupUuid string, userUuid string) UsersAPIRemoveGroupUserRequest {
+	return UsersAPIRemoveGroupUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		groupUuid:  groupUuid,
@@ -2927,7 +2927,7 @@ func (a *UsersAPIService) RemoveGroupUser(ctx context.Context, groupUuid string,
 }
 
 // Execute executes the request
-func (a *UsersAPIService) RemoveGroupUserExecute(r ApiRemoveGroupUserRequest) (*http.Response, error) {
+func (a *UsersAPIService) RemoveGroupUserExecute(r UsersAPIRemoveGroupUserRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -3016,7 +3016,7 @@ func (a *UsersAPIService) RemoveGroupUserExecute(r ApiRemoveGroupUserRequest) (*
 	return localVarHTTPResponse, nil
 }
 
-type ApiResetPasswordRequest struct {
+type UsersAPIResetPasswordRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	username   *string
@@ -3025,24 +3025,24 @@ type ApiResetPasswordRequest struct {
 }
 
 // The user&#39;s username
-func (r ApiResetPasswordRequest) Username(username string) ApiResetPasswordRequest {
+func (r UsersAPIResetPasswordRequest) Username(username string) UsersAPIResetPasswordRequest {
 	r.username = &username
 	return r
 }
 
 // The user&#39;s email address
-func (r ApiResetPasswordRequest) Email(email string) ApiResetPasswordRequest {
+func (r UsersAPIResetPasswordRequest) Email(email string) UsersAPIResetPasswordRequest {
 	r.email = &email
 	return r
 }
 
 // The user&#39;s login (username or email)
-func (r ApiResetPasswordRequest) Login(login string) ApiResetPasswordRequest {
+func (r UsersAPIResetPasswordRequest) Login(login string) UsersAPIResetPasswordRequest {
 	r.login = &login
 	return r
 }
 
-func (r ApiResetPasswordRequest) Execute() (*http.Response, error) {
+func (r UsersAPIResetPasswordRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ResetPasswordExecute(r)
 }
 
@@ -3053,17 +3053,17 @@ This action will send an email containing instructions to set a new password.
 The login or username or email address should be supplied as query string to find the user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiResetPasswordRequest
+	@return UsersAPIResetPasswordRequest
 */
-func (a *UsersAPIService) ResetPassword(ctx context.Context) ApiResetPasswordRequest {
-	return ApiResetPasswordRequest{
+func (a *UsersAPIService) ResetPassword(ctx context.Context) UsersAPIResetPasswordRequest {
+	return UsersAPIResetPasswordRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *UsersAPIService) ResetPasswordExecute(r ApiResetPasswordRequest) (*http.Response, error) {
+func (a *UsersAPIService) ResetPasswordExecute(r UsersAPIResetPasswordRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -3135,7 +3135,7 @@ func (a *UsersAPIService) ResetPasswordExecute(r ApiResetPasswordRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiResetPasswordChangeRequest struct {
+type UsersAPIResetPasswordChangeRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *PostPasswordReset
@@ -3143,18 +3143,18 @@ type ApiResetPasswordChangeRequest struct {
 }
 
 // The password change parameters
-func (r ApiResetPasswordChangeRequest) Body(body PostPasswordReset) ApiResetPasswordChangeRequest {
+func (r UsersAPIResetPasswordChangeRequest) Body(body PostPasswordReset) UsersAPIResetPasswordChangeRequest {
 	r.body = &body
 	return r
 }
 
 // The user&#39;s UUID
-func (r ApiResetPasswordChangeRequest) UserUuid(userUuid string) ApiResetPasswordChangeRequest {
+func (r UsersAPIResetPasswordChangeRequest) UserUuid(userUuid string) UsersAPIResetPasswordChangeRequest {
 	r.userUuid = &userUuid
 	return r
 }
 
-func (r ApiResetPasswordChangeRequest) Execute() (*http.Response, error) {
+func (r UsersAPIResetPasswordChangeRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ResetPasswordChangeExecute(r)
 }
 
@@ -3165,17 +3165,17 @@ ResetPasswordChange Set the user password
 Set a new password for the user after the user used the GET on the reset URL
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiResetPasswordChangeRequest
+	@return UsersAPIResetPasswordChangeRequest
 */
-func (a *UsersAPIService) ResetPasswordChange(ctx context.Context) ApiResetPasswordChangeRequest {
-	return ApiResetPasswordChangeRequest{
+func (a *UsersAPIService) ResetPasswordChange(ctx context.Context) UsersAPIResetPasswordChangeRequest {
+	return UsersAPIResetPasswordChangeRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *UsersAPIService) ResetPasswordChangeExecute(r ApiResetPasswordChangeRequest) (*http.Response, error) {
+func (a *UsersAPIService) ResetPasswordChangeExecute(r UsersAPIResetPasswordChangeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPost
 		localVarPostBody   interface{}
@@ -3261,7 +3261,7 @@ func (a *UsersAPIService) ResetPasswordChangeExecute(r ApiResetPasswordChangeReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateAllUserEmailsRequest struct {
+type UsersAPIUpdateAllUserEmailsRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *AdminUserEmailList
@@ -3269,12 +3269,12 @@ type ApiUpdateAllUserEmailsRequest struct {
 }
 
 // EmailAddressList
-func (r ApiUpdateAllUserEmailsRequest) Body(body AdminUserEmailList) ApiUpdateAllUserEmailsRequest {
+func (r UsersAPIUpdateAllUserEmailsRequest) Body(body AdminUserEmailList) UsersAPIUpdateAllUserEmailsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateAllUserEmailsRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateAllUserEmailsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateAllUserEmailsExecute(r)
 }
 
@@ -3286,10 +3286,10 @@ If an existing address is missing from the list, it will be removed. An empty li
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiUpdateAllUserEmailsRequest
+	@return UsersAPIUpdateAllUserEmailsRequest
 */
-func (a *UsersAPIService) UpdateAllUserEmails(ctx context.Context, userUuid string) ApiUpdateAllUserEmailsRequest {
-	return ApiUpdateAllUserEmailsRequest{
+func (a *UsersAPIService) UpdateAllUserEmails(ctx context.Context, userUuid string) UsersAPIUpdateAllUserEmailsRequest {
+	return UsersAPIUpdateAllUserEmailsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -3297,7 +3297,7 @@ func (a *UsersAPIService) UpdateAllUserEmails(ctx context.Context, userUuid stri
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateAllUserEmailsExecute(r ApiUpdateAllUserEmailsRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateAllUserEmailsExecute(r UsersAPIUpdateAllUserEmailsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3390,7 +3390,7 @@ func (a *UsersAPIService) UpdateAllUserEmailsExecute(r ApiUpdateAllUserEmailsReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserRequest struct {
+type UsersAPIUpdateUserRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserEdit
@@ -3398,12 +3398,12 @@ type ApiUpdateUserRequest struct {
 }
 
 // The user parameters
-func (r ApiUpdateUserRequest) Body(body UserEdit) ApiUpdateUserRequest {
+func (r UsersAPIUpdateUserRequest) Body(body UserEdit) UsersAPIUpdateUserRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserRequest) Execute() (*UserPostResponse, *http.Response, error) {
+func (r UsersAPIUpdateUserRequest) Execute() (*UserPostResponse, *http.Response, error) {
 	return r.ApiService.UpdateUserExecute(r)
 }
 
@@ -3414,10 +3414,10 @@ UpdateUser Update an existing user
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiUpdateUserRequest
+	@return UsersAPIUpdateUserRequest
 */
-func (a *UsersAPIService) UpdateUser(ctx context.Context, userUuid string) ApiUpdateUserRequest {
-	return ApiUpdateUserRequest{
+func (a *UsersAPIService) UpdateUser(ctx context.Context, userUuid string) UsersAPIUpdateUserRequest {
+	return UsersAPIUpdateUserRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -3427,7 +3427,7 @@ func (a *UsersAPIService) UpdateUser(ctx context.Context, userUuid string) ApiUp
 // Execute executes the request
 //
 //	@return UserPostResponse
-func (a *UsersAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*UserPostResponse, *http.Response, error) {
+func (a *UsersAPIService) UpdateUserExecute(r UsersAPIUpdateUserRequest) (*UserPostResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPut
 		localVarPostBody    interface{}
@@ -3527,7 +3527,7 @@ func (a *UsersAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*UserPostRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateUserEmailsRequest struct {
+type UsersAPIUpdateUserEmailsRequest struct {
 	ctx        context.Context
 	ApiService UsersAPI
 	body       *UserEmailList
@@ -3535,12 +3535,12 @@ type ApiUpdateUserEmailsRequest struct {
 }
 
 // EmailAddressList
-func (r ApiUpdateUserEmailsRequest) Body(body UserEmailList) ApiUpdateUserEmailsRequest {
+func (r UsersAPIUpdateUserEmailsRequest) Body(body UserEmailList) UsersAPIUpdateUserEmailsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateUserEmailsRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUpdateUserEmailsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateUserEmailsExecute(r)
 }
 
@@ -3552,10 +3552,10 @@ If an existing address is missing from the list, it will be removed. An empty li
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
-	@return ApiUpdateUserEmailsRequest
+	@return UsersAPIUpdateUserEmailsRequest
 */
-func (a *UsersAPIService) UpdateUserEmails(ctx context.Context, userUuid string) ApiUpdateUserEmailsRequest {
-	return ApiUpdateUserEmailsRequest{
+func (a *UsersAPIService) UpdateUserEmails(ctx context.Context, userUuid string) UsersAPIUpdateUserEmailsRequest {
+	return UsersAPIUpdateUserEmailsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		userUuid:   userUuid,
@@ -3563,7 +3563,7 @@ func (a *UsersAPIService) UpdateUserEmails(ctx context.Context, userUuid string)
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UpdateUserEmailsExecute(r ApiUpdateUserEmailsRequest) (*http.Response, error) {
+func (a *UsersAPIService) UpdateUserEmailsExecute(r UsersAPIUpdateUserEmailsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -3656,14 +3656,14 @@ func (a *UsersAPIService) UpdateUserEmailsExecute(r ApiUpdateUserEmailsRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiUserDeleteSessionRequest struct {
+type UsersAPIUserDeleteSessionRequest struct {
 	ctx         context.Context
 	ApiService  UsersAPI
 	userUuid    string
 	sessionUuid string
 }
 
-func (r ApiUserDeleteSessionRequest) Execute() (*http.Response, error) {
+func (r UsersAPIUserDeleteSessionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UserDeleteSessionExecute(r)
 }
 
@@ -3675,10 +3675,10 @@ UserDeleteSession Delete a session
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param userUuid The UUID of the user
 	@param sessionUuid The UUID of the session
-	@return ApiUserDeleteSessionRequest
+	@return UsersAPIUserDeleteSessionRequest
 */
-func (a *UsersAPIService) UserDeleteSession(ctx context.Context, userUuid string, sessionUuid string) ApiUserDeleteSessionRequest {
-	return ApiUserDeleteSessionRequest{
+func (a *UsersAPIService) UserDeleteSession(ctx context.Context, userUuid string, sessionUuid string) UsersAPIUserDeleteSessionRequest {
+	return UsersAPIUserDeleteSessionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		userUuid:    userUuid,
@@ -3687,7 +3687,7 @@ func (a *UsersAPIService) UserDeleteSession(ctx context.Context, userUuid string
 }
 
 // Execute executes the request
-func (a *UsersAPIService) UserDeleteSessionExecute(r ApiUserDeleteSessionRequest) (*http.Response, error) {
+func (a *UsersAPIService) UserDeleteSessionExecute(r UsersAPIUserDeleteSessionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}

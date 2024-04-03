@@ -30,12 +30,12 @@ type OutcallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param callpermissionId Call Permission's ID
-		@return ApiAssociateOutcallCallpermissionRequest
+		@return OutcallsAPIAssociateOutcallCallpermissionRequest
 	*/
-	AssociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) ApiAssociateOutcallCallpermissionRequest
+	AssociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) OutcallsAPIAssociateOutcallCallpermissionRequest
 
 	// AssociateOutcallCallpermissionExecute executes the request
-	AssociateOutcallCallpermissionExecute(r ApiAssociateOutcallCallpermissionRequest) (*http.Response, error)
+	AssociateOutcallCallpermissionExecute(r OutcallsAPIAssociateOutcallCallpermissionRequest) (*http.Response, error)
 
 	/*
 		AssociateOutcallExtension Associate outcall and extension
@@ -45,12 +45,12 @@ type OutcallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param extensionId
-		@return ApiAssociateOutcallExtensionRequest
+		@return OutcallsAPIAssociateOutcallExtensionRequest
 	*/
-	AssociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ApiAssociateOutcallExtensionRequest
+	AssociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) OutcallsAPIAssociateOutcallExtensionRequest
 
 	// AssociateOutcallExtensionExecute executes the request
-	AssociateOutcallExtensionExecute(r ApiAssociateOutcallExtensionRequest) (*http.Response, error)
+	AssociateOutcallExtensionExecute(r OutcallsAPIAssociateOutcallExtensionRequest) (*http.Response, error)
 
 	/*
 		AssociateOutcallSchedule Associate outcall and schedule
@@ -60,12 +60,12 @@ type OutcallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param scheduleId Schedule's ID
-		@return ApiAssociateOutcallScheduleRequest
+		@return OutcallsAPIAssociateOutcallScheduleRequest
 	*/
-	AssociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) ApiAssociateOutcallScheduleRequest
+	AssociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) OutcallsAPIAssociateOutcallScheduleRequest
 
 	// AssociateOutcallScheduleExecute executes the request
-	AssociateOutcallScheduleExecute(r ApiAssociateOutcallScheduleRequest) (*http.Response, error)
+	AssociateOutcallScheduleExecute(r OutcallsAPIAssociateOutcallScheduleRequest) (*http.Response, error)
 
 	/*
 		AssociateOutcallTrunks Associate outcall and trunks
@@ -74,12 +74,12 @@ type OutcallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
-		@return ApiAssociateOutcallTrunksRequest
+		@return OutcallsAPIAssociateOutcallTrunksRequest
 	*/
-	AssociateOutcallTrunks(ctx context.Context, outcallId int32) ApiAssociateOutcallTrunksRequest
+	AssociateOutcallTrunks(ctx context.Context, outcallId int32) OutcallsAPIAssociateOutcallTrunksRequest
 
 	// AssociateOutcallTrunksExecute executes the request
-	AssociateOutcallTrunksExecute(r ApiAssociateOutcallTrunksRequest) (*http.Response, error)
+	AssociateOutcallTrunksExecute(r OutcallsAPIAssociateOutcallTrunksRequest) (*http.Response, error)
 
 	/*
 		CreateOutcall Create outgoing call
@@ -87,13 +87,13 @@ type OutcallsAPI interface {
 		**Required ACL:** `confd.outcalls.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateOutcallRequest
+		@return OutcallsAPICreateOutcallRequest
 	*/
-	CreateOutcall(ctx context.Context) ApiCreateOutcallRequest
+	CreateOutcall(ctx context.Context) OutcallsAPICreateOutcallRequest
 
 	// CreateOutcallExecute executes the request
 	//  @return Outcall
-	CreateOutcallExecute(r ApiCreateOutcallRequest) (*Outcall, *http.Response, error)
+	CreateOutcallExecute(r OutcallsAPICreateOutcallRequest) (*Outcall, *http.Response, error)
 
 	/*
 		DeleteOutcall Delete outgoing call
@@ -102,12 +102,12 @@ type OutcallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
-		@return ApiDeleteOutcallRequest
+		@return OutcallsAPIDeleteOutcallRequest
 	*/
-	DeleteOutcall(ctx context.Context, outcallId int32) ApiDeleteOutcallRequest
+	DeleteOutcall(ctx context.Context, outcallId int32) OutcallsAPIDeleteOutcallRequest
 
 	// DeleteOutcallExecute executes the request
-	DeleteOutcallExecute(r ApiDeleteOutcallRequest) (*http.Response, error)
+	DeleteOutcallExecute(r OutcallsAPIDeleteOutcallRequest) (*http.Response, error)
 
 	/*
 		DissociateOutcallCallpermission Dissociate outcall and call permission
@@ -117,12 +117,12 @@ type OutcallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param callpermissionId Call Permission's ID
-		@return ApiDissociateOutcallCallpermissionRequest
+		@return OutcallsAPIDissociateOutcallCallpermissionRequest
 	*/
-	DissociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) ApiDissociateOutcallCallpermissionRequest
+	DissociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) OutcallsAPIDissociateOutcallCallpermissionRequest
 
 	// DissociateOutcallCallpermissionExecute executes the request
-	DissociateOutcallCallpermissionExecute(r ApiDissociateOutcallCallpermissionRequest) (*http.Response, error)
+	DissociateOutcallCallpermissionExecute(r OutcallsAPIDissociateOutcallCallpermissionRequest) (*http.Response, error)
 
 	/*
 		DissociateOutcallExtension Dissociate outcall and extension
@@ -132,12 +132,12 @@ type OutcallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param extensionId
-		@return ApiDissociateOutcallExtensionRequest
+		@return OutcallsAPIDissociateOutcallExtensionRequest
 	*/
-	DissociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ApiDissociateOutcallExtensionRequest
+	DissociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) OutcallsAPIDissociateOutcallExtensionRequest
 
 	// DissociateOutcallExtensionExecute executes the request
-	DissociateOutcallExtensionExecute(r ApiDissociateOutcallExtensionRequest) (*http.Response, error)
+	DissociateOutcallExtensionExecute(r OutcallsAPIDissociateOutcallExtensionRequest) (*http.Response, error)
 
 	/*
 		DissociateOutcallSchedule Dissociate outcall and schedule
@@ -147,12 +147,12 @@ type OutcallsAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
 		@param scheduleId Schedule's ID
-		@return ApiDissociateOutcallScheduleRequest
+		@return OutcallsAPIDissociateOutcallScheduleRequest
 	*/
-	DissociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) ApiDissociateOutcallScheduleRequest
+	DissociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) OutcallsAPIDissociateOutcallScheduleRequest
 
 	// DissociateOutcallScheduleExecute executes the request
-	DissociateOutcallScheduleExecute(r ApiDissociateOutcallScheduleRequest) (*http.Response, error)
+	DissociateOutcallScheduleExecute(r OutcallsAPIDissociateOutcallScheduleRequest) (*http.Response, error)
 
 	/*
 		GetOutcall Get outgoing call
@@ -161,13 +161,13 @@ type OutcallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
-		@return ApiGetOutcallRequest
+		@return OutcallsAPIGetOutcallRequest
 	*/
-	GetOutcall(ctx context.Context, outcallId int32) ApiGetOutcallRequest
+	GetOutcall(ctx context.Context, outcallId int32) OutcallsAPIGetOutcallRequest
 
 	// GetOutcallExecute executes the request
 	//  @return Outcall
-	GetOutcallExecute(r ApiGetOutcallRequest) (*Outcall, *http.Response, error)
+	GetOutcallExecute(r OutcallsAPIGetOutcallRequest) (*Outcall, *http.Response, error)
 
 	/*
 		ListOutcalls List outgoing calls
@@ -175,13 +175,13 @@ type OutcallsAPI interface {
 		**Required ACL:** `confd.outcalls.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListOutcallsRequest
+		@return OutcallsAPIListOutcallsRequest
 	*/
-	ListOutcalls(ctx context.Context) ApiListOutcallsRequest
+	ListOutcalls(ctx context.Context) OutcallsAPIListOutcallsRequest
 
 	// ListOutcallsExecute executes the request
 	//  @return OutcallItems
-	ListOutcallsExecute(r ApiListOutcallsRequest) (*OutcallItems, *http.Response, error)
+	ListOutcallsExecute(r OutcallsAPIListOutcallsRequest) (*OutcallItems, *http.Response, error)
 
 	/*
 		UpdateOutcall Update outgoing call
@@ -190,18 +190,18 @@ type OutcallsAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param outcallId Outgoing call's ID
-		@return ApiUpdateOutcallRequest
+		@return OutcallsAPIUpdateOutcallRequest
 	*/
-	UpdateOutcall(ctx context.Context, outcallId int32) ApiUpdateOutcallRequest
+	UpdateOutcall(ctx context.Context, outcallId int32) OutcallsAPIUpdateOutcallRequest
 
 	// UpdateOutcallExecute executes the request
-	UpdateOutcallExecute(r ApiUpdateOutcallRequest) (*http.Response, error)
+	UpdateOutcallExecute(r OutcallsAPIUpdateOutcallRequest) (*http.Response, error)
 }
 
 // OutcallsAPIService OutcallsAPI service
 type OutcallsAPIService service
 
-type ApiAssociateOutcallCallpermissionRequest struct {
+type OutcallsAPIAssociateOutcallCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       OutcallsAPI
 	outcallId        int32
@@ -210,12 +210,12 @@ type ApiAssociateOutcallCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateOutcallCallpermissionRequest) AccentTenant(accentTenant string) ApiAssociateOutcallCallpermissionRequest {
+func (r OutcallsAPIAssociateOutcallCallpermissionRequest) AccentTenant(accentTenant string) OutcallsAPIAssociateOutcallCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateOutcallCallpermissionRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIAssociateOutcallCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateOutcallCallpermissionExecute(r)
 }
 
@@ -227,10 +227,10 @@ AssociateOutcallCallpermission Associate outcall and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param callpermissionId Call Permission's ID
-	@return ApiAssociateOutcallCallpermissionRequest
+	@return OutcallsAPIAssociateOutcallCallpermissionRequest
 */
-func (a *OutcallsAPIService) AssociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) ApiAssociateOutcallCallpermissionRequest {
-	return ApiAssociateOutcallCallpermissionRequest{
+func (a *OutcallsAPIService) AssociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) OutcallsAPIAssociateOutcallCallpermissionRequest {
+	return OutcallsAPIAssociateOutcallCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		outcallId:        outcallId,
@@ -239,7 +239,7 @@ func (a *OutcallsAPIService) AssociateOutcallCallpermission(ctx context.Context,
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) AssociateOutcallCallpermissionExecute(r ApiAssociateOutcallCallpermissionRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) AssociateOutcallCallpermissionExecute(r OutcallsAPIAssociateOutcallCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -342,7 +342,7 @@ func (a *OutcallsAPIService) AssociateOutcallCallpermissionExecute(r ApiAssociat
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateOutcallExtensionRequest struct {
+type OutcallsAPIAssociateOutcallExtensionRequest struct {
 	ctx         context.Context
 	ApiService  OutcallsAPI
 	outcallId   int32
@@ -351,12 +351,12 @@ type ApiAssociateOutcallExtensionRequest struct {
 }
 
 // Outgoing Extension
-func (r ApiAssociateOutcallExtensionRequest) Body(body OutcallExtension) ApiAssociateOutcallExtensionRequest {
+func (r OutcallsAPIAssociateOutcallExtensionRequest) Body(body OutcallExtension) OutcallsAPIAssociateOutcallExtensionRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAssociateOutcallExtensionRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIAssociateOutcallExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateOutcallExtensionExecute(r)
 }
 
@@ -368,10 +368,10 @@ AssociateOutcallExtension Associate outcall and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param extensionId
-	@return ApiAssociateOutcallExtensionRequest
+	@return OutcallsAPIAssociateOutcallExtensionRequest
 */
-func (a *OutcallsAPIService) AssociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ApiAssociateOutcallExtensionRequest {
-	return ApiAssociateOutcallExtensionRequest{
+func (a *OutcallsAPIService) AssociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) OutcallsAPIAssociateOutcallExtensionRequest {
+	return OutcallsAPIAssociateOutcallExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		outcallId:   outcallId,
@@ -380,7 +380,7 @@ func (a *OutcallsAPIService) AssociateOutcallExtension(ctx context.Context, outc
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) AssociateOutcallExtensionExecute(r ApiAssociateOutcallExtensionRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) AssociateOutcallExtensionExecute(r OutcallsAPIAssociateOutcallExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -482,7 +482,7 @@ func (a *OutcallsAPIService) AssociateOutcallExtensionExecute(r ApiAssociateOutc
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateOutcallScheduleRequest struct {
+type OutcallsAPIAssociateOutcallScheduleRequest struct {
 	ctx          context.Context
 	ApiService   OutcallsAPI
 	outcallId    int32
@@ -491,12 +491,12 @@ type ApiAssociateOutcallScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiAssociateOutcallScheduleRequest) AccentTenant(accentTenant string) ApiAssociateOutcallScheduleRequest {
+func (r OutcallsAPIAssociateOutcallScheduleRequest) AccentTenant(accentTenant string) OutcallsAPIAssociateOutcallScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiAssociateOutcallScheduleRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIAssociateOutcallScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateOutcallScheduleExecute(r)
 }
 
@@ -508,10 +508,10 @@ AssociateOutcallSchedule Associate outcall and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param scheduleId Schedule's ID
-	@return ApiAssociateOutcallScheduleRequest
+	@return OutcallsAPIAssociateOutcallScheduleRequest
 */
-func (a *OutcallsAPIService) AssociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) ApiAssociateOutcallScheduleRequest {
-	return ApiAssociateOutcallScheduleRequest{
+func (a *OutcallsAPIService) AssociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) OutcallsAPIAssociateOutcallScheduleRequest {
+	return OutcallsAPIAssociateOutcallScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -520,7 +520,7 @@ func (a *OutcallsAPIService) AssociateOutcallSchedule(ctx context.Context, outca
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) AssociateOutcallScheduleExecute(r ApiAssociateOutcallScheduleRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) AssociateOutcallScheduleExecute(r OutcallsAPIAssociateOutcallScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -623,7 +623,7 @@ func (a *OutcallsAPIService) AssociateOutcallScheduleExecute(r ApiAssociateOutca
 	return localVarHTTPResponse, nil
 }
 
-type ApiAssociateOutcallTrunksRequest struct {
+type OutcallsAPIAssociateOutcallTrunksRequest struct {
 	ctx        context.Context
 	ApiService OutcallsAPI
 	body       *TrunksId
@@ -631,12 +631,12 @@ type ApiAssociateOutcallTrunksRequest struct {
 }
 
 // Trunks to associated
-func (r ApiAssociateOutcallTrunksRequest) Body(body TrunksId) ApiAssociateOutcallTrunksRequest {
+func (r OutcallsAPIAssociateOutcallTrunksRequest) Body(body TrunksId) OutcallsAPIAssociateOutcallTrunksRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiAssociateOutcallTrunksRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIAssociateOutcallTrunksRequest) Execute() (*http.Response, error) {
 	return r.ApiService.AssociateOutcallTrunksExecute(r)
 }
 
@@ -647,10 +647,10 @@ AssociateOutcallTrunks Associate outcall and trunks
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
-	@return ApiAssociateOutcallTrunksRequest
+	@return OutcallsAPIAssociateOutcallTrunksRequest
 */
-func (a *OutcallsAPIService) AssociateOutcallTrunks(ctx context.Context, outcallId int32) ApiAssociateOutcallTrunksRequest {
-	return ApiAssociateOutcallTrunksRequest{
+func (a *OutcallsAPIService) AssociateOutcallTrunks(ctx context.Context, outcallId int32) OutcallsAPIAssociateOutcallTrunksRequest {
+	return OutcallsAPIAssociateOutcallTrunksRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -658,7 +658,7 @@ func (a *OutcallsAPIService) AssociateOutcallTrunks(ctx context.Context, outcall
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) AssociateOutcallTrunksExecute(r ApiAssociateOutcallTrunksRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) AssociateOutcallTrunksExecute(r OutcallsAPIAssociateOutcallTrunksRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -762,7 +762,7 @@ func (a *OutcallsAPIService) AssociateOutcallTrunksExecute(r ApiAssociateOutcall
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateOutcallRequest struct {
+type OutcallsAPICreateOutcallRequest struct {
 	ctx          context.Context
 	ApiService   OutcallsAPI
 	body         *Outcall
@@ -770,18 +770,18 @@ type ApiCreateOutcallRequest struct {
 }
 
 // Outgoing call to create
-func (r ApiCreateOutcallRequest) Body(body Outcall) ApiCreateOutcallRequest {
+func (r OutcallsAPICreateOutcallRequest) Body(body Outcall) OutcallsAPICreateOutcallRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiCreateOutcallRequest) AccentTenant(accentTenant string) ApiCreateOutcallRequest {
+func (r OutcallsAPICreateOutcallRequest) AccentTenant(accentTenant string) OutcallsAPICreateOutcallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiCreateOutcallRequest) Execute() (*Outcall, *http.Response, error) {
+func (r OutcallsAPICreateOutcallRequest) Execute() (*Outcall, *http.Response, error) {
 	return r.ApiService.CreateOutcallExecute(r)
 }
 
@@ -791,10 +791,10 @@ CreateOutcall Create outgoing call
 **Required ACL:** `confd.outcalls.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateOutcallRequest
+	@return OutcallsAPICreateOutcallRequest
 */
-func (a *OutcallsAPIService) CreateOutcall(ctx context.Context) ApiCreateOutcallRequest {
-	return ApiCreateOutcallRequest{
+func (a *OutcallsAPIService) CreateOutcall(ctx context.Context) OutcallsAPICreateOutcallRequest {
+	return OutcallsAPICreateOutcallRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -803,7 +803,7 @@ func (a *OutcallsAPIService) CreateOutcall(ctx context.Context) ApiCreateOutcall
 // Execute executes the request
 //
 //	@return Outcall
-func (a *OutcallsAPIService) CreateOutcallExecute(r ApiCreateOutcallRequest) (*Outcall, *http.Response, error) {
+func (a *OutcallsAPIService) CreateOutcallExecute(r OutcallsAPICreateOutcallRequest) (*Outcall, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -908,7 +908,7 @@ func (a *OutcallsAPIService) CreateOutcallExecute(r ApiCreateOutcallRequest) (*O
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteOutcallRequest struct {
+type OutcallsAPIDeleteOutcallRequest struct {
 	ctx          context.Context
 	ApiService   OutcallsAPI
 	outcallId    int32
@@ -916,12 +916,12 @@ type ApiDeleteOutcallRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteOutcallRequest) AccentTenant(accentTenant string) ApiDeleteOutcallRequest {
+func (r OutcallsAPIDeleteOutcallRequest) AccentTenant(accentTenant string) OutcallsAPIDeleteOutcallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteOutcallRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIDeleteOutcallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteOutcallExecute(r)
 }
 
@@ -932,10 +932,10 @@ DeleteOutcall Delete outgoing call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
-	@return ApiDeleteOutcallRequest
+	@return OutcallsAPIDeleteOutcallRequest
 */
-func (a *OutcallsAPIService) DeleteOutcall(ctx context.Context, outcallId int32) ApiDeleteOutcallRequest {
-	return ApiDeleteOutcallRequest{
+func (a *OutcallsAPIService) DeleteOutcall(ctx context.Context, outcallId int32) OutcallsAPIDeleteOutcallRequest {
+	return OutcallsAPIDeleteOutcallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -943,7 +943,7 @@ func (a *OutcallsAPIService) DeleteOutcall(ctx context.Context, outcallId int32)
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) DeleteOutcallExecute(r ApiDeleteOutcallRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) DeleteOutcallExecute(r OutcallsAPIDeleteOutcallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1045,7 +1045,7 @@ func (a *OutcallsAPIService) DeleteOutcallExecute(r ApiDeleteOutcallRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateOutcallCallpermissionRequest struct {
+type OutcallsAPIDissociateOutcallCallpermissionRequest struct {
 	ctx              context.Context
 	ApiService       OutcallsAPI
 	outcallId        int32
@@ -1054,12 +1054,12 @@ type ApiDissociateOutcallCallpermissionRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateOutcallCallpermissionRequest) AccentTenant(accentTenant string) ApiDissociateOutcallCallpermissionRequest {
+func (r OutcallsAPIDissociateOutcallCallpermissionRequest) AccentTenant(accentTenant string) OutcallsAPIDissociateOutcallCallpermissionRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateOutcallCallpermissionRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIDissociateOutcallCallpermissionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateOutcallCallpermissionExecute(r)
 }
 
@@ -1071,10 +1071,10 @@ DissociateOutcallCallpermission Dissociate outcall and call permission
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param callpermissionId Call Permission's ID
-	@return ApiDissociateOutcallCallpermissionRequest
+	@return OutcallsAPIDissociateOutcallCallpermissionRequest
 */
-func (a *OutcallsAPIService) DissociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) ApiDissociateOutcallCallpermissionRequest {
-	return ApiDissociateOutcallCallpermissionRequest{
+func (a *OutcallsAPIService) DissociateOutcallCallpermission(ctx context.Context, outcallId int32, callpermissionId int32) OutcallsAPIDissociateOutcallCallpermissionRequest {
+	return OutcallsAPIDissociateOutcallCallpermissionRequest{
 		ApiService:       a,
 		ctx:              ctx,
 		outcallId:        outcallId,
@@ -1083,7 +1083,7 @@ func (a *OutcallsAPIService) DissociateOutcallCallpermission(ctx context.Context
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) DissociateOutcallCallpermissionExecute(r ApiDissociateOutcallCallpermissionRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) DissociateOutcallCallpermissionExecute(r OutcallsAPIDissociateOutcallCallpermissionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1186,14 +1186,14 @@ func (a *OutcallsAPIService) DissociateOutcallCallpermissionExecute(r ApiDissoci
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateOutcallExtensionRequest struct {
+type OutcallsAPIDissociateOutcallExtensionRequest struct {
 	ctx         context.Context
 	ApiService  OutcallsAPI
 	outcallId   int32
 	extensionId int32
 }
 
-func (r ApiDissociateOutcallExtensionRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIDissociateOutcallExtensionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateOutcallExtensionExecute(r)
 }
 
@@ -1205,10 +1205,10 @@ DissociateOutcallExtension Dissociate outcall and extension
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param extensionId
-	@return ApiDissociateOutcallExtensionRequest
+	@return OutcallsAPIDissociateOutcallExtensionRequest
 */
-func (a *OutcallsAPIService) DissociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) ApiDissociateOutcallExtensionRequest {
-	return ApiDissociateOutcallExtensionRequest{
+func (a *OutcallsAPIService) DissociateOutcallExtension(ctx context.Context, outcallId int32, extensionId int32) OutcallsAPIDissociateOutcallExtensionRequest {
+	return OutcallsAPIDissociateOutcallExtensionRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		outcallId:   outcallId,
@@ -1217,7 +1217,7 @@ func (a *OutcallsAPIService) DissociateOutcallExtension(ctx context.Context, out
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) DissociateOutcallExtensionExecute(r ApiDissociateOutcallExtensionRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) DissociateOutcallExtensionExecute(r OutcallsAPIDissociateOutcallExtensionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1317,7 +1317,7 @@ func (a *OutcallsAPIService) DissociateOutcallExtensionExecute(r ApiDissociateOu
 	return localVarHTTPResponse, nil
 }
 
-type ApiDissociateOutcallScheduleRequest struct {
+type OutcallsAPIDissociateOutcallScheduleRequest struct {
 	ctx          context.Context
 	ApiService   OutcallsAPI
 	outcallId    int32
@@ -1326,12 +1326,12 @@ type ApiDissociateOutcallScheduleRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDissociateOutcallScheduleRequest) AccentTenant(accentTenant string) ApiDissociateOutcallScheduleRequest {
+func (r OutcallsAPIDissociateOutcallScheduleRequest) AccentTenant(accentTenant string) OutcallsAPIDissociateOutcallScheduleRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDissociateOutcallScheduleRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIDissociateOutcallScheduleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DissociateOutcallScheduleExecute(r)
 }
 
@@ -1343,10 +1343,10 @@ DissociateOutcallSchedule Dissociate outcall and schedule
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
 	@param scheduleId Schedule's ID
-	@return ApiDissociateOutcallScheduleRequest
+	@return OutcallsAPIDissociateOutcallScheduleRequest
 */
-func (a *OutcallsAPIService) DissociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) ApiDissociateOutcallScheduleRequest {
-	return ApiDissociateOutcallScheduleRequest{
+func (a *OutcallsAPIService) DissociateOutcallSchedule(ctx context.Context, outcallId int32, scheduleId int32) OutcallsAPIDissociateOutcallScheduleRequest {
+	return OutcallsAPIDissociateOutcallScheduleRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -1355,7 +1355,7 @@ func (a *OutcallsAPIService) DissociateOutcallSchedule(ctx context.Context, outc
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) DissociateOutcallScheduleExecute(r ApiDissociateOutcallScheduleRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) DissociateOutcallScheduleExecute(r OutcallsAPIDissociateOutcallScheduleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -1458,7 +1458,7 @@ func (a *OutcallsAPIService) DissociateOutcallScheduleExecute(r ApiDissociateOut
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetOutcallRequest struct {
+type OutcallsAPIGetOutcallRequest struct {
 	ctx          context.Context
 	ApiService   OutcallsAPI
 	outcallId    int32
@@ -1466,12 +1466,12 @@ type ApiGetOutcallRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetOutcallRequest) AccentTenant(accentTenant string) ApiGetOutcallRequest {
+func (r OutcallsAPIGetOutcallRequest) AccentTenant(accentTenant string) OutcallsAPIGetOutcallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetOutcallRequest) Execute() (*Outcall, *http.Response, error) {
+func (r OutcallsAPIGetOutcallRequest) Execute() (*Outcall, *http.Response, error) {
 	return r.ApiService.GetOutcallExecute(r)
 }
 
@@ -1482,10 +1482,10 @@ GetOutcall Get outgoing call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
-	@return ApiGetOutcallRequest
+	@return OutcallsAPIGetOutcallRequest
 */
-func (a *OutcallsAPIService) GetOutcall(ctx context.Context, outcallId int32) ApiGetOutcallRequest {
-	return ApiGetOutcallRequest{
+func (a *OutcallsAPIService) GetOutcall(ctx context.Context, outcallId int32) OutcallsAPIGetOutcallRequest {
+	return OutcallsAPIGetOutcallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -1495,7 +1495,7 @@ func (a *OutcallsAPIService) GetOutcall(ctx context.Context, outcallId int32) Ap
 // Execute executes the request
 //
 //	@return Outcall
-func (a *OutcallsAPIService) GetOutcallExecute(r ApiGetOutcallRequest) (*Outcall, *http.Response, error) {
+func (a *OutcallsAPIService) GetOutcallExecute(r OutcallsAPIGetOutcallRequest) (*Outcall, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1596,7 +1596,7 @@ func (a *OutcallsAPIService) GetOutcallExecute(r ApiGetOutcallRequest) (*Outcall
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListOutcallsRequest struct {
+type OutcallsAPIListOutcallsRequest struct {
 	ctx          context.Context
 	ApiService   OutcallsAPI
 	accentTenant *string
@@ -1609,48 +1609,48 @@ type ApiListOutcallsRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListOutcallsRequest) AccentTenant(accentTenant string) ApiListOutcallsRequest {
+func (r OutcallsAPIListOutcallsRequest) AccentTenant(accentTenant string) OutcallsAPIListOutcallsRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListOutcallsRequest) Recurse(recurse bool) ApiListOutcallsRequest {
+func (r OutcallsAPIListOutcallsRequest) Recurse(recurse bool) OutcallsAPIListOutcallsRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListOutcallsRequest) Order(order string) ApiListOutcallsRequest {
+func (r OutcallsAPIListOutcallsRequest) Order(order string) OutcallsAPIListOutcallsRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListOutcallsRequest) Direction(direction string) ApiListOutcallsRequest {
+func (r OutcallsAPIListOutcallsRequest) Direction(direction string) OutcallsAPIListOutcallsRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListOutcallsRequest) Limit(limit int32) ApiListOutcallsRequest {
+func (r OutcallsAPIListOutcallsRequest) Limit(limit int32) OutcallsAPIListOutcallsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListOutcallsRequest) Offset(offset int32) ApiListOutcallsRequest {
+func (r OutcallsAPIListOutcallsRequest) Offset(offset int32) OutcallsAPIListOutcallsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListOutcallsRequest) Search(search string) ApiListOutcallsRequest {
+func (r OutcallsAPIListOutcallsRequest) Search(search string) OutcallsAPIListOutcallsRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListOutcallsRequest) Execute() (*OutcallItems, *http.Response, error) {
+func (r OutcallsAPIListOutcallsRequest) Execute() (*OutcallItems, *http.Response, error) {
 	return r.ApiService.ListOutcallsExecute(r)
 }
 
@@ -1660,10 +1660,10 @@ ListOutcalls List outgoing calls
 **Required ACL:** `confd.outcalls.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListOutcallsRequest
+	@return OutcallsAPIListOutcallsRequest
 */
-func (a *OutcallsAPIService) ListOutcalls(ctx context.Context) ApiListOutcallsRequest {
-	return ApiListOutcallsRequest{
+func (a *OutcallsAPIService) ListOutcalls(ctx context.Context) OutcallsAPIListOutcallsRequest {
+	return OutcallsAPIListOutcallsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -1672,7 +1672,7 @@ func (a *OutcallsAPIService) ListOutcalls(ctx context.Context) ApiListOutcallsRe
 // Execute executes the request
 //
 //	@return OutcallItems
-func (a *OutcallsAPIService) ListOutcallsExecute(r ApiListOutcallsRequest) (*OutcallItems, *http.Response, error) {
+func (a *OutcallsAPIService) ListOutcallsExecute(r OutcallsAPIListOutcallsRequest) (*OutcallItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1783,7 +1783,7 @@ func (a *OutcallsAPIService) ListOutcallsExecute(r ApiListOutcallsRequest) (*Out
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateOutcallRequest struct {
+type OutcallsAPIUpdateOutcallRequest struct {
 	ctx          context.Context
 	ApiService   OutcallsAPI
 	body         *Outcall
@@ -1791,18 +1791,18 @@ type ApiUpdateOutcallRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateOutcallRequest) Body(body Outcall) ApiUpdateOutcallRequest {
+func (r OutcallsAPIUpdateOutcallRequest) Body(body Outcall) OutcallsAPIUpdateOutcallRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateOutcallRequest) AccentTenant(accentTenant string) ApiUpdateOutcallRequest {
+func (r OutcallsAPIUpdateOutcallRequest) AccentTenant(accentTenant string) OutcallsAPIUpdateOutcallRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateOutcallRequest) Execute() (*http.Response, error) {
+func (r OutcallsAPIUpdateOutcallRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateOutcallExecute(r)
 }
 
@@ -1813,10 +1813,10 @@ UpdateOutcall Update outgoing call
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param outcallId Outgoing call's ID
-	@return ApiUpdateOutcallRequest
+	@return OutcallsAPIUpdateOutcallRequest
 */
-func (a *OutcallsAPIService) UpdateOutcall(ctx context.Context, outcallId int32) ApiUpdateOutcallRequest {
-	return ApiUpdateOutcallRequest{
+func (a *OutcallsAPIService) UpdateOutcall(ctx context.Context, outcallId int32) OutcallsAPIUpdateOutcallRequest {
+	return OutcallsAPIUpdateOutcallRequest{
 		ApiService: a,
 		ctx:        ctx,
 		outcallId:  outcallId,
@@ -1824,7 +1824,7 @@ func (a *OutcallsAPIService) UpdateOutcall(ctx context.Context, outcallId int32)
 }
 
 // Execute executes the request
-func (a *OutcallsAPIService) UpdateOutcallExecute(r ApiUpdateOutcallRequest) (*http.Response, error) {
+func (a *OutcallsAPIService) UpdateOutcallExecute(r OutcallsAPIUpdateOutcallRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

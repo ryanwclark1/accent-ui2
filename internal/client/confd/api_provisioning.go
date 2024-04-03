@@ -27,13 +27,13 @@ type ProvisioningAPI interface {
 		**Required ACL:** `confd.provisioning.networking.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiGetProvisioningNetworkingRequest
+		@return ProvisioningAPIGetProvisioningNetworkingRequest
 	*/
-	GetProvisioningNetworking(ctx context.Context) ApiGetProvisioningNetworkingRequest
+	GetProvisioningNetworking(ctx context.Context) ProvisioningAPIGetProvisioningNetworkingRequest
 
 	// GetProvisioningNetworkingExecute executes the request
 	//  @return ProvisioningNetworking
-	GetProvisioningNetworkingExecute(r ApiGetProvisioningNetworkingRequest) (*ProvisioningNetworking, *http.Response, error)
+	GetProvisioningNetworkingExecute(r ProvisioningAPIGetProvisioningNetworkingRequest) (*ProvisioningNetworking, *http.Response, error)
 
 	/*
 		UpdateProvisioningNetworking Update Provisioning Networking configuration
@@ -41,23 +41,23 @@ type ProvisioningAPI interface {
 		**Required ACL:** `confd.provisioning.networking.update`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiUpdateProvisioningNetworkingRequest
+		@return ProvisioningAPIUpdateProvisioningNetworkingRequest
 	*/
-	UpdateProvisioningNetworking(ctx context.Context) ApiUpdateProvisioningNetworkingRequest
+	UpdateProvisioningNetworking(ctx context.Context) ProvisioningAPIUpdateProvisioningNetworkingRequest
 
 	// UpdateProvisioningNetworkingExecute executes the request
-	UpdateProvisioningNetworkingExecute(r ApiUpdateProvisioningNetworkingRequest) (*http.Response, error)
+	UpdateProvisioningNetworkingExecute(r ProvisioningAPIUpdateProvisioningNetworkingRequest) (*http.Response, error)
 }
 
 // ProvisioningAPIService ProvisioningAPI service
 type ProvisioningAPIService service
 
-type ApiGetProvisioningNetworkingRequest struct {
+type ProvisioningAPIGetProvisioningNetworkingRequest struct {
 	ctx        context.Context
 	ApiService ProvisioningAPI
 }
 
-func (r ApiGetProvisioningNetworkingRequest) Execute() (*ProvisioningNetworking, *http.Response, error) {
+func (r ProvisioningAPIGetProvisioningNetworkingRequest) Execute() (*ProvisioningNetworking, *http.Response, error) {
 	return r.ApiService.GetProvisioningNetworkingExecute(r)
 }
 
@@ -67,10 +67,10 @@ GetProvisioningNetworking Get Provisioning Networking configuration
 **Required ACL:** `confd.provisioning.networking.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetProvisioningNetworkingRequest
+	@return ProvisioningAPIGetProvisioningNetworkingRequest
 */
-func (a *ProvisioningAPIService) GetProvisioningNetworking(ctx context.Context) ApiGetProvisioningNetworkingRequest {
-	return ApiGetProvisioningNetworkingRequest{
+func (a *ProvisioningAPIService) GetProvisioningNetworking(ctx context.Context) ProvisioningAPIGetProvisioningNetworkingRequest {
+	return ProvisioningAPIGetProvisioningNetworkingRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -79,7 +79,7 @@ func (a *ProvisioningAPIService) GetProvisioningNetworking(ctx context.Context) 
 // Execute executes the request
 //
 //	@return ProvisioningNetworking
-func (a *ProvisioningAPIService) GetProvisioningNetworkingExecute(r ApiGetProvisioningNetworkingRequest) (*ProvisioningNetworking, *http.Response, error) {
+func (a *ProvisioningAPIService) GetProvisioningNetworkingExecute(r ProvisioningAPIGetProvisioningNetworkingRequest) (*ProvisioningNetworking, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -166,18 +166,18 @@ func (a *ProvisioningAPIService) GetProvisioningNetworkingExecute(r ApiGetProvis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProvisioningNetworkingRequest struct {
+type ProvisioningAPIUpdateProvisioningNetworkingRequest struct {
 	ctx        context.Context
 	ApiService ProvisioningAPI
 	body       *ProvisioningNetworking
 }
 
-func (r ApiUpdateProvisioningNetworkingRequest) Body(body ProvisioningNetworking) ApiUpdateProvisioningNetworkingRequest {
+func (r ProvisioningAPIUpdateProvisioningNetworkingRequest) Body(body ProvisioningNetworking) ProvisioningAPIUpdateProvisioningNetworkingRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiUpdateProvisioningNetworkingRequest) Execute() (*http.Response, error) {
+func (r ProvisioningAPIUpdateProvisioningNetworkingRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateProvisioningNetworkingExecute(r)
 }
 
@@ -187,17 +187,17 @@ UpdateProvisioningNetworking Update Provisioning Networking configuration
 **Required ACL:** `confd.provisioning.networking.update`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiUpdateProvisioningNetworkingRequest
+	@return ProvisioningAPIUpdateProvisioningNetworkingRequest
 */
-func (a *ProvisioningAPIService) UpdateProvisioningNetworking(ctx context.Context) ApiUpdateProvisioningNetworkingRequest {
-	return ApiUpdateProvisioningNetworkingRequest{
+func (a *ProvisioningAPIService) UpdateProvisioningNetworking(ctx context.Context) ProvisioningAPIUpdateProvisioningNetworkingRequest {
+	return ProvisioningAPIUpdateProvisioningNetworkingRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ProvisioningAPIService) UpdateProvisioningNetworkingExecute(r ApiUpdateProvisioningNetworkingRequest) (*http.Response, error) {
+func (a *ProvisioningAPIService) UpdateProvisioningNetworkingExecute(r ProvisioningAPIUpdateProvisioningNetworkingRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}

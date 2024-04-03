@@ -27,24 +27,24 @@ type StatusAPI interface {
 		**Required ACL:** `confd.status.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiStatusGetRequest
+		@return StatusAPIStatusGetRequest
 	*/
-	StatusGet(ctx context.Context) ApiStatusGetRequest
+	StatusGet(ctx context.Context) StatusAPIStatusGetRequest
 
 	// StatusGetExecute executes the request
 	//  @return StatusSummary
-	StatusGetExecute(r ApiStatusGetRequest) (*StatusSummary, *http.Response, error)
+	StatusGetExecute(r StatusAPIStatusGetRequest) (*StatusSummary, *http.Response, error)
 }
 
 // StatusAPIService StatusAPI service
 type StatusAPIService service
 
-type ApiStatusGetRequest struct {
+type StatusAPIStatusGetRequest struct {
 	ctx        context.Context
 	ApiService StatusAPI
 }
 
-func (r ApiStatusGetRequest) Execute() (*StatusSummary, *http.Response, error) {
+func (r StatusAPIStatusGetRequest) Execute() (*StatusSummary, *http.Response, error) {
 	return r.ApiService.StatusGetExecute(r)
 }
 
@@ -54,10 +54,10 @@ StatusGet Provides internal status of accent-confd`
 **Required ACL:** `confd.status.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiStatusGetRequest
+	@return StatusAPIStatusGetRequest
 */
-func (a *StatusAPIService) StatusGet(ctx context.Context) ApiStatusGetRequest {
-	return ApiStatusGetRequest{
+func (a *StatusAPIService) StatusGet(ctx context.Context) StatusAPIStatusGetRequest {
+	return StatusAPIStatusGetRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -66,7 +66,7 @@ func (a *StatusAPIService) StatusGet(ctx context.Context) ApiStatusGetRequest {
 // Execute executes the request
 //
 //	@return StatusSummary
-func (a *StatusAPIService) StatusGetExecute(r ApiStatusGetRequest) (*StatusSummary, *http.Response, error) {
+func (a *StatusAPIService) StatusGetExecute(r StatusAPIStatusGetRequest) (*StatusSummary, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

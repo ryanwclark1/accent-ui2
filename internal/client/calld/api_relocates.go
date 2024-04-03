@@ -29,12 +29,12 @@ type RelocatesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param relocateUuid Unique identifier of the relocate
-		@return ApiCancelRelocateRequest
+		@return RelocatesAPICancelRelocateRequest
 	*/
-	CancelRelocate(ctx context.Context, relocateUuid string) ApiCancelRelocateRequest
+	CancelRelocate(ctx context.Context, relocateUuid string) RelocatesAPICancelRelocateRequest
 
 	// CancelRelocateExecute executes the request
-	CancelRelocateExecute(r ApiCancelRelocateRequest) (*http.Response, error)
+	CancelRelocateExecute(r RelocatesAPICancelRelocateRequest) (*http.Response, error)
 
 	/*
 		CompleteRelocate Complete a relocate
@@ -43,12 +43,12 @@ type RelocatesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param relocateUuid Unique identifier of the relocate
-		@return ApiCompleteRelocateRequest
+		@return RelocatesAPICompleteRelocateRequest
 	*/
-	CompleteRelocate(ctx context.Context, relocateUuid string) ApiCompleteRelocateRequest
+	CompleteRelocate(ctx context.Context, relocateUuid string) RelocatesAPICompleteRelocateRequest
 
 	// CompleteRelocateExecute executes the request
-	CompleteRelocateExecute(r ApiCompleteRelocateRequest) (*http.Response, error)
+	CompleteRelocateExecute(r RelocatesAPICompleteRelocateRequest) (*http.Response, error)
 
 	/*
 		GetUserRelocate Get details of a relocate
@@ -57,13 +57,13 @@ type RelocatesAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param relocateUuid Unique identifier of the relocate
-		@return ApiGetUserRelocateRequest
+		@return RelocatesAPIGetUserRelocateRequest
 	*/
-	GetUserRelocate(ctx context.Context, relocateUuid string) ApiGetUserRelocateRequest
+	GetUserRelocate(ctx context.Context, relocateUuid string) RelocatesAPIGetUserRelocateRequest
 
 	// GetUserRelocateExecute executes the request
 	//  @return Relocate
-	GetUserRelocateExecute(r ApiGetUserRelocateRequest) (*Relocate, *http.Response, error)
+	GetUserRelocateExecute(r RelocatesAPIGetUserRelocateRequest) (*Relocate, *http.Response, error)
 
 	/*
 		InitiateRelocate Initiate a relocate from the authenticated user
@@ -71,13 +71,13 @@ type RelocatesAPI interface {
 		**Required ACL:** `calld.users.me.relocates.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiInitiateRelocateRequest
+		@return RelocatesAPIInitiateRelocateRequest
 	*/
-	InitiateRelocate(ctx context.Context) ApiInitiateRelocateRequest
+	InitiateRelocate(ctx context.Context) RelocatesAPIInitiateRelocateRequest
 
 	// InitiateRelocateExecute executes the request
 	//  @return Relocate
-	InitiateRelocateExecute(r ApiInitiateRelocateRequest) (*Relocate, *http.Response, error)
+	InitiateRelocateExecute(r RelocatesAPIInitiateRelocateRequest) (*Relocate, *http.Response, error)
 
 	/*
 		ListUserRelocates Get the relocates of the authenticated user
@@ -85,25 +85,25 @@ type RelocatesAPI interface {
 		**Required ACL:** `calld.users.me.relocates.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListUserRelocatesRequest
+		@return RelocatesAPIListUserRelocatesRequest
 	*/
-	ListUserRelocates(ctx context.Context) ApiListUserRelocatesRequest
+	ListUserRelocates(ctx context.Context) RelocatesAPIListUserRelocatesRequest
 
 	// ListUserRelocatesExecute executes the request
 	//  @return RelocateList
-	ListUserRelocatesExecute(r ApiListUserRelocatesRequest) (*RelocateList, *http.Response, error)
+	ListUserRelocatesExecute(r RelocatesAPIListUserRelocatesRequest) (*RelocateList, *http.Response, error)
 }
 
 // RelocatesAPIService RelocatesAPI service
 type RelocatesAPIService service
 
-type ApiCancelRelocateRequest struct {
+type RelocatesAPICancelRelocateRequest struct {
 	ctx          context.Context
 	ApiService   RelocatesAPI
 	relocateUuid string
 }
 
-func (r ApiCancelRelocateRequest) Execute() (*http.Response, error) {
+func (r RelocatesAPICancelRelocateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CancelRelocateExecute(r)
 }
 
@@ -114,10 +114,10 @@ CancelRelocate Cancel a relocate
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param relocateUuid Unique identifier of the relocate
-	@return ApiCancelRelocateRequest
+	@return RelocatesAPICancelRelocateRequest
 */
-func (a *RelocatesAPIService) CancelRelocate(ctx context.Context, relocateUuid string) ApiCancelRelocateRequest {
-	return ApiCancelRelocateRequest{
+func (a *RelocatesAPIService) CancelRelocate(ctx context.Context, relocateUuid string) RelocatesAPICancelRelocateRequest {
+	return RelocatesAPICancelRelocateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		relocateUuid: relocateUuid,
@@ -125,7 +125,7 @@ func (a *RelocatesAPIService) CancelRelocate(ctx context.Context, relocateUuid s
 }
 
 // Execute executes the request
-func (a *RelocatesAPIService) CancelRelocateExecute(r ApiCancelRelocateRequest) (*http.Response, error) {
+func (a *RelocatesAPIService) CancelRelocateExecute(r RelocatesAPICancelRelocateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -235,13 +235,13 @@ func (a *RelocatesAPIService) CancelRelocateExecute(r ApiCancelRelocateRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiCompleteRelocateRequest struct {
+type RelocatesAPICompleteRelocateRequest struct {
 	ctx          context.Context
 	ApiService   RelocatesAPI
 	relocateUuid string
 }
 
-func (r ApiCompleteRelocateRequest) Execute() (*http.Response, error) {
+func (r RelocatesAPICompleteRelocateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CompleteRelocateExecute(r)
 }
 
@@ -252,10 +252,10 @@ CompleteRelocate Complete a relocate
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param relocateUuid Unique identifier of the relocate
-	@return ApiCompleteRelocateRequest
+	@return RelocatesAPICompleteRelocateRequest
 */
-func (a *RelocatesAPIService) CompleteRelocate(ctx context.Context, relocateUuid string) ApiCompleteRelocateRequest {
-	return ApiCompleteRelocateRequest{
+func (a *RelocatesAPIService) CompleteRelocate(ctx context.Context, relocateUuid string) RelocatesAPICompleteRelocateRequest {
+	return RelocatesAPICompleteRelocateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		relocateUuid: relocateUuid,
@@ -263,7 +263,7 @@ func (a *RelocatesAPIService) CompleteRelocate(ctx context.Context, relocateUuid
 }
 
 // Execute executes the request
-func (a *RelocatesAPIService) CompleteRelocateExecute(r ApiCompleteRelocateRequest) (*http.Response, error) {
+func (a *RelocatesAPIService) CompleteRelocateExecute(r RelocatesAPICompleteRelocateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -373,13 +373,13 @@ func (a *RelocatesAPIService) CompleteRelocateExecute(r ApiCompleteRelocateReque
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetUserRelocateRequest struct {
+type RelocatesAPIGetUserRelocateRequest struct {
 	ctx          context.Context
 	ApiService   RelocatesAPI
 	relocateUuid string
 }
 
-func (r ApiGetUserRelocateRequest) Execute() (*Relocate, *http.Response, error) {
+func (r RelocatesAPIGetUserRelocateRequest) Execute() (*Relocate, *http.Response, error) {
 	return r.ApiService.GetUserRelocateExecute(r)
 }
 
@@ -390,10 +390,10 @@ GetUserRelocate Get details of a relocate
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param relocateUuid Unique identifier of the relocate
-	@return ApiGetUserRelocateRequest
+	@return RelocatesAPIGetUserRelocateRequest
 */
-func (a *RelocatesAPIService) GetUserRelocate(ctx context.Context, relocateUuid string) ApiGetUserRelocateRequest {
-	return ApiGetUserRelocateRequest{
+func (a *RelocatesAPIService) GetUserRelocate(ctx context.Context, relocateUuid string) RelocatesAPIGetUserRelocateRequest {
+	return RelocatesAPIGetUserRelocateRequest{
 		ApiService:   a,
 		ctx:          ctx,
 		relocateUuid: relocateUuid,
@@ -403,7 +403,7 @@ func (a *RelocatesAPIService) GetUserRelocate(ctx context.Context, relocateUuid 
 // Execute executes the request
 //
 //	@return Relocate
-func (a *RelocatesAPIService) GetUserRelocateExecute(r ApiGetUserRelocateRequest) (*Relocate, *http.Response, error) {
+func (a *RelocatesAPIService) GetUserRelocateExecute(r RelocatesAPIGetUserRelocateRequest) (*Relocate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -512,19 +512,19 @@ func (a *RelocatesAPIService) GetUserRelocateExecute(r ApiGetUserRelocateRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInitiateRelocateRequest struct {
+type RelocatesAPIInitiateRelocateRequest struct {
 	ctx        context.Context
 	ApiService RelocatesAPI
 	body       *UserRelocateRequest
 }
 
 // Parameters of the relocate
-func (r ApiInitiateRelocateRequest) Body(body UserRelocateRequest) ApiInitiateRelocateRequest {
+func (r RelocatesAPIInitiateRelocateRequest) Body(body UserRelocateRequest) RelocatesAPIInitiateRelocateRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiInitiateRelocateRequest) Execute() (*Relocate, *http.Response, error) {
+func (r RelocatesAPIInitiateRelocateRequest) Execute() (*Relocate, *http.Response, error) {
 	return r.ApiService.InitiateRelocateExecute(r)
 }
 
@@ -534,10 +534,10 @@ InitiateRelocate Initiate a relocate from the authenticated user
 **Required ACL:** `calld.users.me.relocates.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiInitiateRelocateRequest
+	@return RelocatesAPIInitiateRelocateRequest
 */
-func (a *RelocatesAPIService) InitiateRelocate(ctx context.Context) ApiInitiateRelocateRequest {
-	return ApiInitiateRelocateRequest{
+func (a *RelocatesAPIService) InitiateRelocate(ctx context.Context) RelocatesAPIInitiateRelocateRequest {
+	return RelocatesAPIInitiateRelocateRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -546,7 +546,7 @@ func (a *RelocatesAPIService) InitiateRelocate(ctx context.Context) ApiInitiateR
 // Execute executes the request
 //
 //	@return Relocate
-func (a *RelocatesAPIService) InitiateRelocateExecute(r ApiInitiateRelocateRequest) (*Relocate, *http.Response, error) {
+func (a *RelocatesAPIService) InitiateRelocateExecute(r RelocatesAPIInitiateRelocateRequest) (*Relocate, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -681,12 +681,12 @@ func (a *RelocatesAPIService) InitiateRelocateExecute(r ApiInitiateRelocateReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUserRelocatesRequest struct {
+type RelocatesAPIListUserRelocatesRequest struct {
 	ctx        context.Context
 	ApiService RelocatesAPI
 }
 
-func (r ApiListUserRelocatesRequest) Execute() (*RelocateList, *http.Response, error) {
+func (r RelocatesAPIListUserRelocatesRequest) Execute() (*RelocateList, *http.Response, error) {
 	return r.ApiService.ListUserRelocatesExecute(r)
 }
 
@@ -696,10 +696,10 @@ ListUserRelocates Get the relocates of the authenticated user
 **Required ACL:** `calld.users.me.relocates.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListUserRelocatesRequest
+	@return RelocatesAPIListUserRelocatesRequest
 */
-func (a *RelocatesAPIService) ListUserRelocates(ctx context.Context) ApiListUserRelocatesRequest {
-	return ApiListUserRelocatesRequest{
+func (a *RelocatesAPIService) ListUserRelocates(ctx context.Context) RelocatesAPIListUserRelocatesRequest {
+	return RelocatesAPIListUserRelocatesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -708,7 +708,7 @@ func (a *RelocatesAPIService) ListUserRelocates(ctx context.Context) ApiListUser
 // Execute executes the request
 //
 //	@return RelocateList
-func (a *RelocatesAPIService) ListUserRelocatesExecute(r ApiListUserRelocatesRequest) (*RelocateList, *http.Response, error) {
+func (a *RelocatesAPIService) ListUserRelocatesExecute(r RelocatesAPIListUserRelocatesRequest) (*RelocateList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}

@@ -28,13 +28,13 @@ type MohAPI interface {
 		**Required ACL:** `confd.moh.create`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiCreateMohRequest
+		@return MohAPICreateMohRequest
 	*/
-	CreateMoh(ctx context.Context) ApiCreateMohRequest
+	CreateMoh(ctx context.Context) MohAPICreateMohRequest
 
 	// CreateMohExecute executes the request
 	//  @return Moh
-	CreateMohExecute(r ApiCreateMohRequest) (*Moh, *http.Response, error)
+	CreateMohExecute(r MohAPICreateMohRequest) (*Moh, *http.Response, error)
 
 	/*
 		DeleteMoh Delete MOH class
@@ -46,12 +46,12 @@ type MohAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param mohUuid
-		@return ApiDeleteMohRequest
+		@return MohAPIDeleteMohRequest
 	*/
-	DeleteMoh(ctx context.Context, mohUuid string) ApiDeleteMohRequest
+	DeleteMoh(ctx context.Context, mohUuid string) MohAPIDeleteMohRequest
 
 	// DeleteMohExecute executes the request
-	DeleteMohExecute(r ApiDeleteMohRequest) (*http.Response, error)
+	DeleteMohExecute(r MohAPIDeleteMohRequest) (*http.Response, error)
 
 	/*
 		DeleteMohFiles Delete audio file
@@ -61,12 +61,12 @@ type MohAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param mohUuid
 		@param mohFilename
-		@return ApiDeleteMohFilesRequest
+		@return MohAPIDeleteMohFilesRequest
 	*/
-	DeleteMohFiles(ctx context.Context, mohUuid string, mohFilename string) ApiDeleteMohFilesRequest
+	DeleteMohFiles(ctx context.Context, mohUuid string, mohFilename string) MohAPIDeleteMohFilesRequest
 
 	// DeleteMohFilesExecute executes the request
-	DeleteMohFilesExecute(r ApiDeleteMohFilesRequest) (*http.Response, error)
+	DeleteMohFilesExecute(r MohAPIDeleteMohFilesRequest) (*http.Response, error)
 
 	/*
 		GetMoh Get MOH class
@@ -75,13 +75,13 @@ type MohAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param mohUuid
-		@return ApiGetMohRequest
+		@return MohAPIGetMohRequest
 	*/
-	GetMoh(ctx context.Context, mohUuid string) ApiGetMohRequest
+	GetMoh(ctx context.Context, mohUuid string) MohAPIGetMohRequest
 
 	// GetMohExecute executes the request
 	//  @return Moh
-	GetMohExecute(r ApiGetMohRequest) (*Moh, *http.Response, error)
+	GetMohExecute(r MohAPIGetMohRequest) (*Moh, *http.Response, error)
 
 	/*
 		GetMohFiles Get audio file
@@ -91,12 +91,12 @@ type MohAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param mohUuid
 		@param mohFilename
-		@return ApiGetMohFilesRequest
+		@return MohAPIGetMohFilesRequest
 	*/
-	GetMohFiles(ctx context.Context, mohUuid string, mohFilename string) ApiGetMohFilesRequest
+	GetMohFiles(ctx context.Context, mohUuid string, mohFilename string) MohAPIGetMohFilesRequest
 
 	// GetMohFilesExecute executes the request
-	GetMohFilesExecute(r ApiGetMohFilesRequest) (*http.Response, error)
+	GetMohFilesExecute(r MohAPIGetMohFilesRequest) (*http.Response, error)
 
 	/*
 		ListMoh List MOH classes
@@ -104,13 +104,13 @@ type MohAPI interface {
 		**Required ACL:** `confd.moh.read`
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-		@return ApiListMohRequest
+		@return MohAPIListMohRequest
 	*/
-	ListMoh(ctx context.Context) ApiListMohRequest
+	ListMoh(ctx context.Context) MohAPIListMohRequest
 
 	// ListMohExecute executes the request
 	//  @return MohItems
-	ListMohExecute(r ApiListMohRequest) (*MohItems, *http.Response, error)
+	ListMohExecute(r MohAPIListMohRequest) (*MohItems, *http.Response, error)
 
 	/*
 		UpdateMoh Update MOH class
@@ -119,12 +119,12 @@ type MohAPI interface {
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param mohUuid
-		@return ApiUpdateMohRequest
+		@return MohAPIUpdateMohRequest
 	*/
-	UpdateMoh(ctx context.Context, mohUuid string) ApiUpdateMohRequest
+	UpdateMoh(ctx context.Context, mohUuid string) MohAPIUpdateMohRequest
 
 	// UpdateMohExecute executes the request
-	UpdateMohExecute(r ApiUpdateMohRequest) (*http.Response, error)
+	UpdateMohExecute(r MohAPIUpdateMohRequest) (*http.Response, error)
 
 	/*
 		UpdateMohFiles Add or update audio file
@@ -134,30 +134,30 @@ type MohAPI interface {
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param mohUuid
 		@param mohFilename
-		@return ApiUpdateMohFilesRequest
+		@return MohAPIUpdateMohFilesRequest
 	*/
-	UpdateMohFiles(ctx context.Context, mohUuid string, mohFilename string) ApiUpdateMohFilesRequest
+	UpdateMohFiles(ctx context.Context, mohUuid string, mohFilename string) MohAPIUpdateMohFilesRequest
 
 	// UpdateMohFilesExecute executes the request
-	UpdateMohFilesExecute(r ApiUpdateMohFilesRequest) (*http.Response, error)
+	UpdateMohFilesExecute(r MohAPIUpdateMohFilesRequest) (*http.Response, error)
 }
 
 // MohAPIService MohAPI service
 type MohAPIService service
 
-type ApiCreateMohRequest struct {
+type MohAPICreateMohRequest struct {
 	ctx        context.Context
 	ApiService MohAPI
 	body       *Moh
 }
 
 // MOH class to create
-func (r ApiCreateMohRequest) Body(body Moh) ApiCreateMohRequest {
+func (r MohAPICreateMohRequest) Body(body Moh) MohAPICreateMohRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiCreateMohRequest) Execute() (*Moh, *http.Response, error) {
+func (r MohAPICreateMohRequest) Execute() (*Moh, *http.Response, error) {
 	return r.ApiService.CreateMohExecute(r)
 }
 
@@ -167,10 +167,10 @@ CreateMoh Create MOH class
 **Required ACL:** `confd.moh.create`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateMohRequest
+	@return MohAPICreateMohRequest
 */
-func (a *MohAPIService) CreateMoh(ctx context.Context) ApiCreateMohRequest {
-	return ApiCreateMohRequest{
+func (a *MohAPIService) CreateMoh(ctx context.Context) MohAPICreateMohRequest {
+	return MohAPICreateMohRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -179,7 +179,7 @@ func (a *MohAPIService) CreateMoh(ctx context.Context) ApiCreateMohRequest {
 // Execute executes the request
 //
 //	@return Moh
-func (a *MohAPIService) CreateMohExecute(r ApiCreateMohRequest) (*Moh, *http.Response, error) {
+func (a *MohAPIService) CreateMohExecute(r MohAPICreateMohRequest) (*Moh, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
@@ -281,7 +281,7 @@ func (a *MohAPIService) CreateMohExecute(r ApiCreateMohRequest) (*Moh, *http.Res
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteMohRequest struct {
+type MohAPIDeleteMohRequest struct {
 	ctx          context.Context
 	ApiService   MohAPI
 	mohUuid      string
@@ -289,12 +289,12 @@ type ApiDeleteMohRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteMohRequest) AccentTenant(accentTenant string) ApiDeleteMohRequest {
+func (r MohAPIDeleteMohRequest) AccentTenant(accentTenant string) MohAPIDeleteMohRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteMohRequest) Execute() (*http.Response, error) {
+func (r MohAPIDeleteMohRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteMohExecute(r)
 }
 
@@ -307,10 +307,10 @@ Delete the MOH class and associated audio files.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param mohUuid
-	@return ApiDeleteMohRequest
+	@return MohAPIDeleteMohRequest
 */
-func (a *MohAPIService) DeleteMoh(ctx context.Context, mohUuid string) ApiDeleteMohRequest {
-	return ApiDeleteMohRequest{
+func (a *MohAPIService) DeleteMoh(ctx context.Context, mohUuid string) MohAPIDeleteMohRequest {
+	return MohAPIDeleteMohRequest{
 		ApiService: a,
 		ctx:        ctx,
 		mohUuid:    mohUuid,
@@ -318,7 +318,7 @@ func (a *MohAPIService) DeleteMoh(ctx context.Context, mohUuid string) ApiDelete
 }
 
 // Execute executes the request
-func (a *MohAPIService) DeleteMohExecute(r ApiDeleteMohRequest) (*http.Response, error) {
+func (a *MohAPIService) DeleteMohExecute(r MohAPIDeleteMohRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -420,7 +420,7 @@ func (a *MohAPIService) DeleteMohExecute(r ApiDeleteMohRequest) (*http.Response,
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteMohFilesRequest struct {
+type MohAPIDeleteMohFilesRequest struct {
 	ctx          context.Context
 	ApiService   MohAPI
 	mohUuid      string
@@ -429,12 +429,12 @@ type ApiDeleteMohFilesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiDeleteMohFilesRequest) AccentTenant(accentTenant string) ApiDeleteMohFilesRequest {
+func (r MohAPIDeleteMohFilesRequest) AccentTenant(accentTenant string) MohAPIDeleteMohFilesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiDeleteMohFilesRequest) Execute() (*http.Response, error) {
+func (r MohAPIDeleteMohFilesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteMohFilesExecute(r)
 }
 
@@ -446,10 +446,10 @@ DeleteMohFiles Delete audio file
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param mohUuid
 	@param mohFilename
-	@return ApiDeleteMohFilesRequest
+	@return MohAPIDeleteMohFilesRequest
 */
-func (a *MohAPIService) DeleteMohFiles(ctx context.Context, mohUuid string, mohFilename string) ApiDeleteMohFilesRequest {
-	return ApiDeleteMohFilesRequest{
+func (a *MohAPIService) DeleteMohFiles(ctx context.Context, mohUuid string, mohFilename string) MohAPIDeleteMohFilesRequest {
+	return MohAPIDeleteMohFilesRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		mohUuid:     mohUuid,
@@ -458,7 +458,7 @@ func (a *MohAPIService) DeleteMohFiles(ctx context.Context, mohUuid string, mohF
 }
 
 // Execute executes the request
-func (a *MohAPIService) DeleteMohFilesExecute(r ApiDeleteMohFilesRequest) (*http.Response, error) {
+func (a *MohAPIService) DeleteMohFilesExecute(r MohAPIDeleteMohFilesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodDelete
 		localVarPostBody   interface{}
@@ -550,7 +550,7 @@ func (a *MohAPIService) DeleteMohFilesExecute(r ApiDeleteMohFilesRequest) (*http
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetMohRequest struct {
+type MohAPIGetMohRequest struct {
 	ctx          context.Context
 	ApiService   MohAPI
 	mohUuid      string
@@ -558,12 +558,12 @@ type ApiGetMohRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetMohRequest) AccentTenant(accentTenant string) ApiGetMohRequest {
+func (r MohAPIGetMohRequest) AccentTenant(accentTenant string) MohAPIGetMohRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetMohRequest) Execute() (*Moh, *http.Response, error) {
+func (r MohAPIGetMohRequest) Execute() (*Moh, *http.Response, error) {
 	return r.ApiService.GetMohExecute(r)
 }
 
@@ -574,10 +574,10 @@ GetMoh Get MOH class
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param mohUuid
-	@return ApiGetMohRequest
+	@return MohAPIGetMohRequest
 */
-func (a *MohAPIService) GetMoh(ctx context.Context, mohUuid string) ApiGetMohRequest {
-	return ApiGetMohRequest{
+func (a *MohAPIService) GetMoh(ctx context.Context, mohUuid string) MohAPIGetMohRequest {
+	return MohAPIGetMohRequest{
 		ApiService: a,
 		ctx:        ctx,
 		mohUuid:    mohUuid,
@@ -587,7 +587,7 @@ func (a *MohAPIService) GetMoh(ctx context.Context, mohUuid string) ApiGetMohReq
 // Execute executes the request
 //
 //	@return Moh
-func (a *MohAPIService) GetMohExecute(r ApiGetMohRequest) (*Moh, *http.Response, error) {
+func (a *MohAPIService) GetMohExecute(r MohAPIGetMohRequest) (*Moh, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -688,7 +688,7 @@ func (a *MohAPIService) GetMohExecute(r ApiGetMohRequest) (*Moh, *http.Response,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMohFilesRequest struct {
+type MohAPIGetMohFilesRequest struct {
 	ctx          context.Context
 	ApiService   MohAPI
 	mohUuid      string
@@ -697,12 +697,12 @@ type ApiGetMohFilesRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiGetMohFilesRequest) AccentTenant(accentTenant string) ApiGetMohFilesRequest {
+func (r MohAPIGetMohFilesRequest) AccentTenant(accentTenant string) MohAPIGetMohFilesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiGetMohFilesRequest) Execute() (*http.Response, error) {
+func (r MohAPIGetMohFilesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetMohFilesExecute(r)
 }
 
@@ -714,10 +714,10 @@ GetMohFiles Get audio file
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param mohUuid
 	@param mohFilename
-	@return ApiGetMohFilesRequest
+	@return MohAPIGetMohFilesRequest
 */
-func (a *MohAPIService) GetMohFiles(ctx context.Context, mohUuid string, mohFilename string) ApiGetMohFilesRequest {
-	return ApiGetMohFilesRequest{
+func (a *MohAPIService) GetMohFiles(ctx context.Context, mohUuid string, mohFilename string) MohAPIGetMohFilesRequest {
+	return MohAPIGetMohFilesRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		mohUuid:     mohUuid,
@@ -726,7 +726,7 @@ func (a *MohAPIService) GetMohFiles(ctx context.Context, mohUuid string, mohFile
 }
 
 // Execute executes the request
-func (a *MohAPIService) GetMohFilesExecute(r ApiGetMohFilesRequest) (*http.Response, error) {
+func (a *MohAPIService) GetMohFilesExecute(r MohAPIGetMohFilesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodGet
 		localVarPostBody   interface{}
@@ -818,7 +818,7 @@ func (a *MohAPIService) GetMohFilesExecute(r ApiGetMohFilesRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiListMohRequest struct {
+type MohAPIListMohRequest struct {
 	ctx          context.Context
 	ApiService   MohAPI
 	accentTenant *string
@@ -831,48 +831,48 @@ type ApiListMohRequest struct {
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiListMohRequest) AccentTenant(accentTenant string) ApiListMohRequest {
+func (r MohAPIListMohRequest) AccentTenant(accentTenant string) MohAPIListMohRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
 // Should the query include sub-tenants
-func (r ApiListMohRequest) Recurse(recurse bool) ApiListMohRequest {
+func (r MohAPIListMohRequest) Recurse(recurse bool) MohAPIListMohRequest {
 	r.recurse = &recurse
 	return r
 }
 
 // Name of the field to use for sorting the list of items returned.
-func (r ApiListMohRequest) Order(order string) ApiListMohRequest {
+func (r MohAPIListMohRequest) Order(order string) MohAPIListMohRequest {
 	r.order = &order
 	return r
 }
 
 // Sort list of items in &#39;asc&#39; (ascending) or &#39;desc&#39; (descending) order
-func (r ApiListMohRequest) Direction(direction string) ApiListMohRequest {
+func (r MohAPIListMohRequest) Direction(direction string) MohAPIListMohRequest {
 	r.direction = &direction
 	return r
 }
 
 // Maximum number of items to return in the list
-func (r ApiListMohRequest) Limit(limit int32) ApiListMohRequest {
+func (r MohAPIListMohRequest) Limit(limit int32) MohAPIListMohRequest {
 	r.limit = &limit
 	return r
 }
 
 // Number of items to skip over in the list. Useful for pagination.
-func (r ApiListMohRequest) Offset(offset int32) ApiListMohRequest {
+func (r MohAPIListMohRequest) Offset(offset int32) MohAPIListMohRequest {
 	r.offset = &offset
 	return r
 }
 
 // Search term for filtering a list of items. Only items with a field containing the search term will be returned.
-func (r ApiListMohRequest) Search(search string) ApiListMohRequest {
+func (r MohAPIListMohRequest) Search(search string) MohAPIListMohRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiListMohRequest) Execute() (*MohItems, *http.Response, error) {
+func (r MohAPIListMohRequest) Execute() (*MohItems, *http.Response, error) {
 	return r.ApiService.ListMohExecute(r)
 }
 
@@ -882,10 +882,10 @@ ListMoh List MOH classes
 **Required ACL:** `confd.moh.read`
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiListMohRequest
+	@return MohAPIListMohRequest
 */
-func (a *MohAPIService) ListMoh(ctx context.Context) ApiListMohRequest {
-	return ApiListMohRequest{
+func (a *MohAPIService) ListMoh(ctx context.Context) MohAPIListMohRequest {
+	return MohAPIListMohRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -894,7 +894,7 @@ func (a *MohAPIService) ListMoh(ctx context.Context) ApiListMohRequest {
 // Execute executes the request
 //
 //	@return MohItems
-func (a *MohAPIService) ListMohExecute(r ApiListMohRequest) (*MohItems, *http.Response, error) {
+func (a *MohAPIService) ListMohExecute(r MohAPIListMohRequest) (*MohItems, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
@@ -1005,7 +1005,7 @@ func (a *MohAPIService) ListMohExecute(r ApiListMohRequest) (*MohItems, *http.Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateMohRequest struct {
+type MohAPIUpdateMohRequest struct {
 	ctx          context.Context
 	ApiService   MohAPI
 	body         *Moh
@@ -1013,18 +1013,18 @@ type ApiUpdateMohRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateMohRequest) Body(body Moh) ApiUpdateMohRequest {
+func (r MohAPIUpdateMohRequest) Body(body Moh) MohAPIUpdateMohRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateMohRequest) AccentTenant(accentTenant string) ApiUpdateMohRequest {
+func (r MohAPIUpdateMohRequest) AccentTenant(accentTenant string) MohAPIUpdateMohRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateMohRequest) Execute() (*http.Response, error) {
+func (r MohAPIUpdateMohRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateMohExecute(r)
 }
 
@@ -1035,10 +1035,10 @@ UpdateMoh Update MOH class
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param mohUuid
-	@return ApiUpdateMohRequest
+	@return MohAPIUpdateMohRequest
 */
-func (a *MohAPIService) UpdateMoh(ctx context.Context, mohUuid string) ApiUpdateMohRequest {
-	return ApiUpdateMohRequest{
+func (a *MohAPIService) UpdateMoh(ctx context.Context, mohUuid string) MohAPIUpdateMohRequest {
+	return MohAPIUpdateMohRequest{
 		ApiService: a,
 		ctx:        ctx,
 		mohUuid:    mohUuid,
@@ -1046,7 +1046,7 @@ func (a *MohAPIService) UpdateMoh(ctx context.Context, mohUuid string) ApiUpdate
 }
 
 // Execute executes the request
-func (a *MohAPIService) UpdateMohExecute(r ApiUpdateMohRequest) (*http.Response, error) {
+func (a *MohAPIService) UpdateMohExecute(r MohAPIUpdateMohRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
@@ -1153,7 +1153,7 @@ func (a *MohAPIService) UpdateMohExecute(r ApiUpdateMohRequest) (*http.Response,
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateMohFilesRequest struct {
+type MohAPIUpdateMohFilesRequest struct {
 	ctx          context.Context
 	ApiService   MohAPI
 	body         *map[string]interface{}
@@ -1162,18 +1162,18 @@ type ApiUpdateMohFilesRequest struct {
 	accentTenant *string
 }
 
-func (r ApiUpdateMohFilesRequest) Body(body map[string]interface{}) ApiUpdateMohFilesRequest {
+func (r MohAPIUpdateMohFilesRequest) Body(body map[string]interface{}) MohAPIUpdateMohFilesRequest {
 	r.body = &body
 	return r
 }
 
 // The tenant&#39;s UUID, defining the ownership of a given resource.
-func (r ApiUpdateMohFilesRequest) AccentTenant(accentTenant string) ApiUpdateMohFilesRequest {
+func (r MohAPIUpdateMohFilesRequest) AccentTenant(accentTenant string) MohAPIUpdateMohFilesRequest {
 	r.accentTenant = &accentTenant
 	return r
 }
 
-func (r ApiUpdateMohFilesRequest) Execute() (*http.Response, error) {
+func (r MohAPIUpdateMohFilesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateMohFilesExecute(r)
 }
 
@@ -1185,10 +1185,10 @@ UpdateMohFiles Add or update audio file
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param mohUuid
 	@param mohFilename
-	@return ApiUpdateMohFilesRequest
+	@return MohAPIUpdateMohFilesRequest
 */
-func (a *MohAPIService) UpdateMohFiles(ctx context.Context, mohUuid string, mohFilename string) ApiUpdateMohFilesRequest {
-	return ApiUpdateMohFilesRequest{
+func (a *MohAPIService) UpdateMohFiles(ctx context.Context, mohUuid string, mohFilename string) MohAPIUpdateMohFilesRequest {
+	return MohAPIUpdateMohFilesRequest{
 		ApiService:  a,
 		ctx:         ctx,
 		mohUuid:     mohUuid,
@@ -1197,7 +1197,7 @@ func (a *MohAPIService) UpdateMohFiles(ctx context.Context, mohUuid string, mohF
 }
 
 // Execute executes the request
-func (a *MohAPIService) UpdateMohFilesExecute(r ApiUpdateMohFilesRequest) (*http.Response, error) {
+func (a *MohAPIService) UpdateMohFilesExecute(r MohAPIUpdateMohFilesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod = http.MethodPut
 		localVarPostBody   interface{}
