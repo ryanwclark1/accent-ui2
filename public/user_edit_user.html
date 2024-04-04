@@ -3,8 +3,8 @@
     <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
       <div class="mx-auto max-w-2xl">
 
-        <form>
-          <div class="space-y-12">
+        <form hx-post="/api/user/edit" hx-target="#userEditResponse" hx-swap="outerHTML">
+          <div class="space-y-12" id="userEditResponse">
 
             <div class="border-b border-gray-900/10 pb-12">
               <h2 class="text-base font-semibold leading-7 text-gray-900">User Information</h2>
@@ -14,7 +14,7 @@
                   <label for="subscription" class="block text-sm font-medium leading-6 text-gray-900">Subscription
                     Type</label>
                   <div class="mt-2">
-                    <select id="subscription" name="subscription" autocomplete="subscription-type"
+                    <select id="subscription" name="subscription" autocomplete="subscription-type" hx-get="/api/subscription/types" hx-trigger="change"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
                       <option>Voice</option>
                       <option>Unified Communication</option>
@@ -28,7 +28,7 @@
                   <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
                   <div class="mt-2">
                     <input type="text" name="first-name" id="first-name" autocomplete="given-name"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" hx-get="/api/user/validate/first-name" hx-trigger="lost-focus">
                   </div>
                 </div>
 
@@ -36,7 +36,7 @@
                   <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
                   <div class="mt-2">
                     <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" hx-get="/api/user/validate/last-name" hx-trigger="lost-focus">
                   </div>
                 </div>
 
@@ -44,7 +44,7 @@
                   <label for="caller-id" class="block text-sm font-medium leading-6 text-gray-900">Caller ID</label>
                   <div class="mt-2">
                     <input id="caller-id" name="caller-id" type="text" autocomplete="caller-id"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" hx-get="/api/user/validate/caller-id" hx-trigger="lost-focus">
                   </div>
                 </div>
 
@@ -53,7 +53,7 @@
                     caller ID</label>
                   <div class="mt-2">
                     <select id="outgoing-caller-id" name="outgoing-caller-id" autocomplete="outgoing-caller-id"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" hx-get="/api/user/options/outgoing-caller-id" hx-trigger="change">
                       <option>Default</option>
                       <option>Anoynmous</option>
                     </select>
@@ -64,7 +64,7 @@
                   <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
                   <div class="mt-2">
                     <input id="email" name="email" type="email" autocomplete="email"
-                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" hx-get="/api/user/validate/email" hx-trigger="lost-focus">
                   </div>
                 </div>
 
@@ -81,7 +81,7 @@
                     <div class="relative flex gap-x-3">
                       <div class="flex h-6 items-center">
                         <input id="comments" name="comments" type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" hx-get="/api/user/options/email-notifications" hx-trigger="change">
                       </div>
                       <div class="text-sm leading-6">
                         <label for="comments" class="font-medium text-gray-900">Comments</label>
@@ -91,7 +91,7 @@
                     <div class="relative flex gap-x-3">
                       <div class="flex h-6 items-center">
                         <input id="candidates" name="candidates" type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" hx-get="/api/user/options/job-application-notifications" hx-trigger="change">
                       </div>
                       <div class="text-sm leading-6">
                         <label for="candidates" class="font-medium text-gray-900">Candidates</label>
@@ -101,7 +101,7 @@
                     <div class="relative flex gap-x-3">
                       <div class="flex h-6 items-center">
                         <input id="offers" name="offers" type="checkbox"
-                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" hx-get="/api/user/options/offer-notifications" hx-trigger="change">
                       </div>
                       <div class="text-sm leading-6">
                         <label for="offers" class="font-medium text-gray-900">Offers</label>
@@ -116,19 +116,19 @@
                   <div class="mt-6 space-y-6">
                     <div class="flex items-center gap-x-3">
                       <input id="push-everything" name="push-notifications" type="radio"
-                        class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                        class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" hx-get="/api/user/options/push-notification-settings" hx-trigger="change">
                       <label for="push-everything"
                         class="block text-sm font-medium leading-6 text-gray-900">Everything</label>
                     </div>
                     <div class="flex items-center gap-x-3">
                       <input id="push-email" name="push-notifications" type="radio"
-                        class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                        class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" hx-get="/api/user/options/push-notification-settings" hx-trigger="change">
                       <label for="push-email" class="block text-sm font-medium leading-6 text-gray-900">Same as
                         email</label>
                     </div>
                     <div class="flex items-center gap-x-3">
                       <input id="push-nothing" name="push-notifications" type="radio"
-                        class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                        class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" hx-get="/api/user/options/push-notification-settings" hx-trigger="change">
                       <label for="push-nothing" class="block text-sm font-medium leading-6 text-gray-900">No push
                         notifications</label>
                     </div>
