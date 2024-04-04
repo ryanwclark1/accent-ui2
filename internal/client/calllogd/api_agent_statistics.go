@@ -78,13 +78,13 @@ func (r AgentStatisticsAPIGetAgentStatisticsRequest) AccentTenant(accentTenant s
 	return r
 }
 
-// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
+// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC.
 func (r AgentStatisticsAPIGetAgentStatisticsRequest) From(from time.Time) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.from = &from
 	return r
 }
 
-// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
+// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day.
 func (r AgentStatisticsAPIGetAgentStatisticsRequest) Until(until time.Time) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.until = &until
 	return r
@@ -114,7 +114,7 @@ func (r AgentStatisticsAPIGetAgentStatisticsRequest) WeekDays(weekDays []int32) 
 	return r
 }
 
-// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
+// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server.
 func (r AgentStatisticsAPIGetAgentStatisticsRequest) Timezone(timezone string) AgentStatisticsAPIGetAgentStatisticsRequest {
 	r.timezone = &timezone
 	return r
@@ -181,7 +181,7 @@ func (a *AgentStatisticsAPIService) GetAgentStatisticsExecute(r AgentStatisticsA
 	if r.weekDays != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "week_days", r.weekDays, "csv")
 	} else {
-		var defaultValue []int32 = [1,2,3,4,5,6,7]
+		var defaultValue []int32 = []int32{1,2,3,4,5,6,7}
 		r.weekDays = &defaultValue
 	}
 	if r.timezone != nil {
@@ -300,13 +300,13 @@ func (r AgentStatisticsAPIGetAgentsStatisticsRequest) AccentTenant(accentTenant 
 	return r
 }
 
-// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
+// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC.
 func (r AgentStatisticsAPIGetAgentsStatisticsRequest) From(from time.Time) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.from = &from
 	return r
 }
 
-// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
+// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day.
 func (r AgentStatisticsAPIGetAgentsStatisticsRequest) Until(until time.Time) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.until = &until
 	return r
@@ -330,7 +330,7 @@ func (r AgentStatisticsAPIGetAgentsStatisticsRequest) WeekDays(weekDays []int32)
 	return r
 }
 
-// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
+// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server.
 func (r AgentStatisticsAPIGetAgentsStatisticsRequest) Timezone(timezone string) AgentStatisticsAPIGetAgentsStatisticsRequest {
 	r.timezone = &timezone
 	return r
@@ -392,7 +392,7 @@ func (a *AgentStatisticsAPIService) GetAgentsStatisticsExecute(r AgentStatistics
 	if r.weekDays != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "week_days", r.weekDays, "csv")
 	} else {
-		var defaultValue []int32 = [1,2,3,4,5,6,7]
+		var defaultValue []int32 = []int32{1,2,3,4,5,6,7}
 		r.weekDays = &defaultValue
 	}
 	if r.timezone != nil {

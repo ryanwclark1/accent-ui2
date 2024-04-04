@@ -80,3 +80,7 @@ docker run --rm \
   --git-user-id ryanwclark \
   --git-repo-id accent-voice \
   -o /local/out/client/accentcalllogd
+
+
+var defaultValue []int32 = [1,2,3,4,5,6,7]
+var defaultValue []int32 = []int32{1,2,3,4,5,6,7}

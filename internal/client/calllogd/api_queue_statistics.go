@@ -33,7 +33,7 @@ Statistics for a queue are aggregated by the `interval` query parameter, or if n
 specified or empty, as a unique result over the period. The period is specified by the
 `from` and `until` query parameters. The last result returned by this route is always the
 aggregation of all calls over the whole specified period.
-**Notice**: Statistics are generated every 6 hours 
+**Notice**: Statistics are generated every 6 hours
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId ID of the queue.
@@ -52,7 +52,7 @@ aggregation of all calls over the whole specified period.
 specified or empty, as a unique result over the period. The period is specified by the
 `from` and `until` query parameters. The last result returned by this route is always the
 aggregation of all calls over the whole specified period.
-**Notice**: Statistics are generated every 6 hours 
+**Notice**: Statistics are generated every 6 hours
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param queueId ID of the queue.
@@ -69,7 +69,7 @@ aggregation of all calls over the whole specified period.
 
 	**Required ACL:** `call-logd.queues.statistics.read`
 Statistics are aggregated by queues over the period specified by the `from` and `until` query parameters.
-**Notice**: Statistics are generated every 6 hours 
+**Notice**: Statistics are generated every 6 hours
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return QueueStatisticsAPIGetQueuesStatisticsRequest
@@ -105,13 +105,13 @@ func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) AccentTenant(accentTenan
 	return r
 }
 
-// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
+// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC.
 func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) From(from time.Time) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.from = &from
 	return r
 }
 
-// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
+// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day.
 func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) Until(until time.Time) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.until = &until
 	return r
@@ -147,7 +147,7 @@ func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) WeekDays(weekDays []int3
 	return r
 }
 
-// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
+// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server.
 func (r QueueStatisticsAPIGetQueueQoSStatisticsRequest) Timezone(timezone string) QueueStatisticsAPIGetQueueQoSStatisticsRequest {
 	r.timezone = &timezone
 	return r
@@ -166,7 +166,7 @@ Statistics for a queue are aggregated by the `interval` query parameter, or if n
 specified or empty, as a unique result over the period. The period is specified by the
 `from` and `until` query parameters. The last result returned by this route is always the
 aggregation of all calls over the whole specified period.
-**Notice**: Statistics are generated every 6 hours 
+**Notice**: Statistics are generated every 6 hours
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param queueId ID of the queue.
@@ -223,7 +223,7 @@ func (a *QueueStatisticsAPIService) GetQueueQoSStatisticsExecute(r QueueStatisti
 	if r.weekDays != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "week_days", r.weekDays, "csv")
 	} else {
-		var defaultValue []int32 = [1,2,3,4,5,6,7]
+		var defaultValue []int32 = []int32{1,2,3,4,5,6,7}
 		r.weekDays = &defaultValue
 	}
 	if r.timezone != nil {
@@ -345,13 +345,13 @@ func (r QueueStatisticsAPIGetQueueStatisticsRequest) AccentTenant(accentTenant s
 	return r
 }
 
-// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
+// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC.
 func (r QueueStatisticsAPIGetQueueStatisticsRequest) From(from time.Time) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.from = &from
 	return r
 }
 
-// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
+// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day.
 func (r QueueStatisticsAPIGetQueueStatisticsRequest) Until(until time.Time) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.until = &until
 	return r
@@ -387,7 +387,7 @@ func (r QueueStatisticsAPIGetQueueStatisticsRequest) WeekDays(weekDays []int32) 
 	return r
 }
 
-// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
+// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server.
 func (r QueueStatisticsAPIGetQueueStatisticsRequest) Timezone(timezone string) QueueStatisticsAPIGetQueueStatisticsRequest {
 	r.timezone = &timezone
 	return r
@@ -404,7 +404,7 @@ GetQueueStatistics Statistics for a specific queue
 specified or empty, as a unique result over the period. The period is specified by the
 `from` and `until` query parameters. The last result returned by this route is always the
 aggregation of all calls over the whole specified period.
-**Notice**: Statistics are generated every 6 hours 
+**Notice**: Statistics are generated every 6 hours
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param queueId ID of the queue.
@@ -461,7 +461,7 @@ func (a *QueueStatisticsAPIService) GetQueueStatisticsExecute(r QueueStatisticsA
 	if r.weekDays != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "week_days", r.weekDays, "csv")
 	} else {
-		var defaultValue []int32 = [1,2,3,4,5,6,7]
+		var defaultValue []int32 = []int32{1,2,3,4,5,6,7}
 		r.weekDays = &defaultValue
 	}
 	if r.timezone != nil {
@@ -581,13 +581,13 @@ func (r QueueStatisticsAPIGetQueuesStatisticsRequest) AccentTenant(accentTenant 
 	return r
 }
 
-// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC. 
+// Ignore calls before the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will start at the oldest available call with timezone UTC.
 func (r QueueStatisticsAPIGetQueuesStatisticsRequest) From(from time.Time) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.from = &from
 	return r
 }
 
-// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day. 
+// Ignore calls starting at or after the given date. Format is &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/ISO_8601\&quot;&gt;ISO-8601&lt;/a&gt;. Timezone will be converted according to the &#x60;timezone&#x60; parameter. If missing, the statistics will include the current day.
 func (r QueueStatisticsAPIGetQueuesStatisticsRequest) Until(until time.Time) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.until = &until
 	return r
@@ -617,7 +617,7 @@ func (r QueueStatisticsAPIGetQueuesStatisticsRequest) WeekDays(weekDays []int32)
 	return r
 }
 
-// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server. 
+// Name of the timezone to use for dates and times. Example: America/New_York. Valid timezones are defined by the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/Tz_database\&quot;&gt;Time Zone Database&lt;/a&gt; version installed on the server.
 func (r QueueStatisticsAPIGetQueuesStatisticsRequest) Timezone(timezone string) QueueStatisticsAPIGetQueuesStatisticsRequest {
 	r.timezone = &timezone
 	return r
@@ -632,7 +632,7 @@ GetQueuesStatistics Statistics for all queues
 
 **Required ACL:** `call-logd.queues.statistics.read`
 Statistics are aggregated by queues over the period specified by the `from` and `until` query parameters.
-**Notice**: Statistics are generated every 6 hours 
+**Notice**: Statistics are generated every 6 hours
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return QueueStatisticsAPIGetQueuesStatisticsRequest
@@ -683,7 +683,7 @@ func (a *QueueStatisticsAPIService) GetQueuesStatisticsExecute(r QueueStatistics
 	if r.weekDays != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "week_days", r.weekDays, "csv")
 	} else {
-		var defaultValue []int32 = [1,2,3,4,5,6,7]
+		var defaultValue []int32 = []int32{1,2,3,4,5,6,7}
 		r.weekDays = &defaultValue
 	}
 	if r.timezone != nil {
