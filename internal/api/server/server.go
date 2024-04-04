@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ryanwclark1/ui2/internal/config"
+	"github.com/ryanwclark1/accent-ui2/internal/config"
 )
 
 type Server struct {

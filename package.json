@@ -5,11 +5,11 @@
   "license": "MIT",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": [
-    "./internal/server/static/styles.scss"
+    "./internal/api/server/static/styles.scss"
   ],
   "targets": {
     "default": {
-      "distDir": "./internal/server/static/dist"
+      "distDir": "./internal/api/server/static/dist"
     }
   },
   "scripts": {
