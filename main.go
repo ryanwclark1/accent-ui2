@@ -1,27 +1,36 @@
 package main
 
 import (
-	"fmt"
-	"log"
+	"html/template"
 	"net/http"
-	"github.com/julienschmidt/httprouter"
+	"os"
 )
 
-func AuthHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	// In production, you'd make a request to the client auth service here.
-	// This is simplified for demonstration.
-	username := r.FormValue("username")
-	password := r.FormValue("password")
-	if username == "test" && password == "password" {
-		fmt.Fprintln(w, "Login successful, welcome!")
-	} else {
-		http.Error(w, "Invalid login", http.StatusUnauthorized)
+func main() {
+	http.HandleFunc("/login", loginHandler)
+	http.HandleFunc("/main", mainPageHandler)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		os.Exit(1)
 	}
 }
 
-func main() {
-	router := httprouter.New()
-	router.POST("/auth", AuthHandler)
+func loginHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		// Here, integrate with the internal/client/auth for authentication.
+		// If successful, redirect to the main page.
+		// If failed, reload the login page with error message.
+	} else {
+		tmpl, err := template.ParseFiles("login.html")
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+		tmpl.Execute(w, nil)
+	}
+}
 
-	log.Fatal(http.ListenAndServe(":8080", router))
+func mainPageHandler(w http.ResponseWriter, r *http.Request) {
+	// Check for user's authentication
+	// Serve main page if authenticated
+	// Serve login page with error if not authenticated
 }
