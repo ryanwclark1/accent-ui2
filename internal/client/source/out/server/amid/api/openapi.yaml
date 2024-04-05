@@ -1,0 +1,226 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: help@accentvoice.io
+    name: Accent Team
+    url: https://accentvoice.io/
+  description: "Send AMI actions to Asterisk, providing token based authentication."
+  license:
+    name: Proprietary
+    url: https://accentvoice.io/
+  title: accent-amid
+  version: "0.1"
+  x-logo:
+    altText: Accent Logo
+    backgroundColor: '#FAFAFA'
+    url: https://accentvoice.io/images/logo-black.svg
+servers:
+- url: http://api.accentvoice.io/1.0
+- url: https://api.accentvoice.io/1.0
+security:
+- accent_auth_token: []
+paths:
+  /action/Command:
+    post:
+      description: "**Required ACL:** `amid.action.Command.create`\nThis endpoint\
+        \ sends a command to the Asterisk Manager.\nSee https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+AMI+Actions\
+        \ for more details about the AMI message parameters. "
+      operationId: commandAsteriskManager
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Command'
+        description: 'The command to send to the manager. '
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommandResponse'
+          description: The Asterisk Manager response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid authentication token
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Another service is unavailable (e.g. accent-auth)
+      summary: AMI command
+      tags:
+      - command
+      x-codegen-request-body-name: command
+  /action/{action}:
+    post:
+      description: "**Required ACL:** `amid.action.{action}.create`\nThe Action endpoint\
+        \ sends an action to the Asterisk Manager.\nSee https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+AMI+Actions\
+        \ for more details about the AMI message parameters. "
+      operationId: actionAsteriskManager
+      parameters:
+      - description: "Name of the manager action. Currently not supported: Queues,\
+          \ Command."
+        in: path
+        name: action
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/ActionArguments'
+        description: |-
+          Arguments for the manager action.
+          Action: taken from the URL
+          ActionID: not necessary
+          If you need a same key multiple times, give a list of values.
+          For Action: Originate, you should always use Async: True
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: The Asterisk Manager responses
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Invalid authentication token
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Another service is unavailable (e.g. accent-auth)
+      summary: AMI action
+      tags:
+      - action
+      x-codegen-request-body-name: action_arguments
+  /status:
+    get:
+      description: '**Required ACL:** `amid.status.read`'
+      operationId: statusSummary
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusSummary'
+          description: The internal infos of accent-amid
+      summary: Print infos about internal status of accent-amid
+      tags:
+      - status
+components:
+  schemas:
+    ActionArguments:
+      example:
+        Async: "True"
+        Channel: SIP/abcdef
+        Context: default
+        Exten: "1234"
+        Priority: "1"
+        Variable:
+        - Var1=one
+        - Var2=two
+      type: object
+    Command:
+      example:
+        command: command
+      properties:
+        command:
+          type: string
+      required:
+      - command
+      type: object
+    CommandResponse:
+      example:
+        response:
+        - response
+        - response
+      properties:
+        response:
+          items:
+            type: string
+          type: array
+      type: object
+    ComponentWithStatus:
+      example:
+        status: null
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusValue'
+      type: object
+    Error:
+      example:
+        error_id: error_id
+        details: "{}"
+        message: message
+        timestamp: 0.8008281904610115
+      properties:
+        details:
+          properties: {}
+          type: object
+        error_id:
+          type: string
+        message:
+          type: string
+        timestamp:
+          format: timestamp
+          type: number
+      type: object
+    Response:
+      example:
+        response: response
+      properties:
+        response:
+          description: Name of the action response
+          type: string
+      type: object
+    StatusSummary:
+      example:
+        bus_publisher:
+          status: null
+        rest_api:
+          status: null
+        service_token:
+          status: null
+        ami_socket:
+          status: null
+      properties:
+        ami_socket:
+          $ref: '#/components/schemas/ComponentWithStatus'
+        bus_publisher:
+          $ref: '#/components/schemas/ComponentWithStatus'
+        rest_api:
+          $ref: '#/components/schemas/ComponentWithStatus'
+        service_token:
+          $ref: '#/components/schemas/ComponentWithStatus'
+      type: object
+    StatusValue:
+      enum:
+      - fail
+      - ok
+      type: string
+  securitySchemes:
+    accent_auth_token:
+      in: header
+      name: X-Auth-Token
+      type: apiKey
+x-accent-name: amid
+x-accent-port: 9491
+x-original-swagger-version: "2.0"
