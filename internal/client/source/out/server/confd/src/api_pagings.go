@@ -114,7 +114,7 @@ func (c *PagingsAPIController) CreatePaging(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeletePaging - Delete paging
@@ -135,7 +135,7 @@ func (c *PagingsAPIController) DeletePaging(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPaging - Get paging
@@ -156,7 +156,7 @@ func (c *PagingsAPIController) GetPaging(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListPagings - List paging
@@ -239,7 +239,7 @@ func (c *PagingsAPIController) ListPagings(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdatePaging - Update paging
@@ -275,7 +275,7 @@ func (c *PagingsAPIController) UpdatePaging(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdatePagingCallerUsers - Update paging and callers
@@ -310,7 +310,7 @@ func (c *PagingsAPIController) UpdatePagingCallerUsers(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdatePagingMemberUsers - Update paging and members
@@ -345,5 +345,5 @@ func (c *PagingsAPIController) UpdatePagingMemberUsers(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

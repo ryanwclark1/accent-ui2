@@ -93,7 +93,7 @@ func (c *MeetingsAPIController) GetGuestMeetingStatus(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // KickMeetingParticipant - Kick a participant from a meeting
@@ -115,7 +115,7 @@ func (c *MeetingsAPIController) KickMeetingParticipant(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // KickUserMeetingParticipant - Kick a participant from a meeting as a user
@@ -137,7 +137,7 @@ func (c *MeetingsAPIController) KickUserMeetingParticipant(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListMeetingParticipants - List participants of a meeting
@@ -154,7 +154,7 @@ func (c *MeetingsAPIController) ListMeetingParticipants(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserMeetingParticipants - List participants of a meeting as a user
@@ -171,5 +171,5 @@ func (c *MeetingsAPIController) ListUserMeetingParticipants(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

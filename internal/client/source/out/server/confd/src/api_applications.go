@@ -115,7 +115,7 @@ func (c *ApplicationsAPIController) AssociateLineApplication(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateApplication - Create application
@@ -143,7 +143,7 @@ func (c *ApplicationsAPIController) CreateApplication(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteApplication - Delete application
@@ -164,7 +164,7 @@ func (c *ApplicationsAPIController) DeleteApplication(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineApplication - Dissociate line and application
@@ -193,7 +193,7 @@ func (c *ApplicationsAPIController) DissociateLineApplication(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetApplication - Get application
@@ -214,7 +214,7 @@ func (c *ApplicationsAPIController) GetApplication(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListApplications - List application
@@ -297,7 +297,7 @@ func (c *ApplicationsAPIController) ListApplications(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateApplication - Update application
@@ -333,5 +333,5 @@ func (c *ApplicationsAPIController) UpdateApplication(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

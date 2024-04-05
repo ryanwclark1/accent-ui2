@@ -175,7 +175,7 @@ func (c *PluginAPIController) GetMarket(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetMarketPlugin - Fetch the information about a plugin from the market
@@ -197,7 +197,7 @@ func (c *PluginAPIController) GetMarketPlugin(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPlugin - Fetch the information about a plugin that has been installed
@@ -219,7 +219,7 @@ func (c *PluginAPIController) GetPlugin(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPlugins - List installed plugins
@@ -231,7 +231,7 @@ func (c *PluginAPIController) GetPlugins(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // InstallPlugin - Install a plugin
@@ -277,7 +277,7 @@ func (c *PluginAPIController) InstallPlugin(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UninstallPlugin - Uninstall a plugin
@@ -299,5 +299,5 @@ func (c *PluginAPIController) UninstallPlugin(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

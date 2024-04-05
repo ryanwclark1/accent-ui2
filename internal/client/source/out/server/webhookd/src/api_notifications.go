@@ -84,5 +84,5 @@ func (c *NotificationsAPIController) PostMobileNotification(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

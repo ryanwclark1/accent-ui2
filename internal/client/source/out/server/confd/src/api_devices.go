@@ -134,7 +134,7 @@ func (c *DevicesAPIController) AssignUnallocatedDeviceTenant(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineDevice - Associate line and device
@@ -160,7 +160,7 @@ func (c *DevicesAPIController) AssociateLineDevice(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateDevice - Create device
@@ -188,7 +188,7 @@ func (c *DevicesAPIController) CreateDevice(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteDevice - Delete device
@@ -206,7 +206,7 @@ func (c *DevicesAPIController) DeleteDevice(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineDevice - Dissociate line and device
@@ -232,7 +232,7 @@ func (c *DevicesAPIController) DissociateLineDevice(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetDevice - Get device
@@ -250,7 +250,7 @@ func (c *DevicesAPIController) GetDevice(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetDeviceLineAssociation - List lines associated to device
@@ -268,7 +268,7 @@ func (c *DevicesAPIController) GetDeviceLineAssociation(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetLineDevice - Get Device associated to Line
@@ -289,7 +289,7 @@ func (c *DevicesAPIController) GetLineDevice(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListDevices - List devices
@@ -372,7 +372,7 @@ func (c *DevicesAPIController) ListDevices(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUnallocatedDevices - List unallocated devices
@@ -438,7 +438,7 @@ func (c *DevicesAPIController) ListUnallocatedDevices(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ResetDeviceAutoprov - Reset device to autoprov
@@ -456,7 +456,7 @@ func (c *DevicesAPIController) ResetDeviceAutoprov(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SynchronizeDevice - Synchronize device
@@ -474,7 +474,7 @@ func (c *DevicesAPIController) SynchronizeDevice(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateDevice - Update device
@@ -507,5 +507,5 @@ func (c *DevicesAPIController) UpdateDevice(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

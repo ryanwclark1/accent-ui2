@@ -165,7 +165,7 @@ func (c *AgentsAPIController) AssociateAgentSkill(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserAgent - Associate user and agent
@@ -191,7 +191,7 @@ func (c *AgentsAPIController) AssociateUserAgent(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateAgent - Create agent
@@ -219,7 +219,7 @@ func (c *AgentsAPIController) CreateAgent(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateSkill - Create skill
@@ -247,7 +247,7 @@ func (c *AgentsAPIController) CreateSkill(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteAgent - Delete agent
@@ -268,7 +268,7 @@ func (c *AgentsAPIController) DeleteAgent(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateAgentQueue - Dissociate agent and queue
@@ -297,7 +297,7 @@ func (c *AgentsAPIController) DissociateAgentQueue(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateAgentSkill - Dissociate agent and skill
@@ -326,7 +326,7 @@ func (c *AgentsAPIController) DissociateAgentSkill(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserAgent - Dissociate user and agent
@@ -344,7 +344,7 @@ func (c *AgentsAPIController) DissociateUserAgent(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetAgent - Get agent
@@ -365,7 +365,7 @@ func (c *AgentsAPIController) GetAgent(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetSkill - Get skill
@@ -386,7 +386,7 @@ func (c *AgentsAPIController) GetSkill(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAgents - List agents
@@ -469,7 +469,7 @@ func (c *AgentsAPIController) ListAgents(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListSkills - List skill
@@ -552,7 +552,7 @@ func (c *AgentsAPIController) ListSkills(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAgent - Update agent
@@ -588,7 +588,7 @@ func (c *AgentsAPIController) UpdateAgent(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAgentQueueAssociation - Update Agent-Queue association
@@ -632,5 +632,5 @@ func (c *AgentsAPIController) UpdateAgentQueueAssociation(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

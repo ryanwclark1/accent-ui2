@@ -238,7 +238,7 @@ func (c *UsersAPIController) AnswerUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CancelRelocate - Cancel a relocate
@@ -255,7 +255,7 @@ func (c *UsersAPIController) CancelRelocate(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CancelUserTransfer - Cancel a transfer
@@ -272,7 +272,7 @@ func (c *UsersAPIController) CancelUserTransfer(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CheckUserVoicemailGreeting - Check if greeting exists
@@ -289,7 +289,7 @@ func (c *UsersAPIController) CheckUserVoicemailGreeting(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CompleteRelocate - Complete a relocate
@@ -306,7 +306,7 @@ func (c *UsersAPIController) CompleteRelocate(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CompleteUserTransfer - Complete a transfer
@@ -323,7 +323,7 @@ func (c *UsersAPIController) CompleteUserTransfer(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CopyUserVoicemailGreeting - Copy a custom greeting
@@ -355,7 +355,7 @@ func (c *UsersAPIController) CopyUserVoicemailGreeting(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserCall - Make a new call from a user
@@ -382,7 +382,7 @@ func (c *UsersAPIController) CreateUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserVoicemailGreeting - Create a custom greeting
@@ -406,7 +406,7 @@ func (c *UsersAPIController) CreateUserVoicemailGreeting(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserVoicemailGreeting - Delete a custom greeting
@@ -423,7 +423,7 @@ func (c *UsersAPIController) DeleteUserVoicemailGreeting(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserVoicemailMessage - Delete a mesage
@@ -440,7 +440,7 @@ func (c *UsersAPIController) DeleteUserVoicemailMessage(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemailFolder - Get details of a folder
@@ -460,7 +460,7 @@ func (c *UsersAPIController) GetUserVoicemailFolder(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemailGreeting - Get a custom greeting
@@ -477,7 +477,7 @@ func (c *UsersAPIController) GetUserVoicemailGreeting(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemailMessage - Get a message
@@ -494,7 +494,7 @@ func (c *UsersAPIController) GetUserVoicemailMessage(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemailMessageRecording - Get a message's recording
@@ -530,7 +530,7 @@ func (c *UsersAPIController) GetUserVoicemailMessageRecording(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // HangupUserCall - Hangup a call from a user
@@ -547,7 +547,7 @@ func (c *UsersAPIController) HangupUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // HoldUserCall - Hold a call from user
@@ -564,7 +564,7 @@ func (c *UsersAPIController) HoldUserCall(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // InitiateRelocate - Initiate a relocate from the authenticated user
@@ -591,7 +591,7 @@ func (c *UsersAPIController) InitiateRelocate(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // InitiateUserTransfer - Initiate a transfer from the authenticated user
@@ -618,7 +618,7 @@ func (c *UsersAPIController) InitiateUserTransfer(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // KickUserMeetingParticipant - Kick a participant from a meeting as a user
@@ -640,7 +640,7 @@ func (c *UsersAPIController) KickUserMeetingParticipant(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserCalls - List calls of a user
@@ -671,7 +671,7 @@ func (c *UsersAPIController) ListUserCalls(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserConferenceParticipants - List participants of a conference as a user
@@ -688,7 +688,7 @@ func (c *UsersAPIController) ListUserConferenceParticipants(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserMeetingParticipants - List participants of a meeting as a user
@@ -705,7 +705,7 @@ func (c *UsersAPIController) ListUserMeetingParticipants(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserRelocates - Get the relocates of the authenticated user
@@ -717,7 +717,7 @@ func (c *UsersAPIController) ListUserRelocates(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserTransfers - Get the transfers of the authenticated user
@@ -729,7 +729,7 @@ func (c *UsersAPIController) ListUserTransfers(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserVoicemails - Get details of the voicemail of the authenticated user
@@ -741,7 +741,7 @@ func (c *UsersAPIController) ListUserVoicemails(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // MuteUserCall - Mute a call from user
@@ -758,7 +758,7 @@ func (c *UsersAPIController) MuteUserCall(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SendUserDTMF - Simulate a user pressing DTMF keys
@@ -789,7 +789,7 @@ func (c *UsersAPIController) SendUserDTMF(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StartCurrentUserRecording - Start recording a call
@@ -806,7 +806,7 @@ func (c *UsersAPIController) StartCurrentUserRecording(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StopCurrentUserRecording - Stop recording a call
@@ -823,7 +823,7 @@ func (c *UsersAPIController) StopCurrentUserRecording(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnholdUserCall - Unhold a call from user
@@ -840,7 +840,7 @@ func (c *UsersAPIController) UnholdUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnmuteUserCall - Unmute a call from user
@@ -857,7 +857,7 @@ func (c *UsersAPIController) UnmuteUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserVoicemailGreeting - Update a custom greeting
@@ -881,7 +881,7 @@ func (c *UsersAPIController) UpdateUserVoicemailGreeting(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserVoicemailMessage - Update a message
@@ -913,5 +913,5 @@ func (c *UsersAPIController) UpdateUserVoicemailMessage(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

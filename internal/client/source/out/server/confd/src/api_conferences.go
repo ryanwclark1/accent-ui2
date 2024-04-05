@@ -134,7 +134,7 @@ func (c *ConferencesAPIController) AssociateConferenceExtension(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateConference - Create conference
@@ -162,7 +162,7 @@ func (c *ConferencesAPIController) CreateConference(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteConference - Delete conference
@@ -183,7 +183,7 @@ func (c *ConferencesAPIController) DeleteConference(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateConferenceExtension - Dissociate conference and extension
@@ -211,7 +211,7 @@ func (c *ConferencesAPIController) DissociateConferenceExtension(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetConference - Get conference
@@ -232,7 +232,7 @@ func (c *ConferencesAPIController) GetConference(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskConfbridgeAccentDefaultBridge - List ConfBridge accent_default_bridge options
@@ -244,7 +244,7 @@ func (c *ConferencesAPIController) ListAsteriskConfbridgeAccentDefaultBridge(w h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskConfbridgeAccentDefaultUser - List ConfBridge accent_default_user options
@@ -256,7 +256,7 @@ func (c *ConferencesAPIController) ListAsteriskConfbridgeAccentDefaultUser(w htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListConferences - List conference
@@ -339,7 +339,7 @@ func (c *ConferencesAPIController) ListConferences(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskConfbridgeAccentDefaultBridge - Update ConfBridge accent_default_bridge option
@@ -366,7 +366,7 @@ func (c *ConferencesAPIController) UpdateAsteriskConfbridgeAccentDefaultBridge(w
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskConfbridgeAccentDefaultUser - Update ConfBridge accent_default_user option
@@ -393,7 +393,7 @@ func (c *ConferencesAPIController) UpdateAsteriskConfbridgeAccentDefaultUser(w h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateConference - Update conference
@@ -429,5 +429,5 @@ func (c *ConferencesAPIController) UpdateConference(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

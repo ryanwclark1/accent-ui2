@@ -73,7 +73,7 @@ func (c *ProvisioningAPIController) GetProvisioningNetworking(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateProvisioningNetworking - Update Provisioning Networking configuration
@@ -100,5 +100,5 @@ func (c *ProvisioningAPIController) UpdateProvisioningNetworking(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

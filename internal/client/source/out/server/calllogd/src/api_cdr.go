@@ -213,7 +213,7 @@ func (c *CdrAPIController) CreateCDRRecordingsMediaExport(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteCDRRecordingMedia - Delete a recording media
@@ -241,7 +241,7 @@ func (c *CdrAPIController) DeleteCDRRecordingMedia(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteCDRRecordingsMedia - Delete multiple CDRs recording media
@@ -268,7 +268,7 @@ func (c *CdrAPIController) DeleteCDRRecordingsMedia(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCDR - Get a CDR by ID
@@ -288,7 +288,7 @@ func (c *CdrAPIController) GetCDR(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCDRRecordingMedia - Get a recording media
@@ -316,7 +316,7 @@ func (c *CdrAPIController) GetCDRRecordingMedia(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCDRs - List CDR
@@ -485,7 +485,7 @@ func (c *CdrAPIController) GetCDRs(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCurrentUserCDR - List CDR of the authenticated user
@@ -633,7 +633,7 @@ func (c *CdrAPIController) GetCurrentUserCDR(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserCDR - List CDR of the given user
@@ -782,5 +782,5 @@ func (c *CdrAPIController) GetUserCDR(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

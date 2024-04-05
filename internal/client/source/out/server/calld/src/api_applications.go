@@ -218,7 +218,7 @@ func (c *ApplicationsAPIController) AnswerApplicationCall(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateApplicationCallToNode - Make a new call to the node
@@ -255,7 +255,7 @@ func (c *ApplicationsAPIController) CreateApplicationCallToNode(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateApplicationCallToUser - Initiate a call to a user and insert it in the node
@@ -292,7 +292,7 @@ func (c *ApplicationsAPIController) CreateApplicationCallToUser(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateApplicationCalls - Make a new call to the application
@@ -324,7 +324,7 @@ func (c *ApplicationsAPIController) CreateApplicationCalls(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateApplicationNode - Make a new node and add calls
@@ -356,7 +356,7 @@ func (c *ApplicationsAPIController) CreateApplicationNode(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteApplicationCall - Hangup a call from the application
@@ -378,7 +378,7 @@ func (c *ApplicationsAPIController) DeleteApplicationCall(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteApplicationCallFromNode - Remove call from the node
@@ -405,7 +405,7 @@ func (c *ApplicationsAPIController) DeleteApplicationCallFromNode(w http.Respons
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteApplicationNode - Delete node and hangup all calls
@@ -427,7 +427,7 @@ func (c *ApplicationsAPIController) DeleteApplicationNode(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeletePlayback - Stop and remove playback
@@ -449,7 +449,7 @@ func (c *ApplicationsAPIController) DeletePlayback(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetApplication - Show an application
@@ -466,7 +466,7 @@ func (c *ApplicationsAPIController) GetApplication(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetApplicationCalls - List calls from the application
@@ -483,7 +483,7 @@ func (c *ApplicationsAPIController) GetApplicationCalls(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetApplicationNodes - List nodes from the application
@@ -500,7 +500,7 @@ func (c *ApplicationsAPIController) GetApplicationNodes(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetNode - Show a node
@@ -522,7 +522,7 @@ func (c *ApplicationsAPIController) GetNode(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetSnoop - View snooping parameters
@@ -544,7 +544,7 @@ func (c *ApplicationsAPIController) GetSnoop(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // HoldApplicationCall - Place a call on hold
@@ -566,7 +566,7 @@ func (c *ApplicationsAPIController) HoldApplicationCall(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // InsertApplicationCallToNode - Insert call to the node
@@ -593,7 +593,7 @@ func (c *ApplicationsAPIController) InsertApplicationCallToNode(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListApplicationSnoops - List active snoops
@@ -610,7 +610,7 @@ func (c *ApplicationsAPIController) ListApplicationSnoops(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // MuteApplicationCall - Mute a call
@@ -632,7 +632,7 @@ func (c *ApplicationsAPIController) MuteApplicationCall(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PlayApplicationCall - Play file to the call
@@ -669,7 +669,7 @@ func (c *ApplicationsAPIController) PlayApplicationCall(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ResumeApplicationCall - Resume a call that has been placed on hold
@@ -691,7 +691,7 @@ func (c *ApplicationsAPIController) ResumeApplicationCall(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SendApplicationCallDTMF - Simulate a user pressing DTMF keys
@@ -727,7 +727,7 @@ func (c *ApplicationsAPIController) SendApplicationCallDTMF(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SnoopApplicationCall - Start snooping on a call
@@ -764,7 +764,7 @@ func (c *ApplicationsAPIController) SnoopApplicationCall(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StartApplicationCallMOH - Starts playing a music on hold
@@ -791,7 +791,7 @@ func (c *ApplicationsAPIController) StartApplicationCallMOH(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StartApplicationCallProgress - Play the progress ringing tone
@@ -813,7 +813,7 @@ func (c *ApplicationsAPIController) StartApplicationCallProgress(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StopApplicationCallMOH - Stops playing a music on hold
@@ -835,7 +835,7 @@ func (c *ApplicationsAPIController) StopApplicationCallMOH(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StopApplicationCallProgress - Stop playing the progress ringing tone.
@@ -857,7 +857,7 @@ func (c *ApplicationsAPIController) StopApplicationCallProgress(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StopSnoop - Stop snooping
@@ -879,7 +879,7 @@ func (c *ApplicationsAPIController) StopSnoop(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnmuteApplicationCall - Unmute a call
@@ -901,7 +901,7 @@ func (c *ApplicationsAPIController) UnmuteApplicationCall(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateSnoop - Change snooping parameters
@@ -938,5 +938,5 @@ func (c *ApplicationsAPIController) UpdateSnoop(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

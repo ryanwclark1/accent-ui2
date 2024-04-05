@@ -180,7 +180,7 @@ func (c *QueuesAPIController) AssociateQueueExtension(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateQueueSchedule - Associate queue and schedule
@@ -209,7 +209,7 @@ func (c *QueuesAPIController) AssociateQueueSchedule(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateQueue - Create queue
@@ -237,7 +237,7 @@ func (c *QueuesAPIController) CreateQueue(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateSkillRule - Create skill rule
@@ -265,7 +265,7 @@ func (c *QueuesAPIController) CreateSkillRule(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteQueue - Delete queue
@@ -286,7 +286,7 @@ func (c *QueuesAPIController) DeleteQueue(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteSkillRule - Delete skill rule
@@ -307,7 +307,7 @@ func (c *QueuesAPIController) DeleteSkillRule(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateAgentQueue - Dissociate agent and queue
@@ -336,7 +336,7 @@ func (c *QueuesAPIController) DissociateAgentQueue(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateQueueExtension - Dissociate queue and extension
@@ -365,7 +365,7 @@ func (c *QueuesAPIController) DissociateQueueExtension(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateQueueSchedule - Dissociate queue and schedule
@@ -394,7 +394,7 @@ func (c *QueuesAPIController) DissociateQueueSchedule(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserQueue - Dissociate user and queue
@@ -420,7 +420,7 @@ func (c *QueuesAPIController) DissociateUserQueue(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetQueue - Get queue
@@ -441,7 +441,7 @@ func (c *QueuesAPIController) GetQueue(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetQueueFallback - List all fallbacks for queue
@@ -462,7 +462,7 @@ func (c *QueuesAPIController) GetQueueFallback(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetSkillRule - Get skill rule
@@ -483,7 +483,7 @@ func (c *QueuesAPIController) GetSkillRule(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListQueues - List queues
@@ -566,7 +566,7 @@ func (c *QueuesAPIController) ListQueues(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListSkillRules - List skill rule
@@ -649,7 +649,7 @@ func (c *QueuesAPIController) ListSkillRules(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAgentQueueAssociation - Update Agent-Queue association
@@ -693,7 +693,7 @@ func (c *QueuesAPIController) UpdateAgentQueueAssociation(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateQueue - Update queue
@@ -729,7 +729,7 @@ func (c *QueuesAPIController) UpdateQueue(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateQueueFallback - Update queue's fallbacks
@@ -765,7 +765,7 @@ func (c *QueuesAPIController) UpdateQueueFallback(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateSkillRule - Update skill rule
@@ -801,7 +801,7 @@ func (c *QueuesAPIController) UpdateSkillRule(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserQueueAssociation - Update User-Queue association
@@ -842,5 +842,5 @@ func (c *QueuesAPIController) UpdateUserQueueAssociation(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

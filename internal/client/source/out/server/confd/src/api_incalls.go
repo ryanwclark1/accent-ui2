@@ -124,7 +124,7 @@ func (c *IncallsAPIController) AssociateIncallExtension(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateIncallSchedule - Associate incall and schedule
@@ -153,7 +153,7 @@ func (c *IncallsAPIController) AssociateIncallSchedule(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateIncall - Create incoming call
@@ -181,7 +181,7 @@ func (c *IncallsAPIController) CreateIncall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteIncall - Delete incoming call
@@ -202,7 +202,7 @@ func (c *IncallsAPIController) DeleteIncall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateIncallExtension - Dissociate incall and extension
@@ -230,7 +230,7 @@ func (c *IncallsAPIController) DissociateIncallExtension(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateIncallSchedule - Dissociate incall and schedule
@@ -259,7 +259,7 @@ func (c *IncallsAPIController) DissociateIncallSchedule(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetIncall - Get incoming call
@@ -280,7 +280,7 @@ func (c *IncallsAPIController) GetIncall(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListIncalls - List incoming calls
@@ -363,7 +363,7 @@ func (c *IncallsAPIController) ListIncalls(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateIncall - Update incoming call
@@ -399,5 +399,5 @@ func (c *IncallsAPIController) UpdateIncall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

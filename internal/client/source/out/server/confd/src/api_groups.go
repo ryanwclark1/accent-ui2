@@ -167,7 +167,7 @@ func (c *GroupsAPIController) AssociateGroupCallpermission(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateGroupExtension - Associate group and extension
@@ -192,7 +192,7 @@ func (c *GroupsAPIController) AssociateGroupExtension(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateGroupSchedule - Associate group and schedule
@@ -218,7 +218,7 @@ func (c *GroupsAPIController) AssociateGroupSchedule(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateGroup - Create group
@@ -246,7 +246,7 @@ func (c *GroupsAPIController) CreateGroup(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteGroup - Delete group
@@ -264,7 +264,7 @@ func (c *GroupsAPIController) DeleteGroup(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateGroupCallpermission - Dissociate group and call permission
@@ -290,7 +290,7 @@ func (c *GroupsAPIController) DissociateGroupCallpermission(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateGroupExtension - Dissociate group and extension
@@ -315,7 +315,7 @@ func (c *GroupsAPIController) DissociateGroupExtension(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateGroupSchedule - Dissociate group and schedule
@@ -341,7 +341,7 @@ func (c *GroupsAPIController) DissociateGroupSchedule(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGroup - Get group
@@ -359,7 +359,7 @@ func (c *GroupsAPIController) GetGroup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGroupFallback - List all fallbacks for group
@@ -376,7 +376,7 @@ func (c *GroupsAPIController) GetGroupFallback(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListGroups - List groups
@@ -459,7 +459,7 @@ func (c *GroupsAPIController) ListGroups(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallPickupInterceptorGroups - Update call pickup and interceptors
@@ -495,7 +495,7 @@ func (c *GroupsAPIController) UpdateCallPickupInterceptorGroups(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallPickupTargetGroups - Update call pickup and targets
@@ -531,7 +531,7 @@ func (c *GroupsAPIController) UpdateCallPickupTargetGroups(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateGroup - Update group
@@ -564,7 +564,7 @@ func (c *GroupsAPIController) UpdateGroup(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateGroupFallback - Update group's fallbacks
@@ -596,7 +596,7 @@ func (c *GroupsAPIController) UpdateGroupFallback(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateGroupMemberExtensions - Update group and extensions
@@ -628,7 +628,7 @@ func (c *GroupsAPIController) UpdateGroupMemberExtensions(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateGroupMemberUsers - Update group and users
@@ -660,7 +660,7 @@ func (c *GroupsAPIController) UpdateGroupMemberUsers(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserGroups - Update user and groups
@@ -692,5 +692,5 @@ func (c *GroupsAPIController) UpdateUserGroups(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

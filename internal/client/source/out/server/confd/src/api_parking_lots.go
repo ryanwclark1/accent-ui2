@@ -114,7 +114,7 @@ func (c *ParkingLotsAPIController) AssociateParkingLotExtension(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateParkingLot - Create parking lot
@@ -142,7 +142,7 @@ func (c *ParkingLotsAPIController) CreateParkingLot(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteParkingLot - Delete parking lot
@@ -163,7 +163,7 @@ func (c *ParkingLotsAPIController) DeleteParkingLot(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateParkingLotExtension - Dissociate parking lot and extension
@@ -191,7 +191,7 @@ func (c *ParkingLotsAPIController) DissociateParkingLotExtension(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetParkingLot - Get parking lot
@@ -212,7 +212,7 @@ func (c *ParkingLotsAPIController) GetParkingLot(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListParkingLots - List parking lots
@@ -295,7 +295,7 @@ func (c *ParkingLotsAPIController) ListParkingLots(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateParkingLot - Update parking lot
@@ -331,5 +331,5 @@ func (c *ParkingLotsAPIController) UpdateParkingLot(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

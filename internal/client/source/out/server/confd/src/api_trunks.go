@@ -156,7 +156,7 @@ func (c *TrunksAPIController) AssociateOutcallTrunks(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkEndpointCustom - Associate trunk and Custom endpoint
@@ -184,7 +184,7 @@ func (c *TrunksAPIController) AssociateTrunkEndpointCustom(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkEndpointIax - Associate trunk and IAX endpoint
@@ -212,7 +212,7 @@ func (c *TrunksAPIController) AssociateTrunkEndpointIax(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkEndpointSip - Associate trunk and SIP endpoint
@@ -237,7 +237,7 @@ func (c *TrunksAPIController) AssociateTrunkEndpointSip(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkRegisterIax - Associate trunk and IAX register
@@ -265,7 +265,7 @@ func (c *TrunksAPIController) AssociateTrunkRegisterIax(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateTrunk - Create trunk
@@ -292,7 +292,7 @@ func (c *TrunksAPIController) CreateTrunk(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteTrunk - Delete trunk
@@ -313,7 +313,7 @@ func (c *TrunksAPIController) DeleteTrunk(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointCustom - Dissociate trunk and Custom endpoint
@@ -341,7 +341,7 @@ func (c *TrunksAPIController) DissociateTrunkEndpointCustom(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointIax - Dissociate trunk and IAX endpoint
@@ -369,7 +369,7 @@ func (c *TrunksAPIController) DissociateTrunkEndpointIax(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointSip - Dissociate trunk and SIP endpoint
@@ -394,7 +394,7 @@ func (c *TrunksAPIController) DissociateTrunkEndpointSip(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkRegisterIax - Dissociate trunk and IAX register
@@ -422,7 +422,7 @@ func (c *TrunksAPIController) DissociateTrunkRegisterIax(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetTrunk - Get trunk
@@ -443,7 +443,7 @@ func (c *TrunksAPIController) GetTrunk(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListTrunks - List trunks
@@ -526,7 +526,7 @@ func (c *TrunksAPIController) ListTrunks(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateTrunk - Update trunk
@@ -562,5 +562,5 @@ func (c *TrunksAPIController) UpdateTrunk(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

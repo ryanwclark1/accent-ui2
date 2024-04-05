@@ -103,7 +103,7 @@ func (c *RegistrarsAPIController) CreateRegistrar(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteRegistrar - Delete registrar
@@ -120,7 +120,7 @@ func (c *RegistrarsAPIController) DeleteRegistrar(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetRegistrar - Get registrar
@@ -137,7 +137,7 @@ func (c *RegistrarsAPIController) GetRegistrar(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetRegistrars - Get registrars
@@ -203,7 +203,7 @@ func (c *RegistrarsAPIController) GetRegistrars(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateRegistrar - Update registrar
@@ -235,5 +235,5 @@ func (c *RegistrarsAPIController) UpdateRegistrar(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

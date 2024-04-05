@@ -205,7 +205,7 @@ func (c *LinesAPIController) AssociateLineApplication(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineDevice - Associate line and device
@@ -231,7 +231,7 @@ func (c *LinesAPIController) AssociateLineDevice(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineEndpointCustom - Associate line and Custom endpoint
@@ -259,7 +259,7 @@ func (c *LinesAPIController) AssociateLineEndpointCustom(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineEndpointSccp - Associate line and SCCP endpoint
@@ -287,7 +287,7 @@ func (c *LinesAPIController) AssociateLineEndpointSccp(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineEndpointSip - Associate line and SIP endpoint
@@ -312,7 +312,7 @@ func (c *LinesAPIController) AssociateLineEndpointSip(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineExtension - Associate line and extension
@@ -340,7 +340,7 @@ func (c *LinesAPIController) AssociateLineExtension(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserLine - Associate user and line
@@ -365,7 +365,7 @@ func (c *LinesAPIController) AssociateUserLine(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserLines - Associate user and lines
@@ -397,7 +397,7 @@ func (c *LinesAPIController) AssociateUserLines(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateLine - Create line
@@ -425,7 +425,7 @@ func (c *LinesAPIController) CreateLine(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateLineExtension - Create extension
@@ -461,7 +461,7 @@ func (c *LinesAPIController) CreateLineExtension(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteLine - Delete line
@@ -482,7 +482,7 @@ func (c *LinesAPIController) DeleteLine(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineApplication - Dissociate line and application
@@ -511,7 +511,7 @@ func (c *LinesAPIController) DissociateLineApplication(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineDevice - Dissociate line and device
@@ -537,7 +537,7 @@ func (c *LinesAPIController) DissociateLineDevice(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointCustom - Dissociate line and Custom endpoint
@@ -565,7 +565,7 @@ func (c *LinesAPIController) DissociateLineEndpointCustom(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointSccp - Dissociate line and SCCP endpoint
@@ -593,7 +593,7 @@ func (c *LinesAPIController) DissociateLineEndpointSccp(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointSip - Dissociate line and SIP endpoint
@@ -618,7 +618,7 @@ func (c *LinesAPIController) DissociateLineEndpointSip(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineExtension - Dissociate line and extension
@@ -646,7 +646,7 @@ func (c *LinesAPIController) DissociateLineExtension(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserLine - Dissociate user and line
@@ -671,7 +671,7 @@ func (c *LinesAPIController) DissociateUserLine(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetDeviceLineAssociation - List lines associated to device
@@ -689,7 +689,7 @@ func (c *LinesAPIController) GetDeviceLineAssociation(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetLine - Get line
@@ -710,7 +710,7 @@ func (c *LinesAPIController) GetLine(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetLineDevice - Get Device associated to Line
@@ -731,7 +731,7 @@ func (c *LinesAPIController) GetLineDevice(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserLineAssociatedEndpointsSip - Get SIP endpoint of a line for a user
@@ -768,7 +768,7 @@ func (c *LinesAPIController) GetUserLineAssociatedEndpointsSip(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserLineMainAssociatedEndpointsSip - Get SIP endpoint of main line for a user
@@ -797,7 +797,7 @@ func (c *LinesAPIController) GetUserLineMainAssociatedEndpointsSip(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListLines - List lines
@@ -880,7 +880,7 @@ func (c *LinesAPIController) ListLines(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateLine - Update line
@@ -916,5 +916,5 @@ func (c *LinesAPIController) UpdateLine(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

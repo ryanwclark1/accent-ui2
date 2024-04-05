@@ -93,7 +93,7 @@ func (c *AdhocConferencesAPIController) AddParticipantToAdhocConference(w http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateAdhocConference - Create an adhoc conference
@@ -120,7 +120,7 @@ func (c *AdhocConferencesAPIController) CreateAdhocConference(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteAdhocConference - Delete an adhoc conference
@@ -137,7 +137,7 @@ func (c *AdhocConferencesAPIController) DeleteAdhocConference(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // RemoveParticipantFromAdhocConference - Remove a participant from an adhoc conference
@@ -159,5 +159,5 @@ func (c *AdhocConferencesAPIController) RemoveParticipantFromAdhocConference(w h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

@@ -140,7 +140,7 @@ func (c *OutcallsAPIController) AssociateOutcallCallpermission(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateOutcallExtension - Associate outcall and extension
@@ -183,7 +183,7 @@ func (c *OutcallsAPIController) AssociateOutcallExtension(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateOutcallSchedule - Associate outcall and schedule
@@ -212,7 +212,7 @@ func (c *OutcallsAPIController) AssociateOutcallSchedule(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateOutcallTrunks - Associate outcall and trunks
@@ -247,7 +247,7 @@ func (c *OutcallsAPIController) AssociateOutcallTrunks(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateOutcall - Create outgoing call
@@ -275,7 +275,7 @@ func (c *OutcallsAPIController) CreateOutcall(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteOutcall - Delete outgoing call
@@ -296,7 +296,7 @@ func (c *OutcallsAPIController) DeleteOutcall(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateOutcallCallpermission - Dissociate outcall and call permission
@@ -325,7 +325,7 @@ func (c *OutcallsAPIController) DissociateOutcallCallpermission(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateOutcallExtension - Dissociate outcall and extension
@@ -353,7 +353,7 @@ func (c *OutcallsAPIController) DissociateOutcallExtension(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateOutcallSchedule - Dissociate outcall and schedule
@@ -382,7 +382,7 @@ func (c *OutcallsAPIController) DissociateOutcallSchedule(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetOutcall - Get outgoing call
@@ -403,7 +403,7 @@ func (c *OutcallsAPIController) GetOutcall(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListOutcalls - List outgoing calls
@@ -486,7 +486,7 @@ func (c *OutcallsAPIController) ListOutcalls(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateOutcall - Update outgoing call
@@ -522,5 +522,5 @@ func (c *OutcallsAPIController) UpdateOutcall(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

@@ -167,7 +167,7 @@ func (c *FunckeysAPIController) AssociateUserFuncKeyTemplate(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateFuncKeyTemplate - Create a template of func keys
@@ -195,7 +195,7 @@ func (c *FunckeysAPIController) CreateFuncKeyTemplate(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteFuncKey - Remove func key from template
@@ -224,7 +224,7 @@ func (c *FunckeysAPIController) DeleteFuncKey(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteFuncKeyTemplate - Delete func key template
@@ -245,7 +245,7 @@ func (c *FunckeysAPIController) DeleteFuncKeyTemplate(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserFuncKey - Remove func key for user
@@ -271,7 +271,7 @@ func (c *FunckeysAPIController) DeleteUserFuncKey(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserFuncKeyTemplate - Dissociate a func key template to a user
@@ -297,7 +297,7 @@ func (c *FunckeysAPIController) DissociateUserFuncKeyTemplate(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetFuncKey - Get a func key inside template
@@ -326,7 +326,7 @@ func (c *FunckeysAPIController) GetFuncKey(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetFuncKeyTemplate - Get a func key template
@@ -347,7 +347,7 @@ func (c *FunckeysAPIController) GetFuncKeyTemplate(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserFuncKey - Get a func key for a user
@@ -373,7 +373,7 @@ func (c *FunckeysAPIController) GetUserFuncKey(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListFuncKeyDestinations - List of possible func key destinations and their parameters
@@ -385,7 +385,7 @@ func (c *FunckeysAPIController) ListFuncKeyDestinations(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListFuncKeyTemplate - List a func key template
@@ -419,7 +419,7 @@ func (c *FunckeysAPIController) ListFuncKeyTemplate(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListFuncKeyTemplateUserAssociations - List users associated to template
@@ -440,7 +440,7 @@ func (c *FunckeysAPIController) ListFuncKeyTemplateUserAssociations(w http.Respo
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserFuncKeyTemplateAssociations - List funckey templates associated to user
@@ -458,7 +458,7 @@ func (c *FunckeysAPIController) ListUserFuncKeyTemplateAssociations(w http.Respo
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserFuncKeys - List func keys for a user
@@ -476,7 +476,7 @@ func (c *FunckeysAPIController) ListUserFuncKeys(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateFuncKey - Add/Replace a func key in a template
@@ -520,7 +520,7 @@ func (c *FunckeysAPIController) UpdateFuncKey(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateFuncKeyTemplate - Update a func key template
@@ -556,7 +556,7 @@ func (c *FunckeysAPIController) UpdateFuncKeyTemplate(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserFuncKey - Add/Replace a func key for a user
@@ -597,7 +597,7 @@ func (c *FunckeysAPIController) UpdateUserFuncKey(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserFuncKeys - Update func keys for a user
@@ -630,5 +630,5 @@ func (c *FunckeysAPIController) UpdateUserFuncKeys(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

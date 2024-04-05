@@ -34,7 +34,7 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 1.1
-- Build date: 2024-04-05T19:39:54.793785780Z[Etc/UTC]
+- Build date: 2024-04-05T19:54:11.465020138Z[Etc/UTC]
 - Generator version: 7.5.0-SNAPSHOT
 For more information, please visit [https://accentvoice.io/](https://accentvoice.io/)
 

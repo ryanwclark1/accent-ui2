@@ -188,7 +188,7 @@ func (c *ExportsAPIController) CreateCDRRecordingsMediaExport(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetExport - Get an export by the given UUID
@@ -205,7 +205,7 @@ func (c *ExportsAPIController) GetExport(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetExportDownload - Download an export as a ZIP archive by the given UUID
@@ -222,5 +222,5 @@ func (c *ExportsAPIController) GetExportDownload(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

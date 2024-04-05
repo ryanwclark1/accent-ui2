@@ -108,7 +108,7 @@ func (c *TransfersAPIController) CancelTransfer(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CancelUserTransfer - Cancel a transfer
@@ -125,7 +125,7 @@ func (c *TransfersAPIController) CancelUserTransfer(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CompleteTransfer - Complete a transfer
@@ -142,7 +142,7 @@ func (c *TransfersAPIController) CompleteTransfer(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CompleteUserTransfer - Complete a transfer
@@ -159,7 +159,7 @@ func (c *TransfersAPIController) CompleteUserTransfer(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetTransfer - Get details of a transfer
@@ -176,7 +176,7 @@ func (c *TransfersAPIController) GetTransfer(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // InitiateTransfer - Initiate a transfer
@@ -203,7 +203,7 @@ func (c *TransfersAPIController) InitiateTransfer(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // InitiateUserTransfer - Initiate a transfer from the authenticated user
@@ -230,7 +230,7 @@ func (c *TransfersAPIController) InitiateUserTransfer(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserTransfers - Get the transfers of the authenticated user
@@ -242,5 +242,5 @@ func (c *TransfersAPIController) ListUserTransfers(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

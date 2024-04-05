@@ -84,7 +84,7 @@ func (c *BackendsAPIController) DeleteLDAPBackendConfig(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetBackends - Get list of activated backends
@@ -96,7 +96,7 @@ func (c *BackendsAPIController) GetBackends(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetLDAPBackendConfig - Get current tenant's LDAP backend configuration. If there is no configuration, all the fields will be `null`.
@@ -109,7 +109,7 @@ func (c *BackendsAPIController) GetLDAPBackendConfig(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateLDAPBackendConfig - Update current tenant's LDAP backend configuration
@@ -137,5 +137,5 @@ func (c *BackendsAPIController) UpdateLDAPBackendConfig(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

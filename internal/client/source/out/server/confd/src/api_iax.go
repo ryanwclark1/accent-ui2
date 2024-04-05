@@ -159,7 +159,7 @@ func (c *IaxAPIController) AssociateTrunkEndpointIax(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkRegisterIax - Associate trunk and IAX register
@@ -187,7 +187,7 @@ func (c *IaxAPIController) AssociateTrunkRegisterIax(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointIax - Create IAX endpoint
@@ -215,7 +215,7 @@ func (c *IaxAPIController) CreateEndpointIax(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateRegisterIax - Create register_iax
@@ -242,7 +242,7 @@ func (c *IaxAPIController) CreateRegisterIax(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointIax - Delete IAX Endpoint
@@ -263,7 +263,7 @@ func (c *IaxAPIController) DeleteEndpointIax(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteRegisterIax - Delete register IAX
@@ -283,7 +283,7 @@ func (c *IaxAPIController) DeleteRegisterIax(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointIax - Dissociate trunk and IAX endpoint
@@ -311,7 +311,7 @@ func (c *IaxAPIController) DissociateTrunkEndpointIax(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkRegisterIax - Dissociate trunk and IAX register
@@ -339,7 +339,7 @@ func (c *IaxAPIController) DissociateTrunkRegisterIax(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointIax - Get IAX Endpoint
@@ -360,7 +360,7 @@ func (c *IaxAPIController) GetEndpointIax(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetRegisterIax - Get register IAX
@@ -380,7 +380,7 @@ func (c *IaxAPIController) GetRegisterIax(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskIaxCallnumberlimits - List IAX callnumberlimits options
@@ -392,7 +392,7 @@ func (c *IaxAPIController) ListAsteriskIaxCallnumberlimits(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsIax - List IAX endpoints
@@ -475,7 +475,7 @@ func (c *IaxAPIController) ListEndpointsIax(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListRegistersIax - List registers iax
@@ -541,7 +541,7 @@ func (c *IaxAPIController) ListRegistersIax(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskIaxCallnumberlimits - Update IAX callnumberlimits option
@@ -568,7 +568,7 @@ func (c *IaxAPIController) UpdateAsteriskIaxCallnumberlimits(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointIax - Update IAX Endpoint
@@ -604,7 +604,7 @@ func (c *IaxAPIController) UpdateEndpointIax(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateRegisterIax - Update register IAX
@@ -639,5 +639,5 @@ func (c *IaxAPIController) UpdateRegisterIax(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

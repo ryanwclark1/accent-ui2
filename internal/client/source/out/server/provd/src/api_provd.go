@@ -118,7 +118,7 @@ func (c *ProvdAPIController) GetConfigure(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetConfigureParamId - Get the configuration parameter value
@@ -136,7 +136,7 @@ func (c *ProvdAPIController) GetConfigureParamId(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetProvd - Get the Provd Manager resource
@@ -148,7 +148,7 @@ func (c *ProvdAPIController) GetProvd(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutConfigureFtpProxy - Update the configuration's ftp_proxy
@@ -175,7 +175,7 @@ func (c *ProvdAPIController) PutConfigureFtpProxy(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutConfigureHttpProxy - Update the configuration's http_proxy
@@ -202,7 +202,7 @@ func (c *ProvdAPIController) PutConfigureHttpProxy(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutConfigureHttpsProxy - Update the configuration's https_proxy
@@ -229,7 +229,7 @@ func (c *ProvdAPIController) PutConfigureHttpsProxy(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutConfigureLocale - Update the configuration's locale
@@ -256,7 +256,7 @@ func (c *ProvdAPIController) PutConfigureLocale(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutConfigureNAT - Update the configuration's NAT
@@ -283,7 +283,7 @@ func (c *ProvdAPIController) PutConfigureNAT(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutConfigureParamId - Set the value of a parameter
@@ -315,7 +315,7 @@ func (c *ProvdAPIController) PutConfigureParamId(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutConfigurePluginServer - Update the configuration's plugin_server
@@ -342,7 +342,7 @@ func (c *ProvdAPIController) PutConfigurePluginServer(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutConfigureProvisioningKey - Update the tenant provisioning key
@@ -370,5 +370,5 @@ func (c *ProvdAPIController) PutConfigureProvisioningKey(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

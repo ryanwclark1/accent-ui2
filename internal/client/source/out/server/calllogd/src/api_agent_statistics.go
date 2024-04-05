@@ -148,7 +148,7 @@ func (c *AgentStatisticsAPIController) GetAgentStatistics(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetAgentsStatistics - Statistics for all agents
@@ -219,5 +219,5 @@ func (c *AgentStatisticsAPIController) GetAgentsStatistics(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

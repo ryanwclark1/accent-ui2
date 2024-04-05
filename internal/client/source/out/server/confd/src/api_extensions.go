@@ -194,7 +194,7 @@ func (c *ExtensionsAPIController) AssociateConferenceExtension(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateGroupExtension - Associate group and extension
@@ -219,7 +219,7 @@ func (c *ExtensionsAPIController) AssociateGroupExtension(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateIncallExtension - Associate incall and extension
@@ -247,7 +247,7 @@ func (c *ExtensionsAPIController) AssociateIncallExtension(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineExtension - Associate line and extension
@@ -275,7 +275,7 @@ func (c *ExtensionsAPIController) AssociateLineExtension(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateOutcallExtension - Associate outcall and extension
@@ -318,7 +318,7 @@ func (c *ExtensionsAPIController) AssociateOutcallExtension(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateParkingLotExtension - Associate parking_lot and extension
@@ -346,7 +346,7 @@ func (c *ExtensionsAPIController) AssociateParkingLotExtension(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateQueueExtension - Associate queue and extension
@@ -375,7 +375,7 @@ func (c *ExtensionsAPIController) AssociateQueueExtension(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateExtension - Create extension
@@ -403,7 +403,7 @@ func (c *ExtensionsAPIController) CreateExtension(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateLineExtension - Create extension
@@ -439,7 +439,7 @@ func (c *ExtensionsAPIController) CreateLineExtension(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteExtension - Delete extension
@@ -459,7 +459,7 @@ func (c *ExtensionsAPIController) DeleteExtension(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateConferenceExtension - Dissociate conference and extension
@@ -487,7 +487,7 @@ func (c *ExtensionsAPIController) DissociateConferenceExtension(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateGroupExtension - Dissociate group and extension
@@ -512,7 +512,7 @@ func (c *ExtensionsAPIController) DissociateGroupExtension(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateIncallExtension - Dissociate incall and extension
@@ -540,7 +540,7 @@ func (c *ExtensionsAPIController) DissociateIncallExtension(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineExtension - Dissociate line and extension
@@ -568,7 +568,7 @@ func (c *ExtensionsAPIController) DissociateLineExtension(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateOutcallExtension - Dissociate outcall and extension
@@ -596,7 +596,7 @@ func (c *ExtensionsAPIController) DissociateOutcallExtension(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateParkingLotExtension - Dissociate parking lot and extension
@@ -624,7 +624,7 @@ func (c *ExtensionsAPIController) DissociateParkingLotExtension(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateQueueExtension - Dissociate queue and extension
@@ -653,7 +653,7 @@ func (c *ExtensionsAPIController) DissociateQueueExtension(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetExtension - Get extension
@@ -673,7 +673,7 @@ func (c *ExtensionsAPIController) GetExtension(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetExtensionFeature - Get extension feature
@@ -690,7 +690,7 @@ func (c *ExtensionsAPIController) GetExtensionFeature(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListExtensions - List extensions
@@ -794,7 +794,7 @@ func (c *ExtensionsAPIController) ListExtensions(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListExtensionsFeatures - List extensions features
@@ -860,7 +860,7 @@ func (c *ExtensionsAPIController) ListExtensionsFeatures(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateExtension - Update extension
@@ -895,7 +895,7 @@ func (c *ExtensionsAPIController) UpdateExtension(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateExtensionFeature - Update extension
@@ -927,5 +927,5 @@ func (c *ExtensionsAPIController) UpdateExtensionFeature(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

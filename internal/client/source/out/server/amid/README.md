@@ -13,7 +13,7 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 0.1
-- Build date: 2024-04-05T19:40:18.024627574Z[Etc/UTC]
+- Build date: 2024-04-05T19:54:35.209148813Z[Etc/UTC]
 - Generator version: 7.5.0-SNAPSHOT
 For more information, please visit [https://accentvoice.io/](https://accentvoice.io/)
 

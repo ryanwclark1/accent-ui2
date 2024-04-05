@@ -274,7 +274,7 @@ func (c *EndpointsAPIController) AssociateLineEndpointCustom(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineEndpointSccp - Associate line and SCCP endpoint
@@ -302,7 +302,7 @@ func (c *EndpointsAPIController) AssociateLineEndpointSccp(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateLineEndpointSip - Associate line and SIP endpoint
@@ -327,7 +327,7 @@ func (c *EndpointsAPIController) AssociateLineEndpointSip(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkEndpointCustom - Associate trunk and Custom endpoint
@@ -355,7 +355,7 @@ func (c *EndpointsAPIController) AssociateTrunkEndpointCustom(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkEndpointIax - Associate trunk and IAX endpoint
@@ -383,7 +383,7 @@ func (c *EndpointsAPIController) AssociateTrunkEndpointIax(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkEndpointSip - Associate trunk and SIP endpoint
@@ -408,7 +408,7 @@ func (c *EndpointsAPIController) AssociateTrunkEndpointSip(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointCustom - Create Custom endpoint
@@ -436,7 +436,7 @@ func (c *EndpointsAPIController) CreateEndpointCustom(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointIax - Create IAX endpoint
@@ -464,7 +464,7 @@ func (c *EndpointsAPIController) CreateEndpointIax(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointSccp - Create SCCP endpoint
@@ -492,7 +492,7 @@ func (c *EndpointsAPIController) CreateEndpointSccp(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointSip - Create a SIP endpoint
@@ -520,7 +520,7 @@ func (c *EndpointsAPIController) CreateEndpointSip(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointSipTemplate - Create a SIP endpoint template
@@ -548,7 +548,7 @@ func (c *EndpointsAPIController) CreateEndpointSipTemplate(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointCustom - Delete Custom Endpoint
@@ -569,7 +569,7 @@ func (c *EndpointsAPIController) DeleteEndpointCustom(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointIax - Delete IAX Endpoint
@@ -590,7 +590,7 @@ func (c *EndpointsAPIController) DeleteEndpointIax(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointSccp - Delete SCCP Endpoint
@@ -611,7 +611,7 @@ func (c *EndpointsAPIController) DeleteEndpointSccp(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointSip - Delete SIP Endpoint
@@ -629,7 +629,7 @@ func (c *EndpointsAPIController) DeleteEndpointSip(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointSipTemplate - Delete SIP Endpoint Template
@@ -647,7 +647,7 @@ func (c *EndpointsAPIController) DeleteEndpointSipTemplate(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointCustom - Dissociate line and Custom endpoint
@@ -675,7 +675,7 @@ func (c *EndpointsAPIController) DissociateLineEndpointCustom(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointSccp - Dissociate line and SCCP endpoint
@@ -703,7 +703,7 @@ func (c *EndpointsAPIController) DissociateLineEndpointSccp(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointSip - Dissociate line and SIP endpoint
@@ -728,7 +728,7 @@ func (c *EndpointsAPIController) DissociateLineEndpointSip(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointCustom - Dissociate trunk and Custom endpoint
@@ -756,7 +756,7 @@ func (c *EndpointsAPIController) DissociateTrunkEndpointCustom(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointIax - Dissociate trunk and IAX endpoint
@@ -784,7 +784,7 @@ func (c *EndpointsAPIController) DissociateTrunkEndpointIax(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointSip - Dissociate trunk and SIP endpoint
@@ -809,7 +809,7 @@ func (c *EndpointsAPIController) DissociateTrunkEndpointSip(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointCustom - Get Custom Endpoint
@@ -830,7 +830,7 @@ func (c *EndpointsAPIController) GetEndpointCustom(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointIax - Get IAX Endpoint
@@ -851,7 +851,7 @@ func (c *EndpointsAPIController) GetEndpointIax(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointSccp - Get SCCP Endpoint
@@ -872,7 +872,7 @@ func (c *EndpointsAPIController) GetEndpointSccp(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointSip - Get SIP Endpoint
@@ -902,7 +902,7 @@ func (c *EndpointsAPIController) GetEndpointSip(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointSipTemplate - Get SIP Endpoint template
@@ -920,7 +920,7 @@ func (c *EndpointsAPIController) GetEndpointSipTemplate(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserLineAssociatedEndpointsSip - Get SIP endpoint of a line for a user
@@ -957,7 +957,7 @@ func (c *EndpointsAPIController) GetUserLineAssociatedEndpointsSip(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserLineMainAssociatedEndpointsSip - Get SIP endpoint of main line for a user
@@ -986,7 +986,7 @@ func (c *EndpointsAPIController) GetUserLineMainAssociatedEndpointsSip(w http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsCustom - List Custom endpoints
@@ -1069,7 +1069,7 @@ func (c *EndpointsAPIController) ListEndpointsCustom(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsIax - List IAX endpoints
@@ -1152,7 +1152,7 @@ func (c *EndpointsAPIController) ListEndpointsIax(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsSccp - List SCCP endpoints
@@ -1235,7 +1235,7 @@ func (c *EndpointsAPIController) ListEndpointsSccp(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsSip - List SIP endpoints
@@ -1318,7 +1318,7 @@ func (c *EndpointsAPIController) ListEndpointsSip(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsSipTemplates - List SIP endpoints templates
@@ -1401,7 +1401,7 @@ func (c *EndpointsAPIController) ListEndpointsSipTemplates(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointCustom - Update Custom Endpoint
@@ -1437,7 +1437,7 @@ func (c *EndpointsAPIController) UpdateEndpointCustom(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointIax - Update IAX Endpoint
@@ -1473,7 +1473,7 @@ func (c *EndpointsAPIController) UpdateEndpointIax(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointSccp - Update SCCP Endpoint
@@ -1509,7 +1509,7 @@ func (c *EndpointsAPIController) UpdateEndpointSccp(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointSip - Update SIP Endpoint
@@ -1542,7 +1542,7 @@ func (c *EndpointsAPIController) UpdateEndpointSip(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointSipTemplate - Update SIP Endpoint Template
@@ -1575,5 +1575,5 @@ func (c *EndpointsAPIController) UpdateEndpointSipTemplate(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

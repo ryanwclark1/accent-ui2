@@ -188,7 +188,7 @@ func (c *VoicemailsAPIController) CheckUserVoicemailGreeting(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CheckVoicemailGreeting - Check if greeting exists
@@ -213,7 +213,7 @@ func (c *VoicemailsAPIController) CheckVoicemailGreeting(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CopyUserVoicemailGreeting - Copy a custom greeting
@@ -245,7 +245,7 @@ func (c *VoicemailsAPIController) CopyUserVoicemailGreeting(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CopyVoicemailGreeting - Copy a custom greeting
@@ -285,7 +285,7 @@ func (c *VoicemailsAPIController) CopyVoicemailGreeting(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserVoicemailGreeting - Create a custom greeting
@@ -309,7 +309,7 @@ func (c *VoicemailsAPIController) CreateUserVoicemailGreeting(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateVoicemailGreeting - Create a custom greeting
@@ -341,7 +341,7 @@ func (c *VoicemailsAPIController) CreateVoicemailGreeting(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserVoicemailGreeting - Delete a custom greeting
@@ -358,7 +358,7 @@ func (c *VoicemailsAPIController) DeleteUserVoicemailGreeting(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserVoicemailMessage - Delete a mesage
@@ -375,7 +375,7 @@ func (c *VoicemailsAPIController) DeleteUserVoicemailMessage(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteVoicemailGreeting - Delete a custom greeting
@@ -400,7 +400,7 @@ func (c *VoicemailsAPIController) DeleteVoicemailGreeting(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteVoicemailMessage - Delete a mesage
@@ -425,7 +425,7 @@ func (c *VoicemailsAPIController) DeleteVoicemailMessage(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemailFolder - Get details of a folder
@@ -445,7 +445,7 @@ func (c *VoicemailsAPIController) GetUserVoicemailFolder(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemailGreeting - Get a custom greeting
@@ -462,7 +462,7 @@ func (c *VoicemailsAPIController) GetUserVoicemailGreeting(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemailMessage - Get a message
@@ -479,7 +479,7 @@ func (c *VoicemailsAPIController) GetUserVoicemailMessage(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemailMessageRecording - Get a message's recording
@@ -515,7 +515,7 @@ func (c *VoicemailsAPIController) GetUserVoicemailMessageRecording(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetVoicemail - Get details of a voicemail
@@ -535,7 +535,7 @@ func (c *VoicemailsAPIController) GetVoicemail(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetVoicemailFolder - Get details of a folder
@@ -563,7 +563,7 @@ func (c *VoicemailsAPIController) GetVoicemailFolder(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetVoicemailGreeting - Get a custom greeting
@@ -588,7 +588,7 @@ func (c *VoicemailsAPIController) GetVoicemailGreeting(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetVoicemailMessage - Get a message
@@ -613,7 +613,7 @@ func (c *VoicemailsAPIController) GetVoicemailMessage(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetVoicemailMessageRecording - Get a message's recording
@@ -657,7 +657,7 @@ func (c *VoicemailsAPIController) GetVoicemailMessageRecording(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserVoicemails - Get details of the voicemail of the authenticated user
@@ -669,7 +669,7 @@ func (c *VoicemailsAPIController) ListUserVoicemails(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserVoicemailGreeting - Update a custom greeting
@@ -693,7 +693,7 @@ func (c *VoicemailsAPIController) UpdateUserVoicemailGreeting(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserVoicemailMessage - Update a message
@@ -725,7 +725,7 @@ func (c *VoicemailsAPIController) UpdateUserVoicemailMessage(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateVoicemailGreeting - Update a custom greeting
@@ -757,7 +757,7 @@ func (c *VoicemailsAPIController) UpdateVoicemailGreeting(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateVoicemailMessage - Update a message
@@ -797,5 +797,5 @@ func (c *VoicemailsAPIController) UpdateVoicemailMessage(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

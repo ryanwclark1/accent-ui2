@@ -152,7 +152,7 @@ func (c *SchedulesAPIController) AssociateGroupSchedule(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateIncallSchedule - Associate incall and schedule
@@ -181,7 +181,7 @@ func (c *SchedulesAPIController) AssociateIncallSchedule(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateOutcallSchedule - Associate outcall and schedule
@@ -210,7 +210,7 @@ func (c *SchedulesAPIController) AssociateOutcallSchedule(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateQueueSchedule - Associate queue and schedule
@@ -239,7 +239,7 @@ func (c *SchedulesAPIController) AssociateQueueSchedule(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserSchedule - Associate user and schedule
@@ -265,7 +265,7 @@ func (c *SchedulesAPIController) AssociateUserSchedule(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateSchedule - Create schedule
@@ -293,7 +293,7 @@ func (c *SchedulesAPIController) CreateSchedule(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteSchedule - Delete schedule
@@ -314,7 +314,7 @@ func (c *SchedulesAPIController) DeleteSchedule(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateGroupSchedule - Dissociate group and schedule
@@ -340,7 +340,7 @@ func (c *SchedulesAPIController) DissociateGroupSchedule(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateIncallSchedule - Dissociate incall and schedule
@@ -369,7 +369,7 @@ func (c *SchedulesAPIController) DissociateIncallSchedule(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateOutcallSchedule - Dissociate outcall and schedule
@@ -398,7 +398,7 @@ func (c *SchedulesAPIController) DissociateOutcallSchedule(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateQueueSchedule - Dissociate queue and schedule
@@ -427,7 +427,7 @@ func (c *SchedulesAPIController) DissociateQueueSchedule(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserSchedule - Dissociate user and schedule
@@ -453,7 +453,7 @@ func (c *SchedulesAPIController) DissociateUserSchedule(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetSchedule - Get schedule
@@ -474,7 +474,7 @@ func (c *SchedulesAPIController) GetSchedule(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListSchedules - List schedule
@@ -557,7 +557,7 @@ func (c *SchedulesAPIController) ListSchedules(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateSchedule - Update schedule
@@ -593,5 +593,5 @@ func (c *SchedulesAPIController) UpdateSchedule(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

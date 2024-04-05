@@ -107,7 +107,7 @@ func (c *EmailsAPIController) GetEmailConfirm(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetNewEmailConfirmation - Ask a new confirmation email
@@ -129,7 +129,7 @@ func (c *EmailsAPIController) GetNewEmailConfirmation(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutEmailConfirm - Confirm an email address
@@ -146,7 +146,7 @@ func (c *EmailsAPIController) PutEmailConfirm(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAllUserEmails - Update email addresses
@@ -178,7 +178,7 @@ func (c *EmailsAPIController) UpdateAllUserEmails(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserEmails - Update email addresses
@@ -210,5 +210,5 @@ func (c *EmailsAPIController) UpdateUserEmails(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

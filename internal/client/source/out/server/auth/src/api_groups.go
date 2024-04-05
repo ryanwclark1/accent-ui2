@@ -118,7 +118,7 @@ func (c *GroupsAPIController) AddGroupPolicy(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AddGroupUser - Associate a group to a user
@@ -140,7 +140,7 @@ func (c *GroupsAPIController) AddGroupUser(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteGroup - Delete a group
@@ -158,7 +158,7 @@ func (c *GroupsAPIController) DeleteGroup(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteGroupPolicy - Dissociate a policy from a group
@@ -180,7 +180,7 @@ func (c *GroupsAPIController) DeleteGroupPolicy(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // EditGroup - Modify a group
@@ -213,7 +213,7 @@ func (c *GroupsAPIController) EditGroup(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGroup - Retrieves the details of a group
@@ -231,7 +231,7 @@ func (c *GroupsAPIController) GetGroup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGroupPolicies - Retrieves the list of policies associated to a group
@@ -304,7 +304,7 @@ func (c *GroupsAPIController) GetGroupPolicies(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGroupUsers - Retrieves the list of users associated to a group
@@ -377,7 +377,7 @@ func (c *GroupsAPIController) GetGroupUsers(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // RemoveGroupUser - Dissociate a user from a group
@@ -399,5 +399,5 @@ func (c *GroupsAPIController) RemoveGroupUser(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

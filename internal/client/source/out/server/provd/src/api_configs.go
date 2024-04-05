@@ -108,7 +108,7 @@ func (c *ConfigsAPIController) DeleteCfgMgrConfigsConfigId(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCfgMgr - Get the Config Manager resource
@@ -120,7 +120,7 @@ func (c *ConfigsAPIController) GetCfgMgr(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCfgMgrConfig - Get a configuration
@@ -137,7 +137,7 @@ func (c *ConfigsAPIController) GetCfgMgrConfig(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCfgMgrConfigs - List and find configurations
@@ -196,7 +196,7 @@ func (c *ConfigsAPIController) GetCfgMgrConfigs(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCfgMgrRawConfig - Get a raw configuration
@@ -213,7 +213,7 @@ func (c *ConfigsAPIController) GetCfgMgrRawConfig(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostCfgMgrAutocreate - Create an autocreate configuration
@@ -232,7 +232,7 @@ func (c *ConfigsAPIController) PostCfgMgrAutocreate(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostCfgMgrConfigs - Create a configuration
@@ -259,7 +259,7 @@ func (c *ConfigsAPIController) PostCfgMgrConfigs(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutCfgMgrConfig - Update a configuration
@@ -291,5 +291,5 @@ func (c *ConfigsAPIController) PutCfgMgrConfig(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

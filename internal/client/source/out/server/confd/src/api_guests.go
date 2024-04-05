@@ -113,7 +113,7 @@ func (c *GuestsAPIController) CreateGuestMeetingAuthorization(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserMeetingAuthorization - Delete the guest authorization to enter a meeting
@@ -140,7 +140,7 @@ func (c *GuestsAPIController) DeleteUserMeetingAuthorization(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGuestMeeting - Get one guest meeting
@@ -157,7 +157,7 @@ func (c *GuestsAPIController) GetGuestMeeting(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGuestMeetingAuthorization - Read the guest authorization to enter a meeting
@@ -184,7 +184,7 @@ func (c *GuestsAPIController) GetGuestMeetingAuthorization(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserMeetingAuthorization - Read the guest authorization to enter a meeting
@@ -211,5 +211,5 @@ func (c *GuestsAPIController) GetUserMeetingAuthorization(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

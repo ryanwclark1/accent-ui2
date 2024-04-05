@@ -99,7 +99,7 @@ func (c *MessagesAPIController) CreateRoomMessage(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListRoomMessage - List room messages
@@ -181,7 +181,7 @@ func (c *MessagesAPIController) ListRoomMessage(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListRoomsMessages - List rooms messages
@@ -254,5 +254,5 @@ func (c *MessagesAPIController) ListRoomsMessages(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

@@ -73,7 +73,7 @@ func (c *EmailsAPIController) GetEmailsConfig(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEmailsConfig - Update e-mail configuration
@@ -100,5 +100,5 @@ func (c *EmailsAPIController) UpdateEmailsConfig(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

@@ -124,7 +124,7 @@ func (c *CallpickupsAPIController) CreateCallpickup(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteCallpickup - Delete call pickup
@@ -145,7 +145,7 @@ func (c *CallpickupsAPIController) DeleteCallpickup(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCallpickup - Get call pickup
@@ -166,7 +166,7 @@ func (c *CallpickupsAPIController) GetCallpickup(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListCallPickups - List call pickups
@@ -249,7 +249,7 @@ func (c *CallpickupsAPIController) ListCallPickups(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallPickupInterceptorGroups - Update call pickup and interceptors
@@ -285,7 +285,7 @@ func (c *CallpickupsAPIController) UpdateCallPickupInterceptorGroups(w http.Resp
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallPickupInterceptorUsers - Update call pickup and interceptors
@@ -321,7 +321,7 @@ func (c *CallpickupsAPIController) UpdateCallPickupInterceptorUsers(w http.Respo
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallPickupTargetGroups - Update call pickup and targets
@@ -357,7 +357,7 @@ func (c *CallpickupsAPIController) UpdateCallPickupTargetGroups(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallPickupTargetUsers - Update call pickup and targets
@@ -393,7 +393,7 @@ func (c *CallpickupsAPIController) UpdateCallPickupTargetUsers(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallpickup - Update call pickup
@@ -429,5 +429,5 @@ func (c *CallpickupsAPIController) UpdateCallpickup(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

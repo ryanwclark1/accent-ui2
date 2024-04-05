@@ -188,7 +188,7 @@ func (c *CallsAPIController) AnswerCall(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AnswerUserCall - Answer a call from user
@@ -205,7 +205,7 @@ func (c *CallsAPIController) AnswerUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ConnectCallToUser - Connect a call to a user
@@ -242,7 +242,7 @@ func (c *CallsAPIController) ConnectCallToUser(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateCall - Make a new call
@@ -269,7 +269,7 @@ func (c *CallsAPIController) CreateCall(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserCall - Make a new call from a user
@@ -296,7 +296,7 @@ func (c *CallsAPIController) CreateUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteCall - Hangup a call
@@ -313,7 +313,7 @@ func (c *CallsAPIController) DeleteCall(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCall - Show a call
@@ -330,7 +330,7 @@ func (c *CallsAPIController) GetCall(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // HangupUserCall - Hangup a call from a user
@@ -347,7 +347,7 @@ func (c *CallsAPIController) HangupUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // HoldCall - Hold a call
@@ -364,7 +364,7 @@ func (c *CallsAPIController) HoldCall(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // HoldUserCall - Hold a call from user
@@ -381,7 +381,7 @@ func (c *CallsAPIController) HoldUserCall(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListCalls - List calls
@@ -412,7 +412,7 @@ func (c *CallsAPIController) ListCalls(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserCalls - List calls of a user
@@ -443,7 +443,7 @@ func (c *CallsAPIController) ListUserCalls(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // MuteCall - Mute a call
@@ -460,7 +460,7 @@ func (c *CallsAPIController) MuteCall(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // MuteUserCall - Mute a call from user
@@ -477,7 +477,7 @@ func (c *CallsAPIController) MuteUserCall(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SendCallDTMF - Simulate a user pressing DTMF keys
@@ -508,7 +508,7 @@ func (c *CallsAPIController) SendCallDTMF(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SendUserDTMF - Simulate a user pressing DTMF keys
@@ -539,7 +539,7 @@ func (c *CallsAPIController) SendUserDTMF(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StartCurrentUserRecording - Start recording a call
@@ -556,7 +556,7 @@ func (c *CallsAPIController) StartCurrentUserRecording(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StartRecording - Start recording a call
@@ -573,7 +573,7 @@ func (c *CallsAPIController) StartRecording(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StopCurrentUserRecording - Stop recording a call
@@ -590,7 +590,7 @@ func (c *CallsAPIController) StopCurrentUserRecording(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StopRecording - Stop recording a call
@@ -607,7 +607,7 @@ func (c *CallsAPIController) StopRecording(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnholdCall - Unhold a call
@@ -624,7 +624,7 @@ func (c *CallsAPIController) UnholdCall(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnholdUserCall - Unhold a call from user
@@ -641,7 +641,7 @@ func (c *CallsAPIController) UnholdUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnmuteCall - Unmute a call
@@ -658,7 +658,7 @@ func (c *CallsAPIController) UnmuteCall(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnmuteUserCall - Unmute a call from user
@@ -675,5 +675,5 @@ func (c *CallsAPIController) UnmuteUserCall(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

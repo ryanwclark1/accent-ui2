@@ -109,7 +109,7 @@ func (c *SwitchboardsAPIController) GetSwitchboardFallback(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SwitchboardsGet - List switchboards
@@ -192,7 +192,7 @@ func (c *SwitchboardsAPIController) SwitchboardsGet(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SwitchboardsPost - Create a switchboard
@@ -220,7 +220,7 @@ func (c *SwitchboardsAPIController) SwitchboardsPost(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SwitchboardsSwitchboardUuidDelete - Delete a switchboard
@@ -238,7 +238,7 @@ func (c *SwitchboardsAPIController) SwitchboardsSwitchboardUuidDelete(w http.Res
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SwitchboardsSwitchboardUuidGet - Get a switchboard
@@ -256,7 +256,7 @@ func (c *SwitchboardsAPIController) SwitchboardsSwitchboardUuidGet(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // SwitchboardsSwitchboardUuidPut - Update a switchboard
@@ -289,7 +289,7 @@ func (c *SwitchboardsAPIController) SwitchboardsSwitchboardUuidPut(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateSwitchboardFallback - Update switchboard's fallbacks
@@ -322,7 +322,7 @@ func (c *SwitchboardsAPIController) UpdateSwitchboardFallback(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateSwitchboardMemberUsers - Update switchboard and members
@@ -354,5 +354,5 @@ func (c *SwitchboardsAPIController) UpdateSwitchboardMemberUsers(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

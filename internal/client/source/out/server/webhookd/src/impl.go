@@ -13,5 +13,6 @@ package webhookdserver
 // ImplResponse defines an implementation response with error code and the associated body
 type ImplResponse struct {
 	Code int
+	Headers map[string][]string
 	Body interface{}
 }

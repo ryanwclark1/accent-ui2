@@ -178,7 +178,7 @@ func (c *MeetingsAPIController) CreateGuestMeetingAuthorization(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateMeeting - Create meeting
@@ -206,7 +206,7 @@ func (c *MeetingsAPIController) CreateMeeting(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserMeeting - Create user meeting
@@ -234,7 +234,7 @@ func (c *MeetingsAPIController) CreateUserMeeting(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteMeeting - Delete meeting
@@ -252,7 +252,7 @@ func (c *MeetingsAPIController) DeleteMeeting(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserMeeting - Delete one of the meetings of the current user
@@ -270,7 +270,7 @@ func (c *MeetingsAPIController) DeleteUserMeeting(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserMeetingAuthorization - Delete the guest authorization to enter a meeting
@@ -297,7 +297,7 @@ func (c *MeetingsAPIController) DeleteUserMeetingAuthorization(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGuestMeeting - Get one guest meeting
@@ -314,7 +314,7 @@ func (c *MeetingsAPIController) GetGuestMeeting(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGuestMeetingAuthorization - Read the guest authorization to enter a meeting
@@ -341,7 +341,7 @@ func (c *MeetingsAPIController) GetGuestMeetingAuthorization(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetMeeting - Get meeting
@@ -359,7 +359,7 @@ func (c *MeetingsAPIController) GetMeeting(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserMeeting - Get one of the meetings of the current user
@@ -377,7 +377,7 @@ func (c *MeetingsAPIController) GetUserMeeting(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserMeetingAuthorization - Read the guest authorization to enter a meeting
@@ -404,7 +404,7 @@ func (c *MeetingsAPIController) GetUserMeetingAuthorization(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListMeetings - List meetings
@@ -487,7 +487,7 @@ func (c *MeetingsAPIController) ListMeetings(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserMeetingAuthorizations - List all guest authorization requests of a meeting
@@ -504,7 +504,7 @@ func (c *MeetingsAPIController) ListUserMeetingAuthorizations(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserMeetings - List user meetings
@@ -587,7 +587,7 @@ func (c *MeetingsAPIController) ListUserMeetings(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutUserMeetingAuthorizationAccept - Accept a guest authorization request
@@ -609,7 +609,7 @@ func (c *MeetingsAPIController) PutUserMeetingAuthorizationAccept(w http.Respons
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutUserMeetingAuthorizationReject - Reject a guest authorization request
@@ -631,7 +631,7 @@ func (c *MeetingsAPIController) PutUserMeetingAuthorizationReject(w http.Respons
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateMeeting - Update meeting
@@ -664,7 +664,7 @@ func (c *MeetingsAPIController) UpdateMeeting(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserMeeting - Update one of the meetings of the current user
@@ -697,5 +697,5 @@ func (c *MeetingsAPIController) UpdateUserMeeting(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

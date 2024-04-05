@@ -131,7 +131,7 @@ func (c *VoicemailsAPIController) AssociateUserVoicemail(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserVoicemail - Create user voicemail
@@ -164,7 +164,7 @@ func (c *VoicemailsAPIController) CreateUserVoicemail(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateVoicemail - Create voicemail
@@ -191,7 +191,7 @@ func (c *VoicemailsAPIController) CreateVoicemail(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteVoicemail - Delete voicemail
@@ -212,7 +212,7 @@ func (c *VoicemailsAPIController) DeleteVoicemail(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserVoicemail - Dissociate user and voicemail
@@ -229,7 +229,7 @@ func (c *VoicemailsAPIController) DissociateUserVoicemail(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemail - Get user voicemails
@@ -247,7 +247,7 @@ func (c *VoicemailsAPIController) GetUserVoicemail(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetVoicemail - Get voicemail
@@ -268,7 +268,7 @@ func (c *VoicemailsAPIController) GetVoicemail(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskVoicemailZonemessages - List Voicemail zonemessages options
@@ -280,7 +280,7 @@ func (c *VoicemailsAPIController) ListAsteriskVoicemailZonemessages(w http.Respo
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListVoicemails - List voicemails
@@ -363,7 +363,7 @@ func (c *VoicemailsAPIController) ListVoicemails(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskVoicemailZonemessages - Update Voicemail zonemessages option
@@ -390,7 +390,7 @@ func (c *VoicemailsAPIController) UpdateAsteriskVoicemailZonemessages(w http.Res
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateVoicemail - Update voicemail
@@ -426,5 +426,5 @@ func (c *VoicemailsAPIController) UpdateVoicemail(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

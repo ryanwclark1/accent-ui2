@@ -188,7 +188,7 @@ func (c *UsersAPIController) AddGroupUser(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AddUserPolicy - Associate a policy to a user
@@ -210,7 +210,7 @@ func (c *UsersAPIController) AddUserPolicy(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ChangeUserPassword - Change the user's password
@@ -242,7 +242,7 @@ func (c *UsersAPIController) ChangeUserPassword(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUser - Create a user
@@ -270,7 +270,7 @@ func (c *UsersAPIController) CreateUser(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteRefreshTokens - Delete a user's refresh token
@@ -292,7 +292,7 @@ func (c *UsersAPIController) DeleteRefreshTokens(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUser - Delete a user
@@ -309,7 +309,7 @@ func (c *UsersAPIController) DeleteUser(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserPolicy - Dissociate a policy from a user
@@ -331,7 +331,7 @@ func (c *UsersAPIController) DeleteUserPolicy(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetNewEmailConfirmation - Ask a new confirmation email
@@ -353,7 +353,7 @@ func (c *UsersAPIController) GetNewEmailConfirmation(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUser - Retrieves the details of a user
@@ -370,7 +370,7 @@ func (c *UsersAPIController) GetUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserExternalAuth - Retrieves the list of the users external auth data
@@ -443,7 +443,7 @@ func (c *UsersAPIController) GetUserExternalAuth(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserGroups - Retrieves the list of groups associated to a user
@@ -516,7 +516,7 @@ func (c *UsersAPIController) GetUserGroups(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserPolicies - Retrieves the list of policies associated to a user
@@ -589,7 +589,7 @@ func (c *UsersAPIController) GetUserPolicies(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserSessions - Retrieves the list of sessions associated to a user
@@ -642,7 +642,7 @@ func (c *UsersAPIController) GetUserSessions(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserTokens - Retrieve a user's refresh token list
@@ -716,7 +716,7 @@ func (c *UsersAPIController) GetUserTokens(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUsers - Retrieves the list of users
@@ -829,7 +829,7 @@ func (c *UsersAPIController) GetUsers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // RegisterUser - Create a user
@@ -856,7 +856,7 @@ func (c *UsersAPIController) RegisterUser(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // RemoveGroupUser - Dissociate a user from a group
@@ -878,7 +878,7 @@ func (c *UsersAPIController) RemoveGroupUser(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ResetPassword - Reset the user password
@@ -916,7 +916,7 @@ func (c *UsersAPIController) ResetPassword(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ResetPasswordChange - Set the user password
@@ -957,7 +957,7 @@ func (c *UsersAPIController) ResetPasswordChange(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAllUserEmails - Update email addresses
@@ -989,7 +989,7 @@ func (c *UsersAPIController) UpdateAllUserEmails(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUser - Update an existing user
@@ -1021,7 +1021,7 @@ func (c *UsersAPIController) UpdateUser(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserEmails - Update email addresses
@@ -1053,7 +1053,7 @@ func (c *UsersAPIController) UpdateUserEmails(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UserDeleteSession - Delete a session
@@ -1075,5 +1075,5 @@ func (c *UsersAPIController) UserDeleteSession(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

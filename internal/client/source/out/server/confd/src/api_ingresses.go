@@ -104,7 +104,7 @@ func (c *IngressesAPIController) CreateHttpIngress(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteHttpIngress - Delete HTTP ingress
@@ -122,7 +122,7 @@ func (c *IngressesAPIController) DeleteHttpIngress(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetHttpIngress - Get HTTP ingress
@@ -140,7 +140,7 @@ func (c *IngressesAPIController) GetHttpIngress(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListHttpIngresses - List HTTP ingresses
@@ -223,7 +223,7 @@ func (c *IngressesAPIController) ListHttpIngresses(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateHttpIngress - Update HTTP ingress
@@ -256,5 +256,5 @@ func (c *IngressesAPIController) UpdateHttpIngress(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

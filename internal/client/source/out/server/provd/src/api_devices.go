@@ -124,7 +124,7 @@ func (c *DevicesAPIController) DeleteDevMgrDevice(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteDevMgrSynchronize - Delete the Operation In Progress
@@ -141,7 +141,7 @@ func (c *DevicesAPIController) DeleteDevMgrSynchronize(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DevMgrDevicesPost - Create a device
@@ -169,7 +169,7 @@ func (c *DevicesAPIController) DevMgrDevicesPost(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetDevMgr - Get the Device Manager resource
@@ -181,7 +181,7 @@ func (c *DevicesAPIController) GetDevMgr(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetDevMgrDevice - Get a device by ID
@@ -199,7 +199,7 @@ func (c *DevicesAPIController) GetDevMgrDevice(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetDevMgrDevices - List and find devices
@@ -275,7 +275,7 @@ func (c *DevicesAPIController) GetDevMgrDevices(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetDevMgrSynchronize - Get the status of a synchronize Operation In Progress
@@ -292,7 +292,7 @@ func (c *DevicesAPIController) GetDevMgrSynchronize(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostDevMgrDhcpinfo - Push DHCP request information
@@ -320,7 +320,7 @@ func (c *DevicesAPIController) PostDevMgrDhcpinfo(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostDevMgrReconfigure - Reconfigure a device
@@ -348,7 +348,7 @@ func (c *DevicesAPIController) PostDevMgrReconfigure(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostDevMgrSynchronize - Synchronize a device
@@ -376,7 +376,7 @@ func (c *DevicesAPIController) PostDevMgrSynchronize(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutDevMgrDevice - Update a device
@@ -409,5 +409,5 @@ func (c *DevicesAPIController) PutDevMgrDevice(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

@@ -124,7 +124,7 @@ func (c *SccpAPIController) AssociateLineEndpointSccp(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointSccp - Create SCCP endpoint
@@ -152,7 +152,7 @@ func (c *SccpAPIController) CreateEndpointSccp(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointSccp - Delete SCCP Endpoint
@@ -173,7 +173,7 @@ func (c *SccpAPIController) DeleteEndpointSccp(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointSccp - Dissociate line and SCCP endpoint
@@ -201,7 +201,7 @@ func (c *SccpAPIController) DissociateLineEndpointSccp(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointSccp - Get SCCP Endpoint
@@ -222,7 +222,7 @@ func (c *SccpAPIController) GetEndpointSccp(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskSccpGeneral - List SCCP general options
@@ -234,7 +234,7 @@ func (c *SccpAPIController) ListAsteriskSccpGeneral(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsSccp - List SCCP endpoints
@@ -317,7 +317,7 @@ func (c *SccpAPIController) ListEndpointsSccp(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskSccpGeneral - Update SCCP general option
@@ -344,7 +344,7 @@ func (c *SccpAPIController) UpdateAsteriskSccpGeneral(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointSccp - Update SCCP Endpoint
@@ -380,5 +380,5 @@ func (c *SccpAPIController) UpdateEndpointSccp(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

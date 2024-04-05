@@ -133,7 +133,7 @@ func (c *PoliciesAPIController) AddGroupPolicy(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AddPolicyAccess - Associate an access to a policy
@@ -156,7 +156,7 @@ func (c *PoliciesAPIController) AddPolicyAccess(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AddUserPolicy - Associate a policy to a user
@@ -178,7 +178,7 @@ func (c *PoliciesAPIController) AddUserPolicy(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreatePolicies - Create a new ACL policy
@@ -206,7 +206,7 @@ func (c *PoliciesAPIController) CreatePolicies(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteGroupPolicy - Dissociate a policy from a group
@@ -228,7 +228,7 @@ func (c *PoliciesAPIController) DeleteGroupPolicy(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeletePolicy - Delete a policy
@@ -246,7 +246,7 @@ func (c *PoliciesAPIController) DeletePolicy(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeletePolicyAccess - Dissociate an access from a policy
@@ -269,7 +269,7 @@ func (c *PoliciesAPIController) DeletePolicyAccess(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserPolicy - Dissociate a policy from a user
@@ -291,7 +291,7 @@ func (c *PoliciesAPIController) DeleteUserPolicy(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // EditPolicy - Modify an ACL policy
@@ -324,7 +324,7 @@ func (c *PoliciesAPIController) EditPolicy(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPolicies - List ACL policies
@@ -409,7 +409,7 @@ func (c *PoliciesAPIController) GetPolicies(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPolicy - Retrieves the details of a policy
@@ -427,7 +427,7 @@ func (c *PoliciesAPIController) GetPolicy(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserPolicies - Retrieves the list of policies associated to a user
@@ -500,5 +500,5 @@ func (c *PoliciesAPIController) GetUserPolicies(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

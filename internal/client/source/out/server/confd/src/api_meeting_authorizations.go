@@ -123,7 +123,7 @@ func (c *MeetingAuthorizationsAPIController) CreateGuestMeetingAuthorization(w h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserMeetingAuthorization - Delete the guest authorization to enter a meeting
@@ -150,7 +150,7 @@ func (c *MeetingAuthorizationsAPIController) DeleteUserMeetingAuthorization(w ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetGuestMeetingAuthorization - Read the guest authorization to enter a meeting
@@ -177,7 +177,7 @@ func (c *MeetingAuthorizationsAPIController) GetGuestMeetingAuthorization(w http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserMeetingAuthorization - Read the guest authorization to enter a meeting
@@ -204,7 +204,7 @@ func (c *MeetingAuthorizationsAPIController) GetUserMeetingAuthorization(w http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserMeetingAuthorizations - List all guest authorization requests of a meeting
@@ -221,7 +221,7 @@ func (c *MeetingAuthorizationsAPIController) ListUserMeetingAuthorizations(w htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutUserMeetingAuthorizationAccept - Accept a guest authorization request
@@ -243,7 +243,7 @@ func (c *MeetingAuthorizationsAPIController) PutUserMeetingAuthorizationAccept(w
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutUserMeetingAuthorizationReject - Reject a guest authorization request
@@ -265,5 +265,5 @@ func (c *MeetingAuthorizationsAPIController) PutUserMeetingAuthorizationReject(w
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

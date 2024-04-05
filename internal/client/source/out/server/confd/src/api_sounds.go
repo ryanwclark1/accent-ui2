@@ -119,7 +119,7 @@ func (c *SoundsAPIController) CreateSounds(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteSounds - Delete sound category
@@ -137,7 +137,7 @@ func (c *SoundsAPIController) DeleteSounds(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteSoundsFiles - Delete audio file
@@ -179,7 +179,7 @@ func (c *SoundsAPIController) DeleteSoundsFiles(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetSounds - Get sound category
@@ -197,7 +197,7 @@ func (c *SoundsAPIController) GetSounds(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetSoundsFiles - Get audio file
@@ -239,7 +239,7 @@ func (c *SoundsAPIController) GetSoundsFiles(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListSounds - List sound categories
@@ -322,7 +322,7 @@ func (c *SoundsAPIController) ListSounds(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListSoundsLanguages - List all languages for sounds
@@ -334,7 +334,7 @@ func (c *SoundsAPIController) ListSoundsLanguages(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateSoundsFiles - Add or update audio file
@@ -383,5 +383,5 @@ func (c *SoundsAPIController) UpdateSoundsFiles(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

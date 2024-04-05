@@ -114,7 +114,7 @@ func (c *RegistersAPIController) AssociateTrunkRegisterIax(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateRegisterIax - Create register_iax
@@ -141,7 +141,7 @@ func (c *RegistersAPIController) CreateRegisterIax(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteRegisterIax - Delete register IAX
@@ -161,7 +161,7 @@ func (c *RegistersAPIController) DeleteRegisterIax(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkRegisterIax - Dissociate trunk and IAX register
@@ -189,7 +189,7 @@ func (c *RegistersAPIController) DissociateTrunkRegisterIax(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetRegisterIax - Get register IAX
@@ -209,7 +209,7 @@ func (c *RegistersAPIController) GetRegisterIax(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListRegistersIax - List registers iax
@@ -275,7 +275,7 @@ func (c *RegistersAPIController) ListRegistersIax(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateRegisterIax - Update register IAX
@@ -310,5 +310,5 @@ func (c *RegistersAPIController) UpdateRegisterIax(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

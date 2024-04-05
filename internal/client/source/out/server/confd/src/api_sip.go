@@ -196,7 +196,7 @@ func (c *SipAPIController) AssociateLineEndpointSip(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkEndpointSip - Associate trunk and SIP endpoint
@@ -221,7 +221,7 @@ func (c *SipAPIController) AssociateTrunkEndpointSip(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointSip - Create a SIP endpoint
@@ -249,7 +249,7 @@ func (c *SipAPIController) CreateEndpointSip(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointSipTemplate - Create a SIP endpoint template
@@ -277,7 +277,7 @@ func (c *SipAPIController) CreateEndpointSipTemplate(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateSipTransport - Create SIP transport
@@ -304,7 +304,7 @@ func (c *SipAPIController) CreateSipTransport(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointSip - Delete SIP Endpoint
@@ -322,7 +322,7 @@ func (c *SipAPIController) DeleteEndpointSip(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointSipTemplate - Delete SIP Endpoint Template
@@ -340,7 +340,7 @@ func (c *SipAPIController) DeleteEndpointSipTemplate(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteSipTransport - Delete SIP transport
@@ -369,7 +369,7 @@ func (c *SipAPIController) DeleteSipTransport(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointSip - Dissociate line and SIP endpoint
@@ -394,7 +394,7 @@ func (c *SipAPIController) DissociateLineEndpointSip(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointSip - Dissociate trunk and SIP endpoint
@@ -419,7 +419,7 @@ func (c *SipAPIController) DissociateTrunkEndpointSip(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointSip - Get SIP Endpoint
@@ -449,7 +449,7 @@ func (c *SipAPIController) GetEndpointSip(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointSipTemplate - Get SIP Endpoint template
@@ -467,7 +467,7 @@ func (c *SipAPIController) GetEndpointSipTemplate(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetSipTransport - Get SIP transport
@@ -484,7 +484,7 @@ func (c *SipAPIController) GetSipTransport(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskPjsipGlobal - List of PJSIP options for the `global` section
@@ -496,7 +496,7 @@ func (c *SipAPIController) ListAsteriskPjsipGlobal(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskPjsipSystem - List of PJSIP options for the `system` section
@@ -508,7 +508,7 @@ func (c *SipAPIController) ListAsteriskPjsipSystem(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsSip - List SIP endpoints
@@ -591,7 +591,7 @@ func (c *SipAPIController) ListEndpointsSip(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsSipTemplates - List SIP endpoints templates
@@ -674,7 +674,7 @@ func (c *SipAPIController) ListEndpointsSipTemplates(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListSipTransports - List all configured SIP transports
@@ -740,7 +740,7 @@ func (c *SipAPIController) ListSipTransports(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ShowPjsipDoc - List all PJSIP configuration options
@@ -752,7 +752,7 @@ func (c *SipAPIController) ShowPjsipDoc(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskPjsipGlobal - Update PJSIP section options
@@ -779,7 +779,7 @@ func (c *SipAPIController) UpdateAsteriskPjsipGlobal(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskPjsipSystem - Update PJSIP section options
@@ -806,7 +806,7 @@ func (c *SipAPIController) UpdateAsteriskPjsipSystem(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointSip - Update SIP Endpoint
@@ -839,7 +839,7 @@ func (c *SipAPIController) UpdateEndpointSip(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointSipTemplate - Update SIP Endpoint Template
@@ -872,7 +872,7 @@ func (c *SipAPIController) UpdateEndpointSipTemplate(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateSipTransport - Update SIP transport
@@ -904,5 +904,5 @@ func (c *SipAPIController) UpdateSipTransport(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

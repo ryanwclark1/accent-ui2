@@ -118,7 +118,7 @@ func (c *SwitchboardsAPIController) AnswerHeldCall(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AnswerQueuedCall - Answer the specified queued call
@@ -160,7 +160,7 @@ func (c *SwitchboardsAPIController) AnswerQueuedCall(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // HoldSwitchboardCall - Put the specified call on hold in the switchboard
@@ -183,7 +183,7 @@ func (c *SwitchboardsAPIController) HoldSwitchboardCall(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListSwitchboardHeldCalls - List calls held in the switchboard
@@ -201,7 +201,7 @@ func (c *SwitchboardsAPIController) ListSwitchboardHeldCalls(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListSwitchboardQueuedCalls - List calls queued in the switchboard
@@ -219,5 +219,5 @@ func (c *SwitchboardsAPIController) ListSwitchboardQueuedCalls(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

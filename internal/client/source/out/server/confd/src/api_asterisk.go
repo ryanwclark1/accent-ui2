@@ -228,7 +228,7 @@ func (c *AsteriskAPIController) ListAsteriskConfbridgeAccentDefaultBridge(w http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskConfbridgeAccentDefaultUser - List ConfBridge accent_default_user options
@@ -240,7 +240,7 @@ func (c *AsteriskAPIController) ListAsteriskConfbridgeAccentDefaultUser(w http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskFeaturesApplicationmap - List Features applicationmap options
@@ -252,7 +252,7 @@ func (c *AsteriskAPIController) ListAsteriskFeaturesApplicationmap(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskFeaturesFeaturemap - List Features featuremap options
@@ -264,7 +264,7 @@ func (c *AsteriskAPIController) ListAsteriskFeaturesFeaturemap(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskFeaturesGeneral - List Features general options
@@ -276,7 +276,7 @@ func (c *AsteriskAPIController) ListAsteriskFeaturesGeneral(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskHepGeneral - List HEP general options
@@ -288,7 +288,7 @@ func (c *AsteriskAPIController) ListAsteriskHepGeneral(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskIaxCallnumberlimits - List IAX callnumberlimits options
@@ -300,7 +300,7 @@ func (c *AsteriskAPIController) ListAsteriskIaxCallnumberlimits(w http.ResponseW
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskIaxGeneral - List IAX general options
@@ -312,7 +312,7 @@ func (c *AsteriskAPIController) ListAsteriskIaxGeneral(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskPjsipGlobal - List of PJSIP options for the `global` section
@@ -324,7 +324,7 @@ func (c *AsteriskAPIController) ListAsteriskPjsipGlobal(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskPjsipSystem - List of PJSIP options for the `system` section
@@ -336,7 +336,7 @@ func (c *AsteriskAPIController) ListAsteriskPjsipSystem(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskQueueGeneral - List Queue general options
@@ -348,7 +348,7 @@ func (c *AsteriskAPIController) ListAsteriskQueueGeneral(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskRtpGeneral - List RTP general options
@@ -360,7 +360,7 @@ func (c *AsteriskAPIController) ListAsteriskRtpGeneral(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskRtpIceHostCandidates - List RTP ice_host_candidates options
@@ -372,7 +372,7 @@ func (c *AsteriskAPIController) ListAsteriskRtpIceHostCandidates(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskSccpGeneral - List SCCP general options
@@ -384,7 +384,7 @@ func (c *AsteriskAPIController) ListAsteriskSccpGeneral(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskVoicemailGeneral - List Voicemail general options
@@ -396,7 +396,7 @@ func (c *AsteriskAPIController) ListAsteriskVoicemailGeneral(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAsteriskVoicemailZonemessages - List Voicemail zonemessages options
@@ -408,7 +408,7 @@ func (c *AsteriskAPIController) ListAsteriskVoicemailZonemessages(w http.Respons
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ShowPjsipDoc - List all PJSIP configuration options
@@ -420,7 +420,7 @@ func (c *AsteriskAPIController) ShowPjsipDoc(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskConfbridgeAccentDefaultBridge - Update ConfBridge accent_default_bridge option
@@ -447,7 +447,7 @@ func (c *AsteriskAPIController) UpdateAsteriskConfbridgeAccentDefaultBridge(w ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskConfbridgeAccentDefaultUser - Update ConfBridge accent_default_user option
@@ -474,7 +474,7 @@ func (c *AsteriskAPIController) UpdateAsteriskConfbridgeAccentDefaultUser(w http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskFeaturesApplicationmap - Update Features applicationmap option
@@ -501,7 +501,7 @@ func (c *AsteriskAPIController) UpdateAsteriskFeaturesApplicationmap(w http.Resp
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskFeaturesFeaturemap - Update Features featuremap option
@@ -528,7 +528,7 @@ func (c *AsteriskAPIController) UpdateAsteriskFeaturesFeaturemap(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskFeaturesGeneral - Update Features general option
@@ -555,7 +555,7 @@ func (c *AsteriskAPIController) UpdateAsteriskFeaturesGeneral(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskHepGeneral - Update HEP general option
@@ -582,7 +582,7 @@ func (c *AsteriskAPIController) UpdateAsteriskHepGeneral(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskIaxCallnumberlimits - Update IAX callnumberlimits option
@@ -609,7 +609,7 @@ func (c *AsteriskAPIController) UpdateAsteriskIaxCallnumberlimits(w http.Respons
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskIaxGeneral - Update IAX general option
@@ -636,7 +636,7 @@ func (c *AsteriskAPIController) UpdateAsteriskIaxGeneral(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskPjsipGlobal - Update PJSIP section options
@@ -663,7 +663,7 @@ func (c *AsteriskAPIController) UpdateAsteriskPjsipGlobal(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskPjsipSystem - Update PJSIP section options
@@ -690,7 +690,7 @@ func (c *AsteriskAPIController) UpdateAsteriskPjsipSystem(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskQueueGeneral - Update Queue general option
@@ -717,7 +717,7 @@ func (c *AsteriskAPIController) UpdateAsteriskQueueGeneral(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskRtpGeneral - Update RTP general option
@@ -744,7 +744,7 @@ func (c *AsteriskAPIController) UpdateAsteriskRtpGeneral(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskRtpIceHostCandidates - Update RTP ice_host_candidates option
@@ -771,7 +771,7 @@ func (c *AsteriskAPIController) UpdateAsteriskRtpIceHostCandidates(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskSccpGeneral - Update SCCP general option
@@ -798,7 +798,7 @@ func (c *AsteriskAPIController) UpdateAsteriskSccpGeneral(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskVoicemailGeneral - Update Voicemail general option
@@ -825,7 +825,7 @@ func (c *AsteriskAPIController) UpdateAsteriskVoicemailGeneral(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAsteriskVoicemailZonemessages - Update Voicemail zonemessages option
@@ -852,5 +852,5 @@ func (c *AsteriskAPIController) UpdateAsteriskVoicemailZonemessages(w http.Respo
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

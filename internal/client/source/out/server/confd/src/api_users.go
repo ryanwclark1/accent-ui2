@@ -417,7 +417,7 @@ func (c *UsersAPIController) AssociateUserAgent(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserCallpermission - Associate user and call permission
@@ -443,7 +443,7 @@ func (c *UsersAPIController) AssociateUserCallpermission(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserFuncKeyTemplate - Associate a func key template to a user
@@ -469,7 +469,7 @@ func (c *UsersAPIController) AssociateUserFuncKeyTemplate(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserLine - Associate user and line
@@ -494,7 +494,7 @@ func (c *UsersAPIController) AssociateUserLine(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserLines - Associate user and lines
@@ -526,7 +526,7 @@ func (c *UsersAPIController) AssociateUserLines(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserSchedule - Associate user and schedule
@@ -552,7 +552,7 @@ func (c *UsersAPIController) AssociateUserSchedule(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserVoicemail - Associate user and voicemail
@@ -577,7 +577,7 @@ func (c *UsersAPIController) AssociateUserVoicemail(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUser - Create user
@@ -605,7 +605,7 @@ func (c *UsersAPIController) CreateUser(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserExternalApp - Create user external app
@@ -643,7 +643,7 @@ func (c *UsersAPIController) CreateUserExternalApp(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserMeeting - Create user meeting
@@ -671,7 +671,7 @@ func (c *UsersAPIController) CreateUserMeeting(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserVoicemail - Create user voicemail
@@ -704,7 +704,7 @@ func (c *UsersAPIController) CreateUserVoicemail(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUser - Delete user
@@ -741,7 +741,7 @@ func (c *UsersAPIController) DeleteUser(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserExternalApp - Delete user external app
@@ -764,7 +764,7 @@ func (c *UsersAPIController) DeleteUserExternalApp(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserFuncKey - Remove func key for user
@@ -790,7 +790,7 @@ func (c *UsersAPIController) DeleteUserFuncKey(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserMeeting - Delete one of the meetings of the current user
@@ -808,7 +808,7 @@ func (c *UsersAPIController) DeleteUserMeeting(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserAgent - Dissociate user and agent
@@ -826,7 +826,7 @@ func (c *UsersAPIController) DissociateUserAgent(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserCallpermission - Dissociate user and call permission
@@ -852,7 +852,7 @@ func (c *UsersAPIController) DissociateUserCallpermission(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserFuncKeyTemplate - Dissociate a func key template to a user
@@ -878,7 +878,7 @@ func (c *UsersAPIController) DissociateUserFuncKeyTemplate(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserLine - Dissociate user and line
@@ -903,7 +903,7 @@ func (c *UsersAPIController) DissociateUserLine(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserQueue - Dissociate user and queue
@@ -929,7 +929,7 @@ func (c *UsersAPIController) DissociateUserQueue(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserSchedule - Dissociate user and schedule
@@ -955,7 +955,7 @@ func (c *UsersAPIController) DissociateUserSchedule(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserVoicemail - Dissociate user and voicemail
@@ -972,7 +972,7 @@ func (c *UsersAPIController) DissociateUserVoicemail(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ExportUsersCsv - Mass export users and associated resources
@@ -985,7 +985,7 @@ func (c *UsersAPIController) ExportUsersCsv(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUser - Get user
@@ -1003,7 +1003,7 @@ func (c *UsersAPIController) GetUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserExternalApp - Get user external app
@@ -1038,7 +1038,7 @@ func (c *UsersAPIController) GetUserExternalApp(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserFallback - List all fallbacks for user
@@ -1055,7 +1055,7 @@ func (c *UsersAPIController) GetUserFallback(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserForward - Get forward for a user
@@ -1077,7 +1077,7 @@ func (c *UsersAPIController) GetUserForward(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserFuncKey - Get a func key for a user
@@ -1103,7 +1103,7 @@ func (c *UsersAPIController) GetUserFuncKey(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserLineAssociatedEndpointsSip - Get SIP endpoint of a line for a user
@@ -1140,7 +1140,7 @@ func (c *UsersAPIController) GetUserLineAssociatedEndpointsSip(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserLineMainAssociatedEndpointsSip - Get SIP endpoint of main line for a user
@@ -1169,7 +1169,7 @@ func (c *UsersAPIController) GetUserLineMainAssociatedEndpointsSip(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserMeeting - Get one of the meetings of the current user
@@ -1187,7 +1187,7 @@ func (c *UsersAPIController) GetUserMeeting(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserService - Get status of service
@@ -1209,7 +1209,7 @@ func (c *UsersAPIController) GetUserService(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserServices - Get status of all user's services
@@ -1226,7 +1226,7 @@ func (c *UsersAPIController) GetUserServices(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserVoicemail - Get user voicemails
@@ -1244,7 +1244,7 @@ func (c *UsersAPIController) GetUserVoicemail(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUsersSubscriptions - Get user subscription
@@ -1257,7 +1257,7 @@ func (c *UsersAPIController) GetUsersSubscriptions(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // HeadUser - Check if user exists
@@ -1275,7 +1275,7 @@ func (c *UsersAPIController) HeadUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ImportUsersCsv - Mass import users and associated resources
@@ -1295,7 +1295,7 @@ func (c *UsersAPIController) ImportUsersCsv(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListFuncKeyTemplateUserAssociations - List users associated to template
@@ -1316,7 +1316,7 @@ func (c *UsersAPIController) ListFuncKeyTemplateUserAssociations(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUser - List users
@@ -1406,7 +1406,7 @@ func (c *UsersAPIController) ListUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserExternalApps - List user external apps
@@ -1485,7 +1485,7 @@ func (c *UsersAPIController) ListUserExternalApps(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserForwards - List forwards for a user
@@ -1502,7 +1502,7 @@ func (c *UsersAPIController) ListUserForwards(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserFuncKeyTemplateAssociations - List funckey templates associated to user
@@ -1520,7 +1520,7 @@ func (c *UsersAPIController) ListUserFuncKeyTemplateAssociations(w http.Response
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserFuncKeys - List func keys for a user
@@ -1538,7 +1538,7 @@ func (c *UsersAPIController) ListUserFuncKeys(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserMeetingAuthorizations - List all guest authorization requests of a meeting
@@ -1555,7 +1555,7 @@ func (c *UsersAPIController) ListUserMeetingAuthorizations(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserMeetings - List user meetings
@@ -1638,7 +1638,7 @@ func (c *UsersAPIController) ListUserMeetings(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutUserMeetingAuthorizationAccept - Accept a guest authorization request
@@ -1660,7 +1660,7 @@ func (c *UsersAPIController) PutUserMeetingAuthorizationAccept(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PutUserMeetingAuthorizationReject - Reject a guest authorization request
@@ -1682,7 +1682,7 @@ func (c *UsersAPIController) PutUserMeetingAuthorizationReject(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallFilterCallerUsers - Update call filter and recipients
@@ -1717,7 +1717,7 @@ func (c *UsersAPIController) UpdateCallFilterCallerUsers(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallFilterMemberUsers - Update call filter and surrogates
@@ -1752,7 +1752,7 @@ func (c *UsersAPIController) UpdateCallFilterMemberUsers(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallPickupInterceptorUsers - Update call pickup and interceptors
@@ -1788,7 +1788,7 @@ func (c *UsersAPIController) UpdateCallPickupInterceptorUsers(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallPickupTargetUsers - Update call pickup and targets
@@ -1824,7 +1824,7 @@ func (c *UsersAPIController) UpdateCallPickupTargetUsers(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateGroupMemberUsers - Update group and users
@@ -1856,7 +1856,7 @@ func (c *UsersAPIController) UpdateGroupMemberUsers(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdatePagingCallerUsers - Update paging and callers
@@ -1891,7 +1891,7 @@ func (c *UsersAPIController) UpdatePagingCallerUsers(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdatePagingMemberUsers - Update paging and members
@@ -1926,7 +1926,7 @@ func (c *UsersAPIController) UpdatePagingMemberUsers(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateSwitchboardMemberUsers - Update switchboard and members
@@ -1958,7 +1958,7 @@ func (c *UsersAPIController) UpdateSwitchboardMemberUsers(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUser - Update user
@@ -1991,7 +1991,7 @@ func (c *UsersAPIController) UpdateUser(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserExternalApp - Update user external app
@@ -2029,7 +2029,7 @@ func (c *UsersAPIController) UpdateUserExternalApp(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserFallback - Update user's fallbacks
@@ -2061,7 +2061,7 @@ func (c *UsersAPIController) UpdateUserFallback(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserForward - Update a forward for a user
@@ -2098,7 +2098,7 @@ func (c *UsersAPIController) UpdateUserForward(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserForwards - Update all forwards for a user
@@ -2130,7 +2130,7 @@ func (c *UsersAPIController) UpdateUserForwards(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserFuncKey - Add/Replace a func key for a user
@@ -2171,7 +2171,7 @@ func (c *UsersAPIController) UpdateUserFuncKey(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserFuncKeys - Update func keys for a user
@@ -2204,7 +2204,7 @@ func (c *UsersAPIController) UpdateUserFuncKeys(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserGroups - Update user and groups
@@ -2236,7 +2236,7 @@ func (c *UsersAPIController) UpdateUserGroups(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserMeeting - Update one of the meetings of the current user
@@ -2269,7 +2269,7 @@ func (c *UsersAPIController) UpdateUserMeeting(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserQueueAssociation - Update User-Queue association
@@ -2310,7 +2310,7 @@ func (c *UsersAPIController) UpdateUserQueueAssociation(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserService - Enable/Disable service for a user
@@ -2347,7 +2347,7 @@ func (c *UsersAPIController) UpdateUserService(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserServices - Update all services for a user
@@ -2379,7 +2379,7 @@ func (c *UsersAPIController) UpdateUserServices(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUsersCsv - **Disabled!** Mass import users and associated resources
@@ -2399,5 +2399,5 @@ func (c *UsersAPIController) UpdateUsersCsv(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

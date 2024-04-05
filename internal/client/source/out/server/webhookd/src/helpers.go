@@ -18,6 +18,16 @@ import (
 func Response(code int, body interface{}) ImplResponse {
 	return ImplResponse {
 		Code: code,
+		Headers: nil,
+		Body: body,
+	}
+}
+
+// ResponseWithHeaders return a ImplResponse struct filled, including headers
+func ResponseWithHeaders(code int, headers map[string][]string, body interface{}) ImplResponse {
+	return ImplResponse {
+		Code: code,
+		Headers: headers,
 		Body: body,
 	}
 }

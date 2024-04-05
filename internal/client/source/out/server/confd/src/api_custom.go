@@ -124,7 +124,7 @@ func (c *CustomAPIController) AssociateLineEndpointCustom(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateTrunkEndpointCustom - Associate trunk and Custom endpoint
@@ -152,7 +152,7 @@ func (c *CustomAPIController) AssociateTrunkEndpointCustom(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateEndpointCustom - Create Custom endpoint
@@ -180,7 +180,7 @@ func (c *CustomAPIController) CreateEndpointCustom(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteEndpointCustom - Delete Custom Endpoint
@@ -201,7 +201,7 @@ func (c *CustomAPIController) DeleteEndpointCustom(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateLineEndpointCustom - Dissociate line and Custom endpoint
@@ -229,7 +229,7 @@ func (c *CustomAPIController) DissociateLineEndpointCustom(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateTrunkEndpointCustom - Dissociate trunk and Custom endpoint
@@ -257,7 +257,7 @@ func (c *CustomAPIController) DissociateTrunkEndpointCustom(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetEndpointCustom - Get Custom Endpoint
@@ -278,7 +278,7 @@ func (c *CustomAPIController) GetEndpointCustom(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListEndpointsCustom - List Custom endpoints
@@ -361,7 +361,7 @@ func (c *CustomAPIController) ListEndpointsCustom(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateEndpointCustom - Update Custom Endpoint
@@ -397,5 +397,5 @@ func (c *CustomAPIController) UpdateEndpointCustom(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

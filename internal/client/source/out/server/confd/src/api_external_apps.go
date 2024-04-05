@@ -134,7 +134,7 @@ func (c *ExternalAppsAPIController) CreateExternalApp(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateUserExternalApp - Create user external app
@@ -172,7 +172,7 @@ func (c *ExternalAppsAPIController) CreateUserExternalApp(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteExternalApp - Delete external app
@@ -190,7 +190,7 @@ func (c *ExternalAppsAPIController) DeleteExternalApp(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteUserExternalApp - Delete user external app
@@ -213,7 +213,7 @@ func (c *ExternalAppsAPIController) DeleteUserExternalApp(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetExternalApp - Get external app
@@ -231,7 +231,7 @@ func (c *ExternalAppsAPIController) GetExternalApp(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserExternalApp - Get user external app
@@ -266,7 +266,7 @@ func (c *ExternalAppsAPIController) GetUserExternalApp(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListExternalApps - List external apps
@@ -349,7 +349,7 @@ func (c *ExternalAppsAPIController) ListExternalApps(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserExternalApps - List user external apps
@@ -428,7 +428,7 @@ func (c *ExternalAppsAPIController) ListUserExternalApps(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateExternalApp - Update external app
@@ -461,7 +461,7 @@ func (c *ExternalAppsAPIController) UpdateExternalApp(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateUserExternalApp - Update user external app
@@ -499,5 +499,5 @@ func (c *ExternalAppsAPIController) UpdateUserExternalApp(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

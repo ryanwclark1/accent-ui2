@@ -161,7 +161,7 @@ func (c *QueueStatisticsAPIController) GetQueueQoSStatistics(w http.ResponseWrit
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetQueueStatistics - Statistics for a specific queue
@@ -261,7 +261,7 @@ func (c *QueueStatisticsAPIController) GetQueueStatistics(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetQueuesStatistics - Statistics for all queues
@@ -346,5 +346,5 @@ func (c *QueueStatisticsAPIController) GetQueuesStatistics(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

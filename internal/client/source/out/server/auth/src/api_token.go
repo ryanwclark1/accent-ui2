@@ -127,7 +127,7 @@ func (c *TokenAPIController) CheckTokenContext(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CheckTokenScopes - Check a token against scopes
@@ -159,7 +159,7 @@ func (c *TokenAPIController) CheckTokenScopes(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateToken - Creates a token
@@ -187,7 +187,7 @@ func (c *TokenAPIController) CreateToken(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteRefreshTokens - Delete a user's refresh token
@@ -209,7 +209,7 @@ func (c *TokenAPIController) DeleteRefreshTokens(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetToken - Retrieves token data
@@ -245,7 +245,7 @@ func (c *TokenAPIController) GetToken(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetTokens - Retrieve a list of refresh tokens that have been created on the system
@@ -330,7 +330,7 @@ func (c *TokenAPIController) GetTokens(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserTokens - Retrieve a user's refresh token list
@@ -404,7 +404,7 @@ func (c *TokenAPIController) GetUserTokens(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // RevokeToken - Revoke a token
@@ -421,5 +421,5 @@ func (c *TokenAPIController) RevokeToken(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

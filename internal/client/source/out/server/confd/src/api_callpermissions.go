@@ -132,7 +132,7 @@ func (c *CallpermissionsAPIController) AssociateGroupCallpermission(w http.Respo
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateOutcallCallpermission - Associate outcall and call permission
@@ -161,7 +161,7 @@ func (c *CallpermissionsAPIController) AssociateOutcallCallpermission(w http.Res
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // AssociateUserCallpermission - Associate user and call permission
@@ -187,7 +187,7 @@ func (c *CallpermissionsAPIController) AssociateUserCallpermission(w http.Respon
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CreateCallpermission - Create call permission
@@ -215,7 +215,7 @@ func (c *CallpermissionsAPIController) CreateCallpermission(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteCallpermission - Delete call permission
@@ -236,7 +236,7 @@ func (c *CallpermissionsAPIController) DeleteCallpermission(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateGroupCallpermission - Dissociate group and call permission
@@ -262,7 +262,7 @@ func (c *CallpermissionsAPIController) DissociateGroupCallpermission(w http.Resp
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateOutcallCallpermission - Dissociate outcall and call permission
@@ -291,7 +291,7 @@ func (c *CallpermissionsAPIController) DissociateOutcallCallpermission(w http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DissociateUserCallpermission - Dissociate user and call permission
@@ -317,7 +317,7 @@ func (c *CallpermissionsAPIController) DissociateUserCallpermission(w http.Respo
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCallpermission - Get call permission
@@ -338,7 +338,7 @@ func (c *CallpermissionsAPIController) GetCallpermission(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListCallpermissions - List call permissions
@@ -421,7 +421,7 @@ func (c *CallpermissionsAPIController) ListCallpermissions(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallpermission - Update call permission
@@ -457,5 +457,5 @@ func (c *CallpermissionsAPIController) UpdateCallpermission(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

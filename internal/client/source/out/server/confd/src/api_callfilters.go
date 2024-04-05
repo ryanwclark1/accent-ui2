@@ -124,7 +124,7 @@ func (c *CallfiltersAPIController) CreateCallfilter(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteCallfilter - Delete call filter
@@ -145,7 +145,7 @@ func (c *CallfiltersAPIController) DeleteCallfilter(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCallFilterFallback - List all fallbacks for call filter
@@ -165,7 +165,7 @@ func (c *CallfiltersAPIController) GetCallFilterFallback(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetCallfilter - Get call filter
@@ -186,7 +186,7 @@ func (c *CallfiltersAPIController) GetCallfilter(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListCallFilters - List call filters
@@ -269,7 +269,7 @@ func (c *CallfiltersAPIController) ListCallFilters(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallFilterCallerUsers - Update call filter and recipients
@@ -304,7 +304,7 @@ func (c *CallfiltersAPIController) UpdateCallFilterCallerUsers(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallFilterFallback - Update call filter's fallbacks
@@ -339,7 +339,7 @@ func (c *CallfiltersAPIController) UpdateCallFilterFallback(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallFilterMemberUsers - Update call filter and surrogates
@@ -374,7 +374,7 @@ func (c *CallfiltersAPIController) UpdateCallFilterMemberUsers(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateCallfilter - Update call filter
@@ -410,5 +410,5 @@ func (c *CallfiltersAPIController) UpdateCallfilter(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

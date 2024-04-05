@@ -88,7 +88,7 @@ func (c *UsersAPIController) GetUserSubscription(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UserCreate - Subscribe to a HTTP callback (webhook) as a user
@@ -115,7 +115,7 @@ func (c *UsersAPIController) UserCreate(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UserDelete - Delete a user subscription
@@ -132,7 +132,7 @@ func (c *UsersAPIController) UserDelete(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UserList - List subscriptions of a user to HTTP callbacks
@@ -156,5 +156,5 @@ func (c *UsersAPIController) UserList(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

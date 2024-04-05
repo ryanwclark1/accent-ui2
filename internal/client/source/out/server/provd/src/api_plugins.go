@@ -203,7 +203,7 @@ func (c *PluginsAPIController) DeletePgMgrInstall(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeletePgMgrInstallMonitor - Delete the Operation In Progress
@@ -225,7 +225,7 @@ func (c *PluginsAPIController) DeletePgMgrInstallMonitor(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeletePgMgrMonitor - Delete the Operation In Progress
@@ -242,7 +242,7 @@ func (c *PluginsAPIController) DeletePgMgrMonitor(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeletePgMgrPluginUpgradeMonitor - Delete the Operation In Progress
@@ -264,7 +264,7 @@ func (c *PluginsAPIController) DeletePgMgrPluginUpgradeMonitor(w http.ResponseWr
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeletePgMgrUpgradeMonitor - Delete the Operation In Progress
@@ -281,7 +281,7 @@ func (c *PluginsAPIController) DeletePgMgrUpgradeMonitor(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgr - Get the Plugin Manager resource
@@ -293,7 +293,7 @@ func (c *PluginsAPIController) GetPgMgr(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrInstall - Get the installation service resources
@@ -305,7 +305,7 @@ func (c *PluginsAPIController) GetPgMgrInstall(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrInstallStatus - Get the status of a plugin installation Operation In Progress
@@ -322,7 +322,7 @@ func (c *PluginsAPIController) GetPgMgrInstallStatus(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrInstallable - Get the installable plugins list
@@ -334,7 +334,7 @@ func (c *PluginsAPIController) GetPgMgrInstallable(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrInstallableList - Get the installable packages list
@@ -351,7 +351,7 @@ func (c *PluginsAPIController) GetPgMgrInstallableList(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrInstalled - Get the installed plugins list
@@ -363,7 +363,7 @@ func (c *PluginsAPIController) GetPgMgrInstalled(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrInstalledList - Get the installed packages list
@@ -380,7 +380,7 @@ func (c *PluginsAPIController) GetPgMgrInstalledList(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrPlugin - Get the resources of a specific plugin
@@ -397,7 +397,7 @@ func (c *PluginsAPIController) GetPgMgrPlugin(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrPluginInfo - Get the information of a plugin
@@ -414,7 +414,7 @@ func (c *PluginsAPIController) GetPgMgrPluginInfo(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrPluginInstall - Get the package installation service resources
@@ -431,7 +431,7 @@ func (c *PluginsAPIController) GetPgMgrPluginInstall(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrPluginInstallStatus - Get the status of a package installation Operation In Progress
@@ -453,7 +453,7 @@ func (c *PluginsAPIController) GetPgMgrPluginInstallStatus(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrPluginUpgradeStatus - Get the status of a package upgrade Operation In Progress
@@ -475,7 +475,7 @@ func (c *PluginsAPIController) GetPgMgrPluginUpgradeStatus(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrPlugins - List the installed plugins
@@ -487,7 +487,7 @@ func (c *PluginsAPIController) GetPgMgrPlugins(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrUpdateStatus - Get the status of a plugin database update Operation In Progress
@@ -504,7 +504,7 @@ func (c *PluginsAPIController) GetPgMgrUpdateStatus(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetPgMgrUpgradeStatus - Get the status of a plugin upgrade Operation In Progress
@@ -521,7 +521,7 @@ func (c *PluginsAPIController) GetPgMgrUpgradeStatus(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostPgMgrInstallPlugin - Install a plugin
@@ -548,7 +548,7 @@ func (c *PluginsAPIController) PostPgMgrInstallPlugin(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostPgMgrPluginInstallPlugin - Install a package
@@ -580,7 +580,7 @@ func (c *PluginsAPIController) PostPgMgrPluginInstallPlugin(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostPgMgrPluginUninstallPlugin - Uninstall a package
@@ -612,7 +612,7 @@ func (c *PluginsAPIController) PostPgMgrPluginUninstallPlugin(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostPgMgrReload - Reload a plugin
@@ -639,7 +639,7 @@ func (c *PluginsAPIController) PostPgMgrReload(w http.ResponseWriter, r *http.Re
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostPgMgrUninstallPlugin - Uninstall a plugin
@@ -666,7 +666,7 @@ func (c *PluginsAPIController) PostPgMgrUninstallPlugin(w http.ResponseWriter, r
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostPgMgrUpdateList - Update the List of installable plugins
@@ -685,7 +685,7 @@ func (c *PluginsAPIController) PostPgMgrUpdateList(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostPgMgrUpgradePlugin - Upgrade a plugin
@@ -712,5 +712,5 @@ func (c *PluginsAPIController) PostPgMgrUpgradePlugin(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

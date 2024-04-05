@@ -99,7 +99,7 @@ func (c *ExternalAPIController) DeleteExternalAuthConfig(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetExternalAuthConfig - Retrieve the client id and client secret
@@ -117,7 +117,7 @@ func (c *ExternalAPIController) GetExternalAuthConfig(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetExternalAuthUsers - Retrieves the list of connected users to this external source
@@ -186,7 +186,7 @@ func (c *ExternalAPIController) GetExternalAuthUsers(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserExternalAuth - Retrieves the list of the users external auth data
@@ -259,7 +259,7 @@ func (c *ExternalAPIController) GetUserExternalAuth(w http.ResponseWriter, r *ht
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PostExternalAuthConfig - Add configuration for the given auth_type
@@ -292,7 +292,7 @@ func (c *ExternalAPIController) PostExternalAuthConfig(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateExternalAuthConfig - Update configuration for the given auth_type
@@ -325,5 +325,5 @@ func (c *ExternalAPIController) UpdateExternalAuthConfig(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

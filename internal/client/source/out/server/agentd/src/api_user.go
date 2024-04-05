@@ -89,7 +89,7 @@ func (c *UserAPIController) GetUserAgent(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // LoginUserAgent - Log the agent of the user holding the authentication token
@@ -117,7 +117,7 @@ func (c *UserAPIController) LoginUserAgent(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // LogoffUserAgent - Logoff the agent of the user holding the authentication token
@@ -130,7 +130,7 @@ func (c *UserAPIController) LogoffUserAgent(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PauseUserAgent - Pause the agent of the user holding the authentication token
@@ -158,7 +158,7 @@ func (c *UserAPIController) PauseUserAgent(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnpauseUserAgent - Unpause the agent of the user holding the authentication token
@@ -171,5 +171,5 @@ func (c *UserAPIController) UnpauseUserAgent(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

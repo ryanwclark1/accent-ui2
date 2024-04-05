@@ -73,7 +73,7 @@ func (c *ConfigurationAPIController) GetConfiguration(w http.ResponseWriter, r *
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateConfiguration - Update live reload status
@@ -100,5 +100,5 @@ func (c *ConfigurationAPIController) UpdateConfiguration(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

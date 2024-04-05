@@ -108,7 +108,7 @@ func (c *ConferencesAPIController) KickParticipant(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListConferenceParticipants - List participants of a conference
@@ -125,7 +125,7 @@ func (c *ConferencesAPIController) ListConferenceParticipants(w http.ResponseWri
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserConferenceParticipants - List participants of a conference as a user
@@ -142,7 +142,7 @@ func (c *ConferencesAPIController) ListUserConferenceParticipants(w http.Respons
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // MuteParticipant - Mute a participant in a conference
@@ -164,7 +164,7 @@ func (c *ConferencesAPIController) MuteParticipant(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StartConferenceRecording - Record a conference
@@ -181,7 +181,7 @@ func (c *ConferencesAPIController) StartConferenceRecording(w http.ResponseWrite
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // StopConferenceRecording - Stop recording a conference
@@ -198,7 +198,7 @@ func (c *ConferencesAPIController) StopConferenceRecording(w http.ResponseWriter
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnmuteParticipant - Unmute a participant in a conference
@@ -220,5 +220,5 @@ func (c *ConferencesAPIController) UnmuteParticipant(w http.ResponseWriter, r *h
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

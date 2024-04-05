@@ -103,7 +103,7 @@ func (c *AccessFeaturesAPIController) CreateAccessFeature(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // DeleteAccessFeature - Delete access feature
@@ -123,7 +123,7 @@ func (c *AccessFeaturesAPIController) DeleteAccessFeature(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetAccessFeature - Get access_feature
@@ -143,7 +143,7 @@ func (c *AccessFeaturesAPIController) GetAccessFeature(w http.ResponseWriter, r 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListAccessFeatures - List access features
@@ -209,7 +209,7 @@ func (c *AccessFeaturesAPIController) ListAccessFeatures(w http.ResponseWriter, 
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UpdateAccessFeature - Update access_feature
@@ -244,5 +244,5 @@ func (c *AccessFeaturesAPIController) UpdateAccessFeature(w http.ResponseWriter,
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

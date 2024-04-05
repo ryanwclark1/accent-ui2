@@ -93,7 +93,7 @@ func (c *RelocatesAPIController) CancelRelocate(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // CompleteRelocate - Complete a relocate
@@ -110,7 +110,7 @@ func (c *RelocatesAPIController) CompleteRelocate(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserRelocate - Get details of a relocate
@@ -127,7 +127,7 @@ func (c *RelocatesAPIController) GetUserRelocate(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // InitiateRelocate - Initiate a relocate from the authenticated user
@@ -154,7 +154,7 @@ func (c *RelocatesAPIController) InitiateRelocate(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // ListUserRelocates - Get the relocates of the authenticated user
@@ -166,5 +166,5 @@ func (c *RelocatesAPIController) ListUserRelocates(w http.ResponseWriter, r *htt
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }

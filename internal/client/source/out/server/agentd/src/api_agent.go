@@ -162,7 +162,7 @@ func (c *AgentAPIController) AddAgentById(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetAgentById - Get agent status.
@@ -183,7 +183,7 @@ func (c *AgentAPIController) GetAgentById(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetAgentByNumber - Get agent status.
@@ -201,7 +201,7 @@ func (c *AgentAPIController) GetAgentByNumber(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // GetUserAgent - Get agent status of the user holding the authentication token.
@@ -214,7 +214,7 @@ func (c *AgentAPIController) GetUserAgent(w http.ResponseWriter, r *http.Request
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // LoginAgentById - Log an agent.
@@ -250,7 +250,7 @@ func (c *AgentAPIController) LoginAgentById(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // LoginAgentByNumber - Log an agent.
@@ -283,7 +283,7 @@ func (c *AgentAPIController) LoginAgentByNumber(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // LoginUserAgent - Log the agent of the user holding the authentication token
@@ -311,7 +311,7 @@ func (c *AgentAPIController) LoginUserAgent(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // LogoffAgentById - Logoff an agent.
@@ -332,7 +332,7 @@ func (c *AgentAPIController) LogoffAgentById(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // LogoffAgentByNumber - Logoff an agent.
@@ -350,7 +350,7 @@ func (c *AgentAPIController) LogoffAgentByNumber(w http.ResponseWriter, r *http.
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // LogoffUserAgent - Logoff the agent of the user holding the authentication token
@@ -363,7 +363,7 @@ func (c *AgentAPIController) LogoffUserAgent(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PauseAgentByNumber - Pause an agent.
@@ -396,7 +396,7 @@ func (c *AgentAPIController) PauseAgentByNumber(w http.ResponseWriter, r *http.R
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // PauseUserAgent - Pause the agent of the user holding the authentication token
@@ -424,7 +424,7 @@ func (c *AgentAPIController) PauseUserAgent(w http.ResponseWriter, r *http.Reque
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // RemoveAgentById - Remove agent from a queue.
@@ -460,7 +460,7 @@ func (c *AgentAPIController) RemoveAgentById(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnpauseAgentByNumber - Unpause an agent.
@@ -478,7 +478,7 @@ func (c *AgentAPIController) UnpauseAgentByNumber(w http.ResponseWriter, r *http
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
 
 // UnpauseUserAgent - Unpause the agent of the user holding the authentication token
@@ -491,5 +491,5 @@ func (c *AgentAPIController) UnpauseUserAgent(w http.ResponseWriter, r *http.Req
 		return
 	}
 	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
+	EncodeJSONResponse(result.Body, &result.Code, result.Headers, w)
 }
