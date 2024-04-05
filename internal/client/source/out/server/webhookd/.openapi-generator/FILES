@@ -1,12 +1,16 @@
-.openapi-generator-ignore
 README.md
 api/openapi.yaml
 src/api.go
 src/api_config.go
+src/api_config_service.go
 src/api_notifications.go
+src/api_notifications_service.go
 src/api_status.go
+src/api_status_service.go
 src/api_subscriptions.go
+src/api_subscriptions_service.go
 src/api_users.go
+src/api_users_service.go
 src/error.go
 src/helpers.go
 src/impl.go
