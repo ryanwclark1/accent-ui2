@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+README.md
+api/openapi.yaml
+src/api.go
+src/api_config.go
+src/api_setup.go
+src/api_status.go
+src/error.go
+src/helpers.go
+src/impl.go
+src/logger.go
+src/model_component_with_status.go
+src/model_error.go
+src/model_setup_request.go
+src/model_status_summary.go
+src/model_status_value.go
+src/routers.go
