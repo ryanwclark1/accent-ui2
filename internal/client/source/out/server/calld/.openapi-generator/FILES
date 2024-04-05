@@ -1,5 +1,8 @@
+Dockerfile
 README.md
 api/openapi.yaml
+go.mod
+main.go
 src/api.go
 src/api_adhoc_conferences.go
 src/api_adhoc_conferences_service.go
