@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm -r ./out/client/*
+rm -r ./out/server/*
