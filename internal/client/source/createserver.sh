@@ -23,7 +23,7 @@ for file in $files; do
     --enable-post-process-file \
     -i /workdir/${filename} \
     -g go-server \
-    --additional-properties=packageName=${filename_no_ext_hyphens}server,packageVersion=0.0.1,addResponseHeader=true,enumClassPrefix=false,featureCORS=false,hideGenerationTimestamp=false,onlyInterfaces=false,outputAsLibrary=true,router=chi,serverport=8081,sourceFolder=src \
+    --additional-properties=packageName=${filename_no_ext_hyphens}server,packageVersion=0.0.1,addResponseHeaders=true,enumClassPrefix=false,featureCORS=false,hideGenerationTimestamp=false,onlyInterfaces=false,outputAsLibrary=true,router=chi,serverport=8081,sourceFolder=src \
     --git-user-id ryanwclark \
     --git-repo-id accent-voice \
     --global-property=generateAliasAsModel \
